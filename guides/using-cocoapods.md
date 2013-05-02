@@ -37,8 +37,8 @@ If you would like to try a pre-release version of CocoaPods you can run:
 
 ### Troubleshooting
 
-- The gem might not be able to compile, to solve this you might need to symlink
-  GCC.
+- The gem might not be able to compile, to solve this you might need to [symlink
+  GCC](http://www.relaxdiego.com/2012/02/using-gcc-when-xcode-43-is-installed.html).
 
 - If you used an pre release version of Xcode you might need to update the
   command line tools.
