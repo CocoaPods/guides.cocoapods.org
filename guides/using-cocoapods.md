@@ -37,8 +37,8 @@ If you would like to try a pre-release version of CocoaPods you can run:
 
 ### Troubleshooting
 
-- The gem might not be able to compile, to solve this you might need to [symlink
-  GCC](http://www.relaxdiego.com/2012/02/using-gcc-when-xcode-43-is-installed.html).
+- The gem might not be able to compile, to solve this you might need to symlink
+  GCC.
 
 - If you used an pre release version of Xcode you might need to update the
   command line tools.
@@ -161,7 +161,7 @@ to use one of the approaches outlined in the sections below.
 
 #### Before you begin
 
-1. Check the [Specs](http://github.com/CocoaPods/Specs) repository to make sure the libraries you would like to use are available.
+1. Check the [Specs](http://github.com/CocoaPods/Specs) repository or [cocoapods.org](http://cocoapods.org) to make sure the libraries you would like to use are available.
 2. [Install CocoaPods on your computer][installing-cocoapods].
 
 ### Installation
