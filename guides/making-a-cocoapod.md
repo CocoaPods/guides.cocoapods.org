@@ -200,3 +200,7 @@ specified by '1.2.beta.3'. In this example, the dependency specifier '~>
 ## I want to create a private repository
 
 **TODO**
+
+## My library depends on a podspec that is not in the Specs repository
+
+**TODO**
