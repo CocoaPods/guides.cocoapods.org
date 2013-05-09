@@ -34,7 +34,7 @@ The following file structure is suggested:
     └── ios
     └── osx
 ├── Resources
-├── Project
+├── Example
     └── Podfile
 ├── LICENSE
 ├── Readme.markdown
