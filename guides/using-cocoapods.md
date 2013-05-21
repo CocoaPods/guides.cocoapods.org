@@ -8,7 +8,7 @@ resolves dependencies between libraries, fetches the source code, and creates an
 Ultimately the goal is to improve discoverability of, and engagement in, third
 party open-source libraries by creating a more centralized ecosystem.
 
-## Installing CocoaPods
+## Getting Started
 
 ### Dependencies
 
@@ -17,16 +17,18 @@ party open-source libraries by creating a more centralized ecosystem.
 
 ### Installation
 
-To install CocoaPods you can run:
+CocoaPods is built with Ruby. For the best experience, we suggest installing a Ruby Version manager, like [RVM](http://rvm.io), and running Ruby 1.9.3 or newer. When using RVM, or a similar tool, to install CocoaPods you run:
 
-    $ [sudo] gem install cocoapods
+    $ gem install cocoapods
 
-To enjoy performance benefits you can install a modern Ruby like 2.0.0 through a
-Ruby version manager like [RVM](http://rvm.io). If you are using RVM, or equivalent, we suggest not using `sudo` as it may have some unintended effects on other parts of your system.
+However, you can also run CocoaPods with the Ruby that is bundled with Mac OS X. To do so simply run:
+
+    $ sudo gem install cocoapods
+
 
 ### Updating CocoaPods
 
-To update CocoaPods you can run:
+To update CocoaPods you simply update the gem. If you installed the gem using `sudo` you should use that command as well.
 
     $ [sudo] gem update cocoapods
 
@@ -47,7 +49,6 @@ If you would like to try a pre-release version of CocoaPods you can run:
 
 
 ## What is a Podfile?
-
 
  The Podfile is a specification that describes the dependencies of the
  targets of one or more Xcode projects. The Podfile always creates an
@@ -183,7 +184,19 @@ to use one of the approaches outlined in the sections below.
 
 ## Should I check in my pods folder?
 
-**TODO**
+Whether or not you check in your Pods folder is up to you, as workflows vary from project to project. Here are some pros and cons to think about when setting up your project:
+
+##### Pros
+
+- Smaller repo under source control
+- CocoaPods given the availability of the sources is capable to recreate (almost) the same exact installation. 
+- No conflicts to handle in the dependencies of the management system of source control.
+
+##### Cons
+
+- The sources of the Pods can go down.
+- External sources are not recreated perfectly (at the moment the commit is not used) and in some cases will never be (zip files)
+- Requires internet connection and the installation of CocoaPods for clients of the project.
 
 ## What is a Podfile.lock
 
@@ -217,6 +230,24 @@ In Xcode, it:
 Note that steps 3 onwards are skipped if the CocoaPods static library is already in your project.
 
 This is largely based on [http://blog.carbonfive.com/2011/04/04/using-open-source-static-libraries-in-xcode-4](http://blog.carbonfive.com/2011/04/04/using-open-source-static-libraries-in-xcode-4).  
+
+## Pods and Submodules
+
+CocoaPods and git submodules attempt to solve very similar problems. Both strive to simplify the process of including 3rd party code in your project. Submodules link to a specific commit of that project, while a CocoaPod is tied to a versioned developer release.
+
+### Switching from submodules to CocoaPods
+
+Before you decide to make the full switch to CocoaPods, make sure that the libraries you are currently using are all available. It is also a good idea to record the versions of the libraries you are currently using, so that you can setup CocoaPods to use the same ones.
+
+1. Install CocoaPods, if you have not done so already
+2. Remove the `.gimodules` file
+3. Remove the repositories from `.git/config`
+4. Create your Podfile
+5. Run `pod install`
+
+### Switching from CocoaPods to submodules
+
+**TODO**
 
 ## CocoaPods Philosophy
 
