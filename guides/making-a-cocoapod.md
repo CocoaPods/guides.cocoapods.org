@@ -1,12 +1,40 @@
+## What are Specs and what is the Specs Repo?
+
+A Podspec, or Spec, describes a version of a Pod library. One Pod, over the course of time, will have many Specs. It includes details about where the source should be fetched from, what files to use, the build settings to apply, and other general metadata such as its name, version, and description. You can create one by hand, or run `pod spec create` to generate a stub.  
+
+Here is an example spec:
+
+```
+Pod::Spec.new do |s|
+  s.name         = 'Reachability'
+  s.version      = '3.1.0'
+  s.license      =  :type => 'BSD' 
+  s.homepage     = 'https://github.com/tonymillion/Reachability'
+  s.authors      =  'Tony Million' => 'tonymillion@gmail.com' 
+  s.summary      = 'ARC and GCD Compatible Reachability Class for iOS and OS X. Drop in replacement for Apple Reachability.'
+  s.source       =  :git => 'https://github.com/tonymillion/Reachability.git', :tag => 'v3.1.0' 
+  s.source_files = 'Reachability.h,m'
+  s.framework    = 'SystemConfiguration'
+  s.requires_arc = true
+end
+```
+
+The Specs Repo is the repository on GitHub that contains the list of all available pods. Every library has an individual folder, which contains sub folders of the available versions of that pod.  
+
+See the Creating A Pod Repo section for an explanation of the Spec repo's file structure.
+
 ## How does the Specs Repo work?
 
-To ensure a high quality, reliable collection of Pods, the master repo is
-strict about the acceptable specifications. The CocoaPods linter (see the `pod
-spec lint` command) is used to validate specifications, and no errors or warnings
-are accepted.
-
-The highest priority of the master repo is to guarantee the integrity of existing
+To ensure a high quality, reliable collection of Pods, the Specs Repo is
+strict about the podspecs added. One of the primary purposes of this repo is to guarantee the integrity of existing
 CocoaPods installations.
+
+When you are preparing a podspec for submission, you should make sure to do the following:
+
+1. Run `pod spec lint`. This is used to validate specifications. Your podspec should pass without any errors or warnings.
+2. Update your library to use [Semantic Versioning](http://semver.org/), if it already does not follow that scheme. See our [wiki on cross dependency resolution](https://github.com/CocoaPods/Specs/wiki/Cross-dependencies-resolution-example) for more details.
+3. Make sure any updates you submit do not break previous installations. Adding 1.1.3 to your library's folder in the Specs Repo should not remove any previous versions.
+
 
 In general this means that:
 
@@ -16,13 +44,26 @@ In general this means that:
   - Subspecs can be added as they are included by the parent specification by default.
 - Only authoritative versions are accepted.
 
-CocoaPods uses a versioning scheme known as [Semantic
-Versioning](http://semver.org/), necessary for [cross resolution of
-dependencies](https://github.com/CocoaPods/Specs/wiki/Cross-dependencies-resolution-example).
 
 ## How do I update an existing Pod?
 
-**TODO**
+There are two ways to update an existing Pod spec.
+
+###If you do not have push access to CocoaPods/Specs
+
+1. Fork and clone `CocoaPods/Specs`.
+2. In a single commit, add a folder for your Pod to the main list, as well as the Spec in the format described in the Creating a Pod Repo section.
+3. Run `pod spec lint` to check for errors.
+4. If the linter produces errors or warnings, fix them and go back to step 3. If not, continue on.
+5. Make your pull request to the master Specs Repo.
+
+###If you have push access to CocoaPods/Specs
+
+1. Clone `CocoaPods/Specs` locally.
+2. In a single commit, add a folder for your Pod to the main list, as well as the Spec in the format described in the Creating a Pod Repo section.
+3. Run `pod spec lint` to check for errors.
+4. If the linter produces errors or warnings, fix them and go back to step 3. If not, continue on.
+5. Push your changes to the master Specs repo
 
 ## How do I create a new Pod?
 
