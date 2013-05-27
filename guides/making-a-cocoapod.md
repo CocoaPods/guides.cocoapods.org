@@ -23,6 +23,68 @@ The Specs Repo is the repository on GitHub that contains the list of all availab
 
 See the Creating A Pod Repo section for an explanation of the Spec repo's file structure.
 
+## Examples of Specifications
+
+### A Simple specification.
+
+```ruby
+Pod::Spec.new do |s|
+  s.name         = 'libPusher'
+  s.version      = '1.3'
+  s.license      = 'MIT'
+  s.summary      = 'An Objective-C client for the Pusher.com service'
+  s.homepage     = 'https://github.com/lukeredpath/libPusher'
+  s.author       = 'Luke Redpath'
+  s.source       = { :git => 'git://github.com/lukeredpath/libPusher.git', :tag => 'v1.3' }
+  s.source_files = 'Library/*'
+  s.requires_arc = true
+  s.dependency 'SocketRocket'
+end
+```
+
+### A specification with subspecs
+
+```ruby
+Pod::Spec.new do |s|
+  s.name          = 'ShareKit'
+  s.source_files  = 'Classes/ShareKit/{Configuration,Core,Customize UI,UI}/**/*.{h,m,c}', 'Classes/ShareKit/Sharers/Actions/**/*.{h,m,c}'
+  # ...
+
+  s.subspec 'Evernote' do |evernote|
+    evernote.source_files = 'Classes/ShareKit/Sharers/Services/Evernote/**/*.{h,m}'
+  end
+
+  s.subspec 'Facebook' do |facebook|
+    facebook.source_files   = 'Classes/ShareKit/Sharers/Services/Facebook/**/*.{h,m}'
+    facebook.compiler_flags = '-Wno-incomplete-implementation -Wno-protocol -Wno-missing-prototypes'
+    facebook.dependency 'Facebook-iOS-SDK'
+  end
+  # ...
+end
+```
+
+In a podfile `require ShareKit` result in the inclusion of the whole library, while `require ShareKit/Facebook` can be used if you are interested only in the Facebook sharer.
+
+### A specification with subspecs from submodules
+
+If you have some submodules in the repository you need to set to `true` the `:submodules` key of the `s.source` Hash.
+Then you'll be able to specify subspec like above.
+
+```ruby
+Pod::Spec.new do |s|
+  s.name          = 'SDLoginKit'
+  s.source   = { :git => 'https://github.com/dulaccc/SDLoginKit.git', :commit => '25e0464', :submodules => true }
+  s.source_files = 'SDLoginKit/**/*.{h,m}'
+  # ...
+
+  s.subspec 'SDKit' do |sdkit|
+    sdkit.source_files = 'SDKit/**/*.{h,m}'
+    sdkit.resources = 'SDKit/**/Assets/*.png'
+  end
+  # ...
+end
+```
+
 ## How does the Specs Repo work?
 
 To ensure a high quality, reliable collection of Pods, the Specs Repo is
