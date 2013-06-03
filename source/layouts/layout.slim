@@ -1,0 +1,65 @@
+ruby:
+  parents = []
+  parent = current_resource
+  while parent = parent.parent
+    parents.unshift(parent)
+  end
+
+doctype html
+html
+  head
+    meta charset="utf-8"
+    meta name="keywords" content="documenation cocoapods objective-c packcage manager"
+    title = page_title
+    == favicon_tag "/favicon.ico"
+    == stylesheet_link_tag "bootstrap.min", "font-awesome", "style", "style2"
+    script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"
+    == javascript_include_tag "bootstrap", "mousetrap.min", "javascript"
+
+  body
+    .container
+      #body
+        #sections-container
+          .row
+            .span8
+              ul.breadcrumb
+                li#logo
+                  a href="http://cocoapods.org" CocoaPods Guides
+                  span.divider
+                   |/
+
+                - for resource in parents
+                  li
+                    == link_to page_title(resource), "/#{resource.destination_path}"
+                    span.divider
+                      |/
+                li.active = page_title
+
+          .row.page-container
+            .span3
+              #sidenav
+                h3 Guides
+                ul
+                  li Using CocoaPods
+                  ul
+                    li Getting Started
+                    li CocoaPods Philosophy
+                    li The Podfile
+                    li Troubleshooting
+                  li Making a CocoaPod
+                  li Contributing to CocoaPods
+            .span9
+              == yield
+
+        #footer
+          hr
+          p.note
+            | Alpha app ❤ Help us to improve this website at: 
+            a href="https://github.com/CocoaPods/guides.github.com" cocoapods/cocoapods.github.com
+
+    #search.modal.hide
+      .modal-header
+        button type="button" class="close" data-dismiss="modal" aria-hidden="true" &times;
+        h3 Search
+      .modal-body
+        p test
