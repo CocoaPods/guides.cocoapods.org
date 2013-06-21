@@ -24,13 +24,4 @@ set :markdown, {
 activate :automatic_image_sizes
 
 require "lib/navigation_helpers.rb"
-
 helpers NavigationHelpers
-
-# files = Dir["source/guides/**/*.html.md"]
-
-# Slim::Template.new('source/layouts/navigation.slim').render({:files => files })
-
-# proxy "_navigation.slim", "templates/navigation.html", {
-#   :locals => { :files => files }
-# }

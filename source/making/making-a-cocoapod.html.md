@@ -1,3 +1,8 @@
+---
+title: Making a CocoaPod
+description: Instructions for creating and maintaining a CocoaPod
+---
+
 ## What are Specs and what is the Specs Repo?
 
 A Podspec, or Spec, describes a version of a Pod library. One Pod, over the course of time, will have many Specs. It includes details about where the source should be fetched from, what files to use, the build settings to apply, and other general metadata such as its name, version, and description. You can create one by hand, or run `pod spec create` to generate a stub.  

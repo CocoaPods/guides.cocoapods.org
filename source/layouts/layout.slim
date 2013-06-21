@@ -25,10 +25,6 @@ html
           .row
             .span8
               ul.breadcrumb
-                li#logo
-                  a href="http://cocoapods.org" CocoaPods Guides
-                  span.divider
-                   |/
 
                 - for resource in parents
                   li
@@ -41,7 +37,7 @@ html
             .span3
               #sidenav
                 ul
-                  - for resource in sitemap.resources
+                  - for resource in sitemap.resources.reverse
                     - if resource.ext == '.html' && resource.children.count > 0 && resource.parent != nil
                       li == link_to page_title(resource), "/#{resource.destination_path}"
                       ul
@@ -56,12 +52,5 @@ html
         #footer
           hr
           p.note
-            | Alpha app ❤ 
-            a href="https://github.com/CocoaPods/guides.cocoapods.org/master/source/#{current_page.path}#{File.extname(current_page.source_file)}" Fork and Edit this page on GitHub 
-
-    #search.modal.hide
-      .modal-header
-        button type="button" class="close" data-dismiss="modal" aria-hidden="true" &times;
-        h3 Search
-      .modal-body
-        p test
+            | ❤ 
+            a href="https://github.com/CocoaPods/guides.cocoapods.org/blob/master/source/#{current_page.path}#{File.extname(current_page.source_file)}" Fork and Edit this page on GitHub 
