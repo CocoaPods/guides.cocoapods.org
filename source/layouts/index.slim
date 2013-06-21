@@ -1,0 +1,10 @@
+ruby:
+    children = current_resource.children
+
+- wrap_layout :layout do
+
+    == yield
+
+    - for resource in children
+        h3 == link_to page_title(resource), "/#{resource.destination_path}"
+        == resource.data.description

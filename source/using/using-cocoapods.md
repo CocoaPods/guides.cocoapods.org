@@ -1,3 +1,8 @@
+---
+title: Using CocoaPods
+description: Integration instructions and best practices
+---
+
 ### Integrating with an Xcode project
 
 #### Before you begin

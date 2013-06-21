@@ -1,3 +1,8 @@
+---
+title: Philosophy
+description: Read about the CocoaPods project goals, as well as some history on how we got started
+---
+
 ## CocoaPods Philosophy
 
 ### Goal

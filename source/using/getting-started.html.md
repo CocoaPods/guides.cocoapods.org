@@ -1,3 +1,8 @@
+---
+title: Getting Started
+description: This is a guide that describes setting up CocoaPods and integrating with your first project.
+---
+
 ## What are CocoaPods
 
 CocoaPods manages library dependencies for your Xcode project.

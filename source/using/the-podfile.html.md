@@ -1,3 +1,8 @@
+---
+title: The Podfile
+description: Learn all about the Podfile, which is used to declare dependencies for your project
+---
+
 ## What is a Podfile?
 
  The Podfile is a specification that describes the dependencies of the

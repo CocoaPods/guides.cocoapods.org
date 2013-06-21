@@ -27,6 +27,10 @@ require "lib/navigation_helpers.rb"
 
 helpers NavigationHelpers
 
-# proxy "index.html", "templates/index.html", {
-#   :locals => {}
+# files = Dir["source/guides/**/*.html.md"]
+
+# Slim::Template.new('source/layouts/navigation.slim').render({:files => files })
+
+# proxy "_navigation.slim", "templates/navigation.html", {
+#   :locals => { :files => files }
 # }
