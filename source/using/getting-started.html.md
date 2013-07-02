@@ -5,13 +5,11 @@ description: This is a guide that describes setting up CocoaPods and integrating
 
 ## What are CocoaPods
 
-CocoaPods manages library dependencies for your Xcode project.
+CocoaPods manages library dependencies for your Xcode projects.
 
-The dependencies for your project are specified in a single text file. CocoaPods
-resolves dependencies between libraries, fetches the source code, and creates and maintains an Xcode workspace to build your project.
+The dependencies for your projects are specified in a single text file. CocoaPods will resolve dependencies between libraries, fetch the resulting source code, then link it together in an Xcode workspace to build your project.
 
-Ultimately the goal is to improve discoverability of, and engagement in, third
-party open-source libraries by creating a more centralized ecosystem.
+Ultimately the goal is to improve discoverability of, and engagement in, third party open-source libraries by creating a more centralized ecosystem.
 
 ## Getting Started
 
