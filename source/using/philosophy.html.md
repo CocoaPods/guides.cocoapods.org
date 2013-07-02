@@ -46,7 +46,6 @@ Finally, while conflict resolving is a definite must-have, you should ask yourse
 
 #### 5. “CocoaPods is bad for the community, because it makes it too easy for users to add many dependencies.”
 
-
 This is akin to saying “guns kill people”, but everybody knows it’s really people who kill people (and [psychotic bears with machetes](http://www.sebastienmillon.com/Machete-Bear-Art-Print-15-00)). Furthermore, this reasoning applies to basically any means of fetching code (e.g. git) and as such is not a discussion worth having.
 
 What _is_ worth discussing, however, is informing the user to be responsible. Ironically enough, the original author of CocoaPods is convinced using a lot of dependencies is a really bad idea. For practical advice on how to deal with this, you should read [this blog post](http://www.fngtps.com/2013/a-quick-note-on-minimal-dependencies-in-ruby-on-rails/) by [Manfred Stienstra](http://twitter.com/manfreds).
