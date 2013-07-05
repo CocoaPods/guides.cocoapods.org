@@ -9,7 +9,7 @@ A Podspec, or Spec, describes a version of a Pod library. One Pod, over the cour
 
 Here is an example spec:
 
-```
+```ruby
 Pod::Spec.new do |s|
   s.name         = 'Reachability'
   s.version      = '3.1.0'
@@ -262,8 +262,9 @@ prefer people to interact with it:
   now.” So the dev adds a dependency on the lib _without_ a version requirement
   and lets the manager install it which will use the latest version:
 
-        pod 'CocoaLumberjack'
-
+```ruby
+pod 'CocoaLumberjack'
+```
 * Some time into the future, the dev wants to update the dependencies, and to do so runs
   the install command again, which will now install the version of the lib
   which is the latest version _at that time_.
@@ -276,8 +277,9 @@ prefer people to interact with it:
   instead of requiring a specific version, the dev can specify that _any_
   ‘1.0.x’ is allowed as long as it’s higher than ‘1.0.7’:
 
-        pod 'CocoaLumberjack', '~> 1.0.7'
-
+```ruby
+pod 'CocoaLumberjack', '~> 1.0.7'
+```
 
 The point is that developers can easily keep track of newer versions of dependencies,
 by simply running `pod install` again, which they might otherwise do less if

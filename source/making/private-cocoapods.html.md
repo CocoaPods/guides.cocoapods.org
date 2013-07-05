@@ -27,14 +27,14 @@ The structure of your repo should mirror this:
 ###2. Add your Private Repo to your CocoaPods installation
 This is as easy as running:
 
-```
+```shell
 $ pod repo add NAME SOURCE_URL
 ```
 *Note: If you plan on creating pods locally, you should have push access to SOURCE_URL*
 
 To check if your installation is successful and ready to go:
 
-```
+```shell
 $ cd ~/.cocoapods/NAME
 $ pod repo lint .
 ```
@@ -42,7 +42,7 @@ $ pod repo lint .
 ###3. Add your Podspec to your repo
 Make sure you've tagged and versioned your source, then run:
 
-```
+```shell
 $ pod push NAME SPEC_NAME.podspec
 ```
 

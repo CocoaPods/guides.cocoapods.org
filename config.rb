@@ -22,6 +22,8 @@ set :markdown, {
 }
 
 activate :automatic_image_sizes
+activate :rouge_syntax
 
 require "lib/navigation_helpers.rb"
+
 helpers NavigationHelpers

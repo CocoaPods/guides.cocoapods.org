@@ -22,22 +22,30 @@ Ultimately the goal is to improve discoverability of, and engagement in, third p
 
 CocoaPods is built with Ruby. For the best experience, we suggest installing a Ruby Version manager, like [RVM](http://rvm.io), and running Ruby 1.9.3 or newer. When using RVM, or a similar tool, to install CocoaPods you run:
 
-    $ gem install cocoapods
+```shell
+$ gem install cocoapods
+```
 
 However, you can also run CocoaPods with the Ruby that is bundled with Mac OS X. To do so simply run:
 
-    $ sudo gem install cocoapods
+```shell
+$ sudo gem install cocoapods
+```
 
 
 ### Updating CocoaPods
 
 To update CocoaPods you simply update the gem. If you installed the gem using `sudo` you should use that command as well.
 
-    $ [sudo] gem update cocoapods
+```shell
+$ [sudo] gem update cocoapods
+```
 
 If you would like to try a pre-release version of CocoaPods you can run:
 
+```shell
     $ [sudo] gem update cocoapods --pre
+```
 
 #### TODO:
 

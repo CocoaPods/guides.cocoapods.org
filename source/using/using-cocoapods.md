@@ -14,9 +14,9 @@ description: Integration instructions and best practices
 
 1. Create a [Podfile][podfile], and add your dependencies:
 
-```
-    pod 'AFNetworking', '~> 1.0'  
-    pod 'ObjectiveSugar', '~> 0.5'
+```ruby
+pod 'AFNetworking', '~> 1.0'  
+pod 'ObjectiveSugar', '~> 0.5'
 ```
 
 2. Run `$ pod install` in your project directory.
@@ -48,7 +48,9 @@ Whether or not you check in your Pods folder is up to you, as workflows vary fro
 This file keeps track of what version of a Pod is installed. For example the
 following dependency might install RestKit 0.10.3:
 
-    pod 'RestKit'
+```ruby
+pod 'RestKit'
+```
 
 Thanks to the `Podfile.lock` every machine which runs pod install on the
 hypothetical project will use RestKit 0.10.3 even if a newer version is

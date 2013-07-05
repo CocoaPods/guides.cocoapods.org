@@ -12,39 +12,46 @@ description: Learn all about the Podfile, which is used to declare dependencies 
 
  A podfile can be very simple:
 
-     pod 'AFNetworking', '~> 1.0'
+```ruby
+pod 'AFNetworking', '~> 1.0'
+```
 
  An example of a more complex podfile can be:
 
-     platform :ios, '6.0'
-     inhibit_all_warnings!
+```ruby
+platform :ios, '6.0'
+inhibit_all_warnings!
 
-     xcodeproj `MyProject`
+xcodeproj `MyProject`
 
-     pod 'ObjectiveSugar', '~> 0.5'
+pod 'ObjectiveSugar', '~> 0.5'
 
-     target :test do
-       pod 'OCMock', '~> 2.0.1'
-     end
+target :test do
+    pod 'OCMock', '~> 2.0.1'
+end
 
-     post_install do |installer|
-       installer.project.targets.each do |target|
-         puts "#{target.name}"
-       end
-     end
+post_install do |installer|
+    installer.project.targets.each do |target|
+        puts "#{target.name}"
+    end
+end
+ ```
 
 When starting out with a project it is likely that you will want to use
 the latest version of a Pod. If this is the case, simply omit the
 version requirements.
 
-    pod 'SSZipArchive'
+```ruby
+pod 'SSZipArchive'
+```
 
 
 Later on in the project you may want to freeze to a specific version of
 a Pod, in which case you can specify that version number.
 
-    pod 'Objection', '0.9'
-
+```ruby
+pod 'Objection', '0.9'
+```
 
 Besides no version, or a specific one, it is also possible to use
 operators:
@@ -68,15 +75,18 @@ will use the pod’s latest version spec version, but force the download
 of the ‘bleeding edge’ version. Use this with caution, as the spec
 might not be compatible anymore.
 
-    pod 'Objection', :head
-
+```ruby
+pod 'Objection', :head
+```
 
 ### Using the files from a folder local to the machine.
 
 If you wold like to use develop a Pod in tandem with its client
 project you can use the `local` option.
 
-    pod 'AFNetworking', :path => '~/Documents/AFNetworking'
+```ruby
+pod 'AFNetworking', :path => '~/Documents/AFNetworking'
+```
 
 Using this option CocoaPods will assume the given folder to be the
 root of the Pod and will link the files directly from there in the
@@ -98,12 +108,15 @@ pod declaration.
 
 To use the `master` branch of the repo:
 
-    pod 'AFNetworking', :git => 'https://github.com/gowalla/AFNetworking.git'
-
+```ruby
+pod 'AFNetworking', :git => 'https://github.com/gowalla/AFNetworking.git'
+````
 
 Or specify a commit:
 
-    pod 'AFNetworking', :git => 'https://github.com/gowalla/AFNetworking.git', :commit => '082f8319af'
+```ruby
+pod 'AFNetworking', :git => 'https://github.com/gowalla/AFNetworking.git', :commit => '082f8319af'
+```
 
 It is important to note, though, that this means that the version will
 have to satisfy any other dependencies on the Pod by other Pods.
