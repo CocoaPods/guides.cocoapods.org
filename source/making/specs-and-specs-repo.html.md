@@ -9,18 +9,18 @@ A Podspec, or Spec, describes a version of a Pod library. One Pod, over the cour
 
 Here is an example spec:
 
-```
+```ruby
 Pod::Spec.new do |s|
-  s.name         = 'Reachability'
-  s.version      = '3.1.0'
-  s.license      =  :type => 'BSD' 
-  s.homepage     = 'https://github.com/tonymillion/Reachability'
-  s.authors      =  'Tony Million' => 'tonymillion@gmail.com' 
-  s.summary      = 'ARC and GCD Compatible Reachability Class for iOS and OS X. Drop in replacement for Apple Reachability.'
-  s.source       =  :git => 'https://github.com/tonymillion/Reachability.git', :tag => 'v3.1.0' 
-  s.source_files = 'Reachability.h,m'
-  s.framework    = 'SystemConfiguration'
-  s.requires_arc = true
+  s.name= 'Reachability'
+  s.version       = '3.1.0'
+  s.license       =  :type => 'BSD' 
+  s.homepage      = 'https://github.com/tonymillion/Reachability'
+  s.authors       =  'Tony Million' => 'tonymillion@gmail.com' 
+  s.summary       = 'ARC and GCD Compatible Reachability Class for iOS and OS X. Drop in replacement for Apple Reachability.'
+  s.source        =  :git => 'https://github.com/tonymillion/Reachability.git', :tag => 'v3.1.0' 
+  s.source_files  = 'Reachability.h,m'
+  s.framework     = 'SystemConfiguration'
+  s.requires_arc  = true
 end
 ```
 
@@ -68,7 +68,7 @@ Pod::Spec.new do |s|
 end
 ```
 
-In a podfile `require ShareKit` result in the inclusion of the whole library, while `require ShareKit/Facebook` can be used if you are interested only in the Facebook sharer.
+In a podfile `require ShareKit` results in the inclusion of the whole library, while `require ShareKit/Facebook` can be used if you are interested only in the Facebook sharer.
 
 ### A specification with subspecs from submodules
 
