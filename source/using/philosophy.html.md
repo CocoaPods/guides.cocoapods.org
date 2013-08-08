@@ -7,8 +7,7 @@ description: Read about the CocoaPods project goals, as well as some history on 
 
 ### Goal
 
-CocoaPods' goal is to improve discoverability of, and engagement in, third party
-open-source libraries, by creating a more centralized ecosystem.
+CocoaPods' goal is to improve discoverability of, and engagement in, third party open-source libraries, by creating a more centralized ecosystem.
 
 ### Common Misconceptions
 
@@ -60,19 +59,10 @@ Since then, they have also added workspace files to each xcodeproj document, lea
 Note that CocoaPods itself does not require the use of a workspace. If you prefer to use sub-projects, you can do so by running `pod install --no-integrate`, which will leave integration into your project up to you as you see fit.
 
 
+#### 7. “Why do I have to install Ruby to use CocoaPods?”
 
-#### 7. “I don’t like the MacRuby dependency!”
-
-That’s ok, there is **no** MacRuby dependency whatsoever. In fact, the current version doesn’t even work on MacRuby. We did use MacRuby back in the early days, but those days are loooooong gone.
-
-The reason we used it back then, was so that we could focus on the core part of CocoaPods, instead of details like reading/writing property lists (i.e. Xcode projects). MacRuby supports the CFPropertyList API natively, whereas standard Ruby does not. Since then –starting from CocoaPods 0.5.0– we have added a Ruby C-extension to take care of this and deprecated MacRuby support.
-
-
-
-#### 8. “Why do I have to install Ruby to use CocoaPods?”
-
-You don’t. OS X comes with Ruby (1.8.7) pre-installed in `/usr/bin/ruby`.
+You don’t. OS X comes with a Ruby (1.8.7 or 2.0.0) pre-installed in `/usr/bin/ruby`.
 
 The _only_ thing you have to install are the Xcode command-line tools.
 
-If, however, you want a bit more speed, or are using Ruby for other development tasks, you might want to take a look at installing a newer Ruby version through managers like [rbenv](https://github.com/sstephenson/rbenv) or [RVM](https://rvm.io).
+If, however, you want a bit more speed, or are using Ruby for other development tasks, you might want to take a look at installing a newer Ruby version through managers like [rbenv](https://github.com/sstephenson/rbenv) or [RVM](https://rvm.io).\

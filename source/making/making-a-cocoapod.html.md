@@ -134,8 +134,9 @@ There are two ways to update an existing Pod spec.
 
 ## How do I create a new Pod?
 
-The following file structure is suggested:
+We recommend letting CocoaPods do the hard work here. Running `pod lib create [pod name]` will set you up with a well thought out library structure allowing you to easily include your files and get started quickly. In addition the template offers some terminal commands to automate a lot of the release / updating.
 
+The initial folder structure looks like this:
 ```
 .
 ├── Classes
@@ -149,20 +150,11 @@ The following file structure is suggested:
 └── NAME.podspec
 ```
 
-The suggested Project/Podfile
-
-```ruby
- platform :ios
-#platform :osx
-
- podspec :path => "../NAME.podspec"
-```
-
-The `podspec` is a shortcut to require all the dependencies specified in `NAME.podspec`.
+You can create your own example project in the Example folder and use the pre-generated Podfile to refer to the Podspec's source code.
 
 ### Development
 
-You can work on the library from its project. Alternatively you can work from an application project using the `:path` option:
+You can work on the library from its example project. Alternatively you can work from an application project using the `:path` option in the application's Podfile:
 
 ```ruby
 pod 'Name', :path => '~/code/Pods/NAME.podspec'
@@ -177,7 +169,7 @@ $ pod spec lint --local
 
 ### Release
 
-The release workflow can be the following.
+If you used `pod lib create` to generate your project you can run `rake release` in the Pod's root folder. The release workflow is similar to the following.
 
 ```shell
 $ cd ~/code/Pods/NAME
@@ -192,13 +184,7 @@ $ git push --tags
 $ pod push master
 ```
 
-You can also simplify the podspec to skip a step:
-
-```ruby
- s.version = '1.0.0'
- s.source = { :git => "https://example.com/repo.git", :tag => s.version.to_s }
-#s.source = { :git => "https://example.com/repo.git", :tag => "v#{s.version}" }
-```
+<!--  This should go into it's own guide, or a blog post, it's not relevant to making a pod - ./
 
 ## Creating a Pod repo
 
@@ -240,7 +226,7 @@ If you want to create a git backed repository you can use the `$ pod repo add` c
 
 ### Disambiguation
 
-If during the installation process is resolved a Pod whose required version is present in more than one repository, the alphabetical order of the names is used to disambiguate.
+If during the installation process is resolved a Pod whose required version is present in more than one repository, the alphabetical order of the names is used to disambiguate. -->
 
 **TODO:**
 
@@ -248,7 +234,7 @@ If during the installation process is resolved a Pod whose required version is p
 - How do I test the new Pod
 - Local Pods?
 
-## Versioning
+## Library Versioning
 
 There is, unfortunately, often an issue of developers not interpreting version
 numbers well or assigning emotional value to certain version numbers.
@@ -265,6 +251,7 @@ prefer people to interact with it:
 ```ruby
 pod 'CocoaLumberjack'
 ```
+
 * Some time into the future, the dev wants to update the dependencies, and to do so runs
   the install command again, which will now install the version of the lib
   which is the latest version _at that time_.
@@ -301,15 +288,13 @@ specified by '1.2.beta.3'. In this example, the dependency specifier '~>
 
 ## Documenting a Pod
 
-**TODO**
+Right now the best place to get information on documenting your Pods in anticipation of CocoaDocs and Xcode 5 support is via [NSHipster's blog post on Documentation](http://nshipster.com/documentation/). CocoaDocs will generate appledoc parsed code based on your Podspec's public API almost instantly after it is pushed.  
 
 ## Where can I ask questions?
 
-**TODO**: [Mailing List](http://groups.google.com/group/cocoapods) | Announcements and support. Feel free to ask any kind of question.
+[Mailing List](http://groups.google.com/group/cocoapods) | Announcements and support. Feel free to ask any kind of question.
+[Mailing List](http://groups.google.com/group/cocoapods) | Announcements and support. Feel free to ask any kind of question.
 
-## I want to create a private repository
-
-**TODO**
 
 ## My library depends on a podspec that is not in the Specs repository
 

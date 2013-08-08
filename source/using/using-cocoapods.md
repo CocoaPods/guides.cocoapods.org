@@ -3,7 +3,7 @@ title: Using CocoaPods
 description: Integration instructions and best practices
 ---
 
-### Integrating with an Xcode project
+### Adding Pods to an Xcode project
 
 #### Before you begin
 
