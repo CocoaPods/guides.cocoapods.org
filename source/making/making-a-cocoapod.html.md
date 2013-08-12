@@ -26,13 +26,12 @@ The initial folder structure looks like this:
 └── NAME.podspec
 ```
 
-<<<<<<< Updated upstream
 You can create your own example project in the Example folder and use the pre-generated Podfile to refer to the Podspec's source code.
 
 ### Development
 
 You can work on the library from its example project. Alternatively you can work from an application project using the `:path` option in the application's Podfile:
-=======
+
 The suggested Project/Podfile:
 
 ```ruby
