@@ -22,10 +22,35 @@ pod 'ObjectiveSugar', '~> 0.5'
 2. Run `$ pod install` in your project directory.
 3. Open `App.xcworkspace` and build.
 
-**TODO**:
+####Creating a new Xcode project with CocoaPods
 
-- How do I start a new project with Cocoapods?
-- How do I add Cocoapods to my existing project that already uses a workspace?
+To create a new project with CocoaPods, follow these simple steps:
+
+1. Create a new project in Xcode as you would normally.
+2. Open a terminal window, and `$ cd` into your project directory.
+3. Create a Podfile. This can be done by running `$ touch Podfile`.
+4. Open your Podfile. The first line should specify the platform and version supported.
+
+```ruby
+platform :ios, '6.0'
+````
+
+5. Add a CocoaPod by specifying `pod '$PODNAME'` on a single line
+
+```ruby
+pod 'ObjectiveSugar'
+```
+6. Save your Podfile.
+7. Run `$ pod install`
+8. Open the `MyApp.xcworkspace` that was created. This should be the file you use everyday to create your app.
+
+####Integration with an existing workspace
+
+Integrating CocoaPods with an existing workspace requires one extra line in your Podfile. Simply specify the `.xcworkspace` like so:
+
+```ruby
+xcodeproj `MyProject`
+```
 
 ## Should I check in my pods folder?
 
