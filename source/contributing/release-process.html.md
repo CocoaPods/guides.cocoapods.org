@@ -25,7 +25,7 @@ For a ‘not so small feature’ a separate branch should be created, named afte
 
 If you would like to develop on the CocoaPods gems, you need to fork the main repo, work off of your fork, then create a pull request.
 
-Pull requests will be looked over by at lease one core team member. Comments will generally be made on everything from code style, documentation, test coverage, and architecture. Every pull request is run through a build on Travis CI and Coveralls.
+Pull requests will be looked over by at least one core team member. Comments will generally be made on everything from code style, documentation, test coverage, and architecture. Every pull request is run through a build on Travis CI and Coveralls.
 
 Tests must pass in order for your pull request to be merged. For new functionality, tests must be added. For the removal of functionality, or significant refactoring, tests can be removed. Make sure to note this in your commit messages, or in the pull request description.
 
