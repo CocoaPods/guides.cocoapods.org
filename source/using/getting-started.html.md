@@ -47,10 +47,6 @@ If you would like to try a pre-release version of CocoaPods you can run:
     $ [sudo] gem update cocoapods --pre
 ```
 
-#### TODO:
-
-* Add images for each step and expand on steps.
-
 [creating-a-workspace]: http://blog.carbonfive.com/2011/04/04/using-open-source-static-libraries-in-xcode-4/#creating_a_workspace
 [adding-projects-to-workspace]: http://blog.carbonfive.com/2011/04/04/using-open-source-static-libraries-in-xcode-4/#adding_projects_to_a_workspace
 [configuring-project-scheme]: http://blog.carbonfive.com/2011/04/04/using-open-source-static-libraries-in-xcode-4/#configuring_the_projects_scheme

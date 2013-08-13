@@ -13,6 +13,7 @@ There are only a few differences between a CocoaPod and a generic open source co
 We recommend letting CocoaPods do the hard work here. Running `pod lib create [pod name]` will set you up with a well thought out library structure allowing you to easily include your files and get started quickly. In addition the template offers some terminal commands to automate a lot of the release / updating.
 
 The initial folder structure looks like this:
+
 ```
 .
 ├── Classes
@@ -25,12 +26,6 @@ The initial folder structure looks like this:
 ├── Readme.markdown
 └── NAME.podspec
 ```
-
-You can create your own example project in the Example folder and use the pre-generated Podfile to refer to the Podspec's source code.
-
-### Development
-
-You can work on the library from its example project. Alternatively you can work from an application project using the `:path` option in the application's Podfile:
 
 The suggested Project/Podfile:
 
@@ -46,7 +41,6 @@ The `podspec` is a shortcut to require all the dependencies specified in `NAME.p
 ### Development
 
 You can work on the library from its folder on your system. Alternatively you can work from an application project using the `:path` option:
->>>>>>> Stashed changes
 
 ```ruby
 pod 'Name', :path => '~/code/Pods/NAME.podspec'
