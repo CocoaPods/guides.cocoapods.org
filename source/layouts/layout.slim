@@ -5,7 +5,12 @@ ruby:
     parents.unshift(parent)
   end
 
-
+  topnav = []
+  for resource in sitemap.resources
+    if resource.ext == '.html' && resource.children.count > 0 && resource.parent != nil
+      topnav.unshift(resource)
+    end
+  end
 
 doctype html
 html
@@ -14,43 +19,56 @@ html
     meta name="keywords" content="documenation cocoapods objective-c packcage manager"
     title = "CocoaPods Guides - " + page_title
     == favicon_tag "/favicon.ico"
-    == stylesheet_link_tag "bootstrap.min", "font-awesome", "style", "style2"
+    == stylesheet_link_tag "bootstrap.min", "font-awesome", "style", "github"
     script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"
-    == javascript_include_tag "bootstrap", "mousetrap.min", "javascript"
+    == javascript_include_tag "bootstrap.min", "javascript"
 
   body
+    .navbar.navbar-inverse.navbar-fixed-top
+      .container
+        button.navbar-toggle type="button" data-toggle="collapse" data-target=".cp-navbar-collapse"
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+
+        .nav-collapse.collapse.cp-navbar-collapse
+          ul.nav.navbar-nav.pull-right
+            - for resource in topnav
+              li == link_to page_title(resource), "/#{resource.destination_path}"
+
+
+
     .container
-      #body
-        #sections-container
+      .row
+        .span8
+          ul.breadcrumb
+
+            - for resource in parents
+              li
+                == link_to page_title(resource), "/#{resource.destination_path}"
+                span.divider
+                  |/
+            li.active = page_title
+
+      .row.page-container            
+        .col-lg-10.col-lg-offset-1.col-sm-10.col-sm-offset-1
+          == yield
+
+  #footer
+    .container
+      .row
+        .col-lg-10.col-lg-offset-1.col-sm-10.col-sm-offset-1
           .row
-            .span8
-              ul.breadcrumb
-
-                - for resource in parents
-                  li
-                    == link_to page_title(resource), "/#{resource.destination_path}"
-                    span.divider
-                      |/
-                li.active = page_title
-
-          .row.page-container
-            .span3
-              #sidenav
-                ul
-                  - for resource in sitemap.resources.reverse
-                    - if resource.ext == '.html' && resource.children.count > 0 && resource.parent != nil
-                      li == link_to page_title(resource), "/#{resource.destination_path}"
+            .col-lg-2.col-sm-2
+            - for resource in sitemap.resources.reverse
+              - if resource.ext == '.html' && resource.children.count > 0 && resource.parent != nil
+                    .col-lg-3.col-sm-3
+                      h3 == link_to page_title(resource), "/#{resource.destination_path}"
                       ul
                         - for child in resource.children
                           li == link_to page_title(child), "/#{child.destination_path}"
 
-
-                
-            .span9#main
-              == yield
-
-        #footer
           hr
           p.note
-            | ❤ 
-            a href="https://github.com/CocoaPods/guides.cocoapods.org/blob/master/source/#{current_page.path}#{File.extname(current_page.source_file)}" Fork and Edit this page on GitHub 
+            | CocoaPods is open source and supported by the community ❤ 
+            a href="https://github.com/CocoaPods/guides.cocoapods.org/blob/master/source/#{current_page.path}#{File.extname(current_page.source_file)}" Improve this page on GitHub 
