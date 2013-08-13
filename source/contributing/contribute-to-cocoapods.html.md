@@ -55,7 +55,7 @@ All methods should be documented and grouped as explained in the documentation s
 
 ###Tests
 
-CocoaPods has an extensive test suite. No code is accepted to `master` where the tests do not pass. All test files can be found in the `spec` repository.
+CocoaPods has an extensive test suite. No code is accepted to `master` where the tests do not pass. All test files can be found in the `spec` folder.
 
 The tests for CocoaPods are written in Bacon and separated into Unit, Integration, and Functional test. To run the full test suite:
 
@@ -77,7 +77,7 @@ $ bundle exec rake spec:rebuild_integration_fixtures
 
 ###Documentation
 
-All methods and attributes must be documented. As part of the release process for CocoaPods, documentation is generated from source and posted online. [Rdoc](http://docs.seattlerb.org/rdoc/) is used for generating this documentation.
+All methods and attributes must be documented. As part of the release process for CocoaPods, documentation is generated from source and posted online. [YARD](http://yardoc.org/) is used for generating this documentation.
 
 Documentation should be brief, but explanatory. All paramaters and return values need to be explained. Notes and examples, while not required, are encouraged. Take a look at this method from the [Project](https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/project.rb#L42) class:
 
