@@ -79,6 +79,21 @@ might not be compatible anymore.
 pod 'Objection', :head
 ```
 
+### Version Conflicts
+
+Pods often depend on other pods. Conflicts arise when multiple pods depend on different versions of another. Or you may want to tie a dependent pod to a particular version. The conflict error looks like this:
+
+```shell
+[!] Podfile tries to activate `GoogleAnalytics-iOS-SDK (= 2.0beta4)', but already activated version `3.0' by ARAnalytics/GoogleAnalytics (1.6).
+```
+
+To fix this, you simply add the `GoogleAnalytics-iOS-SDK` pod line before `ARAnalytics` and specify the version:
+
+```ruby
+pod 'GoogleAnalytics-iOS-SDK', '2.0beta4'
+pod 'ARAnalytics/GoogleAnalytics'
+```
+
 ### Using the files from a folder local to the machine.
 
 If you wold like to use develop a Pod in tandem with its client
