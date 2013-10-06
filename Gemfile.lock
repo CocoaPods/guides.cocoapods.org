@@ -1,5 +1,5 @@
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     activesupport (3.2.13)
       i18n (= 0.6.1)
@@ -111,6 +111,7 @@ PLATFORMS
 DEPENDENCIES
   middleman (~> 3.0.13)
   middleman-rouge
+  middleman-sprockets
   rake
   redcarpet
   slim

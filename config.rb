@@ -8,6 +8,7 @@ set :relative_links,    true
 set :strip_index_file,  false
 
 configure :build do
+  activate :sprockets
   activate :minify_javascript
   activate :minify_css
   activate :relative_assets
