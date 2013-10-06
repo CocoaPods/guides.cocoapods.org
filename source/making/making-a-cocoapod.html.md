@@ -2,7 +2,6 @@
 title: Making a CocoaPod
 description: Instructions for creating and maintaining a CocoaPod
 ---
-# Making a CocoaPod
 
 Creating your own CocoaPod is fairly straight forward. If you already have a separate component, you're most of the way there. This guide is an overview to the entire process, with the other guides in this section serving as more of a deep-dive for more advanced users.
 

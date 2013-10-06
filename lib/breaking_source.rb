@@ -10,29 +10,34 @@ module BreakingSource
     def registered(app, options={})
 
       app.after_render do |body, path, locs, template_class|
-        
-        pre = <<-eos      
-  </article>
-  </section>
-  
-  <div style="background-color:white;">
-  <section class="row container">
-  <article class="content col-md-8 col-md-offset-2"><pre
-        eos
 
-        post = <<-eos              
-  </pre></article>
-  </section>
-  </div>
+        # we get multiple render calls due to markdown / slim doing their thing
+        if (template_class.to_s.index "Slim") == nil
+          body
+        else 
+          pre = <<-eos      
+    </article>
+    </section>
   
-  <section class="container row">
-  <article class="content col-md-8 col-md-offset-2">
-        eos
+    <div style="background-color:white;">
+    <section class="row container">
+    <article class="content col-md-8 col-md-offset-2"><pre
+          eos
+
+          post = <<-eos
+    </article>
+    </section>
+    </div>
+  
+    <section class="container row">
+    <article class="content col-md-8 col-md-offset-2">
+          eos
         
-        body = body.gsub(/<pre/, pre)
-        body = body.gsub(/<\/pre>/, post)
+        
+          body = body.gsub(/<pre/, pre)
+          body = body.gsub(/<\/pre>/, "</pre>" + post)
+        end
       end
-
     end
     alias :included :registered
   end

@@ -3,8 +3,6 @@ title: Private Pods
 description: How to setup private pods, a private specs repo, etc.
 ---
 
-##Private Pods
-
 CocoaPods is a great tool not only for adding open source code to your project, but also for sharing components across projects. Creating and using private pods is a great way to do this.  
 
 There are a few steps to getting a private pods setup for your project; creating a private repository for them, letting CocoaPods know where to find it and adding the podspecs to the repository.
