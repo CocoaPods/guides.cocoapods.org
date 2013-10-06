@@ -1,5 +1,6 @@
 require "lib/breaking_source.rb"
 require "lib/breaking_image.rb"
+require "lib/shared_layouts.rb"
 
 set :encoding,          'utf-8'
 set :relative_links,    true
@@ -29,6 +30,7 @@ activate :rouge_syntax
 
 activate :breaking_image
 activate :breaking_source
+activate :shared_layouts
 
 helpers NavigationHelpers
 
@@ -38,9 +40,4 @@ after_configuration do
   sprockets.append_path "../shared/js"
   sprockets.append_path "../shared/includes"
   sprockets.append_path "../shared/sass"
-
-end
-
-after_build do
-  puts "OK"
 end

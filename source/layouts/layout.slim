@@ -26,7 +26,8 @@ html
 
   body
     <!-- headline -->
-  
+    == shared_layout("header")
+    
     .container
       .row
         .span8
@@ -43,7 +44,6 @@ html
       section.row.container
         article.content.col-md-8.col-md-offset-2
           == yield
-
 
     #footer
       .container
@@ -63,3 +63,6 @@ html
             p.note
               | CocoaPods is open source and supported by the community ❤ 
               a href="https://github.com/CocoaPods/guides.cocoapods.org/blob/master/source/#{current_page.path}#{File.extname(current_page.source_file)}" Improve this page on GitHub 
+              
+    == shared_layout("footer")
+              
