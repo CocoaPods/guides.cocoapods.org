@@ -1,5 +1,5 @@
 ---
-title: Ad
+title: Using CocoaPods
 description: Integration instructions and best practices
 ---
 

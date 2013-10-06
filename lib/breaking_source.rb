@@ -21,7 +21,7 @@ module BreakingSource
   
     <div style="background-color:white;">
     <section class="row container">
-    <article class="content col-md-8 col-md-offset-2"><pre
+    <article class="content col-md-10 col-md-offset-1"><pre
           eos
 
           post = <<-eos
@@ -30,7 +30,7 @@ module BreakingSource
     </div>
   
     <section class="container row">
-    <article class="content col-md-8 col-md-offset-2">
+    <article class="content col-md-10 col-md-offset-1">
           eos
         
         
