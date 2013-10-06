@@ -7,4 +7,5 @@ gem 'middleman-rouge'
 gem "middleman-sprockets"
 gem 'redcarpet'
 gem 'rake'
-gem 'slim'
+gem "slim", "~> 1.0"
+gem 'sass'

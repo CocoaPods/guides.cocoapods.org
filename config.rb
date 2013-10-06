@@ -15,12 +15,12 @@ configure :build do
   activate :asset_hash
 end
 
+set :markdown, :tables => true, :autolink => true, :gh_blockcode => true, :fenced_code_blocks => true, :with_toc_data => true
 set :markdown_engine, :redcarpet
-set :markdown, {
-  :fenced_code_blocks => true,
-  :autolink           => true,
-  :smartypants        => true
-}
+
+configure :development do
+  set :debug_assets, true
+end
 
 activate :automatic_image_sizes
 activate :rouge_syntax
@@ -28,3 +28,11 @@ activate :rouge_syntax
 require "lib/navigation_helpers.rb"
 
 helpers NavigationHelpers
+
+after_configuration do
+  sprockets.append_path "../shared/img"
+  sprockets.append_path "../shared/fonts"
+  sprockets.append_path "../shared/js"
+  sprockets.append_path "../shared/includes"
+  sprockets.append_path "../shared/sass"
+end
