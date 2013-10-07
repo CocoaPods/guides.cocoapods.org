@@ -1,0 +1,61 @@
+<!DOCTYPE html><html><head><meta charset="utf-8" /><meta content="documenation cocoapods objective-c packcage manager" name="keywords" /><title>CocoaPods Guides - Philosophy</title><link href="../favicon.ico" rel="icon" type="image/ico" /><link href="../stylesheets/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="../stylesheets/main.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="../stylesheets/guides.css" media="screen" rel="stylesheet" type="text/css" /><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script><script src="../javascripts/bootstrap.min.js" type="text/javascript"></script>
+<script src="../javascripts/jquery.min.js" type="text/javascript"></script></head><body><!-- headline --><nav class="navbar navbar-static-top" role="navigation"><section class="container"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-header-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="/"></a></div><div class="collapse navbar-collapse navbar-header-collapse"><ul class="nav navbar-nav navbar-right"><li><a href="http://cocoapods.org">About</a></li><li><a href="http://docs.cocoapods.org">API Docs</a></li><li><a href="http://docs.cocoapods.org/guides/index.html">Guides</a></li><li class="active"><a href="/">Blog</a></li></ul></div></section></nav><div class="container"><div class="row"><div class="span8"><ul class="breadcrumb"><li><a href="../index.html">CocoaPods Guides</a><span class="divider"></span></li><li><a href="index.html">Using CocoaPods</a><span class="divider"></span></li><li class="active">Philosophy</li></ul></div></div></div><div class="guide" id="content-wrapper"><section class="row container"><article class="content col-md-10 col-md-offset-1"><h2 id="toc_0">CocoaPods Philosophy</h2>
+
+<h3 id="toc_1">Goal</h3>
+
+<p>CocoaPods&#39; goal is to improve discoverability of, and engagement in, third party open-source libraries, by creating a more centralized ecosystem.</p>
+
+<h3 id="toc_2">Common Misconceptions</h3>
+
+<h4 id="toc_3">1. “Why not just use git submodules?”</h4>
+
+<p>CocoaPods is <strong>not</strong> about downloading code. While it does do that, but it’s arguably the least interesting part.</p>
+
+<p>What defines CocoaPods are the (cross) dependency resolution, (semantic) version management, and automating the ‘integrating it into Xcode’ parts.</p>
+
+<p>Finally, even if you’re looking just for a downloader, consider that there are in fact other SCMs being used than just git. CocoaPods, on the other hand, is agnostic and handles Subversion, Mercurial, and zip/tarballs from local or HTTP locations.</p>
+
+<h4 id="toc_4">2. “CocoaPods is not ready for prime-time yet.”</h4>
+
+<p>Correct. Version 1.0.0 will be the milestone where we feel confident that all the basic requirements of a Objective-C dependency manager are fulfilled.</p>
+
+<p>Once we reach the 1.0.0 milestone we will –for the first time ever– contact the community at large through mailing-lists such as cocoa-dev.</p>
+
+<h4 id="toc_5">3. “CocoaPods doesn’t do X, so it’s unusable.”</h4>
+
+<p>First see point #2, then consider that unless you tell us about the missing feature and why it is important, it won’t happen at all. We don’t scour Twitter to look for work, so please file a <a href="https://github.com/CocoaPods/CocoaPods/issues/new">ticket</a>, or, better yet, in the form of a pull-request.</p>
+
+<h4 id="toc_6">4. “CocoaPods doesn’t do dependency resolution.”</h4>
+
+<p>CocoaPods does in fact do dependency resolution, but it does not automatically resolve conflicts. This means that, when a conflict occurs, CocoaPods will raise an error and leave conflict resolving up to the user. (The user can do this by depending on a specific version of a common dependency <em>before</em> requiring the dependencies that lead to the conflict.)</p>
+
+<p>If you’re familiar with Ruby then you can compare the former (the current CocoaPods style) to RubyGems’ style resolution and the latter (with conflict resolving) to Bundler’s. (See <a href="http://patshaughnessy.net/2011/9/24/how-does-bundler-bundle">this</a> article for a detailed look at Bundler’s process.)</p>
+
+<p>Adding conflict resolution to CocoaPods is on our TODO list and we will try to work with the Bundler team to see if we can share their algorithm, but this will be one of the last things we’ll work on. A feature like this will require a stable basis and since we’re not there yet, working on it now would only make working on the basis more complex than necessary.</p>
+
+<p>Finally, while conflict resolving is a definite must-have, you should ask yourself if you’re not using too much dependencies whenever you run into conflicts, as this is in general a good indicator. See the link to a blog post about this in #5.</p>
+
+<h4 id="toc_7">5. “CocoaPods is bad for the community, because it makes it too easy for users to add many dependencies.”</h4>
+
+<p>This is akin to saying “guns kill people”, but everybody knows it’s really people who kill people (and <a href="http://www.sebastienmillon.com/Machete-Bear-Art-Print-15-00">psychotic bears with machetes</a>). Furthermore, this reasoning applies to basically any means of fetching code (e.g. git) and as such is not a discussion worth having.</p>
+
+<p>What <em>is</em> worth discussing, however, is informing the user to be responsible. Ironically enough, the original author of CocoaPods is convinced using a lot of dependencies is a really bad idea. For practical advice on how to deal with this, you should read <a href="http://www.fngtps.com/2013/a-quick-note-on-minimal-dependencies-in-ruby-on-rails/">this blog post</a> by <a href="http://twitter.com/manfreds">Manfred Stienstra</a>.</p>
+
+<h4 id="toc_8">6. “CocoaPods uses workspaces, which are considered user data. Why does it not use normal sub-projects?”</h4>
+
+<p>Starting from Xcode 4, <a href="http://developer.apple.com/library/ios/#featuredarticles/XcodeConcepts/Concept-Workspace.html">Apple introduced workspaces for this very purpose</a>.</p>
+
+<p>Since then, they have also added workspace files to each xcodeproj document, leading people to believe that a workspace is user data only. This is simply incorrect and you should <strong>not</strong> ignore workspace documents any longer, if you were doing so.</p>
+
+<p>Note that CocoaPods itself does not require the use of a workspace. If you prefer to use sub-projects, you can do so by running <code>pod install --no-integrate</code>, which will leave integration into your project up to you as you see fit.</p>
+
+<h4 id="toc_9">7. “Why do I have to install Ruby to use CocoaPods?”</h4>
+
+<p>You don’t. OS X comes with a Ruby (1.8.7 or 2.0.0) pre-installed in <code>/usr/bin/ruby</code>.</p>
+
+<p>The <em>only</em> thing you have to install are the Xcode command-line tools.</p>
+
+<p>If, however, you want a bit more speed, or are using Ruby for other development tasks, you might want to take a look at installing a newer Ruby version through managers like <a href="https://github.com/sstephenson/rbenv">rbenv</a> or <a href="https://rvm.io">RVM</a>.\</p>
+</article></section></div><div id="footer"><div class="container row" style="text-align:center;"><div class="col-lg-4 col-sm-4"><h3 style="text-align:center;"><a href="index.html">Using CocoaPods</a></h3><ul><li><a href="getting-started.html">Getting Started</a></li><li><a href="philosophy.html">Philosophy</a></li><li><a href="the-podfile.html">The Podfile</a></li><li><a href="troubleshooting.html">Troubleshooting</a></li><li><a href="using-cocoapods.html">Using CocoaPods</a></li></ul></div><div class="col-lg-4 col-sm-4"><h3 style="text-align:center;"><a href="../making/index.html">Making a CocoaPod</a></h3><ul><li><a href="../making/making-a-cocoapod.html">Making a CocoaPod</a></li><li><a href="../making/private-cocoapods.html">Private Pods</a></li><li><a href="../making/specs-and-specs-repo.html">Specs and the Specs Repo</a></li></ul></div><div class="col-lg-4 col-sm-4"><h3 style="text-align:center;"><a href="../contributing/index.html">Contributing</a></h3><ul><li><a href="../contributing/components.html">Core Components</a></li><li><a href="../contributing/contribute-to-cocoapods.html">How to Contribute</a></li><li><a href="../contributing/dev-environment.html">Setting up for Development</a></li><li><a href="../contributing/release-process.html">Release Process</a></li></ul></div></div></div><footer class="page-footer"><section class="container row"><article class="col-md-4 col-md-offset-2"><p>CocoaPods is a project from <a href="https://github.com/alloy">Eloy Durán</a> and The CocoaPods Dev Team with contributions from <a href="https://github.com/CocoaPods/Specs/graphs/contributors">many, many others</a>.</p><p>Sponsored by <a href="http://www.fngtps.com">Fingertips</a>, <a href = "http://www.hipbyte.com">Hipbyte</a>, <a href="http://artsy.net">Artsy</a> and <a href="https://www.sauspiel.de">Sauspiel</a>.</p></article><article class="col-md-4 minor"><p>Website and API by <a href="http://twitter.com/hanke">Florian Hanke</a>, The CocoaPods Dev Team and <a href="http://twitter.com/manfreds">Manfred Stienstra</a>.</p><p>Design by <a href="http://andy-myers.co.uk">Andy Myers</a>, <a href="http://orta.github.io">Orta Therox</a>, <a href="http://markovics.com">Philipp Markovics</a> and <a href="http://twitter.com/hanke">Florian Hanke</a>.</p><p>Original CocoapodsPods Logo by <a href="http://twitter/maxsteenbergen">Max Steenbergen</a>.</p></article><article class="col-md-8 col-md-offset-2 minor"><p><a href="http://cocoapods.org/support">Support</a>, <a href="https://github.com/CocoaPods/CocoaPods">Github Repo</a>, <a href="https://github.com/CocoaPods/Specs">Podspecs Repo</a>, <a href="https://guides.cocoapods.org">Podspec Documentation</a>, <span class="visible-lg-span"><a href="https://api.cocoapods.org">Developer Reference</a>, </span><a href="http://groups.google.com/group/cocoapods">Mailing List</a> &amp; <a href="http://twitter.com/CocoaPods">@CocoaPods</a>. </p></article></section></footer></body></html>
