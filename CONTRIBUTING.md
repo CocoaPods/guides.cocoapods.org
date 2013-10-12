@@ -1,3 +1,32 @@
+##How to use this repository
+
+This repository is for user guides on how to use CocoaPods. It replaces the multiple Wikis, guides section of the old docs.cocoapods.org site, and some of the more verbose documentation sections of the API docs.
+
+###Where is the content?
+
+You can find all of the guides source in `/source`. Each section is then broken down into its own content folder. So the guides for using CocoaPods can be found in `/source/using`. Also, if you view a page on guides, there is a link at the bottom of the footer to the source page in this repo.
+
+###How do I make a change?
+
+Just like any other repository, you should create a fork, make a change, commit, and then submit a pull request to `master`.
+
+###How do I add a new guide?
+
+All the guides content is written in [Markdown](http://daringfireball.net/projects/markdown/). Each page has some special information at the top, defined by `---`. This is used to generate the index pages, as well as the sitemap in the footer. Each page must include this information at the very top of this page.
+
+Here is a sample file:
+
+```
+---
+title: Getting Started
+description: This is a guide that describes setting up CocoaPods and integrating with your first project.
+---
+
+## What are CocoaPods
+
+CocoaPods manages library dependencies for your Xcode projects.
+```
+
 ##Overall Guidelines
 
 - **This repo is for content for guides.cocoapods.org only.** If you are having an issue with CocoaPods, please ask on [StackOverflow](http://stackoverflow.com/search?q=CocoaPods) or our [mailing-list](http://groups.google.com/group/cocoapods).
