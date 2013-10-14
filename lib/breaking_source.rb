@@ -10,13 +10,9 @@ module BreakingSource
     def registered(app, options={})
 
       app.after_render do |body, path, locs, template_class|
-        p path
-
-
+        
         # we get multiple render calls due to markdown / slim doing their thing
-        if (template_class.to_s.index "Slim") != nil or (path.to_s.index "templates") != nil
-          p "skip"
-            
+        if (template_class.to_s.index "Slim") != nil or (path.to_s.index "templates") != nil            
           body
         else 
           pre = <<-eos      
