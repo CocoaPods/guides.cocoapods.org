@@ -11,6 +11,11 @@ ruby:
       topnav.unshift(resource)
     end
   end
+  
+  footer_resources = sitemap.resources.select do |resource|
+    resource.data.footer
+  end.sort_by { |resource| resource.data.footer_order }
+  
 
 doctype html
 html
@@ -21,7 +26,6 @@ html
     
     == favicon_tag "/favicon.ico"
     script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"
-    == javascript_include_tag "bootstrap.min", "jquery.min"
     
     == stylesheet_link_tag "app.css"
     == javascript_include_tag "application.js"
@@ -49,21 +53,24 @@ html
 
     #footer
       .container.row style="text-align:center;"
-        - for resource in sitemap.resources
-          - if resource.ext == '.html' && resource.children.count > 0 && resource.parent != nil
-                .col-lg-3.col-sm-3
-                  h3 style="text-align:center;" == link_to page_title(resource), "/#{resource.destination_path}"
-                  ul
-                    - for child in resource.children
-                      - if child == current_resource
-                        li.current == link_to page_title(child), "/#{child.destination_path}"
-                      - else
-                        li == link_to page_title(child), "/#{child.destination_path}"
+        - for resource in footer_resources 
+
+          .col-lg-3.col-sm-3.footer-index
+            h3 == link_to page_title(resource), "/#{resource.destination_path}"
+            ul
+              - for child in resource.children
+                li.current == link_to page_title(child), "/#{child.destination_path}"
+
+        .col-lg-3.col-sm-3.footer-index
+          h3  == "<a href='eon'>Reference</a>"
+          ul
+            li == "<a href='/podfile.html'>Podfile Syntax</a>"
+            li == "<a href='/specification.html'>Podspec Syntax</a>"
+            li == "<a href='/commands.html'>Commandline Reference</a>"
 
         / hr
         / p.note
         /   | CocoaPods is open source and supported by the community ❤ 
         /   a href="https://github.com/CocoaPods/guides.cocoapods.org/blob/master/source/#{current_page.path}#{File.extname(current_page.source_file)}" Improve this page on GitHub 
-              
+
     == shared_layout("footer")
-              
