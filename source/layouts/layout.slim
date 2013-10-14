@@ -20,9 +20,12 @@ html
     title = "CocoaPods Guides - " + page_title
     
     == favicon_tag "/favicon.ico"
-    == stylesheet_link_tag "bootstrap.min", "main", "guides"
     script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"
     == javascript_include_tag "bootstrap.min", "jquery.min"
+    
+    == stylesheet_link_tag "app.css"
+    == javascript_include_tag "application.js"
+
 
   body
     <!-- headline -->
@@ -47,13 +50,16 @@ html
 
     #footer
       .container.row style="text-align:center;"
-        - for resource in sitemap.resources.reverse
+        - for resource in sitemap.resources
           - if resource.ext == '.html' && resource.children.count > 0 && resource.parent != nil
-                .col-lg-4.col-sm-4
+                .col-lg-3.col-sm-3
                   h3 style="text-align:center;" == link_to page_title(resource), "/#{resource.destination_path}"
                   ul
                     - for child in resource.children
-                      li == link_to page_title(child), "/#{child.destination_path}"
+                      - if child == current_resource
+                        li.current == link_to page_title(child), "/#{child.destination_path}"
+                      - else
+                        li == link_to page_title(child), "/#{child.destination_path}"
 
         / hr
         / p.note

@@ -16,7 +16,6 @@ module SharedLayouts
     end
     alias :included :registered
     
-    
   end
 end
 
