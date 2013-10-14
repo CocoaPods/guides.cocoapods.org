@@ -8,4 +8,4 @@ ruby:
     - for resource in children
       .half
         h3 == link_to page_title(resource), "/#{resource.destination_path}"
-        == resource.data.description
+        p == resource.data.description

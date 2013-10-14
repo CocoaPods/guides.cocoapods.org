@@ -1,0 +1,69 @@
+ruby:
+  name_space  = deserialize(name)
+
+#tab-controller
+  #header
+    h1
+      a.select-tab href="#tab_#{parameterize name_space.name}" = name_space.name
+
+    .commands-list
+      / FIXME
+      == method_list(name_space, { :show_empty_groups => true }).gsub('>pod ','>')
+
+#content-container
+  .tab-content
+
+    // Pod Command
+    div.tab-pane id="tab_#{parameterize name_space.name}"
+      h2 = name_space.name
+      == link_doc_string name_space.html_description
+
+    // Groups
+    - for group in name_space.groups
+      div.tab-pane id="tab_group_#{parameterize group.name}"
+        h2 = group.name
+        // TODO not sure where is better to store those descriptions (markdonw files)?
+        - case group.name
+        - when 'Installation'
+          p The commands listed in this group provide support for installing
+            and integrating the dependecies specified in a Podfile.
+
+          p Following is presented the basic workflow for integrating CocoaPods in a user project.
+          pre $ touch Podfile
+              $ vim Podfile
+              $ pod install
+          pre $ open *.xcworkspace
+          pre $ vim podfile
+              $ pod install
+          pre $ pod outdated
+          pre $ pod update
+
+          h3 Commands
+        - for command in group.meths
+          p
+            code
+              a href="#tab_#{parameterize command.name}" = command.name
+
+
+    // Commands
+    - for command in name_space.meths
+      div.tab-pane id="tab_#{parameterize command.name}"
+
+        h2
+          = command.name
+
+        == link_doc_string command.html_description
+
+        - unless command.options.empty?
+          h3 Options:
+          - for (name, html_description) in command.options
+            p
+              b = name
+            == html_description
+
+        - unless command.parent_options.empty?
+          h3 Inherited options:
+          - for (name, html_description) in command.parent_options
+            p
+              b = name
+            == html_description

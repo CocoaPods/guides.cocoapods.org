@@ -1,0 +1,14 @@
+ruby:
+  gem = deserialize(name)
+  current_resource.add_metadata({ :page => { 'title' => "#{gem.name} Modules & Classes" } })
+
+#content-container
+  h2 = "#{gem.name} Modules & Classes"
+
+- for name_space in gem.namespaces_with_public_methods
+  .indenter
+    h3 == linkify(name_space)
+
+
+  == method_list(name_space, { :name_space_type => 'gem',
+      :only_public => true, :absolute_link => true })

@@ -1,0 +1,125 @@
+#tab-controller
+  #methods-container
+    #header
+      h1
+        a.select-tab href="#tab_root_#{parameterize name_space.name}" = name_space.name
+
+  == method_list(name_space, { :name_space_type => 'gem' })
+
+#content-container
+  .tab-content
+
+    / NameSpace
+    div.tab-pane id="tab_root_#{parameterize name_space.name}"
+      h2 = name_space.name
+      == link_doc_string name_space.html_description
+
+      - if name_space.superclass
+        h3 Inherits from:
+        p
+          code == linkify name_space.superclass
+
+
+      - unless (children = name_space.child_name_spaces).empty?
+        h3 Child Name Spaces
+        - for child in children
+          p
+            code == linkify child
+
+    / Groups
+    - for group in name_space.groups
+      div.tab-pane id=method_list_entry_fragment(group, false)
+        h2 = group.name
+        - for method in group.meths
+          p = method
+
+    / Methods
+    - for method in name_space.meths
+      div.tab-pane id=method_list_entry_fragment(method, false)
+
+        h2
+          = method.name
+          - if method.is_attribute
+            a.select-tab href=""
+              span.label.label-big = method.attr_type
+          - if method.scope == :class
+            a.select-tab href=""
+              span.label.label-big class method
+          - if method.inherited
+            a.select-tab href=""
+              span.label.label-big inherited
+
+        == link_doc_string method.html_description
+
+
+        / Signatures
+        - for signature in method.signatures
+          h3 Signature
+
+          == signature.html_name
+
+          /- for html_todo in signature.html_todos
+            .alert
+              strong TODO
+              == link_doc_string html_todo
+
+          - if signature.parameters
+            h4 Parameters
+            - for param in signature.parameters
+              p
+                - if param.types
+                  - for type in param.types
+                    code = type
+                    / FIXME
+                    span = ' '
+                b = " " + param.name
+              == link_doc_string param.html
+
+          - if signature.returns
+            h4 Returns
+            - for param in signature.returns
+              p
+                - if param.types
+                  - for type in param.types
+                    code == linkify_from_obect(type, name_space)
+
+                / FIXME
+                == ' ' + param.html.force_encoding('utf-8').gsub(/<p>(.*)<\/p>/,'\1')
+
+          - unless signature.aliases.empty?
+            h4 Aliases
+            - for alias_ in signature.aliases
+              code = alias_
+
+
+          /- if signature.html_notes && !signature.html_notes.empty?
+            h3 Notes
+            - for html_note in signature.html_notes
+                == link_doc_string html_note
+
+          - if signature.examples
+            hr
+            h3 Examples:
+            - for example in signature.examples
+              - if example.description
+                p = example.description
+              == example.html
+
+        - unless method.is_attribute
+          h3 Source
+          == method.html_source
+
+        h3 Source Files
+        - for (file, line) in method.source_files
+          p.source_file
+            i.icon-link
+            = ' '
+            == link_to "#{file}:#{line}", "https://github.com/CocoaPods/#{name_space.gem.github_name}/blob/master/#{file}#L#{line}"
+
+        - for file in method.spec_files
+          p.source_file
+            i.icon-link
+            = ' '
+            == link_to "#{file}", "https://github.com/CocoaPods/#{name_space.gem.github_name}/blob/master/#{file}"
+
+

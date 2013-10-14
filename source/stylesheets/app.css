@@ -1,8 +1,6 @@
-/*
-*= require _vars
-*= require _bootstrap
-*= require _syntax
-*= require fonts
-*= require main
-*= require guides
-*/
+//= require _vars
+//= require _bootstrap
+//= require _syntax
+//= require fonts
+//= require main
+//= require guides
