@@ -19,7 +19,7 @@ ruby:
 #tab-controller
   #header
     h1
-      a.select-tab href="#tab_#{parameterize name_space.name}" = name_space.name
+      a.select-tab href="#{parameterize name_space.name}" = name_space.name
 
     == method_list(name_space, { :columns_sort_order_by_page => group_sort_order })
 

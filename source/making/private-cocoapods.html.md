@@ -17,14 +17,12 @@ The structure of your repo should mirror this:
 ```
 .
 ├── Specs
-    └── #{SPEC_NAME}
-        └── #{VERSION}
-            └── #{SPEC_NAME}.podspec
+    └── [SPEC_NAME]
+        └── [VERSION]
+            └── [SPEC_NAME].podspec
 ```
 
 ###2. Add your Private Repo to your CocoaPods installation
-This is as easy as running:
-
 ```shell
 $ pod repo add NAME SOURCE_URL
 ```

@@ -24,6 +24,7 @@ The standard development on CocoaPods happens like so:
 - **Quick:** These are small issues, that should be able to be fixed quickly. Normally these issues don't stay around for very long.
 - **To check:** These issues may not be reproduceable, or have not been vetted by a team member.
 - **Workaround known:** These issues have had their solutions discussed, but have yet to be implemented.
+- **Easy First Step** These issues are great issues to get started with. They tend to stick around for a while. We want people to feel like there's always somewhere you can start.
 
 ####Making the Pull Request
 
@@ -61,11 +62,8 @@ The tests for CocoaPods are written in Bacon and separated into Unit, Integratio
 
 ```shell
 $ bundle exec rake
-```
 
-To run a single test suite:
-
-```shell
+# Or to run a single test suite:
 $ bundle exec rake spec:functional
 ```
 

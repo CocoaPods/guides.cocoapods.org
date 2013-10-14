@@ -33,7 +33,6 @@ module BreakingSource
     <article class="content col-md-10 col-md-offset-1">
           eos
         
-        
           body = body.gsub(/<pre/, pre)
           body = body.gsub(/<\/pre>/, "</pre>" + post)
         end
