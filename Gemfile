@@ -11,5 +11,17 @@ gem 'redcarpet'
 gem 'rake'
 gem 'sass'
 
-# The latest middleman has issue with slim 2.0
-gem "slim", "~> 1.0"
+gem 'slim', '< 2.0'
+gem 'yard', "~> 0.8.6.2"
+
+gem 'activesupport'
+gem 'pygments.rb'
+gem 'github-markup'
+
+gem 'claide'
+gem 'rake'
+
+gem 'xcodeproj'
+gem 'cocoapods'
+gem 'cocoapods-core'
+
