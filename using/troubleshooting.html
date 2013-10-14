@@ -1,0 +1,49 @@
+<!DOCTYPE html><html><head><meta charset="utf-8" /><meta content="documenation cocoapods objective-c packcage manager" name="keywords" /><title>CocoaPods Guides - Troubleshooting</title><link href="../favicon.ico" rel="icon" type="image/ico" /><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script><link href="../stylesheets/app.css" media="screen" rel="stylesheet" type="text/css" /><script src="../javascripts/application.js" type="text/javascript"></script></head><body><nav class="navbar navbar-static-top" role="navigation"><section class="container"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-header-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="/"></a></div><div class="collapse navbar-collapse navbar-header-collapse"><ul class="nav navbar-nav navbar-right"><li><a href="http://cocoapods.org">About</a></li><li><a href="http://docs.cocoapods.org">API Docs</a></li><li><a href="http://docs.cocoapods.org/guides/index.html">Guides</a></li><li class="active"><a href="/">Blog</a></li></ul></div></section></nav><div class="container"><div class="row"><div class="span8"><ul class="breadcrumb"><li><a href="../index.html">CocoaPods Guides</a><span class="divider"></span></li><li><a href="index.html">Using CocoaPods</a><span class="divider"></span></li><li class="active">Troubleshooting</li></ul></div></div></div><div class="guide" id="content-wrapper"><section class="row container"><article class="content col-md-10 col-md-offset-1"><h3 id="toc_0">Troubleshooting</h3>
+
+<ul>
+<li><p>The gem might not be able to compile, to solve this you might need to <a href="http://www.relaxdiego.com/2012/02/using-gcc-when-xcode-43-is-installed.html">symlink
+GCC</a>.</p></li>
+<li><p>If you used an pre release version of Xcode you might need to update the
+command line tools.</p></li>
+<li><p>CocoaPods is not compatible with MacRuby.</p></li>
+</ul>
+
+<ol>
+<li><p>If something doesn’t seem to work, first of all ensure that you are not completely overriding any options set from the <code>Pods.xcconfig</code> file in your project’s build settings. To add values to options from your project’s build settings, prepend the value list with <code>$(inherited)</code>.</p></li>
+<li><p>If Xcode can’t find the headers of the dependencies:</p>
+
+<ul>
+<li>Check if the pod header files are correctly symlinked in <code>Pods/Headers</code> and you are not overriding the <code>HEADER_SEARCH_PATHS</code> (see #1).</li>
+<li>Make sure your project is using the <code>Pods.xcconfig</code>. To check this select your project file, then select it in the second pane again and open the <code>Info</code> section in the third pane. Under configurations you should select <code>Pods.xcconfig</code> for each configurations requiring your installed pods.</li>
+<li>If Xcode still can’t find them, as a last resort you can prepend your imports, e.g. <code>#import &quot;Pods/SSZipArchive.h&quot;</code>.</li>
+</ul></li>
+<li><p>If you&#39;re getting errors about unrecognized C compiler command line options, e.g. <code>cc1obj: error: unrecognized command line option &quot;-Wno-sign-conversion&quot;</code>:</p>
+
+<ul>
+<li>Make sure your project build settings are <a href="https://img.skitch.com/20111120-brfn4mp8qwrju8w8325wphan9h.png">configured</a> to use &quot;Apple LLVM compiler&quot; (clang)</li>
+<li>Are you setting the <code>CC</code>, <code>CPP</code> or <code>CXX</code> environment variable, e.g. in your <code>~/.profile</code>? This may interfere with the Xcode build process. Remove the environment variable from your <code>~/.profile</code>.</li>
+</ul></li>
+<li><p>If Xcode complains when linking, e.g. <code>Library not found for -lPods</code>, it doesn&#39;t detect the implicit dependencies:</p>
+
+<ul>
+<li>Go to Product &gt; Edit Scheme</li>
+<li>Click on Build</li>
+<li>Add the <code>Pods</code> static library, and make sure it&#39;s at the top of the list</li>
+<li>Clean and build again</li>
+<li>If that doesn&#39;t work, verify that the source for the spec you are trying to include has been pulled from github. Do this by looking in &lt;Project Dir&gt;/Pods/&lt;Name of spec you are trying to include&gt;. If it is empty (it should not be), verify that the ~/.cocoapods/master/&lt;spec&gt;/&lt;spec&gt;.podspec has the correct git hub url in it.</li>
+<li>If still doesn&#39;t work, check your XCode build locations settings. Go to Preferences -> Locations -> Derived Data -> Advanced and set build location to &quot;Relative to Workspace&quot;.</li>
+</ul></li>
+</ol>
+
+<p><img alt="Xcode build location settings" src="https://img.skitch.com/20120426-chmda3m5suhcfrhjge6brjhesk.png" /></p>
+
+<ul>
+<li>If you tried to submit app to App Store, and found that &quot;Product&quot; &gt; &quot;Archive&quot; produce nothing in &quot;Organizer&quot;:
+
+<ul>
+<li>In Xcode &quot;Build Settings&quot;, find &quot;Skip Install&quot;. Set the value for &quot;Release&quot; to &quot;NO&quot; on your application target. Build again and it should work. </li>
+</ul></li>
+</ul>
+
+<p><em>Different Xcode versions can have various problems. Ask for help and tell us what version you&#39;re using.</em></p>
+</article></section></div><div id="footer"><div class="container row" style="text-align:center;"><div class="col-lg-3 col-sm-3 footer-index"><h3><a href="index.html">Using CocoaPods</a></h3><ul><li class="current"><a href="getting-started.html">Getting Started</a></li><li class="current"><a href="philosophy.html">Philosophy</a></li><li class="current"><a href="the-podfile.html">The Podfile</a></li><li class="current"><a href="troubleshooting.html">Troubleshooting</a></li><li class="current"><a href="using-cocoapods.html">Using CocoaPods</a></li></ul></div><div class="col-lg-3 col-sm-3 footer-index"><h3><a href="../making/index.html">Making a CocoaPod</a></h3><ul><li class="current"><a href="../making/making-a-cocoapod.html">Making a CocoaPod</a></li><li class="current"><a href="../making/private-cocoapods.html">Private Pods</a></li><li class="current"><a href="../making/specs-and-specs-repo.html">Specs and the Specs Repo</a></li></ul></div><div class="col-lg-3 col-sm-3 footer-index"><h3><a href="../contributing/index.html">Contributing</a></h3><ul><li class="current"><a href="../contributing/components.html">Core Components</a></li><li class="current"><a href="../contributing/contribute-to-cocoapods.html">How to Contribute</a></li><li class="current"><a href="../contributing/dev-environment.html">Setting up for Development</a></li><li class="current"><a href="../contributing/release-process.html">Release Process</a></li></ul></div><div class="col-lg-3 col-sm-3 footer-index"><h3><a href='eon'>Reference</a></h3><ul><li><a href='/podfile.html'>Podfile Syntax</a></li><li><a href='/specification.html'>Podspec Syntax</a></li><li><a href='/commands.html'>Commandline Reference</a></li></ul></div></div></div><footer class="page-footer"><section class="container row"><article class="col-md-8 col-md-offset-2"><p>CocoaPods is a project from <a href="https://twitter.com/alloy">Eloy Durán</a>, <a href="https://twitter.com/fabiopelosin">Fabio Pelosin</a>, <a href="https://orta.github.io">Orta Therox</a>,  and The CocoaPods Dev Team with contributions from <a href="https://github.com/CocoaPods/Specs/graphs/contributors">many, many others</a>.</p><p>Lovingly sponsored by <a href="http://www.fngtps.com">Fingertips</a>, <a href = "http://www.hipbyte.com">Hipbyte</a>, <a href="http://artsy.net">Artsy</a> and <a href="https://www.sauspiel.de">Sauspiel</a>.</p></article><article class="col-md-4 minor col-md-offset-2"><p>Website and API by <a href="http://twitter.com/hanke">Florian Hanke</a>, The CocoaPods Dev Team and <a href="http://twitter.com/manfreds">Manfred Stienstra</a>.</p></article><article class="col-md-4 minor"><p>Design by <a href="http://andy-myers.co.uk">Andy Myers</a>, <a href="http://orta.github.io">Orta Therox</a>, <a href="http://twitter.com/hanke">Florian Hanke</a> and <a href="http://twitter.com/maxsteenbergen">Max Steenbergen</a></p></article><article class="col-md-8 col-md-offset-2 minor"><p><a href="http://cocoapods.org/support">Support</a>, <a href="https://github.com/CocoaPods/CocoaPods">Github Repo</a>, <a href="https://github.com/CocoaPods/Specs">Podspecs Repo</a>, <a href="https://guides.cocoapods.org">Podspec Documentation</a>, <span class="visible-lg-span"><a href="https://api.cocoapods.org">Developer Reference</a>, </span><a href="http://groups.google.com/group/cocoapods">Mailing List</a> &amp; <a href="http://twitter.com/CocoaPods">@CocoaPods</a>. </p></article></section></footer></body></html>

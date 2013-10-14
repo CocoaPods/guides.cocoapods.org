@@ -1,0 +1,187 @@
+<!DOCTYPE html><html><head><meta charset="utf-8" /><meta content="documenation cocoapods objective-c packcage manager" name="keywords" /><title>CocoaPods Guides - Using CocoaPods</title><link href="../favicon.ico" rel="icon" type="image/ico" /><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script><link href="../stylesheets/app.css" media="screen" rel="stylesheet" type="text/css" /><script src="../javascripts/application.js" type="text/javascript"></script></head><body><nav class="navbar navbar-static-top" role="navigation"><section class="container"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-header-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="/"></a></div><div class="collapse navbar-collapse navbar-header-collapse"><ul class="nav navbar-nav navbar-right"><li><a href="http://cocoapods.org">About</a></li><li><a href="http://docs.cocoapods.org">API Docs</a></li><li><a href="http://docs.cocoapods.org/guides/index.html">Guides</a></li><li class="active"><a href="/">Blog</a></li></ul></div></section></nav><div class="container"><div class="row"><div class="span8"><ul class="breadcrumb"><li><a href="../index.html">CocoaPods Guides</a><span class="divider"></span></li><li><a href="index.html">Using CocoaPods</a><span class="divider"></span></li><li class="active">Using CocoaPods</li></ul></div></div></div><div class="guide" id="content-wrapper"><section class="row container"><article class="content col-md-10 col-md-offset-1"><h3 id="toc_0">Adding Pods to an Xcode project</h3>
+
+<h4 id="toc_1">Before you begin</h4>
+
+<ol>
+<li>Check the <a href="http://github.com/CocoaPods/Specs">Specs</a> repository or <a href="http://cocoapods.org">cocoapods.org</a> to make sure the libraries you would like to use are available.</li>
+<li>[Install CocoaPods on your computer][installing-cocoapods].</li>
+</ol>
+
+<h3 id="toc_2">Installation</h3>
+
+<ol>
+<li>Create a [Podfile][podfile], and add your dependencies:</li>
+</ol>
+    </article>
+    </section>
+  
+    <div style="background-color:white;">
+    <section class="row container">
+    <article class="content col-md-10 col-md-offset-1"><pre
+ class="highlight ruby"><span class="n">pod</span> <span class="s1">&#39;AFNetworking&#39;</span><span class="p">,</span> <span class="s1">&#39;~&gt; 1.0&#39;</span>  
+<span class="n">pod</span> <span class="s1">&#39;ObjectiveSugar&#39;</span><span class="p">,</span> <span class="s1">&#39;~&gt; 0.5&#39;</span>
+</pre>    </article>
+    </section>
+    </div>
+  
+    <section class="container row">
+    <article class="content col-md-10 col-md-offset-1">
+
+<ol>
+<li>Run <code>$ pod install</code> in your project directory.</li>
+<li>Open <code>App.xcworkspace</code> and build.</li>
+</ol>
+
+<h4 id="toc_3">Creating a new Xcode project with CocoaPods</h4>
+
+<p>To create a new project with CocoaPods, follow these simple steps:</p>
+
+<ol>
+<li>Create a new project in Xcode as you would normally.</li>
+<li>Open a terminal window, and <code>$ cd</code> into your project directory.</li>
+<li>Create a Podfile. This can be done by running <code>$ touch Podfile</code>.</li>
+<li>Open your Podfile. The first line should specify the platform and version supported.</li>
+</ol>
+    </article>
+    </section>
+  
+    <div style="background-color:white;">
+    <section class="row container">
+    <article class="content col-md-10 col-md-offset-1"><pre
+ class="highlight ruby"><span class="n">platform</span> <span class="ss">:ios</span><span class="p">,</span> <span class="s1">&#39;6.0&#39;</span>
+</pre>    </article>
+    </section>
+    </div>
+  
+    <section class="container row">
+    <article class="content col-md-10 col-md-offset-1">
+
+<ol>
+<li>Add a CocoaPod by specifying <code>pod &#39;$PODNAME&#39;</code> on a single line</li>
+</ol>
+    </article>
+    </section>
+  
+    <div style="background-color:white;">
+    <section class="row container">
+    <article class="content col-md-10 col-md-offset-1"><pre
+ class="highlight ruby"><span class="n">pod</span> <span class="s1">&#39;ObjectiveSugar&#39;</span>
+</pre>    </article>
+    </section>
+    </div>
+  
+    <section class="container row">
+    <article class="content col-md-10 col-md-offset-1">
+
+<ol>
+<li>Save your Podfile.</li>
+<li>Run <code>$ pod install</code></li>
+<li>Open the <code>MyApp.xcworkspace</code> that was created. This should be the file you use everyday to create your app.</li>
+</ol>
+
+<h4 id="toc_4">Integration with an existing workspace</h4>
+
+<p>Integrating CocoaPods with an existing workspace requires one extra line in your Podfile. Simply specify the <code>.xcworkspace</code> like so:</p>
+    </article>
+    </section>
+  
+    <div style="background-color:white;">
+    <section class="row container">
+    <article class="content col-md-10 col-md-offset-1"><pre
+ class="highlight ruby"><span class="n">xcodeproj</span> <span class="sb">`MyProject`</span>
+</pre>    </article>
+    </section>
+    </div>
+  
+    <section class="container row">
+    <article class="content col-md-10 col-md-offset-1">
+
+<h2 id="toc_5">Should I check in my pods folder?</h2>
+
+<p>Whether or not you check in your Pods folder is up to you, as workflows vary from project to project. Here are some pros and cons to think about when setting up your project:</p>
+
+<h5 id="toc_6">Pros</h5>
+
+<ul>
+<li>Smaller repo under source control</li>
+<li>CocoaPods given the availability of the sources is capable to recreate (almost) the same exact installation. </li>
+<li>No conflicts to handle in the dependencies of the management system of source control.</li>
+</ul>
+
+<h5 id="toc_7">Cons</h5>
+
+<ul>
+<li>The sources of the Pods can go down.</li>
+<li>External sources are not recreated perfectly (at the moment the commit is not used) and in some cases will never be (zip files)</li>
+<li>Requires internet connection and the installation of CocoaPods for clients of the project.</li>
+</ul>
+
+<h2 id="toc_8">What is a Podfile.lock</h2>
+
+<p>This file keeps track of what version of a Pod is installed. For example the
+following dependency might install RestKit 0.10.3:</p>
+    </article>
+    </section>
+  
+    <div style="background-color:white;">
+    <section class="row container">
+    <article class="content col-md-10 col-md-offset-1"><pre
+ class="highlight ruby"><span class="n">pod</span> <span class="s1">&#39;RestKit&#39;</span>
+</pre>    </article>
+    </section>
+    </div>
+  
+    <section class="container row">
+    <article class="content col-md-10 col-md-offset-1">
+
+<p>Thanks to the <code>Podfile.lock</code> every machine which runs pod install on the
+hypothetical project will use RestKit 0.10.3 even if a newer version is
+available. CocoaPods will honor this version unless the dependency is updated
+on the Podfile or <code>pod update</code> is called. In this way CocoaPods avoids headaches
+caused by unexpected changes to dependencies.</p>
+
+<p>This file should always be kept under version control.</p>
+
+<h2 id="toc_9">What is happening behind the scenes?</h2>
+
+<p>In Xcode, it:</p>
+
+<ol>
+<li>[Creates or updates a workspace.][creating-a-workspace]</li>
+<li>[Adds your project to the workspace if needed.][adding-projects-to-workspace]</li>
+<li>[Adds the CocoaPods static library project to the workspace if needed.][adding-projects-to-workspace]</li>
+<li>[Adds libPods.a to: targets =&gt; build phases =&gt; link with libraries.][adding-build-target-dependencies]</li>
+<li>Adds the CocoaPods Xcode configuration file to your app’s project.</li>
+<li>[Changes your app&#39;s target configurations to be based on CocoaPods&#39;s.]<a href="Expand the ‘To add a new build configuration…’ section of the linked page for a howto.">basing-target-configurations-on-xcconfig</a></li>
+<li>Adds a build phase to copy resources from any pods you installed to your app bundle. i.e. a ‘Script build phase’ after all other build phases with the following:
+
+<ul>
+<li>Shell: <code>/bin/sh</code></li>
+<li>Script: <code>${SRCROOT}/Pods/PodsResources.sh</code></li>
+</ul></li>
+</ol>
+
+<p>Note that steps 3 onwards are skipped if the CocoaPods static library is already in your project.</p>
+
+<p>This is largely based on <a href="http://blog.carbonfive.com/2011/04/04/using-open-source-static-libraries-in-xcode-4">http://blog.carbonfive.com/2011/04/04/using-open-source-static-libraries-in-xcode-4</a>.  </p>
+
+<h2 id="toc_10">Pods and Submodules</h2>
+
+<p>CocoaPods and git submodules attempt to solve very similar problems. Both strive to simplify the process of including 3rd party code in your project. Submodules link to a specific commit of that project, while a CocoaPod is tied to a versioned developer release.</p>
+
+<h3 id="toc_11">Switching from submodules to CocoaPods</h3>
+
+<p>Before you decide to make the full switch to CocoaPods, make sure that the libraries you are currently using are all available. It is also a good idea to record the versions of the libraries you are currently using, so that you can setup CocoaPods to use the same ones.</p>
+
+<ol>
+<li>Install CocoaPods, if you have not done so already</li>
+<li>Remove the <code>.gimodules</code> file</li>
+<li>Remove the repositories from <code>.git/config</code></li>
+<li>Create your Podfile</li>
+<li>Run <code>pod install</code></li>
+</ol>
+
+<h3 id="toc_12">Switching from CocoaPods to submodules</h3>
+
+<p><strong>TODO</strong></p>
+</article></section></div><div id="footer"><div class="container row" style="text-align:center;"><div class="col-lg-3 col-sm-3 footer-index"><h3><a href="index.html">Using CocoaPods</a></h3><ul><li class="current"><a href="getting-started.html">Getting Started</a></li><li class="current"><a href="philosophy.html">Philosophy</a></li><li class="current"><a href="the-podfile.html">The Podfile</a></li><li class="current"><a href="troubleshooting.html">Troubleshooting</a></li><li class="current"><a href="using-cocoapods.html">Using CocoaPods</a></li></ul></div><div class="col-lg-3 col-sm-3 footer-index"><h3><a href="../making/index.html">Making a CocoaPod</a></h3><ul><li class="current"><a href="../making/making-a-cocoapod.html">Making a CocoaPod</a></li><li class="current"><a href="../making/private-cocoapods.html">Private Pods</a></li><li class="current"><a href="../making/specs-and-specs-repo.html">Specs and the Specs Repo</a></li></ul></div><div class="col-lg-3 col-sm-3 footer-index"><h3><a href="../contributing/index.html">Contributing</a></h3><ul><li class="current"><a href="../contributing/components.html">Core Components</a></li><li class="current"><a href="../contributing/contribute-to-cocoapods.html">How to Contribute</a></li><li class="current"><a href="../contributing/dev-environment.html">Setting up for Development</a></li><li class="current"><a href="../contributing/release-process.html">Release Process</a></li></ul></div><div class="col-lg-3 col-sm-3 footer-index"><h3><a href='eon'>Reference</a></h3><ul><li><a href='/podfile.html'>Podfile Syntax</a></li><li><a href='/specification.html'>Podspec Syntax</a></li><li><a href='/commands.html'>Commandline Reference</a></li></ul></div></div></div><footer class="page-footer"><section class="container row"><article class="col-md-8 col-md-offset-2"><p>CocoaPods is a project from <a href="https://twitter.com/alloy">Eloy Durán</a>, <a href="https://twitter.com/fabiopelosin">Fabio Pelosin</a>, <a href="https://orta.github.io">Orta Therox</a>,  and The CocoaPods Dev Team with contributions from <a href="https://github.com/CocoaPods/Specs/graphs/contributors">many, many others</a>.</p><p>Lovingly sponsored by <a href="http://www.fngtps.com">Fingertips</a>, <a href = "http://www.hipbyte.com">Hipbyte</a>, <a href="http://artsy.net">Artsy</a> and <a href="https://www.sauspiel.de">Sauspiel</a>.</p></article><article class="col-md-4 minor col-md-offset-2"><p>Website and API by <a href="http://twitter.com/hanke">Florian Hanke</a>, The CocoaPods Dev Team and <a href="http://twitter.com/manfreds">Manfred Stienstra</a>.</p></article><article class="col-md-4 minor"><p>Design by <a href="http://andy-myers.co.uk">Andy Myers</a>, <a href="http://orta.github.io">Orta Therox</a>, <a href="http://twitter.com/hanke">Florian Hanke</a> and <a href="http://twitter.com/maxsteenbergen">Max Steenbergen</a></p></article><article class="col-md-8 col-md-offset-2 minor"><p><a href="http://cocoapods.org/support">Support</a>, <a href="https://github.com/CocoaPods/CocoaPods">Github Repo</a>, <a href="https://github.com/CocoaPods/Specs">Podspecs Repo</a>, <a href="https://guides.cocoapods.org">Podspec Documentation</a>, <span class="visible-lg-span"><a href="https://api.cocoapods.org">Developer Reference</a>, </span><a href="http://groups.google.com/group/cocoapods">Mailing List</a> &amp; <a href="http://twitter.com/CocoaPods">@CocoaPods</a>. </p></article></section></footer></body></html>
