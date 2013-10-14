@@ -35,7 +35,7 @@ module NavigationHelpers
     result = "<div class ='methods_list'>"
     result << "<div class ='row'>"
     for column in columnize(name_space.groups, opts)
-      result << "<div class ='span3'>"
+      result << "<div class ='col-lg-3'>"
       column.each_with_index do |entry, index|
         if opts[:absolute_link]
           link = link_for_code_object(entry)
@@ -45,10 +45,10 @@ module NavigationHelpers
 
         if entry.is_a?(Pod::Doc::CodeObjects::Group)
           klass  = " class='first'" if index.zero?
-          result << "<h2#{klass}><a class='select-tab' href=#{link}>#{entry.name}</a></h2>"
+          result << "<h2#{klass}><a class='select-tab' data-toggle='tab' href=#{link}>#{entry.name}</a></h2>"
         else
           span =  method_list_entry_span(entry)
-          result << "<p><a class='select-tab' href=#{link}>#{entry.name}</a>#{span}</p>"
+          result << "<p><a class='select-tab' data-toggle='tab' yhref=#{link}>#{entry.name}</a>#{span}</p>"
         end
       end
       result << "</div>"
