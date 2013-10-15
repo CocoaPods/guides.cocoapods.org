@@ -7,7 +7,7 @@ description: Learn all about the Podfile, which is used to declare dependencies 
 
  The Podfile is a specification that describes the dependencies of the
  targets of one or more Xcode projects. The Podfile always creates an
- implicit target, named `default`, which links to the first target of the
+ implicit target, named `default`, which links to the _first target_ of the
  user project.
 
 > A podfile can be very simple:
@@ -37,33 +37,30 @@ post_install do |installer|
 end
  ```
 
-When starting out with a project it is likely that you will want to use
-the latest version of a Pod. If this is the case, simply omit the
-version requirements.
+> When starting out with a project it is likely that you will want to use the latest version of a Pod. If this is the case, simply omit the version requirements.
 
 ```ruby
 pod 'SSZipArchive'
 ```
 
-
-Later on in the project you may want to freeze to a specific version of
-a Pod, in which case you can specify that version number.
+> Later on in the project you may want to freeze to a specific version of a Pod, in which case you can specify that version number.
 
 ```ruby
 pod 'Objection', '0.9'
 ```
 
-Besides no version, or a specific one, it is also possible to use
-operators:
+Besides no version, or a specific one, it is also possible to use logical operators:
 
-* `> 0.1`    Any version higher than 0.1
-* `>= 0.1`   Version 0.1 and any higher version
-* `< 0.1`    Any version lower than 0.1
-* `<= 0.1`   Version 0.1 and any lower version
-* `~> 0.1.2` Version 0.1.2 and the versions up to 0.2, not including 0.2
+* `'> 0.1'`    Any version higher than 0.1
+* `'>= 0.1'`   Version 0.1 and any higher version
+* `'< 0.1'`    Any version lower than 0.1
+* `'<= 0.1'`   Version 0.1 and any lower version
 
-A list of version requirements can be specified for even more fine
-grained control.
+In addition to the logic operators CocoaPods has an optimisic operator `~>`:
+
+* `'~> 0.1.2'` Version 0.1.2 and the versions up to 0.2, not including 0.2 and higher
+* `'~> 0.1'` Version 0.1 and the versions up to 1.0, not including 1.1 and higher
+* `'~> 0'` Version 0 and higher, this is basically the same as not having it.
 
 For more information, regarding versioning policy, see:
 
@@ -73,31 +70,33 @@ For more information, regarding versioning policy, see:
 Finally, instead of a version, you can specify the `:head` flag. This
 will use the pod’s latest version spec version, but force the download
 of the ‘bleeding edge’ version. Use this with caution, as the spec
-might not be compatible anymore.
+might not be compatible with the source material anymore.
 
 ```ruby
 pod 'Objection', :head
 ```
 
-### Version Conflicts
+## Version Conflicts
 
-Pods often depend on other pods. Conflicts arise when multiple pods depend on different versions of another. Or you may want to tie a dependent pod to a particular version. The conflict error looks like this:
+Pods often depend on other pods. Conflicts arise when multiple pods depend on different versions of another. Or you may want to tie a dependent pod to a particular version. 
+
+> The conflict error looks like this:
 
 ```shell
 [!] Podfile tries to activate `GoogleAnalytics-iOS-SDK (= 2.0beta4)', but already activated version `3.0' by ARAnalytics/GoogleAnalytics (1.6).
 ```
 
-To fix this, you simply add the `GoogleAnalytics-iOS-SDK` pod line before `ARAnalytics` and specify the version:
+> To fix this, you simply add the `GoogleAnalytics-iOS-SDK` pod line before `ARAnalytics` and specify the version:
 
 ```ruby
 pod 'GoogleAnalytics-iOS-SDK', '2.0beta4'
 pod 'ARAnalytics/GoogleAnalytics'
 ```
 
-### Using the files from a folder local to the machine.
+## Using the files from a folder local to the machine.
 
-If you wold like to use develop a Pod in tandem with its client
-project you can use the `local` option.
+> If you would like to use develop a Pod in tandem with its client
+project you can use `:path`.
 
 ```ruby
 pod 'AFNetworking', :path => '~/Documents/AFNetworking'
@@ -105,29 +104,25 @@ pod 'AFNetworking', :path => '~/Documents/AFNetworking'
 
 Using this option CocoaPods will assume the given folder to be the
 root of the Pod and will link the files directly from there in the
-Pods project. This means that your edits will persist to CocoaPods
-installations.
+Pods project. This means that your edits will persist between CocoaPods
+installations. The referenced folder can be a checkout of your your favorite SCM or
+even a git submodule of the current repo.  
 
-The referenced folder can be a checkout of your your favorite SCM or
-even a git submodule of the current repo.
-
-Note that the `podspec` of the Pod file is expected to be in the
-folder.
-
+<aside>Note that the `podspec` of the Pod file is expected to be in that folder.</aside>
 
 ### From a podspec in the root of a library repo.
 
-Sometimes you may want to use the bleeding edge version of a Pod. Or a
-specific revision. If this is the case, you can specify that with your
+Sometimes you may want to use the bleeding edge version of a Pod, a
+specific revision or your own fork. If this is the case, you can specify that with your
 pod declaration.
 
-To use the `master` branch of the repo:
+> To use the `master` branch of the repo:
 
 ```ruby
 pod 'AFNetworking', :git => 'https://github.com/gowalla/AFNetworking.git'
 ````
 
-Or specify a commit:
+> Or specify a commit:
 
 ```ruby
 pod 'AFNetworking', :git => 'https://github.com/gowalla/AFNetworking.git', :commit => '082f8319af'

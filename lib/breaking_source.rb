@@ -19,9 +19,9 @@ module BreakingSource
     </article>
     </section>
   
-    <div style="background-color:white;">
+    <div class="code-break">
     <section class="row container">
-    <article class="content col-md-10 col-md-offset-1"><pre
+    <article class="content col-md-11 col-md-offset-1"><pre
           eos
 
           post = <<-eos
