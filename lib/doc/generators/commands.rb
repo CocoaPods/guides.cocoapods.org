@@ -44,6 +44,7 @@ module Pod
         def command_groups
           {
             'Installation' => [
+              'pod init'
               'pod install',
               'pod update',
               'pod outdated',
@@ -76,7 +77,7 @@ module Pod
             'Libraries' => [
               "pod lib create",
               "pod lib lint",
-          ],
+            ],
 
            'IPC' => [
               "pod ipc repl",
