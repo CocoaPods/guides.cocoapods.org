@@ -10,13 +10,13 @@ description: Learn all about the Podfile, which is used to declare dependencies 
  implicit target, named `default`, which links to the first target of the
  user project.
 
- A podfile can be very simple:
+> A podfile can be very simple:
 
 ```ruby
 pod 'AFNetworking', '~> 1.0'
 ```
 
- An example of a more complex podfile can be:
+> An example of a more complex podfile can be:
 
 ```ruby
 platform :ios, '6.0'

@@ -1,6 +1,6 @@
 ---
 title: Getting Started
-description: This is a guide that describes setting up CocoaPods and integrating with your first project.
+description: This is a guide for setting up CocoaPods and working with your first project.
 ---
 
 ## What is CocoaPods

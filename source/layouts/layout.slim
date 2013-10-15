@@ -33,35 +33,37 @@ html
   body
     == shared_layout("header")
     
-    .container
-      .row
-        .span8
-          ul.breadcrumb
-
-            - for resource in parents
-              li
-                == link_to page_title(resource), "/#{resource.destination_path}"
-                span.divider
-                  |
-            li.active = page_title
+    section.container.row
+      header.col-md-10.col-md-offset-1.header
+        h1 == page_title
 
     #content-wrapper.guide
       section.row.container
         article.content.col-md-10.col-md-offset-1
           == yield
 
-    #footer
-      .container.row
+    #footer.container
+      .row
+        ul.breadcrumb
+          - for resource in parents
+            li
+              == link_to page_title(resource), "/#{resource.destination_path}"
+              span.divider
+                |
+          li.active = page_title
+      
         - for resource in footer_resources 
 
-          .col-lg-3.col-sm-3.footer-index
+          .col-lg-3.col-sm-3.col-xs-6.footer-index
             h3 == link_to page_title(resource), "/#{resource.destination_path}"
             ul
               - for child in resource.children
                 li == link_to page_title(child), "/#{child.destination_path}"
+                
+                
 
-        .col-lg-3.col-sm-3.footer-index
-          h3  == "<a href='eon'>Reference</a>"
+        .col-lg-3.col-sm-3.col-xs-6.footer-index
+          h3  == "<a href='references.html'>Reference</a>"
           ul
             li == "<a href='/podfile.html'>Podfile Syntax</a>"
             li == "<a href='/specification.html'>Podspec Syntax</a>"

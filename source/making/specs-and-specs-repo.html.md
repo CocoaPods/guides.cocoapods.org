@@ -3,20 +3,18 @@ title: Specs and the Specs Repo
 description: Learn about creating Podspec's and the Spec repo.
 ---
 
-## What are Specs and what is the Specs Repo?
-
 A Podspec, or Spec, describes a version of a Pod library. One Pod, over the course of time, will have many Specs. It includes details about where the source should be fetched from, what files to use, the build settings to apply, and other general metadata such as its name, version, and description. You can create one by hand, or run `pod spec create` to generate a stub.  
 
-Here is an example spec:
+> Here is an example spec:
 
 ```ruby
 Pod::Spec.new do |s|
-  s.name= 'Reachability'
+  s.name          = 'Reachability'
   s.version       = '3.1.0'
   s.license       =  :type => 'BSD' 
   s.homepage      = 'https://github.com/tonymillion/Reachability'
   s.authors       =  'Tony Million' => 'tonymillion@gmail.com' 
-  s.summary       = 'ARC and GCD Compatible Reachability Class for iOS and OS X. Drop in replacement for Apple Reachability.'
+  s.summary       = 'ARC and GCD Compatible Reachability Class for iOS and OS X.'
   s.source        =  :git => 'https://github.com/tonymillion/Reachability.git', :tag => 'v3.1.0' 
   s.source_files  = 'Reachability.h,m'
   s.framework     = 'SystemConfiguration'
@@ -30,7 +28,7 @@ See the Creating A Pod Repo section for an explanation of the Spec repo's file s
 
 ## Examples of Specifications
 
-### A Simple specification.
+> A Simple specification.
 
 ```ruby
 Pod::Spec.new do |s|
@@ -40,14 +38,14 @@ Pod::Spec.new do |s|
   s.summary      = 'An Objective-C client for the Pusher.com service'
   s.homepage     = 'https://github.com/lukeredpath/libPusher'
   s.author       = 'Luke Redpath'
-  s.source       = { :git => 'git://github.com/lukeredpath/libPusher.git', :tag => 'v1.3' }
+  s.source       =  :git => 'git://github.com/lukeredpath/libPusher.git', :tag => 'v1.3'
   s.source_files = 'Library/*'
   s.requires_arc = true
   s.dependency 'SocketRocket'
 end
 ```
 
-### A specification with subspecs
+> A specification with subspecs
 
 ```ruby
 Pod::Spec.new do |s|
@@ -70,21 +68,24 @@ end
 
 In a podfile `require ShareKit` results in the inclusion of the whole library, while `require ShareKit/Facebook` can be used if you are interested only in the Facebook sharer.
 
-### A specification with subspecs from submodules
+### A specification with subspecs within submodules
 
-If you have some submodules in the repository you need to set to `true` the `:submodules` key of the `s.source` Hash.
+If you have some submodules in the repository you need to set the `:submodules` key of the `s.source` hash to true.
 Then you'll be able to specify subspec like above.
 
 ```ruby
 Pod::Spec.new do |s|
   s.name          = 'SDLoginKit'
-  s.source   = { :git => 'https://github.com/dulaccc/SDLoginKit.git', :commit => '25e0464', :submodules => true }
-  s.source_files = 'SDLoginKit/**/*.{h,m}'
+  s.source        =  { 
+      :git => 'https://github.com/dulaccc/SDLoginKit.git',
+      :commit => '25e0464', 
+      :submodules => true 
+  }
   # ...
 
   s.subspec 'SDKit' do |sdkit|
     sdkit.source_files = 'SDKit/**/*.{h,m}'
-    sdkit.resources = 'SDKit/**/Assets/*.png'
+    sdkit.resources    = 'SDKit/**/Assets/*.png'
   end
   # ...
 end
