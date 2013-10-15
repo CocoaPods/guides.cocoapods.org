@@ -44,7 +44,7 @@ module Pod
         def command_groups
           {
             'Installation' => [
-              'pod init'
+              'pod init',
               'pod install',
               'pod update',
               'pod outdated',
