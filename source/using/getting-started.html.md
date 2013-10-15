@@ -3,11 +3,11 @@ title: Getting Started
 description: This is a guide that describes setting up CocoaPods and integrating with your first project.
 ---
 
-## What are CocoaPods
+## What is CocoaPods
 
 CocoaPods manages library dependencies for your Xcode projects.
 
-The dependencies for your projects are specified in a single text file. CocoaPods will resolve dependencies between libraries, fetch the resulting source code, then link it together in an Xcode workspace to build your project.
+The dependencies for your projects are specified in a single text file called Podspecs. CocoaPods will resolve dependencies between libraries, fetch the resulting source code, then link it together in an Xcode workspace to build your project.
 
 Ultimately the goal is to improve discoverability of, and engagement in, third party open-source libraries by creating a more centralized ecosystem.
 
@@ -24,11 +24,8 @@ CocoaPods is built with Ruby. For the best experience, we suggest installing a R
 
 ```shell
 $ gem install cocoapods
-```
 
-However, you can also run CocoaPods with the Ruby that is bundled with Mac OS X. To do so simply run:
-
-```shell
+# If you are using the bundled ruby from Apple, you need to prefix the command with sudo
 $ sudo gem install cocoapods
 ```
 
@@ -39,12 +36,9 @@ To update CocoaPods you simply update the gem. If you installed the gem using `s
 
 ```shell
 $ [sudo] gem update cocoapods
-```
 
-If you would like to try a pre-release version of CocoaPods you can run:
-
-```shell
-    $ [sudo] gem update cocoapods --pre
+# Or for a pre-release version
+$ [sudo] gem update cocoapods --pre
 ```
 
 [creating-a-workspace]: http://blog.carbonfive.com/2011/04/04/using-open-source-static-libraries-in-xcode-4/#creating_a_workspace
