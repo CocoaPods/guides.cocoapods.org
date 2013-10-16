@@ -50,7 +50,7 @@ end
 
 navigation_data = {
   'dsl' => %w[ podfile specification],
-  'gems' => %w[ CocoaPods CLAide ]
+  'gems' => %w[ CocoaPods CLAide cocoapods-downloader cocoapods-core Xcodeproj]
 }
 
 content_for :dsl_data do navigation_data * '<br>' end

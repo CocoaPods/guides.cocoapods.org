@@ -27,9 +27,9 @@ To work with your collection of private pods, we suggest creating your own Spec 
 ```shell
 $ pod repo add NAME SOURCE_URL
 ```
-*Note: If you plan on creating pods locally, you should have push access to SOURCE_URL*
+<aside>Note: If you plan on creating pods locally, you should have push access to SOURCE_URL</aside>
 
-To check if your installation is successful and ready to go:
+> To check if your installation is successful and ready to go:
 
 ```shell
 $ cd ~/.cocoapods/NAME
@@ -37,7 +37,8 @@ $ pod repo lint .
 ```
 
 ###3. Add your Podspec to your repo
-Make sure you've tagged and versioned your source, then run:
+
+> Make sure you've tagged and versioned your source, then run:
 
 ```shell
 $ pod push NAME SPEC_NAME.podspec
@@ -50,4 +51,4 @@ Your private pod is ready to be used in a Podfile.
 
 ## How to remove a Private Repo
 
-As a private repo is just a private 
+As a private repo is just a folder in your `~/.cocoapods/` folder. You can run `rm -rf ~/.cocoapods/[repo_name]`. Or you can send us a PR for to make [this easier](https://github.com/CocoaPods/CocoaPods/issues/1484).
