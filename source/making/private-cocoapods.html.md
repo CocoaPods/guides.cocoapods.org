@@ -1,6 +1,7 @@
 ---
 title: Private Pods
 description: How to setup private pods, a private specs repo, etc.
+order: 2
 ---
 
 CocoaPods is a great tool not only for adding open source code to your project, but also for sharing components across projects. You can use a private Spec Repo to do this.
@@ -12,7 +13,7 @@ To work with your collection of private pods, we suggest creating your own Spec 
 
 **You do not need to fork the CococaPods/Specs Master repo.** Make sure that everyone on your team has access to this repo, but it does not need to be public.
 
-The structure of your repo should mirror this:
+> The structure of your repo should mirror this:
 
 ```
 .

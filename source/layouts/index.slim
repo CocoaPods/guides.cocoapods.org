@@ -9,3 +9,7 @@ ruby:
       .half
         h3 == link_to page_title(resource), "/#{resource.destination_path}"
         p == resource.data.description
+      
+      - if children.index(resource) % 2 == 1
+        div.clearfix.visible-xs
+    

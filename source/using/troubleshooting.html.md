@@ -1,16 +1,16 @@
 ---
 title: Troubleshooting
 description: The solutions to common problems
+order: 3
 ---
-### Troubleshooting
 
-- The gem might not be able to compile, to solve this you might need to [symlink
-  GCC](http://www.relaxdiego.com/2012/02/using-gcc-when-xcode-43-is-installed.html).
+### Installing CocoaPods
 
-- If you used an pre release version of Xcode you might need to update the
-  command line tools.
+* The gem might not be able to compile, to solve this you might need to [symlink GCC](http://www.relaxdiego.com/2012/02/using-gcc-when-xcode-43-is-installed.html).
+* If you used an pre release version of Xcode you might need to update the command line tools.
+* CocoaPods is not compatible with MacRuby.
 
-- CocoaPods is not compatible with MacRuby.
+### Using the CocoaPods Project
 
 1. If something doesn’t seem to work, first of all ensure that you are not completely overriding any options set from the `Pods.xcconfig` file in your project’s build settings. To add values to options from your project’s build settings, prepend the value list with `$(inherited)`.
 
@@ -31,9 +31,29 @@ description: The solutions to common problems
    * If that doesn't work, verify that the source for the spec you are trying to include has been pulled from github. Do this by looking in &lt;Project Dir>/Pods/&lt;Name of spec you are trying to include>. If it is empty (it should not be), verify that the ~/.cocoapods/master/&lt;spec>/&lt;spec>.podspec has the correct git hub url in it.
    * If still doesn't work, check your XCode build locations settings. Go to Preferences -> Locations -> Derived Data -> Advanced and set build location to "Relative to Workspace".
 
-![Xcode build location settings](https://img.skitch.com/20120426-chmda3m5suhcfrhjge6brjhesk.png)
+<center> ![Xcode build location settings](https://img.skitch.com/20120426-chmda3m5suhcfrhjge6brjhesk.png) </center>
 
 * If you tried to submit app to App Store, and found that "Product" > "Archive" produce nothing in "Organizer":
     * In Xcode "Build Settings", find "Skip Install". Set the value for "Release" to "NO" on your application target. Build again and it should work. 
 
 _Different Xcode versions can have various problems. Ask for help and tell us what version you're using._
+
+### I didn't find the solution to my problem!
+
+We have multiple avenues for support, here they are in the order we prefer.
+
+* [Stack Overflow](http://stackoverflow.com/search?q=CocoaPods), get yourself some internet points. This keeps the pressure off the CocoaPods dev team and gives us time to work on the project and not support. One of the advantages of using Stack Overflow is that the answer is then easily accessible for others.
+
+* [CocoaPods Mailing List](http://groups.google.com/group/cocoapods), the mailing list is mainly used for announcements of related projects and for support.
+
+* If your question is regarding a library (to be) distributed through CocoaPods, refer to the [spec repo](https://github.com/CocoaPods/Specs).
+
+### I think this is a bug with CocoaPods
+
+In this case we want to get it on a Github issues tracker, we use this to keep track of the development work we have to do.
+
+* **Search tickets before you file a new one.** Add to existing tickets if you have new information about the issue.
+* **Only file tickets about the CocoaPods tool itself.** This includes [CocoaPods](https://github.com/CocoaPods/CocoaPods/issues),
+  [CocoaPods/Core](https://github.com/CocoaPods/Core/issues), and [Xcodeproj](https://github.com/CocoaPods/Xcodeproj/issues).
+  
+* **Keep tickets short but sweet.** Make sure you include all the context needed to solve the issue. Don't overdo it. Great tickets allow us to focus on solving problems instead of discussing them.

@@ -1,9 +1,8 @@
 ---
 title: How to Contribute
 description: CocoaPods is fully open-sourced, so it depends on community contributions to get better. If you're looking to start working on CocoaPods, this is the place to start.
+order: 1
 ---
-
-# Contributing Code
 
 ##The Development Workflow
 
@@ -38,7 +37,7 @@ Before submitting your pull request, please do the following:
 
 CocoaPods favors small methods and many classes as convention. It is encouraged that methods are as small as possible, both for code reuse, and for ease of reading.
 
-Take [`install!`](https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/installer.rb#L85) from the `Installer` class of the CocoaPods gem:
+> Take [`install!`](https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/installer.rb#L85) from the `Installer` class of the [CocoaPods gem](https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/installer.rb):
 
 ```ruby
 def install!
@@ -58,7 +57,9 @@ All methods should be documented and grouped as explained in the documentation s
 
 CocoaPods has an extensive test suite. No code is accepted to `master` where the tests do not pass. All test files can be found in the `spec` folder.
 
-The tests for CocoaPods are written in Bacon and separated into Unit, Integration, and Functional test. To run the full test suite:
+The tests for CocoaPods are written in Bacon and separated into Unit, Integration, and Functional test. 
+
+> To run the full test suite:
 
 ```shell
 $ bundle exec rake
@@ -67,7 +68,9 @@ $ bundle exec rake
 $ bundle exec rake spec:functional
 ```
 
-Occasionally, the fixtures used for functional tests need to be rebuilt. This is especially true when changes are made to the file structure of the Pods directory. To update these fixtures, run:
+Occasionally, the fixtures used for functional tests need to be rebuilt. This is especially true when changes are made to the file structure of the Pods directory. 
+
+> To update these fixtures:
 
 ```shell
 $ bundle exec rake spec:rebuild_integration_fixtures

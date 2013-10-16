@@ -1,17 +1,18 @@
 ---
 title: Making a CocoaPod
 description: Instructions for creating and maintaining a CocoaPod
+order: 0
 ---
 
 Creating your own CocoaPod is fairly straight forward. If you already have a separate component, you're most of the way there. This guide is an overview to the entire process, with the other guides in this section serving as more of a deep-dive for more advanced users.
 
 ## The Pod Files
 
-There are only a few differences between a CocoaPod and a generic open source control. The most important ones, aside from the actual source, are the `.podspec` and `LICENSE`. No CocoaPod Spec is accepted into the master repo without a License. For information on what license to choose, we suggest reading [this article on CodingHorror](http://www.codinghorror.com/blog/2007/04/pick-a-license-any-license.html) or [tl;dr Legal](http://www.tldrlegal.com/).
+There are only a few differences between a CocoaPod and a generic open source control. The most important ones, aside from the actual source, are the `.podspec` and `LICENSE`. We do not accept libraries into the public master repo without a code license. For information on what license to choose, we suggest reading [this article on CodingHorror](http://www.codinghorror.com/blog/2007/04/pick-a-license-any-license.html) or [tl;dr Legal](http://www.tldrlegal.com/).
 
 We recommend letting CocoaPods do the hard work here. Running `pod lib create [pod name]` will set you up with a well thought out library structure allowing you to easily include your files and get started quickly. In addition the template offers some terminal commands to automate a lot of the release / updating.
 
-The initial folder structure looks like this:
+> The initial folder structure looks like this:
 
 ```
 .
@@ -26,7 +27,7 @@ The initial folder structure looks like this:
 └── NAME.podspec
 ```
 
-The suggested Project/Podfile:
+> The suggested Project/Podfile:
 
 ```ruby
  platform :ios
@@ -35,26 +36,30 @@ The suggested Project/Podfile:
  podspec :path => "../NAME.podspec"
 ```
 
-The `podspec` is a shortcut to require all the dependencies specified in `NAME.podspec`.
+<aside>The `podspec` is a shortcut to require all the dependencies specified in `NAME.podspec`.</aside>
 
 ### Development
 
-You can work on the library from its folder on your system. Alternatively you can work from an application project using the `:path` option:
+You can work on the library from its folder on your system. 
+
+> Alternatively you can work from an application project using the `:path` option:
 
 ```ruby
 pod 'Name', :path => '~/code/Pods/NAME.podspec'
 ```
 
-You can also lint the pod against the files of its directory:
+> You can also lint the pod against the files of its directory, this won't test the downloading aspec of linting.
 
 ```shell
 $ cd ~/code/Pods/NAME
-$ pod spec lint --local
+$ pod lib lint
 ```
 
 ### Release
 
-If you used `pod lib create` to generate your project you can run `rake release` in the Pod's root folder. The release workflow is similar to the following.
+If you used `pod lib create` to generate your project you can run `rake release` in the Pod's root folder. 
+
+> The release workflow is similar to the following.
 
 ```shell
 $ cd ~/code/Pods/NAME
@@ -111,13 +116,15 @@ If you want to create a git backed repository you can use the `$ pod repo add` c
 
 ### Disambiguation
 
-If during the installation process is resolved a Pod whose required version is present in more than one repository, the alphabetical order of the names is used to disambiguate. -->
+If during the installation process is resolved a Pod whose required version is present in more than one repository, the alphabetical order of the names is used to disambiguate.
 
 **TODO:**
 
 - How do I podify an existing project?
 - How do I test the new Pod
 - Local Pods?
+
+ -->
 
 ## Library Versioning
 
@@ -131,8 +138,7 @@ However, arbitrary revisions as version is not a good idea for a library manager
 pod 'CocoaLumberjack'
 ```
 
-* 
-  Some time into the future, the dev wants to update the dependencies, and to do so runs the install command again, which will now install the version of the lib which is the latest version _at that time_.
+* Some time into the future, the dev wants to update the dependencies, and to do so runs the install command again, which will now install the version of the lib which is the latest version _at that time_.
 
 * At some point the dev is finished on the client work (or a newer version of the lib changes the API and the changes aren’t needed) so the dev adds a version requirement to the dependency. For instance, consider that the author of the lib follows the semver guidelines, you can somewhat trust that between ‘1.0.7’ and ‘1.1.0’ **no** API changes will be made, but only bug fixes. So instead of requiring a specific version, the dev can specify that _any_ ‘1.0.x’ is allowed as long as it’s higher than ‘1.0.7’:
 
@@ -140,7 +146,7 @@ pod 'CocoaLumberjack'
 pod 'CocoaLumberjack', '~> 1.0.7'
 ```
 
-The point is that developers can easily keep track of newer versions of dependencies, by simply running `pod install` again, which they might otherwise do less if they had to change everything manually. CocoaPods uses a less stringent form of Semantice versioning in that it will not force you to use X.Y.Z, you can use X.Y versions.
+The point is that developers can easily keep track of newer versions of dependencies, by simply running `pod install` again, which they might otherwise do less if they had to change everything manually. CocoaPods uses a less stringent form of Semantic versioning in that it will not force you to use `X.Y.Z`, you can use `X.Y` versions.
 
 ### CocoaPods Versioning Specifics
 
@@ -155,10 +161,12 @@ Right now the best place to get information on documenting your Pods in anticipa
 
 ## Where can I ask questions?
 
-[Mailing List](http://groups.google.com/group/cocoapods) | Announcements and support. Feel free to ask any kind of question.
-[StackOverflow](http://stackoverflow.com/questions/tagged/cocoapods) | Support. Usually the fastest place to get a quick response to a question. 
+We have multiple avenues for support, here they are in the order we prefer.
 
+* [Stack Overflow](http://stackoverflow.com/search?q=CocoaPods), get yourself some internet points. This keeps the pressure off the CocoaPods dev team and gives us time to work on the project and not support. One of the advantages of using Stack Overflow is that the answer is then easily accessible for others.
 
-## My library depends on a podspec that is not in the Specs repository
+* [CocoaPods Mailing List](http://groups.google.com/group/cocoapods), the mailing list is mainly used for announcements of related projects and for support.
 
-**TODO**
+<!-- ## My library depends on a podspec that is not in the Specs repository
+
+**TODO** -->

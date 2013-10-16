@@ -1,8 +1,8 @@
 ---
 title: Release Process
 description: This describes the CocoaPods release process
+order: 3
 ---
-# Release Process
 
 We should strive for a fast release cycle, following [‘semantic versioning’](http://semver.org). The only difference being that since we are not yet passed version 1.0.0, we don’t increase the major version when an API change is introduced.
 
@@ -13,13 +13,9 @@ We should strive for a fast release cycle, following [‘semantic versioning’]
 
 ### Where the work should occur
 
-**‘master’ branch**
+**‘master’ branch** - This branch is where all work for the next release should be merged. These should be either fixes, small features, or signed-off big features.
 
-This branch is where all work for the next release should be merged. These should be either fixes, small features, or signed-off big features.
-
-**‘feature’ branches**
-
-For a ‘not so small feature’ a separate branch should be created, named after the feature. This branch should branch-off from the ‘master’ branch, to which it eventually will be merged.
+**‘feature’ branches** -  For a ‘not so small feature’ a separate branch should be created, named after the feature. This branch should branch-off from the ‘master’ branch, to which it eventually will be merged.
 
 ##Pull Requests
 
@@ -29,4 +25,4 @@ Pull requests will be looked over by at least one core team member. Comments wil
 
 Tests must pass in order for your pull request to be merged. For new functionality, tests must be added. For the removal of functionality, or significant refactoring, tests can be removed. Make sure to note this in your commit messages, or in the pull request description.
 
-Lastly, make sure to update the `CHANGELOG` with an appropriate message.
+Lastly, make sure to update the `CHANGELOG` with an appropriate message and to give yourself some credit.

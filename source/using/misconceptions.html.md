@@ -1,6 +1,7 @@
 ---
 title: Common Misconceptions
 description: Is CocoaPods ready for prime-time? Why not just use git submodules? etc. etc.
+order: 4
 ---
 
 1. ### “Why not just use git submodules?”

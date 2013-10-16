@@ -1,6 +1,7 @@
 ---
 title: Specs and the Specs Repo
 description: Learn about creating Podspec's and the Spec repo.
+order: 1
 ---
 
 A Podspec, or Spec, describes a version of a Pod library. One Pod, over the course of time, will have many Specs. It includes details about where the source should be fetched from, what files to use, the build settings to apply, and other general metadata such as its name, version, and description. You can create one by hand, or run `pod spec create` to generate a stub. Podspecs are ruby files.
@@ -99,7 +100,7 @@ CocoaPods installations.
 
 When you are preparing a podspec for submission, you should make sure to do the following:
 
-1. Run `pod spec lint`. This is used to validate specifications. <br/>Your podspec should pass without any errors or warnings.
+1. Run `pod spec lint`. This is used to validate specifications. Your podspec should pass without any errors or warnings.
 2. Update your library to use [Semantic Versioning](http://semver.org/), if it already does not follow that scheme. See our [wiki on cross dependency resolution](https://github.com/CocoaPods/Specs/wiki/Cross-dependencies-resolution-example) for more details. Essentially it makes everyone's life easier.
 3. Make sure any updates you submit do not break previous installations. Adding 1.1.3 to your library's folder in the Specs Repo should not remove any previous versions.
 

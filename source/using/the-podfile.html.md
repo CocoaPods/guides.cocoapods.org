@@ -1,6 +1,7 @@
 ---
 title: The Podfile
 description: Learn all about the Podfile, which is used to declare dependencies for your project
+order: 2
 ---
 
 ## What is a Podfile?

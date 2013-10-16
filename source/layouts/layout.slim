@@ -57,11 +57,12 @@ html
           .col-lg-3.col-sm-3.col-xs-6.footer-index
             h3 == link_to page_title(resource), "/#{resource.destination_path}"
             ul
-              - for child in resource.children
+              - for child in resource.children.sort_by{|child| child.data.order}
                 li == link_to page_title(child), "/#{child.destination_path}"
                 
-                
-
+          - if footer_resources.index(resource) % 2 == 1
+            div.clearfix.visible-xs
+            
         .col-lg-3.col-sm-3.col-xs-6.footer-index
           h3  == "<a href='references.html'>Reference</a>"
           ul

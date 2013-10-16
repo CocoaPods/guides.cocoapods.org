@@ -1,50 +1,51 @@
 ---
 title: Using CocoaPods
 description: Integration instructions and best practices
+order: 1
 ---
 
-### Adding Pods to an Xcode project
+## Adding Pods to an Xcode project
 
 #### Before you begin
 
 1. Check the [Specs](http://github.com/CocoaPods/Specs) repository or [cocoapods.org](http://cocoapods.org) to make sure the libraries you would like to use are available.
-2. [Install CocoaPods on your computer][installing-cocoapods].
+2. [Install CocoaPods](/using/getting-started.html#toc_3) on your computer.
 
 ### Installation
 
-1. Create a [Podfile][podfile], and add your dependencies:
+* Create a [Podfile](/using/the-podfile.html), and add your dependencies:
 
 ```ruby
-pod 'AFNetworking', '~> 1.0'  
+pod 'AFNetworking', '~> 2.0'  
 pod 'ObjectiveSugar', '~> 0.5'
 ```
 
-2. Run `$ pod install` in your project directory.
-3. Open `App.xcworkspace` and build.
+* Run `$ pod install` in your project directory.
+* Open `App.xcworkspace` and build.
 
-####Creating a new Xcode project with CocoaPods
+###Creating a new Xcode project with CocoaPods
 
 To create a new project with CocoaPods, follow these simple steps:
 
-1. Create a new project in Xcode as you would normally.
-2. Open a terminal window, and `$ cd` into your project directory.
-3. Create a Podfile. This can be done by running `$ touch Podfile`.
-4. Open your Podfile. The first line should specify the platform and version supported.
+* Create a new project in Xcode as you would normally.
+* Open a terminal window, and `$ cd` into your project directory.
+* Create a Podfile. This can be done by running `$ touch Podfile`.
+* Open your Podfile. The first line should specify the platform and version supported.
 
 ```ruby
 platform :ios, '6.0'
 ````
 
-5. Add a CocoaPod by specifying `pod '$PODNAME'` on a single line
+* Add a CocoaPod by specifying `pod '$PODNAME'` on a single line
 
 ```ruby
 pod 'ObjectiveSugar'
 ```
-6. Save your Podfile.
-7. Run `$ pod install`
-8. Open the `MyApp.xcworkspace` that was created. This should be the file you use everyday to create your app.
+* Save your Podfile.
+* Run `$ pod install`
+* Open the `MyApp.xcworkspace` that was created. This should be the file you use everyday to create your app.
 
-####Integration with an existing workspace
+### Integration with an existing workspace
 
 Integrating CocoaPods with an existing workspace requires one extra line in your Podfile. Simply specify the `.xcworkspace` like so:
 
@@ -56,13 +57,13 @@ xcodeproj `MyProject`
 
 Whether or not you check in your Pods folder is up to you, as workflows vary from project to project. Here are some pros and cons to think about when setting up your project:
 
-##### Pros
+### Pros
 
 - Smaller repo under source control
 - CocoaPods given the availability of the sources is capable to recreate (almost) the same exact installation. 
 - No conflicts to handle in the dependencies of the management system of source control.
 
-##### Cons
+### Cons
 
 - The sources of the Pods can go down.
 - External sources are not recreated perfectly (at the moment the commit is not used) and in some cases will never be (zip files)
@@ -87,21 +88,21 @@ This file should always be kept under version control.
 
 ## What is happening behind the scenes?
 
-In Xcode, it:
+In Xcode, with references directly from the [ruby source](https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/installer/user_project_integrator.rb#L61-L65), it:
 
-1. [Creates or updates a workspace.][creating-a-workspace]
-2. [Adds your project to the workspace if needed.][adding-projects-to-workspace]
-3. [Adds the CocoaPods static library project to the workspace if needed.][adding-projects-to-workspace]
-4. [Adds libPods.a to: targets => build phases => link with libraries.][adding-build-target-dependencies]
-5. Adds the CocoaPods Xcode configuration file to your app’s project.
-6. [Changes your app's target configurations to be based on CocoaPods's.][basing-target-configurations-on-xcconfig] (Expand the ‘To add a new build configuration…’ section of the linked page for a howto.)
-7. Adds a build phase to copy resources from any pods you installed to your app bundle. i.e. a ‘Script build phase’ after all other build phases with the following:
+1. Creates or updates a [workspace](https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/installer/user_project_integrator.rb#L82).
+2. [Adds your project to the workspace](https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/installer/user_project_integrator.rb#L88-L94) if needed.
+3. Adds the [CocoaPods static library project to the workspace](https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/installer/target_installer.rb#L40-L61) if needed.
+4. Adds libPods.a to: [targets => build phases => link with libraries](https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/installer.rb#L385-L393).
+5. Adds the CocoaPods [Xcode configuration file](https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/installer/user_project_integrator/target_integrator.rb#L112) to your app’s project.
+6. Changes your app's [target configurations](https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/generator/xcconfig/aggregate_xcconfig.rb#L46-L73) to be based on CocoaPods's.
+7. Adds a build phase to [copy resources from any pods](https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/installer/user_project_integrator/target_integrator.rb#L145) you installed to your app bundle. i.e. a ‘Script build phase’ after all other build phases with the following:
   * Shell: `/bin/sh`
   * Script: `${SRCROOT}/Pods/PodsResources.sh`
 
-Note that steps 3 onwards are skipped if the CocoaPods static library is already in your project.
-
-This is largely based on [http://blog.carbonfive.com/2011/04/04/using-open-source-static-libraries-in-xcode-4](http://blog.carbonfive.com/2011/04/04/using-open-source-static-libraries-in-xcode-4).  
+<!-- (Expand the ‘To add a new build configuration…’ section of the linked page for a howto.) -->
+  
+Note that steps 3 onwards are skipped if the CocoaPods static library is already in your project. This is largely based on [http://blog.carbonfive.com/2011/04/04/using-open-source-static-libraries-in-xcode-4](http://blog.carbonfive.com/2011/04/04/using-open-source-static-libraries-in-xcode-4).  
 
 ## Pods and Submodules
 
@@ -109,14 +110,14 @@ CocoaPods and git submodules attempt to solve very similar problems. Both strive
 
 ### Switching from submodules to CocoaPods
 
-Before you decide to make the full switch to CocoaPods, make sure that the libraries you are currently using are all available. It is also a good idea to record the versions of the libraries you are currently using, so that you can setup CocoaPods to use the same ones.
+Before you decide to make the full switch to CocoaPods, make sure that the libraries you are currently using are all available. It is also a good idea to record the versions of the libraries you are currently using, so that you can setup CocoaPods to use the same ones. It's also a good idea to do this incrementally, going dependency by dependency instead of one big move.
 
 1. Install CocoaPods, if you have not done so already
-2. Remove the `.gimodules` file
-3. Remove the repositories from `.git/config`
-4. Create your Podfile
+2. Create your [Podfile](/using/the-podfile.html)
+3. [Remove the submobule reference](http://davidwalsh.name/git-remove-submodule)
+4. Add a reference to the removed library in your Podfile
 5. Run `pod install`
 
-### Switching from CocoaPods to submodules
+<!-- ### Switching from CocoaPods to submodules
 
-**TODO**
+**TODO** -->
