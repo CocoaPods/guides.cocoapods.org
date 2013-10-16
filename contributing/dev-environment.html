@@ -1,8 +1,8 @@
 <!DOCTYPE html><html><head><meta charset="utf-8" /><meta content="documenation cocoapods objective-c packcage manager" name="keywords" /><title>CocoaPods Guides - Setting up for Development</title><link href="../favicon.ico" rel="icon" type="image/ico" /><link href="../stylesheets/app.css" media="screen" rel="stylesheet" type="text/css" /><script src="../javascripts/application.js" type="text/javascript"></script></head><body><nav class="navbar navbar-static-top" role="navigation"><section class="container"><div class="navbar-header"><button class="navbar-toggle" data-target=".navbar-header-collapse" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="/"></a></div><div class="collapse navbar-collapse navbar-header-collapse"><ul class="nav navbar-nav navbar-right"><li><a href="http://cocoapods.org">About</a></li><li><a href="http://docs.cocoapods.org">API Docs</a></li><li class="active"><a href="http://docs.cocoapods.org/guides/index.html">Guides</a></li><li><a href="/">Blog</a></li></ul></div></section></nav><section class="container row"><header class="col-md-10 col-md-offset-1 header"><h1>Setting up for Development</h1></header></section><div class="guide" id="content-wrapper"><section class="row container"><article class="content col-md-10 col-md-offset-1"><h1 id="toc_0">Setting up for Development</h1>
 
-<ol>
-<li>Create a clone of the CocoaPods source.</li>
-</ol>
+<blockquote>
+<p>Create a clone of the CocoaPods source.</p>
+</blockquote>
     </article>
     </section>
   
@@ -18,23 +18,25 @@
     <section class="container row">
     <article class="content col-md-10 col-md-offset-1">
 
-<p>See <a href="Release-process">release process</a>.</p>
+<p>Update git submodules and install the dependencies. CocoaPods supports Ruby 1.8.7 and newer. Instructions for RVM are provided, but feel free to use whichever tool you prefer.</p>
 
-<ol>
-<li>Update git submodules and install the dependencies. CocoaPods supports Ruby 1.8.7 and newer. Instructions for RVM are provided, but feel free to use whichever tool you prefer.</li>
-</ol>
-
+<blockquote>
 <p>If you are using RVM:</p>
+</blockquote>
     </article>
     </section>
   
     <div class="code-break">
     <section class="row container">
     <article class="content col-md-11 col-md-offset-1"><pre
- class="highlight shell"><span class="gp">$ </span><span class="nb">echo</span> <span class="s2">&quot;rvm use --create ruby-1.9.3-p194@cocoapods&quot;</span> &gt; .rvmrc
+ class="highlight shell"><span class="c"># Create a blank environment for CocoaPods.</span>
+<span class="gp">$ </span><span class="nb">echo</span> <span class="s2">&quot;rvm use --create ruby-1.9.3-p194@cocoapods&quot;</span> &gt; .rvmrc
 <span class="gp">$ </span><span class="nb">echo</span> <span class="s2">&quot;.rvmrc&quot;</span> &gt;&gt; .git/info/exclude
-<span class="gp">$ </span><span class="nb">cd</span> .. <span class="o">&amp;&amp;</span> <span class="nb">cd</span> -   <span class="c"># to reload rvm config. follow rvm instructions</span>
-<span class="gp">$ </span>rake bootstrap <span class="c"># init/update git submodules and install dependencies using this task</span>
+
+<span class="c"># Reload the rvm config by jumping in and out of your dev folder</span>
+<span class="c"># then init &amp; update git submodules and install ruby dependencies using a rake task.</span>
+<span class="gp">$ </span><span class="nb">cd</span> .. ; <span class="nb">cd</span> -   
+<span class="gp">$ </span>rake bootstrap 
 </pre>    </article>
     </section>
     </div>
@@ -42,15 +44,20 @@
     <section class="container row">
     <article class="content col-md-10 col-md-offset-1">
 
+<blockquote>
 <p>Otherwise:</p>
+</blockquote>
     </article>
     </section>
   
     <div class="code-break">
     <section class="row container">
     <article class="content col-md-11 col-md-offset-1"><pre
- class="highlight shell"><span class="gp">$ </span>sudo gem install bundler <span class="c"># if it&#39;s not already installed</span>
-<span class="gp">$ </span>rake bootstrap <span class="c"># init/update git submodules and install dependencies using this task</span>
+ class="highlight shell"><span class="c"># If bundler is not already installed.</span>
+<span class="gp">$ </span>sudo gem install bundler 
+
+<span class="c"># Init &amp; update git submodules and install ruby dependencies using a rake task.</span>
+<span class="gp">$ </span>rake bootstrap
 </pre>    </article>
     </section>
     </div>
@@ -58,9 +65,9 @@
     <section class="container row">
     <article class="content col-md-10 col-md-offset-1">
 
-<ol>
-<li>Verify that all specs pass and all examples build. (See rake -T for other tasks.)</li>
-</ol>
+<blockquote>
+<p>Verify that all specs pass and all examples build. (See rake -T for other tasks.)</p>
+</blockquote>
     </article>
     </section>
   
@@ -76,9 +83,9 @@
     <section class="container row">
     <article class="content col-md-10 col-md-offset-1">
 
-<ol>
-<li>Start kicker, which will run the specs relevant to the files you update.</li>
-</ol>
+<blockquote>
+<p>Start kicker, which will run the specs relevant to the files you update.</p>
+</blockquote>
     </article>
     </section>
   
@@ -93,13 +100,15 @@
     <section class="container row">
     <article class="content col-md-10 col-md-offset-1">
 
-<ol>
-<li>Create your patch, verify all specs still pass and examples still build, and create a pull request.</li>
-</ol>
+<p>Create your patch, verify all specs still pass and examples still build, and create a <a href="https://github.com/CocoaPods/CocoaPods/compare">pull request</a>.</p>
 
 <h2 id="toc_1">Using latest pod version</h2>
 
-<p>If you would like to run latest pod command in terminal for you project. You could run it with full path, i.e.</p>
+<p>If you would like to run latest pod command in terminal for you project. </p>
+
+<blockquote>
+<p>You could run it with full path, i.e.</p>
+</blockquote>
     </article>
     </section>
   
@@ -114,7 +123,9 @@
     <section class="container row">
     <article class="content col-md-10 col-md-offset-1">
 
-<p>For convenience you could add the next alias to you .zshrc or .bashrc or somewhere else:</p>
+<blockquote>
+<p>For convenience you could add the next alias to you .zshrc or .bashrc or similar:</p>
+</blockquote>
     </article>
     </section>
   
@@ -131,9 +142,9 @@
 
 <p>Other advanced aliases:</p>
 
-<ul>
-<li>If you are using RVM and have specific gemset for cocoapods (i.e. with the same name) than you could use next alias:</li>
-</ul>
+<blockquote>
+<p>If you are using RVM and have specific gemset for cocoapods (i.e. with the same name) than you could use next alias:</p>
+</blockquote>
     </article>
     </section>
   
@@ -148,9 +159,9 @@
     <section class="container row">
     <article class="content col-md-10 col-md-offset-1">
 
-<ul>
-<li>If you want to autoload <a href="https://github.com/pry/pry">Pry</a> and the <a href="https://github.com/michaeldv/awesome_print">Awesome Print</a> gems set the <code>COCOA_PODS_ENV</code> environment variable to <code>development</code>. This can be done with an alias like:</li>
-</ul>
+<blockquote>
+<p>If you want to autoload <a href="https://github.com/pry/pry">Pry</a> and the <a href="https://github.com/michaeldv/awesome_print">Awesome Print</a> gems set the <code>COCOA_PODS_ENV</code> environment variable to <code>development</code>. This can be done with an alias like:</p>
+</blockquote>
     </article>
     </section>
   
@@ -164,6 +175,4 @@
   
     <section class="container row">
     <article class="content col-md-10 col-md-offset-1">
-
-<p><em>Note: The no-color option is not supported in this environment.</em>  </p>
 </article></section></div><div class="container" id="footer"><div class="row"><ul class="breadcrumb"><li><a href="../index.html">CocoaPods Guides</a><span class="divider"></span></li><li><a href="index.html">Contributing</a><span class="divider"></span></li><li class="active">Setting up for Development</li></ul><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="../using/index.html">Using CocoaPods</a></h3><ul><li><a href="../using/getting-started.html">Getting Started</a></li><li><a href="../using/using-cocoapods.html">Using CocoaPods</a></li><li><a href="../using/the-podfile.html">The Podfile</a></li><li><a href="../using/troubleshooting.html">Troubleshooting</a></li><li><a href="../using/misconceptions.html">Common Misconceptions</a></li></ul></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="../making/index.html">Making CocoaPods</a></h3><ul><li><a href="../making/making-a-cocoapod.html">Making a CocoaPod</a></li><li><a href="../making/specs-and-specs-repo.html">Specs and the Specs Repo</a></li><li><a href="../making/private-cocoapods.html">Private Pods</a></li></ul></div><div class="clearfix visible-xs"></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="index.html">Contributing</a></h3><ul><li><a href="components.html">Core Components</a></li><li><a href="contribute-to-cocoapods.html">How to Contribute</a></li><li><a href="dev-environment.html">Setting up for Development</a></li><li><a href="release-process.html">Release Process</a></li></ul></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href='references.html'>Reference</a></h3><ul><li><a href='/podfile.html'>Podfile Syntax</a></li><li><a href='/specification.html'>Podspec Syntax</a></li><li><a href='/commands.html'>Commandline Reference</a></li></ul></div></div></div><footer class="page-footer"><section class="container row"><article class="col-md-8 col-md-offset-2"><p>CocoaPods is a project from <a href="https://twitter.com/alloy">Eloy Durán</a>, <a href="https://twitter.com/fabiopelosin">Fabio Pelosin</a>, <a href="https://orta.github.io">Orta Therox</a>,  and The CocoaPods Dev Team with contributions from <a href="https://github.com/CocoaPods/Specs/graphs/contributors">many, many others</a>.</p><p>Lovingly sponsored by <a href="http://www.fngtps.com">Fingertips</a>, <a href = "http://www.hipbyte.com">Hipbyte</a>, <a href="http://artsy.net">Artsy</a> and <a href="https://www.sauspiel.de">Sauspiel</a>.</p></article><article class="col-md-4 minor col-md-offset-2"><p>Website and API by <a href="http://twitter.com/hanke">Florian Hanke</a>, The CocoaPods Dev Team and <a href="http://twitter.com/manfreds">Manfred Stienstra</a>.</p></article><article class="col-md-4 minor"><p>Design by <a href="http://andy-myers.co.uk">Andy Myers</a>, <a href="http://orta.github.io">Orta Therox</a>, <a href="http://twitter.com/hanke">Florian Hanke</a> and <a href="http://twitter.com/maxsteenbergen">Max Steenbergen</a></p></article><article class="col-md-8 col-md-offset-2 minor"><p><a href="http://cocoapods.org/support">Support</a>, <a href="https://github.com/CocoaPods/CocoaPods">Github Repo</a>, <a href="https://github.com/CocoaPods/Specs">Podspecs Repo</a>, <a href="https://guides.cocoapods.org">Podspec Documentation</a>, <span class="visible-lg-span"><a href="https://api.cocoapods.org">Developer Reference</a>, </span><a href="http://groups.google.com/group/cocoapods">Mailing List</a> &amp; <a href="http://twitter.com/CocoaPods">@CocoaPods</a>. </p></article></section></footer></body></html>
