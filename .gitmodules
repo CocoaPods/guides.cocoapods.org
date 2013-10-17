@@ -9,7 +9,7 @@
 	url = git@github.com:CocoaPods/CocoaPods.git
 [submodule "gems/Core"]
 	path = gems/Core
-	url = git@github.com:CocoaPods/CocoaPods.git
+	url = git@github.com:CocoaPods/Core.git
 [submodule "gems/Xcodeproj"]
 	path = gems/Xcodeproj
 	url = git@github.com:CocoaPods/Xcodeproj.git

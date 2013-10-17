@@ -46,9 +46,10 @@ namespace :generate do
     puts "\e[1;33mBuilding DSL Data\e[0m"
 
     dsls.each do |name|
-    dsl_file = (ROOT + "gems/Core/lib/cocoapods-core/#{name.downcase}/dsl.rb").to_s
+      dsl_file = (ROOT + "gems/Core/lib/cocoapods-core/#{name.downcase}/dsl.rb").to_s
       generator = Pod::Doc::Generators::DSL.new(dsl_file)
       generator.name = name
+      p dsl_file
       generator.output_file = "docs_data/#{name.downcase}.yaml"
       generator.save
     end
