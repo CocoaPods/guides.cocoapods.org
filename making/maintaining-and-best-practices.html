@@ -1,0 +1,39 @@
+<!DOCTYPE html><html><head><meta charset="utf-8" /><meta content="documenation cocoapods objective-c packcage manager" name="keywords" /><title>CocoaPods Guides - Maintaining &amp; Best Practices</title><link href="../favicon.ico" rel="icon" type="image/ico" /><link href="../stylesheets/app.css" media="screen" rel="stylesheet" type="text/css" /><script src="../javascripts/application.js" type="text/javascript"></script></head><body><nav class="navbar navbar-static-top" role="navigation"><section class="container"><div class="navbar-header"><button class="navbar-toggle" data-target=".navbar-header-collapse" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="/"></a></div><div class="collapse navbar-collapse navbar-header-collapse"><ul class="nav navbar-nav navbar-right"><li><a href="http://cocoapods.org">About</a></li><li><a href="http://docs.cocoapods.org">API Docs</a></li><li class="active"><a href="http://docs.cocoapods.org/guides/index.html">Guides</a></li><li><a href="/">Blog</a></li></ul></div></section></nav><section class="container row"><header class="col-md-10 col-md-offset-1 header"><h1>Maintaining & Best Practices</h1></header></section><div class="guide" id="content-wrapper"><section class="row container"><article class="content col-md-10 col-md-offset-1"><!-- TODO: Using the pod lib create command -->
+
+<p>This guide gathers best practices for Cocoa library authors. The goal is to make integration of libraries easier for everyone, using CocoaPods or not. Ultimately, <a href="https://github.com/CocoaPods/CocoaPods/issues/1024">CocoaPods will leverage</a> existing Xcode projects to build libraries, so this will require some rigor from library authors.</p>
+
+<h2 id="toc_0">What should be the structure of a library project?</h2>
+
+<ul>
+<li><p>Xcode workspace</p>
+
+<ul>
+<li>Library project</li>
+<li>Source Code</li>
+<li>Headers (public/project/private, Copy Files vs Copy Headers)</li>
+<li>Resources</li>
+<li>Frameworks (indicative)</li>
+<li><code>DYLIB_COMPATIBILITY_VERSION</code> (semver)</li>
+<li>App project</li>
+<li><code>HEADER_SEARCH_PATHS</code> + <code>#import &lt;Lib/Lib.h&gt;</code></li>
+</ul></li>
+<li><p>Separate Demo app project</p></li>
+<li><p>Implicit Dependencies</p></li>
+<li><p>Multiple (dependent) libraries</p></li>
+<li><p>License</p></li>
+<li><p>Difference between <code>#import</code> in source files and header files</p></li>
+</ul>
+
+<h3 id="toc_1">Resource bundle</h3>
+
+<ul>
+<li><a href="http://www.cocoanetics.com/2012/05/resource-bundles/">http://www.cocoanetics.com/2012/05/resource-bundles/</a></li>
+<li><a href="http://www.galloway.me.uk/tutorials/ios-library-with-resources/">http://www.galloway.me.uk/tutorials/ios-library-with-resources/</a></li>
+</ul>
+
+<h3 id="toc_2">Subspecs</h3>
+
+<ul>
+<li>Several static library targets</li>
+</ul>
+</article></section></div><div class="container" id="footer"><div class="row"><ul class="breadcrumb"><li><a href="../index.html">CocoaPods Guides</a><span class="divider"></span></li><li><a href="index.html">Making CocoaPods</a><span class="divider"></span></li><li class="active">Maintaining &amp; Best Practices</li></ul><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="../using/index.html">Using CocoaPods</a></h3><ul><li><a href="../using/getting-started.html">Getting Started</a></li><li><a href="../using/using-cocoapods.html">Using CocoaPods</a></li><li><a href="../using/the-podfile.html">The Podfile</a></li><li><a href="../using/troubleshooting.html">Troubleshooting</a></li><li><a href="../using/misconceptions.html">Common Misconceptions</a></li></ul></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="index.html">Making CocoaPods</a></h3><ul><li><a href="making-a-cocoapod.html">Making a CocoaPod</a></li><li><a href="specs-and-specs-repo.html">Specs and the Specs Repo</a></li><li><a href="private-cocoapods.html">Private Pods</a></li><li><a href="maintaining-and-best-practices.html">Maintaining & Best Practices</a></li></ul></div><div class="clearfix visible-xs"></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="../contributing/index.html">Contributing</a></h3><ul><li><a href="../contributing/components.html">Core Components</a></li><li><a href="../contributing/contribute-to-cocoapods.html">How to Contribute</a></li><li><a href="../contributing/dev-environment.html">Setting up for Development</a></li><li><a href="../contributing/release-process.html">Release Process</a></li></ul></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href='/reference.html'>Reference</a></h3><ul><li><a href='/podfile.html'>Podfile Syntax</a></li><li><a href='/specification.html'>Podspec Syntax</a></li><li><a href='/commands.html'>Commandline Reference</a></li></ul></div></div></div><footer class="page-footer"><section class="container row"><article class="col-md-8 col-md-offset-2"><p>CocoaPods is a project from <a href="https://twitter.com/alloy">Eloy Durán</a>, <a href="https://twitter.com/fabiopelosin">Fabio Pelosin</a>, <a href="https://orta.github.io">Orta Therox</a>,  and The CocoaPods Dev Team with contributions from <a href="https://github.com/CocoaPods/Specs/graphs/contributors">many, many others</a>.</p><p>Lovingly sponsored by <a href="http://www.fngtps.com">Fingertips</a>, <a href = "http://www.hipbyte.com">Hipbyte</a>, <a href="http://artsy.net">Artsy</a> and <a href="https://www.sauspiel.de">Sauspiel</a>.</p></article><article class="col-md-4 minor col-md-offset-2"><p>Website and API by <a href="http://twitter.com/hanke">Florian Hanke</a>, The CocoaPods Dev Team and <a href="http://twitter.com/manfreds">Manfred Stienstra</a>.</p></article><article class="col-md-4 minor"><p>Design by <a href="http://andy-myers.co.uk">Andy Myers</a>, <a href="http://orta.github.io">Orta Therox</a>, <a href="http://twitter.com/hanke">Florian Hanke</a> and <a href="http://twitter.com/maxsteenbergen">Max Steenbergen</a></p></article><article class="col-md-8 col-md-offset-2 minor"><p><a href="http://cocoapods.org/support">Support</a>, <a href="https://github.com/CocoaPods/CocoaPods">Github Repo</a>, <a href="https://github.com/CocoaPods/Specs">Podspecs Repo</a>, <a href="https://guides.cocoapods.org">Podspec Documentation</a>, <span class="visible-lg-span"><a href="https://api.cocoapods.org">Developer Reference</a>, </span><a href="http://groups.google.com/group/cocoapods">Mailing List</a> &amp; <a href="http://twitter.com/CocoaPods">@CocoaPods</a>. </p></article></section></footer></body></html>

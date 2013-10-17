@@ -1,0 +1,149 @@
+<!DOCTYPE html><html><head><meta charset="utf-8" /><meta content="documenation cocoapods objective-c packcage manager" name="keywords" /><title>CocoaPods Guides - Version</title><link href="../../favicon.ico" rel="icon" type="image/ico" /><link href="../../stylesheets/app.css" media="screen" rel="stylesheet" type="text/css" /><script src="../../javascripts/application.js" type="text/javascript"></script></head><body><nav class="navbar navbar-static-top" role="navigation"><section class="container"><div class="navbar-header"><button class="navbar-toggle" data-target=".navbar-header-collapse" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="/"></a></div><div class="collapse navbar-collapse navbar-header-collapse"><ul class="nav navbar-nav navbar-right"><li><a href="http://cocoapods.org">About</a></li><li><a href="http://docs.cocoapods.org">API Docs</a></li><li class="active"><a href="http://docs.cocoapods.org/guides/index.html">Guides</a></li><li><a href="/">Blog</a></li></ul></div></section></nav><section class="container row"><header class="col-md-10 col-md-offset-1 header"><h1>Version</h1></header></section><div class="guide" id="content-wrapper"><section class="row container"><article class="content col-md-10 col-md-offset-1"><div id="tab-controller"><div id="methods-container"><div id="header"><h1><a class="select-tab" href="#tab_root_version">Version</a></h1></div></div></div><div id="content-container"><div class="tab-content" id="tab-content"><div class="tab-pane" id="tab_root_version"><h2>Version</h2><p>The Version class processes string versions into comparable
+values. A version string should normally be a series of numbers
+separated by periods. Each part (digits separated by periods) is
+considered its own number, and these are used for sorting. So for
+instance, 3.10 sorts higher than 3.2 because ten is greater than
+two.</p>
+
+<p>If any part contains letters (currently only a-z are supported) then
+that version is considered prerelease. Versions with a prerelease
+part in the Nth part sort less than versions with N-1
+parts. Prerelease parts are sorted alphabetically using the normal
+Ruby string sorting rules. If a prerelease part contains both
+letters and numbers, it will be broken into multiple parts to
+provide expected sort behavior (1.0.a10 becomes 1.0.a.10, and is
+greater than 1.0.a9).</p>
+
+<p>Prereleases sort between real releases (newest to oldest):</p>
+
+<ol>
+<li>1.0</li>
+<li>1.0.b1</li>
+<li>1.0.a.2</li>
+<li>0.9</li>
+</ol>
+
+<p>== How Software Changes</p>
+
+<p>Users expect to be able to specify a version constraint that gives them
+some reasonable expectation that new versions of a library will work with
+their software if the version constraint is true, and not work with their
+software if the version constraint is false.  In other words, the perfect
+system will accept all compatible versions of the library and reject all
+incompatible versions.</p>
+
+<p>Libraries change in 3 ways (well, more than 3, but stay focused here!).</p>
+
+<ol>
+<li>The change may be an implementation detail only and have no effect on
+the client software.</li>
+<li>The change may add new features, but do so in a way that client software
+written to an earlier version is still compatible.</li>
+<li>The change may change the public interface of the library in such a way
+that old software is no longer compatible.</li>
+</ol>
+
+<p>Some examples are appropriate at this point.  Suppose I have a Stack class
+that supports a <tt>push</tt> and a <tt>pop</tt> method.</p>
+
+<p>=== Examples of Category 1 changes:</p>
+
+<ul>
+<li>Switch from an array based implementation to a linked-list based
+implementation.</li>
+<li>Provide an automatic (and transparent) backing store for large stacks.</li>
+</ul>
+
+<p>=== Examples of Category 2 changes might be:</p>
+
+<ul>
+<li>Add a <tt>depth</tt> method to return the current depth of the stack.</li>
+<li>Add a <tt>top</tt> method that returns the current top of stack (without
+changing the stack).</li>
+<li>Change <tt>push</tt> so that it returns the item pushed (previously it
+had no usable return value).</li>
+</ul>
+
+<p>=== Examples of Category 3 changes might be:</p>
+
+<ul>
+<li>Changes <tt>pop</tt> so that it no longer returns a value (you must use
+<tt>top</tt> to get the top of the stack).</li>
+<li>Rename the methods to <tt>push_item</tt> and <tt>pop_item</tt>.</li>
+</ul>
+
+<p>== RubyGems Rational Versioning</p>
+
+<ul>
+<li><p>Versions shall be represented by three non-negative integers, separated
+by periods (e.g. 3.1.4).  The first integers is the &quot;major&quot; version
+number, the second integer is the &quot;minor&quot; version number, and the third
+integer is the &quot;build&quot; number.</p></li>
+<li><p>A category 1 change (implementation detail) will increment the build
+number.</p></li>
+<li><p>A category 2 change (backwards compatible) will increment the minor
+version number and reset the build number.</p></li>
+<li><p>A category 3 change (incompatible) will increment the major build number
+and reset the minor and build numbers.</p></li>
+<li><p>Any &quot;public&quot; release of a gem should have a different version.  Normally
+that means incrementing the build number.  This means a developer can
+generate builds all day long for himself, but as soon as he/she makes a
+public release, the version must be updated.</p></li>
+</ul>
+
+<p>=== Examples</p>
+
+<p>Let&#39;s work through a project lifecycle using our Stack example from above.</p>
+
+<p>Version 0.0.1:: The initial Stack class is release.
+Version 0.0.2:: Switched to a linked=list implementation because it is
+                cooler.
+Version 0.1.0:: Added a <tt>depth</tt> method.
+Version 1.0.0:: Added <tt>top</tt> and made <tt>pop</tt> return nil
+                (<tt>pop</tt> used to return the  old top item).
+Version 1.1.0:: <tt>push</tt> now returns the value pushed (it used it
+                return nil).
+Version 1.1.1:: Fixed a bug in the linked list implementation.
+Version 1.1.2:: Fixed a bug introduced in the last fix.</p>
+
+<p>Client A needs a stack with basic push/pop capability.  He writes to the
+original interface (no <tt>top</tt>), so his version constraint looks
+like:</p>
+
+<p>gem &#39;stack&#39;, &#39;~&gt; 0.0&#39;</p>
+
+<p>Essentially, any version is OK with Client A.  An incompatible change to
+the library will cause him grief, but he is willing to take the chance (we
+call Client A optimistic).</p>
+
+<p>Client B is just like Client A except for two things: (1) He uses the
+<tt>depth</tt> method and (2) he is worried about future
+incompatibilities, so he writes his version constraint like this:</p>
+
+<p>gem &#39;stack&#39;, &#39;~&gt; 0.1&#39;</p>
+
+<p>The <tt>depth</tt> method was introduced in version 0.1.0, so that version
+or anything later is fine, as long as the version stays below version 1.0
+where incompatibilities are introduced.  We call Client B pessimistic
+because he is worried about incompatible future changes (it is OK to be
+pessimistic!).</p>
+
+<p>== Preventing Version Catastrophe:</p>
+
+<p>From: <a href="http://blog.zenspider.com/2008/10/rubygems-howto-preventing-cata.html">http://blog.zenspider.com/2008/10/rubygems-howto-preventing-cata.html</a></p>
+
+<p>Let&#39;s say you&#39;re depending on the fnord gem version 2.y.z. If you
+specify your dependency as &quot;&gt;= 2.0.0&quot; then, you&#39;re good, right? What
+happens if fnord 3.0 comes out and it isn&#39;t backwards compatible
+with 2.y.z? Your stuff will break as a result of using &quot;&gt;=&quot;. The
+better route is to specify your dependency with a &quot;spermy&quot; version
+specifier. They&#39;re a tad confusing, so here is how the dependency
+specifiers work:</p>
+
+<p>Specification From  ... To (exclusive)
+  &quot;&gt;= 3.0&quot;      3.0   ... &infin;
+  &quot;~&gt; 3.0&quot;      3.0   ... 4.0
+  &quot;~&gt; 3.0.0&quot;    3.0.0 ... 3.1
+  &quot;~&gt; 3.5&quot;      3.5   ... 4.0
+  &quot;~&gt; 3.5.0&quot;    3.5.0 ... 3.6</p>
+<h3>Inherits from:</h3><p><code>Object</code></p></div></div></div></article></section></div><div class="container" id="footer"><div class="row"><ul class="breadcrumb"><li><a href="../../index.html">CocoaPods Guides</a><span class="divider"></span></li><li><a href="../index.html">CocoaPods-core</a><span class="divider"></span></li><li class="active">Version</li></ul><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="../../using/index.html">Using CocoaPods</a></h3><ul><li><a href="../../using/getting-started.html">Getting Started</a></li><li><a href="../../using/using-cocoapods.html">Using CocoaPods</a></li><li><a href="../../using/the-podfile.html">The Podfile</a></li><li><a href="../../using/troubleshooting.html">Troubleshooting</a></li><li><a href="../../using/misconceptions.html">Common Misconceptions</a></li></ul></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="../../making/index.html">Making CocoaPods</a></h3><ul><li><a href="../../making/making-a-cocoapod.html">Making a CocoaPod</a></li><li><a href="../../making/specs-and-specs-repo.html">Specs and the Specs Repo</a></li><li><a href="../../making/private-cocoapods.html">Private Pods</a></li><li><a href="../../making/maintaining-and-best-practices.html">Maintaining & Best Practices</a></li></ul></div><div class="clearfix visible-xs"></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="../../contributing/index.html">Contributing</a></h3><ul><li><a href="../../contributing/components.html">Core Components</a></li><li><a href="../../contributing/contribute-to-cocoapods.html">How to Contribute</a></li><li><a href="../../contributing/dev-environment.html">Setting up for Development</a></li><li><a href="../../contributing/release-process.html">Release Process</a></li></ul></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href='/reference.html'>Reference</a></h3><ul><li><a href='/podfile.html'>Podfile Syntax</a></li><li><a href='/specification.html'>Podspec Syntax</a></li><li><a href='/commands.html'>Commandline Reference</a></li></ul></div></div></div><footer class="page-footer"><section class="container row"><article class="col-md-8 col-md-offset-2"><p>CocoaPods is a project from <a href="https://twitter.com/alloy">Eloy Durán</a>, <a href="https://twitter.com/fabiopelosin">Fabio Pelosin</a>, <a href="https://orta.github.io">Orta Therox</a>,  and The CocoaPods Dev Team with contributions from <a href="https://github.com/CocoaPods/Specs/graphs/contributors">many, many others</a>.</p><p>Lovingly sponsored by <a href="http://www.fngtps.com">Fingertips</a>, <a href = "http://www.hipbyte.com">Hipbyte</a>, <a href="http://artsy.net">Artsy</a> and <a href="https://www.sauspiel.de">Sauspiel</a>.</p></article><article class="col-md-4 minor col-md-offset-2"><p>Website and API by <a href="http://twitter.com/hanke">Florian Hanke</a>, The CocoaPods Dev Team and <a href="http://twitter.com/manfreds">Manfred Stienstra</a>.</p></article><article class="col-md-4 minor"><p>Design by <a href="http://andy-myers.co.uk">Andy Myers</a>, <a href="http://orta.github.io">Orta Therox</a>, <a href="http://twitter.com/hanke">Florian Hanke</a> and <a href="http://twitter.com/maxsteenbergen">Max Steenbergen</a></p></article><article class="col-md-8 col-md-offset-2 minor"><p><a href="http://cocoapods.org/support">Support</a>, <a href="https://github.com/CocoaPods/CocoaPods">Github Repo</a>, <a href="https://github.com/CocoaPods/Specs">Podspecs Repo</a>, <a href="https://guides.cocoapods.org">Podspec Documentation</a>, <span class="visible-lg-span"><a href="https://api.cocoapods.org">Developer Reference</a>, </span><a href="http://groups.google.com/group/cocoapods">Mailing List</a> &amp; <a href="http://twitter.com/CocoaPods">@CocoaPods</a>. </p></article></section></footer></body></html>
