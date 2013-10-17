@@ -14,15 +14,16 @@ $(document).ready(function () {
         $("li.active").removeClass("active")
         $(e.target.parentNode).addClass("active")
         
-        // Only one open tab
+        // Only one open tab collection
         $("ul ul").css("display", "none")
-
+        
         if($target.hasClass("group") ){
-          $target.siblings("ul").css("display", "table")
+          // Top level node clicked
+          $target.siblings("ul").css("display", "block")
           
         } else {
           var group_li = e.target.parentNode.parentNode.parentNode;
-          $(group_li).children("ul").css("display", "table")
+          $(group_li).children("ul").css("display", "block")
         }
         
         var hash = $(e.target).attr("href");

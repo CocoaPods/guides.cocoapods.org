@@ -28,7 +28,7 @@ def gems
 end
 
 def dsls
-  %w[ Specification Podfile ]
+  [ { :name => "Podfile", :title => "podfile" }, {:name => "Specification", :title => "podspec"} ]
 end
 
 #-----------------------------------------------------------------------------#
@@ -45,12 +45,15 @@ namespace :generate do
   task :dsl do
     puts "\e[1;33mBuilding DSL Data\e[0m"
 
-    dsls.each do |name|
+    dsls.each do |dsl|
+      name = dsl[:name]
+      title = dsl[:title]
+      
       dsl_file = (ROOT + "gems/Core/lib/cocoapods-core/#{name.downcase}/dsl.rb").to_s
       generator = Pod::Doc::Generators::DSL.new(dsl_file)
       generator.name = name
-      p dsl_file
-      generator.output_file = "docs_data/#{name.downcase}.yaml"
+
+      generator.output_file = "docs_data/#{title.downcase}.yaml"
       generator.save
     end
   end

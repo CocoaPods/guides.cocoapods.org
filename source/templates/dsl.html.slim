@@ -25,7 +25,7 @@ ruby:
   div.bs-sidebar
     ul.nav.bs-sidenav
       li class="active"
-        a.select-tab data-toggle="tab" id="#{parameterize name_space.name}" href="#tab_#{parameterize name_space.name}" = name_space.name
+        a.select-tab data-toggle="tab" href="#tab_#{parameterize name_space.name}" = name_space.name
 
       == method_list(name_space, { :columns_sort_order_by_page => group_sort_order })
 
