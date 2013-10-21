@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta charset="utf-8" /><meta content="documenation cocoapods objective-c packcage manager" name="keywords" /><title>CocoaPods Guides - Podfile Syntax Reference</title><link href="../favicon.ico" rel="icon" type="image/ico" /><link href="../stylesheets/app.css" media="screen" rel="stylesheet" type="text/css" /><script src="../javascripts/application.js" type="text/javascript"></script></head><body><nav class="navbar navbar-static-top" role="navigation"><section class="container"><div class="navbar-header"><button class="navbar-toggle" data-target=".navbar-header-collapse" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="/"></a></div><div class="collapse navbar-collapse navbar-header-collapse"><ul class="nav navbar-nav navbar-right"><li><a href="http://cocoapods.org">About</a></li><li><a href="http://docs.cocoapods.org">API Docs</a></li><li class="active"><a href="http://docs.cocoapods.org/guides/index.html">Guides</a></li><li><a href="/">Blog</a></li></ul></div></section></nav><section class="container row"><header class="col-md-10 col-md-offset-1 header"><h1>Podfile Syntax Reference</h1></header></section><div class="guide" id="content-wrapper"><section class="row container"><article class="content col-md-10 col-md-offset-1"></article><article class="content"><div class="col-md-3 col-lg-3" id="tab-controller"><div class="bs-sidebar"><ul class="nav bs-sidenav"><li class="active"><a class="select-tab" data-toggle="tab" href="#tab_podfile">Podfile</a></li><li><a class='select-tab group' data-toggle='tab' href=#tab_group_dependencies>Dependencies</a><ul class='nav' style='display:none;'><li><a class='select-tab' data-toggle='tab' href=#tab_pod>pod</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_podspec>podspec</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_target>target</a></li></ul></li><li><a class='select-tab group' data-toggle='tab' href=#tab_group_target_configuration>Target configuration</a><ul class='nav' style='display:none;'><li><a class='select-tab' data-toggle='tab' href=#tab_platform>platform</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_xcodeproj>xcodeproj</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_link_with>link_with</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_inhibit_all_warnings_bang>inhibit_all_warnings!</a></li></ul></li><li><a class='select-tab group' data-toggle='tab' href=#tab_group_workspace>Workspace</a><ul class='nav' style='display:none;'><li><a class='select-tab' data-toggle='tab' href=#tab_workspace>workspace</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_generate_bridge_support_bang>generate_bridge_support!</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_set_arc_compatibility_flag_bang>set_arc_compatibility_flag!</a></li></ul></li><li><a class='select-tab group' data-toggle='tab' href=#tab_group_hooks>Hooks</a><ul class='nav' style='display:none;'><li><a class='select-tab' data-toggle='tab' href=#tab_pre_install>pre_install</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_post_install>post_install</a></li></ul></div></div><div class="col-md-9 col-lg-9" id="content-container"><div class="tab-content" id="tab-content"><div class="tab-pane active" id="tab_podfile"><h2>Podfile</h2><p>The Podfile is a specification that describes the dependencies of the
+<!DOCTYPE html><html><head><meta charset="utf-8" /><meta content="documenation cocoapods objective-c packcage manager" name="keywords" /><title>CocoaPods Guides - Podfile Syntax Reference</title><link href="../favicon.ico" rel="icon" type="image/ico" /><link href="../stylesheets/app.css" media="screen" rel="stylesheet" type="text/css" /><script src="../javascripts/application.js" type="text/javascript"></script></head><body><nav class="navbar navbar-static-top" role="navigation"><section class="container"><div class="navbar-header"><button class="navbar-toggle" data-target=".navbar-header-collapse" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="/"></a></div><div class="collapse navbar-collapse navbar-header-collapse"><ul class="nav navbar-nav navbar-right"><li><a href="http://cocoapods.org">About</a></li><li><a href="http://docs.cocoapods.org">API Docs</a></li><li class="active"><a href="http://docs.cocoapods.org/guides/index.html">Guides</a></li><li><a href="/">Blog</a></li></ul></div></section></nav><section class="container row"><header class="header content col-md-10 col-md-offset-1"><h1>Podfile Syntax Reference</h1></header></section><div class="guide" id="content-wrapper"><section class="row container"><article class="content col-md-10 col-md-offset-1"><div class="col-md-3 col-lg-3" id="tab-controller"><div class="bs-sidebar"><ul class="nav bs-sidenav"><li class="active"><a class="select-tab" data-toggle="tab" href="#tab_podfile">Podfile</a></li><li><a class='select-tab group' data-toggle='tab' href=#tab_group_dependencies>Dependencies</a><ul class='nav' style='display:none;'><li><a class='select-tab' data-toggle='tab' href=#tab_pod>pod</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_podspec>podspec</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_target>target</a></li></ul></li><li><a class='select-tab group' data-toggle='tab' href=#tab_group_target_configuration>Target configuration</a><ul class='nav' style='display:none;'><li><a class='select-tab' data-toggle='tab' href=#tab_platform>platform</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_xcodeproj>xcodeproj</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_link_with>link_with</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_inhibit_all_warnings_bang>inhibit_all_warnings!</a></li></ul></li><li><a class='select-tab group' data-toggle='tab' href=#tab_group_workspace>Workspace</a><ul class='nav' style='display:none;'><li><a class='select-tab' data-toggle='tab' href=#tab_workspace>workspace</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_generate_bridge_support_bang>generate_bridge_support!</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_set_arc_compatibility_flag_bang>set_arc_compatibility_flag!</a></li></ul></li><li><a class='select-tab group' data-toggle='tab' href=#tab_group_hooks>Hooks</a><ul class='nav' style='display:none;'><li><a class='select-tab' data-toggle='tab' href=#tab_pre_install>pre_install</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_post_install>post_install</a></li></ul></div></div><div class="col-md-9 col-lg-9" id="content-container"><div class="tab-content" id="tab-content"><div class="tab-pane active" id="tab_podfile"><h2>Podfile</h2><p>The Podfile is a specification that describes the dependencies of the
 targets of one or more Xcode projects. The Podfile always creates an
 implicit target, named <code>default</code>, which links to the first target of the
 user project.</p>
@@ -23,8 +23,19 @@ user project.</p>
     <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#<code></span><span class="n">target</span><span class="o">.</span><span class="n">name</span><span class="si"></code></span><span class="s2">&quot;</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</pre></div></div><div class="tab-pane" id="tab_group_dependencies"><h2>Dependencies</h2><p>The Podfile specifies the dependencies of each user target.</p>
-</div><div class="tab-pane" id="tab_group_target_configuration"><h2>Target configuration</h2><p>This group list the options to configure a target.</p>
+</pre></div></div><div class="tab-pane" id="tab_group_dependencies"><h2>Dependencies</h2><p>The Podfile specifies the dependencies of each user target. </p>
+
+<ul>
+<li> <code>pod</code> is the way to declare a specific dependency.</li>
+<li><code>podspec</code> provides an easy creation API for local podspecs.</li>
+<li><code>target</code> allows you to scope your dependencies to specific 
+targets in your Xcode projects.</li>
+</ul>
+</div><div class="tab-pane" id="tab_group_target_configuration"><h2>Target configuration</h2><p>These settings are used to control the  CocoaPods generated project.</p>
+
+<p>This starts out simply with stating what <code>platform</code> you are working
+on. <code>xcodeproj</code> allows you to state specifically which project to 
+link with.</p>
 </div><div class="tab-pane" id="tab_group_workspace"><h2>Workspace</h2><p>This group list the options to configure workspace and to set global
 settings.</p>
 </div><div class="tab-pane" id="tab_group_hooks"><h2>Hooks</h2><p>The Podfile provides hooks that will be called during the
@@ -122,9 +133,9 @@ repo. Consider, for instance, a podspec available via HTTP:</p>
 </pre></div></div><div class="tab-pane" id="tab_podspec"><h2>podspec</h2><p>Use the dependencies of a Pod defined in the given podspec file. If no
 arguments are passed the first podspec in the root of the Podfile is
 used. It is intended to be used by the project of a library.</p>
-<hr /><h3>Examples:</h3><p></p><div class="highlight"><pre><span class="n">podspec</span>
-</pre></div><p></p><div class="highlight"><pre><span class="n">podspec</span> <span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s1">&#39;QuickDialog&#39;</span>
-</pre></div><p></p><div class="highlight"><pre><span class="n">podspec</span> <span class="ss">:path</span> <span class="o">=&gt;</span> <span class="s1">&#39;/Documents/PrettyKit/PrettyKit.podspec&#39;</span>
+<h3>Examples:</h3><bloquote></bloquote><div class="highlight"><pre><span class="n">podspec</span>
+</pre></div><bloquote></bloquote><div class="highlight"><pre><span class="n">podspec</span> <span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s1">&#39;QuickDialog&#39;</span>
+</pre></div><bloquote></bloquote><div class="highlight"><pre><span class="n">podspec</span> <span class="ss">:path</span> <span class="o">=&gt;</span> <span class="s1">&#39;/Documents/PrettyKit/PrettyKit.podspec&#39;</span>
 </pre></div></div><div class="tab-pane" id="tab_target"><h2>target</h2><p>Defines a new static library target and scopes dependencies defined from
 the given block. The target will by default include the dependencies
 defined outside of the block, unless the <code>:exclusive =&gt; true</code> option is
@@ -135,10 +146,10 @@ given.</p>
 <p>The Podfile creates a global target named <code>:default</code> which produces the
 <code>libPods.a</code> file. This target is linked with the first target of user
 project if not value is specified for the <code>link_with</code> attribute.</p>
-<hr /><h3>Examples:</h3><p>Defining a target</p><div class="highlight"><pre><span class="n">target</span> <span class="ss">:ZipApp</span> <span class="k">do</span>
+<h3>Examples:</h3><bloquote>Defining a target</bloquote><div class="highlight"><pre><span class="n">target</span> <span class="ss">:ZipApp</span> <span class="k">do</span>
   <span class="n">pod</span> <span class="s1">&#39;SSZipArchive&#39;</span>
 <span class="k">end</span>
-</pre></div><p>Defining an exclusive target</p><div class="highlight"><pre><span class="n">target</span> <span class="ss">:ZipApp</span> <span class="k">do</span>
+</pre></div><bloquote>Defining an exclusive target</bloquote><div class="highlight"><pre><span class="n">target</span> <span class="ss">:ZipApp</span> <span class="k">do</span>
   <span class="n">pod</span> <span class="s1">&#39;SSZipArchive&#39;</span>
   <span class="n">target</span> <span class="ss">:test</span><span class="p">,</span> <span class="ss">:exclusive</span> <span class="o">=&gt;</span> <span class="kp">true</span> <span class="k">do</span>
     <span class="n">pod</span> <span class="s1">&#39;JSONKit&#39;</span>
@@ -146,16 +157,12 @@ project if not value is specified for the <code>link_with</code> attribute.</p>
 <span class="k">end</span>
 </pre></div></div><div class="tab-pane" id="tab_platform"><h2>platform</h2><p>Specifies the platform for which a static library should be build.</p>
 
-<hr>
-
 <p>CocoaPods provides a default deployment target if one is not specified.
 The current default values are <code>4.3</code> for iOS and <code>10.6</code> for OS X.</p>
 
-<hr>
-
 <p>If the deployment target requires it (iOS &lt; <code>4.3</code>), <code>armv6</code>
 architecture will be added to <code>ARCHS</code>.</p>
-<hr /><h3>Examples:</h3><p>Specifying the platform</p><div class="highlight"><pre><span class="n">platform</span> <span class="ss">:ios</span><span class="p">,</span> <span class="s2">&quot;4.0&quot;</span>
+<h3>Examples:</h3><bloquote>Specifying the platform</bloquote><div class="highlight"><pre><span class="n">platform</span> <span class="ss">:ios</span><span class="p">,</span> <span class="s2">&quot;4.0&quot;</span>
 <span class="n">platform</span> <span class="ss">:ios</span>
 </pre></div></div><div class="tab-pane" id="tab_xcodeproj"><h2>xcodeproj</h2><p>Specifies the Xcode project that contains the target that the Pods library
 should be linked with.</p>
@@ -172,7 +179,7 @@ custom build configurations should be modeled after the release or
 the debug presets. To do so you need to specify a hash where the name
 of each build configuration is associated to either <code>:release</code> or
 <code>:debug</code>.</p>
-<hr /><h3>Examples:</h3><p>Specifying the user project</p><div class="highlight"><pre><span class="c1"># Look for target to link with in an Xcode project called</span>
+<h3>Examples:</h3><bloquote>Specifying the user project</bloquote><div class="highlight"><pre><span class="c1"># Look for target to link with in an Xcode project called</span>
 <span class="c1"># `MyProject.xcodeproj`.</span>
 <span class="n">xcodeproj</span> <span class="sb">`MyProject`</span>
 
@@ -180,7 +187,7 @@ of each build configuration is associated to either <code>:release</code> or
   <span class="c1"># This Pods library links with a target in another project.</span>
   <span class="n">xcodeproj</span> <span class="sb">`TestProject`</span>
 <span class="k">end</span>
-</pre></div><p>Using custom build configurations</p><div class="highlight"><pre><span class="n">xcodeproj</span> <span class="sb">`TestProject`</span><span class="p">,</span> <span class="s1">&#39;Mac App Store&#39;</span> <span class="o">=&gt;</span> <span class="ss">:release</span><span class="p">,</span> <span class="s1">&#39;Test&#39;</span> <span class="o">=&gt;</span> <span class="ss">:debug</span>
+</pre></div><bloquote>Using custom build configurations</bloquote><div class="highlight"><pre><span class="n">xcodeproj</span> <span class="sb">`TestProject`</span><span class="p">,</span> <span class="s1">&#39;Mac App Store&#39;</span> <span class="o">=&gt;</span> <span class="ss">:release</span><span class="p">,</span> <span class="s1">&#39;Test&#39;</span> <span class="o">=&gt;</span> <span class="ss">:debug</span>
 </pre></div></div><div class="tab-pane" id="tab_link_with"><h2>link_with</h2><p>Specifies the target(s) in the user’s project that this Pods library
 should be linked in.</p>
 
@@ -189,8 +196,8 @@ should be linked in.</p>
 <p>If no explicit target is specified, then the Pods target will be linked
 with the first target in your project. So if you only have one target
 you do not need to specify the target to link with.</p>
-<hr /><h3>Examples:</h3><p>Link with a user project target</p><div class="highlight"><pre><span class="n">link_with</span> <span class="s1">&#39;MyApp&#39;</span>
-</pre></div><p>Link with multiple user project targets</p><div class="highlight"><pre><span class="n">link_with</span> <span class="s1">&#39;MyApp&#39;</span><span class="p">,</span> <span class="s1">&#39;MyOtherApp&#39;</span>
+<h3>Examples:</h3><bloquote>Link with a user project target</bloquote><div class="highlight"><pre><span class="n">link_with</span> <span class="s1">&#39;MyApp&#39;</span>
+</pre></div><bloquote>Link with multiple user project targets</bloquote><div class="highlight"><pre><span class="n">link_with</span> <span class="s1">&#39;MyApp&#39;</span><span class="p">,</span> <span class="s1">&#39;MyOtherApp&#39;</span>
 </pre></div></div><div class="tab-pane" id="tab_inhibit_all_warnings_bang"><h2>inhibit_all_warnings!</h2><p>Inhibits <strong>all</strong> the warnings from the CocoaPods libraries.</p>
 
 <hr>
@@ -207,7 +214,7 @@ following syntax:</p>
 <p>If no explicit Xcode workspace is specified and only <strong>one</strong> project
 exists in the same directory as the Podfile, then the name of that
 project is used as the workspace’s name.</p>
-<hr /><h3>Examples:</h3><p>Specifying a workspace</p><div class="highlight"><pre><span class="n">workspace</span> <span class="s1">&#39;MyWorkspace&#39;</span>
+<h3>Examples:</h3><bloquote>Specifying a workspace</bloquote><div class="highlight"><pre><span class="n">workspace</span> <span class="s1">&#39;MyWorkspace&#39;</span>
 </pre></div></div><div class="tab-pane" id="tab_generate_bridge_support_bang"><h2>generate_bridge_support!</h2><p>Specifies that a BridgeSupport metadata document should be generated
 from the headers of all installed Pods.</p>
 
@@ -234,7 +241,7 @@ been downloaded but before they are installed.</p>
 <p>It receives the
 <a href="http://docs.cocoapods.org/cocoapods/pod/hooks/installerrepresentation/"><code>Pod::Hooks::InstallerRepresentation</code></a>
 as its only argument.</p>
-<hr /><h3>Examples:</h3><p>Defining a pre install hook in a Podfile.</p><div class="highlight"><pre><span class="n">pre_install</span> <span class="k">do</span> <span class="o">|</span><span class="n">installer_representation</span><span class="o">|</span>
+<h3>Examples:</h3><bloquote>Defining a pre install hook in a Podfile.</bloquote><div class="highlight"><pre><span class="n">pre_install</span> <span class="k">do</span> <span class="o">|</span><span class="n">installer_representation</span><span class="o">|</span>
   <span class="c1"># Do something fancy!</span>
 <span class="k">end</span>
 </pre></div></div><div class="tab-pane" id="tab_post_install"><h2>post_install</h2><p>This hook allows you to make any last changes to the generated Xcode
@@ -244,7 +251,7 @@ to perform.</p>
 <p>It receives the
 <a href="http://docs.cocoapods.org/cocoapods/pod/hooks/installerrepresentation/"><code>Pod::Hooks::InstallerRepresentation</code></a>
 as its only argument.</p>
-<hr /><h3>Examples:</h3><p>Customizing the `OTHER_LDFLAGS` of all targets</p><div class="highlight"><pre><span class="n">post_install</span> <span class="k">do</span> <span class="o">|</span><span class="n">installer_representation</span><span class="o">|</span>
+<h3>Examples:</h3><bloquote>Customizing the `OTHER_LDFLAGS` of all targets</bloquote><div class="highlight"><pre><span class="n">post_install</span> <span class="k">do</span> <span class="o">|</span><span class="n">installer_representation</span><span class="o">|</span>
   <span class="n">installer_representation</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">targets</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">target</span><span class="o">|</span>
     <span class="n">target</span><span class="o">.</span><span class="n">build_configurations</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
       <span class="n">config</span><span class="o">.</span><span class="n">build_settings</span><span class="o">[</span><span class="s1">&#39;GCC_ENABLE_OBJC_GC&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="s1">&#39;supported&#39;</span>
