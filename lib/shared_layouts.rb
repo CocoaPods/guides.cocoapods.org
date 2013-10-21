@@ -6,7 +6,7 @@ require "middleman-core"
 require "middleman-core/core_extensions"
 
 # Essentially a way of getting partials from the shared folder
-# there may be a more native way of doing this
+# TODO:there may be a more native way of doing this in middleman using partials?
 
 module SharedLayouts
   class << self

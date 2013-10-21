@@ -1,16 +1,15 @@
 ruby:
   name_space  = deserialize(name)
 
-#tab-controller
-  #header
-    h1
-      a.select-tab href="#tab_#{parameterize name_space.name}" = name_space.name
+#tab-controller.col-md-3.col-lg-3
+  div.bs-sidebar
+    ul.nav.bs-sidenav
+      li class="active"
+        a.select-tab data-toggle="tab" href="#tab_#{parameterize name_space.name}" = name_space.name
 
-    .commands-list
-      / FIXME
       == method_list(name_space, { :show_empty_groups => true }).gsub('>pod ','>')
 
-#content-container
+#content-container.col-md-9.col-lg-9
   #tab-content.tab-content
 
     // Pod Command
@@ -22,7 +21,7 @@ ruby:
     - for group in name_space.groups
       div.tab-pane id="tab_group_#{parameterize group.name}"
         h2 = group.name
-        // TODO not sure where is better to store those descriptions (markdonw files)?
+        // TODO not sure where is better to store those descriptions (markdown files)?
         - case group.name
         - when 'Installation'
           p The commands listed in this group provide support for installing
@@ -42,7 +41,7 @@ ruby:
         - for command in group.meths
           p
             code
-              a href="#tab_#{parameterize command.name}" = command.name
+              a data-toggle="tab" href="#tab_#{parameterize command.name}" = command.name
 
 
     // Commands

@@ -16,9 +16,6 @@ ruby:
     ]
   }
   
-/ We want to use the those 12 columns, so close and reopen with that
-</article>
-<article class="content">
 
 
 #tab-controller.col-md-3.col-lg-3
@@ -56,21 +53,18 @@ ruby:
         == link_doc_string method.html_description
 
         - if method.respond_to?(:html_default_values) && method.html_default_values
-          hr
           h3 Defaults to:
           - for value in method.html_default_values
             == value
 
         - if method.examples
-          hr
           h3 Examples:
           - for example in method.examples
             - if example.description
-              p = example.description
+              bloquote = example.description
             == example.html
 
         - if method.respond_to?(:html_keys) && method.html_keys
-          hr
           h3 Supported Keys:
           - for key in method.html_keys
             == key

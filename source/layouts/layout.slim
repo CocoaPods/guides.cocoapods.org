@@ -16,6 +16,11 @@ ruby:
     resource.data.footer
   end.sort_by { |resource| resource.data.footer_order }
   
+  if current_resource.data.fullwidth
+    width_classes = "content" 
+  else 
+    width_classes = "content col-md-10 col-md-offset-1"
+  end
 
 doctype html
 html
@@ -34,12 +39,12 @@ html
     == shared_layout("header")
     
     section.container.row
-      header.col-md-10.col-md-offset-1.header
+      header.header class=width_classes
         h1 == page_title
 
     #content-wrapper.guide
       section.row.container
-        article.content.col-md-10.col-md-offset-1
+        article class=width_classes
           == yield
 
     #footer.container

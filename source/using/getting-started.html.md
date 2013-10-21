@@ -21,7 +21,8 @@ Ultimately the goal is to improve discoverability of, and engagement in, third p
 
 ### Installation
 
-CocoaPods is built with Ruby. For the best experience, we suggest installing a Ruby Version manager, like [RVM](http://rvm.io), and running Ruby 1.9.3 or newer. 
+CocoaPods is built with Ruby. For the best experience, we suggest installing a Ruby Version manager, like [RVM](http://rvm.io), and running Ruby 1.9.3 or newer. Depending on your connection this might take a while. Unless an error is reported let it run its course.
+
 
 > When using RVM, or a similar tool, to install CocoaPods run
 

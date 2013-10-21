@@ -63,7 +63,7 @@ navigation_data['dsl'].each do |dsl|
   name = dsl[:name]
   title = dsl[:title]
   proxy "syntax/#{name}.html", "templates/dsl.html", {
-    :locals => { :name => name, :page_title => title },
+    :locals => { :name => name, :page_title => title, :fullwidth => true},
     :ignore => true
   }
 end
@@ -76,30 +76,30 @@ proxy "terminal/commands.html", "templates/commands.html", {
 data.store("site", "guides")
 # 
 gems = []
-# navigation_data['gems'].each do |name|
-#   proxy "#{parameterize name}/index.html", "templates/gem.html", {
-#     :locals => { :name => name },
-#     :ignore => true
-#   }
-# 
-#   proxy "#{parameterize name}/name_spaces.html", "templates/gem_namespaces_list.html", {
-#     :locals => { :name => name },
-#     :ignore => true
-#   }
-# 
-#   proxy "#{parameterize name}/gem_todo_list.html", "templates/gem_todo_list.html", {
-#     :locals => { :name => name },
-#     :ignore => true
-#   }
-# 
-#   # FIXME
-#   gem = deserialize(name)
-#   gems << gem
-#   gem.name_spaces.each do |name_space|
-#     proxy "#{link_for_code_object(name_space)}/index.html", "templates/gem_namespace.html", {
-#       :locals => { :name_space => name_space, :code_object => name_space },
-#       :ignore => true
-#     }
-#   end
-# end
+navigation_data['gems'].each do |name|
+  proxy "#{parameterize name}/index.html", "templates/gem.html", {
+    :locals => { :name => name, :fullwidth => true },
+    :ignore => true
+  }
+
+  proxy "#{parameterize name}/name_spaces.html", "templates/gem_namespaces_list.html", {
+    :locals => { :name => name, :fullwidth => true},
+    :ignore => true
+  }
+
+  proxy "#{parameterize name}/gem_todo_list.html", "templates/gem_todo_list.html", {
+    :locals => { :name => name },
+    :ignore => true
+  }
+
+  # FIXME
+  gem = deserialize(name)
+  gems << gem
+  gem.name_spaces.each do |name_space|
+    proxy "#{link_for_code_object(name_space)}/index.html", "templates/gem_namespace.html", {
+      :locals => { :name_space => name_space, :code_object => name_space },
+      :ignore => true
+    }
+  end
+end
 data.store('gems', gems)
