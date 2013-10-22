@@ -3,9 +3,11 @@
 source 'https://rubygems.org'
 
 gem "middleman", "~>3.0.13"
+
 gem 'middleman-rouge'
 gem "middleman-sprockets"
 gem 'middleman-gh-pages'
+gem "middleman-livereload", "~> 3.1.0"
 
 gem 'redcarpet', github: 'vmg/redcarpet'
 gem 'rake'
