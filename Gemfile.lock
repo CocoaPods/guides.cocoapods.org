@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/vmg/redcarpet.git
+  revision: 233e466bb2d93a91f4a4494a14679efbdf05a433
+  specs:
+    redcarpet (3.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -106,7 +112,6 @@ GEM
       rack (>= 1.0)
     rake (10.1.0)
     rb-fsevent (0.9.3)
-    redcarpet (3.0.0)
     rouge (1.0.0)
     sass (3.2.12)
     sinatra (1.3.6)
@@ -156,7 +161,7 @@ DEPENDENCIES
   middleman-sprockets
   pygments.rb
   rake
-  redcarpet
+  redcarpet!
   sass
   slim (< 2.0)
   xcodeproj

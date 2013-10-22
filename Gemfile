@@ -7,7 +7,7 @@ gem 'middleman-rouge'
 gem "middleman-sprockets"
 gem 'middleman-gh-pages'
 
-gem 'redcarpet'
+gem 'redcarpet', github: 'vmg/redcarpet'
 gem 'rake'
 gem 'sass'
 
