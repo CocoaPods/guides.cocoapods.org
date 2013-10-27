@@ -60,9 +60,10 @@ html
 
     #footer.container
       .row
-        a href="https://github.com/CocoaPods/guides.cocoapods.org/blob/master/source/#{current_page.path}#{File.extname(current_page.source_file)}" Improve this page on GitHub 
-      
+
         - if parents.length > 0
+          a id="pull-request" data-container="body" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="CocoaPods is an open source project. Help us improve these guides by sending a pull request. ❤" data-original-title="" title="" href="https://github.com/CocoaPods/guides.cocoapods.org/blob/master/source/#{current_page.path}#{File.extname(current_page.source_file)}" 
+      
           ul.breadcrumb
             - for resource in parents
               li

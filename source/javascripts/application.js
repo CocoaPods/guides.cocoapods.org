@@ -6,6 +6,9 @@
 
 
 $(document).ready(function () {
+    $('#pull-request').popover()
+  
+  
     $("a[data-toggle='tab']").on("shown.bs.tab", function (e) {
         
         $target = $(e.target)
