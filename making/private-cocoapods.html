@@ -2,7 +2,7 @@
 
 <p>There are a few steps to getting a private pods setup for your project; creating a private repository for them, letting CocoaPods know where to find it and adding the podspecs to the repository.</p>
 
-<h3 id="toc_0">1. Create a Private Spec Repo</h3>
+<h3 id="1.-create-a-private-spec-repo">1. Create a Private Spec Repo</h3>
 
 <p>To work with your collection of private pods, we suggest creating your own Spec repo. If you plan on forking a library that is already part of the Master Spec repo, for now we suggest choosing a name that starts with a letter before <code>M</code> (due to spec repos loading in alphabetical order, see <a href="https://github.com/CocoaPods/CocoaPods/issues/982">#982</a>).</p>
 
@@ -29,7 +29,7 @@
     <section class="container row">
     <article class="content col-md-10 col-md-offset-1">
 
-<h3 id="toc_1">2. Add your Private Repo to your CocoaPods installation</h3>
+<h3 id="2.-add-your-private-repo-to-your-cocoapods-installation">2. Add your Private Repo to your CocoaPods installation</h3>
     </article>
     </section>
   
@@ -64,7 +64,7 @@
     <section class="container row">
     <article class="content col-md-10 col-md-offset-1">
 
-<h3 id="toc_2">3. Add your Podspec to your repo</h3>
+<h3 id="3.-add-your-podspec-to-your-repo">3. Add your Podspec to your repo</h3>
 
 <blockquote>
 <p>Make sure you&#39;ve tagged and versioned your source, then run:</p>
@@ -85,11 +85,11 @@
 
 <p>This will run <code>pod spec lint</code>, and take care of all the little details for setting up the spec in your private repo.</p>
 
-<h2 id="toc_3">That&#39;s it!</h2>
+<h2 id="that&#39;s-it!">That&#39;s it!</h2>
 
 <p>Your private pod is ready to be used in a Podfile.</p>
 
-<h2 id="toc_4">How to remove a Private Repo</h2>
+<h2 id="how-to-remove-a-private-repo">How to remove a Private Repo</h2>
 
-<p>As a private repo is just a folder in your <code>~/.cocoapods/</code> folder. You can run <code>rm -rf ~/.cocoapods/[repo_name]</code>. Or you can send us a PR for to make <a href="https://github.com/CocoaPods/CocoaPods/issues/1484">this easier</a>.</p>
+<p><code>pod repo remove [name]</code></p>
 </article></section></div><div class="container" id="footer"><div class="row"><ul class="breadcrumb"><li><a href="../index.html">CocoaPods Guides</a><span class="divider"></span></li><li><a href="index.html">Making CocoaPods</a><span class="divider"></span></li><li class="active">Private Pods</li></ul><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="../using/index.html">Using CocoaPods</a></h3><ul><li><a href="../using/getting-started.html">Getting Started</a></li><li><a href="../using/using-cocoapods.html">Using CocoaPods</a></li><li><a href="../using/the-podfile.html">The Podfile</a></li><li><a href="../using/troubleshooting.html">Troubleshooting</a></li><li><a href="../using/misconceptions.html">Common Misconceptions</a></li></ul></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="index.html">Making CocoaPods</a></h3><ul><li><a href="making-a-cocoapod.html">Making a CocoaPod</a></li><li><a href="specs-and-specs-repo.html">Specs and the Specs Repo</a></li><li><a href="private-cocoapods.html">Private Pods</a></li><li><a href="maintaining-and-best-practices.html">Maintaining & Best Practices</a></li></ul></div><div class="clearfix visible-xs"></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="../contributing/index.html">Contributing</a></h3><ul><li><a href="../contributing/components.html">Core Components</a></li><li><a href="../contributing/contribute-to-cocoapods.html">How to Contribute</a></li><li><a href="../contributing/dev-environment.html">Setting up for Development</a></li><li><a href="../contributing/release-process.html">Release Process</a></li></ul></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href='/reference.html'>Reference</a></h3><ul><li><a href='/syntax/podfile.html'>Podfile Syntax</a></li><li><a href='/syntax/podspec.html'>Podspec Syntax</a></li><li><a href='/terminal/commands.html'>Commandline Reference</a></li></ul></div></div></div><footer class="page-footer"><section class="container row"><article class="col-md-8 col-md-offset-2"><p>CocoaPods is a project from <a href="https://twitter.com/alloy">Eloy Durán</a>, <a href="https://twitter.com/fabiopelosin">Fabio Pelosin</a>, <a href="https://orta.github.io">Orta Therox</a>,  and The CocoaPods Dev Team with contributions from <a href="https://github.com/CocoaPods/Specs/graphs/contributors">many, many others</a>.</p><p>Lovingly sponsored by <a href="http://www.fngtps.com">Fingertips</a>, <a href = "http://www.hipbyte.com">Hipbyte</a>, <a href="http://artsy.net">Artsy</a> and <a href="https://www.sauspiel.de">Sauspiel</a>.</p></article><article class="col-md-4 minor col-md-offset-2"><p>Website and API by <a href="http://twitter.com/hanke">Florian Hanke</a>, The CocoaPods Dev Team and <a href="http://twitter.com/manfreds">Manfred Stienstra</a>.</p></article><article class="col-md-4 minor"><p>Design by <a href="http://andy-myers.co.uk">Andy Myers</a>, <a href="http://orta.github.io">Orta Therox</a>, <a href="http://twitter.com/hanke">Florian Hanke</a> and <a href="http://twitter.com/maxsteenbergen">Max Steenbergen</a></p></article><article class="col-md-8 col-md-offset-2 minor"><p><a href="http://cocoapods.org/support">Support</a>, <a href="https://github.com/CocoaPods/CocoaPods">Github Repo</a>, <a href="https://github.com/CocoaPods/Specs">Podspecs Repo</a>, <a href="https://guides.cocoapods.org">Podspec Documentation</a>, <span class="visible-lg-span"><a href="https://api.cocoapods.org">Developer Reference</a>, </span><a href="http://groups.google.com/group/cocoapods">Mailing List</a> &amp; <a href="http://twitter.com/CocoaPods">@CocoaPods</a>. </p></article></section></footer></body></html>

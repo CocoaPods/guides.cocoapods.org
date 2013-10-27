@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta charset="utf-8" /><meta content="documenation cocoapods objective-c packcage manager" name="keywords" /><title>CocoaPods Guides - Troubleshooting</title><link href="../favicon.ico" rel="icon" type="image/ico" /><link href="../stylesheets/app.css" media="screen" rel="stylesheet" type="text/css" /><script src="../javascripts/application.js" type="text/javascript"></script></head><body><nav class="navbar navbar-static-top" role="navigation"><section class="container"><div class="navbar-header"><button class="navbar-toggle" data-target=".navbar-header-collapse" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="/"></a></div><div class="collapse navbar-collapse navbar-header-collapse"><ul class="nav navbar-nav navbar-right"><li><a href="http://cocoapods.org">About</a></li><li><a href="http://docs.cocoapods.org">API Docs</a></li><li class="active"><a href="http://docs.cocoapods.org/guides/index.html">Guides</a></li><li><a href="/">Blog</a></li></ul></div></section></nav><section class="container row"><header class="header content col-md-10 col-md-offset-1"><h1>Troubleshooting</h1></header></section><div class="guide" id="content-wrapper"><section class="row container"><article class="content col-md-10 col-md-offset-1"><h3 id="toc_0">Installing CocoaPods</h3>
+<!DOCTYPE html><html><head><meta charset="utf-8" /><meta content="documenation cocoapods objective-c packcage manager" name="keywords" /><title>CocoaPods Guides - Troubleshooting</title><link href="../favicon.ico" rel="icon" type="image/ico" /><link href="../stylesheets/app.css" media="screen" rel="stylesheet" type="text/css" /><script src="../javascripts/application.js" type="text/javascript"></script></head><body><nav class="navbar navbar-static-top" role="navigation"><section class="container"><div class="navbar-header"><button class="navbar-toggle" data-target=".navbar-header-collapse" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="/"></a></div><div class="collapse navbar-collapse navbar-header-collapse"><ul class="nav navbar-nav navbar-right"><li><a href="http://cocoapods.org">About</a></li><li><a href="http://docs.cocoapods.org">API Docs</a></li><li class="active"><a href="http://docs.cocoapods.org/guides/index.html">Guides</a></li><li><a href="/">Blog</a></li></ul></div></section></nav><section class="container row"><header class="header content col-md-10 col-md-offset-1"><h1>Troubleshooting</h1></header></section><div class="guide" id="content-wrapper"><section class="row container"><article class="content col-md-10 col-md-offset-1"><h3 id="installing-cocoapods">Installing CocoaPods</h3>
 
 <ul>
 <li>The gem might not be able to compile, to solve this you might need to <a href="http://www.relaxdiego.com/2012/02/using-gcc-when-xcode-43-is-installed.html">symlink GCC</a>.</li>
@@ -6,7 +6,7 @@
 <li>CocoaPods is not compatible with MacRuby.</li>
 </ul>
 
-<h3 id="toc_1">Using the CocoaPods Project</h3>
+<h3 id="using-the-cocoapods-project">Using the CocoaPods Project</h3>
 
 <ol>
 <li><p>If something doesn’t seem to work, first of all ensure that you are not completely overriding any options set from the <code>Pods.xcconfig</code> file in your project’s build settings. To add values to options from your project’s build settings, prepend the value list with <code>$(inherited)</code>.</p></li>
@@ -31,7 +31,7 @@
 <li>Add the <code>Pods</code> static library, and make sure it&#39;s at the top of the list</li>
 <li>Clean and build again</li>
 <li>If that doesn&#39;t work, verify that the source for the spec you are trying to include has been pulled from github. Do this by looking in &lt;Project Dir&gt;/Pods/&lt;Name of spec you are trying to include&gt;. If it is empty (it should not be), verify that the ~/.cocoapods/master/&lt;spec&gt;/&lt;spec&gt;.podspec has the correct git hub url in it.</li>
-<li>If still doesn&#39;t work, check your XCode build locations settings. Go to Preferences -> Locations -> Derived Data -> Advanced and set build location to &quot;Relative to Workspace&quot;.</li>
+<li>If still doesn&#39;t work, check your XCode build locations settings. Go to Preferences -&gt; Locations -&gt; Derived Data -&gt; Advanced and set build location to &quot;Relative to Workspace&quot;.</li>
 </ul></li>
 </ol>
 
@@ -47,7 +47,7 @@
 
 <p><em>Different Xcode versions can have various problems. Ask for help and tell us what version you&#39;re using.</em></p>
 
-<h3 id="toc_2">I didn&#39;t find the solution to my problem!</h3>
+<h3 id="i-didn&#39;t-find-the-solution-to-my-problem!">I didn&#39;t find the solution to my problem!</h3>
 
 <p>We have multiple avenues for support, here they are in the order we prefer.</p>
 
@@ -57,7 +57,7 @@
 <li><p>If your question is regarding a library (to be) distributed through CocoaPods, refer to the <a href="https://github.com/CocoaPods/Specs">spec repo</a>.</p></li>
 </ul>
 
-<h3 id="toc_3">I think this is a bug with CocoaPods</h3>
+<h3 id="i-think-this-is-a-bug-with-cocoapods">I think this is a bug with CocoaPods</h3>
 
 <p>In this case we want to get it on a Github issues tracker, we use this to keep track of the development work we have to do.</p>
 

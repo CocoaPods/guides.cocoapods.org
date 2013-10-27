@@ -133,9 +133,9 @@ repo. Consider, for instance, a podspec available via HTTP:</p>
 </pre></div></div><div class="tab-pane" id="tab_podspec"><h2>podspec</h2><p>Use the dependencies of a Pod defined in the given podspec file. If no
 arguments are passed the first podspec in the root of the Podfile is
 used. It is intended to be used by the project of a library.</p>
-<h3>Examples:</h3><bloquote></bloquote><div class="highlight"><pre><span class="n">podspec</span>
-</pre></div><bloquote></bloquote><div class="highlight"><pre><span class="n">podspec</span> <span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s1">&#39;QuickDialog&#39;</span>
-</pre></div><bloquote></bloquote><div class="highlight"><pre><span class="n">podspec</span> <span class="ss">:path</span> <span class="o">=&gt;</span> <span class="s1">&#39;/Documents/PrettyKit/PrettyKit.podspec&#39;</span>
+<h3>Examples:</h3><blockquote></blockquote><div class="highlight"><pre><span class="n">podspec</span>
+</pre></div><blockquote></blockquote><div class="highlight"><pre><span class="n">podspec</span> <span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s1">&#39;QuickDialog&#39;</span>
+</pre></div><blockquote></blockquote><div class="highlight"><pre><span class="n">podspec</span> <span class="ss">:path</span> <span class="o">=&gt;</span> <span class="s1">&#39;/Documents/PrettyKit/PrettyKit.podspec&#39;</span>
 </pre></div></div><div class="tab-pane" id="tab_target"><h2>target</h2><p>Defines a new static library target and scopes dependencies defined from
 the given block. The target will by default include the dependencies
 defined outside of the block, unless the <code>:exclusive =&gt; true</code> option is
@@ -146,10 +146,10 @@ given.</p>
 <p>The Podfile creates a global target named <code>:default</code> which produces the
 <code>libPods.a</code> file. This target is linked with the first target of user
 project if not value is specified for the <code>link_with</code> attribute.</p>
-<h3>Examples:</h3><bloquote>Defining a target</bloquote><div class="highlight"><pre><span class="n">target</span> <span class="ss">:ZipApp</span> <span class="k">do</span>
+<h3>Examples:</h3><blockquote>Defining a target</blockquote><div class="highlight"><pre><span class="n">target</span> <span class="ss">:ZipApp</span> <span class="k">do</span>
   <span class="n">pod</span> <span class="s1">&#39;SSZipArchive&#39;</span>
 <span class="k">end</span>
-</pre></div><bloquote>Defining an exclusive target</bloquote><div class="highlight"><pre><span class="n">target</span> <span class="ss">:ZipApp</span> <span class="k">do</span>
+</pre></div><blockquote>Defining an exclusive target</blockquote><div class="highlight"><pre><span class="n">target</span> <span class="ss">:ZipApp</span> <span class="k">do</span>
   <span class="n">pod</span> <span class="s1">&#39;SSZipArchive&#39;</span>
   <span class="n">target</span> <span class="ss">:test</span><span class="p">,</span> <span class="ss">:exclusive</span> <span class="o">=&gt;</span> <span class="kp">true</span> <span class="k">do</span>
     <span class="n">pod</span> <span class="s1">&#39;JSONKit&#39;</span>
@@ -162,7 +162,7 @@ The current default values are <code>4.3</code> for iOS and <code>10.6</code> fo
 
 <p>If the deployment target requires it (iOS &lt; <code>4.3</code>), <code>armv6</code>
 architecture will be added to <code>ARCHS</code>.</p>
-<h3>Examples:</h3><bloquote>Specifying the platform</bloquote><div class="highlight"><pre><span class="n">platform</span> <span class="ss">:ios</span><span class="p">,</span> <span class="s2">&quot;4.0&quot;</span>
+<h3>Examples:</h3><blockquote>Specifying the platform</blockquote><div class="highlight"><pre><span class="n">platform</span> <span class="ss">:ios</span><span class="p">,</span> <span class="s2">&quot;4.0&quot;</span>
 <span class="n">platform</span> <span class="ss">:ios</span>
 </pre></div></div><div class="tab-pane" id="tab_xcodeproj"><h2>xcodeproj</h2><p>Specifies the Xcode project that contains the target that the Pods library
 should be linked with.</p>
@@ -179,7 +179,7 @@ custom build configurations should be modeled after the release or
 the debug presets. To do so you need to specify a hash where the name
 of each build configuration is associated to either <code>:release</code> or
 <code>:debug</code>.</p>
-<h3>Examples:</h3><bloquote>Specifying the user project</bloquote><div class="highlight"><pre><span class="c1"># Look for target to link with in an Xcode project called</span>
+<h3>Examples:</h3><blockquote>Specifying the user project</blockquote><div class="highlight"><pre><span class="c1"># Look for target to link with in an Xcode project called</span>
 <span class="c1"># `MyProject.xcodeproj`.</span>
 <span class="n">xcodeproj</span> <span class="sb">`MyProject`</span>
 
@@ -187,7 +187,7 @@ of each build configuration is associated to either <code>:release</code> or
   <span class="c1"># This Pods library links with a target in another project.</span>
   <span class="n">xcodeproj</span> <span class="sb">`TestProject`</span>
 <span class="k">end</span>
-</pre></div><bloquote>Using custom build configurations</bloquote><div class="highlight"><pre><span class="n">xcodeproj</span> <span class="sb">`TestProject`</span><span class="p">,</span> <span class="s1">&#39;Mac App Store&#39;</span> <span class="o">=&gt;</span> <span class="ss">:release</span><span class="p">,</span> <span class="s1">&#39;Test&#39;</span> <span class="o">=&gt;</span> <span class="ss">:debug</span>
+</pre></div><blockquote>Using custom build configurations</blockquote><div class="highlight"><pre><span class="n">xcodeproj</span> <span class="sb">`TestProject`</span><span class="p">,</span> <span class="s1">&#39;Mac App Store&#39;</span> <span class="o">=&gt;</span> <span class="ss">:release</span><span class="p">,</span> <span class="s1">&#39;Test&#39;</span> <span class="o">=&gt;</span> <span class="ss">:debug</span>
 </pre></div></div><div class="tab-pane" id="tab_link_with"><h2>link_with</h2><p>Specifies the target(s) in the user’s project that this Pods library
 should be linked in.</p>
 
@@ -196,8 +196,8 @@ should be linked in.</p>
 <p>If no explicit target is specified, then the Pods target will be linked
 with the first target in your project. So if you only have one target
 you do not need to specify the target to link with.</p>
-<h3>Examples:</h3><bloquote>Link with a user project target</bloquote><div class="highlight"><pre><span class="n">link_with</span> <span class="s1">&#39;MyApp&#39;</span>
-</pre></div><bloquote>Link with multiple user project targets</bloquote><div class="highlight"><pre><span class="n">link_with</span> <span class="s1">&#39;MyApp&#39;</span><span class="p">,</span> <span class="s1">&#39;MyOtherApp&#39;</span>
+<h3>Examples:</h3><blockquote>Link with a user project target</blockquote><div class="highlight"><pre><span class="n">link_with</span> <span class="s1">&#39;MyApp&#39;</span>
+</pre></div><blockquote>Link with multiple user project targets</blockquote><div class="highlight"><pre><span class="n">link_with</span> <span class="s1">&#39;MyApp&#39;</span><span class="p">,</span> <span class="s1">&#39;MyOtherApp&#39;</span>
 </pre></div></div><div class="tab-pane" id="tab_inhibit_all_warnings_bang"><h2>inhibit_all_warnings!</h2><p>Inhibits <strong>all</strong> the warnings from the CocoaPods libraries.</p>
 
 <hr>
@@ -214,7 +214,7 @@ following syntax:</p>
 <p>If no explicit Xcode workspace is specified and only <strong>one</strong> project
 exists in the same directory as the Podfile, then the name of that
 project is used as the workspace’s name.</p>
-<h3>Examples:</h3><bloquote>Specifying a workspace</bloquote><div class="highlight"><pre><span class="n">workspace</span> <span class="s1">&#39;MyWorkspace&#39;</span>
+<h3>Examples:</h3><blockquote>Specifying a workspace</blockquote><div class="highlight"><pre><span class="n">workspace</span> <span class="s1">&#39;MyWorkspace&#39;</span>
 </pre></div></div><div class="tab-pane" id="tab_generate_bridge_support_bang"><h2>generate_bridge_support!</h2><p>Specifies that a BridgeSupport metadata document should be generated
 from the headers of all installed Pods.</p>
 
@@ -241,7 +241,7 @@ been downloaded but before they are installed.</p>
 <p>It receives the
 <a href="http://docs.cocoapods.org/cocoapods/pod/hooks/installerrepresentation/"><code>Pod::Hooks::InstallerRepresentation</code></a>
 as its only argument.</p>
-<h3>Examples:</h3><bloquote>Defining a pre install hook in a Podfile.</bloquote><div class="highlight"><pre><span class="n">pre_install</span> <span class="k">do</span> <span class="o">|</span><span class="n">installer_representation</span><span class="o">|</span>
+<h3>Examples:</h3><blockquote>Defining a pre install hook in a Podfile.</blockquote><div class="highlight"><pre><span class="n">pre_install</span> <span class="k">do</span> <span class="o">|</span><span class="n">installer_representation</span><span class="o">|</span>
   <span class="c1"># Do something fancy!</span>
 <span class="k">end</span>
 </pre></div></div><div class="tab-pane" id="tab_post_install"><h2>post_install</h2><p>This hook allows you to make any last changes to the generated Xcode
@@ -251,11 +251,11 @@ to perform.</p>
 <p>It receives the
 <a href="http://docs.cocoapods.org/cocoapods/pod/hooks/installerrepresentation/"><code>Pod::Hooks::InstallerRepresentation</code></a>
 as its only argument.</p>
-<h3>Examples:</h3><bloquote>Customizing the `OTHER_LDFLAGS` of all targets</bloquote><div class="highlight"><pre><span class="n">post_install</span> <span class="k">do</span> <span class="o">|</span><span class="n">installer_representation</span><span class="o">|</span>
+<h3>Examples:</h3><blockquote>Customizing the `OTHER_LDFLAGS` of all targets</blockquote><div class="highlight"><pre><span class="n">post_install</span> <span class="k">do</span> <span class="o">|</span><span class="n">installer_representation</span><span class="o">|</span>
   <span class="n">installer_representation</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">targets</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">target</span><span class="o">|</span>
     <span class="n">target</span><span class="o">.</span><span class="n">build_configurations</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
       <span class="n">config</span><span class="o">.</span><span class="n">build_settings</span><span class="o">[</span><span class="s1">&#39;GCC_ENABLE_OBJC_GC&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="s1">&#39;supported&#39;</span>
     <span class="k">end</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</pre></div></div></div></div><div class="clearfix"></div></article></section></div><div class="container" id="footer"><div class="row"><ul class="breadcrumb"><li class="active">Podfile Syntax Reference</li></ul><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="../using/index.html">Using CocoaPods</a></h3><ul><li><a href="../using/getting-started.html">Getting Started</a></li><li><a href="../using/using-cocoapods.html">Using CocoaPods</a></li><li><a href="../using/the-podfile.html">The Podfile</a></li><li><a href="../using/troubleshooting.html">Troubleshooting</a></li><li><a href="../using/misconceptions.html">Common Misconceptions</a></li></ul></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="../making/index.html">Making CocoaPods</a></h3><ul><li><a href="../making/making-a-cocoapod.html">Making a CocoaPod</a></li><li><a href="../making/specs-and-specs-repo.html">Specs and the Specs Repo</a></li><li><a href="../making/private-cocoapods.html">Private Pods</a></li><li><a href="../making/maintaining-and-best-practices.html">Maintaining & Best Practices</a></li></ul></div><div class="clearfix visible-xs"></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="../contributing/index.html">Contributing</a></h3><ul><li><a href="../contributing/components.html">Core Components</a></li><li><a href="../contributing/contribute-to-cocoapods.html">How to Contribute</a></li><li><a href="../contributing/dev-environment.html">Setting up for Development</a></li><li><a href="../contributing/release-process.html">Release Process</a></li></ul></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href='/reference.html'>Reference</a></h3><ul><li><a href='/syntax/podfile.html'>Podfile Syntax</a></li><li><a href='/syntax/podspec.html'>Podspec Syntax</a></li><li><a href='/terminal/commands.html'>Commandline Reference</a></li></ul></div></div></div><footer class="page-footer"><section class="container row"><article class="col-md-8 col-md-offset-2"><p>CocoaPods is a project from <a href="https://twitter.com/alloy">Eloy Durán</a>, <a href="https://twitter.com/fabiopelosin">Fabio Pelosin</a>, <a href="https://orta.github.io">Orta Therox</a>,  and The CocoaPods Dev Team with contributions from <a href="https://github.com/CocoaPods/Specs/graphs/contributors">many, many others</a>.</p><p>Lovingly sponsored by <a href="http://www.fngtps.com">Fingertips</a>, <a href = "http://www.hipbyte.com">Hipbyte</a>, <a href="http://artsy.net">Artsy</a> and <a href="https://www.sauspiel.de">Sauspiel</a>.</p></article><article class="col-md-4 minor col-md-offset-2"><p>Website and API by <a href="http://twitter.com/hanke">Florian Hanke</a>, The CocoaPods Dev Team and <a href="http://twitter.com/manfreds">Manfred Stienstra</a>.</p></article><article class="col-md-4 minor"><p>Design by <a href="http://andy-myers.co.uk">Andy Myers</a>, <a href="http://orta.github.io">Orta Therox</a>, <a href="http://twitter.com/hanke">Florian Hanke</a> and <a href="http://twitter.com/maxsteenbergen">Max Steenbergen</a></p></article><article class="col-md-8 col-md-offset-2 minor"><p><a href="http://cocoapods.org/support">Support</a>, <a href="https://github.com/CocoaPods/CocoaPods">Github Repo</a>, <a href="https://github.com/CocoaPods/Specs">Podspecs Repo</a>, <a href="https://guides.cocoapods.org">Podspec Documentation</a>, <span class="visible-lg-span"><a href="https://api.cocoapods.org">Developer Reference</a>, </span><a href="http://groups.google.com/group/cocoapods">Mailing List</a> &amp; <a href="http://twitter.com/CocoaPods">@CocoaPods</a>. </p></article></section></footer></body></html>
+</pre></div></div></div></div><div class="clearfix"></div></article></section></div><div class="container" id="footer"><div class="row"><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="../using/index.html">Using CocoaPods</a></h3><ul><li><a href="../using/getting-started.html">Getting Started</a></li><li><a href="../using/using-cocoapods.html">Using CocoaPods</a></li><li><a href="../using/the-podfile.html">The Podfile</a></li><li><a href="../using/troubleshooting.html">Troubleshooting</a></li><li><a href="../using/misconceptions.html">Common Misconceptions</a></li></ul></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="../making/index.html">Making CocoaPods</a></h3><ul><li><a href="../making/making-a-cocoapod.html">Making a CocoaPod</a></li><li><a href="../making/specs-and-specs-repo.html">Specs and the Specs Repo</a></li><li><a href="../making/private-cocoapods.html">Private Pods</a></li><li><a href="../making/maintaining-and-best-practices.html">Maintaining & Best Practices</a></li></ul></div><div class="clearfix visible-xs"></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="../contributing/index.html">Contributing</a></h3><ul><li><a href="../contributing/components.html">Core Components</a></li><li><a href="../contributing/contribute-to-cocoapods.html">How to Contribute</a></li><li><a href="../contributing/dev-environment.html">Setting up for Development</a></li><li><a href="../contributing/release-process.html">Release Process</a></li></ul></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href='/reference.html'>Reference</a></h3><ul><li><a href='/syntax/podfile.html'>Podfile Syntax</a></li><li><a href='/syntax/podspec.html'>Podspec Syntax</a></li><li><a href='/terminal/commands.html'>Commandline Reference</a></li></ul></div></div></div><footer class="page-footer"><section class="container row"><article class="col-md-8 col-md-offset-2"><p>CocoaPods is a project from <a href="https://twitter.com/alloy">Eloy Durán</a>, <a href="https://twitter.com/fabiopelosin">Fabio Pelosin</a>, <a href="https://orta.github.io">Orta Therox</a>,  and The CocoaPods Dev Team with contributions from <a href="https://github.com/CocoaPods/Specs/graphs/contributors">many, many others</a>.</p><p>Lovingly sponsored by <a href="http://www.fngtps.com">Fingertips</a>, <a href = "http://www.hipbyte.com">Hipbyte</a>, <a href="http://artsy.net">Artsy</a> and <a href="https://www.sauspiel.de">Sauspiel</a>.</p></article><article class="col-md-4 minor col-md-offset-2"><p>Website and API by <a href="http://twitter.com/hanke">Florian Hanke</a>, The CocoaPods Dev Team and <a href="http://twitter.com/manfreds">Manfred Stienstra</a>.</p></article><article class="col-md-4 minor"><p>Design by <a href="http://andy-myers.co.uk">Andy Myers</a>, <a href="http://orta.github.io">Orta Therox</a>, <a href="http://twitter.com/hanke">Florian Hanke</a> and <a href="http://twitter.com/maxsteenbergen">Max Steenbergen</a></p></article><article class="col-md-8 col-md-offset-2 minor"><p><a href="http://cocoapods.org/support">Support</a>, <a href="https://github.com/CocoaPods/CocoaPods">Github Repo</a>, <a href="https://github.com/CocoaPods/Specs">Podspecs Repo</a>, <a href="https://guides.cocoapods.org">Podspec Documentation</a>, <span class="visible-lg-span"><a href="https://api.cocoapods.org">Developer Reference</a>, </span><a href="http://groups.google.com/group/cocoapods">Mailing List</a> &amp; <a href="http://twitter.com/CocoaPods">@CocoaPods</a>. </p></article></section></footer></body></html>

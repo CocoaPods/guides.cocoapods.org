@@ -1,6 +1,6 @@
 <!DOCTYPE html><html><head><meta charset="utf-8" /><meta content="documenation cocoapods objective-c packcage manager" name="keywords" /><title>CocoaPods Guides - Making a CocoaPod</title><link href="../favicon.ico" rel="icon" type="image/ico" /><link href="../stylesheets/app.css" media="screen" rel="stylesheet" type="text/css" /><script src="../javascripts/application.js" type="text/javascript"></script></head><body><nav class="navbar navbar-static-top" role="navigation"><section class="container"><div class="navbar-header"><button class="navbar-toggle" data-target=".navbar-header-collapse" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="/"></a></div><div class="collapse navbar-collapse navbar-header-collapse"><ul class="nav navbar-nav navbar-right"><li><a href="http://cocoapods.org">About</a></li><li><a href="http://docs.cocoapods.org">API Docs</a></li><li class="active"><a href="http://docs.cocoapods.org/guides/index.html">Guides</a></li><li><a href="/">Blog</a></li></ul></div></section></nav><section class="container row"><header class="header content col-md-10 col-md-offset-1"><h1>Making a CocoaPod</h1></header></section><div class="guide" id="content-wrapper"><section class="row container"><article class="content col-md-10 col-md-offset-1"><p>Creating your own CocoaPod is fairly straight forward. If you already have a separate component, you&#39;re most of the way there. This guide is an overview to the entire process, with the other guides in this section serving as more of a deep-dive for more advanced users. You can follow along by getting the pod-template (<a href="https://github.com/CocoaPods/pod-template/">https://github.com/CocoaPods/pod-template/</a>) (a work-in-progress) which is an opinionated starting point for CocoaPods and then working your files into that template. </p>
 
-<h2 id="toc_0">The Pod Files</h2>
+<h2 id="the-pod-files">The Pod Files</h2>
 
 <p>There are only a few differences between a CocoaPod and a generic open source control. The most important ones, aside from the actual source, are the <code>.podspec</code> and <code>LICENSE</code>. We do not accept libraries into the public master repo without a code license. For information on what license to choose, we suggest reading <a href="http://www.codinghorror.com/blog/2007/04/pick-a-license-any-license.html">this article on CodingHorror</a> or <a href="http://www.tldrlegal.com/">tl;dr Legal</a>.</p>
 
@@ -54,7 +54,7 @@
 
 <p><aside>The <code>podspec</code> is a shortcut to require all the dependencies specified in <code>NAME.podspec</code>.</aside></p>
 
-<h3 id="toc_1">Development</h3>
+<h3 id="development">Development</h3>
 
 <p>You can work on the library from its folder on your system. </p>
 
@@ -93,7 +93,7 @@
     <section class="container row">
     <article class="content col-md-10 col-md-offset-1">
 
-<h3 id="toc_2">Release</h3>
+<h3 id="release">Release</h3>
 
 <p>If you used <code>pod lib create</code> to generate your project you can run <code>rake release</code> in the Pod&#39;s root folder. </p>
 
@@ -123,82 +123,18 @@
     <section class="container row">
     <article class="content col-md-10 col-md-offset-1">
 
-<!--  This should go into it's own guide, or a blog post, it's not relevant to making a pod - ./
-
-## Creating a Pod repo
-
-A specification repository is a simple collection of podspec files organized with the following structure:
-
-```
-NAME/VERSION/NAME.podspec
-```
-
-```console
-$ cd ~/.cocoapods/master
-$ tree | head
-.
-└── A2DynamicDelegate
-    └── 1.0
-        └── A2DynamicDelegate.podspec
-        1.0.1
-        └── A2DynamicDelegate.podspec
-        1.0.2
-        └── A2DynamicDelegate.podspec
-        1.0.3
-        └── A2DynamicDelegate.podspec
-```
-
-Although the master repo is backed by a git repository, this is not required. For a repository to be valid it is only required to respect the above described file structure.
-
-CocoaPods stores its repositories in the `~/.cocoapods/` folder.
-
-### Adding a new repo
-
-###### Manually
-
-1. Make a folder with the name of the repo in `~/.cocoapods/`.
-2. Populate the repository with podspecs respecting the required folder structure.
-
-###### From an existing git remote
-
-If you want to create a git backed repository you can use the `$ pod repo add` command.
-
-### Disambiguation
-
-If during the installation process is resolved a Pod whose required version is present in more than one repository, the alphabetical order of the names is used to disambiguate.
-
-**TODO:**
-
-- How do I podify an existing project?
-- How do I test the new Pod
-- Local Pods?
-
- -->
-
-<h2 id="toc_3">Library Versioning</h2>
+<h2 id="library-versioning">Library Versioning</h2>
 
 <p>There is, unfortunately, often an issue of developers not interpreting version numbers well or assigning emotional value to certain version numbers.</p>
 
 <p>However, arbitrary revisions as version is not a good idea for a library manager instead of a proper version number (see <a href="http://semver.org">Semantic Versioning</a>). Let us explain how, in an ideal world, we’d prefer people to interact with it:</p>
 
 <ul>
-<li>“I want to start using CocoaLumberjack, the current version will be fine for now.” So the dev adds a dependency on the lib <em>without</em> a version requirement and <code>pod install</code>s which will use the latest version:</li>
-</ul>
-    </article>
-    </section>
-  
-    <div class="code-break">
-    <section class="row container">
-    <article class="content col-md-11 col-md-offset-1"><pre
- class="highlight ruby"><span class="n">pod</span> <span class="s1">&#39;CocoaLumberjack&#39;</span>
-</pre>    </article>
-    </section>
-    </div>
-  
-    <section class="container row">
-    <article class="content col-md-10 col-md-offset-1">
+<li><p>“I want to start using CocoaLumberjack, the current version will be fine for now.” So the dev adds a dependency on the lib <em>without</em> a version requirement and <code>pod install</code>s which will use the latest version:</p>
 
-<ul>
+<p><code>
+pod &#39;CocoaLumberjack&#39;
+</code></p></li>
 <li><p>Some time into the future, the dev wants to update the dependencies, and to do so runs the install command again, which will now install the version of the lib which is the latest version <em>at that time</em>.</p></li>
 <li><p>At some point the dev is finished on the client work (or a newer version of the lib changes the API and the changes aren’t needed) so the dev adds a version requirement to the dependency. For instance, consider that the author of the lib follows the semver guidelines, you can somewhat trust that between ‘1.0.7’ and ‘1.1.0’ <strong>no</strong> API changes will be made, but only bug fixes. So instead of requiring a specific version, the dev can specify that <em>any</em> ‘1.0.x’ is allowed as long as it’s higher than ‘1.0.7’:</p></li>
 </ul>
@@ -218,17 +154,17 @@ If during the installation process is resolved a Pod whose required version is p
 
 <p>The point is that developers can easily keep track of newer versions of dependencies, by simply running <code>pod install</code> again, which they might otherwise do less if they had to change everything manually. CocoaPods uses a less stringent form of Semantic versioning in that it will not force you to use <code>X.Y.Z</code>, you can use <code>X.Y</code> versions.</p>
 
-<h3 id="toc_4">CocoaPods Versioning Specifics</h3>
+<h3 id="cocoapods-versioning-specifics">CocoaPods Versioning Specifics</h3>
 
 <p>CocoaPods uses RubyGems versions for specifying pod spec versions. The <a href="http://docs.rubygems.org/read/chapter/7">RubyGems Versioning Policies</a> describes the rules used for interpreting version numbers. The <a href="http://docs.rubygems.org/read/chapter/16#page74">RubyGems version specifiers</a> describes exactly how to use the comparison operators that specify dependency versions.</p>
 
 <p>Following the pattern established in RubyGems, pre-release versions can also be specified in CocoaPods. A pre-release of version 1.2, for example, can be specified by <code>1.2-beta3</code>. In this example, the dependency specifier <code>~&gt; 1.2-beta</code> will match <code>1.2-beta3</code>.</p>
 
-<h2 id="toc_5">Documenting a Pod</h2>
+<h2 id="documenting-a-pod">Documenting a Pod</h2>
 
 <p>Right now the best place to get information on documenting your Pods in anticipation of CocoaDocs and Xcode 5 support is via <a href="http://nshipster.com/documentation/">NSHipster&#39;s blog post on Documentation</a>. CocoaDocs will generate appledoc parsed code based on your Podspec&#39;s public API almost instantly after it is pushed.  </p>
 
-<h2 id="toc_6">Where can I ask questions?</h2>
+<h2 id="where-can-i-ask-questions?">Where can I ask questions?</h2>
 
 <p>We have multiple avenues for support, here they are in the order we prefer.</p>
 

@@ -32,7 +32,7 @@
 
 <p>See the <a href="making/private-cocoapods.html">Private Pods</a> section for an explanation of the Spec repo&#39;s file structure.</p>
 
-<h2 id="toc_0">Examples of Specifications</h2>
+<h2 id="examples-of-specifications">Examples of Specifications</h2>
 
 <blockquote>
 <p>A Simple specification.</p>
@@ -96,7 +96,7 @@
 
 <p><a href="specification.html#subspec">Subspecs</a> are a way of chopping up the functionality of a Podspec, allowing people to install a subset of your library. With the above example a Podfile using <code>require ShareKit</code> results in the inclusion of the whole library, while <code>require ShareKit/Facebook</code> can be used if you are interested only in the Facebook specific parts.</p>
 
-<h3 id="toc_1">A specification with subspecs within submodules</h3>
+<h3 id="a-specification-with-subspecs-within-submodules">A specification with subspecs within submodules</h3>
 
 <p>If you have some submodules in the repository you need to set the <code>:submodules</code> key of the <code>s.source</code> hash to true.
 Then you&#39;ll be able to specify subspec like above.</p>
@@ -128,7 +128,7 @@ Then you&#39;ll be able to specify subspec like above.</p>
     <section class="container row">
     <article class="content col-md-10 col-md-offset-1">
 
-<h2 id="toc_2">How does the Specs Repo work?</h2>
+<h2 id="how-does-the-specs-repo-work?">How does the Specs Repo work?</h2>
 
 <p>To ensure a high quality, reliable collection of Pods, the Specs Repo is
 strict about the podspecs added. One of the primary purposes of this repo is to guarantee the integrity of existing
@@ -155,10 +155,10 @@ CocoaPods installations.</p>
 <li>Only authoritative versions are accepted.</li>
 </ul>
 
-<h2 id="toc_3">How do I update an existing Pod?</h2>
+<h2 id="how-do-i-update-an-existing-pod?">How do I update an existing Pod?</h2>
 
 <ul>
-<li><h3 id="toc_4">If you do not have push access to CocoaPods/Specs</h3>
+<li><h3 id="if-you-do-not-have-push-access-to-cocoapods/specs">If you do not have push access to CocoaPods/Specs</h3>
 
 <ol>
 <li>Fork and clone <code>CocoaPods/Specs</code>.</li>
@@ -167,7 +167,7 @@ CocoaPods installations.</p>
 <li>If the linter produces errors or warnings, fix them and go back to step 3. If not, continue on.</li>
 <li>Make your pull request to the master Specs Repo.</li>
 </ol></li>
-<li><h3 id="toc_5">If you have push access to CocoaPods/Specs</h3>
+<li><h3 id="if-you-have-push-access-to-cocoapods/specs">If you have push access to CocoaPods/Specs</h3>
 
 <ol>
 <li>Clone <code>CocoaPods/Specs</code> locally.</li>
