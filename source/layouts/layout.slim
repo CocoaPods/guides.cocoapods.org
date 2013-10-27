@@ -49,13 +49,14 @@ html
 
     #footer.container
       .row
-        ul.breadcrumb
-          - for resource in parents
-            li
-              == link_to page_title(resource), "/#{resource.destination_path}"
-              span.divider
-                |
-          li.active = page_title
+        - if parents.length > 0
+          ul.breadcrumb
+            - for resource in parents
+              li
+                == link_to page_title(resource), "/#{resource.destination_path}"
+                span.divider
+                  |
+            li.active = page_title
       
         - for resource in footer_resources 
 
@@ -64,7 +65,7 @@ html
             ul
               - for child in resource.children.sort_by{|child| child.data.order}
                 li == link_to page_title(child), "/#{child.destination_path}"
-                
+              
           - if footer_resources.index(resource) % 2 == 1
             div.clearfix.visible-xs
             
