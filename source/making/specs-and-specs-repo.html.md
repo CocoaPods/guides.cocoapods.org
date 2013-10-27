@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
 end
 ```
 
-The Specs Repo is the repository on GitHub that contains the list of all available pods. Every library has an individual folder, which contains sub folders of the available versions of that pod.  
+The [Specs Repo](https://github.com/CocoaPods/Specs) is the repository on GitHub that contains the list of all available pods. Every library has an individual folder, which contains sub folders of the available versions of that pod.  
 
 See the [Private Pods](making/private-cocoapods.html) section for an explanation of the Spec repo's file structure.
 
@@ -102,7 +102,7 @@ When you are preparing a podspec for submission, you should make sure to do the 
 
 1. Run `pod spec lint`. This is used to validate specifications. Your podspec should pass without any errors or warnings.
 2. Update your library to use [Semantic Versioning](http://semver.org/), if it already does not follow that scheme. See our [wiki on cross dependency resolution](https://github.com/CocoaPods/Specs/wiki/Cross-dependencies-resolution-example) for more details. Essentially it makes everyone's life easier.
-3. Make sure any updates you submit do not break previous installations. Adding 1.1.3 to your library's folder in the Specs Repo should not remove any previous versions.
+3. Make sure any updates you submit do not break previous installations. Adding version `1.1.3` to your library's folder in the Specs Repo should not remove any previous versions.
 
 In general this means that:
 
@@ -119,7 +119,7 @@ In general this means that:
   2. In a single commit, add a folder for your Pod to the main list, as well as the Spec in the format described in the Creating a Pod Repo section.
   3. Run `pod spec lint` to check for errors.
   4. If the linter produces errors or warnings, fix them and go back to step 3. If not, continue on.
-  5. Make your pull request to the master Specs Repo.
+  5. Make your [pull request](https://help.github.com/articles/using-pull-requests) to the master [Specs Repo](https://github.com/CocoaPods/Specs).
 
 * ### If you have push access to CocoaPods/Specs
   1. Clone `CocoaPods/Specs` locally.
@@ -127,3 +127,8 @@ In general this means that:
   3. Run `pod spec lint` to check for errors.
   4. If the linter produces errors or warnings, fix them and go back to step 3. If not, continue on.
   5. Push your changes to the master Specs repo
+  
+## How do I get my library on CocoaDocs?
+
+[CocoaDocs](http://cocoadocs.org) recieves notifications from the [CocoaPods/Specs](https://github.com/CocoaPods/Specs) repo on github whenever a CocoaPod is updated. This triggers a process that will generate documentation for _objective-c_ projects via [appledoc](http://gentlebytes.com/appledoc/) and host them for the community. This process can take around 15 minutes after your Podspec is merged. If you host your own documentation, you can use the [documentation_url](/syntax/podspec.html#documentation_url).
+  

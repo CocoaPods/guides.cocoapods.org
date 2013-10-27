@@ -1,6 +1,6 @@
 ---
 title: Release Process
-description: This describes the CocoaPods release process
+description: This describes how the CocoaPods team deal with the release process.
 order: 3
 ---
 
