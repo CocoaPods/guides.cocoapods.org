@@ -58,19 +58,23 @@ html
         article class=width_classes
           == yield
 
-    #footer.container
-      .row
+      - if parents.length > 0
+        section.row.container.info-row
+          article class=width_classes
+        
+            a id="pull-request" data-container="body" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="CocoaPods is an open source project. Help us improve these guides by sending a pull request. ❤" data-original-title="" title="" href="https://github.com/CocoaPods/guides.cocoapods.org/blob/master/source/#{current_page.path}#{File.extname(current_page.source_file)}" 
+    
+            ul.breadcrumb
+              - for resource in parents
+                li
+                  == link_to page_title(resource), "/#{resource.destination_path}"
+                  span.divider
+                    |
+              li.active = page_title
 
-        - if parents.length > 0
-          a id="pull-request" data-container="body" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="CocoaPods is an open source project. Help us improve these guides by sending a pull request. ❤" data-original-title="" title="" href="https://github.com/CocoaPods/guides.cocoapods.org/blob/master/source/#{current_page.path}#{File.extname(current_page.source_file)}" 
-      
-          ul.breadcrumb
-            - for resource in parents
-              li
-                == link_to page_title(resource), "/#{resource.destination_path}"
-                span.divider
-                  |
-            li.active = page_title
+
+    section.site_navigation.container
+      .row
       
         - for resource in footer_resources 
 
@@ -89,6 +93,6 @@ html
           ul
             li <a href='/syntax/podfile.html'>Podfile Syntax</a>
             li <a href='/syntax/podspec.html'>Podspec Syntax</a>
-            li <a href='/terminal/commands.html'>Commandline Reference</a>
+            li <a href='/terminal/commands.html'>Command-line Reference</a>
 
     == shared_layout("footer")

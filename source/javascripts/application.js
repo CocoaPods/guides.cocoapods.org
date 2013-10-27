@@ -14,7 +14,7 @@ $(document).ready(function () {
         $target = $(e.target)
         
         // Only one selected tab
-        $("li.active").removeClass("active")
+        $(".bs-sidebar li.active").removeClass("active")
         $(e.target.parentNode).addClass("active")
         
         // Only one open tab collection
@@ -38,7 +38,7 @@ $(document).ready(function () {
     // Let clicking on  DSL / language tabs persist
    
     if (location.hash.substr(0,1) == "#") {
-        $("li.active").removeClass("active")
+        $(".bs-sidebar li.active").removeClass("active")
         $("a[href='#tab_" + location.hash.substr(1) + "']").tab("show");
     }
 

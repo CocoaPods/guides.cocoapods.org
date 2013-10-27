@@ -69,7 +69,7 @@ navigation_data['dsl'].each do |dsl|
 end
 
 proxy "terminal/commands.html", "templates/commands.html", {
-  :locals => { :name => 'commands' },
+  :locals => { :name => 'commands', :page_title => "Command-line Reference" },
   :ignore => true
 }
 
