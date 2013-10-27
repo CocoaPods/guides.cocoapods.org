@@ -74,58 +74,6 @@ $ git push --tags
 $ pod push master
 ```
 
-<!--  This should go into it's own guide, or a blog post, it's not relevant to making a pod - ./
-
-## Creating a Pod repo
-
-A specification repository is a simple collection of podspec files organized with the following structure:
-
-```
-NAME/VERSION/NAME.podspec
-```
-
-```console
-$ cd ~/.cocoapods/master
-$ tree | head
-.
-└── A2DynamicDelegate
-    └── 1.0
-        └── A2DynamicDelegate.podspec
-        1.0.1
-        └── A2DynamicDelegate.podspec
-        1.0.2
-        └── A2DynamicDelegate.podspec
-        1.0.3
-        └── A2DynamicDelegate.podspec
-```
-
-Although the master repo is backed by a git repository, this is not required. For a repository to be valid it is only required to respect the above described file structure.
-
-CocoaPods stores its repositories in the `~/.cocoapods/` folder.
-
-### Adding a new repo
-
-###### Manually
-
-1. Make a folder with the name of the repo in `~/.cocoapods/`.
-2. Populate the repository with podspecs respecting the required folder structure.
-
-###### From an existing git remote
-
-If you want to create a git backed repository you can use the `$ pod repo add` command.
-
-### Disambiguation
-
-If during the installation process is resolved a Pod whose required version is present in more than one repository, the alphabetical order of the names is used to disambiguate.
-
-**TODO:**
-
-- How do I podify an existing project?
-- How do I test the new Pod
-- Local Pods?
-
- -->
-
 ## Library Versioning
 
 There is, unfortunately, often an issue of developers not interpreting version numbers well or assigning emotional value to certain version numbers.
@@ -134,15 +82,15 @@ However, arbitrary revisions as version is not a good idea for a library manager
 
 * “I want to start using CocoaLumberjack, the current version will be fine for now.” So the dev adds a dependency on the lib _without_ a version requirement and `pod install`s which will use the latest version:
 
-```ruby
-pod 'CocoaLumberjack'
-```
+  <code>
+  pod 'CocoaLumberjack'
+  </code>
 
 * Some time into the future, the dev wants to update the dependencies, and to do so runs the install command again, which will now install the version of the lib which is the latest version _at that time_.
 
 * At some point the dev is finished on the client work (or a newer version of the lib changes the API and the changes aren’t needed) so the dev adds a version requirement to the dependency. For instance, consider that the author of the lib follows the semver guidelines, you can somewhat trust that between ‘1.0.7’ and ‘1.1.0’ **no** API changes will be made, but only bug fixes. So instead of requiring a specific version, the dev can specify that _any_ ‘1.0.x’ is allowed as long as it’s higher than ‘1.0.7’:
 
-```ruby
+```ruby 
 pod 'CocoaLumberjack', '~> 1.0.7'
 ```
 

@@ -51,4 +51,4 @@ Your private pod is ready to be used in a Podfile.
 
 ## How to remove a Private Repo
 
-As a private repo is just a folder in your `~/.cocoapods/` folder. You can run `rm -rf ~/.cocoapods/[repo_name]`. Or you can send us a PR for to make [this easier](https://github.com/CocoaPods/CocoaPods/issues/1484).
+`pod repo remove [name]`
