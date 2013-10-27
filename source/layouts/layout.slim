@@ -29,6 +29,17 @@ html
     meta name="keywords" content="documenation cocoapods objective-c packcage manager"
     title = "CocoaPods Guides - " + page_title
     
+    <link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-touch-icon-152x152.png" />
+    
     == favicon_tag "/favicon.ico"
     
     == stylesheet_link_tag "app.css"
@@ -49,6 +60,8 @@ html
 
     #footer.container
       .row
+        a href="https://github.com/CocoaPods/guides.cocoapods.org/blob/master/source/#{current_page.path}#{File.extname(current_page.source_file)}" Improve this page on GitHub 
+      
         - if parents.length > 0
           ul.breadcrumb
             - for resource in parents
@@ -70,15 +83,10 @@ html
             div.clearfix.visible-xs
             
         .col-lg-3.col-sm-3.col-xs-6.footer-index
-          h3  == "<a href='/reference.html'>Reference</a>"
+          h3  <a href='/reference.html'>Reference</a>
           ul
-            li == "<a href='/syntax/podfile.html'>Podfile Syntax</a>"
-            li == "<a href='/syntax/podspec.html'>Podspec Syntax</a>"
-            li == "<a href='/terminal/commands.html'>Commandline Reference</a>"
-
-        / hr
-        / p.note
-        /   | CocoaPods is open source and supported by the community ❤ 
-        /   a href="https://github.com/CocoaPods/guides.cocoapods.org/blob/master/source/#{current_page.path}#{File.extname(current_page.source_file)}" Improve this page on GitHub 
+            li <a href='/syntax/podfile.html'>Podfile Syntax</a>
+            li <a href='/syntax/podspec.html'>Podspec Syntax</a>
+            li <a href='/terminal/commands.html'>Commandline Reference</a>
 
     == shared_layout("footer")
