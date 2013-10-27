@@ -1,6 +1,6 @@
 ---
 title: Private Pods
-description: How to setup private pods, a private specs repo, etc.
+description: How to setup a private Podspec repo for maintaining internal libraries.
 order: 2
 ---
 

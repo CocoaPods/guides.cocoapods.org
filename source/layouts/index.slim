@@ -1,5 +1,5 @@
 ruby:
-    children = current_resource.children
+    children = current_resource.children.sort_by{|child| child.data.order }
 
 - wrap_layout :layout do
 
@@ -7,10 +7,11 @@ ruby:
 
     div.clearfix
     - for resource in children
-      .half
-        h3 == link_to page_title(resource), "/#{resource.destination_path}"
-        p == resource.data.description
+      - unless resource.data.ignore
+        .half
+          h3 == link_to page_title(resource), "/#{resource.destination_path}"
+          p == resource.data.description
       
-      - if children.index(resource) % 2 == 0
-        div.clearfix
+        - if children.index(resource) % 2 == 0
+          div.clearfix
     

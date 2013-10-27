@@ -1,6 +1,6 @@
 ---
 title: Using CocoaPods
-description: Integration instructions and best practices
+description: Integration instructions and best practices.
 order: 1
 ---
 

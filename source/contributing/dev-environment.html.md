@@ -1,6 +1,6 @@
 ---
 title: Setting up for Development
-description: If you're looking to contribute to the CocoaPods project through feature additions or bug fixes, follow these instructions on setting up your development environment
+description: If you're looking to contribute to the CocoaPods project through feature additions or bug fixes, follow these instructions on setting up your development environment.
 order: 2
 ---
 

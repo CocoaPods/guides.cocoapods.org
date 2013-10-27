@@ -1,6 +1,6 @@
 ---
 title: Making a CocoaPod
-description: Instructions for creating and maintaining a CocoaPod
+description: Instructions for creating and maintaining a CocoaPod.
 order: 0
 ---
 

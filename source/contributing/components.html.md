@@ -1,6 +1,6 @@
 ---
 title: Core Components
-description: These are the core components that make up the CocoaPods gem
+description: These are the core components that make up the CocoaPods gem.
 order: 0
 ---
 ## What are the main components?

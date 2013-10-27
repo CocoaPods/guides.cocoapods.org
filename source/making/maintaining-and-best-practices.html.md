@@ -1,7 +1,7 @@
 ---
 title: Maintaining & Best Practices
-description: Instructions for creating and maintaining a CocoaPod
 order: 3
+ignore: true
 ---
 
 <!-- TODO: Using the pod lib create command -->

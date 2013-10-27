@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting
-description: The solutions to common problems
+description: The solutions to common problems.
 order: 3
 ---
 

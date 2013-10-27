@@ -78,7 +78,8 @@ html
             h3 == link_to page_title(resource), "/#{resource.destination_path}"
             ul
               - for child in resource.children.sort_by{|child| child.data.order}
-                li == link_to page_title(child), "/#{child.destination_path}"
+                - unless child.data.ignore
+                  li == link_to page_title(child), "/#{child.destination_path}"
               
           - if footer_resources.index(resource) % 2 == 1
             div.clearfix.visible-xs
