@@ -55,14 +55,25 @@ ruby:
 
         - unless command.options.empty?
           h3 Options:
-          - for (name, html_description) in command.options
-            p
-              b = name
-            == html_description
+
+          table.inherited_options
+            - for (name, html_description) in command.options
+              tr
+                td
+                  p
+                    b = name
+                td 
+                  == html_description
 
         - unless command.parent_options.empty?
           h3 Inherited options:
-          - for (name, html_description) in command.parent_options
-            p
-              b = name
-            == html_description
+
+          table.inherited_options
+            - for (name, html_description) in command.parent_options
+              tr
+                td
+                  p
+                    b = name
+                td 
+                  == html_description
+              
