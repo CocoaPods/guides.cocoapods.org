@@ -43,7 +43,7 @@ end
 ```ruby
 platform :ios, '6.0' 
 
-link_with ['MyApp', 'MyApp Tests']
+link_with 'MyApp', 'MyApp Tests'
 pod 'AFNetworking', '~> 1.0'
 pod 'Objection', '0.9'
 ```
