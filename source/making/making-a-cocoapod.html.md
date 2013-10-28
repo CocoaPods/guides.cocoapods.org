@@ -48,7 +48,7 @@ You can work on the library from its folder on your system.
 pod 'Name', :path => '~/code/Pods/NAME.podspec'
 ```
 
-> You can also lint the pod against the files of its directory, this won't test the downloading aspec of linting.
+> You can also lint the pod against the files of its directory, this won't test the downloading aspect of linting.
 
 ```shell
 $ cd ~/code/Pods/NAME
