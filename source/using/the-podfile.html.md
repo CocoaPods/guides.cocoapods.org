@@ -38,12 +38,12 @@ post_install do |installer|
 end
  ```
 
-> If you want multiple targets to share the same pods.
+> If you want multiple targets, like adding tests, to share the same pods.
 
 ```ruby
 platform :ios, '6.0' 
 
-link_with ['NewApp', 'OldApp']
+link_with ['MyApp', 'MyApp Tests']
 pod 'AFNetworking', '~> 1.0'
 pod 'Objection', '0.9'
 ```
