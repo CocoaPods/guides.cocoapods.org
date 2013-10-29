@@ -57,9 +57,10 @@ order: 4
   You don’t. OS X comes with a Ruby (1.8.7 or 2.0.0) pre-installed in `/usr/bin/ruby`.   The _only_ thing you have to install are the Xcode command-line tools.
 
   If, however, you want a bit more speed, or are using Ruby for other development tasks, you might want to take a look at installing a newer Ruby version through managers like [rbenv](https://github.com/sstephenson/rbenv) or [RVM](https://rvm.io).
-  
+
+
 ### “CocoaPods has just changed my entire pbxproj, what gives?”
 
-Xcode projects are ‘PList’ documents. Internally, PList documents can be serialised in a number of ways, two of which are the NextStep ASCII format and a XML format. The former has been deprecated and can no longer be written to disk by official APIs such as the CFPropertyList API. While Xcode still uses this deprecated format, we chose to depend on the CFPropertyList API and not implement custom serialisation code for a format that might be removed without notice.
+Xcode projects are ‘PList’ documents. Internally, PList documents can be serialised in a number of ways, two of which are the (OpenStep) ASCII format and a XML format. The former has been deprecated and can no longer be written to disk by official APIs such as the CFPropertyList API. While Xcode still uses this deprecated format, we chose to depend on the CFPropertyList API and not implement custom serialisation code for a format that might be removed without notice.
 
-If you make a change to your project Apple (currently) will overwrite this change and will save the document in its internal extended PList format. This is the simplest way for us to support saving Xcode projects without trying to replicate Xcode's internals. 
+If you make a change to your project Xcode (currently) will overwrite this change and will save the document in its internal extended ASCII PList format. This is the simplest way for us to support saving Xcode projects without trying to replicate Xcode's internals. 
