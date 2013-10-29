@@ -130,5 +130,5 @@ In general this means that:
   
 ## How do I get my library on CocoaDocs?
 
-[CocoaDocs](http://cocoadocs.org) recieves notifications from the [CocoaPods/Specs](https://github.com/CocoaPods/Specs) repo on github whenever a CocoaPod is updated. This triggers a process that will generate documentation for _objective-c_ projects via [appledoc](http://gentlebytes.com/appledoc/) and host them for the community. This process can take around 15 minutes after your Podspec is merged. If you host your own documentation, you can use the [documentation_url](/syntax/podspec.html#documentation_url).
-  
+[CocoaDocs](http://cocoadocs.org) receives notifications from the [CocoaPods/Specs](https://github.com/CocoaPods/Specs) repo on GitHub whenever a CocoaPod is updated. This triggers a process that will generate documentation for _objective-c_ projects via [appledoc](http://gentlebytes.com/appledoc/) and host them for the community. This process can take around 15 minutes after your Podspec is merged. If you host your own documentation, you can use the [documentation_url](/syntax/podspec.html#documentation_url).
+

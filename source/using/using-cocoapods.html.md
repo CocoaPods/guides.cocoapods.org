@@ -80,7 +80,7 @@ pod 'RestKit'
 
 Thanks to the `Podfile.lock` every machine which runs pod install on the
 hypothetical project will use RestKit 0.10.3 even if a newer version is
-available. CocoaPods will honor this version unless the dependency is updated
+available. CocoaPods will honour this version unless the dependency is updated
 on the Podfile or `pod update` is called. In this way CocoaPods avoids headaches
 caused by unexpected changes to dependencies.
 
@@ -114,7 +114,7 @@ Before you decide to make the full switch to CocoaPods, make sure that the libra
 
 1. Install CocoaPods, if you have not done so already
 2. Create your [Podfile](/using/the-podfile.html)
-3. [Remove the submobule reference](http://davidwalsh.name/git-remove-submodule)
+3. [Remove the submodule reference](http://davidwalsh.name/git-remove-submodule)
 4. Add a reference to the removed library in your Podfile
 5. Run `pod install`
 

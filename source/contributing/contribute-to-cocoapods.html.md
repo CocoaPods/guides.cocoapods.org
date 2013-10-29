@@ -21,7 +21,7 @@ The standard development on CocoaPods happens like so:
 - **Enhancement:** These are planned enhancements that have not been picked up yet. If you would like to work on one, please add a comment that you are doing so.
 - **Discussion:** These are issues that can be non-issues, and encompass best practices, or plans for the future.
 - **Quick:** These are small issues, that should be able to be fixed quickly. Normally these issues don't stay around for very long.
-- **To check:** These issues may not be reproduceable, or have not been vetted by a team member.
+- **To check:** These issues may not be reproducible, or have not been vetted by a team member.
 - **Workaround known:** These issues have had their solutions discussed, but have yet to be implemented.
 - **Easy First Step** These issues are great issues to get started with. They tend to stick around for a while. We want people to feel like there's always somewhere you can start.
 

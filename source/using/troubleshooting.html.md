@@ -28,7 +28,7 @@ order: 3
    * Click on Build
    * Add the `Pods` static library, and make sure it's at the top of the list
    * Clean and build again
-   * If that doesn't work, verify that the source for the spec you are trying to include has been pulled from github. Do this by looking in &lt;Project Dir>/Pods/&lt;Name of spec you are trying to include>. If it is empty (it should not be), verify that the ~/.cocoapods/master/&lt;spec>/&lt;spec>.podspec has the correct git hub url in it.
+   * If that doesn't work, verify that the source for the spec you are trying to include has been pulled from GitHub. Do this by looking in &lt;Project Dir>/Pods/&lt;Name of spec you are trying to include>. If it is empty (it should not be), verify that the ~/.cocoapods/master/&lt;spec>/&lt;spec>.podspec has the correct git hub url in it.
    * If still doesn't work, check your XCode build locations settings. Go to Preferences -> Locations -> Derived Data -> Advanced and set build location to "Relative to Workspace".
 
 <center> ![Xcode build location settings](https://img.skitch.com/20120426-chmda3m5suhcfrhjge6brjhesk.png) </center>
@@ -50,7 +50,7 @@ We have multiple avenues for support, here they are in the order we prefer.
 
 ### I think this is a bug with CocoaPods
 
-In this case we want to get it on a Github issues tracker, we use this to keep track of the development work we have to do.
+In this case we want to get it on a GitHub issues tracker, we use this to keep track of the development work we have to do.
 
 * **Search tickets before you file a new one.** Add to existing tickets if you have new information about the issue.
 * **Only file tickets about the CocoaPods tool itself.** This includes [CocoaPods](https://github.com/CocoaPods/CocoaPods/issues),
