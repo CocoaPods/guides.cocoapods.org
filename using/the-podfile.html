@@ -55,7 +55,7 @@
     <article class="content col-md-10 col-md-offset-1">
 
 <blockquote>
-<p>If you want multiple targets to share the same pods.</p>
+<p>If you want multiple targets, like adding tests, to share the same pods.</p>
 </blockquote>
     </article>
     </section>
@@ -65,7 +65,7 @@
     <article class="content col-md-11 col-md-offset-1"><pre
  class="highlight ruby"><span class="n">platform</span> <span class="ss">:ios</span><span class="p">,</span> <span class="s1">&#39;6.0&#39;</span> 
 
-<span class="n">link_with</span> <span class="o">[</span><span class="s1">&#39;NewApp&#39;</span><span class="p">,</span> <span class="s1">&#39;OldApp&#39;</span><span class="o">]</span>
+<span class="n">link_with</span> <span class="s1">&#39;MyApp&#39;</span><span class="p">,</span> <span class="s1">&#39;MyApp Tests&#39;</span>
 <span class="n">pod</span> <span class="s1">&#39;AFNetworking&#39;</span><span class="p">,</span> <span class="s1">&#39;~&gt; 1.0&#39;</span>
 <span class="n">pod</span> <span class="s1">&#39;Objection&#39;</span><span class="p">,</span> <span class="s1">&#39;0.9&#39;</span>
 </pre>    </article>
@@ -213,7 +213,7 @@ project you can use <code>:path</code>.</p>
 <p>Using this option CocoaPods will assume the given folder to be the
 root of the Pod and will link the files directly from there in the
 Pods project. This means that your edits will persist between CocoaPods
-installations. The referenced folder can be a checkout of your your favorite SCM or
+installations. The referenced folder can be a checkout of your your favourite SCM or
 even a git submodule of the current repo.  </p>
 
 <p><aside>Note that the <code>podspec</code> of the Pod file is expected to be in that folder.</aside></p>

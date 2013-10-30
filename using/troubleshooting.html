@@ -30,7 +30,7 @@
 <li>Click on Build</li>
 <li>Add the <code>Pods</code> static library, and make sure it&#39;s at the top of the list</li>
 <li>Clean and build again</li>
-<li>If that doesn&#39;t work, verify that the source for the spec you are trying to include has been pulled from github. Do this by looking in &lt;Project Dir&gt;/Pods/&lt;Name of spec you are trying to include&gt;. If it is empty (it should not be), verify that the ~/.cocoapods/master/&lt;spec&gt;/&lt;spec&gt;.podspec has the correct git hub url in it.</li>
+<li>If that doesn&#39;t work, verify that the source for the spec you are trying to include has been pulled from GitHub. Do this by looking in &lt;Project Dir&gt;/Pods/&lt;Name of spec you are trying to include&gt;. If it is empty (it should not be), verify that the ~/.cocoapods/master/&lt;spec&gt;/&lt;spec&gt;.podspec has the correct git hub url in it.</li>
 <li>If still doesn&#39;t work, check your XCode build locations settings. Go to Preferences -&gt; Locations -&gt; Derived Data -&gt; Advanced and set build location to &quot;Relative to Workspace&quot;.</li>
 </ul></li>
 </ol>
@@ -47,6 +47,27 @@
 
 <p><em>Different Xcode versions can have various problems. Ask for help and tell us what version you&#39;re using.</em></p>
 
+<h3 id="running-into-build-failures-after-migrating-to-xcode-5-and-cocoapods-0.25.0?">Running into build failures after migrating to Xcode 5 and CocoaPods 0.25.0?</h3>
+
+<p>This applies to users migrating projects from Xcode 4, or are still using Xcode 4.</p>
+
+<ol>
+<li>The Pods Xcode project now sets the <code>ONLY_ACTIVE_ARCH</code> build setting to
+<code>YES</code> in the <code>Debug</code> configuration. You <em>will</em> have to set the same on your
+project/target, otherwise the build <em>will</em> fail.</li>
+<li>Ensure your project/target has an <code>ARCHS</code> value set, otherwise the build
+<em>will</em> fail.</li>
+<li>When building a <strong>iOS</strong> project from the command-line, with the <code>xcodebuild</code>
+tool that comes with Xcode 4, you’ll need to completely disable this setting
+by appending to your build command: <code>ONLY_ACTIVE_ARCH=NO</code>.</li>
+</ol>
+
+<h3 id="can-i-workaround-‘duplicate-symbol’-errors-with-static-libraries?">Can I workaround ‘Duplicate Symbol’ errors with static libraries?</h3>
+
+<p>This usually occurs when you’re using a closed-source third-party library that includes a common dependency of your application. One brute-force workaround is to remove the dependency from the static library, as described <a href="http://atnan.com/blog/2012/01/12/avoiding-duplicate-symbol-errors-during-linking-by-removing-classes-from-static-libraries">here</a></p>
+
+<p>However, in general, the vendor should really prefix any dependencies it includes, so you don’t need to deal with it. When this happens, please contact the vendor and ask them to fix it on their side and use the above method as a temporary workaround.</p>
+
 <h3 id="i-didn&#39;t-find-the-solution-to-my-problem!">I didn&#39;t find the solution to my problem!</h3>
 
 <p>We have multiple avenues for support, here they are in the order we prefer.</p>
@@ -59,7 +80,7 @@
 
 <h3 id="i-think-this-is-a-bug-with-cocoapods">I think this is a bug with CocoaPods</h3>
 
-<p>In this case we want to get it on a Github issues tracker, we use this to keep track of the development work we have to do.</p>
+<p>In this case we want to get it on a GitHub issues tracker, we use this to keep track of the development work we have to do.</p>
 
 <ul>
 <li><strong>Search tickets before you file a new one.</strong> Add to existing tickets if you have new information about the issue.</li>
