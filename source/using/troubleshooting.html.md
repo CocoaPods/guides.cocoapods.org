@@ -38,6 +38,26 @@ order: 3
 
 _Different Xcode versions can have various problems. Ask for help and tell us what version you're using._
 
+### Running into build failures after migrating to Xcode 5 and CocoaPods 0.25.0?
+
+This applies to users migrating projects from Xcode 4, or are still using Xcode 4.
+
+1. The Pods Xcode project now sets the `ONLY_ACTIVE_ARCH` build setting to
+   `YES` in the `Debug` configuration. You _will_ have to set the same on your
+   project/target, otherwise the build _will_ fail.
+2. Ensure your project/target has an `ARCHS` value set, otherwise the build
+   _will_ fail.
+3. When building a **iOS** project from the command-line, with the `xcodebuild`
+   tool that comes with Xcode 4, you’ll need to completely disable this setting
+   by appending to your build command: `ONLY_ACTIVE_ARCH=NO`.
+
+### Can I workaround ‘Duplicate Symbol’ errors with static libraries?
+
+This usually occurs when you’re using a closed-source third-party library that includes a common dependency of your application. One brute-force workaround is to remove the dependency from the static library, as described [here](http://atnan.com/blog/2012/01/12/avoiding-duplicate-symbol-errors-during-linking-by-removing-classes-from-static-libraries)
+
+However, in general, the vendor should really prefix any dependencies it includes, so you don’t need to deal with it. When this happens, please contact the vendor and ask them to fix it on their side and use the above method as a temporary workaround.
+
+
 ### I didn't find the solution to my problem!
 
 We have multiple avenues for support, here they are in the order we prefer.
