@@ -14,28 +14,41 @@ Ultimately the goal is to improve discoverability of, and engagement in, third p
 
 ## Getting Started
 
-### Dependencies
-
-- Ruby MRI 2.0.0 or 1.8.7 (ships with Mac OS X)
-- Xcode command line tools.
-
 ### Installation
 
-CocoaPods is built with Ruby. For the best experience, we suggest installing a Ruby Version manager, like [RVM](http://rvm.io), and running Ruby 1.9.3 or newer. Depending on your connection this might take a while. Unless an error is reported let it run its course.
+CocoaPods is built with Ruby and it will be installable with the default Ruby
+available on OS X. You can use a Ruby Version manager, however we recommend that
+you use the standard Ruby available on OS X unless you know what you're doing.
 
-
-> When using RVM, or a similar tool, to install CocoaPods run
-
-```shell
-$ gem install cocoapods
-```
-
-> If you are using the bundled ruby from Apple, you need to prefix the command with sudo
+Using the default Ruby install will require you to use `sudo` when installing
+gems. (This is only an issue for the duration of the gem installation, though.)
 
 ```shell
 $ sudo gem install cocoapods
 ```
 
+If you do *not* want to grant RubyGems admin privileges for this process, you can
+tell RubyGems to install into your user directory by passing either the
+`--user-install` flag to `gem install` or by configuring the RubyGems environment.
+The latter is in our opinion the best solution. To do this, create or edit the
+`.profile` file in your home directory and add or amend it to include these lines:
+
+```shell
+export GEM_HOME=$HOME/gems
+export PATH=$GEM_HOME/bin:$PATH
+```
+
+Note that if you choose to use the `--user-install` option, you will still have
+to configure your `.profile` file to set the `PATH` or use the command prepended by
+the full path. You can find out where a gem is installed with `gem which
+cocoapods`. E.g.
+
+```shell
+$ gem install cocoapods --user-install
+$ gem which cocoapods
+/Users/eloy/.gem/ruby/1.8/gems/cocoapods-0.27.1/lib/cocoapods.rb
+$ /Users/eloy/.gem/ruby/1.8/gems/cocoapods-0.27.1/bin/pod install
+```
 
 ### Updating CocoaPods
 
