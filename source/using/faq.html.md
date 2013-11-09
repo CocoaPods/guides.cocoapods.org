@@ -20,6 +20,10 @@ order: 4
   Once we reach the 1.0.0 milestone we will –for the first time ever– contact the community at large through mailing-lists such as cocoa-dev.
 
 
+### “How can I donate to CocoaPods?”
+
+  TL;DR: While we very much appreciate the sentiment, the project (as an entity) does not accept financial donations. We have a [great blog post](http://blog.cocoapods.org/Why-we-dont-accept-donations/) on this.
+
 ### “CocoaPods doesn’t do X, so it’s unusable.”
 
   First see point #2, then consider that unless you tell us about the missing feature and why it is important, it won’t happen at all. We don’t scour Twitter to look for work, so please file a [ticket](https://github.com/CocoaPods/CocoaPods/issues/new), or, better yet, in the form of a pull-request.
