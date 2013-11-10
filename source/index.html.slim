@@ -1,13 +1,61 @@
 ---
-title: CocoaPods Guides
+title: Home
 fullwidth: true
+hide_title: true
+hide_nav: true
 ---
 
-</article>
-<article class="content">
+ruby:
+  parents = []
+  parent = current_resource
+  while parent = parent.parent
+    parents.unshift(parent)
+  end
 
-p.col-lg-6.col-sm-6.col-xs-6
-  | The guide is focused towards helping people out in three distinct stages of their CocoaPods mastery. Starting out as a user wanting to understand how Podfiles work, what options are available and how to fix common problems. 
+  topnav = []
+  for resource in sitemap.resources
+    if resource.ext == '.html' && resource.children.count > 0 && resource.parent != nil
+      topnav.unshift(resource)
+    end
+  end
   
-p.col-lg-6.col-sm-6.col-xs-6
-  | Moving on then into Library Authors who want to create or update Podspecs, have their own private Pods and best practices. And then finally how to help out on the CocoaPods project itself.
+  footer_resources = sitemap.resources.select do |resource|
+    resource.data.footer
+  end.sort_by { |resource| resource.data.footer_order }
+
+
+</div>
+
+section.container.row
+  header.col-md-12.headline.index
+    h1 CocoaPods Guides
+  
+    <div class="horizontal-divider"><div class="arrow-down"></div><div class="enclosed-arrow-down"></div></div>
+
+div.guide#content-wrapper
+  section.container.row.site_navigation
+
+    - for resource in footer_resources 
+
+      .col-lg-4.col-sm-4.col-xs-12.footer-index.homepage-index
+        h2.guide-index == link_to page_title(resource), "/#{resource.destination_path}"
+        ul
+          - for child in resource.children.sort_by{|child| child.data.order}
+            - unless child.data.ignore
+            
+              li 
+                p == link_to(page_title(child), "/#{child.destination_path}") + child.data.description
+              
+
+
+
+          - if footer_resources.index(resource) % 2 == 1
+            div.clearfix.visible-xs
+          
+  / .col-lg-12.col-sm-12.col-xs-12.footer-index
+  /   h3  <a href='/reference.html'>Reference</a>
+  /   ul
+  /     li <a href='/syntax/podfile.html'>Podfile Syntax</a>
+  /     li <a href='/syntax/podspec.html'>Podspec Syntax</a>
+  /     li <a href='/terminal/commands.html'>Command-line Reference</a>
+

@@ -48,10 +48,11 @@ html
 
   body
     == shared_layout("header")
-    
-    section.container.row
-      header.header class=width_classes
-        h1 == page_title
+
+    - unless current_resource.data.hide_title
+      section.container.row
+        header.header class=width_classes
+          h1 == page_title
 
     #content-wrapper.guide
       section.row.container
@@ -61,9 +62,7 @@ html
       - if parents.length > 0 
         section.row.container.info-row
           article class=width_classes
-        
-            a id="pull-request" data-container="body" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="CocoaPods is an open source project. Help us improve these guides by sending a pull request. ❤" data-original-title="" title="" href="https://github.com/CocoaPods/guides.cocoapods.org/blob/master/source/#{current_page.path}#{File.extname(current_page.source_file)}" 
-    
+
             ul.breadcrumb
               - for resource in parents
                 li
@@ -73,27 +72,28 @@ html
               li.active = page_title
 
 
-    section.site_navigation.container
-      .row
+    - unless current_resource.data.hide_nav
+      section.site_navigation.container
+        .row
       
-        - for resource in footer_resources 
+          - for resource in footer_resources 
 
-          .col-lg-3.col-sm-3.col-xs-6.footer-index
-            h3 == link_to page_title(resource), "/#{resource.destination_path}"
-            ul
-              - for child in resource.children.sort_by{|child| child.data.order}
-                - unless child.data.ignore
-                  li == link_to page_title(child), "/#{child.destination_path}"
+            .col-lg-3.col-sm-3.col-xs-6.footer-index
+              h3 == link_to page_title(resource), "/#{resource.destination_path}"
+              ul
+                - for child in resource.children.sort_by{|child| child.data.order}
+                  - unless child.data.ignore
+                    li == link_to page_title(child), "/#{child.destination_path}"
               
-          - if footer_resources.index(resource) % 2 == 1
-            div.clearfix.visible-xs
+            - if footer_resources.index(resource) % 2 == 1
+              div.clearfix.visible-xs
             
-        .col-lg-3.col-sm-3.col-xs-6.footer-index
-          h3  <a href='/reference.html'>Reference</a>
-          ul
-            li <a href='/syntax/podfile.html'>Podfile Syntax</a>
-            li <a href='/syntax/podspec.html'>Podspec Syntax</a>
-            li <a href='/terminal/commands.html'>Command-line Reference</a>
+          .col-lg-3.col-sm-3.col-xs-6.footer-index
+            h3  <a href='/reference.html'>Reference</a>
+            ul
+              li <a href='/syntax/podfile.html'>Podfile Syntax</a>
+              li <a href='/syntax/podspec.html'>Podspec Syntax</a>
+              li <a href='/terminal/commands.html'>Command-line Reference</a>
 
     == shared_layout("footer")
     
