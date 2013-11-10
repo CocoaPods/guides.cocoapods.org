@@ -1,633 +1,116 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta content="documenation cocoapods objective-c packcage manager" name="keywords">
-<title>CocoaPods Guides - PBXFileReference</title>
-<link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon">
-<link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-touch-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-touch-icon-144x144.png">
-<link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-touch-icon-152x152.png">
-<link href="../../../../../stylesheets/app.css" media="screen" rel="stylesheet" type="text/css">
-<script src="../../../../../javascripts/application.js" type="text/javascript"></script>
-</head>
-<body>
-<nav class="navbar navbar-static-top" role="navigation"><section class="container"><div class="navbar-header">
-<button class="navbar-toggle" data-target=".navbar-header-collapse" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="/"></a>
-</div>
-<div class="collapse navbar-collapse navbar-header-collapse"><ul class="nav navbar-nav navbar-right">
-<li><a href="http://beta.cocoapods.org/about">About</a></li>
-<li class="active"><a href="http://guides.cocoapods.org">Guides</a></li>
-<li><a href="http://blog.cocoapods.org">Blog</a></li>
-</ul></div></section></nav><section class="container row"><header class="header content col-md-10 col-md-offset-1"><h1>PBXFileReference</h1></header></section><div class="guide" id="content-wrapper">
-<section class="row container"><article class="content col-md-10 col-md-offset-1"><div id="tab-controller">
-<div id="methods-container"><div id="header"><h1><a class="select-tab" href="#tab_root_pbxfilereference">PBXFileReference</a></h1></div></div>
-<li>
-<a class="select-tab group" data-toggle="tab" href="#tab_group_attributes">Attributes</a><ul class="nav" style="display:none;">
-<li><a class="select-tab" data-toggle="tab" href="#tab_name">name</a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_path">path</a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_source_tree">source_tree</a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_explicit_file_type">explicit_file_type</a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_last_known_file_type">last_known_file_type</a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_include_in_index">include_in_index</a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_fileencoding">fileEncoding</a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_xc_language_specification_identifier">xc_language_specification_identifier</a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_plist_structure_definition_identifier">plist_structure_definition_identifier</a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_uses_tabs">uses_tabs</a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_indent_width">indent_width</a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_tab_width">tab_width</a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_wraps_lines">wraps_lines</a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_line_ending">line_ending</a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_comments">comments</a></li>
-</ul>
-</li>
-<li>
-<a class="select-tab group" data-toggle="tab" href="#tab_group_helpers">Helpers</a><ul class="nav" style="display:none;">
-<li><a class="select-tab" data-toggle="tab" href="#tab_display_name">display_name</a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_parent">parent</a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_parents">parents</a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_hierarchy_path">hierarchy_path</a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_move">move</a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_real_path">real_path</a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_set_source_tree">set_source_tree</a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_set_path">set_path</a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_build_files">build_files</a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_set_last_known_file_type">set_last_known_file_type</a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_set_explicit_file_type">set_explicit_file_type</a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_proxy_q_mark">proxy?</a></li>
-</ul>
-</li>
-<li>
-<a class="select-tab group" data-toggle="tab" href="#tab_group_abstractobject">AbstractObject</a><ul class="nav" style="display:none;">
-<li>
-<a class="select-tab" data-toggle="tab" href="#tab_class_isa">isa</a><span class="label label-small">+</span>
-</li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_initialize">initialize</a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_initialize_defaults">initialize_defaults</a></li>
-<li>
-<a class="select-tab" data-toggle="tab" href="#tab_uuid">uuid</a><span class="label label-small">r</span>
-</li>
-<li>
-<a class="select-tab" data-toggle="tab" href="#tab_project">project</a><span class="label label-small">r</span>
-</li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_remove_from_project">remove_from_project</a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_to_s">to_s</a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_sort">sort</a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_sort_recursively">sort_recursively</a></li>
-</ul>
-</li>
-<li>
-<a class="select-tab group" data-toggle="tab" href="#tab_group_reference_counting">Reference counting</a><ul class="nav" style="display:none;">
-<li>
-<a class="select-tab" data-toggle="tab" href="#tab_referrers">referrers</a><span class="label label-small">r</span>
-</li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_add_referrer">add_referrer</a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_remove_referrer">remove_referrer</a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_remove_reference">remove_reference</a></li>
-</ul>
-</li>
-<li>
-<a class="select-tab group" data-toggle="tab" href="#tab_group_plist_related_methods">Plist related methods</a><ul class="nav" style="display:none;">
-<li><a class="select-tab" data-toggle="tab" href="#tab_configure_with_plist">configure_with_plist</a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_object_with_uuid">object_with_uuid</a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_to_hash">to_hash</a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_to_tree_hash">to_tree_hash</a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_pretty_print">pretty_print</a></li>
-</ul>
-</li>
-<li>
-<a class="select-tab group" data-toggle="tab" href="#tab_group_object_methods">Object methods</a><ul class="nav" style="display:none;">
-<li><a class="select-tab" data-toggle="tab" href="#tab_equality">==</a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab____"></a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_inspect">inspect</a></li>
-</ul>
-</li>
-<li>
-<a class="select-tab group" data-toggle="tab" href="#tab_group_xcodeproj_format_attributes">xcodeproj format attributes</a><ul class="nav" style="display:none;"></ul>
-</li>
-</div>
-<div id="content-container"><div class="tab-content" id="tab-content">
-<div class="tab-pane" id="tab_root_pbxfilereference">
-<h2>PBXFileReference</h2>
-<p>This class represents a reference to a file in the file system.</p>
-<h3>Inherits from:</h3>
-<p><code><a href="../abstractobject/index.html">Xcodeproj::Project::Object::AbstractObject</a></code></p>
-</div>
-<div class="tab-pane" id="tab_group_attributes">
-<h2>Attributes</h2>
-<p>name</p>
-<p>path</p>
-<p>source_tree</p>
-<p>explicit_file_type</p>
-<p>last_known_file_type</p>
-<p>include_in_index</p>
-<p>fileEncoding</p>
-<p>xc_language_specification_identifier</p>
-<p>plist_structure_definition_identifier</p>
-<p>uses_tabs</p>
-<p>indent_width</p>
-<p>tab_width</p>
-<p>wraps_lines</p>
-<p>line_ending</p>
-<p>comments</p>
-</div>
-<div class="tab-pane" id="tab_group_helpers">
-<h2>Helpers</h2>
-<p>display_name</p>
-<p>parent</p>
-<p>parents</p>
-<p>hierarchy_path</p>
-<p>move</p>
-<p>real_path</p>
-<p>set_source_tree</p>
-<p>set_path</p>
-<p>build_files</p>
-<p>set_last_known_file_type</p>
-<p>set_explicit_file_type</p>
-<p>proxy?</p>
-</div>
-<div class="tab-pane" id="tab_group_abstractobject">
-<h2>AbstractObject</h2>
-<p>isa</p>
-<p>initialize</p>
-<p>initialize_defaults</p>
-<p>uuid</p>
-<p>project</p>
-<p>remove_from_project</p>
-<p>to_s</p>
-<p>sort</p>
-<p>sort_recursively</p>
-</div>
-<div class="tab-pane" id="tab_group_reference_counting">
-<h2>Reference counting</h2>
-<p>referrers</p>
-<p>add_referrer</p>
-<p>remove_referrer</p>
-<p>remove_reference</p>
-</div>
-<div class="tab-pane" id="tab_group_plist_related_methods">
-<h2>Plist related methods</h2>
-<p>configure_with_plist</p>
-<p>object_with_uuid</p>
-<p>to_hash</p>
-<p>to_tree_hash</p>
-<p>pretty_print</p>
-</div>
-<div class="tab-pane" id="tab_group_object_methods">
-<h2>Object methods</h2>
-<p>==</p>
-<p>&lt;=&gt;</p>
-<p>inspect</p>
-</div>
-<div class="tab-pane" id="tab_group_xcodeproj_format_attributes"><h2>xcodeproj format attributes</h2></div>
-<div class="tab-pane" id="tab_name">
-<h2>name</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="nb">name</span> <span class="c1">#=&gt; String </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>String</code> The name of the reference, often not present.
-</p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">15</span> <span class="n">attribute</span> <span class="ss">:name</span><span class="p">,</span> <span class="nb">String</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L15">lib/xcodeproj/project/object/file_reference.rb:15</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_path">
-<h2>path</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">path</span> <span class="c1">#=&gt; String </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>String</code> The path to the file relative to the source tree
-</p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">19</span> <span class="n">attribute</span> <span class="ss">:path</span><span class="p">,</span> <span class="nb">String</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L19">lib/xcodeproj/project/object/file_reference.rb:19</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_source_tree">
-<h2>source_tree</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">source_tree</span> <span class="c1">#=&gt; String </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>String</code> The directory to which the path is relative.
-</p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">33</span> <span class="n">attribute</span> <span class="ss">:source_tree</span><span class="p">,</span> <span class="nb">String</span><span class="p">,</span> <span class="s1">'SOURCE_ROOT'</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L33">lib/xcodeproj/project/object/file_reference.rb:33</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_explicit_file_type">
-<h2>explicit_file_type</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">explicit_file_type</span> <span class="c1">#=&gt; String </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>String</code> </p>
-<p>The file type (apparently) used for products
+<!DOCTYPE html><html><head><meta charset="utf-8" /><meta content="documenation cocoapods objective-c packcage manager" name="keywords" /><title>CocoaPods Guides - PBXFileReference</title><link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon" /><link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png" /><link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png" /><link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png" /><link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png" /><link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon-76x76.png" /><link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png" /><link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-touch-icon-120x120.png" /><link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-touch-icon-144x144.png" /><link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-touch-icon-152x152.png" /><link href="../../../../../stylesheets/app.css" media="screen" rel="stylesheet" type="text/css" /><script src="../../../../../javascripts/application.js" type="text/javascript"></script></head><body><nav class="navbar navbar-static-top" role="navigation"><section class="container"><div class="navbar-header"><button class="navbar-toggle" data-target=".navbar-header-collapse" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="/"></a></div><div class="collapse navbar-collapse navbar-header-collapse"><ul class="nav navbar-nav navbar-right"><li><a href="http://beta.cocoapods.org/about">About</a></li><li class="active"><a href="http://guides.cocoapods.org">Guides</a></li><li><a href="http://blog.cocoapods.org">Blog</a></li></ul></div></section></nav><section class="container row"><header class="header content col-md-10 col-md-offset-1"><h1>PBXFileReference</h1></header></section><div class="guide" id="content-wrapper"><section class="row container"><article class="content col-md-10 col-md-offset-1"><div id="tab-controller"><div id="methods-container"><div id="header"><h1><a class="select-tab" href="#tab_root_pbxfilereference">PBXFileReference</a></h1></div></div><li><a class='select-tab group' data-toggle='tab' href=#tab_group_attributes>Attributes</a><ul class='nav' style='display:none;'><li><a class='select-tab' data-toggle='tab' href=#tab_name>name</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_path>path</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_source_tree>source_tree</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_explicit_file_type>explicit_file_type</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_last_known_file_type>last_known_file_type</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_include_in_index>include_in_index</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_fileencoding>fileEncoding</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_xc_language_specification_identifier>xc_language_specification_identifier</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_plist_structure_definition_identifier>plist_structure_definition_identifier</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_uses_tabs>uses_tabs</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_indent_width>indent_width</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_tab_width>tab_width</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_wraps_lines>wraps_lines</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_line_ending>line_ending</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_comments>comments</a></li></ul></li><li><a class='select-tab group' data-toggle='tab' href=#tab_group_helpers>Helpers</a><ul class='nav' style='display:none;'><li><a class='select-tab' data-toggle='tab' href=#tab_display_name>display_name</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_parent>parent</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_parents>parents</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_hierarchy_path>hierarchy_path</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_move>move</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_real_path>real_path</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_set_source_tree>set_source_tree</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_set_path>set_path</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_build_files>build_files</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_set_last_known_file_type>set_last_known_file_type</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_set_explicit_file_type>set_explicit_file_type</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_proxy_q_mark>proxy?</a></li></ul></li><li><a class='select-tab group' data-toggle='tab' href=#tab_group_abstractobject>AbstractObject</a><ul class='nav' style='display:none;'><li><a class='select-tab' data-toggle='tab' href=#tab_class_isa>isa</a><span class='label label-small'>+</span></li><li><a class='select-tab' data-toggle='tab' href=#tab_initialize>initialize</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_initialize_defaults>initialize_defaults</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_uuid>uuid</a><span class='label label-small'>r</span></li><li><a class='select-tab' data-toggle='tab' href=#tab_project>project</a><span class='label label-small'>r</span></li><li><a class='select-tab' data-toggle='tab' href=#tab_remove_from_project>remove_from_project</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_to_s>to_s</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_sort>sort</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_sort_recursively>sort_recursively</a></li></ul></li><li><a class='select-tab group' data-toggle='tab' href=#tab_group_reference_counting>Reference counting</a><ul class='nav' style='display:none;'><li><a class='select-tab' data-toggle='tab' href=#tab_referrers>referrers</a><span class='label label-small'>r</span></li><li><a class='select-tab' data-toggle='tab' href=#tab_add_referrer>add_referrer</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_remove_referrer>remove_referrer</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_remove_reference>remove_reference</a></li></ul></li><li><a class='select-tab group' data-toggle='tab' href=#tab_group_plist_related_methods>Plist related methods</a><ul class='nav' style='display:none;'><li><a class='select-tab' data-toggle='tab' href=#tab_configure_with_plist>configure_with_plist</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_object_with_uuid>object_with_uuid</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_to_hash>to_hash</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_to_tree_hash>to_tree_hash</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_pretty_print>pretty_print</a></li></ul></li><li><a class='select-tab group' data-toggle='tab' href=#tab_group_object_methods>Object methods</a><ul class='nav' style='display:none;'><li><a class='select-tab' data-toggle='tab' href=#tab_equality>==</a></li><li><a class='select-tab' data-toggle='tab' href=#tab____><=></a></li><li><a class='select-tab' data-toggle='tab' href=#tab_inspect>inspect</a></li></ul></li><li><a class='select-tab group' data-toggle='tab' href=#tab_group_xcodeproj_format_attributes>xcodeproj format attributes</a><ul class='nav' style='display:none;'></div><div id="content-container"><div class="tab-content" id="tab-content"><div class="tab-pane" id="tab_root_pbxfilereference"><h2>PBXFileReference</h2><p>This class represents a reference to a file in the file system.</p>
+<h3>Inherits from:</h3><p><code><a href="../abstractobject/index.html">Xcodeproj::Project::Object::AbstractObject</a></code></p></div><div class="tab-pane" id="tab_group_attributes"><h2>Attributes</h2><p>name</p><p>path</p><p>source_tree</p><p>explicit_file_type</p><p>last_known_file_type</p><p>include_in_index</p><p>fileEncoding</p><p>xc_language_specification_identifier</p><p>plist_structure_definition_identifier</p><p>uses_tabs</p><p>indent_width</p><p>tab_width</p><p>wraps_lines</p><p>line_ending</p><p>comments</p></div><div class="tab-pane" id="tab_group_helpers"><h2>Helpers</h2><p>display_name</p><p>parent</p><p>parents</p><p>hierarchy_path</p><p>move</p><p>real_path</p><p>set_source_tree</p><p>set_path</p><p>build_files</p><p>set_last_known_file_type</p><p>set_explicit_file_type</p><p>proxy?</p></div><div class="tab-pane" id="tab_group_abstractobject"><h2>AbstractObject</h2><p>isa</p><p>initialize</p><p>initialize_defaults</p><p>uuid</p><p>project</p><p>remove_from_project</p><p>to_s</p><p>sort</p><p>sort_recursively</p></div><div class="tab-pane" id="tab_group_reference_counting"><h2>Reference counting</h2><p>referrers</p><p>add_referrer</p><p>remove_referrer</p><p>remove_reference</p></div><div class="tab-pane" id="tab_group_plist_related_methods"><h2>Plist related methods</h2><p>configure_with_plist</p><p>object_with_uuid</p><p>to_hash</p><p>to_tree_hash</p><p>pretty_print</p></div><div class="tab-pane" id="tab_group_object_methods"><h2>Object methods</h2><p>==</p><p>&lt;=&gt;</p><p>inspect</p></div><div class="tab-pane" id="tab_group_xcodeproj_format_attributes"><h2>xcodeproj format attributes</h2></div><div class="tab-pane" id="tab_name"><h2>name</h2><h3>Signature</h3><div class="highlight"><pre><span class="nb">name</span> <span class="c1">#=&gt; String </span>
+</pre></div><h4>Returns</h4><p><code>String</code> The name of the reference, often not present.
+</p><h3>Source</h3><div class="highlight"><pre><span class="lineno">15</span> <span class="n">attribute</span> <span class="ss">:name</span><span class="p">,</span> <span class="nb">String</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L15">lib/xcodeproj/project/object/file_reference.rb:15</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p></div><div class="tab-pane" id="tab_path"><h2>path</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">path</span> <span class="c1">#=&gt; String </span>
+</pre></div><h4>Returns</h4><p><code>String</code> The path to the file relative to the source tree
+</p><h3>Source</h3><div class="highlight"><pre><span class="lineno">19</span> <span class="n">attribute</span> <span class="ss">:path</span><span class="p">,</span> <span class="nb">String</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L19">lib/xcodeproj/project/object/file_reference.rb:19</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p></div><div class="tab-pane" id="tab_source_tree"><h2>source_tree</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">source_tree</span> <span class="c1">#=&gt; String </span>
+</pre></div><h4>Returns</h4><p><code>String</code> The directory to which the path is relative.
+</p><h3>Source</h3><div class="highlight"><pre><span class="lineno">33</span> <span class="n">attribute</span> <span class="ss">:source_tree</span><span class="p">,</span> <span class="nb">String</span><span class="p">,</span> <span class="s1">&#39;SOURCE_ROOT&#39;</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L33">lib/xcodeproj/project/object/file_reference.rb:33</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p></div><div class="tab-pane" id="tab_explicit_file_type"><h2>explicit_file_type</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">explicit_file_type</span> <span class="c1">#=&gt; String </span>
+</pre></div><h4>Returns</h4><p><code>String</code> <p>The file type (apparently) used for products
 generated by Xcode (i.e. applications, libraries).</p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">38</span> <span class="n">attribute</span> <span class="ss">:explicit_file_type</span><span class="p">,</span> <span class="nb">String</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L38">lib/xcodeproj/project/object/file_reference.rb:38</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_last_known_file_type">
-<h2>last_known_file_type</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">last_known_file_type</span> <span class="c1">#=&gt; String </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>String</code> The file type guessed by Xcode.
-</p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">45</span> <span class="n">attribute</span> <span class="ss">:last_known_file_type</span><span class="p">,</span> <span class="nb">String</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L45">lib/xcodeproj/project/object/file_reference.rb:45</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_include_in_index">
-<h2>include_in_index</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">include_in_index</span> <span class="c1">#=&gt; String </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>String</code> </p>
-<p>Whether this file should be indexed. It can
+</p><h3>Source</h3><div class="highlight"><pre><span class="lineno">38</span> <span class="n">attribute</span> <span class="ss">:explicit_file_type</span><span class="p">,</span> <span class="nb">String</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L38">lib/xcodeproj/project/object/file_reference.rb:38</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p></div><div class="tab-pane" id="tab_last_known_file_type"><h2>last_known_file_type</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">last_known_file_type</span> <span class="c1">#=&gt; String </span>
+</pre></div><h4>Returns</h4><p><code>String</code> The file type guessed by Xcode.
+</p><h3>Source</h3><div class="highlight"><pre><span class="lineno">45</span> <span class="n">attribute</span> <span class="ss">:last_known_file_type</span><span class="p">,</span> <span class="nb">String</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L45">lib/xcodeproj/project/object/file_reference.rb:45</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p></div><div class="tab-pane" id="tab_include_in_index"><h2>include_in_index</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">include_in_index</span> <span class="c1">#=&gt; String </span>
+</pre></div><h4>Returns</h4><p><code>String</code> <p>Whether this file should be indexed. It can
 be either <code>0</code> or <code>1</code>.</p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">53</span> <span class="n">attribute</span> <span class="ss">:include_in_index</span><span class="p">,</span> <span class="nb">String</span><span class="p">,</span> <span class="s1">'1'</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L53">lib/xcodeproj/project/object/file_reference.rb:53</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_fileencoding">
-<h2>fileEncoding</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">fileEncoding</span> <span class="c1">#=&gt; String </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>String</code> </p>
-<p>A string containing a number which represents the
+</p><h3>Source</h3><div class="highlight"><pre><span class="lineno">53</span> <span class="n">attribute</span> <span class="ss">:include_in_index</span><span class="p">,</span> <span class="nb">String</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L53">lib/xcodeproj/project/object/file_reference.rb:53</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p></div><div class="tab-pane" id="tab_fileencoding"><h2>fileEncoding</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">fileEncoding</span> <span class="c1">#=&gt; String </span>
+</pre></div><h4>Returns</h4><p><code>String</code> <p>A string containing a number which represents the
 encoding format of the file.</p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">58</span> <span class="n">attribute</span> <span class="ss">:fileEncoding</span><span class="p">,</span> <span class="nb">String</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L58">lib/xcodeproj/project/object/file_reference.rb:58</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_xc_language_specification_identifier">
-<h2>xc_language_specification_identifier</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">xc_language_specification_identifier</span> <span class="c1">#=&gt; String </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>String</code> </p>
-<p>A string that specifies the UTI for the syntax
+</p><h3>Source</h3><div class="highlight"><pre><span class="lineno">58</span> <span class="n">attribute</span> <span class="ss">:fileEncoding</span><span class="p">,</span> <span class="nb">String</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L58">lib/xcodeproj/project/object/file_reference.rb:58</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p></div><div class="tab-pane" id="tab_xc_language_specification_identifier"><h2>xc_language_specification_identifier</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">xc_language_specification_identifier</span> <span class="c1">#=&gt; String </span>
+</pre></div><h4>Returns</h4><p><code>String</code> <p>A string that specifies the UTI for the syntax
 highlighting.</p>
-<hr>
-<h3>Examples:</h3>
-<p></p>
-<div class="highlight"><pre><span class="sb">`xcode.lang.ruby`</span>
-</pre></div>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">66</span> <span class="n">attribute</span> <span class="ss">:xc_language_specification_identifier</span><span class="p">,</span> <span class="nb">String</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L66">lib/xcodeproj/project/object/file_reference.rb:66</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_plist_structure_definition_identifier">
-<h2>plist_structure_definition_identifier</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">plist_structure_definition_identifier</span> <span class="c1">#=&gt; String </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>String</code> </p>
-<p>A string that specifies the UTI for the structure of
+</p><hr /><h3>Examples:</h3><p></p><div class="highlight"><pre><span class="sb">`xcode.lang.ruby`</span>
+</pre></div><h3>Source</h3><div class="highlight"><pre><span class="lineno">66</span> <span class="n">attribute</span> <span class="ss">:xc_language_specification_identifier</span><span class="p">,</span> <span class="nb">String</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L66">lib/xcodeproj/project/object/file_reference.rb:66</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p></div><div class="tab-pane" id="tab_plist_structure_definition_identifier"><h2>plist_structure_definition_identifier</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">plist_structure_definition_identifier</span> <span class="c1">#=&gt; String </span>
+</pre></div><h4>Returns</h4><p><code>String</code> <p>A string that specifies the UTI for the structure of
 a plist file.</p>
-<hr>
-<h3>Examples:</h3>
-<p></p>
-<div class="highlight"><pre><span class="sb">`com.apple.xcode.plist.structure-definition.iphone.info-plist`</span>
-</pre></div>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">74</span> <span class="n">attribute</span> <span class="ss">:plist_structure_definition_identifier</span><span class="p">,</span> <span class="nb">String</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L74">lib/xcodeproj/project/object/file_reference.rb:74</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_uses_tabs">
-<h2>uses_tabs</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">uses_tabs</span> <span class="c1">#=&gt; String </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>String</code> Whether Xcode should use tabs for text alignment.
-</p>
-<hr>
-<h3>Examples:</h3>
-<p></p>
-<div class="highlight"><pre><span class="sb">`1`</span>
-</pre></div>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">81</span> <span class="n">attribute</span> <span class="ss">:uses_tabs</span><span class="p">,</span> <span class="nb">String</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L81">lib/xcodeproj/project/object/file_reference.rb:81</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_indent_width">
-<h2>indent_width</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">indent_width</span> <span class="c1">#=&gt; String </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>String</code> The width of the indent.
-</p>
-<hr>
-<h3>Examples:</h3>
-<p></p>
-<div class="highlight"><pre><span class="sb">`2`</span>
-</pre></div>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">88</span> <span class="n">attribute</span> <span class="ss">:indent_width</span><span class="p">,</span> <span class="nb">String</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L88">lib/xcodeproj/project/object/file_reference.rb:88</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_tab_width">
-<h2>tab_width</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">tab_width</span> <span class="c1">#=&gt; String </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>String</code> The width of the tabs.
-</p>
-<hr>
-<h3>Examples:</h3>
-<p></p>
-<div class="highlight"><pre><span class="sb">`2`</span>
-</pre></div>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">95</span> <span class="n">attribute</span> <span class="ss">:tab_width</span><span class="p">,</span> <span class="nb">String</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L95">lib/xcodeproj/project/object/file_reference.rb:95</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_wraps_lines">
-<h2>wraps_lines</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">wraps_lines</span> <span class="c1">#=&gt; String </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>String</code> Whether Xcode should wrap lines.
-</p>
-<hr>
-<h3>Examples:</h3>
-<p></p>
-<div class="highlight"><pre><span class="sb">`1`</span>
-</pre></div>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">102</span> <span class="n">attribute</span> <span class="ss">:wraps_lines</span><span class="p">,</span> <span class="nb">String</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L102">lib/xcodeproj/project/object/file_reference.rb:102</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_line_ending">
-<h2>line_ending</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">line_ending</span> <span class="c1">#=&gt; String </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>String</code> </p>
-<p>Apparently whether Xcode should add, if needed, a
+</p><hr /><h3>Examples:</h3><p></p><div class="highlight"><pre><span class="sb">`com.apple.xcode.plist.structure-definition.iphone.info-plist`</span>
+</pre></div><h3>Source</h3><div class="highlight"><pre><span class="lineno">74</span> <span class="n">attribute</span> <span class="ss">:plist_structure_definition_identifier</span><span class="p">,</span> <span class="nb">String</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L74">lib/xcodeproj/project/object/file_reference.rb:74</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p></div><div class="tab-pane" id="tab_uses_tabs"><h2>uses_tabs</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">uses_tabs</span> <span class="c1">#=&gt; String </span>
+</pre></div><h4>Returns</h4><p><code>String</code> Whether Xcode should use tabs for text alignment.
+</p><hr /><h3>Examples:</h3><p></p><div class="highlight"><pre><span class="sb">`1`</span>
+</pre></div><h3>Source</h3><div class="highlight"><pre><span class="lineno">81</span> <span class="n">attribute</span> <span class="ss">:uses_tabs</span><span class="p">,</span> <span class="nb">String</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L81">lib/xcodeproj/project/object/file_reference.rb:81</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p></div><div class="tab-pane" id="tab_indent_width"><h2>indent_width</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">indent_width</span> <span class="c1">#=&gt; String </span>
+</pre></div><h4>Returns</h4><p><code>String</code> The width of the indent.
+</p><hr /><h3>Examples:</h3><p></p><div class="highlight"><pre><span class="sb">`2`</span>
+</pre></div><h3>Source</h3><div class="highlight"><pre><span class="lineno">88</span> <span class="n">attribute</span> <span class="ss">:indent_width</span><span class="p">,</span> <span class="nb">String</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L88">lib/xcodeproj/project/object/file_reference.rb:88</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p></div><div class="tab-pane" id="tab_tab_width"><h2>tab_width</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">tab_width</span> <span class="c1">#=&gt; String </span>
+</pre></div><h4>Returns</h4><p><code>String</code> The width of the tabs.
+</p><hr /><h3>Examples:</h3><p></p><div class="highlight"><pre><span class="sb">`2`</span>
+</pre></div><h3>Source</h3><div class="highlight"><pre><span class="lineno">95</span> <span class="n">attribute</span> <span class="ss">:tab_width</span><span class="p">,</span> <span class="nb">String</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L95">lib/xcodeproj/project/object/file_reference.rb:95</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p></div><div class="tab-pane" id="tab_wraps_lines"><h2>wraps_lines</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">wraps_lines</span> <span class="c1">#=&gt; String </span>
+</pre></div><h4>Returns</h4><p><code>String</code> Whether Xcode should wrap lines.
+</p><hr /><h3>Examples:</h3><p></p><div class="highlight"><pre><span class="sb">`1`</span>
+</pre></div><h3>Source</h3><div class="highlight"><pre><span class="lineno">102</span> <span class="n">attribute</span> <span class="ss">:wraps_lines</span><span class="p">,</span> <span class="nb">String</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L102">lib/xcodeproj/project/object/file_reference.rb:102</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p></div><div class="tab-pane" id="tab_line_ending"><h2>line_ending</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">line_ending</span> <span class="c1">#=&gt; String </span>
+</pre></div><h4>Returns</h4><p><code>String</code> <p>Apparently whether Xcode should add, if needed, a
 new line feed before saving the file.</p>
-<hr>
-<h3>Examples:</h3>
-<p></p>
-<div class="highlight"><pre><span class="sb">`0`</span>
-</pre></div>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">110</span> <span class="n">attribute</span> <span class="ss">:line_ending</span><span class="p">,</span> <span class="nb">String</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L110">lib/xcodeproj/project/object/file_reference.rb:110</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_comments">
-<h2>comments</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">comments</span> <span class="c1">#=&gt; String </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>String</code> Comments associated with this file.
-</p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">116</span> <span class="n">attribute</span> <span class="ss">:comments</span><span class="p">,</span> <span class="nb">String</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L116">lib/xcodeproj/project/object/file_reference.rb:116</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_display_name">
-<h2>display_name</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">display_name</span> <span class="c1">#=&gt; String </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>String</code> </p>
-<p>The name of the file taking into account the path if
+</p><hr /><h3>Examples:</h3><p></p><div class="highlight"><pre><span class="sb">`0`</span>
+</pre></div><h3>Source</h3><div class="highlight"><pre><span class="lineno">110</span> <span class="n">attribute</span> <span class="ss">:line_ending</span><span class="p">,</span> <span class="nb">String</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L110">lib/xcodeproj/project/object/file_reference.rb:110</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p></div><div class="tab-pane" id="tab_comments"><h2>comments</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">comments</span> <span class="c1">#=&gt; String </span>
+</pre></div><h4>Returns</h4><p><code>String</code> Comments associated with this file.
+</p><h3>Source</h3><div class="highlight"><pre><span class="lineno">116</span> <span class="n">attribute</span> <span class="ss">:comments</span><span class="p">,</span> <span class="nb">String</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L116">lib/xcodeproj/project/object/file_reference.rb:116</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p></div><div class="tab-pane" id="tab_display_name"><h2>display_name</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">display_name</span> <span class="c1">#=&gt; String </span>
+</pre></div><h4>Returns</h4><p><code>String</code> <p>The name of the file taking into account the path if
 needed.</p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">127</span> <span class="k">def</span> <span class="nf">display_name</span>
+</p><h3>Source</h3><div class="highlight"><pre><span class="lineno">127</span> <span class="k">def</span> <span class="nf">display_name</span>
 <span class="lineno">128</span>   <span class="nb">name</span> <span class="o">||</span> <span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">if</span> <span class="n">path</span><span class="p">)</span>
 <span class="lineno">129</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L127">lib/xcodeproj/project/object/file_reference.rb:127</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_parent">
-<h2>parent</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">parent</span> <span class="c1">#=&gt; PBXGroup, PBXProject </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code><a href="../pbxgroup/index.html">PBXGroup</a></code><code><a href="../pbxproject/index.html">PBXProject</a></code> The parent of the file.
-</p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">133</span> <span class="k">def</span> <span class="nf">parent</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L127">lib/xcodeproj/project/object/file_reference.rb:127</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p></div><div class="tab-pane" id="tab_parent"><h2>parent</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">parent</span> <span class="c1">#=&gt; PBXGroup, PBXProject </span>
+</pre></div><h4>Returns</h4><p><code><a href="../pbxgroup/index.html">PBXGroup</a></code><code><a href="../pbxproject/index.html">PBXProject</a></code> The parent of the file.
+</p><h3>Source</h3><div class="highlight"><pre><span class="lineno">133</span> <span class="k">def</span> <span class="nf">parent</span>
 <span class="lineno">134</span>   <span class="no">GroupableHelper</span><span class="o">.</span><span class="n">parent</span><span class="p">(</span><span class="nb">self</span><span class="p">)</span>
 <span class="lineno">135</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L133">lib/xcodeproj/project/object/file_reference.rb:133</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_parents">
-<h2>parents</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">parents</span> <span class="c1">#=&gt; Array&lt;PBXGroup, PBXProject&gt; </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>Array<pbxgroup pbxproject></pbxgroup></code> </p>
-<p>The list of the parents of the
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L133">lib/xcodeproj/project/object/file_reference.rb:133</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p></div><div class="tab-pane" id="tab_parents"><h2>parents</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">parents</span> <span class="c1">#=&gt; Array&lt;PBXGroup, PBXProject&gt; </span>
+</pre></div><h4>Returns</h4><p><code>Array<PBXGroup, PBXProject></code> <p>The list of the parents of the
 reference.</p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">140</span> <span class="k">def</span> <span class="nf">parents</span>
+</p><h3>Source</h3><div class="highlight"><pre><span class="lineno">140</span> <span class="k">def</span> <span class="nf">parents</span>
 <span class="lineno">141</span>   <span class="no">GroupableHelper</span><span class="o">.</span><span class="n">parents</span><span class="p">(</span><span class="nb">self</span><span class="p">)</span>
 <span class="lineno">142</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L140">lib/xcodeproj/project/object/file_reference.rb:140</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_hierarchy_path">
-<h2>hierarchy_path</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">hierarchy_path</span> <span class="c1">#=&gt; String </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>String</code> A representation of the reference hierarchy.
-</p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">146</span> <span class="k">def</span> <span class="nf">hierarchy_path</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L140">lib/xcodeproj/project/object/file_reference.rb:140</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p></div><div class="tab-pane" id="tab_hierarchy_path"><h2>hierarchy_path</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">hierarchy_path</span> <span class="c1">#=&gt; String </span>
+</pre></div><h4>Returns</h4><p><code>String</code> A representation of the reference hierarchy.
+</p><h3>Source</h3><div class="highlight"><pre><span class="lineno">146</span> <span class="k">def</span> <span class="nf">hierarchy_path</span>
 <span class="lineno">147</span>   <span class="no">GroupableHelper</span><span class="o">.</span><span class="n">hierarchy_path</span><span class="p">(</span><span class="nb">self</span><span class="p">)</span>
 <span class="lineno">148</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L146">lib/xcodeproj/project/object/file_reference.rb:146</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_move">
-<h2>move</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">move</span><span class="p">(</span><span class="n">new_parent</span><span class="p">)</span> <span class="c1">#=&gt; void </span>
-</pre></div>
-<h4>Parameters</h4>
-<p><code>PBXGroup</code><span> </span><b> new_parent</b></p>
-<p>The new parent.</p>
-<h4>Returns</h4>
-<p><code>void</code> </p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">157</span> <span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="n">new_parent</span><span class="p">)</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L146">lib/xcodeproj/project/object/file_reference.rb:146</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p></div><div class="tab-pane" id="tab_move"><h2>move</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">move</span><span class="p">(</span><span class="n">new_parent</span><span class="p">)</span> <span class="c1">#=&gt; void </span>
+</pre></div><h4>Parameters</h4><p><code>PBXGroup</code><span> </span><b> new_parent</b></p><p>The new parent.</p>
+<h4>Returns</h4><p><code>void</code> </p><h3>Source</h3><div class="highlight"><pre><span class="lineno">157</span> <span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="n">new_parent</span><span class="p">)</span>
 <span class="lineno">158</span>   <span class="no">GroupableHelper</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="nb">self</span><span class="p">,</span> <span class="n">new_parent</span><span class="p">)</span>
 <span class="lineno">159</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L157">lib/xcodeproj/project/object/file_reference.rb:157</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_real_path">
-<h2>real_path</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">real_path</span> <span class="c1">#=&gt; Pathname </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>Pathname</code> The absolute path of the file resolving the
-</p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">164</span> <span class="k">def</span> <span class="nf">real_path</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L157">lib/xcodeproj/project/object/file_reference.rb:157</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p></div><div class="tab-pane" id="tab_real_path"><h2>real_path</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">real_path</span> <span class="c1">#=&gt; Pathname </span>
+</pre></div><h4>Returns</h4><p><code>Pathname</code> The absolute path of the file resolving the
+</p><h3>Source</h3><div class="highlight"><pre><span class="lineno">164</span> <span class="k">def</span> <span class="nf">real_path</span>
 <span class="lineno">165</span>   <span class="no">GroupableHelper</span><span class="o">.</span><span class="n">real_path</span><span class="p">(</span><span class="nb">self</span><span class="p">)</span>
 <span class="lineno">166</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L164">lib/xcodeproj/project/object/file_reference.rb:164</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_set_source_tree">
-<h2>set_source_tree</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">set_source_tree</span><span class="p">(</span><span class="n">source_tree</span><span class="p">)</span> <span class="c1">#=&gt; void </span>
-</pre></div>
-<h4>Parameters</h4>
-<p><code>Symbol</code><span> </span><code>String</code><span> </span><b> source_tree</b></p>
-<p>The source tree, either a string or a symbol.</p>
-<h4>Returns</h4>
-<p><code>void</code> </p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">175</span> <span class="k">def</span> <span class="nf">set_source_tree</span><span class="p">(</span><span class="n">source_tree</span><span class="p">)</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L164">lib/xcodeproj/project/object/file_reference.rb:164</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p></div><div class="tab-pane" id="tab_set_source_tree"><h2>set_source_tree</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">set_source_tree</span><span class="p">(</span><span class="n">source_tree</span><span class="p">)</span> <span class="c1">#=&gt; void </span>
+</pre></div><h4>Parameters</h4><p><code>Symbol</code><span> </span><code>String</code><span> </span><b> source_tree</b></p><p>The source tree, either a string or a symbol.</p>
+<h4>Returns</h4><p><code>void</code> </p><h3>Source</h3><div class="highlight"><pre><span class="lineno">175</span> <span class="k">def</span> <span class="nf">set_source_tree</span><span class="p">(</span><span class="n">source_tree</span><span class="p">)</span>
 <span class="lineno">176</span>   <span class="no">GroupableHelper</span><span class="o">.</span><span class="n">set_source_tree</span><span class="p">(</span><span class="nb">self</span><span class="p">,</span> <span class="n">source_tree</span><span class="p">)</span>
 <span class="lineno">177</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L175">lib/xcodeproj/project/object/file_reference.rb:175</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_set_path">
-<h2>set_path</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">set_path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="c1">#=&gt; void </span>
-</pre></div>
-<h4>Parameters</h4>
-<p><code>#to_s</code><span> </span><b> the</b></p>
-<p>Path for the reference.</p>
-<h4>Returns</h4>
-<p><code>void</code> </p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">185</span> <span class="k">def</span> <span class="nf">set_path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L175">lib/xcodeproj/project/object/file_reference.rb:175</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p></div><div class="tab-pane" id="tab_set_path"><h2>set_path</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">set_path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="c1">#=&gt; void </span>
+</pre></div><h4>Parameters</h4><p><code>#to_s</code><span> </span><b> the</b></p><p>Path for the reference.</p>
+<h4>Returns</h4><p><code>void</code> </p><h3>Source</h3><div class="highlight"><pre><span class="lineno">185</span> <span class="k">def</span> <span class="nf">set_path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 <span class="lineno">186</span>   <span class="k">if</span> <span class="n">path</span>
 <span class="lineno">187</span>     <span class="no">GroupableHelper</span><span class="o">.</span><span class="n">set_path_with_source_tree</span><span class="p">(</span><span class="nb">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">source_tree</span><span class="p">)</span>
 <span class="lineno">188</span>   <span class="k">else</span>
 <span class="lineno">189</span>     <span class="nb">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="kp">nil</span>
 <span class="lineno">190</span>   <span class="k">end</span>
 <span class="lineno">191</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L185">lib/xcodeproj/project/object/file_reference.rb:185</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_build_files">
-<h2>build_files</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">build_files</span> <span class="c1">#=&gt; Array&lt;PBXBuildFile&gt; </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>Array<pbxbuildfile></pbxbuildfile></code> </p>
-<p>The build files associated with the
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L185">lib/xcodeproj/project/object/file_reference.rb:185</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p></div><div class="tab-pane" id="tab_build_files"><h2>build_files</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">build_files</span> <span class="c1">#=&gt; Array&lt;PBXBuildFile&gt; </span>
+</pre></div><h4>Returns</h4><p><code>Array<PBXBuildFile></code> <p>The build files associated with the
 current file reference.</p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">196</span> <span class="k">def</span> <span class="nf">build_files</span>
+</p><h3>Source</h3><div class="highlight"><pre><span class="lineno">196</span> <span class="k">def</span> <span class="nf">build_files</span>
 <span class="lineno">197</span>   <span class="n">referrers</span><span class="o">.</span><span class="n">select</span> <span class="p">{</span> <span class="o">|</span><span class="n">r</span><span class="o">|</span> <span class="n">r</span><span class="o">.</span><span class="n">class</span> <span class="o">==</span> <span class="no">PBXBuildFile</span> <span class="p">}</span>
 <span class="lineno">198</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L196">lib/xcodeproj/project/object/file_reference.rb:196</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_set_last_known_file_type">
-<h2>set_last_known_file_type</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">set_last_known_file_type</span><span class="p">(</span><span class="n">type</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">)</span> <span class="c1">#=&gt; void </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>void</code> </p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">204</span> <span class="k">def</span> <span class="nf">set_last_known_file_type</span><span class="p">(</span><span class="n">type</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">)</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L196">lib/xcodeproj/project/object/file_reference.rb:196</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p></div><div class="tab-pane" id="tab_set_last_known_file_type"><h2>set_last_known_file_type</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">set_last_known_file_type</span><span class="p">(</span><span class="n">type</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">)</span> <span class="c1">#=&gt; void </span>
+</pre></div><h4>Returns</h4><p><code>void</code> </p><h3>Source</h3><div class="highlight"><pre><span class="lineno">204</span> <span class="k">def</span> <span class="nf">set_last_known_file_type</span><span class="p">(</span><span class="n">type</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">)</span>
 <span class="lineno">205</span>   <span class="k">if</span> <span class="n">type</span>
 <span class="lineno">206</span>     <span class="nb">self</span><span class="o">.</span><span class="n">last_known_file_type</span> <span class="o">=</span> <span class="n">type</span>
 <span class="lineno">207</span>   <span class="k">elsif</span> <span class="n">path</span>
@@ -635,20 +118,8 @@ current file reference.</p>
 <span class="lineno">209</span>     <span class="nb">self</span><span class="o">.</span><span class="n">last_known_file_type</span> <span class="o">=</span> <span class="ss">Constants</span><span class="p">:</span><span class="ss">:FILE_TYPES_BY_EXTENSION</span><span class="o">[</span><span class="n">extension</span><span class="o">]</span>
 <span class="lineno">210</span>   <span class="k">end</span>
 <span class="lineno">211</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L204">lib/xcodeproj/project/object/file_reference.rb:204</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_set_explicit_file_type">
-<h2>set_explicit_file_type</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">set_explicit_file_type</span><span class="p">(</span><span class="n">type</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">)</span> <span class="c1">#=&gt; void </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>void</code> </p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">218</span> <span class="k">def</span> <span class="nf">set_explicit_file_type</span><span class="p">(</span><span class="n">type</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">)</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L204">lib/xcodeproj/project/object/file_reference.rb:204</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p></div><div class="tab-pane" id="tab_set_explicit_file_type"><h2>set_explicit_file_type</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">set_explicit_file_type</span><span class="p">(</span><span class="n">type</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">)</span> <span class="c1">#=&gt; void </span>
+</pre></div><h4>Returns</h4><p><code>void</code> </p><h3>Source</h3><div class="highlight"><pre><span class="lineno">218</span> <span class="k">def</span> <span class="nf">set_explicit_file_type</span><span class="p">(</span><span class="n">type</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">)</span>
 <span class="lineno">219</span>   <span class="nb">self</span><span class="o">.</span><span class="n">last_known_file_type</span> <span class="o">=</span> <span class="kp">nil</span>
 <span class="lineno">220</span>   <span class="k">if</span> <span class="n">type</span>
 <span class="lineno">221</span>     <span class="nb">self</span><span class="o">.</span><span class="n">explicit_file_type</span> <span class="o">=</span> <span class="n">type</span>
@@ -657,131 +128,38 @@ current file reference.</p>
 <span class="lineno">224</span>     <span class="nb">self</span><span class="o">.</span><span class="n">explicit_file_type</span> <span class="o">=</span> <span class="ss">Constants</span><span class="p">:</span><span class="ss">:FILE_TYPES_BY_EXTENSION</span><span class="o">[</span><span class="n">extension</span><span class="o">]</span>
 <span class="lineno">225</span>   <span class="k">end</span>
 <span class="lineno">226</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L218">lib/xcodeproj/project/object/file_reference.rb:218</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_proxy_q_mark">
-<h2>proxy?</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">proxy?</span> <span class="c1">#=&gt; Bool </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>Bool</code> Always false for this ISA.
-</p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">232</span> <span class="k">def</span> <span class="nf">proxy?</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L218">lib/xcodeproj/project/object/file_reference.rb:218</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p></div><div class="tab-pane" id="tab_proxy_q_mark"><h2>proxy?</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">proxy?</span> <span class="c1">#=&gt; Bool </span>
+</pre></div><h4>Returns</h4><p><code>Bool</code> Always false for this ISA.
+</p><h3>Source</h3><div class="highlight"><pre><span class="lineno">232</span> <span class="k">def</span> <span class="nf">proxy?</span>
 <span class="lineno">233</span>   <span class="kp">false</span>
 <span class="lineno">234</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L232">lib/xcodeproj/project/object/file_reference.rb:232</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_class_isa">
-<h2>isa<a class="select-tab" href=""><span class="label label-big">class method</span></a><a class="select-tab" href=""><span class="label label-big">inherited</span></a>
-</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">isa</span> <span class="c1">#=&gt; String </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>String</code> The ISA of the class.
-</p>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">isa</span> <span class="c1">#=&gt; String </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>String</code> The object's class name.
-</p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">42</span> <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">isa</span>
-<span class="lineno">43</span>   <span class="vi">@isa</span> <span class="o">||=</span> <span class="nb">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'::'</span><span class="p">)</span><span class="o">.</span><span class="n">last</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object/file_reference.rb#L232">lib/xcodeproj/project/object/file_reference.rb:232</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object/file_reference_spec.rb">spec/project/object/file_reference_spec.rb</a></p></div><div class="tab-pane" id="tab_class_isa"><h2>isa<a class="select-tab" href=""><span class="label label-big">class method</span></a><a class="select-tab" href=""><span class="label label-big">inherited</span></a></h2><h3>Signature</h3><div class="highlight"><pre><span class="n">isa</span> <span class="c1">#=&gt; String </span>
+</pre></div><h4>Returns</h4><p><code>String</code> The ISA of the class.
+</p><h3>Signature</h3><div class="highlight"><pre><span class="n">isa</span> <span class="c1">#=&gt; String </span>
+</pre></div><h4>Returns</h4><p><code>String</code> The object&#39;s class name.
+</p><h3>Source</h3><div class="highlight"><pre><span class="lineno">42</span> <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">isa</span>
+<span class="lineno">43</span>   <span class="vi">@isa</span> <span class="o">||=</span> <span class="nb">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;::&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">last</span>
 <span class="lineno">44</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object.rb#L42">lib/xcodeproj/project/object.rb:42</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object_spec.rb">spec/project/object_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_initialize">
-<h2>initialize<a class="select-tab" href=""><span class="label label-big">inherited</span></a>
-</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="kp">initialize</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">uuid</span><span class="p">)</span> <span class="c1">#=&gt; AbstractObject </span>
-</pre></div>
-<h4>Parameters</h4>
-<p><code>Project</code><span> </span><b> project</b></p>
-<p>The project that will host the object.</p>
-<p><code>String</code><span> </span><b> uuid</b></p>
-<p>The UUID of the new object.</p>
-<h4>Returns</h4>
-<p><code><a href="../abstractobject/index.html">AbstractObject</a></code> A new instance of AbstractObject
-</p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">64</span> <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">uuid</span><span class="p">)</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object.rb#L42">lib/xcodeproj/project/object.rb:42</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object_spec.rb">spec/project/object_spec.rb</a></p></div><div class="tab-pane" id="tab_initialize"><h2>initialize<a class="select-tab" href=""><span class="label label-big">inherited</span></a></h2><h3>Signature</h3><div class="highlight"><pre><span class="kp">initialize</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">uuid</span><span class="p">)</span> <span class="c1">#=&gt; AbstractObject </span>
+</pre></div><h4>Parameters</h4><p><code>Project</code><span> </span><b> project</b></p><p>The project that will host the object.</p>
+<p><code>String</code><span> </span><b> uuid</b></p><p>The UUID of the new object.</p>
+<h4>Returns</h4><p><code><a href="../abstractobject/index.html">AbstractObject</a></code> A new instance of AbstractObject
+</p><h3>Source</h3><div class="highlight"><pre><span class="lineno">64</span> <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">uuid</span><span class="p">)</span>
 <span class="lineno">65</span>   <span class="vi">@project</span><span class="p">,</span> <span class="vi">@uuid</span> <span class="o">=</span> <span class="n">project</span><span class="p">,</span> <span class="n">uuid</span>
 <span class="lineno">66</span>   <span class="vi">@isa</span> <span class="o">=</span> <span class="nb">self</span><span class="o">.</span><span class="n">class</span><span class="o">.</span><span class="n">isa</span>
 <span class="lineno">67</span>   <span class="vi">@referrers</span> <span class="o">=</span> <span class="o">[]</span>
-<span class="lineno">68</span>   <span class="k">raise</span> <span class="s2">"[Xcodeproj] Attempt to initialize an abstract class."</span> <span class="k">unless</span> <span class="vi">@isa</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sr">/^(PBX|XC)/</span><span class="p">)</span>
+<span class="lineno">68</span>   <span class="k">raise</span> <span class="s2">&quot;[Xcodeproj] Attempt to initialize an abstract class.&quot;</span> <span class="k">unless</span> <span class="vi">@isa</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sr">/^(PBX|XC)/</span><span class="p">)</span>
 <span class="lineno">69</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object.rb#L64">lib/xcodeproj/project/object.rb:64</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object_spec.rb">spec/project/object_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_initialize_defaults">
-<h2>initialize_defaults<a class="select-tab" href=""><span class="label label-big">inherited</span></a>
-</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">initialize_defaults</span> <span class="c1">#=&gt; void </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>void</code> </p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">81</span> <span class="k">def</span> <span class="nf">initialize_defaults</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object.rb#L64">lib/xcodeproj/project/object.rb:64</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object_spec.rb">spec/project/object_spec.rb</a></p></div><div class="tab-pane" id="tab_initialize_defaults"><h2>initialize_defaults<a class="select-tab" href=""><span class="label label-big">inherited</span></a></h2><h3>Signature</h3><div class="highlight"><pre><span class="n">initialize_defaults</span> <span class="c1">#=&gt; void </span>
+</pre></div><h4>Returns</h4><p><code>void</code> </p><h3>Source</h3><div class="highlight"><pre><span class="lineno">81</span> <span class="k">def</span> <span class="nf">initialize_defaults</span>
 <span class="lineno">82</span>   <span class="n">simple_attributes</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">a</span><span class="o">|</span> <span class="n">a</span><span class="o">.</span><span class="n">set_default</span><span class="p">(</span><span class="nb">self</span><span class="p">)</span> <span class="p">}</span>
 <span class="lineno">83</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object.rb#L81">lib/xcodeproj/project/object.rb:81</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object_spec.rb">spec/project/object_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_uuid">
-<h2>uuid<a class="select-tab" href=""><span class="label label-big">attribute reader</span></a><a class="select-tab" href=""><span class="label label-big">inherited</span></a>
-</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">uuid</span> <span class="c1">#=&gt; String </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>String</code> The object universally unique identifier.
-</p>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object.rb#L87">lib/xcodeproj/project/object.rb:87</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object_spec.rb">spec/project/object_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_project">
-<h2>project<a class="select-tab" href=""><span class="label label-big">attribute reader</span></a><a class="select-tab" href=""><span class="label label-big">inherited</span></a>
-</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">project</span> <span class="c1">#=&gt; Project </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code><a href="../../index.html">Project</a></code> The project that owns the object.
-</p>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object.rb#L91">lib/xcodeproj/project/object.rb:91</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object_spec.rb">spec/project/object_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_remove_from_project">
-<h2>remove_from_project<a class="select-tab" href=""><span class="label label-big">inherited</span></a>
-</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">remove_from_project</span> <span class="c1">#=&gt; void </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>void</code> </p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">101</span> <span class="k">def</span> <span class="nf">remove_from_project</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object.rb#L81">lib/xcodeproj/project/object.rb:81</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object_spec.rb">spec/project/object_spec.rb</a></p></div><div class="tab-pane" id="tab_uuid"><h2>uuid<a class="select-tab" href=""><span class="label label-big">attribute reader</span></a><a class="select-tab" href=""><span class="label label-big">inherited</span></a></h2><h3>Signature</h3><div class="highlight"><pre><span class="n">uuid</span> <span class="c1">#=&gt; String </span>
+</pre></div><h4>Returns</h4><p><code>String</code> The object universally unique identifier.
+</p><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object.rb#L87">lib/xcodeproj/project/object.rb:87</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object_spec.rb">spec/project/object_spec.rb</a></p></div><div class="tab-pane" id="tab_project"><h2>project<a class="select-tab" href=""><span class="label label-big">attribute reader</span></a><a class="select-tab" href=""><span class="label label-big">inherited</span></a></h2><h3>Signature</h3><div class="highlight"><pre><span class="n">project</span> <span class="c1">#=&gt; Project </span>
+</pre></div><h4>Returns</h4><p><code><a href="../../index.html">Project</a></code> The project that owns the object.
+</p><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object.rb#L91">lib/xcodeproj/project/object.rb:91</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object_spec.rb">spec/project/object_spec.rb</a></p></div><div class="tab-pane" id="tab_remove_from_project"><h2>remove_from_project<a class="select-tab" href=""><span class="label label-big">inherited</span></a></h2><h3>Signature</h3><div class="highlight"><pre><span class="n">remove_from_project</span> <span class="c1">#=&gt; void </span>
+</pre></div><h4>Returns</h4><p><code>void</code> </p><h3>Source</h3><div class="highlight"><pre><span class="lineno">101</span> <span class="k">def</span> <span class="nf">remove_from_project</span>
 <span class="lineno">102</span>   <span class="n">project</span><span class="o">.</span><span class="n">objects_by_uuid</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">uuid</span><span class="p">)</span>
 <span class="lineno">103</span>   <span class="n">referrers</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">referrer</span><span class="o">|</span> <span class="n">referrer</span><span class="o">.</span><span class="n">remove_reference</span><span class="p">(</span><span class="nb">self</span><span class="p">)</span> <span class="p">}</span>
 <span class="lineno">104</span> 
@@ -795,44 +173,20 @@ current file reference.</p>
 <span class="lineno">112</span>     <span class="n">list</span><span class="o">.</span><span class="n">clear</span>
 <span class="lineno">113</span>   <span class="k">end</span>
 <span class="lineno">114</span> 
-<span class="lineno">115</span>   <span class="k">raise</span> <span class="s2">"[Xcodeproj] BUG: </span><span class="si">#{</span><span class="nb">self</span><span class="si">}</span><span class="s2"> should have no referrers instead the following objects are still referencing it </span><span class="si">#{</span><span class="n">referrers</span><span class="si">}</span><span class="s2">"</span> <span class="k">unless</span> <span class="n">referrers</span><span class="o">.</span><span class="n">count</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="lineno">115</span>   <span class="k">raise</span> <span class="s2">&quot;[Xcodeproj] BUG: </span><span class="si">#{</span><span class="nb">self</span><span class="si">}</span><span class="s2"> should have no referrers instead the following objects are still referencing it </span><span class="si">#{</span><span class="n">referrers</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">unless</span> <span class="n">referrers</span><span class="o">.</span><span class="n">count</span> <span class="o">==</span> <span class="mi">0</span>
 <span class="lineno">116</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object.rb#L101">lib/xcodeproj/project/object.rb:101</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object_spec.rb">spec/project/object_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_to_s">
-<h2>to_s<a class="select-tab" href=""><span class="label label-big">inherited</span></a>
-</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="nb">to_s</span> <span class="c1">#=&gt; String </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>String</code> A name for the object.
-</p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">134</span> <span class="k">def</span> <span class="nf">display_name</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object.rb#L101">lib/xcodeproj/project/object.rb:101</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object_spec.rb">spec/project/object_spec.rb</a></p></div><div class="tab-pane" id="tab_to_s"><h2>to_s<a class="select-tab" href=""><span class="label label-big">inherited</span></a></h2><h3>Signature</h3><div class="highlight"><pre><span class="nb">to_s</span> <span class="c1">#=&gt; String </span>
+</pre></div><h4>Returns</h4><p><code>String</code> A name for the object.
+</p><h3>Source</h3><div class="highlight"><pre><span class="lineno">134</span> <span class="k">def</span> <span class="nf">display_name</span>
 <span class="lineno">135</span>   <span class="n">declared_name</span> <span class="o">=</span> <span class="nb">name</span> <span class="k">if</span> <span class="nb">self</span><span class="o">.</span><span class="n">respond_to?</span><span class="p">(</span><span class="ss">:name</span><span class="p">)</span>
 <span class="lineno">136</span>   <span class="k">if</span> <span class="n">declared_name</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">declared_name</span><span class="o">.</span><span class="n">empty?</span>
 <span class="lineno">137</span>     <span class="n">declared_name</span>
 <span class="lineno">138</span>   <span class="k">else</span>
-<span class="lineno">139</span>     <span class="n">isa</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/^(PBX|XC)/</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span>
+<span class="lineno">139</span>     <span class="n">isa</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/^(PBX|XC)/</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
 <span class="lineno">140</span>   <span class="k">end</span>
 <span class="lineno">141</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object.rb#L134">lib/xcodeproj/project/object.rb:134</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object_spec.rb">spec/project/object_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_sort">
-<h2>sort<a class="select-tab" href=""><span class="label label-big">inherited</span></a>
-</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">sort</span><span class="p">(</span><span class="n">options</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">)</span> <span class="c1">#=&gt; undefined</span>
-</pre></div>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">139</span> <span class="k">def</span> <span class="nf">sort</span><span class="p">(</span><span class="n">options</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">)</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object.rb#L134">lib/xcodeproj/project/object.rb:134</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object_spec.rb">spec/project/object_spec.rb</a></p></div><div class="tab-pane" id="tab_sort"><h2>sort<a class="select-tab" href=""><span class="label label-big">inherited</span></a></h2><h3>Signature</h3><div class="highlight"><pre><span class="n">sort</span><span class="p">(</span><span class="n">options</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">)</span> <span class="c1">#=&gt; undefined</span>
+</pre></div><h3>Source</h3><div class="highlight"><pre><span class="lineno">139</span> <span class="k">def</span> <span class="nf">sort</span><span class="p">(</span><span class="n">options</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">)</span>
 <span class="lineno">140</span>   <span class="n">to_many_attributes</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">attrb</span><span class="o">|</span>
 <span class="lineno">141</span>     <span class="n">list</span> <span class="o">=</span> <span class="n">attrb</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="nb">self</span><span class="p">)</span>
 <span class="lineno">142</span>     <span class="n">list</span><span class="o">.</span><span class="n">sort!</span> <span class="k">do</span> <span class="o">|</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">|</span>
@@ -840,22 +194,9 @@ current file reference.</p>
 <span class="lineno">144</span>     <span class="k">end</span>
 <span class="lineno">145</span>   <span class="k">end</span>
 <span class="lineno">146</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object.rb#L139">lib/xcodeproj/project/object.rb:139</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object_spec.rb">spec/project/object_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_sort_recursively">
-<h2>sort_recursively<a class="select-tab" href=""><span class="label label-big">inherited</span></a>
-</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">sort_recursively</span><span class="p">(</span><span class="n">options</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">)</span> <span class="c1">#=&gt; undefined</span>
-</pre></div>
-<h4>Parameters</h4>
-<p><code>Hash</code><span> </span><b> options</b></p>
-<p>The sorting options.</p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">165</span> <span class="k">def</span> <span class="nf">sort_recursively</span><span class="p">(</span><span class="n">options</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">)</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object.rb#L139">lib/xcodeproj/project/object.rb:139</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object_spec.rb">spec/project/object_spec.rb</a></p></div><div class="tab-pane" id="tab_sort_recursively"><h2>sort_recursively<a class="select-tab" href=""><span class="label label-big">inherited</span></a></h2><h3>Signature</h3><div class="highlight"><pre><span class="n">sort_recursively</span><span class="p">(</span><span class="n">options</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">)</span> <span class="c1">#=&gt; undefined</span>
+</pre></div><h4>Parameters</h4><p><code>Hash</code><span> </span><b> options</b></p><p>The sorting options.</p>
+<h3>Source</h3><div class="highlight"><pre><span class="lineno">165</span> <span class="k">def</span> <span class="nf">sort_recursively</span><span class="p">(</span><span class="n">options</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">)</span>
 <span class="lineno">166</span>   <span class="n">to_one_attributes</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">attrb</span><span class="o">|</span>
 <span class="lineno">167</span>     <span class="n">value</span> <span class="o">=</span> <span class="n">attrb</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="nb">self</span><span class="p">)</span>
 <span class="lineno">168</span>     <span class="n">value</span><span class="o">.</span><span class="n">sort_recursively</span><span class="p">(</span><span class="n">options</span><span class="p">)</span> <span class="k">if</span> <span class="n">value</span>
@@ -868,73 +209,23 @@ current file reference.</p>
 <span class="lineno">175</span> 
 <span class="lineno">176</span>   <span class="n">sort</span><span class="p">(</span><span class="n">options</span><span class="p">)</span>
 <span class="lineno">177</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object.rb#L165">lib/xcodeproj/project/object.rb:165</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object_spec.rb">spec/project/object_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_referrers">
-<h2>referrers<a class="select-tab" href=""><span class="label label-big">attribute reader</span></a><a class="select-tab" href=""><span class="label label-big">inherited</span></a>
-</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">referrers</span> <span class="c1">#=&gt; Array&lt;ObjectList&gt; </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>Array<objectlist></objectlist></code> </p>
-<p>The list of the objects that have a
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object.rb#L165">lib/xcodeproj/project/object.rb:165</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object_spec.rb">spec/project/object_spec.rb</a></p></div><div class="tab-pane" id="tab_referrers"><h2>referrers<a class="select-tab" href=""><span class="label label-big">attribute reader</span></a><a class="select-tab" href=""><span class="label label-big">inherited</span></a></h2><h3>Signature</h3><div class="highlight"><pre><span class="n">referrers</span> <span class="c1">#=&gt; Array&lt;ObjectList&gt; </span>
+</pre></div><h4>Returns</h4><p><code>Array<ObjectList></code> <p>The list of the objects that have a
 reference to this object.</p>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object.rb#L186">lib/xcodeproj/project/object.rb:186</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object_spec.rb">spec/project/object_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_add_referrer">
-<h2>add_referrer<a class="select-tab" href=""><span class="label label-big">inherited</span></a>
-</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">add_referrer</span><span class="p">(</span><span class="n">referrer</span><span class="p">)</span> <span class="c1">#=&gt; void </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>void</code> </p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">196</span> <span class="k">def</span> <span class="nf">add_referrer</span><span class="p">(</span><span class="n">referrer</span><span class="p">)</span>
+</p><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object.rb#L186">lib/xcodeproj/project/object.rb:186</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object_spec.rb">spec/project/object_spec.rb</a></p></div><div class="tab-pane" id="tab_add_referrer"><h2>add_referrer<a class="select-tab" href=""><span class="label label-big">inherited</span></a></h2><h3>Signature</h3><div class="highlight"><pre><span class="n">add_referrer</span><span class="p">(</span><span class="n">referrer</span><span class="p">)</span> <span class="c1">#=&gt; void </span>
+</pre></div><h4>Returns</h4><p><code>void</code> </p><h3>Source</h3><div class="highlight"><pre><span class="lineno">196</span> <span class="k">def</span> <span class="nf">add_referrer</span><span class="p">(</span><span class="n">referrer</span><span class="p">)</span>
 <span class="lineno">197</span>   <span class="vi">@referrers</span> <span class="o">&lt;&lt;</span> <span class="n">referrer</span>
 <span class="lineno">198</span>   <span class="vi">@project</span><span class="o">.</span><span class="n">objects_by_uuid</span><span class="o">[</span><span class="n">uuid</span><span class="o">]</span> <span class="o">=</span> <span class="nb">self</span>
 <span class="lineno">199</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object.rb#L196">lib/xcodeproj/project/object.rb:196</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object_spec.rb">spec/project/object_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_remove_referrer">
-<h2>remove_referrer<a class="select-tab" href=""><span class="label label-big">inherited</span></a>
-</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">remove_referrer</span><span class="p">(</span><span class="n">referrer</span><span class="p">)</span> <span class="c1">#=&gt; void </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>void</code> </p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">209</span> <span class="k">def</span> <span class="nf">remove_referrer</span><span class="p">(</span><span class="n">referrer</span><span class="p">)</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object.rb#L196">lib/xcodeproj/project/object.rb:196</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object_spec.rb">spec/project/object_spec.rb</a></p></div><div class="tab-pane" id="tab_remove_referrer"><h2>remove_referrer<a class="select-tab" href=""><span class="label label-big">inherited</span></a></h2><h3>Signature</h3><div class="highlight"><pre><span class="n">remove_referrer</span><span class="p">(</span><span class="n">referrer</span><span class="p">)</span> <span class="c1">#=&gt; void </span>
+</pre></div><h4>Returns</h4><p><code>void</code> </p><h3>Source</h3><div class="highlight"><pre><span class="lineno">209</span> <span class="k">def</span> <span class="nf">remove_referrer</span><span class="p">(</span><span class="n">referrer</span><span class="p">)</span>
 <span class="lineno">210</span>   <span class="vi">@referrers</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">referrer</span><span class="p">)</span>
 <span class="lineno">211</span>   <span class="k">if</span> <span class="vi">@referrers</span><span class="o">.</span><span class="n">count</span> <span class="o">==</span> <span class="mi">0</span>
 <span class="lineno">212</span>     <span class="vi">@project</span><span class="o">.</span><span class="n">objects_by_uuid</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">uuid</span><span class="p">)</span>
 <span class="lineno">213</span>   <span class="k">end</span>
 <span class="lineno">214</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object.rb#L209">lib/xcodeproj/project/object.rb:209</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object_spec.rb">spec/project/object_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_remove_reference">
-<h2>remove_reference<a class="select-tab" href=""><span class="label label-big">inherited</span></a>
-</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">remove_reference</span><span class="p">(</span><span class="n">object</span><span class="p">)</span> <span class="c1">#=&gt; void </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>void</code> </p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">222</span> <span class="k">def</span> <span class="nf">remove_reference</span><span class="p">(</span><span class="n">object</span><span class="p">)</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object.rb#L209">lib/xcodeproj/project/object.rb:209</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object_spec.rb">spec/project/object_spec.rb</a></p></div><div class="tab-pane" id="tab_remove_reference"><h2>remove_reference<a class="select-tab" href=""><span class="label label-big">inherited</span></a></h2><h3>Signature</h3><div class="highlight"><pre><span class="n">remove_reference</span><span class="p">(</span><span class="n">object</span><span class="p">)</span> <span class="c1">#=&gt; void </span>
+</pre></div><h4>Returns</h4><p><code>void</code> </p><h3>Source</h3><div class="highlight"><pre><span class="lineno">222</span> <span class="k">def</span> <span class="nf">remove_reference</span><span class="p">(</span><span class="n">object</span><span class="p">)</span>
 <span class="lineno">223</span>   <span class="n">to_one_attributes</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">attrb</span><span class="o">|</span>
 <span class="lineno">224</span>     <span class="n">value</span> <span class="o">=</span> <span class="n">attrb</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="nb">self</span><span class="p">)</span>
 <span class="lineno">225</span>     <span class="n">attrb</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="nb">self</span><span class="p">,</span> <span class="kp">nil</span><span class="p">)</span> <span class="k">if</span> <span class="n">value</span><span class="o">.</span><span class="n">equal?</span><span class="p">(</span><span class="n">object</span><span class="p">)</span>
@@ -950,25 +241,12 @@ reference to this object.</p>
 <span class="lineno">235</span>     <span class="n">list</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">dictionary</span><span class="o">|</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">remove_reference</span><span class="p">(</span><span class="n">object</span><span class="p">)</span> <span class="p">}</span>
 <span class="lineno">236</span>   <span class="k">end</span>
 <span class="lineno">237</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object.rb#L222">lib/xcodeproj/project/object.rb:222</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object_spec.rb">spec/project/object_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_configure_with_plist">
-<h2>configure_with_plist<a class="select-tab" href=""><span class="label label-big">inherited</span></a>
-</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">configure_with_plist</span><span class="p">(</span><span class="n">objects_by_uuid_plist</span><span class="p">)</span> <span class="c1">#=&gt; void </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>void</code> </p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">255</span> <span class="k">def</span> <span class="nf">configure_with_plist</span><span class="p">(</span><span class="n">objects_by_uuid_plist</span><span class="p">)</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object.rb#L222">lib/xcodeproj/project/object.rb:222</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object_spec.rb">spec/project/object_spec.rb</a></p></div><div class="tab-pane" id="tab_configure_with_plist"><h2>configure_with_plist<a class="select-tab" href=""><span class="label label-big">inherited</span></a></h2><h3>Signature</h3><div class="highlight"><pre><span class="n">configure_with_plist</span><span class="p">(</span><span class="n">objects_by_uuid_plist</span><span class="p">)</span> <span class="c1">#=&gt; void </span>
+</pre></div><h4>Returns</h4><p><code>void</code> </p><h3>Source</h3><div class="highlight"><pre><span class="lineno">255</span> <span class="k">def</span> <span class="nf">configure_with_plist</span><span class="p">(</span><span class="n">objects_by_uuid_plist</span><span class="p">)</span>
 <span class="lineno">256</span>   <span class="n">object_plist</span> <span class="o">=</span> <span class="n">objects_by_uuid_plist</span><span class="o">[</span><span class="n">uuid</span><span class="o">].</span><span class="n">dup</span>
 <span class="lineno">257</span> 
-<span class="lineno">258</span>   <span class="k">raise</span> <span class="s2">"[Xcodeproj] Attempt to initialize `</span><span class="si">#{</span><span class="n">isa</span><span class="si">}</span><span class="s2">` from plist with different isa `</span><span class="si">#{</span><span class="n">object_plist</span><span class="si">}</span><span class="s2">`"</span> <span class="k">unless</span> <span class="n">object_plist</span><span class="o">[</span><span class="s1">'isa'</span><span class="o">]</span> <span class="o">==</span> <span class="n">isa</span>
-<span class="lineno">259</span>   <span class="n">object_plist</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">'isa'</span><span class="p">)</span>
+<span class="lineno">258</span>   <span class="k">raise</span> <span class="s2">&quot;[Xcodeproj] Attempt to initialize `</span><span class="si">#{</span><span class="n">isa</span><span class="si">}</span><span class="s2">` from plist with different isa `</span><span class="si">#{</span><span class="n">object_plist</span><span class="si">}</span><span class="s2">`&quot;</span> <span class="k">unless</span> <span class="n">object_plist</span><span class="o">[</span><span class="s1">&#39;isa&#39;</span><span class="o">]</span> <span class="o">==</span> <span class="n">isa</span>
+<span class="lineno">259</span>   <span class="n">object_plist</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;isa&#39;</span><span class="p">)</span>
 <span class="lineno">260</span> 
 <span class="lineno">261</span>   <span class="n">simple_attributes</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">attrb</span><span class="o">|</span>
 <span class="lineno">262</span>     <span class="n">attrb</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="nb">self</span><span class="p">,</span> <span class="n">object_plist</span><span class="o">[</span><span class="n">attrb</span><span class="o">.</span><span class="n">plist_name</span><span class="o">]</span><span class="p">)</span>
@@ -1009,70 +287,39 @@ reference to this object.</p>
 <span class="lineno">297</span>   <span class="k">end</span>
 <span class="lineno">298</span> 
 <span class="lineno">299</span>   <span class="k">unless</span> <span class="n">object_plist</span><span class="o">.</span><span class="n">empty?</span>
-<span class="lineno">300</span>     <span class="k">raise</span> <span class="s2">"[!] Xcodeproj doesn't know about the following attributes "</span> <span class="p">\</span>
-<span class="lineno">301</span>           <span class="s2">"</span><span class="si">#{</span><span class="n">object_plist</span><span class="o">.</span><span class="n">inspect</span><span class="si">}</span><span class="s2"> for the '</span><span class="si">#{</span><span class="n">isa</span><span class="si">}</span><span class="s2">' isa.</span><span class="se">\n</span><span class="s2">"</span> <span class="p">\</span>
-<span class="lineno">302</span>           <span class="s2">"Please file an issue: https://github.com/CocoaPods/Xcodeproj/issues/new"</span>
+<span class="lineno">300</span>     <span class="k">raise</span> <span class="s2">&quot;[!] Xcodeproj doesn&#39;t know about the following attributes &quot;</span> <span class="p">\</span>
+<span class="lineno">301</span>           <span class="s2">&quot;</span><span class="si">#{</span><span class="n">object_plist</span><span class="o">.</span><span class="n">inspect</span><span class="si">}</span><span class="s2"> for the &#39;</span><span class="si">#{</span><span class="n">isa</span><span class="si">}</span><span class="s2">&#39; isa.</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="p">\</span>
+<span class="lineno">302</span>           <span class="s2">&quot;Please file an issue: https://github.com/CocoaPods/Xcodeproj/issues/new&quot;</span>
 <span class="lineno">303</span>   <span class="k">end</span>
 <span class="lineno">304</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object.rb#L255">lib/xcodeproj/project/object.rb:255</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object_spec.rb">spec/project/object_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_object_with_uuid">
-<h2>object_with_uuid<a class="select-tab" href=""><span class="label label-big">inherited</span></a>
-</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">object_with_uuid</span><span class="p">(</span><span class="n">uuid</span><span class="p">,</span> <span class="n">objects_by_uuid_plist</span><span class="p">,</span> <span class="n">attribute</span><span class="p">)</span> <span class="c1">#=&gt; AbstractObject, Nil </span>
-</pre></div>
-<h4>Parameters</h4>
-<p><code>String</code><span> </span><b> uuid</b></p>
-<p>The UUID of the object that should be initialized.</p>
-<p><code>Hash{String=&gt;String}</code><span> </span><b> objects_by_uuid_plist</b></p>
-<p>The hash contained by <code>objects</code> key of the plist containing
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object.rb#L255">lib/xcodeproj/project/object.rb:255</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object_spec.rb">spec/project/object_spec.rb</a></p></div><div class="tab-pane" id="tab_object_with_uuid"><h2>object_with_uuid<a class="select-tab" href=""><span class="label label-big">inherited</span></a></h2><h3>Signature</h3><div class="highlight"><pre><span class="n">object_with_uuid</span><span class="p">(</span><span class="n">uuid</span><span class="p">,</span> <span class="n">objects_by_uuid_plist</span><span class="p">,</span> <span class="n">attribute</span><span class="p">)</span> <span class="c1">#=&gt; AbstractObject, Nil </span>
+</pre></div><h4>Parameters</h4><p><code>String</code><span> </span><b> uuid</b></p><p>The UUID of the object that should be initialized.</p>
+<p><code>Hash{String=&gt;String}</code><span> </span><b> objects_by_uuid_plist</b></p><p>The hash contained by <code>objects</code> key of the plist containing
 the information about the object that should be initialized.</p>
-<p><code>AbstractObjectAttribute</code><span> </span><b> attribute</b></p>
-<p>The attribute that requested the object. It is used only for
+<p><code>AbstractObjectAttribute</code><span> </span><b> attribute</b></p><p>The attribute that requested the object. It is used only for
 exceptions.</p>
-<h4>Returns</h4>
-<p><code><a href="../abstractobject/index.html">AbstractObject</a></code> The initialized object.
-</p>
-<p><code>Nil</code> </p>
-<p>If the UUID could not be found in the objects hash. In
+<h4>Returns</h4><p><code><a href="../abstractobject/index.html">AbstractObject</a></code> The initialized object.
+</p><p><code>Nil</code> <p>If the UUID could not be found in the objects hash. In
 this case a warning is printed to STDERR.</p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">327</span> <span class="k">def</span> <span class="nf">object_with_uuid</span><span class="p">(</span><span class="n">uuid</span><span class="p">,</span> <span class="n">objects_by_uuid_plist</span><span class="p">,</span> <span class="n">attribute</span><span class="p">)</span>
+</p><h3>Source</h3><div class="highlight"><pre><span class="lineno">327</span> <span class="k">def</span> <span class="nf">object_with_uuid</span><span class="p">(</span><span class="n">uuid</span><span class="p">,</span> <span class="n">objects_by_uuid_plist</span><span class="p">,</span> <span class="n">attribute</span><span class="p">)</span>
 <span class="lineno">328</span>   <span class="k">unless</span> <span class="n">object</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">objects_by_uuid</span><span class="o">[</span><span class="n">uuid</span><span class="o">]</span> <span class="o">||</span> <span class="n">project</span><span class="o">.</span><span class="n">new_from_plist</span><span class="p">(</span><span class="n">uuid</span><span class="p">,</span> <span class="n">objects_by_uuid_plist</span><span class="p">)</span>
-<span class="lineno">329</span>     <span class="no">UI</span><span class="o">.</span><span class="n">warn</span> <span class="s2">"`</span><span class="si">#{</span><span class="nb">inspect</span><span class="si">}</span><span class="s2">` attempted to initialize an object with "</span> <span class="p">\</span>
-<span class="lineno">330</span>       <span class="s2">"an unknown UUID. `</span><span class="si">#{</span><span class="n">uuid</span><span class="si">}</span><span class="s2">` for attribute: `</span><span class="si">#{</span><span class="n">attribute</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">`."</span><span class="p">\</span>
-<span class="lineno">331</span>       <span class="s2">" This can be the result of a merge and the unknown UUID is "</span>    <span class="p">\</span>
-<span class="lineno">332</span>       <span class="s2">"being discarded."</span>
+<span class="lineno">329</span>     <span class="no">UI</span><span class="o">.</span><span class="n">warn</span> <span class="s2">&quot;`</span><span class="si">#{</span><span class="nb">inspect</span><span class="si">}</span><span class="s2">` attempted to initialize an object with &quot;</span> <span class="p">\</span>
+<span class="lineno">330</span>       <span class="s2">&quot;an unknown UUID. `</span><span class="si">#{</span><span class="n">uuid</span><span class="si">}</span><span class="s2">` for attribute: `</span><span class="si">#{</span><span class="n">attribute</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">`.&quot;</span><span class="p">\</span>
+<span class="lineno">331</span>       <span class="s2">&quot; This can be the result of a merge and the unknown UUID is &quot;</span>    <span class="p">\</span>
+<span class="lineno">332</span>       <span class="s2">&quot;being discarded.&quot;</span>
 <span class="lineno">333</span>   <span class="k">end</span>
 <span class="lineno">334</span>   <span class="n">object</span>
 <span class="lineno">335</span> <span class="k">rescue</span> <span class="no">NameError</span>
 <span class="lineno">336</span>   <span class="n">attributes</span> <span class="o">=</span> <span class="n">objects_by_uuid_plist</span><span class="o">[</span><span class="n">uuid</span><span class="o">]</span>
-<span class="lineno">337</span>   <span class="k">raise</span> <span class="s2">"`</span><span class="si">#{</span><span class="n">isa</span><span class="si">}</span><span class="s2">` attempted to initialize an object with unknown ISA "</span><span class="p">\</span>
-<span class="lineno">338</span>         <span class="s2">"`</span><span class="si">#{</span><span class="n">attributes</span><span class="o">[</span><span class="s1">'isa'</span><span class="o">]</span><span class="si">}</span><span class="s2">` from attributes: `</span><span class="si">#{</span><span class="n">attributes</span><span class="si">}</span><span class="s2">`</span><span class="se">\n</span><span class="s2">"</span>   <span class="p">\</span>
-<span class="lineno">339</span>         <span class="s2">"Please file an issue: https://github.com/CocoaPods/Xcodeproj/issues/new"</span>
+<span class="lineno">337</span>   <span class="k">raise</span> <span class="s2">&quot;`</span><span class="si">#{</span><span class="n">isa</span><span class="si">}</span><span class="s2">` attempted to initialize an object with unknown ISA &quot;</span><span class="p">\</span>
+<span class="lineno">338</span>         <span class="s2">&quot;`</span><span class="si">#{</span><span class="n">attributes</span><span class="o">[</span><span class="s1">&#39;isa&#39;</span><span class="o">]</span><span class="si">}</span><span class="s2">` from attributes: `</span><span class="si">#{</span><span class="n">attributes</span><span class="si">}</span><span class="s2">`</span><span class="se">\n</span><span class="s2">&quot;</span>   <span class="p">\</span>
+<span class="lineno">339</span>         <span class="s2">&quot;Please file an issue: https://github.com/CocoaPods/Xcodeproj/issues/new&quot;</span>
 <span class="lineno">340</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object.rb#L327">lib/xcodeproj/project/object.rb:327</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object_spec.rb">spec/project/object_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_to_hash">
-<h2>to_hash<a class="select-tab" href=""><span class="label label-big">inherited</span></a>
-</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">to_hash</span> <span class="c1">#=&gt; Hash </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>Hash</code> A hash representation of the project.
-</p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">352</span> <span class="k">def</span> <span class="nf">to_hash</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object.rb#L327">lib/xcodeproj/project/object.rb:327</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object_spec.rb">spec/project/object_spec.rb</a></p></div><div class="tab-pane" id="tab_to_hash"><h2>to_hash<a class="select-tab" href=""><span class="label label-big">inherited</span></a></h2><h3>Signature</h3><div class="highlight"><pre><span class="n">to_hash</span> <span class="c1">#=&gt; Hash </span>
+</pre></div><h4>Returns</h4><p><code>Hash</code> A hash representation of the project.
+</p><h3>Source</h3><div class="highlight"><pre><span class="lineno">352</span> <span class="k">def</span> <span class="nf">to_hash</span>
 <span class="lineno">353</span>   <span class="n">plist</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="lineno">354</span>   <span class="n">plist</span><span class="o">[</span><span class="s1">'isa'</span><span class="o">]</span> <span class="o">=</span> <span class="n">isa</span>
+<span class="lineno">354</span>   <span class="n">plist</span><span class="o">[</span><span class="s1">&#39;isa&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="n">isa</span>
 <span class="lineno">355</span> 
 <span class="lineno">356</span>   <span class="n">simple_attributes</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">attrb</span><span class="o">|</span>
 <span class="lineno">357</span>     <span class="n">value</span> <span class="o">=</span> <span class="n">attrb</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="nb">self</span><span class="p">)</span>
@@ -1096,26 +343,13 @@ this case a warning is printed to STDERR.</p>
 <span class="lineno">375</span> 
 <span class="lineno">376</span>   <span class="n">plist</span>
 <span class="lineno">377</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object.rb#L352">lib/xcodeproj/project/object.rb:352</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object_spec.rb">spec/project/object_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_to_tree_hash">
-<h2>to_tree_hash<a class="select-tab" href=""><span class="label label-big">inherited</span></a>
-</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">to_tree_hash</span> <span class="c1">#=&gt; Hash </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>Hash</code> </p>
-<p>A hash representation of the project different from
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object.rb#L352">lib/xcodeproj/project/object.rb:352</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object_spec.rb">spec/project/object_spec.rb</a></p></div><div class="tab-pane" id="tab_to_tree_hash"><h2>to_tree_hash<a class="select-tab" href=""><span class="label label-big">inherited</span></a></h2><h3>Signature</h3><div class="highlight"><pre><span class="n">to_tree_hash</span> <span class="c1">#=&gt; Hash </span>
+</pre></div><h4>Returns</h4><p><code>Hash</code> <p>A hash representation of the project different from
 the plist one.</p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">392</span> <span class="k">def</span> <span class="nf">to_tree_hash</span>
+</p><h3>Source</h3><div class="highlight"><pre><span class="lineno">392</span> <span class="k">def</span> <span class="nf">to_tree_hash</span>
 <span class="lineno">393</span>   <span class="nb">hash</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="lineno">394</span>   <span class="nb">hash</span><span class="o">[</span><span class="s1">'displayName'</span><span class="o">]</span> <span class="o">=</span> <span class="n">display_name</span>
-<span class="lineno">395</span>   <span class="nb">hash</span><span class="o">[</span><span class="s1">'isa'</span><span class="o">]</span> <span class="o">=</span> <span class="n">isa</span>
+<span class="lineno">394</span>   <span class="nb">hash</span><span class="o">[</span><span class="s1">&#39;displayName&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="n">display_name</span>
+<span class="lineno">395</span>   <span class="nb">hash</span><span class="o">[</span><span class="s1">&#39;isa&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="n">isa</span>
 <span class="lineno">396</span> 
 <span class="lineno">397</span>   <span class="n">simple_attributes</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">attrb</span><span class="o">|</span>
 <span class="lineno">398</span>     <span class="n">value</span> <span class="o">=</span> <span class="n">attrb</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="nb">self</span><span class="p">)</span>
@@ -1139,23 +373,10 @@ the plist one.</p>
 <span class="lineno">416</span> 
 <span class="lineno">417</span>   <span class="nb">hash</span>
 <span class="lineno">418</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object.rb#L392">lib/xcodeproj/project/object.rb:392</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object_spec.rb">spec/project/object_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_pretty_print">
-<h2>pretty_print<a class="select-tab" href=""><span class="label label-big">inherited</span></a>
-</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">pretty_print</span> <span class="c1">#=&gt; Hash{String =&gt; Hash} </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>Hash{String =&gt; Hash}</code> </p>
-<p>A hash suitable to display the object
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object.rb#L392">lib/xcodeproj/project/object.rb:392</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object_spec.rb">spec/project/object_spec.rb</a></p></div><div class="tab-pane" id="tab_pretty_print"><h2>pretty_print<a class="select-tab" href=""><span class="label label-big">inherited</span></a></h2><h3>Signature</h3><div class="highlight"><pre><span class="n">pretty_print</span> <span class="c1">#=&gt; Hash{String =&gt; Hash} </span>
+</pre></div><h4>Returns</h4><p><code>Hash{String => Hash}</code> <p>A hash suitable to display the object
 to the user.</p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">423</span> <span class="k">def</span> <span class="nf">pretty_print</span>
+</p><h3>Source</h3><div class="highlight"><pre><span class="lineno">423</span> <span class="k">def</span> <span class="nf">pretty_print</span>
 <span class="lineno">424</span>   <span class="k">if</span> <span class="n">to_many_attributes</span><span class="o">.</span><span class="n">count</span> <span class="o">==</span> <span class="mi">1</span>
 <span class="lineno">425</span>     <span class="n">children</span> <span class="o">=</span> <span class="n">to_many_attributes</span><span class="o">.</span><span class="n">first</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="nb">self</span><span class="p">)</span>
 <span class="lineno">426</span>     <span class="p">{</span><span class="n">display_name</span> <span class="o">=&gt;</span> <span class="n">children</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:pretty_print</span><span class="p">)}</span>
@@ -1163,137 +384,25 @@ to the user.</p>
 <span class="lineno">428</span>     <span class="n">display_name</span>
 <span class="lineno">429</span>   <span class="k">end</span>
 <span class="lineno">430</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object.rb#L423">lib/xcodeproj/project/object.rb:423</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object_spec.rb">spec/project/object_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_equality">
-<h2>==<a class="select-tab" href=""><span class="label label-big">inherited</span></a>
-</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="o">==</span><span class="p">(</span><span class="n">other</span><span class="p">)</span> <span class="c1">#=&gt; undefined</span>
-</pre></div>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">438</span> <span class="k">def</span> <span class="nf">==</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object.rb#L423">lib/xcodeproj/project/object.rb:423</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object_spec.rb">spec/project/object_spec.rb</a></p></div><div class="tab-pane" id="tab_equality"><h2>==<a class="select-tab" href=""><span class="label label-big">inherited</span></a></h2><h3>Signature</h3><div class="highlight"><pre><span class="o">==</span><span class="p">(</span><span class="n">other</span><span class="p">)</span> <span class="c1">#=&gt; undefined</span>
+</pre></div><h3>Source</h3><div class="highlight"><pre><span class="lineno">438</span> <span class="k">def</span> <span class="nf">==</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
 <span class="lineno">439</span>   <span class="n">other</span><span class="o">.</span><span class="n">is_a?</span><span class="p">(</span><span class="no">AbstractObject</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nb">self</span><span class="o">.</span><span class="n">to_hash</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">to_hash</span>
 <span class="lineno">440</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object.rb#L438">lib/xcodeproj/project/object.rb:438</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object_spec.rb">spec/project/object_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab____">
-<h2>&lt;=&gt;<a class="select-tab" href=""><span class="label label-big">inherited</span></a>
-</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="o">&lt;=&gt;</span><span class="p">(</span><span class="n">other</span><span class="p">)</span> <span class="c1">#=&gt; undefined</span>
-</pre></div>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">442</span> <span class="k">def</span> <span class="nf">&lt;=&gt;</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object.rb#L438">lib/xcodeproj/project/object.rb:438</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object_spec.rb">spec/project/object_spec.rb</a></p></div><div class="tab-pane" id="tab____"><h2>&lt;=&gt;<a class="select-tab" href=""><span class="label label-big">inherited</span></a></h2><h3>Signature</h3><div class="highlight"><pre><span class="o">&lt;=&gt;</span><span class="p">(</span><span class="n">other</span><span class="p">)</span> <span class="c1">#=&gt; undefined</span>
+</pre></div><h3>Source</h3><div class="highlight"><pre><span class="lineno">442</span> <span class="k">def</span> <span class="nf">&lt;=&gt;</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
 <span class="lineno">443</span>   <span class="nb">self</span><span class="o">.</span><span class="n">uuid</span> <span class="o">&lt;=&gt;</span> <span class="n">other</span><span class="o">.</span><span class="n">uuid</span>
 <span class="lineno">444</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object.rb#L442">lib/xcodeproj/project/object.rb:442</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object_spec.rb">spec/project/object_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_inspect">
-<h2>inspect<a class="select-tab" href=""><span class="label label-big">inherited</span></a>
-</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="nb">inspect</span> <span class="c1">#=&gt; undefined</span>
-</pre></div>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">446</span> <span class="k">def</span> <span class="nf">inspect</span>
-<span class="lineno">447</span>   <span class="n">optional</span> <span class="o">=</span> <span class="s1">''</span>
-<span class="lineno">448</span>   <span class="n">optional</span> <span class="o">&lt;&lt;</span> <span class="s2">" name=`</span><span class="si">#{</span><span class="nb">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">`"</span> <span class="k">if</span> <span class="nb">respond_to?</span><span class="p">(</span><span class="ss">:name</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nb">self</span><span class="o">.</span><span class="n">name</span>
-<span class="lineno">449</span>   <span class="n">optional</span> <span class="o">&lt;&lt;</span> <span class="s2">" path=`</span><span class="si">#{</span><span class="nb">self</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s2">`"</span> <span class="k">if</span> <span class="nb">respond_to?</span><span class="p">(</span><span class="ss">:path</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nb">self</span><span class="o">.</span><span class="n">path</span>
-<span class="lineno">450</span>   <span class="s2">"&lt;</span><span class="si">#{</span><span class="nb">self</span><span class="o">.</span><span class="n">isa</span><span class="si">}#{</span><span class="n">optional</span><span class="si">}</span><span class="s2"> UUID=`</span><span class="si">#{</span><span class="n">uuid</span><span class="si">}</span><span class="s2">`&gt;"</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object.rb#L442">lib/xcodeproj/project/object.rb:442</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object_spec.rb">spec/project/object_spec.rb</a></p></div><div class="tab-pane" id="tab_inspect"><h2>inspect<a class="select-tab" href=""><span class="label label-big">inherited</span></a></h2><h3>Signature</h3><div class="highlight"><pre><span class="nb">inspect</span> <span class="c1">#=&gt; undefined</span>
+</pre></div><h3>Source</h3><div class="highlight"><pre><span class="lineno">446</span> <span class="k">def</span> <span class="nf">inspect</span>
+<span class="lineno">447</span>   <span class="n">optional</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="lineno">448</span>   <span class="n">optional</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot; name=`</span><span class="si">#{</span><span class="nb">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">`&quot;</span> <span class="k">if</span> <span class="nb">respond_to?</span><span class="p">(</span><span class="ss">:name</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nb">self</span><span class="o">.</span><span class="n">name</span>
+<span class="lineno">449</span>   <span class="n">optional</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot; path=`</span><span class="si">#{</span><span class="nb">self</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s2">`&quot;</span> <span class="k">if</span> <span class="nb">respond_to?</span><span class="p">(</span><span class="ss">:path</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nb">self</span><span class="o">.</span><span class="n">path</span>
+<span class="lineno">450</span>   <span class="s2">&quot;&lt;</span><span class="si">#{</span><span class="nb">self</span><span class="o">.</span><span class="n">isa</span><span class="si">}#{</span><span class="n">optional</span><span class="si">}</span><span class="s2"> UUID=`</span><span class="si">#{</span><span class="n">uuid</span><span class="si">}</span><span class="s2">`&gt;&quot;</span>
 <span class="lineno">451</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object.rb#L446">lib/xcodeproj/project/object.rb:446</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object_spec.rb">spec/project/object_spec.rb</a></p>
-</div>
-</div></div>
-
-</article></section><section class="row container info-row"><article class="content col-md-10 col-md-offset-1"><a data-container="body" data-content="CocoaPods is an open source project. Help us improve these guides by sending a pull request. ❤" data-original-title="" data-placement="top" data-toggle="popover" data-trigger="hover" href="https://github.com/CocoaPods/guides.cocoapods.org/blob/master/source/xcodeproj/xcodeproj/project/object/pbxfilereference/index.html.slim" id="pull-request" title=""></a><ul class="breadcrumb">
-<li>
-<a href="../../../../../index.html">Home</a><span class="divider"></span>
-</li>
-<li>
-<a href="../../../../index.html">Xcodeproj</a><span class="divider"></span>
-</li>
-<li>
-<a href="../../../index.html">Xcodeproj</a><span class="divider"></span>
-</li>
-<li>
-<a href="../../index.html">Project</a><span class="divider"></span>
-</li>
-<li>
-<a href="../index.html">Object</a><span class="divider"></span>
-</li>
-<li class="active">PBXFileReference</li>
-</ul></article></section>
-</div>
-<section class="site_navigation container"><div class="row">
-<div class="col-lg-3 col-sm-3 col-xs-6 footer-index">
-<h3><a href="../../../../../using/index.html">Using CocoaPods</a></h3>
-<ul>
-<li><a href="../../../../../using/getting-started.html">Getting Started</a></li>
-<li><a href="../../../../../using/using-cocoapods.html">Using CocoaPods</a></li>
-<li><a href="../../../../../using/the-podfile.html">The Podfile</a></li>
-<li><a href="../../../../../using/troubleshooting.html">Troubleshooting</a></li>
-<li><a href="../../../../../using/faq.html">F.A.Q</a></li>
-</ul>
-</div>
-<div class="col-lg-3 col-sm-3 col-xs-6 footer-index">
-<h3><a href="../../../../../making/index.html">Making CocoaPods</a></h3>
-<ul>
-<li><a href="../../../../../making/making-a-cocoapod.html">Making a CocoaPod</a></li>
-<li><a href="../../../../../making/specs-and-specs-repo.html">Specs and the Specs Repo</a></li>
-<li><a href="../../../../../making/private-cocoapods.html">Private Pods</a></li>
-</ul>
-</div>
-<div class="clearfix visible-xs"></div>
-<div class="col-lg-3 col-sm-3 col-xs-6 footer-index">
-<h3><a href="../../../../../contributing/index.html">Contributing</a></h3>
-<ul>
-<li><a href="../../../../../contributing/components.html">Core Components</a></li>
-<li><a href="../../../../../contributing/contribute-to-cocoapods.html">How to Contribute</a></li>
-<li><a href="../../../../../contributing/dev-environment.html">Setting up for Development</a></li>
-<li><a href="../../../../../contributing/release-process.html">Release Process</a></li>
-</ul>
-</div>
-<div class="col-lg-3 col-sm-3 col-xs-6 footer-index">
-<h3> <a href="/reference.html">Reference</a>
-</h3>
-<ul>
-<li><a href="/syntax/podfile.html">Podfile Syntax</a></li>
-<li><a href="/syntax/podspec.html">Podspec Syntax</a></li>
-<li><a href="/terminal/commands.html">Command-line Reference</a></li>
-</ul>
-</div>
-</div></section><footer class="page-footer"><section class="container row"><article class="col-md-8 col-md-offset-2"><h4>CocoaPods is a project from </h4>
-<p class="contributors"><a href="https://twitter.com/alloy">Eloy Durán</a>, <a href="https://twitter.com/fabiopelosin">Fabio Pelosin</a>, <a href="http://orta.github.io">Orta Therox</a>,  and The CocoaPods Dev Team with contributions from <a href="https://github.com/CocoaPods/Specs/graphs/contributors">many, many others</a>.</p>
-<h4>Lovingly sponsored by</h4>
-<p class="sponsors"><a href="http://www.fngtps.com">Fingertips</a>, <a href="http://www.hipbyte.com">Hipbyte</a>, <a href="http://artsy.net">Artsy</a> and <a href="https://www.sauspiel.de">Sauspiel</a>.</p></article><article class="col-md-8 col-md-offset-2 minor"></article></section></footer><footer class="footer-links"><section class="container row"><article class="col-md-8 col-md-offset-2"><a class="cocoapods-small-logo" href="http://beta.cocoapods.org"></a><ul>
-<li class="col-md-3 col-sm-3 col-xs-6"><a href="http://guides.cocoapods.org/using/troubleshooting.html">Support</a></li>
-<li class="col-md-3 col-sm-3 col-xs-6"><a href="https://github.com/CocoaPods/CocoaPods">Github Repo</a></li>
-<li class="col-md-3 col-sm-3 col-xs-6"><a href="https://github.com/CocoaPods/Specs">Podspecs Repo</a></li>
-<li class="col-md-3 col-sm-3 col-xs-6"><a href="https://twitter.com/CocoaPods">@CocoaPods</a></li>
-<li class="col-md-3 col-sm-3 col-xs-6"><a href="http://groups.google.com/group/cocoapods">Mailing List</a></li>
-<li class="col-md-3 col-sm-3 col-xs-6"><a href="http://beta.cocoapods.org/about">CocoaPods Dev Team</a></li>
-<li class="col-md-3 col-sm-3 col-xs-6"><a href="http://guides.cocoapods.org/syntax/podfile.html">Podfile Doc<span class="hidden-lg-span">s</span><span class="visible-lg-span">umentation</span></a></li>
-<li class="col-md-3 col-sm-3 col-xs-6"><a href="https://twitter.com/CocoaPodsFeed">@CocoaPodsFeed</a></li>
-</ul></article></section></footer>
-</body>
-<script type="text/javascript">(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/lib/xcodeproj/project/object.rb#L446">lib/xcodeproj/project/object.rb:446</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/Xcodeproj/blob/master/spec/project/object_spec.rb">spec/project/object_spec.rb</a></p></div></div></div></article></section><section class="row container info-row"><article class="content col-md-10 col-md-offset-1"><a data-container="body" data-content="CocoaPods is an open source project. Help us improve these guides by sending a pull request. ❤" data-original-title="" data-placement="top" data-toggle="popover" data-trigger="hover" href="https://github.com/CocoaPods/guides.cocoapods.org/blob/master/source/xcodeproj/xcodeproj/project/object/pbxfilereference/index.html.slim" id="pull-request" title=""></a><ul class="breadcrumb"><li><a href="../../../../../index.html">Home</a><span class="divider"></span></li><li><a href="../../../../index.html">Xcodeproj</a><span class="divider"></span></li><li><a href="../../../index.html">Xcodeproj</a><span class="divider"></span></li><li><a href="../../index.html">Project</a><span class="divider"></span></li><li><a href="../index.html">Object</a><span class="divider"></span></li><li class="active">PBXFileReference</li></ul></article></section></div><section class="site_navigation container"><div class="row"><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="../../../../../using/index.html">Using CocoaPods</a></h3><ul><li><a href="../../../../../using/getting-started.html">Getting Started</a></li><li><a href="../../../../../using/using-cocoapods.html">Using CocoaPods</a></li><li><a href="../../../../../using/the-podfile.html">The Podfile</a></li><li><a href="../../../../../using/troubleshooting.html">Troubleshooting</a></li><li><a href="../../../../../using/faq.html">F.A.Q</a></li></ul></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="../../../../../making/index.html">Making CocoaPods</a></h3><ul><li><a href="../../../../../making/making-a-cocoapod.html">Making a CocoaPod</a></li><li><a href="../../../../../making/specs-and-specs-repo.html">Specs and the Specs Repo</a></li><li><a href="../../../../../making/private-cocoapods.html">Private Pods</a></li></ul></div><div class="clearfix visible-xs"></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="../../../../../contributing/index.html">Contributing</a></h3><ul><li><a href="../../../../../contributing/components.html">Core Components</a></li><li><a href="../../../../../contributing/contribute-to-cocoapods.html">How to Contribute</a></li><li><a href="../../../../../contributing/dev-environment.html">Setting up for Development</a></li><li><a href="../../../../../contributing/release-process.html">Release Process</a></li></ul></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3> <a href='/reference.html'>Reference</a></h3><ul><li><a href='/syntax/podfile.html'>Podfile Syntax</a></li><li><a href='/syntax/podspec.html'>Podspec Syntax</a></li><li><a href='/terminal/commands.html'>Command-line Reference</a></li></ul></div></div></section><footer class="page-footer"><section class="container row"><article class="col-md-8 col-md-offset-2"><h4>CocoaPods is a project from </h4><p class="contributors"><a href="https://twitter.com/alloy">Eloy Durán</a>, <a href="https://twitter.com/fabiopelosin">Fabio Pelosin</a>, <a href="http://orta.github.io">Orta Therox</a>,  and The CocoaPods Dev Team with contributions from <a href="https://github.com/CocoaPods/Specs/graphs/contributors">many, many others</a>.</p><h4>Lovingly sponsored by</h4><p class="sponsors"><a href="http://www.fngtps.com">Fingertips</a>, <a href = "http://www.hipbyte.com">Hipbyte</a>, <a href="http://artsy.net">Artsy</a> and <a href="https://www.sauspiel.de">Sauspiel</a>.</p></article><article class="col-md-8 col-md-offset-2 minor"></article></section></footer><footer class="footer-links"><section class="container row"><article class="col-md-8 col-md-offset-2"><a class="cocoapods-small-logo" href="http://beta.cocoapods.org"></a><ul><li class="col-md-3 col-sm-3 col-xs-6"><a href="http://guides.cocoapods.org/using/troubleshooting.html">Support</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://github.com/CocoaPods/CocoaPods">Github Repo</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://github.com/CocoaPods/Specs">Podspecs Repo</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://twitter.com/CocoaPods">@CocoaPods</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="http://groups.google.com/group/cocoapods">Mailing List</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="http://beta.cocoapods.org/about">CocoaPods Dev Team</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="http://guides.cocoapods.org/syntax/podfile.html">Podfile Doc<span class="hidden-lg-span">s</span><span class="visible-lg-span">umentation</span></a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://twitter.com/CocoaPodsFeed">@CocoaPodsFeed</a></li></ul></article></section></footer></body><script type="text/javascript">(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
 ga('create', 'UA-29866548-4', 'cocoapods.org');
-ga('send', 'pageview');</script>
-</html>
+ga('send', 'pageview');</script></html>

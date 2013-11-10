@@ -1,622 +1,126 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta content="documenation cocoapods objective-c packcage manager" name="keywords">
-<title>CocoaPods Guides - Config</title>
-<link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon">
-<link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-touch-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-touch-icon-144x144.png">
-<link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-touch-icon-152x152.png">
-<link href="../../../stylesheets/app.css" media="screen" rel="stylesheet" type="text/css">
-<script src="../../../javascripts/application.js" type="text/javascript"></script>
-</head>
-<body>
-<nav class="navbar navbar-static-top" role="navigation"><section class="container"><div class="navbar-header">
-<button class="navbar-toggle" data-target=".navbar-header-collapse" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="/"></a>
-</div>
-<div class="collapse navbar-collapse navbar-header-collapse"><ul class="nav navbar-nav navbar-right">
-<li><a href="http://beta.cocoapods.org/about">About</a></li>
-<li class="active"><a href="http://guides.cocoapods.org">Guides</a></li>
-<li><a href="http://blog.cocoapods.org">Blog</a></li>
-</ul></div></section></nav><section class="container row"><header class="header content col-md-10 col-md-offset-1"><h1>Config</h1></header></section><div class="guide" id="content-wrapper">
-<section class="row container"><article class="content col-md-10 col-md-offset-1"><div id="tab-controller">
-<div id="methods-container"><div id="header"><h1><a class="select-tab" href="#tab_root_config">Config</a></h1></div></div>
-<li>
-<a class="select-tab group" data-toggle="tab" href="#tab_group_initialization">Initialization</a><ul class="nav" style="display:none;">
-<li>
-<a class="select-tab" data-toggle="tab" href="#tab_verbose">verbose</a><span class="label label-small">a</span>
-</li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_initialize">initialize</a></li>
-</ul>
-</li>
-<li>
-<a class="select-tab group" data-toggle="tab" href="#tab_group_ui">UI</a><ul class="nav" style="display:none;">
-<li><a class="select-tab" data-toggle="tab" href="#tab_verbose_q_mark">verbose?</a></li>
-<li>
-<a class="select-tab" data-toggle="tab" href="#tab_silent">silent</a><span class="label label-small">a</span>
-</li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_silent_q_mark">silent?</a></li>
-<li>
-<a class="select-tab" data-toggle="tab" href="#tab_new_version_message">new_version_message</a><span class="label label-small">a</span>
-</li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_new_version_message_q_mark">new_version_message?</a></li>
-</ul>
-</li>
-<li>
-<a class="select-tab group" data-toggle="tab" href="#tab_group_installation">Installation</a><ul class="nav" style="display:none;">
-<li>
-<a class="select-tab" data-toggle="tab" href="#tab_clean">clean</a><span class="label label-small">a</span>
-</li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_clean_q_mark">clean?</a></li>
-<li>
-<a class="select-tab" data-toggle="tab" href="#tab_integrate_targets">integrate_targets</a><span class="label label-small">a</span>
-</li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_integrate_targets_q_mark">integrate_targets?</a></li>
-<li>
-<a class="select-tab" data-toggle="tab" href="#tab_skip_repo_update">skip_repo_update</a><span class="label label-small">a</span>
-</li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_skip_repo_update_q_mark">skip_repo_update?</a></li>
-</ul>
-</li>
-<li>
-<a class="select-tab group" data-toggle="tab" href="#tab_group_cache">Cache</a><ul class="nav" style="display:none;">
-<li>
-<a class="select-tab" data-toggle="tab" href="#tab_max_cache_size">max_cache_size</a><span class="label label-small">a</span>
-</li>
-<li>
-<a class="select-tab" data-toggle="tab" href="#tab_cache_root">cache_root</a><span class="label label-small">a</span>
-</li>
-<li>
-<a class="select-tab" data-toggle="tab" href="#tab_aggressive_cache_">aggressive_cache=</a><span class="label label-small">w</span>
-</li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_aggressive_cache_q_mark">aggressive_cache?</a></li>
-</ul>
-</li>
-<li>
-<a class="select-tab group" data-toggle="tab" href="#tab_group_paths">Paths</a><ul class="nav" style="display:none;">
-<li><a class="select-tab" data-toggle="tab" href="#tab_home_dir">home_dir</a></li>
-<li>
-<a class="select-tab" data-toggle="tab" href="#tab_repos_dir">repos_dir</a><span class="label label-small">a</span>
-</li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_templates_dir">templates_dir</a></li>
-<li>
-<a class="select-tab" data-toggle="tab" href="#tab_installation_root">installation_root</a><span class="label label-small">a</span>
-</li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_project_root">project_root</a></li>
-<li>
-<a class="select-tab" data-toggle="tab" href="#tab_sandbox_root">sandbox_root</a><span class="label label-small">a</span>
-</li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_project_pods_root">project_pods_root</a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_sandbox">sandbox</a></li>
-<li>
-<a class="select-tab" data-toggle="tab" href="#tab_podfile">podfile</a><span class="label label-small">a</span>
-</li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_lockfile">lockfile</a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_podfile_path">podfile_path</a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_lockfile_path">lockfile_path</a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_default_podfile_path">default_podfile_path</a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_default_test_podfile_path">default_test_podfile_path</a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_statistics_cache_file">statistics_cache_file</a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_search_index_file">search_index_file</a></li>
-</ul>
-</li>
-<li>
-<a class="select-tab group" data-toggle="tab" href="#tab_group_dependency_injection">Dependency Injection</a><ul class="nav" style="display:none;">
-<li><a class="select-tab" data-toggle="tab" href="#tab_downloader">downloader</a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_spec_statistics_provider">spec_statistics_provider</a></li>
-</ul>
-</li>
-<li>
-<a class="select-tab group" data-toggle="tab" href="#tab_group_private_helpers">Private helpers</a><ul class="nav" style="display:none;">
-<li><a class="select-tab" data-toggle="tab" href="#tab_user_settings_file">user_settings_file</a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_configure_with">configure_with</a></li>
-<li><a class="select-tab" data-toggle="tab" href="#tab_podfile_path_in_dir">podfile_path_in_dir</a></li>
-</ul>
-</li>
-<li>
-<a class="select-tab group" data-toggle="tab" href="#tab_group_singleton">Singleton</a><ul class="nav" style="display:none;"><li>
-<a class="select-tab" data-toggle="tab" href="#tab_class_instance">instance</a><span class="label label-small">+</span>
-</li></ul>
-</li>
-</div>
-<div id="content-container"><div class="tab-content" id="tab-content">
-<div class="tab-pane" id="tab_root_config">
-<h2>Config</h2>
-<p>Stores the global configuration of CocoaPods.</p>
-<h3>Inherits from:</h3>
-<p><code>Object</code></p>
-<h3>Child Name Spaces</h3>
-<p><code><a href="mixin/index.html">Pod::Config::Mixin</a></code></p>
-</div>
-<div class="tab-pane" id="tab_group_initialization">
-<h2>Initialization</h2>
-<p>verbose</p>
-<p>initialize</p>
-</div>
-<div class="tab-pane" id="tab_group_ui">
-<h2>UI</h2>
-<p>verbose?</p>
-<p>silent</p>
-<p>silent?</p>
-<p>new_version_message</p>
-<p>new_version_message?</p>
-</div>
-<div class="tab-pane" id="tab_group_installation">
-<h2>Installation</h2>
-<p>clean</p>
-<p>clean?</p>
-<p>integrate_targets</p>
-<p>integrate_targets?</p>
-<p>skip_repo_update</p>
-<p>skip_repo_update?</p>
-</div>
-<div class="tab-pane" id="tab_group_cache">
-<h2>Cache</h2>
-<p>max_cache_size</p>
-<p>cache_root</p>
-<p>aggressive_cache=</p>
-<p>aggressive_cache?</p>
-</div>
-<div class="tab-pane" id="tab_group_paths">
-<h2>Paths</h2>
-<p>home_dir</p>
-<p>repos_dir</p>
-<p>templates_dir</p>
-<p>installation_root</p>
-<p>project_root</p>
-<p>sandbox_root</p>
-<p>project_pods_root</p>
-<p>sandbox</p>
-<p>podfile</p>
-<p>lockfile</p>
-<p>podfile_path</p>
-<p>lockfile_path</p>
-<p>default_podfile_path</p>
-<p>default_test_podfile_path</p>
-<p>statistics_cache_file</p>
-<p>search_index_file</p>
-</div>
-<div class="tab-pane" id="tab_group_dependency_injection">
-<h2>Dependency Injection</h2>
-<p>downloader</p>
-<p>spec_statistics_provider</p>
-</div>
-<div class="tab-pane" id="tab_group_private_helpers">
-<h2>Private helpers</h2>
-<p>user_settings_file</p>
-<p>configure_with</p>
-<p>podfile_path_in_dir</p>
-</div>
-<div class="tab-pane" id="tab_group_singleton">
-<h2>Singleton</h2>
-<p>instance</p>
-</div>
-<div class="tab-pane" id="tab_verbose">
-<h2>verbose<a class="select-tab" href=""><span class="label label-big">readwrite attribute</span></a>
-</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">verbose</span> <span class="c1">#=&gt; Bool </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>Bool</code> </p>
-<p>Whether CocoaPods should provide detailed output about the
+<!DOCTYPE html><html><head><meta charset="utf-8" /><meta content="documenation cocoapods objective-c packcage manager" name="keywords" /><title>CocoaPods Guides - Config</title><link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon" /><link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png" /><link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png" /><link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png" /><link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png" /><link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon-76x76.png" /><link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png" /><link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-touch-icon-120x120.png" /><link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-touch-icon-144x144.png" /><link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-touch-icon-152x152.png" /><link href="../../../stylesheets/app.css" media="screen" rel="stylesheet" type="text/css" /><script src="../../../javascripts/application.js" type="text/javascript"></script></head><body><nav class="navbar navbar-static-top" role="navigation"><section class="container"><div class="navbar-header"><button class="navbar-toggle" data-target=".navbar-header-collapse" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="/"></a></div><div class="collapse navbar-collapse navbar-header-collapse"><ul class="nav navbar-nav navbar-right"><li><a href="http://beta.cocoapods.org/about">About</a></li><li class="active"><a href="http://guides.cocoapods.org">Guides</a></li><li><a href="http://blog.cocoapods.org">Blog</a></li></ul></div></section></nav><section class="container row"><header class="header content col-md-10 col-md-offset-1"><h1>Config</h1></header></section><div class="guide" id="content-wrapper"><section class="row container"><article class="content col-md-10 col-md-offset-1"><div id="tab-controller"><div id="methods-container"><div id="header"><h1><a class="select-tab" href="#tab_root_config">Config</a></h1></div></div><li><a class='select-tab group' data-toggle='tab' href=#tab_group_initialization>Initialization</a><ul class='nav' style='display:none;'><li><a class='select-tab' data-toggle='tab' href=#tab_verbose>verbose</a><span class='label label-small'>a</span></li><li><a class='select-tab' data-toggle='tab' href=#tab_initialize>initialize</a></li></ul></li><li><a class='select-tab group' data-toggle='tab' href=#tab_group_ui>UI</a><ul class='nav' style='display:none;'><li><a class='select-tab' data-toggle='tab' href=#tab_verbose_q_mark>verbose?</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_silent>silent</a><span class='label label-small'>a</span></li><li><a class='select-tab' data-toggle='tab' href=#tab_silent_q_mark>silent?</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_new_version_message>new_version_message</a><span class='label label-small'>a</span></li><li><a class='select-tab' data-toggle='tab' href=#tab_new_version_message_q_mark>new_version_message?</a></li></ul></li><li><a class='select-tab group' data-toggle='tab' href=#tab_group_installation>Installation</a><ul class='nav' style='display:none;'><li><a class='select-tab' data-toggle='tab' href=#tab_clean>clean</a><span class='label label-small'>a</span></li><li><a class='select-tab' data-toggle='tab' href=#tab_clean_q_mark>clean?</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_integrate_targets>integrate_targets</a><span class='label label-small'>a</span></li><li><a class='select-tab' data-toggle='tab' href=#tab_integrate_targets_q_mark>integrate_targets?</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_skip_repo_update>skip_repo_update</a><span class='label label-small'>a</span></li><li><a class='select-tab' data-toggle='tab' href=#tab_skip_repo_update_q_mark>skip_repo_update?</a></li></ul></li><li><a class='select-tab group' data-toggle='tab' href=#tab_group_cache>Cache</a><ul class='nav' style='display:none;'><li><a class='select-tab' data-toggle='tab' href=#tab_max_cache_size>max_cache_size</a><span class='label label-small'>a</span></li><li><a class='select-tab' data-toggle='tab' href=#tab_cache_root>cache_root</a><span class='label label-small'>a</span></li><li><a class='select-tab' data-toggle='tab' href=#tab_aggressive_cache_>aggressive_cache=</a><span class='label label-small'>w</span></li><li><a class='select-tab' data-toggle='tab' href=#tab_aggressive_cache_q_mark>aggressive_cache?</a></li></ul></li><li><a class='select-tab group' data-toggle='tab' href=#tab_group_paths>Paths</a><ul class='nav' style='display:none;'><li><a class='select-tab' data-toggle='tab' href=#tab_home_dir>home_dir</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_repos_dir>repos_dir</a><span class='label label-small'>a</span></li><li><a class='select-tab' data-toggle='tab' href=#tab_templates_dir>templates_dir</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_installation_root>installation_root</a><span class='label label-small'>a</span></li><li><a class='select-tab' data-toggle='tab' href=#tab_project_root>project_root</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_sandbox_root>sandbox_root</a><span class='label label-small'>a</span></li><li><a class='select-tab' data-toggle='tab' href=#tab_project_pods_root>project_pods_root</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_sandbox>sandbox</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_podfile>podfile</a><span class='label label-small'>a</span></li><li><a class='select-tab' data-toggle='tab' href=#tab_lockfile>lockfile</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_podfile_path>podfile_path</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_lockfile_path>lockfile_path</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_default_podfile_path>default_podfile_path</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_default_test_podfile_path>default_test_podfile_path</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_statistics_cache_file>statistics_cache_file</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_search_index_file>search_index_file</a></li></ul></li><li><a class='select-tab group' data-toggle='tab' href=#tab_group_dependency_injection>Dependency Injection</a><ul class='nav' style='display:none;'><li><a class='select-tab' data-toggle='tab' href=#tab_downloader>downloader</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_spec_statistics_provider>spec_statistics_provider</a></li></ul></li><li><a class='select-tab group' data-toggle='tab' href=#tab_group_private_helpers>Private helpers</a><ul class='nav' style='display:none;'><li><a class='select-tab' data-toggle='tab' href=#tab_user_settings_file>user_settings_file</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_configure_with>configure_with</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_podfile_path_in_dir>podfile_path_in_dir</a></li></ul></li><li><a class='select-tab group' data-toggle='tab' href=#tab_group_singleton>Singleton</a><ul class='nav' style='display:none;'><li><a class='select-tab' data-toggle='tab' href=#tab_class_instance>instance</a><span class='label label-small'>+</span></li></div><div id="content-container"><div class="tab-content" id="tab-content"><div class="tab-pane" id="tab_root_config"><h2>Config</h2><p>Stores the global configuration of CocoaPods.</p>
+<h3>Inherits from:</h3><p><code>Object</code></p><h3>Child Name Spaces</h3><p><code><a href="mixin/index.html">Pod::Config::Mixin</a></code></p></div><div class="tab-pane" id="tab_group_initialization"><h2>Initialization</h2><p>verbose</p><p>initialize</p></div><div class="tab-pane" id="tab_group_ui"><h2>UI</h2><p>verbose?</p><p>silent</p><p>silent?</p><p>new_version_message</p><p>new_version_message?</p></div><div class="tab-pane" id="tab_group_installation"><h2>Installation</h2><p>clean</p><p>clean?</p><p>integrate_targets</p><p>integrate_targets?</p><p>skip_repo_update</p><p>skip_repo_update?</p></div><div class="tab-pane" id="tab_group_cache"><h2>Cache</h2><p>max_cache_size</p><p>cache_root</p><p>aggressive_cache=</p><p>aggressive_cache?</p></div><div class="tab-pane" id="tab_group_paths"><h2>Paths</h2><p>home_dir</p><p>repos_dir</p><p>templates_dir</p><p>installation_root</p><p>project_root</p><p>sandbox_root</p><p>project_pods_root</p><p>sandbox</p><p>podfile</p><p>lockfile</p><p>podfile_path</p><p>lockfile_path</p><p>default_podfile_path</p><p>default_test_podfile_path</p><p>statistics_cache_file</p><p>search_index_file</p></div><div class="tab-pane" id="tab_group_dependency_injection"><h2>Dependency Injection</h2><p>downloader</p><p>spec_statistics_provider</p></div><div class="tab-pane" id="tab_group_private_helpers"><h2>Private helpers</h2><p>user_settings_file</p><p>configure_with</p><p>podfile_path_in_dir</p></div><div class="tab-pane" id="tab_group_singleton"><h2>Singleton</h2><p>instance</p></div><div class="tab-pane" id="tab_verbose"><h2>verbose<a class="select-tab" href=""><span class="label label-big">readwrite attribute</span></a></h2><h3>Signature</h3><div class="highlight"><pre><span class="n">verbose</span> <span class="c1">#=&gt; Bool </span>
+</pre></div><h4>Returns</h4><p><code>Bool</code> <p>Whether CocoaPods should provide detailed output about the
 performed actions.</p>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">verbose</span><span class="o">=</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="c1">#=&gt; Bool </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>Bool</code> </p>
-<p>Whether CocoaPods should provide detailed output about the
+</p><h3>Signature</h3><div class="highlight"><pre><span class="n">verbose</span><span class="o">=</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="c1">#=&gt; Bool </span>
+</pre></div><h4>Returns</h4><p><code>Bool</code> <p>Whether CocoaPods should provide detailed output about the
 performed actions.</p>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L39">lib/cocoapods/config.rb:39</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L125">lib/cocoapods/config.rb:125</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_initialize">
-<h2>initialize</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="kp">initialize</span><span class="p">(</span><span class="n">use_user_settings</span> <span class="o">=</span> <span class="kp">true</span><span class="p">)</span> <span class="c1">#=&gt; Config </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code><a href="index.html">Config</a></code> A new instance of Config
-</p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">115</span> <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">use_user_settings</span> <span class="o">=</span> <span class="kp">true</span><span class="p">)</span>
+</p><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L39">lib/cocoapods/config.rb:39</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L125">lib/cocoapods/config.rb:125</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p></div><div class="tab-pane" id="tab_initialize"><h2>initialize</h2><h3>Signature</h3><div class="highlight"><pre><span class="kp">initialize</span><span class="p">(</span><span class="n">use_user_settings</span> <span class="o">=</span> <span class="kp">true</span><span class="p">)</span> <span class="c1">#=&gt; Config </span>
+</pre></div><h4>Returns</h4><p><code><a href="index.html">Config</a></code> A new instance of Config
+</p><h3>Source</h3><div class="highlight"><pre><span class="lineno">115</span> <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">use_user_settings</span> <span class="o">=</span> <span class="kp">true</span><span class="p">)</span>
 <span class="lineno">116</span>   <span class="n">configure_with</span><span class="p">(</span><span class="no">DEFAULTS</span><span class="p">)</span>
 <span class="lineno">117</span> 
 <span class="lineno">118</span>   <span class="k">if</span> <span class="n">use_user_settings</span> <span class="o">&amp;&amp;</span> <span class="n">user_settings_file</span><span class="o">.</span><span class="n">exist?</span>
-<span class="lineno">119</span>     <span class="nb">require</span> <span class="s1">'yaml'</span>
+<span class="lineno">119</span>     <span class="nb">require</span> <span class="s1">&#39;yaml&#39;</span>
 <span class="lineno">120</span>     <span class="n">user_settings</span> <span class="o">=</span> <span class="no">YAML</span><span class="o">.</span><span class="n">load_file</span><span class="p">(</span><span class="n">user_settings_file</span><span class="p">)</span>
 <span class="lineno">121</span>     <span class="n">configure_with</span><span class="p">(</span><span class="n">user_settings</span><span class="p">)</span>
 <span class="lineno">122</span>   <span class="k">end</span>
 <span class="lineno">123</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L115">lib/cocoapods/config.rb:115</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_verbose_q_mark">
-<h2>verbose?</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">verbose?</span> <span class="c1">#=&gt; Bool </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>Bool</code> </p>
-<p>Whether CocoaPods should provide detailed output about the
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L115">lib/cocoapods/config.rb:115</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p></div><div class="tab-pane" id="tab_verbose_q_mark"><h2>verbose?</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">verbose?</span> <span class="c1">#=&gt; Bool </span>
+</pre></div><h4>Returns</h4><p><code>Bool</code> <p>Whether CocoaPods should provide detailed output about the
 performed actions.</p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">40</span> <span class="k">def</span> <span class="nf">verbose</span>
+</p><h3>Source</h3><div class="highlight"><pre><span class="lineno">40</span> <span class="k">def</span> <span class="nf">verbose</span>
 <span class="lineno">41</span>   <span class="vi">@verbose</span>
 <span class="lineno">42</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L40">lib/cocoapods/config.rb:40</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_silent">
-<h2>silent<a class="select-tab" href=""><span class="label label-big">readwrite attribute</span></a>
-</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">silent</span> <span class="c1">#=&gt; Bool </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>Bool</code> Whether CocoaPods should produce not output.
-</p>
-<h4>Aliases</h4>
-<code>Pod::Config#silent?</code><h3>Signature</h3>
-<div class="highlight"><pre><span class="n">silent</span><span class="o">=</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="c1">#=&gt; Bool </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>Bool</code> Whether CocoaPods should produce not output.
-</p>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L44">lib/cocoapods/config.rb:44</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_silent_q_mark">
-<h2>silent?</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">silent?</span> <span class="c1">#=&gt; Bool </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>Bool</code> Whether CocoaPods should produce not output.
-</p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">45</span> <span class="k">def</span> <span class="nf">silent</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L40">lib/cocoapods/config.rb:40</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p></div><div class="tab-pane" id="tab_silent"><h2>silent<a class="select-tab" href=""><span class="label label-big">readwrite attribute</span></a></h2><h3>Signature</h3><div class="highlight"><pre><span class="n">silent</span> <span class="c1">#=&gt; Bool </span>
+</pre></div><h4>Returns</h4><p><code>Bool</code> Whether CocoaPods should produce not output.
+</p><h4>Aliases</h4><code>Pod::Config#silent?</code><h3>Signature</h3><div class="highlight"><pre><span class="n">silent</span><span class="o">=</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="c1">#=&gt; Bool </span>
+</pre></div><h4>Returns</h4><p><code>Bool</code> Whether CocoaPods should produce not output.
+</p><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L44">lib/cocoapods/config.rb:44</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p></div><div class="tab-pane" id="tab_silent_q_mark"><h2>silent?</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">silent?</span> <span class="c1">#=&gt; Bool </span>
+</pre></div><h4>Returns</h4><p><code>Bool</code> Whether CocoaPods should produce not output.
+</p><h3>Source</h3><div class="highlight"><pre><span class="lineno">45</span> <span class="k">def</span> <span class="nf">silent</span>
 <span class="lineno">46</span>   <span class="vi">@silent</span>
 <span class="lineno">47</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L45">lib/cocoapods/config.rb:45</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_new_version_message">
-<h2>new_version_message<a class="select-tab" href=""><span class="label label-big">readwrite attribute</span></a>
-</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">new_version_message</span> <span class="c1">#=&gt; Bool </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>Bool</code> </p>
-<p>Whether a message should be printed when a new version of
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L45">lib/cocoapods/config.rb:45</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p></div><div class="tab-pane" id="tab_new_version_message"><h2>new_version_message<a class="select-tab" href=""><span class="label label-big">readwrite attribute</span></a></h2><h3>Signature</h3><div class="highlight"><pre><span class="n">new_version_message</span> <span class="c1">#=&gt; Bool </span>
+</pre></div><h4>Returns</h4><p><code>Bool</code> <p>Whether a message should be printed when a new version of
 CocoaPods is available.</p>
-<h4>Aliases</h4>
-<code>Pod::Config#new_version_message?</code><h3>Signature</h3>
-<div class="highlight"><pre><span class="n">new_version_message</span><span class="o">=</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="c1">#=&gt; Bool </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>Bool</code> </p>
-<p>Whether a message should be printed when a new version of
+</p><h4>Aliases</h4><code>Pod::Config#new_version_message?</code><h3>Signature</h3><div class="highlight"><pre><span class="n">new_version_message</span><span class="o">=</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="c1">#=&gt; Bool </span>
+</pre></div><h4>Returns</h4><p><code>Bool</code> <p>Whether a message should be printed when a new version of
 CocoaPods is available.</p>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L50">lib/cocoapods/config.rb:50</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_new_version_message_q_mark">
-<h2>new_version_message?</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">new_version_message?</span> <span class="c1">#=&gt; Bool </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>Bool</code> </p>
-<p>Whether a message should be printed when a new version of
+</p><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L50">lib/cocoapods/config.rb:50</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p></div><div class="tab-pane" id="tab_new_version_message_q_mark"><h2>new_version_message?</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">new_version_message?</span> <span class="c1">#=&gt; Bool </span>
+</pre></div><h4>Returns</h4><p><code>Bool</code> <p>Whether a message should be printed when a new version of
 CocoaPods is available.</p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">51</span> <span class="k">def</span> <span class="nf">new_version_message</span>
+</p><h3>Source</h3><div class="highlight"><pre><span class="lineno">51</span> <span class="k">def</span> <span class="nf">new_version_message</span>
 <span class="lineno">52</span>   <span class="vi">@new_version_message</span>
 <span class="lineno">53</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L51">lib/cocoapods/config.rb:51</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_clean">
-<h2>clean<a class="select-tab" href=""><span class="label label-big">readwrite attribute</span></a>
-</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">clean</span> <span class="c1">#=&gt; Bool </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>Bool</code> Whether the installer should clean after the installation.
-</p>
-<h4>Aliases</h4>
-<code>Pod::Config#clean?</code><h3>Signature</h3>
-<div class="highlight"><pre><span class="n">clean</span><span class="o">=</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="c1">#=&gt; Bool </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>Bool</code> Whether the installer should clean after the installation.
-</p>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L59">lib/cocoapods/config.rb:59</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_clean_q_mark">
-<h2>clean?</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">clean?</span> <span class="c1">#=&gt; Bool </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>Bool</code> Whether the installer should clean after the installation.
-</p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">60</span> <span class="k">def</span> <span class="nf">clean</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L51">lib/cocoapods/config.rb:51</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p></div><div class="tab-pane" id="tab_clean"><h2>clean<a class="select-tab" href=""><span class="label label-big">readwrite attribute</span></a></h2><h3>Signature</h3><div class="highlight"><pre><span class="n">clean</span> <span class="c1">#=&gt; Bool </span>
+</pre></div><h4>Returns</h4><p><code>Bool</code> Whether the installer should clean after the installation.
+</p><h4>Aliases</h4><code>Pod::Config#clean?</code><h3>Signature</h3><div class="highlight"><pre><span class="n">clean</span><span class="o">=</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="c1">#=&gt; Bool </span>
+</pre></div><h4>Returns</h4><p><code>Bool</code> Whether the installer should clean after the installation.
+</p><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L59">lib/cocoapods/config.rb:59</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p></div><div class="tab-pane" id="tab_clean_q_mark"><h2>clean?</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">clean?</span> <span class="c1">#=&gt; Bool </span>
+</pre></div><h4>Returns</h4><p><code>Bool</code> Whether the installer should clean after the installation.
+</p><h3>Source</h3><div class="highlight"><pre><span class="lineno">60</span> <span class="k">def</span> <span class="nf">clean</span>
 <span class="lineno">61</span>   <span class="vi">@clean</span>
 <span class="lineno">62</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L60">lib/cocoapods/config.rb:60</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_integrate_targets">
-<h2>integrate_targets<a class="select-tab" href=""><span class="label label-big">readwrite attribute</span></a>
-</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">integrate_targets</span> <span class="c1">#=&gt; Bool </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>Bool</code> </p>
-<p>Whether CocoaPods should integrate a user target and build
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L60">lib/cocoapods/config.rb:60</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p></div><div class="tab-pane" id="tab_integrate_targets"><h2>integrate_targets<a class="select-tab" href=""><span class="label label-big">readwrite attribute</span></a></h2><h3>Signature</h3><div class="highlight"><pre><span class="n">integrate_targets</span> <span class="c1">#=&gt; Bool </span>
+</pre></div><h4>Returns</h4><p><code>Bool</code> <p>Whether CocoaPods should integrate a user target and build
 the workspace or just create the Pods project.</p>
-<h4>Aliases</h4>
-<code>Pod::Config#integrate_targets?</code><h3>Signature</h3>
-<div class="highlight"><pre><span class="n">integrate_targets</span><span class="o">=</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="c1">#=&gt; Bool </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>Bool</code> </p>
-<p>Whether CocoaPods should integrate a user target and build
+</p><h4>Aliases</h4><code>Pod::Config#integrate_targets?</code><h3>Signature</h3><div class="highlight"><pre><span class="n">integrate_targets</span><span class="o">=</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="c1">#=&gt; Bool </span>
+</pre></div><h4>Returns</h4><p><code>Bool</code> <p>Whether CocoaPods should integrate a user target and build
 the workspace or just create the Pods project.</p>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L65">lib/cocoapods/config.rb:65</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_integrate_targets_q_mark">
-<h2>integrate_targets?</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">integrate_targets?</span> <span class="c1">#=&gt; Bool </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>Bool</code> </p>
-<p>Whether CocoaPods should integrate a user target and build
+</p><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L65">lib/cocoapods/config.rb:65</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p></div><div class="tab-pane" id="tab_integrate_targets_q_mark"><h2>integrate_targets?</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">integrate_targets?</span> <span class="c1">#=&gt; Bool </span>
+</pre></div><h4>Returns</h4><p><code>Bool</code> <p>Whether CocoaPods should integrate a user target and build
 the workspace or just create the Pods project.</p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">66</span> <span class="k">def</span> <span class="nf">integrate_targets</span>
+</p><h3>Source</h3><div class="highlight"><pre><span class="lineno">66</span> <span class="k">def</span> <span class="nf">integrate_targets</span>
 <span class="lineno">67</span>   <span class="vi">@integrate_targets</span>
 <span class="lineno">68</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L66">lib/cocoapods/config.rb:66</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_skip_repo_update">
-<h2>skip_repo_update<a class="select-tab" href=""><span class="label label-big">readwrite attribute</span></a>
-</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">skip_repo_update</span> <span class="c1">#=&gt; Bool </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>Bool</code> Whether the installer should skip the repos update.
-</p>
-<h4>Aliases</h4>
-<code>Pod::Config#skip_repo_update?</code><h3>Signature</h3>
-<div class="highlight"><pre><span class="n">skip_repo_update</span><span class="o">=</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="c1">#=&gt; Bool </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>Bool</code> Whether the installer should skip the repos update.
-</p>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L71">lib/cocoapods/config.rb:71</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_skip_repo_update_q_mark">
-<h2>skip_repo_update?</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">skip_repo_update?</span> <span class="c1">#=&gt; Bool </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>Bool</code> Whether the installer should skip the repos update.
-</p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">72</span> <span class="k">def</span> <span class="nf">skip_repo_update</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L66">lib/cocoapods/config.rb:66</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p></div><div class="tab-pane" id="tab_skip_repo_update"><h2>skip_repo_update<a class="select-tab" href=""><span class="label label-big">readwrite attribute</span></a></h2><h3>Signature</h3><div class="highlight"><pre><span class="n">skip_repo_update</span> <span class="c1">#=&gt; Bool </span>
+</pre></div><h4>Returns</h4><p><code>Bool</code> Whether the installer should skip the repos update.
+</p><h4>Aliases</h4><code>Pod::Config#skip_repo_update?</code><h3>Signature</h3><div class="highlight"><pre><span class="n">skip_repo_update</span><span class="o">=</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="c1">#=&gt; Bool </span>
+</pre></div><h4>Returns</h4><p><code>Bool</code> Whether the installer should skip the repos update.
+</p><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L71">lib/cocoapods/config.rb:71</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p></div><div class="tab-pane" id="tab_skip_repo_update_q_mark"><h2>skip_repo_update?</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">skip_repo_update?</span> <span class="c1">#=&gt; Bool </span>
+</pre></div><h4>Returns</h4><p><code>Bool</code> Whether the installer should skip the repos update.
+</p><h3>Source</h3><div class="highlight"><pre><span class="lineno">72</span> <span class="k">def</span> <span class="nf">skip_repo_update</span>
 <span class="lineno">73</span>   <span class="vi">@skip_repo_update</span>
 <span class="lineno">74</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L72">lib/cocoapods/config.rb:72</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_max_cache_size">
-<h2>max_cache_size<a class="select-tab" href=""><span class="label label-big">readwrite attribute</span></a>
-</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">max_cache_size</span> <span class="c1">#=&gt; Fixnum </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>Fixnum</code> The maximum size for the cache expressed in Mb.
-</p>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">max_cache_size</span><span class="o">=</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="c1">#=&gt; Fixnum </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>Fixnum</code> The maximum size for the cache expressed in Mb.
-</p>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L82">lib/cocoapods/config.rb:82</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_cache_root">
-<h2>cache_root<a class="select-tab" href=""><span class="label label-big">readwrite attribute</span></a>
-</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">cache_root</span> <span class="c1">#=&gt; Pathname </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>Pathname</code> </p>
-<p>The directory where CocoaPods should cache remote data
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L72">lib/cocoapods/config.rb:72</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p></div><div class="tab-pane" id="tab_max_cache_size"><h2>max_cache_size<a class="select-tab" href=""><span class="label label-big">readwrite attribute</span></a></h2><h3>Signature</h3><div class="highlight"><pre><span class="n">max_cache_size</span> <span class="c1">#=&gt; Fixnum </span>
+</pre></div><h4>Returns</h4><p><code>Fixnum</code> The maximum size for the cache expressed in Mb.
+</p><h3>Signature</h3><div class="highlight"><pre><span class="n">max_cache_size</span><span class="o">=</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="c1">#=&gt; Fixnum </span>
+</pre></div><h4>Returns</h4><p><code>Fixnum</code> The maximum size for the cache expressed in Mb.
+</p><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L82">lib/cocoapods/config.rb:82</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p></div><div class="tab-pane" id="tab_cache_root"><h2>cache_root<a class="select-tab" href=""><span class="label label-big">readwrite attribute</span></a></h2><h3>Signature</h3><div class="highlight"><pre><span class="n">cache_root</span> <span class="c1">#=&gt; Pathname </span>
+</pre></div><h4>Returns</h4><p><code>Pathname</code> <p>The directory where CocoaPods should cache remote data
 and other expensive to compute information.</p>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">cache_root</span><span class="o">=</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="c1">#=&gt; Pathname </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>Pathname</code> </p>
-<p>The directory where CocoaPods should cache remote data
+</p><h3>Signature</h3><div class="highlight"><pre><span class="n">cache_root</span><span class="o">=</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="c1">#=&gt; Pathname </span>
+</pre></div><h4>Returns</h4><p><code>Pathname</code> <p>The directory where CocoaPods should cache remote data
 and other expensive to compute information.</p>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L87">lib/cocoapods/config.rb:87</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L89">lib/cocoapods/config.rb:89</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_aggressive_cache_">
-<h2>aggressive_cache=<a class="select-tab" href=""><span class="label label-big">attribute writer</span></a>
-</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">aggressive_cache</span><span class="o">=</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="c1">#=&gt; undefined</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L100">lib/cocoapods/config.rb:100</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_aggressive_cache_q_mark">
-<h2>aggressive_cache?</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">aggressive_cache?</span> <span class="c1">#=&gt; Bool </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>Bool</code> </p>
-<p>Whether the downloader should use more aggressive caching
+</p><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L87">lib/cocoapods/config.rb:87</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L89">lib/cocoapods/config.rb:89</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p></div><div class="tab-pane" id="tab_aggressive_cache_"><h2>aggressive_cache=<a class="select-tab" href=""><span class="label label-big">attribute writer</span></a></h2><h3>Signature</h3><div class="highlight"><pre><span class="n">aggressive_cache</span><span class="o">=</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="c1">#=&gt; undefined</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L100">lib/cocoapods/config.rb:100</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p></div><div class="tab-pane" id="tab_aggressive_cache_q_mark"><h2>aggressive_cache?</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">aggressive_cache?</span> <span class="c1">#=&gt; Bool </span>
+</pre></div><h4>Returns</h4><p><code>Bool</code> <p>Whether the downloader should use more aggressive caching
 options.</p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">105</span> <span class="k">def</span> <span class="nf">aggressive_cache?</span>
-<span class="lineno">106</span>   <span class="vi">@aggressive_cache</span> <span class="o">||</span> <span class="p">(</span><span class="no">ENV</span><span class="o">[</span><span class="s1">'CP_AGGRESSIVE_CACHE'</span><span class="o">]</span> <span class="o">==</span> <span class="s1">'TRUE'</span><span class="p">)</span>
+</p><h3>Source</h3><div class="highlight"><pre><span class="lineno">105</span> <span class="k">def</span> <span class="nf">aggressive_cache?</span>
+<span class="lineno">106</span>   <span class="vi">@aggressive_cache</span> <span class="o">||</span> <span class="p">(</span><span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;CP_AGGRESSIVE_CACHE&#39;</span><span class="o">]</span> <span class="o">==</span> <span class="s1">&#39;TRUE&#39;</span><span class="p">)</span>
 <span class="lineno">107</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L105">lib/cocoapods/config.rb:105</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_home_dir">
-<h2>home_dir</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">home_dir</span> <span class="c1">#=&gt; Pathname </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>Pathname</code> </p>
-<p>The directory where repos, templates and configuration
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L105">lib/cocoapods/config.rb:105</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p></div><div class="tab-pane" id="tab_home_dir"><h2>home_dir</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">home_dir</span> <span class="c1">#=&gt; Pathname </span>
+</pre></div><h4>Returns</h4><p><code>Pathname</code> <p>The directory where repos, templates and configuration
 files are stored.</p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">138</span> <span class="k">def</span> <span class="nf">home_dir</span>
-<span class="lineno">139</span>   <span class="vi">@home_dir</span> <span class="o">||=</span> <span class="no">Pathname</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="no">ENV</span><span class="o">[</span><span class="s1">'CP_HOME_DIR'</span><span class="o">]</span> <span class="o">||</span> <span class="s2">"~/.cocoapods"</span><span class="p">)</span><span class="o">.</span><span class="n">expand_path</span>
+</p><h3>Source</h3><div class="highlight"><pre><span class="lineno">138</span> <span class="k">def</span> <span class="nf">home_dir</span>
+<span class="lineno">139</span>   <span class="vi">@home_dir</span> <span class="o">||=</span> <span class="no">Pathname</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;CP_HOME_DIR&#39;</span><span class="o">]</span> <span class="o">||</span> <span class="s2">&quot;~/.cocoapods&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">expand_path</span>
 <span class="lineno">140</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L138">lib/cocoapods/config.rb:138</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_repos_dir">
-<h2>repos_dir<a class="select-tab" href=""><span class="label label-big">readwrite attribute</span></a>
-</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">repos_dir</span> <span class="c1">#=&gt; Pathname </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>Pathname</code> The directory where the CocoaPods sources are stored.
-</p>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">repos_dir</span><span class="o">=</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="c1">#=&gt; undefined</span>
-</pre></div>
-<h4>Parameters</h4>
-<p><b> value</b></p>
-<p>The value to set the attribute repos_dir to.</p>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L144">lib/cocoapods/config.rb:144</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_templates_dir">
-<h2>templates_dir</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">templates_dir</span> <span class="c1">#=&gt; Pathname </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>Pathname</code> The directory where the CocoaPods templates are stored.
-</p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">152</span> <span class="k">def</span> <span class="nf">templates_dir</span>
-<span class="lineno">153</span>   <span class="vi">@templates_dir</span> <span class="o">||=</span> <span class="no">Pathname</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="no">ENV</span><span class="o">[</span><span class="s1">'CP_TEMPLATES_DIR'</span><span class="o">]</span> <span class="o">||</span> <span class="s2">"~/.cocoapods/templates"</span><span class="p">)</span><span class="o">.</span><span class="n">expand_path</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L138">lib/cocoapods/config.rb:138</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p></div><div class="tab-pane" id="tab_repos_dir"><h2>repos_dir<a class="select-tab" href=""><span class="label label-big">readwrite attribute</span></a></h2><h3>Signature</h3><div class="highlight"><pre><span class="n">repos_dir</span> <span class="c1">#=&gt; Pathname </span>
+</pre></div><h4>Returns</h4><p><code>Pathname</code> The directory where the CocoaPods sources are stored.
+</p><h3>Signature</h3><div class="highlight"><pre><span class="n">repos_dir</span><span class="o">=</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="c1">#=&gt; undefined</span>
+</pre></div><h4>Parameters</h4><p><b> value</b></p><p>The value to set the attribute repos_dir to.</p>
+<h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L144">lib/cocoapods/config.rb:144</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p></div><div class="tab-pane" id="tab_templates_dir"><h2>templates_dir</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">templates_dir</span> <span class="c1">#=&gt; Pathname </span>
+</pre></div><h4>Returns</h4><p><code>Pathname</code> The directory where the CocoaPods templates are stored.
+</p><h3>Source</h3><div class="highlight"><pre><span class="lineno">152</span> <span class="k">def</span> <span class="nf">templates_dir</span>
+<span class="lineno">153</span>   <span class="vi">@templates_dir</span> <span class="o">||=</span> <span class="no">Pathname</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;CP_TEMPLATES_DIR&#39;</span><span class="o">]</span> <span class="o">||</span> <span class="s2">&quot;~/.cocoapods/templates&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">expand_path</span>
 <span class="lineno">154</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L152">lib/cocoapods/config.rb:152</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_installation_root">
-<h2>installation_root<a class="select-tab" href=""><span class="label label-big">readwrite attribute</span></a>
-</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">installation_root</span> <span class="c1">#=&gt; Pathname </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>Pathname</code> </p>
-<p>The root of the CocoaPods installation where the
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L152">lib/cocoapods/config.rb:152</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p></div><div class="tab-pane" id="tab_installation_root"><h2>installation_root<a class="select-tab" href=""><span class="label label-big">readwrite attribute</span></a></h2><h3>Signature</h3><div class="highlight"><pre><span class="n">installation_root</span> <span class="c1">#=&gt; Pathname </span>
+</pre></div><h4>Returns</h4><p><code>Pathname</code> <p>The root of the CocoaPods installation where the
 Podfile is located.</p>
-<h4>Aliases</h4>
-<code>Pod::Config#project_root</code><h3>Signature</h3>
-<div class="highlight"><pre><span class="n">installation_root</span><span class="o">=</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="c1">#=&gt; undefined</span>
-</pre></div>
-<h4>Parameters</h4>
-<p><b> value</b></p>
-<p>The value to set the attribute installation_root to.</p>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L159">lib/cocoapods/config.rb:159</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_project_root">
-<h2>project_root</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">project_root</span> <span class="c1">#=&gt; Pathname </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>Pathname</code> </p>
-<p>The root of the CocoaPods installation where the
+</p><h4>Aliases</h4><code>Pod::Config#project_root</code><h3>Signature</h3><div class="highlight"><pre><span class="n">installation_root</span><span class="o">=</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="c1">#=&gt; undefined</span>
+</pre></div><h4>Parameters</h4><p><b> value</b></p><p>The value to set the attribute installation_root to.</p>
+<h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L159">lib/cocoapods/config.rb:159</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p></div><div class="tab-pane" id="tab_project_root"><h2>project_root</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">project_root</span> <span class="c1">#=&gt; Pathname </span>
+</pre></div><h4>Returns</h4><p><code>Pathname</code> <p>The root of the CocoaPods installation where the
 Podfile is located.</p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">179</span> <span class="k">def</span> <span class="nf">installation_root</span>
+</p><h3>Source</h3><div class="highlight"><pre><span class="lineno">179</span> <span class="k">def</span> <span class="nf">installation_root</span>
 <span class="lineno">180</span>   <span class="n">current_path</span> <span class="o">=</span> <span class="no">Pathname</span><span class="o">.</span><span class="n">pwd</span>
 <span class="lineno">181</span>   <span class="k">unless</span> <span class="vi">@installation_root</span>
 <span class="lineno">182</span>     <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">current_path</span><span class="o">.</span><span class="n">root?</span><span class="p">)</span>
 <span class="lineno">183</span>       <span class="k">if</span> <span class="n">podfile_path_in_dir</span><span class="p">(</span><span class="n">current_path</span><span class="p">)</span>
 <span class="lineno">184</span>         <span class="vi">@installation_root</span> <span class="o">=</span> <span class="n">current_path</span>
 <span class="lineno">185</span>         <span class="k">unless</span> <span class="n">current_path</span> <span class="o">==</span> <span class="no">Pathname</span><span class="o">.</span><span class="n">pwd</span>
-<span class="lineno">186</span>           <span class="no">UI</span><span class="o">.</span><span class="n">puts</span><span class="p">(</span><span class="s2">"[in </span><span class="si">#{</span><span class="n">current_path</span><span class="si">}</span><span class="s2">]"</span><span class="p">)</span>
+<span class="lineno">186</span>           <span class="no">UI</span><span class="o">.</span><span class="n">puts</span><span class="p">(</span><span class="s2">&quot;[in </span><span class="si">#{</span><span class="n">current_path</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
 <span class="lineno">187</span>         <span class="k">end</span>
 <span class="lineno">188</span>         <span class="k">break</span>
 <span class="lineno">189</span>       <span class="k">else</span>
@@ -627,296 +131,91 @@ Podfile is located.</p>
 <span class="lineno">194</span>   <span class="k">end</span>
 <span class="lineno">195</span>   <span class="vi">@installation_root</span>
 <span class="lineno">196</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L179">lib/cocoapods/config.rb:179</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_sandbox_root">
-<h2>sandbox_root<a class="select-tab" href=""><span class="label label-big">readwrite attribute</span></a>
-</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">sandbox_root</span> <span class="c1">#=&gt; Pathname </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>Pathname</code> The root of the sandbox.
-</p>
-<h4>Aliases</h4>
-<code>Pod::Config#project_pods_root</code><h3>Signature</h3>
-<div class="highlight"><pre><span class="n">sandbox_root</span><span class="o">=</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="c1">#=&gt; undefined</span>
-</pre></div>
-<h4>Parameters</h4>
-<p><b> value</b></p>
-<p>The value to set the attribute sandbox_root to.</p>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L183">lib/cocoapods/config.rb:183</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_project_pods_root">
-<h2>project_pods_root</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">project_pods_root</span> <span class="c1">#=&gt; Pathname </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>Pathname</code> The root of the sandbox.
-</p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">188</span> <span class="k">def</span> <span class="nf">sandbox_root</span>
-<span class="lineno">189</span>   <span class="vi">@sandbox_root</span> <span class="o">||=</span> <span class="n">installation_root</span> <span class="o">+</span> <span class="s1">'Pods'</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L179">lib/cocoapods/config.rb:179</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p></div><div class="tab-pane" id="tab_sandbox_root"><h2>sandbox_root<a class="select-tab" href=""><span class="label label-big">readwrite attribute</span></a></h2><h3>Signature</h3><div class="highlight"><pre><span class="n">sandbox_root</span> <span class="c1">#=&gt; Pathname </span>
+</pre></div><h4>Returns</h4><p><code>Pathname</code> The root of the sandbox.
+</p><h4>Aliases</h4><code>Pod::Config#project_pods_root</code><h3>Signature</h3><div class="highlight"><pre><span class="n">sandbox_root</span><span class="o">=</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="c1">#=&gt; undefined</span>
+</pre></div><h4>Parameters</h4><p><b> value</b></p><p>The value to set the attribute sandbox_root to.</p>
+<h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L183">lib/cocoapods/config.rb:183</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p></div><div class="tab-pane" id="tab_project_pods_root"><h2>project_pods_root</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">project_pods_root</span> <span class="c1">#=&gt; Pathname </span>
+</pre></div><h4>Returns</h4><p><code>Pathname</code> The root of the sandbox.
+</p><h3>Source</h3><div class="highlight"><pre><span class="lineno">188</span> <span class="k">def</span> <span class="nf">sandbox_root</span>
+<span class="lineno">189</span>   <span class="vi">@sandbox_root</span> <span class="o">||=</span> <span class="n">installation_root</span> <span class="o">+</span> <span class="s1">&#39;Pods&#39;</span>
 <span class="lineno">190</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L188">lib/cocoapods/config.rb:188</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_sandbox">
-<h2>sandbox</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">sandbox</span> <span class="c1">#=&gt; Sandbox </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code><a href="../sandbox/index.html">Sandbox</a></code> The sandbox of the current project.
-</p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">192</span> <span class="k">def</span> <span class="nf">sandbox</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L188">lib/cocoapods/config.rb:188</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p></div><div class="tab-pane" id="tab_sandbox"><h2>sandbox</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">sandbox</span> <span class="c1">#=&gt; Sandbox </span>
+</pre></div><h4>Returns</h4><p><code><a href="../sandbox/index.html">Sandbox</a></code> The sandbox of the current project.
+</p><h3>Source</h3><div class="highlight"><pre><span class="lineno">192</span> <span class="k">def</span> <span class="nf">sandbox</span>
 <span class="lineno">193</span>   <span class="vi">@sandbox</span> <span class="o">||=</span> <span class="no">Sandbox</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">sandbox_root</span><span class="p">)</span>
 <span class="lineno">194</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L192">lib/cocoapods/config.rb:192</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_podfile">
-<h2>podfile<a class="select-tab" href=""><span class="label label-big">readwrite attribute</span></a>
-</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">podfile</span> <span class="c1">#=&gt; Podfile, Nil </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code><a href="../podfile/index.html">Podfile</a></code> The Podfile to use for the current execution.
-</p>
-<p><code>Nil</code> If no Podfile is available.
-</p>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">podfile</span><span class="o">=</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="c1">#=&gt; undefined</span>
-</pre></div>
-<h4>Parameters</h4>
-<p><b> value</b></p>
-<p>The value to set the attribute podfile to.</p>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L199">lib/cocoapods/config.rb:199</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_lockfile">
-<h2>lockfile</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">lockfile</span> <span class="c1">#=&gt; Lockfile, Nil </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code><a href="../../../cocoapods_core/pod/lockfile/index.html">Lockfile</a></code> The Lockfile to use for the current execution.
-</p>
-<p><code>Nil</code> If no Lockfile is available.
-</p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">207</span> <span class="k">def</span> <span class="nf">lockfile</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L192">lib/cocoapods/config.rb:192</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p></div><div class="tab-pane" id="tab_podfile"><h2>podfile<a class="select-tab" href=""><span class="label label-big">readwrite attribute</span></a></h2><h3>Signature</h3><div class="highlight"><pre><span class="n">podfile</span> <span class="c1">#=&gt; Podfile, Nil </span>
+</pre></div><h4>Returns</h4><p><code><a href="../podfile/index.html">Podfile</a></code> The Podfile to use for the current execution.
+</p><p><code>Nil</code> If no Podfile is available.
+</p><h3>Signature</h3><div class="highlight"><pre><span class="n">podfile</span><span class="o">=</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="c1">#=&gt; undefined</span>
+</pre></div><h4>Parameters</h4><p><b> value</b></p><p>The value to set the attribute podfile to.</p>
+<h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L199">lib/cocoapods/config.rb:199</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p></div><div class="tab-pane" id="tab_lockfile"><h2>lockfile</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">lockfile</span> <span class="c1">#=&gt; Lockfile, Nil </span>
+</pre></div><h4>Returns</h4><p><code><a href="../../../cocoapods_core/pod/lockfile/index.html">Lockfile</a></code> The Lockfile to use for the current execution.
+</p><p><code>Nil</code> If no Lockfile is available.
+</p><h3>Source</h3><div class="highlight"><pre><span class="lineno">207</span> <span class="k">def</span> <span class="nf">lockfile</span>
 <span class="lineno">208</span>   <span class="vi">@lockfile</span> <span class="o">||=</span> <span class="no">Lockfile</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="n">lockfile_path</span><span class="p">)</span> <span class="k">if</span> <span class="n">lockfile_path</span>
 <span class="lineno">209</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L207">lib/cocoapods/config.rb:207</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_podfile_path">
-<h2>podfile_path</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">podfile_path</span> <span class="c1">#=&gt; Pathname, Nil </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>Pathname</code> </p>
-<p><code>Nil</code> </p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">220</span> <span class="k">def</span> <span class="nf">podfile_path</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L207">lib/cocoapods/config.rb:207</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p></div><div class="tab-pane" id="tab_podfile_path"><h2>podfile_path</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">podfile_path</span> <span class="c1">#=&gt; Pathname, Nil </span>
+</pre></div><h4>Returns</h4><p><code>Pathname</code> </p><p><code>Nil</code> </p><h3>Source</h3><div class="highlight"><pre><span class="lineno">220</span> <span class="k">def</span> <span class="nf">podfile_path</span>
 <span class="lineno">221</span>   <span class="vi">@podfile_path</span> <span class="o">||=</span> <span class="n">podfile_path_in_dir</span><span class="p">(</span><span class="n">installation_root</span><span class="p">)</span>
 <span class="lineno">222</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L220">lib/cocoapods/config.rb:220</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_lockfile_path">
-<h2>lockfile_path</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">lockfile_path</span> <span class="c1">#=&gt; undefined</span>
-</pre></div>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">228</span> <span class="k">def</span> <span class="nf">lockfile_path</span>
-<span class="lineno">229</span>   <span class="vi">@lockfile_path</span> <span class="o">||=</span> <span class="n">installation_root</span> <span class="o">+</span> <span class="s1">'Podfile.lock'</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L220">lib/cocoapods/config.rb:220</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p></div><div class="tab-pane" id="tab_lockfile_path"><h2>lockfile_path</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">lockfile_path</span> <span class="c1">#=&gt; undefined</span>
+</pre></div><h3>Source</h3><div class="highlight"><pre><span class="lineno">228</span> <span class="k">def</span> <span class="nf">lockfile_path</span>
+<span class="lineno">229</span>   <span class="vi">@lockfile_path</span> <span class="o">||=</span> <span class="n">installation_root</span> <span class="o">+</span> <span class="s1">&#39;Podfile.lock&#39;</span>
 <span class="lineno">230</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L228">lib/cocoapods/config.rb:228</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_default_podfile_path">
-<h2>default_podfile_path</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">default_podfile_path</span> <span class="c1">#=&gt; Pathname </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>Pathname</code> </p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">238</span> <span class="k">def</span> <span class="nf">default_podfile_path</span>
-<span class="lineno">239</span>   <span class="vi">@default_podfile_path</span> <span class="o">||=</span> <span class="n">templates_dir</span> <span class="o">+</span> <span class="s2">"Podfile.default"</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L228">lib/cocoapods/config.rb:228</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p></div><div class="tab-pane" id="tab_default_podfile_path"><h2>default_podfile_path</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">default_podfile_path</span> <span class="c1">#=&gt; Pathname </span>
+</pre></div><h4>Returns</h4><p><code>Pathname</code> </p><h3>Source</h3><div class="highlight"><pre><span class="lineno">238</span> <span class="k">def</span> <span class="nf">default_podfile_path</span>
+<span class="lineno">239</span>   <span class="vi">@default_podfile_path</span> <span class="o">||=</span> <span class="n">templates_dir</span> <span class="o">+</span> <span class="s2">&quot;Podfile.default&quot;</span>
 <span class="lineno">240</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L238">lib/cocoapods/config.rb:238</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_default_test_podfile_path">
-<h2>default_test_podfile_path</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">default_test_podfile_path</span> <span class="c1">#=&gt; Pathname </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>Pathname</code> </p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">248</span> <span class="k">def</span> <span class="nf">default_test_podfile_path</span>
-<span class="lineno">249</span>   <span class="vi">@default_test_podfile_path</span> <span class="o">||=</span> <span class="n">templates_dir</span> <span class="o">+</span> <span class="s2">"Podfile.test"</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L238">lib/cocoapods/config.rb:238</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p></div><div class="tab-pane" id="tab_default_test_podfile_path"><h2>default_test_podfile_path</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">default_test_podfile_path</span> <span class="c1">#=&gt; Pathname </span>
+</pre></div><h4>Returns</h4><p><code>Pathname</code> </p><h3>Source</h3><div class="highlight"><pre><span class="lineno">248</span> <span class="k">def</span> <span class="nf">default_test_podfile_path</span>
+<span class="lineno">249</span>   <span class="vi">@default_test_podfile_path</span> <span class="o">||=</span> <span class="n">templates_dir</span> <span class="o">+</span> <span class="s2">&quot;Podfile.test&quot;</span>
 <span class="lineno">250</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L248">lib/cocoapods/config.rb:248</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_statistics_cache_file">
-<h2>statistics_cache_file</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">statistics_cache_file</span> <span class="c1">#=&gt; Pathname </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>Pathname</code> The file to use a cache of the statistics provider.
-</p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">254</span> <span class="k">def</span> <span class="nf">statistics_cache_file</span>
-<span class="lineno">255</span>   <span class="n">cache_root</span> <span class="o">+</span> <span class="s1">'statistics.yml'</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L248">lib/cocoapods/config.rb:248</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p></div><div class="tab-pane" id="tab_statistics_cache_file"><h2>statistics_cache_file</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">statistics_cache_file</span> <span class="c1">#=&gt; Pathname </span>
+</pre></div><h4>Returns</h4><p><code>Pathname</code> The file to use a cache of the statistics provider.
+</p><h3>Source</h3><div class="highlight"><pre><span class="lineno">254</span> <span class="k">def</span> <span class="nf">statistics_cache_file</span>
+<span class="lineno">255</span>   <span class="n">cache_root</span> <span class="o">+</span> <span class="s1">&#39;statistics.yml&#39;</span>
 <span class="lineno">256</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L254">lib/cocoapods/config.rb:254</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_search_index_file">
-<h2>search_index_file</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">search_index_file</span> <span class="c1">#=&gt; Pathname </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>Pathname</code> The file to use to cache the search data.
-</p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">260</span> <span class="k">def</span> <span class="nf">search_index_file</span>
-<span class="lineno">261</span>   <span class="n">cache_root</span> <span class="o">+</span> <span class="s1">'search_index.yaml'</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L254">lib/cocoapods/config.rb:254</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p></div><div class="tab-pane" id="tab_search_index_file"><h2>search_index_file</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">search_index_file</span> <span class="c1">#=&gt; Pathname </span>
+</pre></div><h4>Returns</h4><p><code>Pathname</code> The file to use to cache the search data.
+</p><h3>Source</h3><div class="highlight"><pre><span class="lineno">260</span> <span class="k">def</span> <span class="nf">search_index_file</span>
+<span class="lineno">261</span>   <span class="n">cache_root</span> <span class="o">+</span> <span class="s1">&#39;search_index.yaml&#39;</span>
 <span class="lineno">262</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L260">lib/cocoapods/config.rb:260</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_downloader">
-<h2>downloader</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">downloader</span><span class="p">(</span><span class="n">target_path</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span> <span class="c1">#=&gt; Downloader </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code><a href="../downloader/index.html">Downloader</a></code> </p>
-<p>The downloader to use for the retrieving remote
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L260">lib/cocoapods/config.rb:260</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p></div><div class="tab-pane" id="tab_downloader"><h2>downloader</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">downloader</span><span class="p">(</span><span class="n">target_path</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span> <span class="c1">#=&gt; Downloader </span>
+</pre></div><h4>Returns</h4><p><code><a href="../downloader/index.html">Downloader</a></code> <p>The downloader to use for the retrieving remote
 source.</p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">273</span> <span class="k">def</span> <span class="nf">downloader</span><span class="p">(</span><span class="n">target_path</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+</p><h3>Source</h3><div class="highlight"><pre><span class="lineno">273</span> <span class="k">def</span> <span class="nf">downloader</span><span class="p">(</span><span class="n">target_path</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
 <span class="lineno">274</span>   <span class="n">downloader</span> <span class="o">=</span> <span class="no">Downloader</span><span class="o">.</span><span class="n">for_target</span><span class="p">(</span><span class="n">target_path</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
 <span class="lineno">275</span>   <span class="n">downloader</span><span class="o">.</span><span class="n">cache_root</span> <span class="o">=</span> <span class="n">cache_root</span>
 <span class="lineno">276</span>   <span class="n">downloader</span><span class="o">.</span><span class="n">max_cache_size</span> <span class="o">=</span> <span class="n">max_cache_size</span>
 <span class="lineno">277</span>   <span class="n">downloader</span><span class="o">.</span><span class="n">aggressive_cache</span> <span class="o">=</span> <span class="n">aggressive_cache?</span>
 <span class="lineno">278</span>   <span class="n">downloader</span>
 <span class="lineno">279</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L273">lib/cocoapods/config.rb:273</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_spec_statistics_provider">
-<h2>spec_statistics_provider</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">spec_statistics_provider</span> <span class="c1">#=&gt; Specification::Set::Statistics </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code><a href="../../../cocoapods_core/pod/specification/set/statistics/index.html">Specification::Set::Statistics</a></code> </p>
-<p>The statistic provider to use
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L273">lib/cocoapods/config.rb:273</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p></div><div class="tab-pane" id="tab_spec_statistics_provider"><h2>spec_statistics_provider</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">spec_statistics_provider</span> <span class="c1">#=&gt; Specification::Set::Statistics </span>
+</pre></div><h4>Returns</h4><p><code><a href="../../../cocoapods_core/pod/specification/set/statistics/index.html">Specification::Set::Statistics</a></code> <p>The statistic provider to use
 for specifications.</p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">284</span> <span class="k">def</span> <span class="nf">spec_statistics_provider</span>
+</p><h3>Source</h3><div class="highlight"><pre><span class="lineno">284</span> <span class="k">def</span> <span class="nf">spec_statistics_provider</span>
 <span class="lineno">285</span>   <span class="ss">Specification</span><span class="p">:</span><span class="ss">:Set</span><span class="o">::</span><span class="no">Statistics</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">statistics_cache_file</span><span class="p">)</span>
 <span class="lineno">286</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L284">lib/cocoapods/config.rb:284</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_user_settings_file">
-<h2>user_settings_file</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">user_settings_file</span> <span class="c1">#=&gt; Pathname </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code>Pathname</code> The path of the file which contains the user settings.
-</p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">296</span> <span class="k">def</span> <span class="nf">user_settings_file</span>
-<span class="lineno">297</span>   <span class="n">home_dir</span> <span class="o">+</span> <span class="s2">"config.yaml"</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L284">lib/cocoapods/config.rb:284</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p></div><div class="tab-pane" id="tab_user_settings_file"><h2>user_settings_file</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">user_settings_file</span> <span class="c1">#=&gt; Pathname </span>
+</pre></div><h4>Returns</h4><p><code>Pathname</code> The path of the file which contains the user settings.
+</p><h3>Source</h3><div class="highlight"><pre><span class="lineno">296</span> <span class="k">def</span> <span class="nf">user_settings_file</span>
+<span class="lineno">297</span>   <span class="n">home_dir</span> <span class="o">+</span> <span class="s2">&quot;config.yaml&quot;</span>
 <span class="lineno">298</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L296">lib/cocoapods/config.rb:296</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_configure_with">
-<h2>configure_with</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">configure_with</span><span class="p">(</span><span class="n">values_by_key</span><span class="p">)</span> <span class="c1">#=&gt; void </span>
-</pre></div>
-<h4>Parameters</h4>
-<p><code>Hash{String,Symbol =&gt; Object}</code><span> </span><b> values_by_key</b></p>
-<p>The values of the attributes grouped by key.</p>
-<h4>Returns</h4>
-<p><code>void</code> </p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">307</span> <span class="k">def</span> <span class="nf">configure_with</span><span class="p">(</span><span class="n">values_by_key</span><span class="p">)</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L296">lib/cocoapods/config.rb:296</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p></div><div class="tab-pane" id="tab_configure_with"><h2>configure_with</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">configure_with</span><span class="p">(</span><span class="n">values_by_key</span><span class="p">)</span> <span class="c1">#=&gt; void </span>
+</pre></div><h4>Parameters</h4><p><code>Hash{String,Symbol =&gt; Object}</code><span> </span><b> values_by_key</b></p><p>The values of the attributes grouped by key.</p>
+<h4>Returns</h4><p><code>void</code> </p><h3>Source</h3><div class="highlight"><pre><span class="lineno">307</span> <span class="k">def</span> <span class="nf">configure_with</span><span class="p">(</span><span class="n">values_by_key</span><span class="p">)</span>
 <span class="lineno">308</span>   <span class="k">return</span> <span class="k">unless</span> <span class="n">values_by_key</span>
 <span class="lineno">309</span>   <span class="n">values_by_key</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span>
-<span class="lineno">310</span>     <span class="nb">self</span><span class="o">.</span><span class="n">instance_variable_set</span><span class="p">(</span><span class="s2">"@</span><span class="si">#{</span><span class="n">key</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+<span class="lineno">310</span>     <span class="nb">self</span><span class="o">.</span><span class="n">instance_variable_set</span><span class="p">(</span><span class="s2">&quot;@</span><span class="si">#{</span><span class="n">key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 <span class="lineno">311</span>   <span class="k">end</span>
 <span class="lineno">312</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L307">lib/cocoapods/config.rb:307</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_podfile_path_in_dir">
-<h2>podfile_path_in_dir</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">podfile_path_in_dir</span><span class="p">(</span><span class="n">dir</span><span class="p">)</span> <span class="c1">#=&gt; Pathname, Nil </span>
-</pre></div>
-<h4>Parameters</h4>
-<p><code>Pathname</code><span> </span><b> dir</b></p>
-<p>The directory where to look for the Podfile.</p>
-<h4>Returns</h4>
-<p><code>Pathname</code> The path of the Podfile.
-</p>
-<p><code>Nil</code> If not Podfile was found in the given dir
-</p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">331</span> <span class="k">def</span> <span class="nf">podfile_path_in_dir</span><span class="p">(</span><span class="n">dir</span><span class="p">)</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L307">lib/cocoapods/config.rb:307</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p></div><div class="tab-pane" id="tab_podfile_path_in_dir"><h2>podfile_path_in_dir</h2><h3>Signature</h3><div class="highlight"><pre><span class="n">podfile_path_in_dir</span><span class="p">(</span><span class="n">dir</span><span class="p">)</span> <span class="c1">#=&gt; Pathname, Nil </span>
+</pre></div><h4>Parameters</h4><p><code>Pathname</code><span> </span><b> dir</b></p><p>The directory where to look for the Podfile.</p>
+<h4>Returns</h4><p><code>Pathname</code> The path of the Podfile.
+</p><p><code>Nil</code> If not Podfile was found in the given dir
+</p><h3>Source</h3><div class="highlight"><pre><span class="lineno">331</span> <span class="k">def</span> <span class="nf">podfile_path_in_dir</span><span class="p">(</span><span class="n">dir</span><span class="p">)</span>
 <span class="lineno">332</span>   <span class="no">PODFILE_NAMES</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">filename</span><span class="o">|</span>
 <span class="lineno">333</span>     <span class="n">candidate</span> <span class="o">=</span> <span class="n">dir</span> <span class="o">+</span> <span class="n">filename</span>
 <span class="lineno">334</span>     <span class="k">if</span> <span class="n">candidate</span><span class="o">.</span><span class="n">exist?</span>
@@ -925,109 +224,17 @@ for specifications.</p>
 <span class="lineno">337</span>   <span class="k">end</span>
 <span class="lineno">338</span>   <span class="kp">nil</span>
 <span class="lineno">339</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L331">lib/cocoapods/config.rb:331</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p>
-</div>
-<div class="tab-pane" id="tab_class_instance">
-<h2>instance<a class="select-tab" href=""><span class="label label-big">class method</span></a>
-</h2>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">instance</span> <span class="c1">#=&gt; Config </span>
-</pre></div>
-<h4>Returns</h4>
-<p><code><a href="index.html">Config</a></code> The current config instance creating one if needed.
-</p>
-<h3>Signature</h3>
-<div class="highlight"><pre><span class="n">instance</span><span class="o">=</span><span class="p">(</span><span class="n">instance</span><span class="p">)</span> <span class="c1">#=&gt; void </span>
-</pre></div>
-<h4>Parameters</h4>
-<p><code>Config</code><span> </span><code>Nil</code><span> </span><b> the</b></p>
-<p>Instance.</p>
-<h4>Returns</h4>
-<p><code>void</code> </p>
-<h3>Source</h3>
-<div class="highlight"><pre><span class="lineno">349</span> <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">instance</span>
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L331">lib/cocoapods/config.rb:331</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p></div><div class="tab-pane" id="tab_class_instance"><h2>instance<a class="select-tab" href=""><span class="label label-big">class method</span></a></h2><h3>Signature</h3><div class="highlight"><pre><span class="n">instance</span> <span class="c1">#=&gt; Config </span>
+</pre></div><h4>Returns</h4><p><code><a href="index.html">Config</a></code> The current config instance creating one if needed.
+</p><h3>Signature</h3><div class="highlight"><pre><span class="n">instance</span><span class="o">=</span><span class="p">(</span><span class="n">instance</span><span class="p">)</span> <span class="c1">#=&gt; void </span>
+</pre></div><h4>Parameters</h4><p><code>Config</code><span> </span><code>Nil</code><span> </span><b> the</b></p><p>Instance.</p>
+<h4>Returns</h4><p><code>void</code> </p><h3>Source</h3><div class="highlight"><pre><span class="lineno">349</span> <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">instance</span>
 <span class="lineno">350</span>   <span class="vi">@instance</span> <span class="o">||=</span> <span class="kp">new</span>
 <span class="lineno">351</span> <span class="k">end</span>
-</pre></div>
-<h3>Source Files</h3>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L349">lib/cocoapods/config.rb:349</a></p>
-<p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p>
-</div>
-</div></div>
-
-</article></section><section class="row container info-row"><article class="content col-md-10 col-md-offset-1"><a data-container="body" data-content="CocoaPods is an open source project. Help us improve these guides by sending a pull request. ❤" data-original-title="" data-placement="top" data-toggle="popover" data-trigger="hover" href="https://github.com/CocoaPods/guides.cocoapods.org/blob/master/source/cocoapods/pod/config/index.html.slim" id="pull-request" title=""></a><ul class="breadcrumb">
-<li>
-<a href="../../../index.html">Home</a><span class="divider"></span>
-</li>
-<li>
-<a href="../../index.html">CocoaPods</a><span class="divider"></span>
-</li>
-<li>
-<a href="../index.html">Pod</a><span class="divider"></span>
-</li>
-<li class="active">Config</li>
-</ul></article></section>
-</div>
-<section class="site_navigation container"><div class="row">
-<div class="col-lg-3 col-sm-3 col-xs-6 footer-index">
-<h3><a href="../../../using/index.html">Using CocoaPods</a></h3>
-<ul>
-<li><a href="../../../using/getting-started.html">Getting Started</a></li>
-<li><a href="../../../using/using-cocoapods.html">Using CocoaPods</a></li>
-<li><a href="../../../using/the-podfile.html">The Podfile</a></li>
-<li><a href="../../../using/troubleshooting.html">Troubleshooting</a></li>
-<li><a href="../../../using/faq.html">F.A.Q</a></li>
-</ul>
-</div>
-<div class="col-lg-3 col-sm-3 col-xs-6 footer-index">
-<h3><a href="../../../making/index.html">Making CocoaPods</a></h3>
-<ul>
-<li><a href="../../../making/making-a-cocoapod.html">Making a CocoaPod</a></li>
-<li><a href="../../../making/specs-and-specs-repo.html">Specs and the Specs Repo</a></li>
-<li><a href="../../../making/private-cocoapods.html">Private Pods</a></li>
-</ul>
-</div>
-<div class="clearfix visible-xs"></div>
-<div class="col-lg-3 col-sm-3 col-xs-6 footer-index">
-<h3><a href="../../../contributing/index.html">Contributing</a></h3>
-<ul>
-<li><a href="../../../contributing/components.html">Core Components</a></li>
-<li><a href="../../../contributing/contribute-to-cocoapods.html">How to Contribute</a></li>
-<li><a href="../../../contributing/dev-environment.html">Setting up for Development</a></li>
-<li><a href="../../../contributing/release-process.html">Release Process</a></li>
-</ul>
-</div>
-<div class="col-lg-3 col-sm-3 col-xs-6 footer-index">
-<h3> <a href="/reference.html">Reference</a>
-</h3>
-<ul>
-<li><a href="/syntax/podfile.html">Podfile Syntax</a></li>
-<li><a href="/syntax/podspec.html">Podspec Syntax</a></li>
-<li><a href="/terminal/commands.html">Command-line Reference</a></li>
-</ul>
-</div>
-</div></section><footer class="page-footer"><section class="container row"><article class="col-md-8 col-md-offset-2"><h4>CocoaPods is a project from </h4>
-<p class="contributors"><a href="https://twitter.com/alloy">Eloy Durán</a>, <a href="https://twitter.com/fabiopelosin">Fabio Pelosin</a>, <a href="http://orta.github.io">Orta Therox</a>,  and The CocoaPods Dev Team with contributions from <a href="https://github.com/CocoaPods/Specs/graphs/contributors">many, many others</a>.</p>
-<h4>Lovingly sponsored by</h4>
-<p class="sponsors"><a href="http://www.fngtps.com">Fingertips</a>, <a href="http://www.hipbyte.com">Hipbyte</a>, <a href="http://artsy.net">Artsy</a> and <a href="https://www.sauspiel.de">Sauspiel</a>.</p></article><article class="col-md-8 col-md-offset-2 minor"></article></section></footer><footer class="footer-links"><section class="container row"><article class="col-md-8 col-md-offset-2"><a class="cocoapods-small-logo" href="http://beta.cocoapods.org"></a><ul>
-<li class="col-md-3 col-sm-3 col-xs-6"><a href="http://guides.cocoapods.org/using/troubleshooting.html">Support</a></li>
-<li class="col-md-3 col-sm-3 col-xs-6"><a href="https://github.com/CocoaPods/CocoaPods">Github Repo</a></li>
-<li class="col-md-3 col-sm-3 col-xs-6"><a href="https://github.com/CocoaPods/Specs">Podspecs Repo</a></li>
-<li class="col-md-3 col-sm-3 col-xs-6"><a href="https://twitter.com/CocoaPods">@CocoaPods</a></li>
-<li class="col-md-3 col-sm-3 col-xs-6"><a href="http://groups.google.com/group/cocoapods">Mailing List</a></li>
-<li class="col-md-3 col-sm-3 col-xs-6"><a href="http://beta.cocoapods.org/about">CocoaPods Dev Team</a></li>
-<li class="col-md-3 col-sm-3 col-xs-6"><a href="http://guides.cocoapods.org/syntax/podfile.html">Podfile Doc<span class="hidden-lg-span">s</span><span class="visible-lg-span">umentation</span></a></li>
-<li class="col-md-3 col-sm-3 col-xs-6"><a href="https://twitter.com/CocoaPodsFeed">@CocoaPodsFeed</a></li>
-</ul></article></section></footer>
-</body>
-<script type="text/javascript">(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+</pre></div><h3>Source Files</h3><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/config.rb#L349">lib/cocoapods/config.rb:349</a></p><p class="source_file"><i class="icon-link"></i> <a href="https://github.com/CocoaPods/CocoaPods/blob/master/spec/unit/config_spec.rb">spec/unit/config_spec.rb</a></p></div></div></div></article></section><section class="row container info-row"><article class="content col-md-10 col-md-offset-1"><a data-container="body" data-content="CocoaPods is an open source project. Help us improve these guides by sending a pull request. ❤" data-original-title="" data-placement="top" data-toggle="popover" data-trigger="hover" href="https://github.com/CocoaPods/guides.cocoapods.org/blob/master/source/cocoapods/pod/config/index.html.slim" id="pull-request" title=""></a><ul class="breadcrumb"><li><a href="../../../index.html">Home</a><span class="divider"></span></li><li><a href="../../index.html">CocoaPods</a><span class="divider"></span></li><li><a href="../index.html">Pod</a><span class="divider"></span></li><li class="active">Config</li></ul></article></section></div><section class="site_navigation container"><div class="row"><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="../../../using/index.html">Using CocoaPods</a></h3><ul><li><a href="../../../using/getting-started.html">Getting Started</a></li><li><a href="../../../using/using-cocoapods.html">Using CocoaPods</a></li><li><a href="../../../using/the-podfile.html">The Podfile</a></li><li><a href="../../../using/troubleshooting.html">Troubleshooting</a></li><li><a href="../../../using/faq.html">F.A.Q</a></li></ul></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="../../../making/index.html">Making CocoaPods</a></h3><ul><li><a href="../../../making/making-a-cocoapod.html">Making a CocoaPod</a></li><li><a href="../../../making/specs-and-specs-repo.html">Specs and the Specs Repo</a></li><li><a href="../../../making/private-cocoapods.html">Private Pods</a></li></ul></div><div class="clearfix visible-xs"></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="../../../contributing/index.html">Contributing</a></h3><ul><li><a href="../../../contributing/components.html">Core Components</a></li><li><a href="../../../contributing/contribute-to-cocoapods.html">How to Contribute</a></li><li><a href="../../../contributing/dev-environment.html">Setting up for Development</a></li><li><a href="../../../contributing/release-process.html">Release Process</a></li></ul></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3> <a href='/reference.html'>Reference</a></h3><ul><li><a href='/syntax/podfile.html'>Podfile Syntax</a></li><li><a href='/syntax/podspec.html'>Podspec Syntax</a></li><li><a href='/terminal/commands.html'>Command-line Reference</a></li></ul></div></div></section><footer class="page-footer"><section class="container row"><article class="col-md-8 col-md-offset-2"><h4>CocoaPods is a project from </h4><p class="contributors"><a href="https://twitter.com/alloy">Eloy Durán</a>, <a href="https://twitter.com/fabiopelosin">Fabio Pelosin</a>, <a href="http://orta.github.io">Orta Therox</a>,  and The CocoaPods Dev Team with contributions from <a href="https://github.com/CocoaPods/Specs/graphs/contributors">many, many others</a>.</p><h4>Lovingly sponsored by</h4><p class="sponsors"><a href="http://www.fngtps.com">Fingertips</a>, <a href = "http://www.hipbyte.com">Hipbyte</a>, <a href="http://artsy.net">Artsy</a> and <a href="https://www.sauspiel.de">Sauspiel</a>.</p></article><article class="col-md-8 col-md-offset-2 minor"></article></section></footer><footer class="footer-links"><section class="container row"><article class="col-md-8 col-md-offset-2"><a class="cocoapods-small-logo" href="http://beta.cocoapods.org"></a><ul><li class="col-md-3 col-sm-3 col-xs-6"><a href="http://guides.cocoapods.org/using/troubleshooting.html">Support</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://github.com/CocoaPods/CocoaPods">Github Repo</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://github.com/CocoaPods/Specs">Podspecs Repo</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://twitter.com/CocoaPods">@CocoaPods</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="http://groups.google.com/group/cocoapods">Mailing List</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="http://beta.cocoapods.org/about">CocoaPods Dev Team</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="http://guides.cocoapods.org/syntax/podfile.html">Podfile Doc<span class="hidden-lg-span">s</span><span class="visible-lg-span">umentation</span></a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://twitter.com/CocoaPodsFeed">@CocoaPodsFeed</a></li></ul></article></section></footer></body><script type="text/javascript">(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
 ga('create', 'UA-29866548-4', 'cocoapods.org');
-ga('send', 'pageview');</script>
-</html>
+ga('send', 'pageview');</script></html>
