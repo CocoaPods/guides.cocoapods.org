@@ -114,7 +114,3 @@ We have multiple avenues for support, here they are in the order we prefer.
 * [Stack Overflow](http://stackoverflow.com/search?q=CocoaPods), get yourself some internet points. This keeps the pressure off the CocoaPods dev team and gives us time to work on the project and not support. One of the advantages of using Stack Overflow is that the answer is then easily accessible for others.
 
 * [CocoaPods Mailing List](http://groups.google.com/group/cocoapods), the mailing list is mainly used for announcements of related projects and for support.
-
-<!-- ## My library depends on a podspec that is not in the Specs repository
-
-**TODO** -->

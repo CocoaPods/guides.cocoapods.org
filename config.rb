@@ -2,6 +2,7 @@
 require "lib/breaking_source.rb"
 require "lib/breaking_image.rb"
 require "lib/shared_layouts.rb"
+require "lib/add_links_to_navigation.rb"
 
 # Tools for generating data
 require "lib/navigation_helpers.rb"
@@ -30,6 +31,7 @@ activate :rouge_syntax
 activate :breaking_image
 activate :breaking_source
 activate :shared_layouts
+activate :add_links_to_navigation
 
 helpers NavigationHelpers
 helpers HTMLHelpers
