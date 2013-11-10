@@ -47,17 +47,11 @@ div.guide#content-wrapper
                 a href="/#{child.destination_path}"
                   h5 == page_title(child)
                   p == child.data.description
-              
-
-
 
           - if footer_resources.index(resource) % 2 == 1
             div.clearfix.visible-xs
-          
-  / .col-lg-12.col-sm-12.col-xs-12.footer-index
-  /   h3  <a href='/reference.html'>Reference</a>
-  /   ul
-  /     li <a href='/syntax/podfile.html'>Podfile Syntax</a>
-  /     li <a href='/syntax/podspec.html'>Podspec Syntax</a>
-  /     li <a href='/terminal/commands.html'>Command-line Reference</a>
+
+    .clearfix
+    .col-lg-12.col-sm-12.col-xs-12
+      p.text-center We also have you covered with references to the <a href='/syntax/podfile.html'>Podfile</a>, the <a href='/syntax/podspec.html'>Podspec</a> and our <a href='/terminal/commands.html'>Command Line API</a>.
 

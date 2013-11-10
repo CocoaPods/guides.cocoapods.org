@@ -69,7 +69,7 @@ navigation_data['dsl'].each do |dsl|
 end
 
 proxy "terminal/commands.html", "templates/commands.html", {
-  :locals => { :name => 'commands', :page_title => "Command-line Reference" },
+  :locals => { :name => 'commands', :page_title => "Command-line Reference", :fullwidth => true  },
   :ignore => true
 }
 
@@ -83,7 +83,7 @@ navigation_data['gems'].each do |name|
   }
 
   proxy "#{parameterize name}/name_spaces.html", "templates/gem_namespaces_list.html", {
-    :locals => { :name => name, :fullwidth => true},
+    :locals => { :name => name, :fullwidth => true },
     :ignore => true
   }
 
