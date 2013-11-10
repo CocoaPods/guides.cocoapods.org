@@ -16,7 +16,7 @@ ruby:
     resource.data.footer
   end.sort_by { |resource| resource.data.footer_order }
   
-  if current_resource.data.fullwidth
+  if current_resource.data.fullwidth || current_resource.parent == nil
     width_classes = "content" 
   else 
     width_classes = "content col-md-10 col-md-offset-1"
@@ -28,7 +28,6 @@ html
     meta charset="utf-8"
     meta name="keywords" content="documenation cocoapods objective-c packcage manager"
     title = "CocoaPods Guides - " + page_title
-    
     
     == shared_layout "favicons"
     
@@ -52,6 +51,9 @@ html
       - if parents.length > 0 
         section.row.container.info-row
           article class=width_classes
+
+            a id="pull-request" data-container="body" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="CocoaPods is an open source project. Help us improve these guides by sending a pull request. ❤" data-original-title="" title="" href="https://github.com/CocoaPods/guides.cocoapods.org/blob/master/source/#{current_page.path}#{File.extname(current_page.source_file)}" 
+
 
             ul.breadcrumb
               - for resource in parents
