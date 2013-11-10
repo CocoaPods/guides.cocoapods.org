@@ -1,6 +1,36 @@
-<!DOCTYPE html><html><head><meta charset="utf-8" /><meta content="documenation cocoapods objective-c packcage manager" name="keywords" /><title>CocoaPods Guides - Making a CocoaPod</title><link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon" /><link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png" /><link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png" /><link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png" /><link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png" /><link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon-76x76.png" /><link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png" /><link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-touch-icon-120x120.png" /><link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-touch-icon-144x144.png" /><link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-touch-icon-152x152.png" /><link href="../stylesheets/app.css" media="screen" rel="stylesheet" type="text/css" /><script src="../javascripts/application.js" type="text/javascript"></script></head><body><nav class="navbar navbar-static-top" role="navigation"><section class="container"><div class="navbar-header"><button class="navbar-toggle" data-target=".navbar-header-collapse" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="/"></a></div><div class="collapse navbar-collapse navbar-header-collapse"><ul class="nav navbar-nav navbar-right"><li><a href="http://beta.cocoapods.org/about">About</a></li><li class="active"><a href="http://guides.cocoapods.org">Guides</a></li><li><a href="http://blog.cocoapods.org">Blog</a></li></ul></div></section></nav><section class="container row"><header class="header content col-md-10 col-md-offset-1"><h1>Making a CocoaPod</h1></header></section><div class="guide" id="content-wrapper"><section class="row container"><article class="content col-md-10 col-md-offset-1"><p>Creating your own CocoaPod is fairly straight forward. If you already have a separate component, you&#39;re most of the way there. This guide is an overview to the entire process, with the other guides in this section serving as more of a deep-dive for more advanced users.</p>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta content="documenation cocoapods objective-c packcage manager" name="keywords">
+<title>CocoaPods Guides - Making a CocoaPod</title>
+<link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-touch-icon-152x152.png">
+<link href="../stylesheets/app.css" media="screen" rel="stylesheet" type="text/css">
+<script src="../javascripts/application.js" type="text/javascript"></script>
+</head>
+<body>
+<nav class="navbar navbar-static-top" role="navigation"><section class="container"><div class="navbar-header">
+<button class="navbar-toggle" data-target=".navbar-header-collapse" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="/"></a>
+</div>
+<div class="collapse navbar-collapse navbar-header-collapse"><ul class="nav navbar-nav navbar-right">
+<li><a href="http://beta.cocoapods.org/about">About</a></li>
+<li class="active"><a href="http://guides.cocoapods.org">Guides</a></li>
+<li><a href="http://blog.cocoapods.org">Blog</a></li>
+</ul></div></section></nav><section class="container row"><header class="header content col-md-10 col-md-offset-1"><h1>Making a CocoaPod</h1></header></section><div class="guide" id="content-wrapper">
+<section class="row container"><article class="content col-md-10 col-md-offset-1"><p>Creating your own CocoaPod is fairly straight forward. If you already have a separate component, you're most of the way there. This guide is an overview to the entire process, with the other guides in this section serving as more of a deep-dive for more advanced users.</p>
 
-<h2 id="the-pod-files">The Pod Files</h2>
+<h2 id="the-pod-files">
+<a class="header-link" href="#the-pod-files">&lt;</a>The Pod Files</h2>
 
 <p>There are only a few differences between a CocoaPod and a generic open source control. The most important ones, aside from the actual source, are the <code>.podspec</code> and <code>LICENSE</code>. We do not accept libraries into the public master repo without a code license. For information on what license to choose, we suggest reading <a href="http://www.codinghorror.com/blog/2007/04/pick-a-license-any-license.html">this article on CodingHorror</a> or <a href="http://www.tldrlegal.com/">tl;dr Legal</a>.</p>
 
@@ -9,13 +39,8 @@
 <blockquote>
 <p>The initial folder structure looks like this:</p>
 </blockquote>
-    </article>
-    </section>
-  
-    <div class="code-break">
-    <section class="row container">
-    <article class="content col-md-11 col-md-offset-1"><pre
- class="highlight plaintext">.
+    </article></section><div class="code-break">
+    <section class="row container"><article class="content col-md-11 col-md-offset-1"><pre class="highlight plaintext">.
 ├── Classes
     └── ios
     └── osx
@@ -25,161 +50,177 @@
 ├── LICENSE
 ├── Readme.markdown
 └── NAME.podspec
-</pre>    </article>
-    </section>
-    </div>
+</pre>    </article></section>
+</div>
   
-    <section class="container row">
-    <article class="content col-md-10 col-md-offset-1">
-
-<blockquote>
+    <section class="container row"><article class="content col-md-10 col-md-offset-1"><blockquote>
 <p>The suggested Project/Podfile:</p>
 </blockquote>
-    </article>
-    </section>
-  
-    <div class="code-break">
-    <section class="row container">
-    <article class="content col-md-11 col-md-offset-1"><pre
- class="highlight ruby"> <span class="n">platform</span> <span class="ss">:ios</span>
+    </article></section><div class="code-break">
+    <section class="row container"><article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"> <span class="n">platform</span> <span class="ss">:ios</span>
 <span class="c1">#platform :osx</span>
 
- <span class="n">podspec</span> <span class="ss">:path</span> <span class="o">=&gt;</span> <span class="s2">&quot;../NAME.podspec&quot;</span>
-</pre>    </article>
-    </section>
-    </div>
+ <span class="n">podspec</span> <span class="ss">:path</span> <span class="o">=&gt;</span> <span class="s2">"../NAME.podspec"</span>
+</pre>    </article></section>
+</div>
   
-    <section class="container row">
-    <article class="content col-md-10 col-md-offset-1">
+    <section class="container row"><article class="content col-md-10 col-md-offset-1"><p><aside>The <code>podspec</code> is a shortcut to require all the dependencies specified in <code>NAME.podspec</code>.</aside></p>
 
-<p><aside>The <code>podspec</code> is a shortcut to require all the dependencies specified in <code>NAME.podspec</code>.</aside></p>
-
-<h3 id="development">Development</h3>
+<h3 id="development">
+<a class="header-link" href="#development">&lt;</a>Development</h3>
 
 <p>You can work on the library from its folder on your system. </p>
 
 <blockquote>
 <p>Alternatively you can work from an application project using the <code>:path</code> option:</p>
 </blockquote>
-    </article>
-    </section>
+    </article></section><div class="code-break">
+    <section class="row container"><article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><span class="n">pod</span> <span class="s1">'Name'</span><span class="p">,</span> <span class="ss">:path</span> <span class="o">=&gt;</span> <span class="s1">'~/code/Pods/NAME.podspec'</span>
+</pre>    </article></section>
+</div>
   
-    <div class="code-break">
-    <section class="row container">
-    <article class="content col-md-11 col-md-offset-1"><pre
- class="highlight ruby"><span class="n">pod</span> <span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="ss">:path</span> <span class="o">=&gt;</span> <span class="s1">&#39;~/code/Pods/NAME.podspec&#39;</span>
-</pre>    </article>
-    </section>
-    </div>
-  
-    <section class="container row">
-    <article class="content col-md-10 col-md-offset-1">
-
-<blockquote>
-<p>You can also lint the pod against the files of its directory, this won&#39;t test the downloading aspect of linting.</p>
+    <section class="container row"><article class="content col-md-10 col-md-offset-1"><blockquote>
+<p>You can also lint the pod against the files of its directory, this won't test the downloading aspect of linting.</p>
 </blockquote>
-    </article>
-    </section>
-  
-    <div class="code-break">
-    <section class="row container">
-    <article class="content col-md-11 col-md-offset-1"><pre
- class="highlight shell"><span class="gp">$ </span><span class="nb">cd</span> ~/code/Pods/NAME
+    </article></section><div class="code-break">
+    <section class="row container"><article class="content col-md-11 col-md-offset-1"><pre class="highlight shell"><span class="gp">$ </span><span class="nb">cd</span> ~/code/Pods/NAME
 <span class="gp">$ </span>pod lib lint
-</pre>    </article>
-    </section>
-    </div>
+</pre>    </article></section>
+</div>
   
-    <section class="container row">
-    <article class="content col-md-10 col-md-offset-1">
+    <section class="container row"><article class="content col-md-10 col-md-offset-1"><h3 id="release">
+<a class="header-link" href="#release">&lt;</a>Release</h3>
 
-<h3 id="release">Release</h3>
-
-<p>If you used <code>pod lib create</code> to generate your project you can run <code>rake release</code> in the Pod&#39;s root folder. </p>
+<p>If you used <code>pod lib create</code> to generate your project you can run <code>rake release</code> in the Pod's root folder. </p>
 
 <blockquote>
 <p>The release workflow is similar to the following.</p>
 </blockquote>
-    </article>
-    </section>
-  
-    <div class="code-break">
-    <section class="row container">
-    <article class="content col-md-11 col-md-offset-1"><pre
- class="highlight shell"><span class="gp">$ </span><span class="nb">cd</span> ~/code/Pods/NAME
+    </article></section><div class="code-break">
+    <section class="row container"><article class="content col-md-11 col-md-offset-1"><pre class="highlight shell"><span class="gp">$ </span><span class="nb">cd</span> ~/code/Pods/NAME
 <span class="gp">$ </span>edit NAME.podspec
 <span class="c"># set the new version to 0.0.1</span>
 <span class="c"># set the new tag to 0.0.1</span>
 <span class="gp">$ </span>pod spec lint --local
 
-<span class="gp">$ </span>git add -A <span class="o">&amp;&amp;</span> git commit -m <span class="s2">&quot;Release 0.0.1.&quot;</span>
-<span class="gp">$ </span>git tag <span class="s1">&#39;0.0.1&#39;</span>
+<span class="gp">$ </span>git add -A <span class="o">&amp;&amp;</span> git commit -m <span class="s2">"Release 0.0.1."</span>
+<span class="gp">$ </span>git tag <span class="s1">'0.0.1'</span>
 <span class="gp">$ </span>git push --tags
 <span class="gp">$ </span>pod push master
-</pre>    </article>
-    </section>
-    </div>
+</pre>    </article></section>
+</div>
   
-    <section class="container row">
-    <article class="content col-md-10 col-md-offset-1">
-
-<h2 id="library-versioning">Library Versioning</h2>
+    <section class="container row"><article class="content col-md-10 col-md-offset-1"><h2 id="library-versioning">
+<a class="header-link" href="#library-versioning">&lt;</a>Library Versioning</h2>
 
 <p>There is, unfortunately, often an issue of developers not interpreting version numbers well or assigning emotional value to certain version numbers.</p>
 
 <p>However, arbitrary revisions as version is not a good idea for a library manager instead of a proper version number (see <a href="http://semver.org">Semantic Versioning</a>). Let us explain how, in an ideal world, we’d prefer people to interact with it:</p>
 
 <ul>
-<li><p>“I want to start using CocoaLumberjack, the current version will be fine for now.” So the dev adds a dependency on the lib <em>without</em> a version requirement and <code>pod install</code>s which will use the latest version:</p>
+<li>
+<p>“I want to start using CocoaLumberjack, the current version will be fine for now.” So the dev adds a dependency on the lib <em>without</em> a version requirement and <code>pod install</code>s which will use the latest version:</p>
 
 <p><code>
-pod &#39;CocoaLumberjack&#39;
-</code></p></li>
+pod 'CocoaLumberjack'
+</code></p>
+</li>
 <li><p>Some time into the future, the dev wants to update the dependencies, and to do so runs the install command again, which will now install the version of the lib which is the latest version <em>at that time</em>.</p></li>
 <li><p>At some point the dev is finished on the client work (or a newer version of the lib changes the API and the changes aren’t needed) so the dev adds a version requirement to the dependency. For instance, consider that the author of the lib follows the semver guidelines, you can somewhat trust that between ‘1.0.7’ and ‘1.1.0’ <strong>no</strong> API changes will be made, but only bug fixes. So instead of requiring a specific version, the dev can specify that <em>any</em> ‘1.0.x’ is allowed as long as it’s higher than ‘1.0.7’:</p></li>
-</ul>
-    </article>
-    </section>
+</ul></article></section><div class="code-break">
+    <section class="row container"><article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><span class="n">pod</span> <span class="s1">'CocoaLumberjack'</span><span class="p">,</span> <span class="s1">'~&gt; 1.0.7'</span>
+</pre>    </article></section>
+</div>
   
-    <div class="code-break">
-    <section class="row container">
-    <article class="content col-md-11 col-md-offset-1"><pre
- class="highlight ruby"><span class="n">pod</span> <span class="s1">&#39;CocoaLumberjack&#39;</span><span class="p">,</span> <span class="s1">&#39;~&gt; 1.0.7&#39;</span>
-</pre>    </article>
-    </section>
-    </div>
-  
-    <section class="container row">
-    <article class="content col-md-10 col-md-offset-1">
+    <section class="container row"><article class="content col-md-10 col-md-offset-1"><p>The point is that developers can easily keep track of newer versions of dependencies, by simply running <code>pod install</code> again, which they might otherwise do less if they had to change everything manually. CocoaPods uses a less stringent form of Semantic versioning in that it will not force you to use <code>X.Y.Z</code>, you can use <code>X.Y</code> versions.</p>
 
-<p>The point is that developers can easily keep track of newer versions of dependencies, by simply running <code>pod install</code> again, which they might otherwise do less if they had to change everything manually. CocoaPods uses a less stringent form of Semantic versioning in that it will not force you to use <code>X.Y.Z</code>, you can use <code>X.Y</code> versions.</p>
-
-<h3 id="cocoapods-versioning-specifics">CocoaPods Versioning Specifics</h3>
+<h3 id="cocoapods-versioning-specifics">
+<a class="header-link" href="#cocoapods-versioning-specifics">&lt;</a>CocoaPods Versioning Specifics</h3>
 
 <p>CocoaPods uses RubyGems versions for specifying pod spec versions. The <a href="http://docs.rubygems.org/read/chapter/7">RubyGems Versioning Policies</a> describes the rules used for interpreting version numbers. The <a href="http://docs.rubygems.org/read/chapter/16#page74">RubyGems version specifiers</a> describes exactly how to use the comparison operators that specify dependency versions.</p>
 
 <p>Following the pattern established in RubyGems, pre-release versions can also be specified in CocoaPods. A pre-release of version 1.2, for example, can be specified by <code>1.2-beta3</code>. In this example, the dependency specifier <code>~&gt; 1.2-beta</code> will match <code>1.2-beta3</code>.</p>
 
-<h2 id="documenting-a-pod">Documenting a Pod</h2>
+<h2 id="documenting-a-pod">
+<a class="header-link" href="#documenting-a-pod">&lt;</a>Documenting a Pod</h2>
 
-<p>Right now the best place to get information on documenting your Pods in anticipation of CocoaDocs and Xcode 5 support is via <a href="http://nshipster.com/documentation/">NSHipster&#39;s blog post on Documentation</a>. CocoaDocs will generate appledoc parsed code based on your Podspec&#39;s public API almost instantly after it is pushed.  </p>
+<p>Right now the best place to get information on documenting your Pods in anticipation of CocoaDocs and Xcode 5 support is via <a href="http://nshipster.com/documentation/">NSHipster's blog post on Documentation</a>. CocoaDocs will generate appledoc parsed code based on your Podspec's public API almost instantly after it is pushed.  </p>
 
-<h2 id="where-can-i-ask-questions?">Where can I ask questions?</h2>
+<h2 id="where-can-i-ask-questions?">
+<a class="header-link" href="#where-can-i-ask-questions?">&lt;</a>Where can I ask questions?</h2>
 
 <p>We have multiple avenues for support, here they are in the order we prefer.</p>
 
 <ul>
 <li><p><a href="http://stackoverflow.com/search?q=CocoaPods">Stack Overflow</a>, get yourself some internet points. This keeps the pressure off the CocoaPods dev team and gives us time to work on the project and not support. One of the advantages of using Stack Overflow is that the answer is then easily accessible for others.</p></li>
 <li><p><a href="http://groups.google.com/group/cocoapods">CocoaPods Mailing List</a>, the mailing list is mainly used for announcements of related projects and for support.</p></li>
+</ul></article></section><section class="row container info-row"><article class="content col-md-10 col-md-offset-1"><a data-container="body" data-content="CocoaPods is an open source project. Help us improve these guides by sending a pull request. ❤" data-original-title="" data-placement="top" data-toggle="popover" data-trigger="hover" href="https://github.com/CocoaPods/guides.cocoapods.org/blob/master/source/making/making-a-cocoapod.html.md" id="pull-request" title=""></a><ul class="breadcrumb">
+<li>
+<a href="../index.html">Home</a><span class="divider"></span>
+</li>
+<li>
+<a href="index.html">Making CocoaPods</a><span class="divider"></span>
+</li>
+<li class="active">Making a CocoaPod</li>
+</ul></article></section>
+</div>
+<section class="site_navigation container"><div class="row">
+<div class="col-lg-3 col-sm-3 col-xs-6 footer-index">
+<h3><a href="../using/index.html">Using CocoaPods</a></h3>
+<ul>
+<li><a href="../using/getting-started.html">Getting Started</a></li>
+<li><a href="../using/using-cocoapods.html">Using CocoaPods</a></li>
+<li><a href="../using/the-podfile.html">The Podfile</a></li>
+<li><a href="../using/troubleshooting.html">Troubleshooting</a></li>
+<li><a href="../using/faq.html">F.A.Q</a></li>
 </ul>
-
-<!-- ## My library depends on a podspec that is not in the Specs repository
-
-**TODO** -->
-</article></section><section class="row container info-row"><article class="content col-md-10 col-md-offset-1"><a data-container="body" data-content="CocoaPods is an open source project. Help us improve these guides by sending a pull request. ❤" data-original-title="" data-placement="top" data-toggle="popover" data-trigger="hover" href="https://github.com/CocoaPods/guides.cocoapods.org/blob/master/source/making/making-a-cocoapod.html.md" id="pull-request" title=""></a><ul class="breadcrumb"><li><a href="../index.html">Home</a><span class="divider"></span></li><li><a href="index.html">Making CocoaPods</a><span class="divider"></span></li><li class="active">Making a CocoaPod</li></ul></article></section></div><section class="site_navigation container"><div class="row"><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="../using/index.html">Using CocoaPods</a></h3><ul><li><a href="../using/getting-started.html">Getting Started</a></li><li><a href="../using/using-cocoapods.html">Using CocoaPods</a></li><li><a href="../using/the-podfile.html">The Podfile</a></li><li><a href="../using/troubleshooting.html">Troubleshooting</a></li><li><a href="../using/faq.html">F.A.Q</a></li></ul></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="index.html">Making CocoaPods</a></h3><ul><li><a href="making-a-cocoapod.html">Making a CocoaPod</a></li><li><a href="specs-and-specs-repo.html">Specs and the Specs Repo</a></li><li><a href="private-cocoapods.html">Private Pods</a></li></ul></div><div class="clearfix visible-xs"></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="../contributing/index.html">Contributing</a></h3><ul><li><a href="../contributing/components.html">Core Components</a></li><li><a href="../contributing/contribute-to-cocoapods.html">How to Contribute</a></li><li><a href="../contributing/dev-environment.html">Setting up for Development</a></li><li><a href="../contributing/release-process.html">Release Process</a></li></ul></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3> <a href='/reference.html'>Reference</a></h3><ul><li><a href='/syntax/podfile.html'>Podfile Syntax</a></li><li><a href='/syntax/podspec.html'>Podspec Syntax</a></li><li><a href='/terminal/commands.html'>Command-line Reference</a></li></ul></div></div></section><footer class="page-footer"><section class="container row"><article class="col-md-8 col-md-offset-2"><h4>CocoaPods is a project from </h4><p class="contributors"><a href="https://twitter.com/alloy">Eloy Durán</a>, <a href="https://twitter.com/fabiopelosin">Fabio Pelosin</a>, <a href="http://orta.github.io">Orta Therox</a>,  and The CocoaPods Dev Team with contributions from <a href="https://github.com/CocoaPods/Specs/graphs/contributors">many, many others</a>.</p><h4>Lovingly sponsored by</h4><p class="sponsors"><a href="http://www.fngtps.com">Fingertips</a>, <a href = "http://www.hipbyte.com">Hipbyte</a>, <a href="http://artsy.net">Artsy</a> and <a href="https://www.sauspiel.de">Sauspiel</a>.</p></article><article class="col-md-8 col-md-offset-2 minor"></article></section></footer><footer class="footer-links"><section class="container row"><article class="col-md-8 col-md-offset-2"><a class="cocoapods-small-logo" href="http://beta.cocoapods.org"></a><ul><li class="col-md-3 col-sm-3 col-xs-6"><a href="http://guides.cocoapods.org/using/troubleshooting.html">Support</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://github.com/CocoaPods/CocoaPods">Github Repo</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://github.com/CocoaPods/Specs">Podspecs Repo</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://twitter.com/CocoaPods">@CocoaPods</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="http://groups.google.com/group/cocoapods">Mailing List</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="http://beta.cocoapods.org/about">CocoaPods Dev Team</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="http://guides.cocoapods.org/syntax/podfile.html">Podfile Doc<span class="hidden-lg-span">s</span><span class="visible-lg-span">umentation</span></a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://twitter.com/CocoaPodsFeed">@CocoaPodsFeed</a></li></ul></article></section></footer></body><script type="text/javascript">(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+</div>
+<div class="col-lg-3 col-sm-3 col-xs-6 footer-index">
+<h3><a href="index.html">Making CocoaPods</a></h3>
+<ul>
+<li><a href="making-a-cocoapod.html">Making a CocoaPod</a></li>
+<li><a href="specs-and-specs-repo.html">Specs and the Specs Repo</a></li>
+<li><a href="private-cocoapods.html">Private Pods</a></li>
+</ul>
+</div>
+<div class="clearfix visible-xs"></div>
+<div class="col-lg-3 col-sm-3 col-xs-6 footer-index">
+<h3><a href="../contributing/index.html">Contributing</a></h3>
+<ul>
+<li><a href="../contributing/components.html">Core Components</a></li>
+<li><a href="../contributing/contribute-to-cocoapods.html">How to Contribute</a></li>
+<li><a href="../contributing/dev-environment.html">Setting up for Development</a></li>
+<li><a href="../contributing/release-process.html">Release Process</a></li>
+</ul>
+</div>
+<div class="col-lg-3 col-sm-3 col-xs-6 footer-index">
+<h3> <a href="/reference.html">Reference</a>
+</h3>
+<ul>
+<li><a href="/syntax/podfile.html">Podfile Syntax</a></li>
+<li><a href="/syntax/podspec.html">Podspec Syntax</a></li>
+<li><a href="/terminal/commands.html">Command-line Reference</a></li>
+</ul>
+</div>
+</div></section><footer class="page-footer"><section class="container row"><article class="col-md-8 col-md-offset-2"><h4>CocoaPods is a project from </h4>
+<p class="contributors"><a href="https://twitter.com/alloy">Eloy Durán</a>, <a href="https://twitter.com/fabiopelosin">Fabio Pelosin</a>, <a href="http://orta.github.io">Orta Therox</a>,  and The CocoaPods Dev Team with contributions from <a href="https://github.com/CocoaPods/Specs/graphs/contributors">many, many others</a>.</p>
+<h4>Lovingly sponsored by</h4>
+<p class="sponsors"><a href="http://www.fngtps.com">Fingertips</a>, <a href="http://www.hipbyte.com">Hipbyte</a>, <a href="http://artsy.net">Artsy</a> and <a href="https://www.sauspiel.de">Sauspiel</a>.</p></article><article class="col-md-8 col-md-offset-2 minor"></article></section></footer><footer class="footer-links"><section class="container row"><article class="col-md-8 col-md-offset-2"><a class="cocoapods-small-logo" href="http://beta.cocoapods.org"></a><ul>
+<li class="col-md-3 col-sm-3 col-xs-6"><a href="http://guides.cocoapods.org/using/troubleshooting.html">Support</a></li>
+<li class="col-md-3 col-sm-3 col-xs-6"><a href="https://github.com/CocoaPods/CocoaPods">Github Repo</a></li>
+<li class="col-md-3 col-sm-3 col-xs-6"><a href="https://github.com/CocoaPods/Specs">Podspecs Repo</a></li>
+<li class="col-md-3 col-sm-3 col-xs-6"><a href="https://twitter.com/CocoaPods">@CocoaPods</a></li>
+<li class="col-md-3 col-sm-3 col-xs-6"><a href="http://groups.google.com/group/cocoapods">Mailing List</a></li>
+<li class="col-md-3 col-sm-3 col-xs-6"><a href="http://beta.cocoapods.org/about">CocoaPods Dev Team</a></li>
+<li class="col-md-3 col-sm-3 col-xs-6"><a href="http://guides.cocoapods.org/syntax/podfile.html">Podfile Doc<span class="hidden-lg-span">s</span><span class="visible-lg-span">umentation</span></a></li>
+<li class="col-md-3 col-sm-3 col-xs-6"><a href="https://twitter.com/CocoaPodsFeed">@CocoaPodsFeed</a></li>
+</ul></article></section></footer>
+</body>
+<script type="text/javascript">(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
 ga('create', 'UA-29866548-4', 'cocoapods.org');
-ga('send', 'pageview');</script></html>
+ga('send', 'pageview');</script>
+</html>

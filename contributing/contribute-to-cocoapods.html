@@ -1,28 +1,66 @@
-<!DOCTYPE html><html><head><meta charset="utf-8" /><meta content="documenation cocoapods objective-c packcage manager" name="keywords" /><title>CocoaPods Guides - How to Contribute</title><link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon" /><link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png" /><link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png" /><link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png" /><link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png" /><link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon-76x76.png" /><link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png" /><link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-touch-icon-120x120.png" /><link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-touch-icon-144x144.png" /><link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-touch-icon-152x152.png" /><link href="../stylesheets/app.css" media="screen" rel="stylesheet" type="text/css" /><script src="../javascripts/application.js" type="text/javascript"></script></head><body><nav class="navbar navbar-static-top" role="navigation"><section class="container"><div class="navbar-header"><button class="navbar-toggle" data-target=".navbar-header-collapse" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="/"></a></div><div class="collapse navbar-collapse navbar-header-collapse"><ul class="nav navbar-nav navbar-right"><li><a href="http://beta.cocoapods.org/about">About</a></li><li class="active"><a href="http://guides.cocoapods.org">Guides</a></li><li><a href="http://blog.cocoapods.org">Blog</a></li></ul></div></section></nav><section class="container row"><header class="header content col-md-10 col-md-offset-1"><h1>How to Contribute</h1></header></section><div class="guide" id="content-wrapper"><section class="row container"><article class="content col-md-10 col-md-offset-1"><h2 id="the-development-workflow">The Development Workflow</h2>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta content="documenation cocoapods objective-c packcage manager" name="keywords">
+<title>CocoaPods Guides - How to Contribute</title>
+<link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-touch-icon-152x152.png">
+<link href="../stylesheets/app.css" media="screen" rel="stylesheet" type="text/css">
+<script src="../javascripts/application.js" type="text/javascript"></script>
+</head>
+<body>
+<nav class="navbar navbar-static-top" role="navigation"><section class="container"><div class="navbar-header">
+<button class="navbar-toggle" data-target=".navbar-header-collapse" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="/"></a>
+</div>
+<div class="collapse navbar-collapse navbar-header-collapse"><ul class="nav navbar-nav navbar-right">
+<li><a href="http://beta.cocoapods.org/about">About</a></li>
+<li class="active"><a href="http://guides.cocoapods.org">Guides</a></li>
+<li><a href="http://blog.cocoapods.org">Blog</a></li>
+</ul></div></section></nav><section class="container row"><header class="header content col-md-10 col-md-offset-1"><h1>How to Contribute</h1></header></section><div class="guide" id="content-wrapper">
+<section class="row container"><article class="content col-md-10 col-md-offset-1"><h2 id="the-development-workflow">
+<a class="header-link" href="#the-development-workflow">&lt;</a>The Development Workflow</h2>
 
 <p>The standard development on CocoaPods happens like so:</p>
 
 <ul>
-<li>Fork <a href="https://github.com/CocoaPods/CocoaPods/"><code>CocoaPods/CocoaPods</code></a></li>
-<li>Pickup an <a href="https://github.com/CocoaPods/CocoaPods/issues?page=1&state=open">Issue </a>. See issue clarifications <a href="#issue-clarifications">explained below</a></li>
+<li>Fork <a href="https://github.com/CocoaPods/CocoaPods/"><code>CocoaPods/CocoaPods</code></a>
+</li>
+<li>Pickup an <a href="https://github.com/CocoaPods/CocoaPods/issues?page=1&amp;state=open">Issue </a>. See issue clarifications <a href="#issue-clarifications">explained below</a>
+</li>
 <li>Check the <a href="https://github.com/CocoaPods/CocoaPods/blob/master/CONTRIBUTING.md">CONTRIBUTING</a> requirements.</li>
 <li>Make a <a href="#making-the-pull-request">pull request</a>.</li>
 </ul>
-
-<h3 id="picking-up-issues">Picking Up Issues</h3>
+<h3 id="picking-up-issues">
+<a class="header-link" href="#picking-up-issues">&lt;</a>Picking Up Issues</h3>
 
 <h4 id="issue-classifications">Issue Classifications</h4>
 
 <ul>
-<li><strong>Defect:</strong> These are known bugs. The issue should also contain steps to reproduce. Feel free to fix these and submit a pull request.</li>
-<li><strong>Enhancement:</strong> These are planned enhancements that have not been picked up yet. If you would like to work on one, please add a comment that you are doing so.</li>
-<li><strong>Discussion:</strong> These are issues that can be non-issues, and encompass best practices, or plans for the future.</li>
-<li><strong>Quick:</strong> These are small issues, that should be able to be fixed quickly. Normally these issues don&#39;t stay around for very long.</li>
-<li><strong>To check:</strong> These issues may not be reproducible, or have not been vetted by a team member.</li>
-<li><strong>Workaround known:</strong> These issues have had their solutions discussed, but have yet to be implemented.</li>
-<li><strong>Easy First Step</strong> These issues are great issues to get started with. They tend to stick around for a while. We want people to feel like there&#39;s always somewhere you can start.</li>
+<li>
+<strong>Defect:</strong> These are known bugs. The issue should also contain steps to reproduce. Feel free to fix these and submit a pull request.</li>
+<li>
+<strong>Enhancement:</strong> These are planned enhancements that have not been picked up yet. If you would like to work on one, please add a comment that you are doing so.</li>
+<li>
+<strong>Discussion:</strong> These are issues that can be non-issues, and encompass best practices, or plans for the future.</li>
+<li>
+<strong>Quick:</strong> These are small issues, that should be able to be fixed quickly. Normally these issues don't stay around for very long.</li>
+<li>
+<strong>To check:</strong> These issues may not be reproducible, or have not been vetted by a team member.</li>
+<li>
+<strong>Workaround known:</strong> These issues have had their solutions discussed, but have yet to be implemented.</li>
+<li>
+<strong>Easy First Step</strong> These issues are great issues to get started with. They tend to stick around for a while. We want people to feel like there's always somewhere you can start.</li>
 </ul>
-
 <h4 id="making-the-pull-request">Making the Pull Request</h4>
 
 <p>Before submitting your pull request, please do the following:</p>
@@ -32,40 +70,32 @@
 <li>Add a note to the <code>changelog</code> describing what you changed.</li>
 <li>Make your pull request. If it is related to an issue, add a link to the issue in the description.</li>
 </ol>
-
-<h2 id="code-style">Code Style</h2>
+<h2 id="code-style">
+<a class="header-link" href="#code-style">&lt;</a>Code Style</h2>
 
 <p>CocoaPods favors small methods and many classes as convention. It is encouraged that methods are as small as possible, both for code reuse, and for ease of reading.</p>
 
 <blockquote>
 <p>Take <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/installer.rb#L85"><code>install!</code></a> from the <code>Installer</code> class of the <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/installer.rb">CocoaPods gem</a>:</p>
 </blockquote>
-    </article>
-    </section>
-  
-    <div class="code-break">
-    <section class="row container">
-    <article class="content col-md-11 col-md-offset-1"><pre
- class="highlight ruby"><span class="k">def</span> <span class="nf">install!</span>
+    </article></section><div class="code-break">
+    <section class="row container"><article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><span class="k">def</span> <span class="nf">install!</span>
   <span class="n">resolve_dependencies</span>
   <span class="n">download_dependencies</span>
   <span class="n">generate_pods_project</span>
   <span class="n">integrate_user_project</span> <span class="k">if</span> <span class="n">config</span><span class="p">.</span><span class="nf">integrate_targets?</span>
 <span class="k">end</span>
-</pre>    </article>
-    </section>
-    </div>
+</pre>    </article></section>
+</div>
   
-    <section class="container row">
-    <article class="content col-md-10 col-md-offset-1">
-
-<p>Almost all classes are namespaced. For example, <code>Installer</code> calls upon <code>Installer::TargetInstaller</code> and <code>Installer::PodSourceInstaller</code> to get its work done. Source files for these should reside within the named folder.</p>
+    <section class="container row"><article class="content col-md-10 col-md-offset-1"><p>Almost all classes are namespaced. For example, <code>Installer</code> calls upon <code>Installer::TargetInstaller</code> and <code>Installer::PodSourceInstaller</code> to get its work done. Source files for these should reside within the named folder.</p>
 
 <p>Method and variable naming should be very explicit. For example <code>PodSourceInstaller#download_source</code> is responsible for downloading the sources. Please avoid method and variable names that are generic, i.e. <code>var</code>, <code>a</code> etc, unless used in a block.</p>
 
 <p>All methods should be documented and grouped as explained in the documentation section.</p>
 
-<h3 id="tests">Tests</h3>
+<h3 id="tests">
+<a class="header-link" href="#tests">&lt;</a>Tests</h3>
 
 <p>CocoaPods has an extensive test suite. No code is accepted to <code>master</code> where the tests do not pass. All test files can be found in the <code>spec</code> folder.</p>
 
@@ -74,80 +104,118 @@
 <blockquote>
 <p>To run the full test suite:</p>
 </blockquote>
-    </article>
-    </section>
-  
-    <div class="code-break">
-    <section class="row container">
-    <article class="content col-md-11 col-md-offset-1"><pre
- class="highlight shell"><span class="gp">$ </span>bundle <span class="nb">exec </span>rake
+    </article></section><div class="code-break">
+    <section class="row container"><article class="content col-md-11 col-md-offset-1"><pre class="highlight shell"><span class="gp">$ </span>bundle <span class="nb">exec </span>rake
 
 <span class="c"># Or to run a single test suite:</span>
 <span class="gp">$ </span>bundle <span class="nb">exec </span>rake spec:functional
-</pre>    </article>
-    </section>
-    </div>
+</pre>    </article></section>
+</div>
   
-    <section class="container row">
-    <article class="content col-md-10 col-md-offset-1">
-
-<p>Occasionally, the fixtures used for functional tests need to be rebuilt. This is especially true when changes are made to the file structure of the Pods directory. </p>
+    <section class="container row"><article class="content col-md-10 col-md-offset-1"><p>Occasionally, the fixtures used for functional tests need to be rebuilt. This is especially true when changes are made to the file structure of the Pods directory. </p>
 
 <blockquote>
 <p>To update these fixtures:</p>
 </blockquote>
-    </article>
-    </section>
+    </article></section><div class="code-break">
+    <section class="row container"><article class="content col-md-11 col-md-offset-1"><pre class="highlight shell"><span class="gp">$ </span>bundle <span class="nb">exec </span>rake spec:rebuild_integration_fixtures
+</pre>    </article></section>
+</div>
   
-    <div class="code-break">
-    <section class="row container">
-    <article class="content col-md-11 col-md-offset-1"><pre
- class="highlight shell"><span class="gp">$ </span>bundle <span class="nb">exec </span>rake spec:rebuild_integration_fixtures
-</pre>    </article>
-    </section>
-    </div>
-  
-    <section class="container row">
-    <article class="content col-md-10 col-md-offset-1">
-
-<h3 id="documentation">Documentation</h3>
+    <section class="container row"><article class="content col-md-10 col-md-offset-1"><h3 id="documentation">
+<a class="header-link" href="#documentation">&lt;</a>Documentation</h3>
 
 <p>All methods and attributes must be documented. As part of the release process for CocoaPods, documentation is generated from source and posted online. <a href="http://yardoc.org/">YARD</a> is used for generating this documentation.</p>
 
 <p>Documentation should be brief, but explanatory. All paramaters and return values need to be explained. Notes and examples, while not required, are encouraged. Take a look at this method from the <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/project.rb#L42">Project</a> class:</p>
-    </article>
-    </section>
-  
-    <div class="code-break">
-    <section class="row container">
-    <article class="content col-md-11 col-md-offset-1"><pre
- class="highlight ruby"><span class="c1"># @return [Pathname] Returns the relative path from the project root.</span>
+    </article></section><div class="code-break">
+    <section class="row container"><article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><span class="c1"># @return [Pathname] Returns the relative path from the project root.</span>
 <span class="c1">#</span>
 <span class="c1"># @param  [Pathname] path</span>
 <span class="c1">#         The path that needs to be converted to the relative format.</span>
 <span class="c1">#</span>
-<span class="c1"># @note   If the two absolute paths don&#39;t share the same root directory an</span>
+<span class="c1"># @note   If the two absolute paths don't share the same root directory an</span>
 <span class="c1">#         extra `../` is added to the result of</span>
 <span class="c1">#         {Pathname#relative_path_from}.</span>
 <span class="c1">#</span>
 <span class="c1"># @example</span>
 <span class="c1">#</span>
-<span class="c1">#   path = Pathname.new(&#39;/Users/dir&#39;)</span>
-<span class="c1">#   @sandbox.root #=&gt; Pathname(&#39;/tmp/CocoaPods/Lint/Pods&#39;)</span>
+<span class="c1">#   path = Pathname.new('/Users/dir')</span>
+<span class="c1">#   @sandbox.root #=&gt; Pathname('/tmp/CocoaPods/Lint/Pods')</span>
 <span class="c1">#</span>
-<span class="c1">#   @sandbox.relativize(path) #=&gt; &#39;../../../../Users/dir&#39;</span>
-<span class="c1">#   @sandbox.relativize(path) #=&gt; &#39;../../../../../Users/dir&#39;</span>
+<span class="c1">#   @sandbox.relativize(path) #=&gt; '../../../../Users/dir'</span>
+<span class="c1">#   @sandbox.relativize(path) #=&gt; '../../../../../Users/dir'</span>
 <span class="c1">#</span>
-</pre>    </article>
-    </section>
-    </div>
+</pre>    </article></section>
+</div>
   
-    <section class="container row">
-    <article class="content col-md-10 col-md-offset-1">
-</article></section><section class="row container info-row"><article class="content col-md-10 col-md-offset-1"><a data-container="body" data-content="CocoaPods is an open source project. Help us improve these guides by sending a pull request. ❤" data-original-title="" data-placement="top" data-toggle="popover" data-trigger="hover" href="https://github.com/CocoaPods/guides.cocoapods.org/blob/master/source/contributing/contribute-to-cocoapods.html.md" id="pull-request" title=""></a><ul class="breadcrumb"><li><a href="../index.html">Home</a><span class="divider"></span></li><li><a href="index.html">Contributing</a><span class="divider"></span></li><li class="active">How to Contribute</li></ul></article></section></div><section class="site_navigation container"><div class="row"><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="../using/index.html">Using CocoaPods</a></h3><ul><li><a href="../using/getting-started.html">Getting Started</a></li><li><a href="../using/using-cocoapods.html">Using CocoaPods</a></li><li><a href="../using/the-podfile.html">The Podfile</a></li><li><a href="../using/troubleshooting.html">Troubleshooting</a></li><li><a href="../using/faq.html">F.A.Q</a></li></ul></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="../making/index.html">Making CocoaPods</a></h3><ul><li><a href="../making/making-a-cocoapod.html">Making a CocoaPod</a></li><li><a href="../making/specs-and-specs-repo.html">Specs and the Specs Repo</a></li><li><a href="../making/private-cocoapods.html">Private Pods</a></li></ul></div><div class="clearfix visible-xs"></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="index.html">Contributing</a></h3><ul><li><a href="components.html">Core Components</a></li><li><a href="contribute-to-cocoapods.html">How to Contribute</a></li><li><a href="dev-environment.html">Setting up for Development</a></li><li><a href="release-process.html">Release Process</a></li></ul></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3> <a href='/reference.html'>Reference</a></h3><ul><li><a href='/syntax/podfile.html'>Podfile Syntax</a></li><li><a href='/syntax/podspec.html'>Podspec Syntax</a></li><li><a href='/terminal/commands.html'>Command-line Reference</a></li></ul></div></div></section><footer class="page-footer"><section class="container row"><article class="col-md-8 col-md-offset-2"><h4>CocoaPods is a project from </h4><p class="contributors"><a href="https://twitter.com/alloy">Eloy Durán</a>, <a href="https://twitter.com/fabiopelosin">Fabio Pelosin</a>, <a href="http://orta.github.io">Orta Therox</a>,  and The CocoaPods Dev Team with contributions from <a href="https://github.com/CocoaPods/Specs/graphs/contributors">many, many others</a>.</p><h4>Lovingly sponsored by</h4><p class="sponsors"><a href="http://www.fngtps.com">Fingertips</a>, <a href = "http://www.hipbyte.com">Hipbyte</a>, <a href="http://artsy.net">Artsy</a> and <a href="https://www.sauspiel.de">Sauspiel</a>.</p></article><article class="col-md-8 col-md-offset-2 minor"></article></section></footer><footer class="footer-links"><section class="container row"><article class="col-md-8 col-md-offset-2"><a class="cocoapods-small-logo" href="http://beta.cocoapods.org"></a><ul><li class="col-md-3 col-sm-3 col-xs-6"><a href="http://guides.cocoapods.org/using/troubleshooting.html">Support</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://github.com/CocoaPods/CocoaPods">Github Repo</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://github.com/CocoaPods/Specs">Podspecs Repo</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://twitter.com/CocoaPods">@CocoaPods</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="http://groups.google.com/group/cocoapods">Mailing List</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="http://beta.cocoapods.org/about">CocoaPods Dev Team</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="http://guides.cocoapods.org/syntax/podfile.html">Podfile Doc<span class="hidden-lg-span">s</span><span class="visible-lg-span">umentation</span></a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://twitter.com/CocoaPodsFeed">@CocoaPodsFeed</a></li></ul></article></section></footer></body><script type="text/javascript">(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    <section class="container row"><article class="content col-md-10 col-md-offset-1"></article></section><section class="row container info-row"><article class="content col-md-10 col-md-offset-1"><a data-container="body" data-content="CocoaPods is an open source project. Help us improve these guides by sending a pull request. ❤" data-original-title="" data-placement="top" data-toggle="popover" data-trigger="hover" href="https://github.com/CocoaPods/guides.cocoapods.org/blob/master/source/contributing/contribute-to-cocoapods.html.md" id="pull-request" title=""></a><ul class="breadcrumb">
+<li>
+<a href="../index.html">Home</a><span class="divider"></span>
+</li>
+<li>
+<a href="index.html">Contributing</a><span class="divider"></span>
+</li>
+<li class="active">How to Contribute</li>
+</ul></article></section>
+</div>
+<section class="site_navigation container"><div class="row">
+<div class="col-lg-3 col-sm-3 col-xs-6 footer-index">
+<h3><a href="../using/index.html">Using CocoaPods</a></h3>
+<ul>
+<li><a href="../using/getting-started.html">Getting Started</a></li>
+<li><a href="../using/using-cocoapods.html">Using CocoaPods</a></li>
+<li><a href="../using/the-podfile.html">The Podfile</a></li>
+<li><a href="../using/troubleshooting.html">Troubleshooting</a></li>
+<li><a href="../using/faq.html">F.A.Q</a></li>
+</ul>
+</div>
+<div class="col-lg-3 col-sm-3 col-xs-6 footer-index">
+<h3><a href="../making/index.html">Making CocoaPods</a></h3>
+<ul>
+<li><a href="../making/making-a-cocoapod.html">Making a CocoaPod</a></li>
+<li><a href="../making/specs-and-specs-repo.html">Specs and the Specs Repo</a></li>
+<li><a href="../making/private-cocoapods.html">Private Pods</a></li>
+</ul>
+</div>
+<div class="clearfix visible-xs"></div>
+<div class="col-lg-3 col-sm-3 col-xs-6 footer-index">
+<h3><a href="index.html">Contributing</a></h3>
+<ul>
+<li><a href="components.html">Core Components</a></li>
+<li><a href="contribute-to-cocoapods.html">How to Contribute</a></li>
+<li><a href="dev-environment.html">Setting up for Development</a></li>
+<li><a href="release-process.html">Release Process</a></li>
+</ul>
+</div>
+<div class="col-lg-3 col-sm-3 col-xs-6 footer-index">
+<h3> <a href="/reference.html">Reference</a>
+</h3>
+<ul>
+<li><a href="/syntax/podfile.html">Podfile Syntax</a></li>
+<li><a href="/syntax/podspec.html">Podspec Syntax</a></li>
+<li><a href="/terminal/commands.html">Command-line Reference</a></li>
+</ul>
+</div>
+</div></section><footer class="page-footer"><section class="container row"><article class="col-md-8 col-md-offset-2"><h4>CocoaPods is a project from </h4>
+<p class="contributors"><a href="https://twitter.com/alloy">Eloy Durán</a>, <a href="https://twitter.com/fabiopelosin">Fabio Pelosin</a>, <a href="http://orta.github.io">Orta Therox</a>,  and The CocoaPods Dev Team with contributions from <a href="https://github.com/CocoaPods/Specs/graphs/contributors">many, many others</a>.</p>
+<h4>Lovingly sponsored by</h4>
+<p class="sponsors"><a href="http://www.fngtps.com">Fingertips</a>, <a href="http://www.hipbyte.com">Hipbyte</a>, <a href="http://artsy.net">Artsy</a> and <a href="https://www.sauspiel.de">Sauspiel</a>.</p></article><article class="col-md-8 col-md-offset-2 minor"></article></section></footer><footer class="footer-links"><section class="container row"><article class="col-md-8 col-md-offset-2"><a class="cocoapods-small-logo" href="http://beta.cocoapods.org"></a><ul>
+<li class="col-md-3 col-sm-3 col-xs-6"><a href="http://guides.cocoapods.org/using/troubleshooting.html">Support</a></li>
+<li class="col-md-3 col-sm-3 col-xs-6"><a href="https://github.com/CocoaPods/CocoaPods">Github Repo</a></li>
+<li class="col-md-3 col-sm-3 col-xs-6"><a href="https://github.com/CocoaPods/Specs">Podspecs Repo</a></li>
+<li class="col-md-3 col-sm-3 col-xs-6"><a href="https://twitter.com/CocoaPods">@CocoaPods</a></li>
+<li class="col-md-3 col-sm-3 col-xs-6"><a href="http://groups.google.com/group/cocoapods">Mailing List</a></li>
+<li class="col-md-3 col-sm-3 col-xs-6"><a href="http://beta.cocoapods.org/about">CocoaPods Dev Team</a></li>
+<li class="col-md-3 col-sm-3 col-xs-6"><a href="http://guides.cocoapods.org/syntax/podfile.html">Podfile Doc<span class="hidden-lg-span">s</span><span class="visible-lg-span">umentation</span></a></li>
+<li class="col-md-3 col-sm-3 col-xs-6"><a href="https://twitter.com/CocoaPodsFeed">@CocoaPodsFeed</a></li>
+</ul></article></section></footer>
+</body>
+<script type="text/javascript">(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
 ga('create', 'UA-29866548-4', 'cocoapods.org');
-ga('send', 'pageview');</script></html>
+ga('send', 'pageview');</script>
+</html>
