@@ -15,19 +15,22 @@ module AddLinksToNavigation
         # we get multiple render calls due to markdown / slim doing their thing
         # 
         if (template_class.to_s.index "Slim") != nil or (path.to_s.index "templates") != nil     
-                 
+                            
           doc = Nokogiri::HTML(body)
-          doc.css(".content h2, .content h3").each do |header|
-            if header.attributes["id"]
-              header.inner_html = "<a class='header-link' href='\##{header.attributes["id"]}'>&lt;</a>" + header.inner_html
+          nodes = doc.css("#content-wrapper h2[id], #content-wrapper h3[id]")
+          
+          if nodes.count > 0
+            nodes.each do |header|
+              if header.attributes["id"]
+                header.inner_html = "<a class='header-link' href='\##{header.attributes["id"]}'>&lt;</a>" + header.inner_html
+              end
             end
-          end
-        
-          doc.to_s
-        else           
-          body
-        end
 
+            body = doc.to_s
+          end         
+        end
+        
+        body
       end
     end
     alias :included :registered
