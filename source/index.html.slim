@@ -38,13 +38,15 @@ div.guide#content-wrapper
     - for resource in footer_resources 
 
       .col-lg-4.col-sm-4.col-xs-12.footer-index.homepage-index
+      
         h2.guide-index == link_to page_title(resource), "/#{resource.destination_path}"
         ul
           - for child in resource.children.sort_by{|child| child.data.order}
             - unless child.data.ignore
-            
               li 
-                p == link_to(page_title(child), "/#{child.destination_path}") + child.data.description
+                a href="/#{child.destination_path}"
+                  h5 == page_title(child)
+                  p == child.data.description
               
 
 
