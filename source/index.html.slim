@@ -23,9 +23,8 @@ ruby:
     resource.data.footer
   end.sort_by { |resource| resource.data.footer_order }
 
-</div>
 
-section.container.row#sdfsfsdfsd
+section.container.row
   header.col-md-12.headline.index
     h1 CocoaPods Guides
   
@@ -36,15 +35,14 @@ div.guide#content-wrapper
 
     - for resource in footer_resources 
 
-      .col-lg-4.col-sm-4.col-xs-12.footer-index.homepage-index
+      .col-lg-4.col-sm-4.col-xs-12.homepage-index
       
         h2.guide-index == link_to page_title(resource), "/#{resource.destination_path}"
         ul
           - for child in resource.children.sort_by{|child| child.data.order}
             - unless child.data.ignore
               li 
-                a href="/#{child.destination_path}"
-                  h5 == page_title(child)
+                  h5 == link_to( page_title(child), "/#{child.destination_path}")
                   p == child.data.description
 
           - if footer_resources.index(resource) % 2 == 1
