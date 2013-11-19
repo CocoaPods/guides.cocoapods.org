@@ -27,6 +27,10 @@ gems. (This is only an issue for the duration of the gem installation, though.)
 $ sudo gem install cocoapods
 ```
 
+_During this process RubyGems might ask you if you want to overwrite the `rake`
+executable. This warning is raised because the `rake` gem will be updated as
+part of this process. Simply confirm by typing `y`._
+
 If you do *not* want to grant RubyGems admin privileges for this process, you can
 tell RubyGems to install into your user directory by passing either the
 `--user-install` flag to `gem install` or by configuring the RubyGems environment.
