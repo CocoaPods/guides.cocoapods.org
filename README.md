@@ -24,6 +24,6 @@ Steps to setup:
 1. `$ git clone https://github.com/CocoaPods/guides.cocoapods.org.git`
 2. `$ cd guides.cocoapods.org`
 3. `$ rake bootstrap`
-4. `$ rake generate:all`
-5. `$ middleman server`
+4. `$ bundle exec rake generate:all`
+5. `$ bundle exec middleman server`
 6. Open [localhost:4567](http://localhost:4567) in your browser. Changes will be processed automatically
