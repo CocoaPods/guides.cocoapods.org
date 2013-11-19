@@ -140,7 +140,8 @@ namespace :generate do
 
     # FIXME DSL should have urls similar to the gems
     #
-    dsls.each do |name|
+    dsls.each do |description|
+      name = description[:name]
       name = name.downcase.gsub('-','_')
       file = "docs_data/#{name}.yaml"
       dsl  = YAML::load(File.open(file))
