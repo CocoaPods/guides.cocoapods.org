@@ -71,6 +71,7 @@ module Pod
               "pod repo add",
               "pod repo update",
               "pod repo lint",
+              "pod repo remove",
               "pod setup",
             ],
 
