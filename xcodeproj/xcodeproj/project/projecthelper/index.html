@@ -13,7 +13,7 @@
 <span class="lineno">42</span>   <span class="n">project</span><span class="o">.</span><span class="n">targets</span> <span class="o">&lt;&lt;</span> <span class="n">target</span>
 <span class="lineno">43</span>   <span class="n">target</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="nb">name</span>
 <span class="lineno">44</span>   <span class="n">target</span><span class="o">.</span><span class="n">product_name</span> <span class="o">=</span> <span class="nb">name</span>
-<span class="lineno">45</span>   <span class="n">target</span><span class="o">.</span><span class="n">product_type</span> <span class="o">=</span> <span class="ss">Constants</span><span class="p">:</span><span class="ss">:PRODUCT_TYPE_UTI</span><span class="o">[</span><span class="n">type</span><span class="o">]</span>
+<span class="lineno">45</span>   <span class="n">target</span><span class="o">.</span><span class="n">product_type</span> <span class="o">=</span> <span class="no">Constants</span><span class="o">::</span><span class="no">PRODUCT_TYPE_UTI</span><span class="o">[</span><span class="n">type</span><span class="o">]</span>
 <span class="lineno">46</span>   <span class="n">target</span><span class="o">.</span><span class="n">build_configuration_list</span> <span class="o">=</span> <span class="n">configuration_list</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">platform</span><span class="p">,</span> <span class="n">deployment_target</span><span class="p">)</span>
 <span class="lineno">47</span> 
 <span class="lineno">48</span>   <span class="c1"># Product</span>
@@ -41,7 +41,7 @@
 <span class="lineno"> 84</span>   <span class="n">project</span><span class="o">.</span><span class="n">targets</span> <span class="o">&lt;&lt;</span> <span class="n">target</span>
 <span class="lineno"> 85</span>   <span class="n">target</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="nb">name</span>
 <span class="lineno"> 86</span>   <span class="n">target</span><span class="o">.</span><span class="n">product_name</span> <span class="o">=</span> <span class="nb">name</span>
-<span class="lineno"> 87</span>   <span class="n">target</span><span class="o">.</span><span class="n">product_type</span> <span class="o">=</span> <span class="ss">Constants</span><span class="p">:</span><span class="ss">:PRODUCT_TYPE_UTI</span><span class="o">[</span><span class="ss">:bundle</span><span class="o">]</span>
+<span class="lineno"> 87</span>   <span class="n">target</span><span class="o">.</span><span class="n">product_type</span> <span class="o">=</span> <span class="no">Constants</span><span class="o">::</span><span class="no">PRODUCT_TYPE_UTI</span><span class="o">[</span><span class="ss">:bundle</span><span class="o">]</span>
 <span class="lineno"> 88</span> 
 <span class="lineno"> 89</span>   <span class="n">build_settings</span> <span class="o">=</span> <span class="n">common_build_settings</span><span class="p">(</span><span class="kp">nil</span><span class="p">,</span> <span class="n">platform</span><span class="p">,</span> <span class="kp">nil</span><span class="p">,</span> <span class="n">target</span><span class="o">.</span><span class="n">product_type</span><span class="p">)</span>
 <span class="lineno"> 90</span> 
@@ -100,7 +100,7 @@
 <p><code>String</code><span> </span><b> deployment_target</b></p><p>The deployment target for the platform.</p>
 <h4>Returns</h4><p><code>Hash</code> The common build settings
 </p><h3>Source</h3><div class="highlight"><pre><span class="lineno">170</span> <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">common_build_settings</span><span class="p">(</span><span class="n">type</span><span class="p">,</span> <span class="n">platform</span><span class="p">,</span> <span class="n">deployment_target</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">,</span> <span class="n">target_product_type</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">)</span>
-<span class="lineno">171</span>   <span class="k">if</span> <span class="n">target_product_type</span> <span class="o">==</span> <span class="ss">Constants</span><span class="p">:</span><span class="ss">:PRODUCT_TYPE_UTI</span><span class="o">[</span><span class="ss">:bundle</span><span class="o">]</span>
+<span class="lineno">171</span>   <span class="k">if</span> <span class="n">target_product_type</span> <span class="o">==</span> <span class="no">Constants</span><span class="o">::</span><span class="no">PRODUCT_TYPE_UTI</span><span class="o">[</span><span class="ss">:bundle</span><span class="o">]</span>
 <span class="lineno">172</span>     <span class="n">build_settings</span> <span class="o">=</span> <span class="p">{</span>
 <span class="lineno">173</span>       <span class="s1">&#39;PRODUCT_NAME&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;$(TARGET_NAME)&#39;</span><span class="p">,</span>
 <span class="lineno">174</span>       <span class="s1">&#39;WRAPPER_EXTENSION&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;bundle&#39;</span><span class="p">,</span>
@@ -115,7 +115,7 @@
 <span class="lineno">183</span>     <span class="k">end</span>
 <span class="lineno">184</span>     <span class="n">build_settings</span>
 <span class="lineno">185</span>   <span class="k">else</span>
-<span class="lineno">186</span>     <span class="n">common_settings</span> <span class="o">=</span> <span class="ss">Constants</span><span class="p">:</span><span class="ss">:COMMON_BUILD_SETTINGS</span>
+<span class="lineno">186</span>     <span class="n">common_settings</span> <span class="o">=</span> <span class="no">Constants</span><span class="o">::</span><span class="no">COMMON_BUILD_SETTINGS</span>
 <span class="lineno">187</span>     <span class="n">settings</span> <span class="o">=</span> <span class="n">deep_dup</span><span class="p">(</span><span class="n">common_settings</span><span class="o">[</span><span class="ss">:all</span><span class="o">]</span><span class="p">)</span>
 <span class="lineno">188</span>     <span class="n">settings</span><span class="o">.</span><span class="n">merge!</span><span class="p">(</span><span class="n">deep_dup</span><span class="p">(</span><span class="n">common_settings</span><span class="o">[</span><span class="n">type</span><span class="o">]</span><span class="p">))</span>
 <span class="lineno">189</span>     <span class="n">settings</span><span class="o">.</span><span class="n">merge!</span><span class="p">(</span><span class="n">deep_dup</span><span class="p">(</span><span class="n">common_settings</span><span class="o">[</span><span class="n">platform</span><span class="o">]</span><span class="p">))</span>

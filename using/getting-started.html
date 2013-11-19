@@ -53,7 +53,11 @@ gems. (This is only an issue for the duration of the gem installation, though.)<
 </pre>    </article></section>
 </div>
   
-    <section class="container row"><article class="content col-md-10 col-md-offset-1"><p>If you do <em>not</em> want to grant RubyGems admin privileges for this process, you can
+    <section class="container row"><article class="content col-md-10 col-md-offset-1"><p><em>During this process RubyGems might ask you if you want to overwrite the <code>rake</code>
+executable. This warning is raised because the <code>rake</code> gem will be updated as
+part of this process. Simply confirm by typing <code>y</code>.</em></p>
+
+<p>If you do <em>not</em> want to grant RubyGems admin privileges for this process, you can
 tell RubyGems to install into your user directory by passing either the
 <code>--user-install</code> flag to <code>gem install</code> or by configuring the RubyGems environment.
 The latter is in our opinion the best solution. To do this, create or edit the
