@@ -27,3 +27,7 @@ Steps to setup:
 4. `$ bundle exec rake generate:all`
 5. `$ bundle exec middleman server`
 6. Open [localhost:4567](http://localhost:4567) in your browser. Changes will be processed automatically
+
+### Deploying the latest version to GitHub Pages
+
+`$ bundle exec rake deploy`

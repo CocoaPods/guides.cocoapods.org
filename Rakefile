@@ -37,9 +37,8 @@ end
 begin
   require 'middleman-gh-pages'
 
-  task :deploy do
-    Rake::Task["publish"].invoke
-  end
+  desc 'Build and push the guides to GitHub Pages'
+  task :deploy => ['generate:all', :publish]
 rescue LoadError
   $stderr.puts "[!] Disabled the middleman publish task, run `rake bootstrap` first."
 end
