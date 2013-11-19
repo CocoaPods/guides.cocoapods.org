@@ -1,7 +1,47 @@
-require 'middleman-gh-pages'
+def execute_command(command)
+  if ENV['VERBOSE']
+    sh(command)
+  else
+    output = `#{command} 2>&1`
+    raise output unless $?.success?
+  end
+end
 
-task :deploy do
-  Rake::Task["publish"].invoke
+def title(title)
+  cyan_title = "\033[0;36m#{title}\033[0m"
+  puts
+  puts "-" * 80
+  puts cyan_title
+  puts "-" * 80
+  puts
+end
+
+#-----------------------------------------------------------------------------#
+
+desc "Initializes your working copy to run the specs"
+task :bootstrap do
+  title "Environment bootstrap"
+
+  puts "Updating submodules"
+  execute_command "git submodule update --init --recursive"
+
+  puts "Installing gems"
+  execute_command "bundle install"
+
+  puts "Creating data dir"
+  execute_command "mkdir -p docs_data"
+end
+
+#-----------------------------------------------------------------------------#
+
+begin
+  require 'middleman-gh-pages'
+
+  task :deploy do
+    Rake::Task["publish"].invoke
+  end
+rescue LoadError
+  $stderr.puts "[!] Disabled the middleman publish task, run `rake bootstrap` first."
 end
 
 #-----------------------------------------------------------------------------#
