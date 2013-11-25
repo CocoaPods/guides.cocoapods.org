@@ -2,8 +2,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta content="documenation cocoapods objective-c packcage manager" name="keywords">
 <title>CocoaPods Guides - The Podfile</title>
 <link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon">
 <link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png">
@@ -15,19 +13,25 @@
 <link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-touch-icon-120x120.png">
 <link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-touch-icon-144x144.png">
 <link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-touch-icon-152x152.png">
+<meta charset="utf-8">
+<meta content="documenation cocoapods objective-c package manager" name="keywords">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="" name="description">
+<meta content="" name="author">
 <link href="../stylesheets/app.css" media="screen" rel="stylesheet" type="text/css">
 <script src="../javascripts/application.js" type="text/javascript"></script>
 </head>
 <body>
 <nav class="navbar navbar-static-top" role="navigation"><section class="container"><div class="navbar-header">
-<button class="navbar-toggle" data-target=".navbar-header-collapse" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="/"></a>
+<button class="navbar-toggle" data-target=".navbar-header-collapse" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="http://beta.cocoapods.org"></a>
 </div>
 <div class="collapse navbar-collapse navbar-header-collapse"><ul class="nav navbar-nav navbar-right">
 <li><a href="http://beta.cocoapods.org/about">About</a></li>
 <li class="active"><a href="http://guides.cocoapods.org">Guides</a></li>
 <li><a href="http://blog.cocoapods.org">Blog</a></li>
-</ul></div></section></nav><section class="container row"><header class="header content col-md-10 col-md-offset-1"><h1>The Podfile</h1></header></section><div class="guide" id="content-wrapper">
-<section class="row container"><article class="content col-md-10 col-md-offset-1"><h2 id="what-is-a-podfile?">
+</ul></div></section></nav><section class="container"><div class="row"><header class="header content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h1>The Podfile</h1></header></div></section><div class="guide" id="content-wrapper">
+<section class="container"><div class="row"><article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h2 id="what-is-a-podfile?">
 <a class="header-link" href="#what-is-a-podfile?">&lt;</a>What is a Podfile?</h2>
 
 <p>The Podfile is a specification that describes the dependencies of the
@@ -38,16 +42,24 @@
 <blockquote>
 <p>A podfile can be very simple:</p>
 </blockquote>
-    </article></section><div class="code-break">
-    <section class="row container"><article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><span class="n">pod</span> <span class="s1">'AFNetworking'</span><span class="p">,</span> <span class="s1">'~&gt; 1.0'</span>
-</pre>    </article></section>
+    </article></div>
+    </section><div class="code-break">
+    <section class="container"><div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><span class="n">pod</span> <span class="s1">'AFNetworking'</span><span class="p">,</span> <span class="s1">'~&gt; 1.0'</span>
+</pre>    </article>
+</div>
+    </section>
 </div>
   
-    <section class="container row"><article class="content col-md-10 col-md-offset-1"><blockquote>
+    <section class="container "><div class="row">
+    <article class="content col-md-10 col-md-offset-1"><blockquote>
 <p>An example of a more complex podfile can be:</p>
 </blockquote>
-    </article></section><div class="code-break">
-    <section class="row container"><article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><span class="n">platform</span> <span class="ss">:ios</span><span class="p">,</span> <span class="s1">'6.0'</span>
+    </article>
+</div>
+    </section><div class="code-break">
+    <section class="container"><div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><span class="n">platform</span> <span class="ss">:ios</span><span class="p">,</span> <span class="s1">'6.0'</span>
 <span class="n">inhibit_all_warnings!</span>
 
 <span class="n">xcodeproj</span> <span class="sb">`MyProject`</span>
@@ -63,38 +75,59 @@
         <span class="nb">puts</span> <span class="s2">"</span><span class="si">#{</span><span class="n">target</span><span class="p">.</span><span class="nf">name</span><span class="si">}</span><span class="s2">"</span>
     <span class="k">end</span>
 <span class="k">end</span>
-</pre>    </article></section>
+</pre>    </article>
+</div>
+    </section>
 </div>
   
-    <section class="container row"><article class="content col-md-10 col-md-offset-1"><blockquote>
+    <section class="container "><div class="row">
+    <article class="content col-md-10 col-md-offset-1"><blockquote>
 <p>If you want multiple targets, like adding tests, to share the same pods.</p>
 </blockquote>
-    </article></section><div class="code-break">
-    <section class="row container"><article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><span class="n">platform</span> <span class="ss">:ios</span><span class="p">,</span> <span class="s1">'6.0'</span> 
+    </article>
+</div>
+    </section><div class="code-break">
+    <section class="container"><div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><span class="n">platform</span> <span class="ss">:ios</span><span class="p">,</span> <span class="s1">'6.0'</span> 
 
 <span class="n">link_with</span> <span class="s1">'MyApp'</span><span class="p">,</span> <span class="s1">'MyApp Tests'</span>
 <span class="n">pod</span> <span class="s1">'AFNetworking'</span><span class="p">,</span> <span class="s1">'~&gt; 1.0'</span>
 <span class="n">pod</span> <span class="s1">'Objection'</span><span class="p">,</span> <span class="s1">'0.9'</span>
-</pre>    </article></section>
+</pre>    </article>
+</div>
+    </section>
 </div>
   
-    <section class="container row"><article class="content col-md-10 col-md-offset-1"><blockquote>
+    <section class="container "><div class="row">
+    <article class="content col-md-10 col-md-offset-1"><blockquote>
 <p>When starting out with a project it is likely that you will want to use the latest version of a Pod. If this is the case, simply omit the version requirements.</p>
 </blockquote>
-    </article></section><div class="code-break">
-    <section class="row container"><article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><span class="n">pod</span> <span class="s1">'SSZipArchive'</span>
-</pre>    </article></section>
+    </article>
+</div>
+    </section><div class="code-break">
+    <section class="container"><div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><span class="n">pod</span> <span class="s1">'SSZipArchive'</span>
+</pre>    </article>
+</div>
+    </section>
 </div>
   
-    <section class="container row"><article class="content col-md-10 col-md-offset-1"><blockquote>
+    <section class="container "><div class="row">
+    <article class="content col-md-10 col-md-offset-1"><blockquote>
 <p>Later on in the project you may want to freeze to a specific version of a Pod, in which case you can specify that version number.</p>
 </blockquote>
-    </article></section><div class="code-break">
-    <section class="row container"><article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><span class="n">pod</span> <span class="s1">'Objection'</span><span class="p">,</span> <span class="s1">'0.9'</span>
-</pre>    </article></section>
+    </article>
+</div>
+    </section><div class="code-break">
+    <section class="container"><div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><span class="n">pod</span> <span class="s1">'Objection'</span><span class="p">,</span> <span class="s1">'0.9'</span>
+</pre>    </article>
+</div>
+    </section>
 </div>
   
-    <section class="container row"><article class="content col-md-10 col-md-offset-1"><p>Besides no version, or a specific one, it is also possible to use logical operators:</p>
+    <section class="container "><div class="row">
+    <article class="content col-md-10 col-md-offset-1"><p>Besides no version, or a specific one, it is also possible to use logical operators:</p>
 
 <ul>
 <li>
@@ -126,12 +159,18 @@
 will use the pod’s latest version spec version, but force the download
 of the ‘bleeding edge’ version. Use this with caution, as the spec
 might not be compatible with the source material anymore.</p>
-    </article></section><div class="code-break">
-    <section class="row container"><article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><span class="n">pod</span> <span class="s1">'Objection'</span><span class="p">,</span> <span class="ss">:head</span>
-</pre>    </article></section>
+    </article>
+</div>
+    </section><div class="code-break">
+    <section class="container"><div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><span class="n">pod</span> <span class="s1">'Objection'</span><span class="p">,</span> <span class="ss">:head</span>
+</pre>    </article>
+</div>
+    </section>
 </div>
   
-    <section class="container row"><article class="content col-md-10 col-md-offset-1"><h2 id="version-conflicts">
+    <section class="container "><div class="row">
+    <article class="content col-md-10 col-md-offset-1"><h2 id="version-conflicts">
 <a class="header-link" href="#version-conflicts">&lt;</a>Version Conflicts</h2>
 
 <p>Pods often depend on other pods. Conflicts arise when multiple pods depend on different versions of another. Or you may want to tie a dependent pod to a particular version. </p>
@@ -139,33 +178,51 @@ might not be compatible with the source material anymore.</p>
 <blockquote>
 <p>The conflict error looks like this:</p>
 </blockquote>
-    </article></section><div class="code-break">
-    <section class="row container"><article class="content col-md-11 col-md-offset-1"><pre class="highlight shell"><span class="o">[</span>!] Podfile tries to activate <span class="sb">`</span>GoogleAnalytics-iOS-SDK <span class="o">(=</span> 2.0beta4<span class="o">)</span><span class="s1">', but already activated version `3.0'</span> by ARAnalytics/GoogleAnalytics <span class="o">(</span>1.6<span class="o">)</span>.
-</pre>    </article></section>
+    </article>
+</div>
+    </section><div class="code-break">
+    <section class="container"><div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight shell"><span class="o">[</span>!] Podfile tries to activate <span class="sb">`</span>GoogleAnalytics-iOS-SDK <span class="o">(=</span> 2.0beta4<span class="o">)</span><span class="s1">', but already activated version `3.0'</span> by ARAnalytics/GoogleAnalytics <span class="o">(</span>1.6<span class="o">)</span>.
+</pre>    </article>
+</div>
+    </section>
 </div>
   
-    <section class="container row"><article class="content col-md-10 col-md-offset-1"><blockquote>
+    <section class="container "><div class="row">
+    <article class="content col-md-10 col-md-offset-1"><blockquote>
 <p>To fix this, you simply add the <code>GoogleAnalytics-iOS-SDK</code> pod line before <code>ARAnalytics</code> and specify the version:</p>
 </blockquote>
-    </article></section><div class="code-break">
-    <section class="row container"><article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><span class="n">pod</span> <span class="s1">'GoogleAnalytics-iOS-SDK'</span><span class="p">,</span> <span class="s1">'2.0beta4'</span>
+    </article>
+</div>
+    </section><div class="code-break">
+    <section class="container"><div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><span class="n">pod</span> <span class="s1">'GoogleAnalytics-iOS-SDK'</span><span class="p">,</span> <span class="s1">'2.0beta4'</span>
 <span class="n">pod</span> <span class="s1">'ARAnalytics/GoogleAnalytics'</span>
-</pre>    </article></section>
+</pre>    </article>
+</div>
+    </section>
 </div>
   
-    <section class="container row"><article class="content col-md-10 col-md-offset-1"><h2 id="using-the-files-from-a-folder-local-to-the-machine.">
+    <section class="container "><div class="row">
+    <article class="content col-md-10 col-md-offset-1"><h2 id="using-the-files-from-a-folder-local-to-the-machine.">
 <a class="header-link" href="#using-the-files-from-a-folder-local-to-the-machine.">&lt;</a>Using the files from a folder local to the machine.</h2>
 
 <blockquote>
 <p>If you would like to use develop a Pod in tandem with its client
 project you can use <code>:path</code>.</p>
 </blockquote>
-    </article></section><div class="code-break">
-    <section class="row container"><article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><span class="n">pod</span> <span class="s1">'AFNetworking'</span><span class="p">,</span> <span class="ss">:path</span> <span class="o">=&gt;</span> <span class="s1">'~/Documents/AFNetworking'</span>
-</pre>    </article></section>
+    </article>
+</div>
+    </section><div class="code-break">
+    <section class="container"><div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><span class="n">pod</span> <span class="s1">'AFNetworking'</span><span class="p">,</span> <span class="ss">:path</span> <span class="o">=&gt;</span> <span class="s1">'~/Documents/AFNetworking'</span>
+</pre>    </article>
+</div>
+    </section>
 </div>
   
-    <section class="container row"><article class="content col-md-10 col-md-offset-1"><p>Using this option CocoaPods will assume the given folder to be the
+    <section class="container "><div class="row">
+    <article class="content col-md-10 col-md-offset-1"><p>Using this option CocoaPods will assume the given folder to be the
 root of the Pod and will link the files directly from there in the
 Pods project. This means that your edits will persist between CocoaPods
 installations. The referenced folder can be a checkout of your your favourite SCM or
@@ -183,28 +240,41 @@ pod declaration.</p>
 <blockquote>
 <p>To use the <code>master</code> branch of the repo:</p>
 </blockquote>
-    </article></section><div class="code-break">
-    <section class="row container"><article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><span class="n">pod</span> <span class="s1">'AFNetworking'</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">'https://github.com/gowalla/AFNetworking.git'</span>
-</pre>    </article></section>
+    </article>
+</div>
+    </section><div class="code-break">
+    <section class="container"><div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><span class="n">pod</span> <span class="s1">'AFNetworking'</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">'https://github.com/gowalla/AFNetworking.git'</span>
+</pre>    </article>
+</div>
+    </section>
 </div>
   
-    <section class="container row"><article class="content col-md-10 col-md-offset-1"><blockquote>
+    <section class="container "><div class="row">
+    <article class="content col-md-10 col-md-offset-1"><blockquote>
 <p>Or specify a commit:</p>
 </blockquote>
-    </article></section><div class="code-break">
-    <section class="row container"><article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><span class="n">pod</span> <span class="s1">'AFNetworking'</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">'https://github.com/gowalla/AFNetworking.git'</span><span class="p">,</span> <span class="ss">:commit</span> <span class="o">=&gt;</span> <span class="s1">'082f8319af'</span>
-</pre>    </article></section>
+    </article>
+</div>
+    </section><div class="code-break">
+    <section class="container"><div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><span class="n">pod</span> <span class="s1">'AFNetworking'</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">'https://github.com/gowalla/AFNetworking.git'</span><span class="p">,</span> <span class="ss">:commit</span> <span class="o">=&gt;</span> <span class="s1">'082f8319af'</span>
+</pre>    </article>
+</div>
+    </section>
 </div>
   
-    <section class="container row"><article class="content col-md-10 col-md-offset-1"><p>It is important to note, though, that this means that the version will
+    <section class="container "><div class="row">
+    <article class="content col-md-10 col-md-offset-1"><p>It is important to note, though, that this means that the version will
 have to satisfy any other dependencies on the Pod by other Pods.</p>
 
 <p>The <code>podspec</code> file is expected to be in the root of the repo, if this
 library does not have a <code>podspec</code> file in its repo yet, you will have
 to use one of the approaches outlined in the sections below.</p>
-</article></section>
+</article>
+</div></section>
 </div>
-<section class="row container info-row"><article class="content col-md-10 col-md-offset-1"><a data-container="body" data-content="CocoaPods is an open source project. Help us improve these guides by sending a pull request. ❤" data-original-title="" data-placement="top" data-toggle="popover" data-trigger="hover" href="https://github.com/CocoaPods/guides.cocoapods.org/blob/master/source/using/the-podfile.html.md" id="pull-request" title=""></a><ul class="breadcrumb">
+<div class="info-row"><section class="container"><div class="row"><article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><a data-container="body" data-content="CocoaPods is an open source project. Help us improve these guides by sending a pull request. ❤" data-original-title="" data-placement="top" data-toggle="popover" data-trigger="hover" href="https://github.com/CocoaPods/guides.cocoapods.org/blob/master/source/using/the-podfile.html.md" id="pull-request" title=""></a><ul class="breadcrumb">
 <li>
 <a href="../index.html">Home</a><span class="divider"></span>
 </li>
@@ -212,7 +282,8 @@ to use one of the approaches outlined in the sections below.</p>
 <a href="index.html">Using CocoaPods</a><span class="divider"></span>
 </li>
 <li class="active">The Podfile</li>
-</ul></article></section><section class="site_navigation container"><div class="row">
+</ul></article></div></section></div>
+<section class="site_navigation container"><div class="row">
 <div class="col-lg-3 col-sm-3 col-xs-6 footer-index">
 <h3><a href="index.html">Using CocoaPods</a></h3>
 <ul>
@@ -250,19 +321,21 @@ to use one of the approaches outlined in the sections below.</p>
 <li><a href="/terminal/commands.html">Command-line Reference</a></li>
 </ul>
 </div>
-</div></section><footer class="page-footer"><section class="container row"><article class="col-md-8 col-md-offset-2"><h4>CocoaPods is a project from </h4>
+</div></section><footer class="page-footer"><section class="container"><div class="row">
+<article class="col-md-8 col-lg-8 col-sm-12 col-md-offset-2 col-lg-offset-2 col-xs-12"><h4>CocoaPods is a project from </h4>
 <p class="contributors"><a href="https://twitter.com/alloy">Eloy Durán</a>, <a href="https://twitter.com/fabiopelosin">Fabio Pelosin</a>, <a href="http://orta.github.io">Orta Therox</a>,  and The CocoaPods Dev Team with contributions from <a href="https://github.com/CocoaPods/Specs/graphs/contributors">many, many others</a>.</p>
 <h4>Lovingly sponsored by</h4>
-<p class="sponsors"><a href="http://www.fngtps.com">Fingertips</a>, <a href="http://www.hipbyte.com">Hipbyte</a>, <a href="http://artsy.net">Artsy</a> and <a href="https://www.sauspiel.de">Sauspiel</a>.</p></article><article class="col-md-8 col-md-offset-2 minor"></article></section></footer><footer class="footer-links"><section class="container row"><article class="col-md-8 col-md-offset-2"><a class="cocoapods-small-logo" href="http://beta.cocoapods.org"></a><ul>
+<p class="sponsors"><a href="http://www.fngtps.com">Fingertips</a>, <a href="http://www.hipbyte.com">Hipbyte</a>, <a href="http://artsy.net">Artsy</a> and <a href="https://www.sauspiel.de">Sauspiel</a>.</p></article><article class="col-md-8 col-md-offset-2 minor"></article>
+</div></section></footer><footer class="footer-links"><section class="container"><div class="row"><article class="col-md-8 col-lg-8 col-sm-12 col-md-offset-2 col-lg-offset-2 col-xs-12"><a class="cocoapods-small-logo" href="http://beta.cocoapods.org"></a><ul>
 <li class="col-md-3 col-sm-3 col-xs-6"><a href="http://guides.cocoapods.org/using/troubleshooting.html">Support</a></li>
 <li class="col-md-3 col-sm-3 col-xs-6"><a href="https://github.com/CocoaPods/CocoaPods">Github Repo</a></li>
 <li class="col-md-3 col-sm-3 col-xs-6"><a href="https://github.com/CocoaPods/Specs">Podspecs Repo</a></li>
 <li class="col-md-3 col-sm-3 col-xs-6"><a href="https://twitter.com/CocoaPods">@CocoaPods</a></li>
 <li class="col-md-3 col-sm-3 col-xs-6"><a href="http://groups.google.com/group/cocoapods">Mailing List</a></li>
-<li class="col-md-3 col-sm-3 col-xs-6"><a href="http://beta.cocoapods.org/about">CocoaPods Dev Team</a></li>
+<li class="col-md-3 col-sm-3 col-xs-6"><a href="http://beta.cocoapods.org/about"><span class="visible-lg-span">CocoaPods</span> Dev Team</a></li>
 <li class="col-md-3 col-sm-3 col-xs-6"><a href="http://guides.cocoapods.org/syntax/podfile.html">Podfile Doc<span class="hidden-lg-span">s</span><span class="visible-lg-span">umentation</span></a></li>
 <li class="col-md-3 col-sm-3 col-xs-6"><a href="https://twitter.com/CocoaPodsFeed">@CocoaPodsFeed</a></li>
-</ul></article></section></footer>
+</ul></article></div></section></footer>
 </body>
 <script type="text/javascript">(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
