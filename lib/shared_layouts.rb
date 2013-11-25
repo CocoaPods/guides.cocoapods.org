@@ -28,7 +28,7 @@ module LayoutTagHelper
     shared_include = current_dir + "/../shared/includes/" + sources.first + ".slim"
 
     template = Tilt::new shared_include
-    template.render($APP , :guides => true )
+    template.render($APP , :guides => true, :home=> false )
   end
 end
 

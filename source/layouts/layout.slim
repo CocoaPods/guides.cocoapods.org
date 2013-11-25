@@ -19,18 +19,16 @@ ruby:
   if current_resource.data.fullwidth || current_resource.parent == nil
     width_classes = "content" 
   else 
-    width_classes = "content col-md-10 col-md-offset-1"
+    width_classes = "content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"
   end
 
 doctype html
 html
   head
-    meta charset="utf-8"
-    meta name="keywords" content="documenation cocoapods objective-c packcage manager"
     title = "CocoaPods Guides - " + page_title
     
     == shared_layout "favicons"
-    
+    == shared_layout "header_meta"
     == stylesheet_link_tag "app.css"
     == javascript_include_tag "application.js"
 
@@ -39,14 +37,16 @@ html
     == shared_layout("header")
 
     - unless current_resource.data.hide_title
-      section.container.row
-        header.header class=width_classes
-          h1 == page_title
+      section.container
+        .row
+          header.header class=width_classes
+            h1 == page_title
 
       #content-wrapper.guide
-        section.row.container
-          article class=width_classes
-            == yield
+        section.container
+          .row
+            article class=width_classes
+              == yield
           
     - else
     
@@ -54,19 +54,21 @@ html
 
 
     - if parents.length > 0 
-      section.row.container.info-row
-        article class=width_classes
+      .info-row
+        section.container
+          .row
+            article class=width_classes
 
-          a id="pull-request" data-container="body" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="CocoaPods is an open source project. Help us improve these guides by sending a pull request. ❤" data-original-title="" title="" href="https://github.com/CocoaPods/guides.cocoapods.org/blob/master/source/#{current_page.path}#{File.extname(current_page.source_file)}" 
+              a id="pull-request" data-container="body" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="CocoaPods is an open source project. Help us improve these guides by sending a pull request. ❤" data-original-title="" title="" href="https://github.com/CocoaPods/guides.cocoapods.org/blob/master/source/#{current_page.path}#{File.extname(current_page.source_file)}" 
 
 
-          ul.breadcrumb
-            - for resource in parents
-              li
-                == link_to page_title(resource), "/#{resource.destination_path}"
-                span.divider
-                  |
-            li.active = page_title
+              ul.breadcrumb
+                - for resource in parents
+                  li
+                    == link_to page_title(resource), "/#{resource.destination_path}"
+                    span.divider
+                      |
+                li.active = page_title
 
 
     - unless current_resource.data.hide_nav

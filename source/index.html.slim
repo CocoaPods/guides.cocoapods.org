@@ -24,31 +24,34 @@ ruby:
   end.sort_by { |resource| resource.data.footer_order }
 
 
-section.container.row
-  header.col-md-12.headline.index
-    h1 CocoaPods Guides
+section.container
+  .row
+    header.col-md-12.headline.index
+      h1 CocoaPods Guides
   
-    <div class="horizontal-divider"><div class="arrow-down"></div><div class="enclosed-arrow-down"></div></div>
+      <div class="horizontal-divider"><div class="arrow-down"></div><div class="enclosed-arrow-down"></div></div>
 
 div.guide#content-wrapper
-  section.container.row.site_navigation
+  section.container
+    .row
+      .site_navigation
 
-    - for resource in footer_resources 
+      - for resource in footer_resources 
 
-      .col-lg-4.col-sm-4.col-xs-12.homepage-index
-      
-        h2.guide-index == link_to page_title(resource), "/#{resource.destination_path}"
-        ul
-          - for child in resource.children.sort_by{|child| child.data.order}
-            - unless child.data.ignore
-              li 
-                  h5 == link_to( page_title(child), "/#{child.destination_path}")
-                  p == child.data.description
+        .col-lg-4.col-sm-4.col-xs-12.homepage-index
+    
+          h2.guide-index == link_to page_title(resource), "/#{resource.destination_path}"
+          ul
+            - for child in resource.children.sort_by{|child| child.data.order}
+              - unless child.data.ignore
+                li 
+                    h5 == link_to( page_title(child), "/#{child.destination_path}")
+                    p == child.data.description
 
-          - if footer_resources.index(resource) % 2 == 1
-            div.clearfix.visible-xs
+            - if footer_resources.index(resource) % 2 == 1
+              div.clearfix.visible-xs
 
-    .clearfix
-    .col-lg-12.col-sm-12.col-xs-12
-      p.text-center We also have you covered with references to the <a href='/syntax/podfile.html'>Podfile</a>, the <a href='/syntax/podspec.html'>Podspec</a> and our <a href='/terminal/commands.html'>Command Line API</a>.
+      .clearfix
+      .col-lg-12.col-sm-12.col-xs-12
+        p.text-center We also have you covered with references to the <a href='/syntax/podfile.html'>Podfile</a>, the <a href='/syntax/podspec.html'>Podspec</a> and our <a href='/terminal/commands.html'>Command Line API</a>.
 

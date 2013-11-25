@@ -17,19 +17,23 @@ module BreakingSource
         else 
           pre = <<-eos      
     </article>
+    </div>
     </section>
   
     <div class="code-break">
-    <section class="row container">
+    <section class="container">
+    <div class="row">
     <article class="content col-md-11 col-md-offset-1"><pre
           eos
 
           post = <<-eos
     </article>
+    </div>
     </section>
     </div>
   
-    <section class="container row">
+    <section class="container ">
+    <div class="row">
     <article class="content col-md-10 col-md-offset-1">
           eos
         
