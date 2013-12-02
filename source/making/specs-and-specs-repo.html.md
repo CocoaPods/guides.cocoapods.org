@@ -15,7 +15,6 @@ Pod::Spec.new do |s|
   s.license          =  :type => 'BSD' 
   s.homepage         = 'https://github.com/tonymillion/Reachability'
   s.authors          = 'Tony Million' => 'tonymillion@gmail.com'
-  s.social_media_url = 'https://twitter.com/tonymillion'
   s.summary          = 'ARC and GCD Compatible Reachability Class for iOS and OS X.'
   s.source           =  :git => 'https://github.com/tonymillion/Reachability.git', :tag => 'v3.1.0' 
   s.source_files     = 'Reachability.h,m'
