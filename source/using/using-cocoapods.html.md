@@ -47,13 +47,13 @@ pod 'ObjectiveSugar'
 
 ### Integration with an existing workspace
 
-Integrating CocoaPods with an existing workspace requires one extra line in your Podfile. Simply specify the `.xcworkspace` like so:
+Integrating CocoaPods with an existing workspace requires one extra line in your Podfile. Simply specify the `.xcworkspace` root filename like so:
 
 ```ruby
-xcodeproj `MyProject`
+xcodeproj `MyWorkspace`
 ```
 
-## Should I check in my pods folder?
+## Should I ignore the Pods directory in source control?
 
 Whether or not you check in your Pods folder is up to you, as workflows vary from project to project. Here are some pros and cons to think about when setting up your project:
 
@@ -116,4 +116,3 @@ Before you decide to make the full switch to CocoaPods, make sure that the libra
 2. Create your [Podfile](/using/the-podfile.html)
 3. [Remove the submodule reference](http://davidwalsh.name/git-remove-submodule)
 4. Add a reference to the removed library in your Podfile
-5. Run `pod install`
