@@ -47,13 +47,13 @@ pod 'ObjectiveSugar'
 
 ### Integration with an existing workspace
 
-Integrating CocoaPods with an existing workspace requires one extra line in your Podfile. Simply specify the `.xcworkspace` like so:
+Integrating CocoaPods with an existing workspace requires one extra line in your Podfile. Simply specify the `.xcworkspace` root filename like so:
 
 ```ruby
-xcodeproj `MyProject`
+workspace `MyWorkspace`
 ```
 
-## Should I check in my pods folder?
+## Should I ignore the Pods directory in source control?
 
 Whether or not you check in your Pods folder is up to you, as workflows vary from project to project. Here are some pros and cons to think about when setting up your project:
 
