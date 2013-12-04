@@ -116,3 +116,4 @@ Before you decide to make the full switch to CocoaPods, make sure that the libra
 2. Create your [Podfile](/using/the-podfile.html)
 3. [Remove the submodule reference](http://davidwalsh.name/git-remove-submodule)
 4. Add a reference to the removed library in your Podfile
+5. Run `pod install`
