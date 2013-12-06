@@ -23,7 +23,7 @@ pod 'AFNetworking', '~> 1.0'
 platform :ios, '6.0'
 inhibit_all_warnings!
 
-xcodeproj `MyProject`
+xcodeproj 'MyProject'
 
 pod 'ObjectiveSugar', '~> 0.5'
 
