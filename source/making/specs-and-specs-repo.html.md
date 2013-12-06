@@ -9,17 +9,17 @@ A Podspec, or Spec, describes a version of a Pod library. One Pod, over the cour
 > Here is an example spec:
 
 ```ruby
-Pod::Spec.new do |s|
-  s.name             = 'Reachability'
-  s.version          = '3.1.0'
-  s.license          =  :type => 'BSD' 
-  s.homepage         = 'https://github.com/tonymillion/Reachability'
-  s.authors          = 'Tony Million' => 'tonymillion@gmail.com'
-  s.summary          = 'ARC and GCD Compatible Reachability Class for iOS and OS X.'
-  s.source           =  :git => 'https://github.com/tonymillion/Reachability.git', :tag => 'v3.1.0' 
-  s.source_files     = 'Reachability.h,m'
-  s.framework        = 'SystemConfiguration'
-  s.requires_arc     = true
+Pod::Spec.new do |spec|
+  spec.name             = 'Reachability'
+  spec.version          = '3.1.0'
+  spec.license          =  :type => 'BSD' 
+  spec.homepage         = 'https://github.com/tonymillion/Reachability'
+  spec.authors          = 'Tony Million' => 'tonymillion@gmail.com'
+  spec.summary          = 'ARC and GCD Compatible Reachability Class for iOS and OS X.'
+  spec.source           =  :git => 'https://github.com/tonymillion/Reachability.git', :tag => 'v3.1.0' 
+  spec.source_files     = 'Reachability.h,m'
+  spec.framework        = 'SystemConfiguration'
+  spec.requires_arc     = true
 end
 ```
 
@@ -32,33 +32,33 @@ See the [Private Pods](making/private-cocoapods.html) section for an explanation
 > A Simple specification.
 
 ```ruby
-Pod::Spec.new do |s|
-  s.name         = 'libPusher'
-  s.version      = '1.3'
-  s.license      = 'MIT'
-  s.summary      = 'An Objective-C client for the Pusher.com service'
-  s.homepage     = 'https://github.com/lukeredpath/libPusher'
-  s.author       = 'Luke Redpath'
-  s.source       =  :git => 'git://github.com/lukeredpath/libPusher.git', :tag => 'v1.3'
-  s.source_files = 'Library/*'
-  s.requires_arc = true
-  s.dependency 'SocketRocket'
+Pod::Spec.new do |spec|
+  spec.name         = 'libPusher'
+  spec.version      = '1.3'
+  spec.license      = 'MIT'
+  spec.summary      = 'An Objective-C client for the Pusher.com service'
+  spec.homepage     = 'https://github.com/lukeredpath/libPusher'
+  spec.author       = 'Luke Redpath'
+  spec.source       =  :git => 'git://github.com/lukeredpath/libPusher.git', :tag => 'v1.3'
+  spec.source_files = 'Library/*'
+  spec.requires_arc = true
+  spec.dependency 'SocketRocket'
 end
 ```
 
 > A specification with subspecs
 
 ```ruby
-Pod::Spec.new do |s|
-  s.name          = 'ShareKit'
-  s.source_files  = 'Classes/ShareKit/{Configuration,Core,Customize UI,UI}/**/*.{h,m,c}'
+Pod::Spec.new do |spec|
+  spec.name          = 'ShareKit'
+  spec.source_files  = 'Classes/ShareKit/{Configuration,Core,Customize UI,UI}/**/*.{h,m,c}'
   # ...
 
-  s.subspec 'Evernote' do |evernote|
+  spec.subspec 'Evernote' do |evernote|
     evernote.source_files = 'Classes/ShareKit/Sharers/Services/Evernote/**/*.{h,m}'
   end
 
-  s.subspec 'Facebook' do |facebook|
+  spec.subspec 'Facebook' do |facebook|
     facebook.source_files   = 'Classes/ShareKit/Sharers/Services/Facebook/**/*.{h,m}'
     facebook.compiler_flags = '-Wno-incomplete-implementation -Wno-missing-prototypes'
     facebook.dependency 'Facebook-iOS-SDK'
@@ -75,16 +75,16 @@ If you have some submodules in the repository you need to set the `:submodules` 
 Then you'll be able to specify subspec like above.
 
 ```ruby
-Pod::Spec.new do |s|
-  s.name          = 'SDLoginKit'
-  s.source        =  { 
+Pod::Spec.new do |spec|
+  spec.name          = 'SDLoginKit'
+  spec.source        =  { 
       :git => 'https://github.com/dulaccc/SDLoginKit.git',
       :tag => '1.0.2', 
       :submodules => true 
   }
   # ...
 
-  s.subspec 'SDKit' do |sdkit|
+  spec.subspec 'SDKit' do |sdkit|
     sdkit.source_files = 'SDKit/**/*.{h,m}'
     sdkit.resources    = 'SDKit/**/Assets/*.png'
   end
