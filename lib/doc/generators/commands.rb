@@ -55,7 +55,6 @@ module Pod
               "pod search",
               "pod list",
               "pod list new",
-              "pod podfile-info",
             ],
 
             'Specifications' => [
