@@ -6,6 +6,11 @@ order: 3
 
 ### Installing CocoaPods
 
+* After upgrading from OS X 10.8 to 10.9 the installed CocoaPods gem doesn’t work anymore, even after re-installing the gem. To solve this, you might need to uninstall the gem first and then re-install.
+
+         $ gem uninstall cocoapods
+         $ gem install cocoapods
+         
 * The gem might not be able to compile, to solve this you might need to [symlink GCC](http://www.relaxdiego.com/2012/02/using-gcc-when-xcode-43-is-installed.html).
 * If you used an pre release version of Xcode you might need to update the command line tools.
 * CocoaPods is not compatible with MacRuby.
