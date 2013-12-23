@@ -25,7 +25,7 @@ end
 
 The [Specs Repo](https://github.com/CocoaPods/Specs) is the repository on GitHub that contains the list of all available pods. Every library has an individual folder, which contains sub folders of the available versions of that pod.  
 
-See the [Private Pods](making/private-cocoapods.html) section for an explanation of the Spec repo's file structure.
+See the [Private Pods](private-cocoapods.html) section for an explanation of the Spec repo's file structure.
 
 ## Examples of Specifications
 
