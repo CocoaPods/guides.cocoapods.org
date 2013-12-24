@@ -70,3 +70,19 @@ We love including content from the greater community. When adding a new resource
 - Any external resource links should lead directly to the resource. Links with paywalls, adwalls, etc will not be accepted.
 - External resources should not be promotions or trying to sell something. We are happy to link to technical posts on your company's blog, but posts solely for advertising purposes will not be accepted.
 - All external resources should be submitted via pull request.
+
+External links can be added via the [YAML front-matter](http://jekyllrb.com/docs/frontmatter/) for the guides, with a syntax like this:
+
+```
+---
+title: Making a CocoaPod
+description: Instructions for creating and maintaining a CocoaPod.
+order: 0  
+
+external links:
+-
+  Beginners guide to CocoaPods: http://orta.github.io/cocoapods
+  CocoaPods Screencast: http://nsscreencast.com/episodes/5-cocoapods
+---
+
+```

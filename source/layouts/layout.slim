@@ -47,11 +47,18 @@ html
           .row
             article class=width_classes
               == yield
-          
+              
+              / Add support for external links in the headers of the guides
+              - if current_resource.data["external links"]
+                h2#external-resources <a class="header-link" href="#external-resources">&lt;</a> External resources
+                
+                ul
+                  - for value, href in current_resource.data["external links"][0]
+                    li 
+                      a href=href =value
     - else
     
       == yield
-
 
     - if parents.length > 0 
       .info-row
