@@ -15,7 +15,6 @@ We recommend letting CocoaPods do the hard work here. Running `pod lib create [p
 > The initial folder structure looks like this:
 
 ```
-.
 ├── Classes
     └── ios
     └── osx

@@ -4,7 +4,9 @@ description: Learn about creating Podspec's and the Spec repo.
 order: 1
 ---
 
-A Podspec, or Spec, describes a version of a Pod library. One Pod, over the course of time, will have many Specs. It includes details about where the source should be fetched from, what files to use, the build settings to apply, and other general metadata such as its name, version, and description. You can create one by hand, or run `pod spec create` to generate a stub. Podspecs are ruby files.
+A Podspec, or Spec, describes a version of a Pod library. One Pod, over the course of time, will have many Specs. It includes details about where the source should be fetched from, what files to use, the build settings to apply, and other general metadata such as its name, version, and description.
+
+You can create one by hand, or run `pod spec create` to generate a stub. Podspecs are ruby files.
 
 > Here is an example spec:
 
@@ -67,7 +69,9 @@ Pod::Spec.new do |spec|
 end
 ```
 
-[Subspecs](specification.html#subspec) are a way of chopping up the functionality of a Podspec, allowing people to install a subset of your library. With the above example a Podfile using `require ShareKit` results in the inclusion of the whole library, while `require ShareKit/Facebook` can be used if you are interested only in the Facebook specific parts.
+[Subspecs](specification.html#subspec) are a way of chopping up the functionality of a Podspec, allowing people to install a subset of your library. 
+
+With the above example a Podfile using `pod 'ShareKit'` results in the inclusion of the whole library, while `pod 'ShareKit/Facebook'` can be used if you are interested only in the Facebook specific parts.
 
 ### A specification with subspecs within submodules
 
