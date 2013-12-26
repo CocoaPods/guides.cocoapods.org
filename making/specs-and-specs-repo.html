@@ -24,14 +24,16 @@
 </head>
 <body>
 <nav class="navbar navbar-static-top" role="navigation"><section class="container"><div class="navbar-header">
-<button class="navbar-toggle" data-target=".navbar-header-collapse" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="http://beta.cocoapods.org"></a>
+<button class="navbar-toggle" data-target=".navbar-header-collapse" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span><span class="glyphicon-plus"></span></button><a class="navbar-brand" href="http://beta.cocoapods.org"></a>
 </div>
 <div class="collapse navbar-collapse navbar-header-collapse"><ul class="nav navbar-nav navbar-right">
 <li><a href="http://beta.cocoapods.org/about">About</a></li>
 <li class="active"><a href="http://guides.cocoapods.org">Guides</a></li>
 <li><a href="http://blog.cocoapods.org">Blog</a></li>
 </ul></div></section></nav><section class="container"><div class="row"><header class="header content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h1>Specs and the Specs Repo</h1></header></div></section><div class="guide" id="content-wrapper">
-<section class="container"><div class="row"><article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><p>A Podspec, or Spec, describes a version of a Pod library. One Pod, over the course of time, will have many Specs. It includes details about where the source should be fetched from, what files to use, the build settings to apply, and other general metadata such as its name, version, and description. You can create one by hand, or run <code>pod spec create</code> to generate a stub. Podspecs are ruby files.</p>
+<section class="container"><div class="row"><article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><p>A Podspec, or Spec, describes a version of a Pod library. One Pod, over the course of time, will have many Specs. It includes details about where the source should be fetched from, what files to use, the build settings to apply, and other general metadata such as its name, version, and description.</p>
+
+<p>You can create one by hand, or run <code>pod spec create</code> to generate a stub. Podspecs are ruby files.</p>
 
 <blockquote>
 <p>Here is an example spec:</p>
@@ -59,7 +61,7 @@
     <section class="container "><div class="row">
     <article class="content col-md-10 col-md-offset-1"><p>The <a href="https://github.com/CocoaPods/Specs">Specs Repo</a> is the repository on GitHub that contains the list of all available pods. Every library has an individual folder, which contains sub folders of the available versions of that pod.  </p>
 
-<p>See the <a href="making/private-cocoapods.html">Private Pods</a> section for an explanation of the Spec repo's file structure.</p>
+<p>See the <a href="private-cocoapods.html">Private Pods</a> section for an explanation of the Spec repo's file structure.</p>
 
 <h2 id="examples-of-specifications">
 <a class="header-link" href="#examples-of-specifications">&lt;</a>Examples of Specifications</h2>
@@ -118,7 +120,9 @@
 </div>
   
     <section class="container "><div class="row">
-    <article class="content col-md-10 col-md-offset-1"><p><a href="specification.html#subspec">Subspecs</a> are a way of chopping up the functionality of a Podspec, allowing people to install a subset of your library. With the above example a Podfile using <code>require ShareKit</code> results in the inclusion of the whole library, while <code>require ShareKit/Facebook</code> can be used if you are interested only in the Facebook specific parts.</p>
+    <article class="content col-md-10 col-md-offset-1"><p><a href="specification.html#subspec">Subspecs</a> are a way of chopping up the functionality of a Podspec, allowing people to install a subset of your library. </p>
+
+<p>With the above example a Podfile using <code>pod 'ShareKit'</code> results in the inclusion of the whole library, while <code>pod 'ShareKit/Facebook'</code> can be used if you are interested only in the Facebook specific parts.</p>
 
 <h3 id="a-specification-with-subspecs-within-submodules">
 <a class="header-link" href="#a-specification-with-subspecs-within-submodules">&lt;</a>A specification with subspecs within submodules</h3>

@@ -24,20 +24,34 @@
 </head>
 <body>
 <nav class="navbar navbar-static-top" role="navigation"><section class="container"><div class="navbar-header">
-<button class="navbar-toggle" data-target=".navbar-header-collapse" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="http://beta.cocoapods.org"></a>
+<button class="navbar-toggle" data-target=".navbar-header-collapse" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span><span class="glyphicon-plus"></span></button><a class="navbar-brand" href="http://beta.cocoapods.org"></a>
 </div>
 <div class="collapse navbar-collapse navbar-header-collapse"><ul class="nav navbar-nav navbar-right">
 <li><a href="http://beta.cocoapods.org/about">About</a></li>
 <li class="active"><a href="http://guides.cocoapods.org">Guides</a></li>
 <li><a href="http://blog.cocoapods.org">Blog</a></li>
-</ul></div></section></nav><section class="container"><div class="row"><header class="header content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h1>Troubleshooting</h1></header></div></section><div class="guide" id="content-wrapper"><section class="container"><div class="row"><article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h3 id="installing-cocoapods">
+</ul></div></section></nav><section class="container"><div class="row"><header class="header content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h1>Troubleshooting</h1></header></div></section><div class="guide" id="content-wrapper">
+<section class="container"><div class="row"><article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h3 id="installing-cocoapods">
 <a class="header-link" href="#installing-cocoapods">&lt;</a>Installing CocoaPods</h3>
 
-<ul>
-<li>The gem might not be able to compile, to solve this you might need to <a href="http://www.relaxdiego.com/2012/02/using-gcc-when-xcode-43-is-installed.html">symlink GCC</a>.</li>
-<li>If you used an pre release version of Xcode you might need to update the command line tools.</li>
-<li>CocoaPods is not compatible with MacRuby.</li>
-</ul>
+<ul><li>
+<p>After upgrading from OS X 10.8 to 10.9 the installed CocoaPods gem doesn’t work anymore, even after re-installing the gem. To solve this, you might need to uninstall the gem first and then re-install.</p>
+    </li></ul></article></div>
+    </section><div class="code-break">
+    <section class="container"><div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight plaintext"> $ gem uninstall cocoapods
+ $ gem install cocoapods
+</pre>    </article>
+</div>
+    </section>
+</div>
+  
+    <section class="container "><div class="row">
+    <article class="content col-md-10 col-md-offset-1"><li><p>The gem might not be able to compile, to solve this you might need to <a href="http://www.relaxdiego.com/2012/02/using-gcc-when-xcode-43-is-installed.html">symlink GCC</a>.</p></li>
+<li><p>If you used an pre release version of Xcode you might need to update the command line tools.</p></li>
+<li><p>CocoaPods is not compatible with MacRuby.</p></li>
+
+
 <h3 id="using-the-cocoapods-project">
 <a class="header-link" href="#using-the-cocoapods-project">&lt;</a>Using the CocoaPods Project</h3>
 
@@ -130,7 +144,9 @@ by appending to your build command: <code>ONLY_ACTIVE_ARCH=NO</code>.</li>
 <li><p><strong>Only file tickets about the CocoaPods tool itself.</strong> This includes <a href="https://github.com/CocoaPods/CocoaPods/issues">CocoaPods</a>,
 <a href="https://github.com/CocoaPods/Core/issues">CocoaPods/Core</a>, and <a href="https://github.com/CocoaPods/Xcodeproj/issues">Xcodeproj</a>.</p></li>
 <li><p><strong>Keep tickets short but sweet.</strong> Make sure you include all the context needed to solve the issue. Don't overdo it. Great tickets allow us to focus on solving problems instead of discussing them.</p></li>
-</ul></article></div></section></div>
+</ul></article>
+</div></section>
+</div>
 <div class="info-row"><section class="container"><div class="row"><article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><a data-container="body" data-content="CocoaPods is an open source project. Help us improve these guides by sending a pull request. ❤" data-original-title="" data-placement="top" data-toggle="popover" data-trigger="hover" href="https://github.com/CocoaPods/guides.cocoapods.org/blob/master/source/using/troubleshooting.html.md" id="pull-request" title=""></a><ul class="breadcrumb">
 <li>
 <a href="../index.html">Home</a><span class="divider"></span>
