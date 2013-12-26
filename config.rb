@@ -1,6 +1,5 @@
 # Layouts
 require "lib/breaking_source.rb"
-require "lib/shared_layouts.rb"
 require "lib/add_links_to_navigation.rb"
 
 # Tools for generating data
@@ -28,7 +27,6 @@ activate :automatic_image_sizes
 activate :rouge_syntax
 
 activate :breaking_source
-activate :shared_layouts
 activate :add_links_to_navigation
 
 helpers NavigationHelpers
@@ -36,6 +34,17 @@ helpers HTMLHelpers
 
 configure :development do
   activate :livereload
+end
+
+
+helpers do
+  
+  def shared_partial(*sources)
+    sources.inject([]) do |combined, source|
+      combined << partial("../shared/includes/#{source}",:locals => { :guides => true })
+    end.join
+  end
+  
 end
 
 # Allow shared assets folder to not be in source, thereby not dragging in every asset
