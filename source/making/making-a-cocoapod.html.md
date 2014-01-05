@@ -26,7 +26,7 @@ We recommend letting CocoaPods do the hard work here. Running `pod lib create [p
 └── NAME.podspec
 ```
 
-> The suggested Project/Podfile:
+> The suggested Example/Podfile:
 
 ```ruby
  platform :ios
