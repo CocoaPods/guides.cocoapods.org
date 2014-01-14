@@ -25,14 +25,14 @@ To work with your collection of private pods, we suggest creating your own Spec 
 
 ###2. Add your Private Repo to your CocoaPods installation
 ```shell
-$ pod repo add NAME SOURCE_URL
+$ pod repo add REPO_NAME SOURCE_URL
 ```
 <aside>Note: If you plan on creating pods locally, you should have push access to SOURCE_URL</aside>
 
 > To check if your installation is successful and ready to go:
 
 ```shell
-$ cd ~/.cocoapods/NAME
+$ cd ~/.cocoapods/REPO_NAME
 $ pod repo lint .
 ```
 
@@ -41,7 +41,7 @@ $ pod repo lint .
 > Make sure you've tagged and versioned your source, then run:
 
 ```shell
-$ pod push NAME SPEC_NAME.podspec
+$ pod push REPO_NAME SPEC_NAME.podspec
 ```
 
 This will run `pod spec lint`, and take care of all the little details for setting up the spec in your private repo.
