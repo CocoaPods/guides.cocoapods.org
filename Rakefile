@@ -123,49 +123,7 @@ namespace :generate do
     generator.save
   end
 
-  # TODO To generate reliable urls, they should be considered part of the
-  # model, an it should be computed by the code objects.
-  #
-  desc "Generates the data for the search."
-  task :search do
-    puts "\e[1;33mBuilding Search Data\e[0m"
-
-    # [Hash{String=>Hash{String=>String}]
-    result = {
-      'dsls'        => {},
-      'name_spaces' => {},
-      'methods'     => {},
-    }
-
-    # FIXME DSL should have urls similar to the gems
-    #
-    dsls.each do |description|
-      name = description[:title]
-      name = name.downcase.gsub('-','_')
-      file = "docs_data/#{name}.yaml"
-      dsl  = YAML::load(File.open(file))
-      dsl.meths.compact.each do |method|
-        result['dsls']["#{name}/#{method.name.downcase}"] = "#{name}.html##{method.name.downcase}"
-      end
-    end
-
-    gems.each do |name|
-      name = name.downcase.gsub('-','_')
-      file = "docs_data/#{name}.yaml"
-      gem  = YAML::load(File.open(file))
-      gem.name_spaces.each do |ns|
-        result['name_spaces'][ns.ruby_path] = "#{name}/#{ns.ruby_path.downcase.gsub(/::/,'/')}"
-        ns.meths.compact.each do |method|
-          result['methods'][method.ruby_path] = "#{name}/#{method.ruby_path.downcase.gsub(/::/,'/')}"
-        end
-      end
-    end
-
-    require 'json'
-    File.open('source/typeahead.json', 'w') { |f| f.puts(result.to_json) }
-  end
-
   desc "Generates all the metadata necessary for the middleman"
-  task :all => [:dsl, :gems, :commands, :search]
+  task :all => [:dsl, :gems, :commands]
   task :default => 'all'
 end
