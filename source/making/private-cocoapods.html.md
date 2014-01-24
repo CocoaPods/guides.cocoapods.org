@@ -32,7 +32,7 @@ $ pod repo add REPO_NAME SOURCE_URL
 > To check if your installation is successful and ready to go:
 
 ```shell
-$ cd ~/.cocoapods/REPO_NAME
+$ cd ~/.cocoapods/repos/REPO_NAME
 $ pod repo lint .
 ```
 
