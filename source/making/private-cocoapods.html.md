@@ -11,7 +11,7 @@ There are a few steps to getting a private pods setup for your project; creating
 ###1. Create a Private Spec Repo
 To work with your collection of private pods, we suggest creating your own Spec repo. If you plan on forking a library that is already part of the Master Spec repo, for now we suggest choosing a name that starts with a letter before `M` (due to spec repos loading in alphabetical order, see [#982](https://github.com/CocoaPods/CocoaPods/issues/982)).
 
-**You do not need to fork the CococaPods/Specs Master repo.** Make sure that everyone on your team has access to this repo, but it does not need to be public.
+**You do not need to fork the CocoaPods/Specs Master repo.** Make sure that everyone on your team has access to this repo, but it does not need to be public.
 
 > The structure of your repo should mirror this:
 
@@ -32,7 +32,7 @@ $ pod repo add REPO_NAME SOURCE_URL
 > To check if your installation is successful and ready to go:
 
 ```shell
-$ cd ~/.cocoapods/REPO_NAME
+$ cd ~/.cocoapods/repos/REPO_NAME
 $ pod repo lint .
 ```
 

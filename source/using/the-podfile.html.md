@@ -33,7 +33,7 @@ end
 
 post_install do |installer|
     installer.project.targets.each do |target|
-        puts "#{target.name}"
+        puts target.name
     end
 end
  ```
