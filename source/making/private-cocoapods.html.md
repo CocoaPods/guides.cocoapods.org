@@ -2,6 +2,10 @@
 title: Private Pods
 description: How to setup a private Podspec repo for maintaining internal libraries.
 order: 2
+external links:
+-
+  "Using CocoaPods to Modularize a Big iOS App by @aroldan": http://dev.hubspot.com/blog/architecting-a-large-ios-app-with-cocoapods
+
 ---
 
 CocoaPods is a great tool not only for adding open source code to your project, but also for sharing components across projects. You can use a private Spec Repo to do this.

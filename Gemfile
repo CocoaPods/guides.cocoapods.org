@@ -2,14 +2,14 @@
 # the following line to use "https"
 source 'https://rubygems.org'
 
-gem "middleman", "~>3.0.13"
+gem "middleman"
 
 gem 'middleman-rouge'
 gem "middleman-sprockets"
 gem 'middleman-gh-pages'
 gem "middleman-livereload", "~> 3.1.0"
 
-gem 'redcarpet', github: 'vmg/redcarpet'
+gem 'redcarpet', github: 'vmg/redcarpet', ref: 'cef9abbcc411d07fd1b8c80e348a80efde2db323'
 gem 'rake'
 gem 'sass'
 
@@ -22,7 +22,6 @@ gem 'github-markup'
 gem 'nokogiri'
 
 gem 'claide'
-gem 'rake'
 
 gem 'xcodeproj'
 gem 'cocoapods'
