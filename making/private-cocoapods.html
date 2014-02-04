@@ -40,7 +40,7 @@
 
 <p>To work with your collection of private pods, we suggest creating your own Spec repo. If you plan on forking a library that is already part of the Master Spec repo, for now we suggest choosing a name that starts with a letter before <code>M</code> (due to spec repos loading in alphabetical order, see <a href="https://github.com/CocoaPods/CocoaPods/issues/982">#982</a>).</p>
 
-<p><strong>You do not need to fork the CococaPods/Specs Master repo.</strong> Make sure that everyone on your team has access to this repo, but it does not need to be public.</p>
+<p><strong>You do not need to fork the CocoaPods/Specs Master repo.</strong> Make sure that everyone on your team has access to this repo, but it does not need to be public.</p>
 
 <blockquote>
 <p>The structure of your repo should mirror this:</p>
@@ -65,7 +65,7 @@
 </div>
     </section><div class="code-break">
     <section class="container"><div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight shell"><span class="gp">$ </span>pod repo add NAME SOURCE_URL
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight shell"><span class="gp">$ </span>pod repo add REPO_NAME SOURCE_URL
 </pre>    </article>
 </div>
     </section>
@@ -81,7 +81,7 @@
 </div>
     </section><div class="code-break">
     <section class="container"><div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight shell"><span class="gp">$ </span><span class="nb">cd</span> ~/.cocoapods/NAME
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight shell"><span class="gp">$ </span><span class="nb">cd</span> ~/.cocoapods/repos/REPO_NAME
 <span class="gp">$ </span>pod repo lint .
 </pre>    </article>
 </div>
@@ -99,7 +99,7 @@
 </div>
     </section><div class="code-break">
     <section class="container"><div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight shell"><span class="gp">$ </span>pod push NAME SPEC_NAME.podspec
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight shell"><span class="gp">$ </span>pod push REPO_NAME SPEC_NAME.podspec
 </pre>    </article>
 </div>
     </section>
@@ -117,7 +117,9 @@
 <a class="header-link" href="#how-to-remove-a-private-repo">&lt;</a>How to remove a Private Repo</h2>
 
 <p><code>pod repo remove [name]</code></p>
-</article>
+<h2 id="external-resources">
+<a class="header-link" href="#external-resources">&lt;</a><a class="header-link" href="#external-resources">&lt;</a> External resources</h2>
+<ul><li><a href="http://dev.hubspot.com/blog/architecting-a-large-ios-app-with-cocoapods">Using CocoaPods to Modularize a Big iOS App by @aroldan</a></li></ul></article>
 </div></section>
 </div>
 <div class="info-row"><section class="container"><div class="row"><article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><a data-container="body" data-content="CocoaPods is an open source project. Help us improve these guides by sending a pull request. ❤" data-original-title="" data-placement="top" data-toggle="popover" data-trigger="hover" href="https://github.com/CocoaPods/guides.cocoapods.org/blob/master/source/making/private-cocoapods.html.md" id="pull-request" title=""></a><ul class="breadcrumb">
@@ -171,7 +173,7 @@
 <article class="col-md-8 col-lg-8 col-sm-12 col-md-offset-2 col-lg-offset-2 col-xs-12"><h4>CocoaPods is a project from </h4>
 <p class="contributors"><a href="https://twitter.com/alloy">Eloy Durán</a>, <a href="https://twitter.com/fabiopelosin">Fabio Pelosin</a>, <a href="http://orta.github.io">Orta Therox</a>,  and The CocoaPods Dev Team with contributions from <a href="https://github.com/CocoaPods/Specs/graphs/contributors">many, many others</a>.</p>
 <h4>Lovingly sponsored by</h4>
-<p class="sponsors"><a href="http://www.fngtps.com">Fingertips</a>, <a href="http://www.hipbyte.com">Hipbyte</a>, <a href="http://artsy.net">Artsy</a> and <a href="https://www.sauspiel.de">Sauspiel</a>.</p></article><article class="col-md-8 col-md-offset-2 minor"></article>
+<p class="sponsors"><a href="http://www.fngtps.com">Fingertips</a>, <a href="http://www.rubymotion.com">RubyMotion</a>, <a href="http://artsy.net">Artsy</a> and <a href="https://www.sauspiel.de">Sauspiel</a>.</p></article><article class="col-md-8 col-md-offset-2 minor"></article>
 </div></section></footer><footer class="footer-links"><section class="container"><div class="row"><article class="col-md-8 col-lg-8 col-sm-12 col-md-offset-2 col-lg-offset-2 col-xs-12"><a class="cocoapods-small-logo" href="http://cocoapods.org"></a><ul>
 <li class="col-md-3 col-sm-3 col-xs-6"><a href="http://guides.cocoapods.org/using/troubleshooting.html">Support</a></li>
 <li class="col-md-3 col-sm-3 col-xs-6"><a href="https://github.com/CocoaPods/CocoaPods">Github Repo</a></li>
