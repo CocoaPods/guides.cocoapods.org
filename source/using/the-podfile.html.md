@@ -71,7 +71,7 @@ Besides no version, or a specific one, it is also possible to use logical operat
 In addition to the logic operators CocoaPods has an optimisic operator `~>`:
 
 * `'~> 0.1.2'` Version 0.1.2 and the versions up to 0.2, not including 0.2 and higher
-* `'~> 0.1'` Version 0.1 and the versions up to 1.0, not including 1.1 and higher
+* `'~> 0.1'` Version 0.1 and the versions up to 1.0, not including 1.0 and higher
 * `'~> 0'` Version 0 and higher, this is basically the same as not having it.
 
 For more information, regarding versioning policy, see:
