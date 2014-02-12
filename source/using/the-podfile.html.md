@@ -107,7 +107,7 @@ pod 'ARAnalytics/GoogleAnalytics'
 
 ## Using the files from a folder local to the machine.
 
-> If you would like to use develop a Pod in tandem with its client
+> If you would like to develop a Pod in tandem with its client
 project you can use `:path`.
 
 ```ruby
@@ -117,7 +117,7 @@ pod 'AFNetworking', :path => '~/Documents/AFNetworking'
 Using this option CocoaPods will assume the given folder to be the
 root of the Pod and will link the files directly from there in the
 Pods project. This means that your edits will persist between CocoaPods
-installations. The referenced folder can be a checkout of your your favourite SCM or
+installations. The referenced folder can be a checkout of your favourite SCM or
 even a git submodule of the current repo.  
 
 <aside>Note that the `podspec` of the Pod file is expected to be in that folder.</aside>
