@@ -65,7 +65,7 @@ $ cd ~/code/Pods/NAME
 $ edit NAME.podspec
 # set the new version to 0.0.1
 # set the new tag to 0.0.1
-$ pod spec lint --local
+$ pod lib lint
 
 $ git add -A && git commit -m "Release 0.0.1."
 $ git tag '0.0.1'
