@@ -50,8 +50,8 @@ cocoapods`. E.g.
 ```shell
 $ gem install cocoapods --user-install
 $ gem which cocoapods
-/Users/eloy/.gem/ruby/1.8/gems/cocoapods-0.27.1/lib/cocoapods.rb
-$ /Users/eloy/.gem/ruby/1.8/bin/pod install
+/Users/eloy/.gem/ruby/2.0.0/gems/cocoapods-0.29.0/lib/cocoapods.rb
+$ /Users/eloy/.gem/ruby/2.0.0/bin/pod install
 ```
 
 ### Updating CocoaPods
