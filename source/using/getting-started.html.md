@@ -56,19 +56,19 @@ $ /Users/eloy/.gem/ruby/2.0.0/bin/pod install
 
 ### Updating CocoaPods
 
-> To update CocoaPods you simply install the gem again
+> To update CocoaPods you simply run `gem` again with the `update` option
 
 ```shell
-$ [sudo] gem install cocoapods
+$ [sudo] gem update cocoapods
 ```
 
 > Or for a pre-release version
 
 ```shell
-$ [sudo] gem install cocoapods --pre
+$ [sudo] gem update cocoapods --pre
 ```
 
-If you installed the gem using `sudo` you should use that command as well.
+If you originally installed the cocoapods gem using `sudo`, you should use that command again.
 
 
 [creating-a-workspace]: http://blog.carbonfive.com/2011/04/04/using-open-source-static-libraries-in-xcode-4/#creating_a_workspace
