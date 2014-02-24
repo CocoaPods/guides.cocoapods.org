@@ -68,7 +68,9 @@ $ [sudo] gem install cocoapods
 $ [sudo] gem install cocoapods --pre
 ```
 
-If you installed the gem using `sudo` you should use that command as well.
+If you originally installed the cocoapods gem using `sudo`, you should use that command again.
+
+Later on, when you're actively using CocoaPods by installing pods, you will be notified when new versions become available with a *CocoaPods X.X.X is now available, please update* message.
 
 
 [creating-a-workspace]: http://blog.carbonfive.com/2011/04/04/using-open-source-static-libraries-in-xcode-4/#creating_a_workspace
