@@ -70,8 +70,13 @@ $ pod lib lint
 $ git add -A && git commit -m "Release 0.0.1."
 $ git tag '0.0.1'
 $ git push --tags
-$ pod push master
 ```
+
+Then submit a Pull Request to the Specs repo.
+
+> What happened to my push access?
+
+We are working on improving the way specs are submitted, so we removed push access for all except the core team.
 
 ## Library Versioning
 
