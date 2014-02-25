@@ -1,0 +1,8 @@
+language: ruby
+branches:
+  only:
+  - master
+install:
+- rake bootstrap
+script:
+- rake deploy
