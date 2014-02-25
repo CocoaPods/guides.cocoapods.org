@@ -36,7 +36,7 @@
 <h2 id="the-pod-files">
 <a class="header-link" href="#the-pod-files">&lt;</a>The Pod Files</h2>
 
-<p>There are only a few differences between a CocoaPod and a generic open source control. The most important ones, aside from the actual source, are the <code>.podspec</code> and <code>LICENSE</code>. We do not accept libraries into the public master repo without a code license. For information on what license to choose, we suggest reading <a href="http://www.codinghorror.com/blog/2007/04/pick-a-license-any-license.html">this article on CodingHorror</a> or <a href="http://www.tldrlegal.com/">tl;dr Legal</a>.</p>
+<p>There are only a few differences between a CocoaPod and a generic open source library. The most important ones, aside from the actual source, are the <code>.podspec</code> and <code>LICENSE</code>. We do not accept libraries into the public master repo without a code license. For information on what license to choose, we suggest reading <a href="http://www.codinghorror.com/blog/2007/04/pick-a-license-any-license.html">this article on CodingHorror</a> or <a href="http://www.tldrlegal.com/">tl;dr Legal</a>.</p>
 
 <p>We recommend letting CocoaPods do the hard work here. Running <code>pod lib create [pod name]</code> will set you up with a well thought out library structure allowing you to easily include your files and get started quickly. In addition the template offers some terminal commands to automate a lot of the release / updating.</p>
 
@@ -130,7 +130,7 @@
 <span class="gp">$ </span>edit NAME.podspec
 <span class="c"># set the new version to 0.0.1</span>
 <span class="c"># set the new tag to 0.0.1</span>
-<span class="gp">$ </span>pod spec lint --local
+<span class="gp">$ </span>pod lib lint
 
 <span class="gp">$ </span>git add -A <span class="o">&amp;&amp;</span> git commit -m <span class="s2">"Release 0.0.1."</span>
 <span class="gp">$ </span>git tag <span class="s1">'0.0.1'</span>
