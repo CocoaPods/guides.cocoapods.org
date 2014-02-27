@@ -69,7 +69,7 @@ Pod::Spec.new do |spec|
 end
 ```
 
-[Subspecs](specification.html#subspec) are a way of chopping up the functionality of a Podspec, allowing people to install a subset of your library. 
+[Subspecs](/syntax/podspec.html#group_subspecs) are a way of chopping up the functionality of a Podspec, allowing people to install a subset of your library. 
 
 With the above example a Podfile using `pod 'ShareKit'` results in the inclusion of the whole library, while `pod 'ShareKit/Facebook'` can be used if you are interested only in the Facebook specific parts.
 
