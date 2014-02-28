@@ -2,6 +2,8 @@ language: ruby
 branches:
   only:
   - master
+rvm:
+- 2.0.0
 install:
 - bundle install
 - rake bootstrap
