@@ -15,4 +15,4 @@
 	url = https://github.com/CocoaPods/Xcodeproj.git
 [submodule "gems/cocoapods-downloader"]
 	path = gems/cocoapods-downloader
-	url = git@github.com:CocoaPods/cocoapods-downloader.git
+	url = https://github.com/CocoaPods/cocoapods-downloader.git
