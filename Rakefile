@@ -1,3 +1,5 @@
+$LOAD_PATH << 'lib/xcodeproj.rb'
+
 def execute_command(command)
   if ENV['VERBOSE']
     sh(command)

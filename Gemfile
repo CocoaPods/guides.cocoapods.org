@@ -22,8 +22,5 @@ gem 'github-markup'
 gem 'nokogiri'
 
 gem 'claide'
-
-gem 'xcodeproj'
-gem 'cocoapods'
-gem 'cocoapods-core'
+gem 'colored'
 
