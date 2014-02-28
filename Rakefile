@@ -1,4 +1,4 @@
-$LOAD_PATH << 'lib/xcodeproj.rb'
+$LOAD_PATH << 'lib'
 
 def execute_command(command)
   if ENV['VERBOSE']
