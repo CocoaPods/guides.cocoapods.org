@@ -3,6 +3,7 @@ branches:
   only:
   - master
 install:
+- bundle install
 - rake bootstrap
 script:
 - rake deploy
