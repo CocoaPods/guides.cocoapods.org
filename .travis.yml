@@ -1,7 +1,7 @@
 language: ruby
 branches:
   only:
-  - master
+  - travis-fixes
 rvm:
 - 2.0.0
 install:
