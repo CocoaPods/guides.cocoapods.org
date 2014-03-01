@@ -25,6 +25,7 @@ module Pod
         #         docs.
         #
         def initialize(source_files)
+          require 'bundler/setup'
           require 'yard'
           require 'redcarpet'
           require 'pygments'
