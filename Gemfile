@@ -23,4 +23,5 @@ gem 'nokogiri'
 
 gem 'claide'
 gem 'colored'
+gem 'cocoapods-core'
 
