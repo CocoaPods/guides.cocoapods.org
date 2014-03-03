@@ -1,3 +1,5 @@
+$LOAD_PATH.unshift File.expand_path('../../../../gems/CocoaPods/lib', __FILE__)
+
 module Pod
   module Doc
     module Generators
@@ -11,6 +13,7 @@ module Pod
           $:.unshift((DOC_GEM_ROOT + 'cocoapods/lib').to_s)
           $:.unshift((DOC_GEM_ROOT + 'cocoapods-downloader/lib').to_s)
           require 'cocoapods'
+          # require 'cocoapods/command'
           super
         end
 

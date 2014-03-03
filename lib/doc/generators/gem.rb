@@ -7,6 +7,7 @@ module Pod
         # @param [Pathname] gem_spec_file
         #
         def initialize(gem_spec_file)
+          require 'bundler/setup'
           require 'rubygems'
           @gem_spec_file = Pathname.new(gem_spec_file)
           gem_dir = File.dirname(gem_spec_file)

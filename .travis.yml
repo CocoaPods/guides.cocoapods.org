@@ -1,13 +1,16 @@
 language: ruby
 branches:
   only:
-  - travis-fixes
+  - master
 rvm:
 - 2.0.0
 install:
+- git config --global user.email "bots@cocoapods.org"
+- git config --global user.name "CocoaPods Bot"
 - bundle install
 - rake bootstrap
 script:
+- git remote set-url origin "https://${GH_TOKEN}@github.com/CocoaPods/guides.cocoapods.org.git"
 - rake deploy
 env:
   global:

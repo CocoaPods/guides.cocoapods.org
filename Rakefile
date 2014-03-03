@@ -105,7 +105,8 @@ namespace :generate do
 
     gems.each do |name|
       github_name = name == 'CocoaPods-Core' ? 'Core' : name
-      generator = Pod::Doc::Generators::Gem.new(ROOT + "gems/#{github_name}/#{name}.gemspec")
+      spec_path = ROOT + "gems/#{github_name}/#{name.downcase}.gemspec"
+      generator = Pod::Doc::Generators::Gem.new(spec_path)
       generator.name = name
       generator.github_name = github_name
       generator.output_file = "docs_data/#{name.downcase.gsub('-','_')}.yaml"
