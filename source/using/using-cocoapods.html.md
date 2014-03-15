@@ -55,7 +55,7 @@ workspace 'MyWorkspace'
 
 ## Should I ignore the Pods directory in source control?
 
-Whether or not you check in your Pods folder is up to you, as workflows vary from project to project. Here are some pros and cons to think about when setting up your project:
+Whether or not you check in your Pods folder is up to you, as workflows vary from project to project. We recommend against adding the Pods directory to your `.gitignore`. However you should judge for yourself, here are the pros and cons:
 
 ### Pros
 
