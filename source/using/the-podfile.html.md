@@ -135,6 +135,7 @@ pod 'AFNetworking', :git => 'https://github.com/gowalla/AFNetworking.git'
 ````
 
 > To use a different branch of the repo:
+
 ```ruby
 pod 'AFNetworking', :git => 'https://github.com/gowalla/AFNetworking.git', :branch => 'dev'
 ```
