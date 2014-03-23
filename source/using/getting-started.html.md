@@ -2,6 +2,10 @@
 title: Getting Started
 description: This is a guide for setting up CocoaPods and working with your first project.
 order: 0
+external links:
+-
+  "CocoaPods at Treehouse": http://teamtreehouse.com/library/ios-tools/cocoapods/cocoapods
+  "Streamlining Cocoa Development With CocoaPods": http://code.tutsplus.com/tutorials/streamlining-cocoa-development-with-cocoapods--mobile-15938
 ---
 
 ## What is CocoaPods
