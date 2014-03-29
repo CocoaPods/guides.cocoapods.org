@@ -99,15 +99,65 @@
 </div>
   
     <section class="container "><div class="row">
-    <article class="content col-md-10 col-md-offset-1"><blockquote>
-<p>You can also lint the pod against the files of its directory, this won't test the downloading aspect of linting.</p>
-</blockquote>
+    <article class="content col-md-10 col-md-offset-1"><h3 id="testing">
+<a class="header-link" href="#testing">&lt;</a>Testing</h3>
+
+<p>You can test the syntax of your podfile by linting the  pod against the files of its directory, this won't test the downloading aspect of linting.</p>
     </article>
 </div>
     </section><div class="code-break">
     <section class="container"><div class="row">
     <article class="content col-md-11 col-md-offset-1"><pre class="highlight shell"><span class="gp">$ </span><span class="nb">cd</span> ~/code/Pods/NAME
 <span class="gp">$ </span>pod lib lint
+</pre>    </article>
+</div>
+    </section>
+</div>
+  
+    <section class="container "><div class="row">
+    <article class="content col-md-10 col-md-offset-1"><p>Before releasing your new Pod to the world its best to test that you can install your pod successfully into an Xcode project. You can do this in a couple of ways:</p>
+
+<blockquote>
+<p>Push your podspec to your repository, then create a new Xcode project with a Podfile and add your pod to the file liks so:</p>
+</blockquote>
+    </article>
+</div>
+    </section><div class="code-break">
+    <section class="container"><div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><span class="n">pod</span> <span class="s1">'NAME'</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">'https://example.com/URL/to/repo/NAME.git'</span>
+</pre>    </article>
+</div>
+    </section>
+</div>
+  
+    <section class="container "><div class="row">
+    <article class="content col-md-10 col-md-offset-1"><blockquote>
+<p>Then run</p>
+</blockquote>
+    </article>
+</div>
+    </section><div class="code-break">
+    <section class="container"><div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight shell">pod install 
+-- or --
+pod update
+</pre>    </article>
+</div>
+    </section>
+</div>
+  
+    <section class="container "><div class="row">
+    <article class="content col-md-10 col-md-offset-1"><blockquote>
+<p>Alternatively if you have a separate Xcode project for your unit tests you can use a podfile for this project that references your development podspec</p>
+</blockquote>
+    </article>
+</div>
+    </section><div class="code-break">
+    <section class="container"><div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><span class="n">xcodeproj</span> <span class="s1">'NAMETests'</span>
+<span class="n">workspace</span> <span class="s1">'../NAME'</span>
+
+<span class="n">pod</span> <span class="s1">'NAME'</span><span class="p">,</span> <span class="ss">:path</span> <span class="o">=&gt;</span> <span class="s1">'../'</span>
 </pre>    </article>
 </div>
     </section>
