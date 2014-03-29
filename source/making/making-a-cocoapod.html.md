@@ -47,12 +47,38 @@ You can work on the library from its folder on your system.
 pod 'Name', :path => '~/code/Pods/NAME.podspec'
 ```
 
-> You can also lint the pod against the files of its directory, this won't test the downloading aspect of linting.
+### Testing
+
+You can test the syntax of your podfile by linting the  pod against the files of its directory, this won't test the downloading aspect of linting.
 
 ```shell
 $ cd ~/code/Pods/NAME
 $ pod lib lint
 ```
+
+Before releasing your new Pod to the world its best to test that you can install your pod successfully into an Xcode project. You can do this in a couple of ways:
+
+> Push your podspec to your repository, then create a new Xcode project with a Podfile and add your pod to the file liks so:
+
+````ruby
+pod 'NAME', :git => 'https://example.com/URL/to/repo/NAME.git'
+````
+> Then run
+
+````shell
+pod install 
+-- or --
+pod update
+````
+
+> Alternatively if you have a separate Xcode project for your unit tests you can use a podfile for this project that references your development podspec
+
+````ruby
+xcodeproj 'NAMETests'
+workspace '../NAME'
+
+pod 'NAME', :path => '../'
+```` 
 
 ### Release
 
