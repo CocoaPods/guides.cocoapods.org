@@ -82,7 +82,7 @@ pod 'NAME', :path => '../'
 
 ### Release
 
-If you used `pod lib create` to generate your project you can run `rake release` in the Pod's root folder. 
+If you used `pod lib create` to generate your project you can run `rake release` in the Pod's root folder, which validate your build and pushes a release tag to your git repository. 
 
 > The release workflow is similar to the following.
 
@@ -98,7 +98,7 @@ $ git tag '0.0.1'
 $ git push --tags
 ```
 
-Then submit a Pull Request to the Specs repo.
+Then submit a Pull Request to the [Specs repo](https://github.com/CocoaPods/Specs).
 
 > What happened to my push access?
 
