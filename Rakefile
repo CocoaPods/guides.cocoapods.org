@@ -7,29 +7,7 @@ task :run do
   sh "bundle exec middleman server"
 end
 
-# Helpers
-#-----------------------------------------------------------------------------#
-
-$LOAD_PATH << 'lib'
-
-def execute_command(command)
-  if ENV['VERBOSE']
-    sh(command)
-  else
-    output = `#{command} 2>&1`
-    raise output unless $?.success?
-  end
-end
-
-def title(title)
-  cyan_title = "\033[0;36m#{title}\033[0m"
-  puts
-  puts "-" * 80
-  puts cyan_title
-  puts "-" * 80
-  puts
-end
-
+# Bootstrap task
 #-----------------------------------------------------------------------------#
 
 desc "Initializes your working copy to run the specs"
@@ -46,17 +24,18 @@ task :bootstrap do
   execute_command "mkdir -p docs_data"
 end
 
+# Deploy task
 #-----------------------------------------------------------------------------#
 
 begin
   require 'middleman-gh-pages'
-
   desc 'Build and push the guides to GitHub Pages'
   task :deploy => ['generate:all', :publish]
 rescue LoadError
   $stderr.puts "[!] Disabled the middleman publish task, run `rake bootstrap` first."
 end
 
+# Gems namespace
 #-----------------------------------------------------------------------------#
 
 namespace :gems do
@@ -74,16 +53,7 @@ namespace :gems do
   end
 end
 
-#-----------------------------------------------------------------------------#
-
-def gems
-  %w[ CocoaPods CocoaPods-Core Xcodeproj CLAide cocoapods-downloader ]
-end
-
-def dsls
-  [ { :name => "Podfile", :title => "podfile" }, {:name => "Specification", :title => "podspec"} ]
-end
-
+# Generate namespace
 #-----------------------------------------------------------------------------#
 
 # Generates the data YAML ready to be used by the Middleman.
@@ -101,7 +71,7 @@ namespace :generate do
     dsls.each do |dsl|
       name = dsl[:name]
       title = dsl[:title]
-      
+
       dsl_file = (ROOT + "gems/Core/lib/cocoapods-core/#{name.downcase}/dsl.rb").to_s
       generator = Pod::Doc::Generators::DSL.new(dsl_file)
       generator.name = name
@@ -142,3 +112,35 @@ namespace :generate do
   task :all => [:dsl, :gems, :commands]
   task :default => 'all'
 end
+
+# Helpers
+#-----------------------------------------------------------------------------#
+
+$LOAD_PATH << 'lib'
+
+def gems
+  %w[ CocoaPods CocoaPods-Core Xcodeproj CLAide cocoapods-downloader ]
+end
+
+def dsls
+  [ { :name => "Podfile", :title => "podfile" }, {:name => "Specification", :title => "podspec"} ]
+end
+
+def execute_command(command)
+  if ENV['VERBOSE']
+    sh(command)
+  else
+    output = `#{command} 2>&1`
+    raise output unless $?.success?
+  end
+end
+
+def title(title)
+  cyan_title = "\033[0;36m#{title}\033[0m"
+  puts
+  puts "-" * 80
+  puts cyan_title
+  puts "-" * 80
+  puts
+end
+
