@@ -1,3 +1,15 @@
+# Run task
+#-----------------------------------------------------------------------------#
+
+desc "Runs the site locally"
+task :run do
+  title 'Running at http://0.0.0.0:4567'
+  sh "bundle exec middleman server"
+end
+
+# Helpers
+#-----------------------------------------------------------------------------#
+
 $LOAD_PATH << 'lib'
 
 def execute_command(command)
