@@ -3,7 +3,8 @@
 
 desc "Runs the site locally"
 task :run do
-  title 'Running at http://0.0.0.0:4567'
+  title 'Running locally'
+  sh "open http://0.0.0.0:4567"
   sh "bundle exec middleman server"
 end
 
