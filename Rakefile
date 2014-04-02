@@ -82,21 +82,6 @@ namespace :generate do
     end
   end
 
-  desc "Generates the data for the gems."
-  task :gems do
-    puts "\e[1;33mBuilding Gems Data\e[0m"
-
-    gems.each do |name|
-      github_name = name == 'CocoaPods-Core' ? 'Core' : name
-      spec_path = ROOT + "gems/#{github_name}/#{name.downcase}.gemspec"
-      generator = Pod::Doc::Generators::Gem.new(spec_path)
-      generator.name = name
-      generator.github_name = github_name
-      generator.output_file = "docs_data/#{name.downcase.gsub('-','_')}.yaml"
-      generator.save
-    end
-  end
-
   desc "Generates the data for the commands."
   task :commands do
     puts "\e[1;33mBuilding Commands Data\e[0m"
@@ -118,10 +103,6 @@ end
 #-----------------------------------------------------------------------------#
 
 $LOAD_PATH << 'lib'
-
-def gems
-  %w[ CocoaPods CocoaPods-Core Xcodeproj CLAide cocoapods-downloader ]
-end
 
 def dsls
   [ { :name => "Podfile", :title => "podfile" }, {:name => "Specification", :title => "podspec"} ]
