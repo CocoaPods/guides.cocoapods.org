@@ -44,7 +44,7 @@ You can work on the library from its folder on your system.
 > Alternatively you can work from an application project using the `:path` option:
 
 ```ruby
-pod 'Name', :path => '~/code/Pods/NAME.podspec'
+pod 'Name', :path => '~/code/Pods/'
 ```
 
 ### Testing
