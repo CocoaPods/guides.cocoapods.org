@@ -1,7 +1,7 @@
 ---
 title: Release Process
 description: This describes how the CocoaPods team deal with the release process.
-order: 3
+order: 4
 ---
 
 We should strive for a fast release cycle, following [‘semantic versioning’](http://semver.org). The only difference being that since we are not yet passed version 1.0.0, we don’t increase the major version when an API change is introduced.
