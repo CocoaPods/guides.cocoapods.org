@@ -9,7 +9,7 @@ order: 5
 ## Ruby
 
 - Editor
-- Bunlder
+- Bundler
 - Resources for the language and brief overview
 
 ## CocoaPods Convetions
