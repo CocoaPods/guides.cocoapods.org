@@ -256,6 +256,8 @@ module NavigationHelpers
         parent = parent.parent
       end
     end
+    p name
+    p base_object
 
     components = name.split('::')
     candidates = data.gems.map(&:children).flatten
