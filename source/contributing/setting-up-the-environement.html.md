@@ -1,6 +1,7 @@
 ---
 title: Getting Started
 description: When you are ready to level up this guide will guide through your first patch.
+ignore: true
 order: 5
 ---
 
@@ -9,7 +10,7 @@ order: 5
 ## Ruby
 
 - Editor
-- Bunlder
+- Bundler
 - Resources for the language and brief overview
 
 ## CocoaPods Convetions
