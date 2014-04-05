@@ -41,7 +41,7 @@ end
 > If you want multiple targets, like adding tests, to share the same pods.
 
 ```ruby
-platform :ios, '6.0' 
+platform :osx, '10.7' 
 
 link_with 'MyApp', 'MyApp Tests'
 pod 'AFNetworking', '~> 1.0'
