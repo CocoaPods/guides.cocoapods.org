@@ -62,6 +62,25 @@ This usually occurs when you’re using a closed-source third-party library that
 
 However, in general, the vendor should really prefix any dependencies it includes, so you don’t need to deal with it. When this happens, please contact the vendor and ask them to fix it on their side and use the above method as a temporary workaround.
 
+### I'm getting permission errors while running pod commands
+
+As of CocoaPods 0.32.0 we have removed the ability to run the pod commands as
+root to prevent CocoaPods from getting into an inconsistent state when you mix
+and match running as root.
+
+If you have ran CocoaPods as root at one stage you may start getting permission
+denied errors when performing certain operations. When you come across
+permission errors you may need to delete old files which run as root such as
+the cache data. You can do this with the following commands.
+
+    $ sudo rm -fr ~/Library/Caches/CocoaPods/
+    $ sudo rm -fr ~/.cocoapods/repos/master/
+
+Alongside those global files, there may also be a `Pods` directory in any place
+you have a Podfile. If you still receive permission errors you should delete
+this directory too, and afterwards run `pod install`.
+
+    $ sudo rm -fr Pods/
 
 ### I didn't find the solution to my problem!
 
