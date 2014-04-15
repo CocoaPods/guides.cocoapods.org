@@ -1,7 +1,7 @@
 ---
 title: How to Contribute
 description: CocoaPods is fully open-sourced, so it depends on community contributions to get better. If you're looking to start working on CocoaPods, this is the place to start.
-order: 1
+order: 2
 ---
 
 ##The Development Workflow
