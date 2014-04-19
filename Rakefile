@@ -1,23 +1,14 @@
-$LOAD_PATH << 'lib'
+# Run task
+#-----------------------------------------------------------------------------#
 
-def execute_command(command)
-  if ENV['VERBOSE']
-    sh(command)
-  else
-    output = `#{command} 2>&1`
-    raise output unless $?.success?
-  end
+desc "Runs the site locally"
+task :run do
+  title 'Running locally'
+  sh "open http://0.0.0.0:4567"
+  sh "bundle exec middleman server"
 end
 
-def title(title)
-  cyan_title = "\033[0;36m#{title}\033[0m"
-  puts
-  puts "-" * 80
-  puts cyan_title
-  puts "-" * 80
-  puts
-end
-
+# Bootstrap task
 #-----------------------------------------------------------------------------#
 
 desc "Initializes your working copy to run the specs"
@@ -34,17 +25,18 @@ task :bootstrap do
   execute_command "mkdir -p docs_data"
 end
 
+# Deploy task
 #-----------------------------------------------------------------------------#
 
 begin
   require 'middleman-gh-pages'
-
   desc 'Build and push the guides to GitHub Pages'
   task :deploy => ['generate:all', :publish]
 rescue LoadError
   $stderr.puts "[!] Disabled the middleman publish task, run `rake bootstrap` first."
 end
 
+# Gems namespace
 #-----------------------------------------------------------------------------#
 
 namespace :gems do
@@ -62,16 +54,7 @@ namespace :gems do
   end
 end
 
-#-----------------------------------------------------------------------------#
-
-def gems
-  %w[ CocoaPods CocoaPods-Core Xcodeproj CLAide cocoapods-downloader ]
-end
-
-def dsls
-  [ { :name => "Podfile", :title => "podfile" }, {:name => "Specification", :title => "podspec"} ]
-end
-
+# Generate namespace
 #-----------------------------------------------------------------------------#
 
 # Generates the data YAML ready to be used by the Middleman.
@@ -89,27 +72,12 @@ namespace :generate do
     dsls.each do |dsl|
       name = dsl[:name]
       title = dsl[:title]
-      
+
       dsl_file = (ROOT + "gems/Core/lib/cocoapods-core/#{name.downcase}/dsl.rb").to_s
       generator = Pod::Doc::Generators::DSL.new(dsl_file)
       generator.name = name
 
       generator.output_file = "docs_data/#{title.downcase}.yaml"
-      generator.save
-    end
-  end
-
-  desc "Generates the data for the gems."
-  task :gems do
-    puts "\e[1;33mBuilding Gems Data\e[0m"
-
-    gems.each do |name|
-      github_name = name == 'CocoaPods-Core' ? 'Core' : name
-      spec_path = ROOT + "gems/#{github_name}/#{name.downcase}.gemspec"
-      generator = Pod::Doc::Generators::Gem.new(spec_path)
-      generator.name = name
-      generator.github_name = github_name
-      generator.output_file = "docs_data/#{name.downcase.gsub('-','_')}.yaml"
       generator.save
     end
   end
@@ -130,3 +98,31 @@ namespace :generate do
   task :all => [:dsl, :gems, :commands]
   task :default => 'all'
 end
+
+# Helpers
+#-----------------------------------------------------------------------------#
+
+$LOAD_PATH << 'lib'
+
+def dsls
+  [ { :name => "Podfile", :title => "podfile" }, {:name => "Specification", :title => "podspec"} ]
+end
+
+def execute_command(command)
+  if ENV['VERBOSE']
+    sh(command)
+  else
+    output = `#{command} 2>&1`
+    raise output unless $?.success?
+  end
+end
+
+def title(title)
+  cyan_title = "\033[0;36m#{title}\033[0m"
+  puts
+  puts "-" * 80
+  puts cyan_title
+  puts "-" * 80
+  puts
+end
+
