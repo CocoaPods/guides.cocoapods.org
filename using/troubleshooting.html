@@ -123,7 +123,44 @@ by appending to your build command: <code>ONLY_ACTIVE_ARCH=NO</code>.</li>
 
 <p>However, in general, the vendor should really prefix any dependencies it includes, so you don’t need to deal with it. When this happens, please contact the vendor and ask them to fix it on their side and use the above method as a temporary workaround.</p>
 
-<h3 id="i-didn't-find-the-solution-to-my-problem!">
+<h3 id="i'm-getting-permission-errors-while-running-pod-commands">
+<a class="header-link" href="#i" m-getting-permission-errors-while-running-pod-commands>&lt;</a>I'm getting permission errors while running pod commands</h3>
+
+<p>As of CocoaPods 0.32.0 we have removed the ability to run the pod commands as
+root to prevent CocoaPods from getting into an inconsistent state when you mix
+and match running as root.</p>
+
+<p>If you have ran CocoaPods as root at one stage you may start getting permission
+denied errors when performing certain operations. When you come across
+permission errors you may need to delete old files which run as root such as
+the cache data. You can do this with the following commands.</p>
+    </article>
+</div>
+    </section><div class="code-break">
+    <section class="container"><div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight plaintext">$ sudo rm -fr ~/Library/Caches/CocoaPods/
+$ sudo rm -fr ~/.cocoapods/repos/master/
+</pre>    </article>
+</div>
+    </section>
+</div>
+  
+    <section class="container "><div class="row">
+    <article class="content col-md-10 col-md-offset-1"><p>Alongside those global files, there may also be a <code>Pods</code> directory in any place
+you have a Podfile. If you still receive permission errors you should delete
+this directory too, and afterwards run <code>pod install</code>.</p>
+    </article>
+</div>
+    </section><div class="code-break">
+    <section class="container"><div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight plaintext">$ sudo rm -fr Pods/
+</pre>    </article>
+</div>
+    </section>
+</div>
+  
+    <section class="container "><div class="row">
+    <article class="content col-md-10 col-md-offset-1"><h3 id="i-didn't-find-the-solution-to-my-problem!">
 <a class="header-link" href="#i-didn" t-find-the-solution-to-my-problem>&lt;</a>I didn't find the solution to my problem!</h3>
 
 <p>We have multiple avenues for support, here they are in the order we prefer.</p>

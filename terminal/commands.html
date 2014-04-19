@@ -39,7 +39,10 @@ Pod resources.</p>
 </td></tr><tr><td><p><b>--no-color</b></p></td><td><p>Show output without color.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_update"><h2>pod update</h2><pre>pod update </pre><p><p>Update outdated project dependencies</p>
+</td></tr></table></div><div class="tab-pane" id="tab_pod_update"><h2>pod update</h2><pre>pod update [POD_NAMES...]</pre><p><p>Updates the Pods identified by the specified POD_NAMES. If no POD_NAMES are
+specified it updates all the Pods ignoring the contents of the Podfile.lock.
+This command is reserved to the update of dependencies and pod install should
+be used to install changes to the Podfile.</p>
 </p><h3>Options:</h3><table class="inherited_options"><tr><td><p><b>--no-clean</b></p></td><td><p>Leave SCM dirs like <code>.git&#39; and</code>.svn&#39; intact after downloading.</p>
 </td></tr><tr><td><p><b>--no-integrate</b></p></td><td><p>Skip integration of the Pods libraries in the Xcode project(s).</p>
 </td></tr><tr><td><p><b>--no-repo-update</b></p></td><td><p>Skip running <code>pod repo update</code> before install.</p>
@@ -62,7 +65,7 @@ spec repos, not those from local/external sources or <code>:head</code> versions
 </td></tr><tr><td><p><b>--no-color</b></p></td><td><p>Show output without color.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_search"><h2>pod search</h2><pre>pod search [QUERY]</pre><p><p>Searches for pods, ignoring case, whose name matches <code>QUERY</code>. If the
+</td></tr></table></div><div class="tab-pane" id="tab_pod_search"><h2>pod search</h2><pre>pod search QUERY</pre><p><p>Searches for pods, ignoring case, whose name matches <code>QUERY</code>. If the
 <code>--full</code> option is specified, this will also search in the summary and
 description of the pods.</p>
 </p><h3>Options:</h3><table class="inherited_options"><tr><td><p><b>--full</b></p></td><td><p>Search by name, summary, and description.</p>
@@ -143,7 +146,8 @@ directory, and finally it pushes REPO to its remote.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
 </td></tr></table></div><div class="tab-pane" id="tab_pod_repo_add"><h2>pod repo add</h2><pre>pod repo add NAME URL [BRANCH]</pre><p><p>Clones <code>URL</code> in the local spec-repos directory at <code>~/.cocoapods/repos/</code>. The
 remote can later be referred to by <code>NAME</code>.</p>
-</p><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
+</p><h3>Options:</h3><table class="inherited_options"><tr><td><p><b>--shallow</b></p></td><td><p>Create a shallow clone (fast clone, but no push capabilities).</p>
+</td></tr></table><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
 </td></tr><tr><td><p><b>--version</b></p></td><td><p>Show the version of CocoaPods.</p>
 </td></tr><tr><td><p><b>--no-color</b></p></td><td><p>Show output without color.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
@@ -175,13 +179,15 @@ This is where it will create a clone of the public <code>master</code> spec-repo
 <div class="highlight"><pre><span class="ss">https</span><span class="p">:</span><span class="sr">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="no">CocoaPods</span><span class="o">/</span><span class="no">Specs</span>
 </pre></div>
 <p>If the clone already exists, it will ensure that it is up-to-date.</p>
-</p><h3>Options:</h3><table class="inherited_options"><tr><td><p><b>--push</b></p></td><td><p>Use this option to enable push access once granted.</p>
+</p><h3>Options:</h3><table class="inherited_options"><tr><td><p><b>--no-shallow</b></p></td><td><p>Clone full history so push will work.</p>
+</td></tr><tr><td><p><b>--push</b></p></td><td><p>Use this option to enable push access once granted.</p>
 </td></tr></table><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
 </td></tr><tr><td><p><b>--version</b></p></td><td><p>Show the version of CocoaPods.</p>
 </td></tr><tr><td><p><b>--no-color</b></p></td><td><p>Show output without color.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_lib_create"><h2>pod lib create</h2><pre>pod lib create [NAME]</pre><p><p>Creates a new Pod with the given name from the template in the working directory.</p>
+</td></tr></table></div><div class="tab-pane" id="tab_pod_lib_create"><h2>pod lib create</h2><pre>pod lib create NAME [TEMPLATE_URL]</pre><p><p>Creates a scaffold for the development of a new Pod according to the CocoaPods best practices.
+If a <code>TEMPLATE_URL</code>, pointing to a git repo containing a compatible template, is specified, it will be used in place of the default one.</p>
 </p><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
 </td></tr><tr><td><p><b>--version</b></p></td><td><p>Show the version of CocoaPods.</p>
 </td></tr><tr><td><p><b>--no-color</b></p></td><td><p>Show output without color.</p>
