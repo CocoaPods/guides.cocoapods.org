@@ -22,7 +22,9 @@ module AddLinksToNavigation
           if nodes.count > 0
             nodes.each do |header|
               if header.attributes["id"]
-                header.inner_html = "<a class='header-link' href='\##{header.attributes["id"]}'>&lt;</a>" + header.inner_html
+                sanitized_id = sanitize_id(header.attributes["id"].content)
+                header.attributes["id"].value = sanitized_id
+                header.inner_html = "<a class='header-link' href='\##{sanitized_id}'>&lt;</a>" + header.inner_html
               end
             end
 
@@ -34,6 +36,10 @@ module AddLinksToNavigation
       end
     end
     alias :included :registered
+
+    def sanitize_id(id)
+      id.gsub(/[?!“”’,.]/, '')
+    end
   end
 end
 
