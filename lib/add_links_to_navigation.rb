@@ -23,7 +23,8 @@ module AddLinksToNavigation
           if nodes.count > 0
             nodes.each do |header|
               if header.attributes["id"]
-                id = CGI.escape(header.attributes["id"].content).gsub("+", "%20")
+                id = header.attributes["id"].content.gsub(/[^a-zA-Z-]/, '')
+                header.attributes["id"].value = id
                 header.inner_html = "<a class='header-link' href='\##{id}'>&lt;</a>" + header.inner_html
               end
             end
