@@ -1,4 +1,5 @@
 # Require core library
+require 'cgi'
 require "middleman-core"
 require "nokogiri"
 
@@ -22,9 +23,8 @@ module AddLinksToNavigation
           if nodes.count > 0
             nodes.each do |header|
               if header.attributes["id"]
-                sanitized_id = sanitize_id(header.attributes["id"].content)
-                header.attributes["id"].value = sanitized_id
-                header.inner_html = "<a class='header-link' href='\##{sanitized_id}'>&lt;</a>" + header.inner_html
+                id = CGI.escape(header.attributes["id"].content).gsub("+", "%20")
+                header.inner_html = "<a class='header-link' href='\##{id}'>&lt;</a>" + header.inner_html
               end
             end
 
@@ -36,10 +36,6 @@ module AddLinksToNavigation
       end
     end
     alias :included :registered
-
-    def sanitize_id(id)
-      id.gsub(/[?!“”’,.]/, '')
-    end
   end
 end
 
