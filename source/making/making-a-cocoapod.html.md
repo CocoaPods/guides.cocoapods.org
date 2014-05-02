@@ -15,14 +15,16 @@ We recommend letting CocoaPods do the hard work here. Running `pod lib create [p
 > The initial folder structure looks like this:
 
 ```
+├── Assets
+├── CHANGELOG.md
 ├── Classes
     └── ios
     └── osx
-├── Resources
 ├── Example
     └── Podfile
 ├── LICENSE
-├── Readme.markdown
+├── README.md
+├── Rakefile
 └── NAME.podspec
 ```
 
