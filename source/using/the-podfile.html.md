@@ -140,6 +140,12 @@ pod 'AFNetworking', :git => 'https://github.com/gowalla/AFNetworking.git'
 pod 'AFNetworking', :git => 'https://github.com/gowalla/AFNetworking.git', :branch => 'dev'
 ```
 
+> To use a tag of the repo:
+
+```ruby
+pod 'AFNetworking', :git => 'https://github.com/gowalla/AFNetworking.git', :tag => '0.7.0'
+```
+
 > Or specify a commit:
 
 ```ruby
