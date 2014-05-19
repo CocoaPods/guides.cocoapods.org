@@ -8,6 +8,7 @@ order: 2
 
 The standard development on CocoaPods happens like so:
 
+- Setup your development environment with [Rainforest](https://github.com/CocoaPods/Raiforest).
 - Fork [`CocoaPods/CocoaPods`](https://github.com/CocoaPods/CocoaPods/)
 - Pickup an [Issue ](https://github.com/CocoaPods/CocoaPods/issues?page=1&state=open). See issue clarifications [explained below](#issue-clarifications)
 - Check the [CONTRIBUTING](https://github.com/CocoaPods/CocoaPods/blob/master/CONTRIBUTING.md) requirements.
