@@ -1,7 +1,6 @@
 ---
 title: Getting setup with Trunk
 order: 3
-ignore: true
 ---
 
 ## What do I need to know about trunk
