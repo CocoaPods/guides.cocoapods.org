@@ -1,7 +1,7 @@
 ---
 title: Private Pods
 description: How to setup a private Podspec repo for maintaining internal libraries.
-order: 2
+order: 3
 external links:
 -
   "Using CocoaPods to Modularize a Big iOS App by @aroldan": http://dev.hubspot.com/blog/architecting-a-large-ios-app-with-cocoapods

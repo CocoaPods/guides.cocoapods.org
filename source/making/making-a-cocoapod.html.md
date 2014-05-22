@@ -1,7 +1,11 @@
 ---
 title: Making a CocoaPod
 description: Instructions for creating and maintaining a CocoaPod.
-order: 0  
+order: 0
+
+external links:
+-
+  Why your podspec is failing: http://codeslingers.co.uk/2014/05/16/why-your-podspec-is-failing/
 ---
 
 Creating your own CocoaPod is fairly straight forward. If you already have a separate component, you're most of the way there. This guide is an overview to the entire process, with the other guides in this section serving as more of a deep-dive for more advanced users.
@@ -15,14 +19,16 @@ We recommend letting CocoaPods do the hard work here. Running `pod lib create [p
 > The initial folder structure looks like this:
 
 ```
+├── Assets
+├── CHANGELOG.md
 ├── Classes
     └── ios
     └── osx
-├── Resources
 ├── Example
     └── Podfile
 ├── LICENSE
-├── Readme.markdown
+├── README.md
+├── Rakefile
 └── NAME.podspec
 ```
 
@@ -98,11 +104,13 @@ $ git tag '0.0.1'
 $ git push --tags
 ```
 
-Then submit a Pull Request to the [Specs repo](https://github.com/CocoaPods/Specs).
+#### Submitting Open Source Code
 
-> What happened to my push access?
+Once your tags are pushed you can use the command `pod trunk push NAME.podspec` to send your library to the Specs repo. For more information on getting this setup see [Getting Setup With Trunk](/making/getting-setup-with-trunk). 
 
-We are working on improving the way specs are submitted, so we removed push access for all except the core team.
+#### Submitting Private Code
+
+Once your tags are pushed you can use the command `pod repo push [repo] NAME.podspec` to send your library to the named private specs repo. For more information on getting this setup see [Private CocoaPods](/making/private-cocoapods).
 
 ## Library Versioning
 
@@ -135,7 +143,7 @@ Following the pattern established in RubyGems, pre-release versions can also be 
 
 ## Documenting a Pod
 
-Right now the best place to get information on documenting your Pods in anticipation of CocoaDocs and Xcode 5 support is via [NSHipster's blog post on Documentation](http://nshipster.com/documentation/). CocoaDocs will generate appledoc parsed code based on your Podspec's public API almost instantly after it is pushed.  
+Right now the best place to get information on documenting your Pods in anticipation of CocoaDocs and Xcode 5 support is via [NSHipster's blog post on Documentation](http://nshipster.com/documentation/). [CocoaDocs](http://github.com/cocoapods/cocoadocs.org) will release an appledoc parsed code based on your Podspec's public API roughly 15 minutes after it is pushed.
 
 ## Where can I ask questions?
 

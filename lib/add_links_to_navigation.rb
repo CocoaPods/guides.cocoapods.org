@@ -1,4 +1,5 @@
 # Require core library
+require 'cgi'
 require "middleman-core"
 require "nokogiri"
 
@@ -22,7 +23,9 @@ module AddLinksToNavigation
           if nodes.count > 0
             nodes.each do |header|
               if header.attributes["id"]
-                header.inner_html = "<a class='header-link' href='\##{header.attributes["id"]}'>&lt;</a>" + header.inner_html
+                id = header.attributes["id"].content.gsub(/[^a-zA-Z-]/, '')
+                header.attributes["id"].value = id
+                header.inner_html = "<a class='header-link' href='\##{id}'>&lt;</a>" + header.inner_html
               end
             end
 
