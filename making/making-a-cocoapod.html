@@ -46,14 +46,16 @@
     </article></div>
     </section><div class="code-break">
     <section class="container"><div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight plaintext">├── Classes
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight plaintext">├── Assets
+├── CHANGELOG.md
+├── Classes
     └── ios
     └── osx
-├── Resources
 ├── Example
     └── Podfile
 ├── LICENSE
-├── Readme.markdown
+├── README.md
+├── Rakefile
 └── NAME.podspec
 </pre>    </article>
 </div>
@@ -191,13 +193,13 @@ pod update
 </div>
   
     <section class="container "><div class="row">
-    <article class="content col-md-10 col-md-offset-1"><p>Then submit a Pull Request to the <a href="https://github.com/CocoaPods/Specs">Specs repo</a>.</p>
+    <article class="content col-md-10 col-md-offset-1"><h4 id="submitting-open-source-code">Submitting Open Source Code</h4>
 
-<blockquote>
-<p>What happened to my push access?</p>
-</blockquote>
+<p>Once your tags are pushed you can use the command <code>pod trunk push NAME.podspec</code> to send your library to the Specs repo. For more information on getting this setup see <a href="/making/getting-setup-with-trunk">Getting Setup With Trunk</a>. </p>
 
-<p>We are working on improving the way specs are submitted, so we removed push access for all except the core team.</p>
+<h4 id="submitting-private-code">Submitting Private Code</h4>
+
+<p>Once your tags are pushed you can use the command <code>pod repo push [repo] NAME.podspec</code> to send your library to the named private specs repo. For more information on getting this setup see <a href="/making/private-cocoapods">Private CocoaPods</a>.</p>
 
 <h2 id="library-versioning">
 <a class="header-link" href="#library-versioning">&lt;</a>Library Versioning</h2>
@@ -239,17 +241,20 @@ pod 'CocoaLumberjack'
 <h2 id="documenting-a-pod">
 <a class="header-link" href="#documenting-a-pod">&lt;</a>Documenting a Pod</h2>
 
-<p>Right now the best place to get information on documenting your Pods in anticipation of CocoaDocs and Xcode 5 support is via <a href="http://nshipster.com/documentation/">NSHipster's blog post on Documentation</a>. CocoaDocs will generate appledoc parsed code based on your Podspec's public API almost instantly after it is pushed.  </p>
+<p>Right now the best place to get information on documenting your Pods in anticipation of CocoaDocs and Xcode 5 support is via <a href="http://nshipster.com/documentation/">NSHipster's blog post on Documentation</a>. <a href="http://github.com/cocoapods/cocoadocs.org">CocoaDocs</a> will release an appledoc parsed code based on your Podspec's public API roughly 15 minutes after it is pushed.</p>
 
-<h2 id="where-can-i-ask-questions?">
-<a class="header-link" href="#where-can-i-ask-questions?">&lt;</a>Where can I ask questions?</h2>
+<h2 id="where-can-i-ask-questions">
+<a class="header-link" href="#where-can-i-ask-questions">&lt;</a>Where can I ask questions?</h2>
 
 <p>We have multiple avenues for support, here they are in the order we prefer.</p>
 
 <ul>
 <li><p><a href="http://stackoverflow.com/search?q=CocoaPods">Stack Overflow</a>, get yourself some internet points. This keeps the pressure off the CocoaPods dev team and gives us time to work on the project and not support. One of the advantages of using Stack Overflow is that the answer is then easily accessible for others.</p></li>
 <li><p><a href="http://groups.google.com/group/cocoapods">CocoaPods Mailing List</a>, the mailing list is mainly used for announcements of related projects and for support.</p></li>
-</ul></article>
+</ul>
+<h2 id="external-resources">
+<a class="header-link" href="#external-resources">&lt;</a><a class="header-link" href="#external-resources">&lt;</a> External resources</h2>
+<ul><li><a href="http://codeslingers.co.uk/2014/05/16/why-your-podspec-is-failing/">Why your podspec is failing</a></li></ul></article>
 </div></section>
 </div>
 <div class="info-row"><section class="container"><div class="row"><article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><a data-container="body" data-content="CocoaPods is an open source project. Help us improve these guides by sending a pull request. ❤" data-original-title="" data-placement="top" data-toggle="popover" data-trigger="hover" href="https://github.com/CocoaPods/guides.cocoapods.org/blob/master/source/making/making-a-cocoapod.html.md" id="pull-request" title=""></a><ul class="breadcrumb">
@@ -278,6 +283,7 @@ pod 'CocoaLumberjack'
 <li><a href="making-a-cocoapod.html">Making a CocoaPod</a></li>
 <li><a href="specs-and-specs-repo.html">Specs and the Specs Repo</a></li>
 <li><a href="private-cocoapods.html">Private Pods</a></li>
+<li><a href="getting-setup-with-trunk.html">Getting setup with Trunk</a></li>
 </ul>
 </div>
 <div class="clearfix visible-xs"></div>

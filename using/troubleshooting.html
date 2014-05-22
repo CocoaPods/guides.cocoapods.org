@@ -101,8 +101,8 @@
 </ul>
 <p><em>Different Xcode versions can have various problems. Ask for help and tell us what version you're using.</em></p>
 
-<h3 id="running-into-build-failures-after-migrating-to-xcode-5-and-cocoapods-0.25.0?">
-<a class="header-link" href="#running-into-build-failures-after-migrating-to-xcode-5-and-cocoapods-0.25.0?">&lt;</a>Running into build failures after migrating to Xcode 5 and CocoaPods 0.25.0?</h3>
+<h3 id="running-into-build-failures-after-migrating-to-xcode--and-cocoapods-">
+<a class="header-link" href="#running-into-build-failures-after-migrating-to-xcode--and-cocoapods-">&lt;</a>Running into build failures after migrating to Xcode 5 and CocoaPods 0.25.0?</h3>
 
 <p>This applies to users migrating projects from Xcode 4, or are still using Xcode 4.</p>
 
@@ -116,15 +116,15 @@ project/target, otherwise the build <em>will</em> fail.</li>
 tool that comes with Xcode 4, you’ll need to completely disable this setting
 by appending to your build command: <code>ONLY_ACTIVE_ARCH=NO</code>.</li>
 </ol>
-<h3 id="can-i-workaround-‘duplicate-symbol’-errors-with-static-libraries?">
-<a class="header-link" href="#can-i-workaround-%E2%80%98duplicate-symbol%E2%80%99-errors-with-static-libraries?">&lt;</a>Can I workaround ‘Duplicate Symbol’ errors with static libraries?</h3>
+<h3 id="can-i-workaround-duplicate-symbol-errors-with-static-libraries">
+<a class="header-link" href="#can-i-workaround-duplicate-symbol-errors-with-static-libraries">&lt;</a>Can I workaround ‘Duplicate Symbol’ errors with static libraries?</h3>
 
 <p>This usually occurs when you’re using a closed-source third-party library that includes a common dependency of your application. One brute-force workaround is to remove the dependency from the static library, as described <a href="http://atnan.com/blog/2012/01/12/avoiding-duplicate-symbol-errors-during-linking-by-removing-classes-from-static-libraries">here</a></p>
 
 <p>However, in general, the vendor should really prefix any dependencies it includes, so you don’t need to deal with it. When this happens, please contact the vendor and ask them to fix it on their side and use the above method as a temporary workaround.</p>
 
-<h3 id="i'm-getting-permission-errors-while-running-pod-commands">
-<a class="header-link" href="#i" m-getting-permission-errors-while-running-pod-commands>&lt;</a>I'm getting permission errors while running pod commands</h3>
+<h3 id="im-getting-permission-errors-while-running-pod-commands">
+<a class="header-link" href="#im-getting-permission-errors-while-running-pod-commands">&lt;</a>I'm getting permission errors while running pod commands</h3>
 
 <p>As of CocoaPods 0.32.0 we have removed the ability to run the pod commands as
 root to prevent CocoaPods from getting into an inconsistent state when you mix
@@ -160,8 +160,8 @@ this directory too, and afterwards run <code>pod install</code>.</p>
 </div>
   
     <section class="container "><div class="row">
-    <article class="content col-md-10 col-md-offset-1"><h3 id="i-didn't-find-the-solution-to-my-problem!">
-<a class="header-link" href="#i-didn" t-find-the-solution-to-my-problem>&lt;</a>I didn't find the solution to my problem!</h3>
+    <article class="content col-md-10 col-md-offset-1"><h3 id="i-didnt-find-the-solution-to-my-problem">
+<a class="header-link" href="#i-didnt-find-the-solution-to-my-problem">&lt;</a>I didn't find the solution to my problem!</h3>
 
 <p>We have multiple avenues for support, here they are in the order we prefer.</p>
 
@@ -210,6 +210,7 @@ this directory too, and afterwards run <code>pod install</code>.</p>
 <li><a href="../making/making-a-cocoapod.html">Making a CocoaPod</a></li>
 <li><a href="../making/specs-and-specs-repo.html">Specs and the Specs Repo</a></li>
 <li><a href="../making/private-cocoapods.html">Private Pods</a></li>
+<li><a href="../making/getting-setup-with-trunk.html">Getting setup with Trunk</a></li>
 </ul>
 </div>
 <div class="clearfix visible-xs"></div>

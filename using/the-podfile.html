@@ -31,8 +31,8 @@
 <li class="active"><a href="http://guides.cocoapods.org">Guides</a></li>
 <li><a href="http://blog.cocoapods.org">Blog</a></li>
 </ul></div></section></nav><section class="container"><div class="row"><header class="header content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h1>The Podfile</h1></header></div></section><div class="guide" id="content-wrapper">
-<section class="container"><div class="row"><article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h2 id="what-is-a-podfile?">
-<a class="header-link" href="#what-is-a-podfile?">&lt;</a>What is a Podfile?</h2>
+<section class="container"><div class="row"><article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h2 id="what-is-a-podfile">
+<a class="header-link" href="#what-is-a-podfile">&lt;</a>What is a Podfile?</h2>
 
 <p>The Podfile is a specification that describes the dependencies of the
  targets of one or more Xcode projects. The Podfile always creates an
@@ -204,8 +204,8 @@ might not be compatible with the source material anymore.</p>
 </div>
   
     <section class="container "><div class="row">
-    <article class="content col-md-10 col-md-offset-1"><h2 id="using-the-files-from-a-folder-local-to-the-machine.">
-<a class="header-link" href="#using-the-files-from-a-folder-local-to-the-machine.">&lt;</a>Using the files from a folder local to the machine.</h2>
+    <article class="content col-md-10 col-md-offset-1"><h2 id="using-the-files-from-a-folder-local-to-the-machine">
+<a class="header-link" href="#using-the-files-from-a-folder-local-to-the-machine">&lt;</a>Using the files from a folder local to the machine.</h2>
 
 <blockquote>
 <p>If you would like to develop a Pod in tandem with its client
@@ -230,8 +230,8 @@ even a git submodule of the current repo.  </p>
 
 <p><aside>Note that the <code>podspec</code> of the Pod file is expected to be in that folder.</aside></p>
 
-<h3 id="from-a-podspec-in-the-root-of-a-library-repo.">
-<a class="header-link" href="#from-a-podspec-in-the-root-of-a-library-repo.">&lt;</a>From a podspec in the root of a library repo.</h3>
+<h3 id="from-a-podspec-in-the-root-of-a-library-repo">
+<a class="header-link" href="#from-a-podspec-in-the-root-of-a-library-repo">&lt;</a>From a podspec in the root of a library repo.</h3>
 
 <p>Sometimes you may want to use the bleeding edge version of a Pod, a
 specific revision or your own fork. If this is the case, you can specify that with your
@@ -259,6 +259,20 @@ pod declaration.</p>
     </section><div class="code-break">
     <section class="container"><div class="row">
     <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><span class="n">pod</span> <span class="s1">'AFNetworking'</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">'https://github.com/gowalla/AFNetworking.git'</span><span class="p">,</span> <span class="ss">:branch</span> <span class="o">=&gt;</span> <span class="s1">'dev'</span>
+</pre>    </article>
+</div>
+    </section>
+</div>
+  
+    <section class="container "><div class="row">
+    <article class="content col-md-10 col-md-offset-1"><blockquote>
+<p>To use a tag of the repo:</p>
+</blockquote>
+    </article>
+</div>
+    </section><div class="code-break">
+    <section class="container"><div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><span class="n">pod</span> <span class="s1">'AFNetworking'</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">'https://github.com/gowalla/AFNetworking.git'</span><span class="p">,</span> <span class="ss">:tag</span> <span class="o">=&gt;</span> <span class="s1">'0.7.0'</span>
 </pre>    </article>
 </div>
     </section>
@@ -314,6 +328,7 @@ to use one of the approaches outlined in the sections below.</p>
 <li><a href="../making/making-a-cocoapod.html">Making a CocoaPod</a></li>
 <li><a href="../making/specs-and-specs-repo.html">Specs and the Specs Repo</a></li>
 <li><a href="../making/private-cocoapods.html">Private Pods</a></li>
+<li><a href="../making/getting-setup-with-trunk.html">Getting setup with Trunk</a></li>
 </ul>
 </div>
 <div class="clearfix visible-xs"></div>
