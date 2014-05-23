@@ -118,20 +118,10 @@ In general this means that:
 
 ## How do I update an existing Pod?
 
-* ### If you do not have push access to CocoaPods/Specs
-  1. Fork and clone `CocoaPods/Specs`.
-  2. In a single commit, add a folder for your Pod to the main list, as well as the Spec in the format described in the Creating a Pod Repo section.
-  3. Run `pod spec lint` to check for errors.
-  4. If the linter produces errors or warnings, fix them and go back to step 3. If not, continue on.
-  5. Make your [pull request](https://help.github.com/articles/using-pull-requests) to the master [Specs Repo](https://github.com/CocoaPods/Specs).
+1. Create your Spec as described described above.
+2. Run `pod spec lint` to check for errors.
+3. Submit your Spec to Trunk with `pod trunk push NAME.podspec`
 
-* ### If you have push access to CocoaPods/Specs
-  1. Clone `CocoaPods/Specs` locally.
-  2. In a single commit, add a folder for your Pod to the main list, as well as the Spec in the format described in the Creating a Pod Repo section.
-  3. Run `pod spec lint` to check for errors.
-  4. If the linter produces errors or warnings, fix them and go back to step 3. If not, continue on.
-  5. Push your changes to the master Specs repo
-  
 ## How do I get my library on CocoaDocs?
 
 [CocoaDocs](http://cocoadocs.org) receives notifications from the [CocoaPods/Specs](https://github.com/CocoaPods/Specs) repo on GitHub whenever a CocoaPod is updated. This triggers a process that will generate documentation for _objective-c_ projects via [appledoc](http://gentlebytes.com/appledoc/) and host them for the community. This process can take around 15 minutes after your Podspec is merged. If you host your own documentation, you can use the [documentation_url](/syntax/podspec.html#documentation_url).
