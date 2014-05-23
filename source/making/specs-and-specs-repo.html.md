@@ -106,7 +106,8 @@ When you are preparing a podspec for submission, you should make sure to do the 
 
 1. Run `pod spec lint`. This is used to validate specifications. Your podspec should pass without any errors or warnings.
 2. Update your library to use [Semantic Versioning](http://semver.org/), if it already does not follow that scheme. See our [wiki on cross dependency resolution](https://github.com/CocoaPods/Specs/wiki/Cross-dependencies-resolution-example) for more details. Essentially it makes everyone's life easier.
-3. Make sure any updates you submit do not break previous installations. Adding version `1.1.3` to your library's folder in the Specs Repo should not remove any previous versions.
+3. Make sure any updates you submit do not break previous installations.
+4. Ensure you perform manual testing of your Podspec by [including the local Podspec](/syntax/podfile.html#pod) in the Podfile of a test project.
 
 In general this means that:
 
