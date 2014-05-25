@@ -107,7 +107,7 @@ When you are preparing a podspec for submission, you should make sure to do the 
 1. Run `pod spec lint`. This is used to validate specifications. Your podspec should pass without any errors or warnings.
 2. Update your library to use [Semantic Versioning](http://semver.org/), if it already does not follow that scheme. See our [wiki on cross dependency resolution](https://github.com/CocoaPods/Specs/wiki/Cross-dependencies-resolution-example) for more details. Essentially it makes everyone's life easier.
 3. Make sure any updates you submit do not break previous installations.
-4. Perform manual testing of your Podspec by [including the local Podspec](/syntax/podfile.html#pod) in the Podfile of a test project, and ensuring it works as expected.
+4. Perform manual testing of your Podspec by [including the local Podspec](/syntax/podfile.html#pod) in the Podfile of a real application and/or your demo application, and ensuring it works as expected. **You alone** are responsible for ensuring your Podspec functions properly for your users.
 
 In general this means that:
 
@@ -119,9 +119,9 @@ In general this means that:
 
 ## How do I update an existing Pod?
 
-1. Create your Spec as described described above.
+1. Create your Podspec as described described above.
 2. Run `pod spec lint` to check for errors.
-3. Submit your Spec to Trunk with `pod trunk push NAME.podspec`
+3. Submit your Podspec to Trunk with `pod trunk push NAME.podspec`
 
 ## How do I get my library on CocoaDocs?
 
