@@ -45,7 +45,7 @@ $ pod repo lint .
 > Make sure you've tagged and versioned your source, then run:
 
 ```shell
-$ pod push REPO_NAME SPEC_NAME.podspec
+$ pod repo push REPO_NAME SPEC_NAME.podspec
 ```
 
 This will run `pod spec lint`, and take care of all the little details for setting up the spec in your private repo.
