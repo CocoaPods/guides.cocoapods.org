@@ -166,7 +166,8 @@ CocoaPods installations.</p>
 <ol>
 <li>Run <code>pod spec lint</code>. This is used to validate specifications. Your podspec should pass without any errors or warnings.</li>
 <li>Update your library to use <a href="http://semver.org/">Semantic Versioning</a>, if it already does not follow that scheme. See our <a href="https://github.com/CocoaPods/Specs/wiki/Cross-dependencies-resolution-example">wiki on cross dependency resolution</a> for more details. Essentially it makes everyone's life easier.</li>
-<li>Make sure any updates you submit do not break previous installations. Adding version <code>1.1.3</code> to your library's folder in the Specs Repo should not remove any previous versions.</li>
+<li>Make sure any updates you submit do not break previous installations.</li>
+<li>Perform manual testing of your Podspec by <a href="../syntax/podfile.html#pod">including the local Podspec</a> in the Podfile of a real application and/or your demo application, and ensuring it works as expected. <strong>You alone</strong> are responsible for ensuring your Podspec functions properly for your users.</li>
 </ol>
 <p>In general this means that:</p>
 
@@ -184,32 +185,12 @@ CocoaPods installations.</p>
 <h2 id="how-do-i-update-an-existing-pod">
 <a class="header-link" href="#how-do-i-update-an-existing-pod">&lt;</a>How do I update an existing Pod?</h2>
 
-<ul>
-<li>
-<h3 id="if-you-do-not-have-push-access-to-cocoapodsspecs">
-<a class="header-link" href="#if-you-do-not-have-push-access-to-cocoapodsspecs">&lt;</a>If you do not have push access to CocoaPods/Specs</h3>
-
 <ol>
-<li>Fork and clone <code>CocoaPods/Specs</code>.</li>
-<li>In a single commit, add a folder for your Pod to the main list, as well as the Spec in the format described in the Creating a Pod Repo section.</li>
+<li>Create your Podspec as described described above.</li>
 <li>Run <code>pod spec lint</code> to check for errors.</li>
-<li>If the linter produces errors or warnings, fix them and go back to step 3. If not, continue on.</li>
-<li>Make your <a href="https://help.github.com/articles/using-pull-requests">pull request</a> to the master <a href="https://github.com/CocoaPods/Specs">Specs Repo</a>.</li>
-</ol>
+<li>Submit your Podspec to Trunk with <code>pod trunk push NAME.podspec</code>
 </li>
-<li>
-<h3 id="if-you-have-push-access-to-cocoapodsspecs">
-<a class="header-link" href="#if-you-have-push-access-to-cocoapodsspecs">&lt;</a>If you have push access to CocoaPods/Specs</h3>
-
-<ol>
-<li>Clone <code>CocoaPods/Specs</code> locally.</li>
-<li>In a single commit, add a folder for your Pod to the main list, as well as the Spec in the format described in the Creating a Pod Repo section.</li>
-<li>Run <code>pod spec lint</code> to check for errors.</li>
-<li>If the linter produces errors or warnings, fix them and go back to step 3. If not, continue on.</li>
-<li>Push your changes to the master Specs repo</li>
 </ol>
-</li>
-</ul>
 <h2 id="how-do-i-get-my-library-on-cocoadocs">
 <a class="header-link" href="#how-do-i-get-my-library-on-cocoadocs">&lt;</a>How do I get my library on CocoaDocs?</h2>
 
