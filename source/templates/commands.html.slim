@@ -13,7 +13,7 @@ ruby:
   #tab-content.tab-content
 
     // Pod Command
-    div.tab-pane id="tab_#{parameterize name_space.name}"
+    div.tab-pane id="tab_#{parameterize name_space.name}" class="active"
       h2 = name_space.name
       == link_doc_string name_space.html_description
 
