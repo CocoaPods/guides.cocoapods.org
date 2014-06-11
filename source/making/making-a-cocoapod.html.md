@@ -64,7 +64,7 @@ $ pod lib lint
 
 Before releasing your new Pod to the world its best to test that you can install your pod successfully into an Xcode project. You can do this in a couple of ways:
 
-> Push your podspec to your repository, then create a new Xcode project with a Podfile and add your pod to the file liks so:
+> Push your podspec to your repository, then create a new Xcode project with a Podfile and add your pod to the file like so:
 
 ````ruby
 pod 'NAME', :git => 'https://example.com/URL/to/repo/NAME.git'
