@@ -42,7 +42,97 @@ settings.</p>
 installation process.</p>
 
 <p>Hooks are <strong>global</strong> and not stored per target definition.</p>
-</div><div class="tab-pane" id="tab_pod"><h2>pod</h2></div><div class="tab-pane" id="tab_podspec"><h2>podspec</h2><p>Use the dependencies of a Pod defined in the given podspec file. If no
+</div><div class="tab-pane" id="tab_pod"><h2>pod</h2><p>Specifies a dependency of the project.</p>
+
+<p>A dependency requirement is defined by the name of the Pod and
+optionally a list of version requirements.</p>
+
+<p>When starting out with a project it is likely that you will want to use
+the latest version of a Pod. If this is the case, simply omit the
+version requirements.</p>
+<div class="highlight"><pre><span class="n">pod</span> <span class="s1">&#39;SSZipArchive&#39;</span>
+</pre></div>
+<p>Later on in the project you may want to freeze to a specific version of
+a Pod, in which case you can specify that version number.</p>
+<div class="highlight"><pre><span class="n">pod</span> <span class="s1">&#39;Objection&#39;</span><span class="p">,</span> <span class="s1">&#39;0.9&#39;</span>
+</pre></div>
+<p>Besides no version, or a specific one, it is also possible to use
+operators:</p>
+
+<ul>
+<li><code>&gt; 0.1</code>    Any version higher than 0.1.</li>
+<li><code>&gt;= 0.1</code>   Version 0.1 and any higher version.</li>
+<li><code>&lt; 0.1</code>    Any version lower than 0.1.</li>
+<li><code>&lt;= 0.1</code>   Version 0.1 and any lower version.</li>
+<li><code>~&gt; 0.1.2</code> Version 0.1.2 and the versions up to 0.2, not including 0.2.
+         This operator works based on <em>the last component</em> that you
+         specify in your version requirement. The example is equal to
+         <code>&gt;= 0.1.2</code> combined with <code>&lt; 0.2.0</code> and will always match the
+         latest known version matching your requirements.</li>
+</ul>
+
+<p>A list of version requirements can be specified for even more fine
+grained control.</p>
+
+<p>For more information, regarding versioning policy, see:</p>
+
+<ul>
+<li><a href="http://semver.org">Semantic Versioning</a></li>
+<li><a href="http://docs.rubygems.org/read/chapter/7">RubyGems Versioning Policies</a></li>
+</ul>
+
+<p>Finally, instead of a version, you can specify the <code>:head</code> flag. This
+will use the spec of the newest available version in your spec repo(s),
+but force the download of the ‘bleeding edge’ version (HEAD). Use this
+with caution, as the spec <em>might</em> not be compatible anymore.</p>
+<div class="highlight"><pre><span class="n">pod</span> <span class="s1">&#39;Objection&#39;</span><span class="p">,</span> <span class="ss">:head</span>
+</pre></div>
+<hr>
+
+<p>Dependencies can be obtained also from external sources.</p>
+
+<h3>Using the files from a local path.</h3>
+
+<p>If you wold like to use develop a Pod in tandem with its client
+ project you can use the <code>path</code> option.</p>
+<div class="highlight"><pre><span class="n">pod</span> <span class="s1">&#39;AFNetworking&#39;</span><span class="p">,</span> <span class="ss">:path</span> <span class="o">=&gt;</span> <span class="s1">&#39;~/Documents/AFNetworking&#39;</span>
+</pre></div>
+<p>Using this option CocoaPods will assume the given folder to be the
+ root of the Pod and will link the files directly from there in the
+ Pods project. This means that your edits will persist to CocoaPods
+ installations.</p>
+
+<p>The referenced folder can be a checkout of your your favorite SCM or
+ even a git submodule of the current repo.</p>
+
+<p>Note that the <code>podspec</code> of the Pod file is expected to be in the
+ folder.</p>
+
+<h3>From a podspec in the root of a library repo.</h3>
+
+<p>Sometimes you may want to use the bleeding edge version of a Pod. Or a
+specific revision. If this is the case, you can specify that with your
+pod declaration.</p>
+
+<p>To use the <code>master</code> branch of the repo:</p>
+<div class="highlight"><pre><span class="n">pod</span> <span class="s1">&#39;AFNetworking&#39;</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">&#39;https://github.com/gowalla/AFNetworking.git&#39;</span>
+</pre></div>
+<p>Or specify a commit:</p>
+<div class="highlight"><pre><span class="n">pod</span> <span class="s1">&#39;AFNetworking&#39;</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">&#39;https://github.com/gowalla/AFNetworking.git&#39;</span><span class="p">,</span> <span class="ss">:commit</span> <span class="o">=&gt;</span> <span class="s1">&#39;082f8319af&#39;</span>
+</pre></div>
+<p>It is important to note, though, that this means that the version will
+have to satisfy any other dependencies on the Pod by other Pods.</p>
+
+<p>The <code>podspec</code> file is expected to be in the root of the repo, if this
+library does not have a <code>podspec</code> file in its repo yet, you will have
+to use one of the approaches outlined in the sections below.</p>
+
+<h3>From a podspec outside a spec repo, for a library without podspec.</h3>
+
+<p>If a podspec is available from another source outside of the library’s
+repo. Consider, for instance, a podspec available via HTTP:</p>
+<div class="highlight"><pre><span class="n">pod</span> <span class="s1">&#39;JSONKit&#39;</span><span class="p">,</span> <span class="ss">:podspec</span> <span class="o">=&gt;</span> <span class="s1">&#39;https://example.com/JSONKit.podspec&#39;</span>
+</pre></div></div><div class="tab-pane" id="tab_podspec"><h2>podspec</h2><p>Use the dependencies of a Pod defined in the given podspec file. If no
 arguments are passed the first podspec in the root of the Podfile is
 used. It is intended to be used by the project of a library. Note:
 this does not include the sources derived from the podspec just the
