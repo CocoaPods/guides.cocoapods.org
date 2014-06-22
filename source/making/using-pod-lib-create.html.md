@@ -20,7 +20,7 @@ pod lib create MyLibrary
 
 The template will generate an Xcode project for your library. This means you don't have to go through creating a new project in Xcode. 
 
-If you want to have an example project for `pod try MyLib` or need to have your library's tests ran inside an application ( interaction tests, custom fonts, etc ) then you should say yes. A good metric is _"Should this Pod include a screenshot?"_ if so then you should have a demo.
+If you want to have an example project for `pod try MyLib` or need to have your library's tests run inside an application ( interaction tests, custom fonts, etc ) then you should say yes. A good metric is _"Should this Pod include a screenshot?"_ if so then you should have a demo.
 
 ## Choosing a Test Framework
 
@@ -45,7 +45,7 @@ The major differences is that Kiwi is an all in one approach to Stubs/Mocks/Expe
 
 ## View-based Testing
 
-Depending on what library you are building you may find Snapshot based testing to be a smart way to verify the results of [different](https://github.com/neilang/NAMapKit/blob/master/Demo/DemoTests/NAInteractiveDemoViewControllerTests.m) [actions](https://github.com/orta/ORStackView/blob/master/ORStackViewExampleTests/ORFourthViewControllerTests.m) [on](https://github.com/liaojinxing/StarRatingView/blob/599390e258b44e8efe2121356bac5d74494086f9/StarRatingViewTests/StarRatingViewTests.m) [your](https://github.com/AshFurrow/ARCollectionViewMasonryLayout/blob/58f2b987756bd1d1b710a74c51aa48204006fc99/IntegrationTests/ARCollectionViewMasonryLayoutTests.m) [views](https://github.com/yujinakayama/NAKPlaybackIndicatorView/blob/b81c29b399e109c56024eefdffd89dfd606d662c/Tests/SnapshotTests.m). We recommend using [FBSnapShotTestCase](https://github.com/facebook/ios-snapshot-test-case), if you are using Specta/Expecta then we [include a Pod](https://github.com/dblock/ios-snapshot-test-case-expecta) to improve the syntax. The guide author also recommends this Xcode plugin also: [Snapshots](https://github.com/orta/snapshots).
+Depending on what library you are building you may find Snapshot based testing to be a smart way to verify the results of [different](https://github.com/neilang/NAMapKit/blob/master/Demo/DemoTests/NAInteractiveDemoViewControllerTests.m) [actions](https://github.com/orta/ORStackView/blob/master/ORStackViewExampleTests/ORFourthViewControllerTests.m) [on](https://github.com/liaojinxing/StarRatingView/blob/599390e258b44e8efe2121356bac5d74494086f9/StarRatingViewTests/StarRatingViewTests.m) [your](https://github.com/AshFurrow/ARCollectionViewMasonryLayout/blob/58f2b987756bd1d1b710a74c51aa48204006fc99/IntegrationTests/ARCollectionViewMasonryLayoutTests.m) [views](https://github.com/yujinakayama/NAKPlaybackIndicatorView/blob/b81c29b399e109c56024eefdffd89dfd606d662c/Tests/SnapshotTests.m). We recommend using [FBSnapShotTestCase](https://github.com/facebook/ios-snapshot-test-case), if you are using Specta/Expecta then we [include a Pod](https://github.com/dblock/ios-snapshot-test-case-expecta) to improve the syntax. The guide author also recommends this Xcode plugin: [Snapshots](https://github.com/orta/snapshots).
 
 ## The Pod Lib Create Template
 
@@ -72,7 +72,7 @@ $ tree MyLib -L 2
   └── README.md
 ````
 
-We've tried to keep the amount in the root folder minimized, You will the following files:
+We've tried to keep the amount in the root folder minimized, You will see the following files:
 
 * `.travis.yml` - a setup file for travis-c
 * `LICENSE` - defaulting to the [MIT License](http://en.wikipedia.org/wiki/MIT_License)
@@ -94,7 +94,7 @@ CocoaPods will open your Xcode project straight away, from here you can edit all
 
 1. You can edit your Podspec metadata, this lets you change your README and Podspec.
 * This is the Demo Library, you will be missing this if you didn't say yes to it.
-* Here is a stubbed out test spec for the framework you had choosen earlier.
+* Here is a stubbed out test spec for the framework you had chosen earlier.
 * This is the Development Pods section, and actually where you can work on your library. See below for more information.
 * Finally the Pods used in setting up the project.
 
