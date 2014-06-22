@@ -66,7 +66,7 @@ module Pod
               "pod spec cat",
               "pod spec which",
               "pod spec edit",
-              "pod repo push",
+              "pod push",
             ],
 
             'Repos' => [
@@ -74,6 +74,7 @@ module Pod
               "pod repo update",
               "pod repo lint",
               "pod repo remove",
+              "pod repo push",
               "pod setup",
             ],
 
