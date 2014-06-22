@@ -84,14 +84,14 @@ namespace :generate do
 
   desc "Generates the data for the commands."
   task :commands do
-    puts "\e[1;33mBuilding Commands Data\e[0m"
-    files = FileList[(ROOT + "gems/CocoaPods/lib/cocoapods/command/*.rb").to_s]
-    # These should probably not be in that directory.
-    files.exclude(/advanced_linter/)
-    files.exclude(/error_report/)
-    generator = Pod::Doc::Generators::Commands.new(files)
-    generator.output_file = "docs_data/commands.yaml"
-    generator.save
+#    puts "\e[1;33mBuilding Commands Data\e[0m"
+#    files = FileList[(ROOT + "gems/CocoaPods/lib/cocoapods/command/*.rb").to_s]
+#    # These should probably not be in that directory.
+#    files.exclude(/advanced_linter/)
+#    files.exclude(/error_report/)
+#    generator = Pod::Doc::Generators::Commands.new(files)
+#    generator.output_file = "docs_data/commands.yaml"
+#    generator.save
   end
 
   desc "Generates all the metadata necessary for the middleman"

@@ -13,7 +13,7 @@ module Pod
           $:.unshift((DOC_GEM_ROOT + 'cocoapods/lib').to_s)
           $:.unshift((DOC_GEM_ROOT + 'cocoapods-downloader/lib').to_s)
           require 'cocoapods'
-          # require 'cocoapods/command'
+          #require 'cocoapods/command'
           super
         end
 
@@ -66,7 +66,7 @@ module Pod
               "pod spec cat",
               "pod spec which",
               "pod spec edit",
-              "pod push",
+              "pod repo push",
             ],
 
             'Repos' => [
