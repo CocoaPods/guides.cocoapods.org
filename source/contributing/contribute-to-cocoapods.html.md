@@ -8,9 +8,9 @@ order: 2
 
 The standard development on CocoaPods happens like so:
 
-- Setup your development environment with [Rainforest](https://github.com/CocoaPods/Raiforest).
+- Setup your development environment with [Rainforest](https://github.com/CocoaPods/Rainforest).
 - Fork [`CocoaPods/CocoaPods`](https://github.com/CocoaPods/CocoaPods/)
-- Pickup an [Issue ](https://github.com/CocoaPods/CocoaPods/issues?page=1&state=open). See issue clarifications [explained below](#issue-clarifications)
+- Pickup an [Issue ](https://github.com/CocoaPods/CocoaPods/issues?page=1&state=open). See issue classifications [explained below](#issue-classifications)
 - Check the [CONTRIBUTING](https://github.com/CocoaPods/CocoaPods/blob/master/CONTRIBUTING.md) requirements.
 - Make a [pull request](#making-the-pull-request).
 
@@ -46,6 +46,7 @@ def install!
   download_dependencies
   generate_pods_project
   integrate_user_project if config.integrate_targets?
+  perform_post_install_actions
 end
 ```
 Almost all classes are namespaced. For example, `Installer` calls upon `Installer::TargetInstaller` and `Installer::PodSourceInstaller` to get its work done. Source files for these should reside within the named folder.
