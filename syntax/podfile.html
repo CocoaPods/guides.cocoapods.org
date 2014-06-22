@@ -27,7 +27,7 @@ user project.</p>
 
 <ul>
 <li><code>pod</code> is the way to declare a specific dependency.</li>
-<li><code>podspec</code> provides an easy creation API for local podspecs.</li>
+<li><code>podspec</code> provides an easy API for the creation of podspecs.</li>
 <li><code>target</code> allows you to scope your dependencies to specific
 targets in your Xcode projects.</li>
 </ul>
@@ -44,7 +44,9 @@ installation process.</p>
 <p>Hooks are <strong>global</strong> and not stored per target definition.</p>
 </div><div class="tab-pane" id="tab_pod"><h2>pod</h2></div><div class="tab-pane" id="tab_podspec"><h2>podspec</h2><p>Use the dependencies of a Pod defined in the given podspec file. If no
 arguments are passed the first podspec in the root of the Podfile is
-used. It is intended to be used by the project of a library.</p>
+used. It is intended to be used by the project of a library. Note:
+this does not include the sources derived from the podspec just the
+CocoaPods infrastructure.</p>
 <h3>Examples:</h3><blockquote></blockquote><div class="highlight"><pre><span class="n">podspec</span>
 </pre></div><blockquote></blockquote><div class="highlight"><pre><span class="n">podspec</span> <span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s1">&#39;QuickDialog&#39;</span>
 </pre></div><blockquote></blockquote><div class="highlight"><pre><span class="n">podspec</span> <span class="ss">:path</span> <span class="o">=&gt;</span> <span class="s1">&#39;/Documents/PrettyKit/PrettyKit.podspec&#39;</span>
