@@ -14,6 +14,7 @@ module Pod
           $:.unshift((DOC_GEM_ROOT + 'cocoapods-downloader/lib').to_s)
           $:.unshift((DOC_GEM_ROOT + 'claide/lib').to_s)
           require 'cocoapods'
+          require 'claide'
           #require 'cocoapods/command'
           super
         end
