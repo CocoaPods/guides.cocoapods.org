@@ -21,7 +21,7 @@ gem 'pygments.rb'
 gem 'github-markup'
 gem 'nokogiri'
 
-gem 'claide'
+gem 'claide', :git => 'https://github.com/CocoaPods/CLAide.git', :branch => 'master'
 gem 'colored'
 gem 'cocoapods-core'
 
