@@ -5,6 +5,13 @@ GIT
   specs:
     redcarpet (3.0.0)
 
+GIT
+  remote: https://github.com/CocoaPods/CLAide.git
+  revision: 91250b958b8a000e76fc5850032563de75283902
+  branch: master
+  specs:
+    claide (0.6.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -12,7 +19,6 @@ GEM
       i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
     chunky_png (1.2.9)
-    claide (0.4.0)
     cocoapods-core (0.32.1)
       activesupport (>= 3.2.15, < 4)
       fuzzy_match (~> 2.0.4)
@@ -133,7 +139,7 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport
-  claide
+  claide!
   cocoapods-core
   colored
   github-markup
