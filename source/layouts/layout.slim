@@ -11,14 +11,14 @@ ruby:
       topnav.unshift(resource)
     end
   end
-  
+
   footer_resources = sitemap.resources.select do |resource|
     resource.data.footer
   end.sort_by { |resource| resource.data.footer_order }
-  
+
   if current_resource.data.fullwidth || current_resource.parent == nil
-    width_classes = "content" 
-  else 
+    width_classes = "content"
+  else
     width_classes = "content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"
   end
 
@@ -26,11 +26,16 @@ doctype html
 html
   head
     title = "CocoaPods Guides - " + page_title
-    
+
     == shared_partial "favicons", "header_meta"
     == stylesheet_link_tag "app.css"
     == javascript_include_tag "application.js"
 
+    meta name="twitter:title" content="CocoaPods Guides">
+    meta name="twitter:description" content="The official documentation site for the CococaPods dependency manager.">
+    meta content="CocoaPods Guides" property="og:site_name"
+    meta content="CocoaPods Guides" property="og:title">
+    meta content="http://guides.cocoapods.org" property="og:url">
 
   body
     == shared_partial "header"
@@ -46,26 +51,26 @@ html
           .row
             article class=width_classes
               == yield
-              
+
               / Add support for external links in the headers of the guides
               - if current_resource.data["external links"]
                 h2#external-resources <a class="header-link" href="#external-resources">&lt;</a> External resources
-                
+
                 ul
                   - for value, href in current_resource.data["external links"][0]
-                    li 
+                    li
                       a href=href =value
     - else
-    
+
       == yield
 
-    - if parents.length > 0 
+    - if parents.length > 0
       .info-row
         section.container
           .row
             article class=width_classes
 
-              a id="pull-request" data-container="body" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="CocoaPods is an open source project. Help us improve these guides by sending a pull request. ❤" data-original-title="" title="" href="https://github.com/CocoaPods/guides.cocoapods.org/blob/master/source/#{current_page.path}#{File.extname(current_page.source_file)}" 
+              a id="pull-request" data-container="body" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="CocoaPods is an open source project. Help us improve these guides by sending a pull request. ❤" data-original-title="" title="" href="https://github.com/CocoaPods/guides.cocoapods.org/blob/master/source/#{current_page.path}#{File.extname(current_page.source_file)}"
 
 
               ul.breadcrumb
@@ -80,8 +85,8 @@ html
     - unless current_resource.data.hide_nav
       section.site_navigation.container
         .row
-      
-          - for resource in footer_resources 
+
+          - for resource in footer_resources
 
             .col-lg-3.col-sm-3.col-xs-6.footer-index
               h3 == link_to page_title(resource), "/#{resource.destination_path}"
@@ -89,10 +94,10 @@ html
                 - for child in resource.children.sort_by{|child| child.data.order}
                   - unless child.data.ignore
                     li == link_to page_title(child), "/#{child.destination_path}"
-              
+
             - if footer_resources.index(resource) % 2 == 1
               div.clearfix.visible-xs
-            
+
           .col-lg-3.col-sm-3.col-xs-6.footer-index
             h3  <a href='/reference.html'>Reference</a>
             ul
@@ -101,7 +106,7 @@ html
               li <a href='/terminal/commands.html'>Command-line Reference</a>
 
     == shared_partial "footer"
-    
+
   javascript:
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
