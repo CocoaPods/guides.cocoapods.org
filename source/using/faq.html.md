@@ -60,7 +60,7 @@ order: 4
 
   You don’t. OS X comes with a Ruby (1.8.7 or 2.0.0) pre-installed in `/usr/bin/ruby` which are our baselines and these should work out of the box.
 
-  If, however, you want a bit more speed, or are using Ruby for other development tasks, you might want to take a look at installing a newer Ruby version through managers like [rbenv](https://github.com/sstephenson/rbenv) or [RVM](https://rvm.io). In this case you will have to install the Xcode command-line tools.
+  If, however, you want a bit more speed, or are using Ruby for other development tasks, you might want to take a look at installing a newer Ruby version through managers like [rbenv](https://github.com/sstephenson/rbenv), [chruby](https://github.com/postmodern/chruby) or [RVM](https://rvm.io). In this case you will have to install the Xcode command-line tools.
 
 
 ### “CocoaPods has just changed my entire pbxproj, what gives?”
