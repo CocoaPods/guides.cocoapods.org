@@ -46,60 +46,17 @@
 
 <p>There are only a few differences between a CocoaPod and a generic open source library. The most important ones, aside from the actual source, are the <code>.podspec</code> and <code>LICENSE</code>. We do not accept libraries into the trunk without a code license. For information on what license to choose, we suggest reading <a href="http://www.codinghorror.com/blog/2007/04/pick-a-license-any-license.html">this article on CodingHorror</a> or <a href="http://www.tldrlegal.com/">tl;dr Legal</a>.</p>
 
-<p>We recommend letting CocoaPods do the hard work here. Running <code>pod lib create [pod name]</code> will set you up with a well thought out library structure allowing you to easily include your files and get started quickly.</p>
-
-<blockquote>
-<p>The initial folder structure looks like this:</p>
-</blockquote>
-    </article></div>
-    </section><div class="code-break">
-    <section class="container"><div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight plaintext">├── Assets
-├── CHANGELOG.md
-├── Classes
-    └── ios
-    └── osx
-├── Example
-    └── Podfile
-├── LICENSE
-├── README.md
-├── Rakefile
-└── NAME.podspec
-</pre>    </article>
-</div>
-    </section>
-</div>
-  
-    <section class="container "><div class="row">
-    <article class="content col-md-10 col-md-offset-1"><blockquote>
-<p>The suggested Example/Podfile:</p>
-</blockquote>
-    </article>
-</div>
-    </section><div class="code-break">
-    <section class="container"><div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"> <span class="n">platform</span> <span class="ss">:ios</span>
-<span class="c1">#platform :osx</span>
-
- <span class="n">podspec</span> <span class="ss">:path</span> <span class="o">=&gt;</span> <span class="s2">"../NAME.podspec"</span>
-</pre>    </article>
-</div>
-    </section>
-</div>
-  
-    <section class="container "><div class="row">
-    <article class="content col-md-10 col-md-offset-1"><p><aside>The <code>podspec</code> is a shortcut to require all the dependencies specified in <code>NAME.podspec</code>.</aside></p>
+<p>We recommend letting CocoaPods do the hard work here. Running <code>pod lib create [pod name]</code> will set you up with a well thought out library structure allowing you to easily include your files and get started quickly, we have a <a href="/making/using-pod-lib-create">guide for this</a>.</p>
 
 <h3 id="development">
 <a class="header-link" href="#development">&lt;</a>Development</h3>
 
-<p>You can work on the library from its folder on your system. </p>
+<p>You can work on the library from its folder on your system.</p>
 
 <blockquote>
 <p>Alternatively you can work from an application project using the <code>:path</code> option:</p>
 </blockquote>
-    </article>
-</div>
+    </article></div>
     </section><div class="code-break">
     <section class="container"><div class="row">
     <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><span class="n">pod</span> <span class="s1">'Name'</span><span class="p">,</span> <span class="ss">:path</span> <span class="o">=&gt;</span> <span class="s1">'~/code/Pods/'</span>
@@ -148,7 +105,7 @@
 </div>
     </section><div class="code-break">
     <section class="container"><div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight shell">pod install 
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight shell">pod install
 -- or --
 pod update
 </pre>    </article>
@@ -177,7 +134,7 @@ pod update
     <article class="content col-md-10 col-md-offset-1"><h3 id="release">
 <a class="header-link" href="#release">&lt;</a>Release</h3>
 
-<p>If you used <code>pod lib create</code> to generate your project you can run <code>rake release</code> in the Pod's root folder, which validate your build and pushes a release tag to your git repository. </p>
+<p>Once you have a release ready you'll need to make the corresponding tag. First run a quick <code>pod lib lint</code> then create your tag and push it.</p>
 
 <blockquote>
 <p>The release workflow is similar to the following.</p>
@@ -203,7 +160,7 @@ pod update
     <section class="container "><div class="row">
     <article class="content col-md-10 col-md-offset-1"><h4 id="submitting-open-source-code">Submitting Open Source Code</h4>
 
-<p>Once your tags are pushed you can use the command <code>pod trunk push NAME.podspec</code> to send your library to the Specs repo. For more information on getting this setup see <a href="/making/getting-setup-with-trunk">Getting Setup With Trunk</a>. </p>
+<p>Once your tags are pushed you can use the command <code>pod trunk push NAME.podspec</code> to send your library to the Specs repo. For more information on getting this setup see <a href="/making/getting-setup-with-trunk">Getting Setup With Trunk</a>.</p>
 
 <h4 id="submitting-private-code">Submitting Private Code</h4>
 
@@ -249,7 +206,7 @@ pod 'CocoaLumberjack'
 <h2 id="documenting-a-pod">
 <a class="header-link" href="#documenting-a-pod">&lt;</a>Documenting a Pod</h2>
 
-<p>Right now the best place to get information on documenting your Pods in anticipation of CocoaDocs and Xcode 5 support is via <a href="http://nshipster.com/documentation/">NSHipster's blog post on Documentation</a>. <a href="http://github.com/cocoapods/cocoadocs.org">CocoaDocs</a> will release an appledoc parsed code based on your Podspec's public API roughly 15 minutes after it is pushed.</p>
+<p>Right now the best place to get information on documenting your Pods in anticipation of CocoaDocs and Xcode 5 support is via <a href="http://nshipster.com/documentation/">NSHipster's blog post on Documentation</a>. <a href="http://github.com/cocoapods/cocoadocs.org">CocoaDocs</a> will release an appledoc parsed code based on your Podspec's public API roughly 15 minutes after it is pushed. More information on CocoaDocs can be found on the <a href="http://cocoadocs.org/readme">CocoaDocs developer readme</a></p>
 
 <h2 id="where-can-i-ask-questions">
 <a class="header-link" href="#where-can-i-ask-questions">&lt;</a>Where can I ask questions?</h2>
@@ -291,8 +248,8 @@ pod 'CocoaLumberjack'
 <li><a href="making-a-cocoapod.html">Making a CocoaPod</a></li>
 <li><a href="specs-and-specs-repo.html">Specs and the Specs Repo</a></li>
 <li><a href="using-pod-lib-create.html">Using Pod Lib Create</a></li>
-<li><a href="getting-setup-with-trunk.html">Getting setup with Trunk</a></li>
 <li><a href="private-cocoapods.html">Private Pods</a></li>
+<li><a href="getting-setup-with-trunk.html">Getting setup with Trunk</a></li>
 </ul>
 </div>
 <div class="clearfix visible-xs"></div>
