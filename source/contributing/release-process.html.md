@@ -17,7 +17,7 @@ We should strive for a fast release cycle, following [‘semantic versioning’]
 
 **‘feature’ branches** -  For a ‘not so small feature’ a separate branch should be created, named after the feature. This branch should branch-off from the ‘master’ branch, to which it eventually will be merged.
 
-##Pull Requests
+## Pull Requests
 
 If you would like to develop on the CocoaPods gems, you need to fork the main repo, work off of your fork, then create a pull request.
 

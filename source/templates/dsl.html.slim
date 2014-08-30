@@ -1,5 +1,6 @@
 ruby:
   name_space  = deserialize(name)
+
   group_sort_order = {
     'specification' => [
       ['Root specification'],
@@ -16,7 +17,8 @@ ruby:
     ]
   }
 
-
+    # a page contains the group and methods for a section
+  pages = pages_from_namespace(name_space, { :columns_sort_order_by_page => group_sort_order })
 
 #tab-controller.col-md-3.col-lg-3
   div.bs-sidebar
@@ -26,6 +28,9 @@ ruby:
 
       == method_list(name_space, { :columns_sort_order_by_page => group_sort_order })
 
+    li
+      a.select-tab id="tab-all" &raquo; Single Page
+
 / This is the content inside each tab
 #content-container.col-md-9.col-lg-9
   #tab-content.tab-content
@@ -33,40 +38,55 @@ ruby:
       h2 = name_space.name
       == name_space.html_description
 
-    - for group in name_space.groups
-      div.tab-pane id="tab_group_#{parameterize group.name}"
+    - for page in pages
+      - group = page[:group]
+      div.tab-pane id="tab_group_#{parameterize group.name}" class="group"
         h2 = group.name
         == (group.html_description)
 
-    - for method in name_space.meths
-      div.tab-pane id="tab_#{parameterize method.name}"
+      - for method in page[:methods]
+        div.tab-pane id="tab_#{parameterize method.name}" class="method"
 
-        h2
-          = method.name
-          - if method.required?
-            a.select-tab href="#tab_root-specification-group"
-              span.label.label-big required
-          - if method.respond_to?(:multi_platform?) && method.multi_platform?
-            a.select-tab href="#tab_multi-platform-support-group"
-              span.label.label-big multi-platform
+          h3.code
+            = method.name
+            - if method.required?
+              a.select-tab href="#tab_root-specification-group"
+                span.label.label-big required
+            - if method.respond_to?(:multi_platform?) && method.multi_platform?
+              a.select-tab href="#tab_multi-platform-support-group"
+                span.label.label-big multi-platform
 
-        == method.html_description
+          == method.html_description
 
-        - if method.respond_to?(:html_default_values) && method.html_default_values
-          h3 Defaults to:
-          - for value in method.html_default_values
-            == value
+          - if method.respond_to?(:html_default_values) && method.html_default_values
+            h3 Defaults to:
+            - for value in method.html_default_values
+              == value
 
-        - if method.examples
-          h3 Examples:
-          - for example in method.examples
-            - if example.description
-              blockquote = example.description
-            == example.html
+          - if method.examples
+            h3 Examples:
+            - for example in method.examples
+              - if example.description
+                blockquote = example.description
+              == example.html
 
-        - if method.respond_to?(:html_keys) && method.html_keys
-          h3 Supported Keys:
-          - for key in method.html_keys
-            == key
+          - if method.respond_to?(:html_keys) && method.html_keys
+            h3 Supported Keys:
+            - for key in method.html_keys
+              == key
 
 .clearfix
+
+
+javascript:
+  $('#tab-all').click(function(){
+    $('.bs-sidenav li.active').removeClass('active');
+    $('#tab-all').parent().addClass('active');
+
+    $('.bs-sidenav li ul').hide();
+
+    $('.tab-pane').each(function(i,t){
+      $('tab-content li').removeClass('active');
+    	$(this).addClass('active');
+    });
+  });

@@ -11,7 +11,7 @@ module NavigationHelpers
   #
   def page_title(resource = nil)
     resource ||= current_resource
-    
+
     title = resource.metadata[:page][:page_title]
     title ||= resource.metadata[:page]['title']
     title ||= resource.metadata[:locals][:code_object].name if resource.metadata[:locals][:code_object]
@@ -35,7 +35,7 @@ module NavigationHelpers
   def method_list(name_space, opts)
     result = ""
 
-     columnize(name_space.groups, opts).each_with_index do |column, column_index| 
+     columnize(name_space.groups, opts).each_with_index do |column, column_index|
       column.each_with_index do |entry, index|
         if opts[:absolute_link]
           link = link_for_code_object(entry)
@@ -47,7 +47,7 @@ module NavigationHelpers
           unless column_index == 0 && index == 0
             result << "</ul></li>"
           end
-          
+
           result << "<li><a class='select-tab group' data-toggle='tab' href=#{link}>#{entry.name}</a>"
           result << "<ul class='nav' style='display:none;'>"
         else
@@ -58,6 +58,35 @@ module NavigationHelpers
 
     end
     result
+  end
+
+  def pages_from_namespace(name_space, opts)
+    pages = []
+    page = {}
+    columns = columnize(name_space.groups, opts)
+    columns.each_with_index do |column, column_index|
+     column.each_with_index do |entry, index|
+
+       if entry.is_a?(Pod::Doc::CodeObjects::Group)
+        if page.keys.length > 0
+          pages << page
+        end
+         page = { :group => entry }
+       else
+         if page[:methods]
+           page[:methods] << entry
+         else
+           page[:methods] = [entry]
+         end
+       end
+
+       if (index == column.length - 1) && (column_index == columns.count - 1)
+         pages << page
+       end
+      end
+    end
+
+    pages
   end
 
   # FIXME
