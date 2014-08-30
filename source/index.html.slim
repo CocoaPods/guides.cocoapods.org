@@ -18,17 +18,20 @@ ruby:
       topnav.unshift(resource)
     end
   end
-  
+
   footer_resources = sitemap.resources.select do |resource|
     resource.data.footer
   end.sort_by { |resource| resource.data.footer_order }
+
+  # Take out the contributing to CocoaPods to put below the main guide layout
+  contributing = footer_resources.pop
 
 
 section.container
   .row
     header.col-md-12.headline.index
       h1 CocoaPods Guides
-  
+
       <div class="horizontal-divider"><div class="arrow-down"></div><div class="enclosed-arrow-down"></div></div>
 
 div.guide#content-wrapper
@@ -36,22 +39,57 @@ div.guide#content-wrapper
     .row
       .site_navigation
 
-      - for resource in footer_resources 
+      - for resource in footer_resources
 
         .col-lg-4.col-sm-4.col-xs-12.homepage-index
-    
+
           h2.guide-index == link_to page_title(resource), "/#{resource.destination_path}"
           ul
             - for child in resource.children.sort_by{|child| child.data.order}
               - unless child.data.ignore
-                li 
+                li
                     h5 == link_to( page_title(child), "/#{child.destination_path}")
                     p == child.data.description
 
             - if footer_resources.index(resource) % 2 == 1
               div.clearfix.visible-xs
 
+      .col-lg-4.col-sm-4.col-xs-12.homepage-index
+        h2.guide-index Reference
+
+        ul
+          li
+            h5
+              a href="/syntax/podfile.html" Podfile
+
+            p Find out all of the supported attributes of the DSL for downloading Pods.
+
+          li
+            h5
+              a href="/syntax/podspec.html" Podspec
+
+            p Find out all of the supported attributes of the DSL for creating a library.
+
+          li
+            h5
+              a href="/terminal/commands.html" Command Line API
+
+            p Find out all of the supported terminal flags and commands.
+
+
       .clearfix
       .col-lg-12.col-sm-12.col-xs-12
-        p.text-center We also have you covered with references to the <a href='/syntax/podfile.html'>Podfile</a>, the <a href='/syntax/podspec.html'>Podspec</a> and our <a href='/terminal/commands.html'>Command Line API</a>.
+        h2.guide-index Contributing Back
 
+      .col-lg-12.col-sm-12.col-xs-12
+          - for child in contributing.children.sort_by{|child| child.data.order}
+            - unless child.data.ignore
+              .col-lg-4.col-sm-4.col-xs-12
+                  h5 == link_to( page_title(child), "/#{child.destination_path}")
+                  p == child.data.description
+
+
+
+      .clearfix
+      .col-lg-12.col-sm-12.col-xs-12
+        p.text-center We also have you covered with references to the <a href=''>Podfile</a>, the <a href'>Podspec</a> and our <a href=''>Command Line API</a>.

@@ -1,7 +1,7 @@
 ---
 title: How to Contribute
 description: CocoaPods is fully open-sourced, so it depends on community contributions to get better. If you're looking to start working on CocoaPods, this is the place to start.
-order: 2
+order: 1
 ---
 
 ##The Development Workflow
@@ -59,7 +59,7 @@ All methods should be documented and grouped as explained in the documentation s
 
 CocoaPods has an extensive test suite. No code is accepted to `master` where the tests do not pass. All test files can be found in the `spec` folder.
 
-The tests for CocoaPods are written in Bacon and separated into Unit, Integration, and Functional test. 
+The tests for CocoaPods are written in Bacon and separated into Unit, Integration, and Functional test.
 
 > To run the full test suite:
 
@@ -70,7 +70,7 @@ $ bundle exec rake
 $ bundle exec rake spec:functional
 ```
 
-Occasionally, the fixtures used for functional tests need to be rebuilt. This is especially true when changes are made to the file structure of the Pods directory. 
+Occasionally, the fixtures used for functional tests need to be rebuilt. This is especially true when changes are made to the file structure of the Pods directory.
 
 > To update these fixtures:
 
@@ -103,4 +103,3 @@ Documentation should be brief, but explanatory. All paramaters and return values
 #   @sandbox.relativize(path) #=> '../../../../../Users/dir'
 #
 ```
-
