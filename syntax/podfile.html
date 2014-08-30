@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><title>CocoaPods Guides - Podfile Syntax Reference</title><link rel="shortcut icon" href="http://cocoapods.org/favicons/favicon.ico" type="image/x-icon" /><link rel="apple-touch-icon" href="http://cocoapods.org/favicons/apple-touch-icon.png" /><link rel="apple-touch-icon" sizes="57x57" href="http://cocoapods.org/favicons/apple-touch-icon-57x57.png" /><link rel="apple-touch-icon" sizes="60x60" href="http://cocoapods.org/favicons/apple-touch-icon-60x60.png" /><link rel="apple-touch-icon" sizes="72x72" href="http://cocoapods.org/favicons/apple-touch-icon-72x72.png" /><link rel="apple-touch-icon" sizes="76x76" href="http://cocoapods.org/favicons/apple-touch-icon-76x76.png" /><link rel="apple-touch-icon" sizes="114x114" href="http://cocoapods.org/favicons/apple-touch-icon-114x114.png" /><link rel="apple-touch-icon" sizes="120x120" href="http://cocoapods.org/favicons/apple-touch-icon-120x120.png" /><link rel="apple-touch-icon" sizes="144x144" href="http://cocoapods.org/favicons/apple-touch-icon-144x144.png" /><link rel="apple-touch-icon" sizes="152x152" href="http://cocoapods.org/favicons/apple-touch-icon-152x152.png" /><meta charset="utf-8" /><meta content="documenation cocoapods objective-c package manager" name="keywords" /><meta content="IE=edge" http-equiv="X-UA-Compatible" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><meta content="" name="description" /><meta content="" name="author" /><meta content="summary" name="twitter:card" /><meta content="@CocoaPods" name="twitter:site" /><meta content="@CocoaPods" name="twitter:creator" /><meta content="CocoPods" name="twitter:title" /><link href="../stylesheets/app.css" media="screen" rel="stylesheet" type="text/css" /><script src="../javascripts/application.js" type="text/javascript"></script><meta content="CocoaPods Guides" name="twitter:title" /><meta content="The official documentation site for the CocoaPods dependency manager." name="twitter:description" /><meta content="CocoaPods Guides" property="og:site_name" /><meta content="CocoaPods Guides" property="og:title" /><meta content="http://guides.cocoapods.org" property="og:url" /></head><body><nav class="navbar navbar-static-top" role="navigation"><section class="container"><div class="navbar-header"><button class="navbar-toggle" data-target=".navbar-header-collapse" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span><span class="glyphicon-plus"></span></button><a class="navbar-brand" href="http://cocoapods.org"></a></div><div class="collapse navbar-collapse navbar-header-collapse"><ul class="nav navbar-nav navbar-right"><li><a href="http://cocoapods.org/about">About</a></li><li class="active"><a href="http://guides.cocoapods.org">Guides</a></li><li><a href="http://blog.cocoapods.org">Blog</a></li></ul></div></section></nav><section class="container"><div class="row"><header class="header content"><h1>Podfile Syntax Reference</h1></header></div></section><div class="guide" id="content-wrapper"><section class="container"><div class="row"><article class="content"><div class="col-md-3 col-lg-3" id="tab-controller"><div class="bs-sidebar"><ul class="nav bs-sidenav"><li class="active"><a class="select-tab" data-toggle="tab" href="#tab_podfile">Podfile</a></li><li><a class='select-tab group' data-toggle='tab' href=#tab_group_dependencies>Dependencies</a><ul class='nav' style='display:none;'><li><a class='select-tab' data-toggle='tab' href=#tab_pod>pod</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_podspec>podspec</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_target>target</a></li></ul></li><li><a class='select-tab group' data-toggle='tab' href=#tab_group_target_configuration>Target configuration</a><ul class='nav' style='display:none;'><li><a class='select-tab' data-toggle='tab' href=#tab_platform>platform</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_xcodeproj>xcodeproj</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_link_with>link_with</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_inhibit_all_warnings_bang>inhibit_all_warnings!</a></li></ul></li><li><a class='select-tab group' data-toggle='tab' href=#tab_group_workspace>Workspace</a><ul class='nav' style='display:none;'><li><a class='select-tab' data-toggle='tab' href=#tab_workspace>workspace</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_generate_bridge_support_bang>generate_bridge_support!</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_set_arc_compatibility_flag_bang>set_arc_compatibility_flag!</a></li></ul></li><li><a class='select-tab group' data-toggle='tab' href=#tab_group_hooks>Hooks</a><ul class='nav' style='display:none;'><li><a class='select-tab' data-toggle='tab' href=#tab_pre_install>pre_install</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_post_install>post_install</a></li></ul></div></div><div class="col-md-9 col-lg-9" id="content-container"><div class="tab-content" id="tab-content"><div class="tab-pane active" id="tab_podfile"><h2>Podfile</h2><p>The Podfile is a specification that describes the dependencies of the
+<!DOCTYPE html><html><head><title>CocoaPods Guides - Podfile Syntax Reference</title><link rel="shortcut icon" href="http://cocoapods.org/favicons/favicon.ico" type="image/x-icon" /><link rel="apple-touch-icon" href="http://cocoapods.org/favicons/apple-touch-icon.png" /><link rel="apple-touch-icon" sizes="57x57" href="http://cocoapods.org/favicons/apple-touch-icon-57x57.png" /><link rel="apple-touch-icon" sizes="60x60" href="http://cocoapods.org/favicons/apple-touch-icon-60x60.png" /><link rel="apple-touch-icon" sizes="72x72" href="http://cocoapods.org/favicons/apple-touch-icon-72x72.png" /><link rel="apple-touch-icon" sizes="76x76" href="http://cocoapods.org/favicons/apple-touch-icon-76x76.png" /><link rel="apple-touch-icon" sizes="114x114" href="http://cocoapods.org/favicons/apple-touch-icon-114x114.png" /><link rel="apple-touch-icon" sizes="120x120" href="http://cocoapods.org/favicons/apple-touch-icon-120x120.png" /><link rel="apple-touch-icon" sizes="144x144" href="http://cocoapods.org/favicons/apple-touch-icon-144x144.png" /><link rel="apple-touch-icon" sizes="152x152" href="http://cocoapods.org/favicons/apple-touch-icon-152x152.png" /><meta charset="utf-8" /><meta content="documenation cocoapods objective-c package manager" name="keywords" /><meta content="IE=edge" http-equiv="X-UA-Compatible" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><meta content="" name="description" /><meta content="" name="author" /><meta content="summary" name="twitter:card" /><meta content="@CocoaPods" name="twitter:site" /><meta content="@CocoaPods" name="twitter:creator" /><meta content="CocoPods" name="twitter:title" /><link href="../stylesheets/app.css" media="screen" rel="stylesheet" type="text/css" /><script src="../javascripts/application.js" type="text/javascript"></script><meta content="CocoaPods Guides" name="twitter:title" /><meta content="The official documentation site for the CocoaPods dependency manager." name="twitter:description" /><meta content="CocoaPods Guides" property="og:site_name" /><meta content="CocoaPods Guides" property="og:title" /><meta content="http://guides.cocoapods.org" property="og:url" /></head><body><nav class="navbar navbar-static-top" role="navigation"><section class="container"><div class="navbar-header"><button class="navbar-toggle" data-target=".navbar-header-collapse" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span><span class="glyphicon-plus"></span></button><a class="navbar-brand" href="http://cocoapods.org"></a></div><div class="collapse navbar-collapse navbar-header-collapse"><ul class="nav navbar-nav navbar-right"><li><a href="http://cocoapods.org/about">About</a></li><li class="active"><a href="http://guides.cocoapods.org">Guides</a></li><li><a href="http://blog.cocoapods.org">Blog</a></li></ul></div></section></nav><section class="container"><div class="row"><header class="header content"><h1>Podfile Syntax Reference</h1></header></div></section><div class="guide" id="content-wrapper"><section class="container"><div class="row"><article class="content"><div class="col-md-3 col-lg-3" id="tab-controller"><div class="bs-sidebar"><ul class="nav bs-sidenav"><li class="active"><a class="select-tab" data-toggle="tab" href="#tab_podfile">Podfile</a></li><li><a class='select-tab group' data-toggle='tab' href=#tab_group_dependencies>Dependencies</a><ul class='nav' style='display:none;'><li><a class='select-tab' data-toggle='tab' href=#tab_pod>pod</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_podspec>podspec</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_target>target</a></li></ul></li><li><a class='select-tab group' data-toggle='tab' href=#tab_group_target_configuration>Target configuration</a><ul class='nav' style='display:none;'><li><a class='select-tab' data-toggle='tab' href=#tab_platform>platform</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_xcodeproj>xcodeproj</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_link_with>link_with</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_inhibit_all_warnings_bang>inhibit_all_warnings!</a></li></ul></li><li><a class='select-tab group' data-toggle='tab' href=#tab_group_workspace>Workspace</a><ul class='nav' style='display:none;'><li><a class='select-tab' data-toggle='tab' href=#tab_workspace>workspace</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_generate_bridge_support_bang>generate_bridge_support!</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_set_arc_compatibility_flag_bang>set_arc_compatibility_flag!</a></li></ul></li><li><a class='select-tab group' data-toggle='tab' href=#tab_group_hooks>Hooks</a><ul class='nav' style='display:none;'><li><a class='select-tab' data-toggle='tab' href=#tab_pre_install>pre_install</a></li><li><a class='select-tab' data-toggle='tab' href=#tab_post_install>post_install</a></li></ul><li><a class="select-tab" id="tab-all">&raquo; Single Page</a></li></div></div><div class="col-md-9 col-lg-9" id="content-container"><div class="tab-content" id="tab-content"><div class="tab-pane active" id="tab_podfile"><h2>Podfile</h2><p>The Podfile is a specification that describes the dependencies of the
 targets of one or more Xcode projects. The Podfile always creates an
 implicit target, named <code>default</code>, which links to the first target of the
 user project.</p>
@@ -23,7 +23,7 @@ user project.</p>
     <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">target</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</pre></div></div><div class="tab-pane" id="tab_group_dependencies"><h2>Dependencies</h2><p>The Podfile specifies the dependencies of each user target.</p>
+</pre></div></div><div class="tab-pane group" id="tab_group_dependencies"><h2>Dependencies</h2><p>The Podfile specifies the dependencies of each user target.</p>
 
 <ul>
 <li><code>pod</code> is the way to declare a specific dependency.</li>
@@ -31,18 +31,7 @@ user project.</p>
 <li><code>target</code> allows you to scope your dependencies to specific
 targets in your Xcode projects.</li>
 </ul>
-</div><div class="tab-pane" id="tab_group_target_configuration"><h2>Target configuration</h2><p>These settings are used to control the  CocoaPods generated project.</p>
-
-<p>This starts out simply with stating what <code>platform</code> you are working
-on. <code>xcodeproj</code> allows you to state specifically which project to
-link with.</p>
-</div><div class="tab-pane" id="tab_group_workspace"><h2>Workspace</h2><p>This group list the options to configure workspace and to set global
-settings.</p>
-</div><div class="tab-pane" id="tab_group_hooks"><h2>Hooks</h2><p>The Podfile provides hooks that will be called during the
-installation process.</p>
-
-<p>Hooks are <strong>global</strong> and not stored per target definition.</p>
-</div><div class="tab-pane" id="tab_pod"><h2>pod</h2><p>Specifies a dependency of the project.</p>
+</div><div class="tab-pane method" id="tab_pod"><h3 class="code">pod</h3><p>Specifies a dependency of the project.</p>
 
 <p>A dependency requirement is defined by the name of the Pod and
 optionally a list of version requirements.</p>
@@ -132,7 +121,7 @@ to use one of the approaches outlined in the sections below.</p>
 <p>If a podspec is available from another source outside of the library’s
 repo. Consider, for instance, a podspec available via HTTP:</p>
 <div class="highlight"><pre><span class="n">pod</span> <span class="s1">&#39;JSONKit&#39;</span><span class="p">,</span> <span class="ss">:podspec</span> <span class="o">=&gt;</span> <span class="s1">&#39;https://example.com/JSONKit.podspec&#39;</span>
-</pre></div></div><div class="tab-pane" id="tab_podspec"><h2>podspec</h2><p>Use the dependencies of a Pod defined in the given podspec file. If no
+</pre></div></div><div class="tab-pane method" id="tab_podspec"><h3 class="code">podspec</h3><p>Use the dependencies of a Pod defined in the given podspec file. If no
 arguments are passed the first podspec in the root of the Podfile is
 used. It is intended to be used by the project of a library. Note:
 this does not include the sources derived from the podspec just the
@@ -140,7 +129,7 @@ CocoaPods infrastructure.</p>
 <h3>Examples:</h3><blockquote></blockquote><div class="highlight"><pre><span class="n">podspec</span>
 </pre></div><blockquote></blockquote><div class="highlight"><pre><span class="n">podspec</span> <span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s1">&#39;QuickDialog&#39;</span>
 </pre></div><blockquote></blockquote><div class="highlight"><pre><span class="n">podspec</span> <span class="ss">:path</span> <span class="o">=&gt;</span> <span class="s1">&#39;/Documents/PrettyKit/PrettyKit.podspec&#39;</span>
-</pre></div></div><div class="tab-pane" id="tab_target"><h2>target</h2><p>Defines a new static library target and scopes dependencies defined
+</pre></div></div><div class="tab-pane method" id="tab_target"><h3 class="code">target</h3><p>Defines a new static library target and scopes dependencies defined
 from the given block. The target will by default include the
 dependencies defined outside of the block, unless the <code>:exclusive =&gt;
 true</code> option is
@@ -160,7 +149,12 @@ project if not value is specified for the <code>link_with</code> attribute.</p>
     <span class="n">pod</span> <span class="s1">&#39;JSONKit&#39;</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</pre></div></div><div class="tab-pane" id="tab_platform"><h2>platform</h2><p>Specifies the platform for which a static library should be build.</p>
+</pre></div></div><div class="tab-pane group" id="tab_group_target_configuration"><h2>Target configuration</h2><p>These settings are used to control the  CocoaPods generated project.</p>
+
+<p>This starts out simply with stating what <code>platform</code> you are working
+on. <code>xcodeproj</code> allows you to state specifically which project to
+link with.</p>
+</div><div class="tab-pane method" id="tab_platform"><h3 class="code">platform</h3><p>Specifies the platform for which a static library should be build.</p>
 
 <p>CocoaPods provides a default deployment target if one is not specified.
 The current default values are <code>4.3</code> for iOS and <code>10.6</code> for OS X.</p>
@@ -169,7 +163,7 @@ The current default values are <code>4.3</code> for iOS and <code>10.6</code> fo
 architecture will be added to <code>ARCHS</code>.</p>
 <h3>Examples:</h3><blockquote>Specifying the platform</blockquote><div class="highlight"><pre><span class="n">platform</span> <span class="ss">:ios</span><span class="p">,</span> <span class="s2">&quot;4.0&quot;</span>
 <span class="n">platform</span> <span class="ss">:ios</span>
-</pre></div></div><div class="tab-pane" id="tab_xcodeproj"><h2>xcodeproj</h2><p>Specifies the Xcode project that contains the target that the Pods
+</pre></div></div><div class="tab-pane method" id="tab_xcodeproj"><h3 class="code">xcodeproj</h3><p>Specifies the Xcode project that contains the target that the Pods
 library should be linked with.</p>
 
 <hr>
@@ -193,7 +187,7 @@ of each build configuration is associated to either <code>:release</code> or
   <span class="n">xcodeproj</span> <span class="s1">&#39;TestProject&#39;</span>
 <span class="k">end</span>
 </pre></div><blockquote>Using custom build configurations</blockquote><div class="highlight"><pre><span class="n">xcodeproj</span> <span class="s1">&#39;TestProject&#39;</span><span class="p">,</span> <span class="s1">&#39;Mac App Store&#39;</span> <span class="o">=&gt;</span> <span class="ss">:release</span><span class="p">,</span> <span class="s1">&#39;Test&#39;</span> <span class="o">=&gt;</span> <span class="ss">:debug</span>
-</pre></div></div><div class="tab-pane" id="tab_link_with"><h2>link_with</h2><p>Specifies the target(s) in the user’s project that this Pods library
+</pre></div></div><div class="tab-pane method" id="tab_link_with"><h3 class="code">link_with</h3><p>Specifies the target(s) in the user’s project that this Pods library
 should be linked in.</p>
 
 <hr>
@@ -203,7 +197,7 @@ with the first target in your project. So if you only have one target
 you do not need to specify the target to link with.</p>
 <h3>Examples:</h3><blockquote>Link with a user project target</blockquote><div class="highlight"><pre><span class="n">link_with</span> <span class="s1">&#39;MyApp&#39;</span>
 </pre></div><blockquote>Link with multiple user project targets</blockquote><div class="highlight"><pre><span class="n">link_with</span> <span class="s1">&#39;MyApp&#39;</span><span class="p">,</span> <span class="s1">&#39;MyOtherApp&#39;</span>
-</pre></div></div><div class="tab-pane" id="tab_inhibit_all_warnings_bang"><h2>inhibit_all_warnings!</h2><p>Inhibits <strong>all</strong> the warnings from the CocoaPods libraries.</p>
+</pre></div></div><div class="tab-pane method" id="tab_inhibit_all_warnings_bang"><h3 class="code">inhibit_all_warnings!</h3><p>Inhibits <strong>all</strong> the warnings from the CocoaPods libraries.</p>
 
 <hr>
 
@@ -212,7 +206,9 @@ you do not need to specify the target to link with.</p>
 <p>If you would like to inhibit warnings per Pod you can use the
 following syntax:</p>
 <div class="highlight"><pre><span class="n">pod</span> <span class="s1">&#39;SSZipArchive&#39;</span><span class="p">,</span> <span class="ss">:inhibit_warnings</span> <span class="o">=&gt;</span> <span class="kp">true</span>
-</pre></div></div><div class="tab-pane" id="tab_workspace"><h2>workspace</h2><p>Specifies the Xcode workspace that should contain all the projects.</p>
+</pre></div></div><div class="tab-pane group" id="tab_group_workspace"><h2>Workspace</h2><p>This group list the options to configure workspace and to set global
+settings.</p>
+</div><div class="tab-pane method" id="tab_workspace"><h3 class="code">workspace</h3><p>Specifies the Xcode workspace that should contain all the projects.</p>
 
 <hr>
 
@@ -220,7 +216,7 @@ following syntax:</p>
 exists in the same directory as the Podfile, then the name of that
 project is used as the workspace’s name.</p>
 <h3>Examples:</h3><blockquote>Specifying a workspace</blockquote><div class="highlight"><pre><span class="n">workspace</span> <span class="s1">&#39;MyWorkspace&#39;</span>
-</pre></div></div><div class="tab-pane" id="tab_generate_bridge_support_bang"><h2>generate_bridge_support!</h2><p>Specifies that a BridgeSupport metadata document should be generated
+</pre></div></div><div class="tab-pane method" id="tab_generate_bridge_support_bang"><h3 class="code">generate_bridge_support!</h3><p>Specifies that a BridgeSupport metadata document should be generated
 from the headers of all installed Pods.</p>
 
 <hr>
@@ -229,7 +225,7 @@ from the headers of all installed Pods.</p>
 <a href="http://programming.nu/index">Nu</a>, and
 <a href="http://inexdo.com/JSCocoa">JSCocoa</a>, which use it to bridge types,
 functions, etc.</p>
-</div><div class="tab-pane" id="tab_set_arc_compatibility_flag_bang"><h2>set_arc_compatibility_flag!</h2><p>Specifies that the -fobjc-arc flag should be added to the
+</div><div class="tab-pane method" id="tab_set_arc_compatibility_flag_bang"><h3 class="code">set_arc_compatibility_flag!</h3><p>Specifies that the -fobjc-arc flag should be added to the
 <code>OTHER_LD_FLAGS</code>.</p>
 
 <hr>
@@ -240,7 +236,11 @@ Xcode 4.3.2 no longer seems to support the <code>-fobjc-arc</code> flag. Therefo
 it now has to be enabled explicitly using this method.</p>
 
 <p>Support for this method might be dropped in CocoaPods <code>1.0</code>.</p>
-</div><div class="tab-pane" id="tab_pre_install"><h2>pre_install</h2><p>This hook allows you to make any changes to the Pods after they have
+</div><div class="tab-pane group" id="tab_group_hooks"><h2>Hooks</h2><p>The Podfile provides hooks that will be called during the
+installation process.</p>
+
+<p>Hooks are <strong>global</strong> and not stored per target definition.</p>
+</div><div class="tab-pane method" id="tab_pre_install"><h3 class="code">pre_install</h3><p>This hook allows you to make any changes to the Pods after they have
 been downloaded but before they are installed.</p>
 
 <p>It receives the
@@ -249,7 +249,7 @@ as its only argument.</p>
 <h3>Examples:</h3><blockquote>Defining a pre install hook in a Podfile.</blockquote><div class="highlight"><pre><span class="n">pre_install</span> <span class="k">do</span> <span class="o">|</span><span class="n">installer_representation</span><span class="o">|</span>
   <span class="c1"># Do something fancy!</span>
 <span class="k">end</span>
-</pre></div></div><div class="tab-pane" id="tab_post_install"><h2>post_install</h2><p>This hook allows you to make any last changes to the generated Xcode
+</pre></div></div><div class="tab-pane method" id="tab_post_install"><h3 class="code">post_install</h3><p>This hook allows you to make any last changes to the generated Xcode
 project before it is written to disk, or any other tasks you might want
 to perform.</p>
 
@@ -263,7 +263,17 @@ as its only argument.</p>
     <span class="k">end</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</pre></div></div></div></div><div class="clearfix"></div></article></div></section></div><section class="site_navigation container"><div class="row"><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="../using/index.html">Using CocoaPods</a></h3><ul><li><a href="../using/getting-started.html">Getting Started</a></li><li><a href="../using/using-cocoapods.html">Using CocoaPods</a></li><li><a href="../using/the-podfile.html">The Podfile</a></li><li><a href="../using/troubleshooting.html">Troubleshooting</a></li><li><a href="../using/faq.html">F.A.Q</a></li></ul></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="../making/index.html">Making CocoaPods</a></h3><ul><li><a href="../making/making-a-cocoapod.html">Making a CocoaPod</a></li><li><a href="../making/specs-and-specs-repo.html">Specs and the Specs Repo</a></li><li><a href="../making/using-pod-lib-create.html">Using Pod Lib Create</a></li><li><a href="../making/private-cocoapods.html">Private Pods</a></li><li><a href="../making/getting-setup-with-trunk.html">Getting setup with Trunk</a></li></ul></div><div class="clearfix visible-xs"></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="../contributing/index.html">Contributing</a></h3><ul><li><a href="../contributing/components.html">Core Components</a></li><li><a href="../contributing/tickets-handling.html">Tickets handling</a></li><li><a href="../contributing/contribute-to-cocoapods.html">How to Contribute</a></li><li><a href="../contributing/dev-environment.html">Setting up for Development</a></li><li><a href="../contributing/release-process.html">Release Process</a></li></ul></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3> <a href='/reference.html'>Reference</a></h3><ul><li><a href='/syntax/podfile.html'>Podfile Syntax</a></li><li><a href='/syntax/podspec.html'>Podspec Syntax</a></li><li><a href='/terminal/commands.html'>Command-line Reference</a></li></ul></div></div></section><footer class="page-footer"><section class="container"><div class="row"><article class="col-md-8 col-lg-8 col-sm-12 col-md-offset-2 col-lg-offset-2 col-xs-12"><h4>CocoaPods is a project from </h4><p class="contributors"><a href="https://twitter.com/alloy">Eloy Durán</a>, <a href="https://twitter.com/fabiopelosin">Fabio Pelosin</a>, <a href="http://orta.github.io">Orta Therox</a>, and <a href="http://cocoapods.org/about">The CocoaPods Dev Team</a> with contributions from <a href="https://github.com/CocoaPods/Specs/graphs/contributors">many, many others</a>.</p><h4>Lovingly sponsored by </h4><p class="sponsors"><a href="http://artsy.net">Artsy</a>,&nbsp;<a href="http://www.fngtps.com">Fingertips</a>, <a href="https://www.heroku.com">Heroku</a>, <a href="http://www.rubymotion.com">RubyMotion</a>, <a href="https://www.sauspiel.de">Sauspiel</a>, <a href="https://www.soundcloud.com">SoundCloud</a>, <a href="https://www.stripe.com">Stripe</a>, and<a href="http://www.technologyastronauts.ch">Technology&nbsp;Astronauts</a>.</p></article><article class="col-md-8 col-md-offset-2 minor"></article></div></section></footer><footer class="footer-links"><section class="container"><div class="row"><article class="col-md-8 col-lg-8 col-sm-12 col-md-offset-2 col-lg-offset-2 col-xs-12"><a class="cocoapods-small-logo" href="http://cocoapods.org"></a><ul><li class="col-md-3 col-sm-3 col-xs-6"><a href="http://guides.cocoapods.org/using/troubleshooting.html">Support</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://github.com/CocoaPods/CocoaPods">Github Repo</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://github.com/CocoaPods/Specs">Podspecs Repo</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://twitter.com/CocoaPods">@CocoaPods</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="http://groups.google.com/group/cocoapods">Mailing List</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="http://cocoapods.org/about"><span class="visible-lg-span">CocoaPods</span> Dev Team</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="http://guides.cocoapods.org/syntax/podfile.html">Podfile Doc<span class="hidden-lg-span">s</span><span class="visible-lg-span">umentation</span></a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="http://cocoapods.org/legal">Legal / Conduct</a></li></ul></article></div></section></footer></body><script type="text/javascript">(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+</pre></div></div></div></div><div class="clearfix"></div><script type="text/javascript">$('#tab-all').click(function(){
+  $('.bs-sidenav li.active').removeClass('active');
+  $('#tab-all').parent().addClass('active');
+
+  $('.bs-sidenav li ul').hide();
+
+  $('.tab-pane').each(function(i,t){
+    $('tab-content li').removeClass('active');
+      $(this).addClass('active');
+  });
+});</script></article></div></section></div><section class="site_navigation container"><div class="row"><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="../using/index.html">Using CocoaPods</a></h3><ul><li><a href="../using/getting-started.html">Getting Started</a></li><li><a href="../using/using-cocoapods.html">Using CocoaPods</a></li><li><a href="../using/the-podfile.html">The Podfile</a></li><li><a href="../using/troubleshooting.html">Troubleshooting</a></li><li><a href="../using/faq.html">F.A.Q</a></li></ul></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="../making/index.html">Making CocoaPods</a></h3><ul><li><a href="../making/making-a-cocoapod.html">Making a CocoaPod</a></li><li><a href="../making/using-pod-lib-create.html">Using Pod Lib Create</a></li><li><a href="../making/specs-and-specs-repo.html">Specs and the Specs Repo</a></li><li><a href="../making/private-cocoapods.html">Private Pods</a></li><li><a href="../making/getting-setup-with-trunk.html">Getting setup with Trunk</a></li></ul></div><div class="clearfix visible-xs"></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="../contributing/index.html">Contributing</a></h3><ul><li><a href="../contributing/contribute-to-cocoapods.html">How to Contribute</a></li><li><a href="../contributing/components.html">Core Components</a></li><li><a href="../contributing/dev-environment.html">Setting up for Development</a></li><li><a href="../contributing/tickets-handling.html">Tickets handling</a></li><li><a href="../contributing/release-process.html">Release Process</a></li></ul></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3> <a href='/reference.html'>Reference</a></h3><ul><li><a href='/syntax/podfile.html'>Podfile Syntax</a></li><li><a href='/syntax/podspec.html'>Podspec Syntax</a></li><li><a href='/terminal/commands.html'>Command-line Reference</a></li></ul></div></div></section><footer class="page-footer"><section class="container"><div class="row"><article class="col-md-8 col-lg-8 col-sm-12 col-md-offset-2 col-lg-offset-2 col-xs-12"><h4>CocoaPods is a project from </h4><p class="contributors"><a href="https://twitter.com/alloy">Eloy Durán</a>, <a href="https://twitter.com/fabiopelosin">Fabio Pelosin</a>, <a href="http://orta.github.io">Orta Therox</a>, and <a href="http://cocoapods.org/about">The CocoaPods Dev Team</a> with contributions from <a href="https://github.com/CocoaPods/Specs/graphs/contributors">many, many others</a>.</p><h4>Lovingly sponsored by </h4><p class="sponsors"><a href="http://artsy.net">Artsy</a>,&nbsp;<a href="http://www.fngtps.com">Fingertips</a>, <a href="https://www.heroku.com">Heroku</a>, <a href="http://www.rubymotion.com">RubyMotion</a>, <a href="https://www.sauspiel.de">Sauspiel</a>, <a href="https://www.soundcloud.com">SoundCloud</a>, <a href="https://www.stripe.com">Stripe</a>, and<a href="http://www.technologyastronauts.ch">Technology&nbsp;Astronauts</a>.</p></article><article class="col-md-8 col-md-offset-2 minor"></article></div></section></footer><footer class="footer-links"><section class="container"><div class="row"><article class="col-md-8 col-lg-8 col-sm-12 col-md-offset-2 col-lg-offset-2 col-xs-12"><a class="cocoapods-small-logo" href="http://cocoapods.org"></a><ul><li class="col-md-3 col-sm-3 col-xs-6"><a href="http://guides.cocoapods.org/using/troubleshooting.html">Support</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://github.com/CocoaPods/CocoaPods">Github Repo</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://github.com/CocoaPods/Specs">Podspecs Repo</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://twitter.com/CocoaPods">@CocoaPods</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="http://groups.google.com/group/cocoapods">Mailing List</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="http://cocoapods.org/about"><span class="visible-lg-span">CocoaPods</span> Dev Team</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="http://guides.cocoapods.org/syntax/podfile.html">Podfile Doc<span class="hidden-lg-span">s</span><span class="visible-lg-span">umentation</span></a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="http://cocoapods.org/legal">Legal / Conduct</a></li></ul></article></div></section></footer></body><script type="text/javascript">(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
