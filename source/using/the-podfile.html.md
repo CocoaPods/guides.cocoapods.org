@@ -48,6 +48,7 @@ pod 'AFNetworking', '~> 1.0'
 pod 'Objection', '0.9'
 ```
 
+### Specifying pod versions
 
 > When starting out with a project it is likely that you will want to use the latest version of a Pod. If this is the case, simply omit the version requirements.
 
