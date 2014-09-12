@@ -23,6 +23,7 @@ $ echo ".rvmrc" >> .git/info/exclude
 # Reload the rvm config by jumping in and out of your dev folder
 # then init & update git submodules and install ruby dependencies using a rake task.
 $ cd .. ; cd -   
+$ bundle install
 $ rake bootstrap 
 ```
 
@@ -33,6 +34,7 @@ $ rake bootstrap
 $ sudo gem install bundler 
 
 # Init & update git submodules and install ruby dependencies using a rake task.
+$ bundle install
 $ rake bootstrap
 ```
 
