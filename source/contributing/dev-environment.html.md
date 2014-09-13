@@ -4,7 +4,7 @@ description: If you're looking to contribute to the CocoaPods project through fe
 order: 2
 ---
 
-CocoaPods is a collection of ruby gems. It is possible to clone them individually and set up a bundler environment for working in CocoaPods. However, for someone new to high-level library development in ruby this comes with a high learning curve. Because of this we will be using this guide to show how to set up using the CocoaPods Rainforest.
+CocoaPods is a collection of ruby gems. It is possible to clone them individually and set up a bundler environment for working in CocoaPods. However, for someone new to high-level library development in ruby this comes with a high learning curve. Because of this we will be using this guide to show how to set up using the [CocoaPods Rainforest](https://github.com/CocoaPods/Rainforest).
 
 Rainforest is a git repo that when bootstrapped has submodules of all the required gems for CocoaPods development. Let's clone it:
 
@@ -26,7 +26,7 @@ This will loop through all the known gems downloading them, and setting up their
 
 If you're not sure where your changes are going to be, you may way to look at the [Core Components](http://guides.cocoapods.org/contributing/components.html) to get a sense of where the change will take place.
 
-Once in the correct gem you should verify that all specs pass and all examples build. ( See  rake -T for other gem based tasks. )
+Once in the correct gem you should verify that all specs pass and all examples build. ( See  rake -T for other per-gem based tasks. )
 
 ```shell
 $ rake spec
@@ -41,7 +41,7 @@ $ kicker -c
 
 Create your patch, verify all specs still pass and examples still build, and create a [pull request](https://github.com/CocoaPods/CocoaPods/compare).
 
-## Using latest pod version
+### Using latest pod command
 
 If you would like to run latest pod command in terminal for you project.
 
