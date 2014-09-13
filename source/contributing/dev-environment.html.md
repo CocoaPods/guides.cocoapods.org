@@ -4,39 +4,29 @@ description: If you're looking to contribute to the CocoaPods project through fe
 order: 2
 ---
 
-> Create a clone of the CocoaPods source.
+CocoaPods is a collection of ruby gems. It is possible to clone them individually and set up a bundler environment for working in CocoaPods. However for someone new to high-level library development in ruby this comes with a high learning curve. Because of this we will be using this guide to show how to set up using the CocoaPods Rainforest.
+
+Rainforest is a git repo that when bootstrapped has submodules of all the required gems for CocoaPods development. Let's clone it:
 
 ```shell
-$ git clone git://github.com/CocoaPods/CocoaPods.git
-$ cd CocoaPods
+$ git clone https://github.com/CocoaPods/Rainforest.git
+$ cd Rainforest
 ```
+All of the commands in Rainforest are Rake Tasks. This is a ruby varient of Make Tasks. You can take a look at all the available tasks by running `rake -t` in the terminal.
 
-Update git submodules and install the dependencies. CocoaPods supports Ruby 1.8.7 and newer. Instructions for RVM are provided, but feel free to use whichever tool you prefer.
-
-> If you are using RVM:
-
-```shell
-# Create a blank environment for CocoaPods.
-$ echo "rvm use --create ruby-1.9.3-p194@cocoapods" > .rvmrc
-$ echo ".rvmrc" >> .git/info/exclude
-
-# Reload the rvm config by jumping in and out of your dev folder
-# then init & update git submodules and install ruby dependencies using a rake task.
-$ cd .. ; cd -   
-$ rake bootstrap 
-```
-
-> Otherwise:
+To get started downloading run:
 
 ```shell
-# If bundler is not already installed.
-$ sudo gem install bundler 
-
-# Init & update git submodules and install ruby dependencies using a rake task.
 $ rake bootstrap
 ```
 
-> Verify that all specs pass and all examples build. (See rake -T for other tasks.)
+This will loop through all the known gems downloading them, and setting up their environments. To verify that everything is set up, run: `CocoaPods/bin/pod --help`.
+
+### Working on CocoaPods
+
+If you're not sure where your changes are going to be, you may way to look at the [Core Components](http://guides.cocoapods.org/contributing/components.html) to get a sense of where the change will take place.
+
+Once in the correct gem you should verify that all specs pass and all examples build. ( See  rake -T for other gem based tasks. )
 
 ```shell
 $ rake spec
@@ -53,27 +43,21 @@ Create your patch, verify all specs still pass and examples still build, and cre
 
 ## Using latest pod version
 
-If you would like to run latest pod command in terminal for you project. 
+If you would like to run latest pod command in terminal for you project.
 
 > You could run it with full path, i.e.
 
 ```shell
-$HOME/code/CocoaPods/bin/pod install
+$DEV/Rainforest/CocoaPods/bin/pod install
 ```
 
 > For convenience you could add the next alias to you .zshrc or .bashrc or similar:
 
 ```shell
-alias pod-dev='$HOME/code/CocoaPods/bin/pod'
+alias pod-dev='$DEV/Rainforest/CocoaPods/bin/pod'
 ```
 
 Other advanced aliases:
-
-> If you are using RVM and have specific gemset for cocoapods (i.e. with the same name) than you could use next alias:
-
-```shell
-alias pod-dev='rvm ruby-1.9.3-p194@cocoapods do $HOME/code/CocoaPods/bin/pod'
-```
 
 > If you want to autoload [Pry](https://github.com/pry/pry) and the [Awesome Print](https://github.com/michaeldv/awesome_print) gems set the ```COCOA_PODS_ENV``` environment variable to ```development```. This can be done with an alias like:
 
