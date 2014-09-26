@@ -24,7 +24,7 @@ This will loop through all the known gems downloading them, and setting up their
 
 ### Working on CocoaPods
 
-If you're not sure where your changes are going to be, you may way to look at the [Core Components](http://guides.cocoapods.org/contributing/components.html) to get a sense of where the change will take place.
+If you're not sure where your changes are going to be, you may way to look at the [Core Components](http://guides.cocoapods.org/contributing/components) to get a sense of where the change will take place.
 
 Once in the correct gem you should verify that all specs pass and all examples build. ( See `rake -T` for other per-gem based tasks. )
 
