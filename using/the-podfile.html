@@ -53,7 +53,8 @@
     </article></div>
     </section><div class="code-break">
     <section class="container"><div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><span class="n">pod</span> <span class="s1">'AFNetworking'</span><span class="p">,</span> <span class="s1">'~&gt; 1.0'</span>
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><span class="n">source</span> <span class="s1">'https://github.com/CocoaPods/Specs.git'</span>
+<span class="n">pod</span> <span class="s1">'AFNetworking'</span><span class="p">,</span> <span class="s1">'~&gt; 1.0'</span>
 </pre>    </article>
 </div>
     </section>
@@ -67,7 +68,9 @@
 </div>
     </section><div class="code-break">
     <section class="container"><div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><span class="n">platform</span> <span class="ss">:ios</span><span class="p">,</span> <span class="s1">'6.0'</span>
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><span class="n">source</span> <span class="s1">'https://github.com/CocoaPods/Specs.git'</span>
+
+<span class="n">platform</span> <span class="ss">:ios</span><span class="p">,</span> <span class="s1">'6.0'</span>
 <span class="n">inhibit_all_warnings!</span>
 
 <span class="n">xcodeproj</span> <span class="s1">'MyProject'</span>
@@ -96,7 +99,7 @@
 </div>
     </section><div class="code-break">
     <section class="container"><div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><span class="n">platform</span> <span class="ss">:osx</span><span class="p">,</span> <span class="s1">'10.7'</span> 
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><span class="n">platform</span> <span class="ss">:osx</span><span class="p">,</span> <span class="s1">'10.7'</span>
 
 <span class="n">link_with</span> <span class="s1">'MyApp'</span><span class="p">,</span> <span class="s1">'MyApp Tests'</span>
 <span class="n">pod</span> <span class="s1">'AFNetworking'</span><span class="p">,</span> <span class="s1">'~&gt; 1.0'</span>
@@ -184,7 +187,7 @@ might not be compatible with the source material anymore.</p>
     <article class="content col-md-10 col-md-offset-1"><h2 id="version-conflicts">
 <a class="header-link" href="#version-conflicts">&lt;</a>Version Conflicts</h2>
 
-<p>Pods often depend on other pods. Conflicts arise when multiple pods depend on different versions of another. Or you may want to tie a dependent pod to a particular version. </p>
+<p>Pods often depend on other pods. Conflicts arise when multiple pods depend on different versions of another. Or you may want to tie a dependent pod to a particular version.</p>
 
 <blockquote>
 <p>The conflict error looks like this:</p>
@@ -337,8 +340,8 @@ to use one of the approaches outlined in the sections below.</p>
 <h3><a href="../making/index.html">Making CocoaPods</a></h3>
 <ul>
 <li><a href="../making/making-a-cocoapod.html">Making a CocoaPod</a></li>
-<li><a href="../making/specs-and-specs-repo.html">Specs and the Specs Repo</a></li>
 <li><a href="../making/using-pod-lib-create.html">Using Pod Lib Create</a></li>
+<li><a href="../making/specs-and-specs-repo.html">Specs and the Specs Repo</a></li>
 <li><a href="../making/private-cocoapods.html">Private Pods</a></li>
 <li><a href="../making/getting-setup-with-trunk.html">Getting setup with Trunk</a></li>
 </ul>
