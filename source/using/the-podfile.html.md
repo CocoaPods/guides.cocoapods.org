@@ -14,12 +14,15 @@ order: 2
 > A podfile can be very simple:
 
 ```ruby
+source 'https://github.com/CocoaPods/Specs.git'
 pod 'AFNetworking', '~> 1.0'
 ```
 
 > An example of a more complex podfile can be:
 
 ```ruby
+source 'https://github.com/CocoaPods/Specs.git'
+
 platform :ios, '6.0'
 inhibit_all_warnings!
 
@@ -41,7 +44,7 @@ end
 > If you want multiple targets, like adding tests, to share the same pods.
 
 ```ruby
-platform :osx, '10.7' 
+platform :osx, '10.7'
 
 link_with 'MyApp', 'MyApp Tests'
 pod 'AFNetworking', '~> 1.0'
@@ -91,7 +94,7 @@ pod 'Objection', :head
 
 ## Version Conflicts
 
-Pods often depend on other pods. Conflicts arise when multiple pods depend on different versions of another. Or you may want to tie a dependent pod to a particular version. 
+Pods often depend on other pods. Conflicts arise when multiple pods depend on different versions of another. Or you may want to tie a dependent pod to a particular version.
 
 > The conflict error looks like this:
 

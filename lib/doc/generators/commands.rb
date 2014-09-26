@@ -53,7 +53,6 @@ module Pod
               'pod install',
               'pod update',
               'pod outdated',
-              'pod help',
             ],
 
             'Browse' => [
@@ -75,6 +74,7 @@ module Pod
               "pod repo add",
               "pod repo update",
               "pod repo lint",
+              "pod repo list",
               "pod repo remove",
               "pod repo push",
               "pod setup",
