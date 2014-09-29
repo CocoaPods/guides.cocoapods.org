@@ -12,7 +12,7 @@ Rainforest is a git repo that when bootstrapped has submodules of all the requir
 $ git clone https://github.com/CocoaPods/Rainforest.git
 $ cd Rainforest
 ```
-All of the commands in Rainforest are Rake Tasks. This is a ruby varient of Make Tasks. You can take a look at all the available tasks by running `rake -T` in the terminal.
+All of the commands in Rainforest are Rake Tasks. This is a ruby variant of Make Tasks. You can take a look at all the available tasks by running `rake -T` in the terminal.
 
 To get started downloading run:
 
@@ -62,5 +62,5 @@ Other advanced aliases:
 > If you want to autoload [Pry](https://github.com/pry/pry) and the [Awesome Print](https://github.com/michaeldv/awesome_print) gems set the ```COCOA_PODS_ENV``` environment variable to ```development```. This can be done with an alias like:
 
 ```shell
-alias pod-dev='COCOA_PODS_ENV=development path/to/CocoaPods/bin/pod'
+alias pod-dev='COCOA_PODS_ENV=development path/to/Rainforest/CocoaPods/bin/pod'
 ```
