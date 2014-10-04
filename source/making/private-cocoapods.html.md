@@ -50,8 +50,15 @@ $ pod repo push REPO_NAME SPEC_NAME.podspec
 
 This will run `pod spec lint`, and take care of all the little details for setting up the spec in your private repo.
 
-##That's it!
-Your private pod is ready to be used in a Podfile.
+## That's it!
+
+Your private Pod is ready to be used in a Podfile. You can use your spec
+repository using the [`source` directive](/syntax/podfile.html#source)
+as shown in the following example:
+
+```ruby
+source 'URL_TO_REPOSITORY'
+```
 
 ## How to remove a Private Repo
 
