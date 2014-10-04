@@ -46,7 +46,7 @@
 <h3 id="-create-a-private-spec-repo">
 <a class="header-link" href="#-create-a-private-spec-repo">&lt;</a>1. Create a Private Spec Repo</h3>
 
-<p>To work with your collection of private pods, we suggest creating your own Spec repo. If you plan on forking a library that is already part of the Master Spec repo, for now we suggest choosing a name that starts with a letter before <code>M</code> (due to spec repos loading in alphabetical order, see <a href="https://github.com/CocoaPods/CocoaPods/issues/982">#982</a>).</p>
+<p>To work with your collection of private pods, we suggest creating your own Spec repo.</p>
 
 <p><strong>You do not need to fork the CocoaPods/Specs Master repo.</strong> Make sure that everyone on your team has access to this repo, but it does not need to be public.</p>
 
@@ -119,9 +119,21 @@
 <h2 id="thats-it">
 <a class="header-link" href="#thats-it">&lt;</a>That's it!</h2>
 
-<p>Your private pod is ready to be used in a Podfile.</p>
-
-<h2 id="how-to-remove-a-private-repo">
+<p>Your private Pod is ready to be used in a Podfile. You can use your spec
+repository using the <a href="../syntax/podfile.html#source"><code>source</code> directive</a>
+as shown in the following example:</p>
+    </article>
+</div>
+    </section><div class="code-break">
+    <section class="container"><div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><span class="n">source</span> <span class="s1">'URL_TO_REPOSITORY'</span>
+</pre>    </article>
+</div>
+    </section>
+</div>
+  
+    <section class="container "><div class="row">
+    <article class="content col-md-10 col-md-offset-1"><h2 id="how-to-remove-a-private-repo">
 <a class="header-link" href="#how-to-remove-a-private-repo">&lt;</a>How to remove a Private Repo</h2>
 
 <p><code>pod repo remove [name]</code></p>
