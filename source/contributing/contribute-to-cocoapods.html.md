@@ -31,12 +31,12 @@ The standard development on CocoaPods happens like so:
 Before submitting your pull request, please do the following:
 
 1. Run `rake spec` and make sure all the tests pass. If you are adding new commands or features, they must include tests. If you are changing functionality, update the tests if you need to.
-2. Add a note to the `changelog` describing what you changed.
+2. Add a note to the `CHANGELOG` describing what you changed.
 3. Make your pull request. If it is related to an issue, add a link to the issue in the description.
 
 ##Code Style
 
-CocoaPods favors small methods and many classes as convention. It is encouraged that methods are as small as possible, both for code reuse, and for ease of reading.
+CocoaPods favours small methods and many classes as convention. It is encouraged that methods are as small as possible, both for code reuse, and for ease of reading.
 
 > Take [`install!`](https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/installer.rb#L85) from the `Installer` class of the [CocoaPods gem](https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/installer.rb):
 
@@ -82,7 +82,7 @@ $ bundle exec rake spec:rebuild_integration_fixtures
 
 All methods and attributes must be documented. As part of the release process for CocoaPods, documentation is generated from source and posted online. [YARD](http://yardoc.org/) is used for generating this documentation.
 
-Documentation should be brief, but explanatory. All paramaters and return values need to be explained. Notes and examples, while not required, are encouraged. Take a look at this method from the [Project](https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/project.rb#L42) class:
+Documentation should be brief, but explanatory. All parameters and return values need to be explained. Notes and examples, while not required, are encouraged. Take a look at this method from the [Project](https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/project.rb#L42) class:
 
 ```ruby
 # @return [Pathname] Returns the relative path from the project root.

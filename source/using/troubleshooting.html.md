@@ -24,7 +24,7 @@ order: 3
    * Make sure your project is using the `Pods.xcconfig`. To check this select your project file, then select it in the second pane again and open the `Info` section in the third pane. Under configurations you should select `Pods.xcconfig` for each configurations requiring your installed pods.
    * If Xcode still can’t find them, as a last resort you can prepend your imports, e.g. `#import "Pods/SSZipArchive.h"`.
 
-3. If you're getting errors about unrecognized C compiler command line options, e.g. `cc1obj: error: unrecognized command line option "-Wno-sign-conversion"`:
+3. If you're getting errors about unrecognised C compiler command line options, e.g. `cc1obj: error: unrecognised command line option "-Wno-sign-conversion"`:
    * Make sure your project build settings are [configured](https://img.skitch.com/20111120-brfn4mp8qwrju8w8325wphan9h.png) to use "Apple LLVM compiler" (clang)
    * Are you setting the `CC`, `CPP` or `CXX` environment variable, e.g. in your `~/.profile`? This may interfere with the Xcode build process. Remove the environment variable from your `~/.profile`.
 
@@ -34,7 +34,7 @@ order: 3
    * Add the `Pods` static library, and make sure it's at the top of the list
    * Clean and build again
    * If that doesn't work, verify that the source for the spec you are trying to include has been pulled from GitHub. Do this by looking in &lt;Project Dir>/Pods/&lt;Name of spec you are trying to include>. If it is empty (it should not be), verify that the ~/.cocoapods/master/&lt;spec>/&lt;spec>.podspec has the correct git hub url in it.
-   * If still doesn't work, check your XCode build locations settings. Go to Preferences -> Locations -> Derived Data -> Advanced and set build location to "Relative to Workspace".
+   * If still doesn't work, check your Xcode build locations settings. Go to Preferences -> Locations -> Derived Data -> Advanced and set build location to "Relative to Workspace".
 
 <center> ![Xcode build location settings](https://img.skitch.com/20120426-chmda3m5suhcfrhjge6brjhesk.png) </center>
 

@@ -28,7 +28,7 @@ pod 'Name', :path => '~/code/Pods/'
 
 ### Testing
 
-You can test the syntax of your podfile by linting the  pod against the files of its directory, this won't test the downloading aspect of linting.
+You can test the syntax of your Podfile by linting the  pod against the files of its directory, this won't test the downloading aspect of linting.
 
 ```shell
 $ cd ~/code/Pods/NAME
@@ -50,7 +50,7 @@ pod install
 pod update
 ````
 
-> Alternatively if you have a separate Xcode project for your unit tests you can use a podfile for this project that references your development podspec
+> Alternatively if you have a separate Xcode project for your unit tests you can use a Podfile for this project that references your development podspec
 
 ````ruby
 xcodeproj 'NAMETests'

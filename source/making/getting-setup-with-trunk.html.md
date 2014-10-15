@@ -9,7 +9,7 @@ description: Instructions for creating a CocoaPods user account
 
 The CocoaPods trunk is an authentication & CocoaPods API service. In order to submit libraries to CocoaPods you will need to have to be registered and have a session on that device. You can read a little about it's history and development on [the blog](http://blog.cocoapods.org/CocoaPods-Trunk/).
 
-From CocoaPods 0.33 onwards we have a collection of commands under `pod trunk` to deal with automating the deployment and management of your Podspecs. At any time you can run `pod trunk [command] --help` to see inline help.
+From CocoaPods 0.33 on-wards we have a collection of commands under `pod trunk` to deal with automating the deployment and management of your Podspecs. At any time you can run `pod trunk [command] --help` to see inline help.
 
 ### Getting started
 
@@ -33,7 +33,7 @@ In the library's folder with the Podspec run `pod trunk push` - note this is dif
  * After a successful lint pushes the Pod converted to JSON to trunk
  * Trunk will generate the canonical JSON representation of your library
 
-Once the library has been added trunk will submit a webhook to other services alerting it of a new CocoaPod, for example [CocoaDocs.org](http://cocoadocs.org).
+Once the library has been added trunk will submit a web hook to other services alerting it of a new CocoaPod, for example [CocoaDocs.org](http://cocoadocs.org).
 
 ### Adding other people as contributors
 

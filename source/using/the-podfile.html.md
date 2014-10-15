@@ -11,14 +11,14 @@ order: 2
  implicit target, named `default`, which links to the _first target_ of the
  user project.
 
-> A podfile can be very simple:
+> A Podfile can be very simple:
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
 pod 'AFNetworking', '~> 1.0'
 ```
 
-> An example of a more complex podfile can be:
+> An example of a more complex Podfile can be:
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
@@ -72,7 +72,7 @@ Besides no version, or a specific one, it is also possible to use logical operat
 * `'< 0.1'`    Any version lower than 0.1
 * `'<= 0.1'`   Version 0.1 and any lower version
 
-In addition to the logic operators CocoaPods has an optimisic operator `~>`:
+In addition to the logic operators CocoaPods has an optimistic operator `~>`:
 
 * `'~> 0.1.2'` Version 0.1.2 and the versions up to 0.2, not including 0.2 and higher
 * `'~> 0.1'` Version 0.1 and the versions up to 1.0, not including 1.0 and higher

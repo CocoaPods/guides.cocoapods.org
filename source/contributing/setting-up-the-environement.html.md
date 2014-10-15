@@ -13,6 +13,6 @@ order: 5
 - Bundler
 - Resources for the language and brief overview
 
-## CocoaPods Convetions
+## CocoaPods Conventions
 
 - Where to find the specs

@@ -28,13 +28,13 @@ You should be testing your library. Testing ensures stability for people using y
 <article class="col-md-6 col-lg-6">
 <h4>Specta/Expecta<h4/>
 <p>A light-weight TDD / BDD framework for Objective-C & Cocoa.</p>
-<blockquote><a href="https://github.com/specta/specta">Github repo</a></blockquote>
+<blockquote><a href="https://github.com/specta/specta">GitHub repo</a></blockquote>
 </article>
 
 <article class="col-md-6 col-lg-6">
 <h4>Kiwi<h4/>
-<p>Kiwi is a Behavior Driven Development library for iOS development. The goal is to provide a BDD library that is exquisitely simple to setup and use.</p>
-<blockquote><a href="https://github.com/kiwi-bdd/Kiwi">Github repo</a></blockquote>
+<p>Kiwi is a Behaviour Driven Development library for iOS development. The goal is to provide a BDD library that is exquisitely simple to setup and use.</p>
+<blockquote><a href="https://github.com/kiwi-bdd/Kiwi">GitHub repo</a></blockquote>
 </article>
 <div class="clearfix"></div>
 
@@ -75,7 +75,7 @@ $ tree MyLib -L 2
   └── README.md
 ````
 
-We've tried to keep the amount in the root folder minimized, You will see the following files:
+We've tried to keep the amount in the root folder minimised, You will see the following files:
 
 * `.travis.yml` - a setup file for [travis-ci](https://travis-ci.org/)
 * `LICENSE` - defaulting to the [MIT License](http://en.wikipedia.org/wiki/MIT_License)
@@ -111,7 +111,7 @@ Development Pods are different from normal CocoaPods in that they are symlinked 
 
 ## Adding Travis CI
 
-The template includes a `.travis.yml` file that will run the default tests included in the project. If you have an open source repo on github, open [your profile](https://travis-ci.org/profile/) on Travis CI and turn the library on.
+The template includes a `.travis.yml` file that will run the default tests included in the project. If you have an open source repo on GitHub, open [your profile](https://travis-ci.org/profile/) on Travis CI and turn the library on.
 
 <center>
 ![/assets/images/pod_lib_create/travis-ci.png](/assets/images/pod_lib_create/travis-ci.png)
