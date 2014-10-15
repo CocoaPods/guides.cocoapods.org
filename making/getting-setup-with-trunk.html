@@ -23,7 +23,7 @@
 <meta content="@CocoaPods" name="twitter:site">
 <meta content="@CocoaPods" name="twitter:creator">
 <meta content="CocoPods" name="twitter:title">
-<link href="../stylesheets/app.css" media="screen" rel="stylesheet" type="text/css">
+<link href="../stylesheets/app.css" rel="stylesheet" type="text/css">
 <script src="../javascripts/application.js" type="text/javascript"></script><meta content="CocoaPods Guides" name="twitter:title">
 <meta content="The official documentation site for the CocoaPods dependency manager." name="twitter:description">
 <meta content="CocoaPods Guides" property="og:site_name">
@@ -39,7 +39,8 @@
 <li class="active"><a href="http://guides.cocoapods.org">Guides</a></li>
 <li><a href="http://blog.cocoapods.org">Blog</a></li>
 </ul></div></section></nav><section class="container"><div class="row"><header class="header content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h1>Getting setup with Trunk</h1></header></div></section><div class="guide" id="content-wrapper">
-<section class="container"><div class="row"><article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h2 id="what-do-i-need-to-know-about-trunk">
+<section class="container"><div class="row">
+<article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h2 id="what-do-i-need-to-know-about-trunk">
 <a class="header-link" href="#what-do-i-need-to-know-about-trunk">&lt;</a>What do I need to know about trunk</h2>
 
 <p>The CocoaPods trunk is an authentication &amp; CocoaPods API service. In order to submit libraries to CocoaPods you will need to have to be registered and have a session on that device. You can read a little about it's history and development on <a href="http://blog.cocoapods.org/CocoaPods-Trunk/">the blog</a>.</p>
@@ -52,17 +53,25 @@
 <p>Get started by signing up for an account with the command <code>pod trunk register</code>, think of this as registering this single device rather than registering a user account. </p>
 
 <p>We recommend using the full command to give some context when you look at your sessions later, so for example:</p>
-    </article></div>
-    </section><div class="code-break">
-    <section class="container"><div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight plaintext">$ pod trunk register orta@cocoapods.org 'Orta Therox' --description='macbook air'
-</pre>    </article>
-</div>
+    </article>
+    </div>
     </section>
-</div>
   
-    <section class="container "><div class="row">
-    <article class="content col-md-10 col-md-offset-1"><p>You will then receive an email to the email address verifying the connection between your trunk account and the current computer. You can see you sessions by running <code>pod trunk me</code>.</p>
+    <div class="code-break">
+    <section class="container">
+    <div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight plaintext">$ pod trunk register orta@cocoapods.org 'Orta Therox' --description='macbook air'
+</code></pre>    </article>
+    </div>
+    </section>
+    </div>
+  
+    <section class="container ">
+    <div class="row">
+    <article class="content col-md-10 col-md-offset-1">
+
+
+<p>You will then receive an email to the email address verifying the connection between your trunk account and the current computer. You can see you sessions by running <code>pod trunk me</code>.</p>
 
 <p>You do not have a password, only a per-computer session token.</p>
 
@@ -76,6 +85,7 @@
 <li>After a successful lint pushes the Pod converted to JSON to trunk</li>
 <li>Trunk will generate the canonical JSON representation of your library</li>
 </ul>
+
 <p>Once the library has been added trunk will submit a webhook to other services alerting it of a new CocoaPod, for example <a href="http://cocoadocs.org">CocoaDocs.org</a>.</p>
 
 <h3 id="adding-other-people-as-contributors">
@@ -83,17 +93,24 @@
 
 <p>For libraries with multiple maintainers, the first person to push a version can add other maintainers with the command <code>pod trunk add-owner</code> for example to add <code>kyle@cocoapods.org</code> to my library <code>ARAnalytics</code> I would run:</p>
     </article>
-</div>
-    </section><div class="code-break">
-    <section class="container"><div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight plaintext">$ pod trunk add-owner ARAnalytics kyle@cocoapods.org
-</pre>    </article>
-</div>
+    </div>
     </section>
-</div>
   
-    <section class="container "><div class="row">
-    <article class="content col-md-10 col-md-offset-1"><p>This will then list all the known library owners.</p>
+    <div class="code-break">
+    <section class="container">
+    <div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight plaintext">$ pod trunk add-owner ARAnalytics kyle@cocoapods.org
+</code></pre>    </article>
+    </div>
+    </section>
+    </div>
+  
+    <section class="container ">
+    <div class="row">
+    <article class="content col-md-10 col-md-offset-1">
+
+
+<p>This will then list all the known library owners.</p>
 
 <h3 id="claiming-an-existing-library">
 <a class="header-link" href="#claiming-an-existing-library">&lt;</a>Claiming an existing library</h3>

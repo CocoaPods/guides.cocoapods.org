@@ -23,7 +23,7 @@
 <meta content="@CocoaPods" name="twitter:site">
 <meta content="@CocoaPods" name="twitter:creator">
 <meta content="CocoPods" name="twitter:title">
-<link href="../stylesheets/app.css" media="screen" rel="stylesheet" type="text/css">
+<link href="../stylesheets/app.css" rel="stylesheet" type="text/css">
 <script src="../javascripts/application.js" type="text/javascript"></script><meta content="CocoaPods Guides" name="twitter:title">
 <meta content="The official documentation site for the CocoaPods dependency manager." name="twitter:description">
 <meta content="CocoaPods Guides" property="og:site_name">
@@ -39,7 +39,8 @@
 <li class="active"><a href="http://guides.cocoapods.org">Guides</a></li>
 <li><a href="http://blog.cocoapods.org">Blog</a></li>
 </ul></div></section></nav><section class="container"><div class="row"><header class="header content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h1>How to Contribute</h1></header></div></section><div class="guide" id="content-wrapper">
-<section class="container"><div class="row"><article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h2 id="the-development-workflow">
+<section class="container"><div class="row">
+<article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h2 id="the-development-workflow">
 <a class="header-link" href="#the-development-workflow">&lt;</a>The Development Workflow</h2>
 
 <p>The standard development on CocoaPods happens like so:</p>
@@ -48,11 +49,12 @@
 <li>Setup your development environment with <a href="https://github.com/CocoaPods/Rainforest">Rainforest</a>.</li>
 <li>Fork <a href="https://github.com/CocoaPods/CocoaPods/"><code>CocoaPods/CocoaPods</code></a>
 </li>
-<li>Pickup an <a href="https://github.com/CocoaPods/CocoaPods/issues?page=1&amp;amp;state=open">Issue </a>. See issue classifications <a href="#issue-classifications">explained below</a>
+<li>Pickup an <a href="https://github.com/CocoaPods/CocoaPods/issues?page=1&amp;state=open">Issue </a>. See issue classifications <a href="#issue-classifications">explained below</a>
 </li>
 <li>Check the <a href="https://github.com/CocoaPods/CocoaPods/blob/master/CONTRIBUTING.md">CONTRIBUTING</a> requirements.</li>
 <li>Make a <a href="#making-the-pull-request">pull request</a>.</li>
 </ul>
+
 <h3 id="picking-up-issues">
 <a class="header-link" href="#picking-up-issues">&lt;</a>Picking Up Issues</h3>
 
@@ -74,6 +76,7 @@
 <li>
 <strong>Easy First Step</strong> These issues are great issues to get started with. They tend to stick around for a while. We want people to feel like there's always somewhere you can start.</li>
 </ul>
+
 <h4 id="making-the-pull-request">Making the Pull Request</h4>
 
 <p>Before submitting your pull request, please do the following:</p>
@@ -83,6 +86,7 @@
 <li>Add a note to the <code>changelog</code> describing what you changed.</li>
 <li>Make your pull request. If it is related to an issue, add a link to the issue in the description.</li>
 </ol>
+
 <h2 id="code-style">
 <a class="header-link" href="#code-style">&lt;</a>Code Style</h2>
 
@@ -91,23 +95,31 @@
 <blockquote>
 <p>Take <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/installer.rb#L85"><code>install!</code></a> from the <code>Installer</code> class of the <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/installer.rb">CocoaPods gem</a>:</p>
 </blockquote>
-    </article></div>
-    </section><div class="code-break">
-    <section class="container"><div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><span class="k">def</span> <span class="nf">install!</span>
+    </article>
+    </div>
+    </section>
+  
+    <div class="code-break">
+    <section class="container">
+    <div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="k">def</span> <span class="nf">install!</span>
   <span class="n">resolve_dependencies</span>
   <span class="n">download_dependencies</span>
   <span class="n">generate_pods_project</span>
   <span class="n">integrate_user_project</span> <span class="k">if</span> <span class="n">config</span><span class="p">.</span><span class="nf">integrate_targets?</span>
   <span class="n">perform_post_install_actions</span>
 <span class="k">end</span>
-</pre>    </article>
-</div>
+</code></pre>    </article>
+    </div>
     </section>
-</div>
+    </div>
   
-    <section class="container "><div class="row">
-    <article class="content col-md-10 col-md-offset-1"><p>Almost all classes are namespaced. For example, <code>Installer</code> calls upon <code>Installer::TargetInstaller</code> and <code>Installer::PodSourceInstaller</code> to get its work done. Source files for these should reside within the named folder.</p>
+    <section class="container ">
+    <div class="row">
+    <article class="content col-md-10 col-md-offset-1">
+
+
+<p>Almost all classes are namespaced. For example, <code>Installer</code> calls upon <code>Installer::TargetInstaller</code> and <code>Installer::PodSourceInstaller</code> to get its work done. Source files for these should reside within the named folder.</p>
 
 <p>Method and variable naming should be very explicit. For example <code>PodSourceInstaller#download_source</code> is responsible for downloading the sources. Please avoid method and variable names that are generic, i.e. <code>var</code>, <code>a</code> etc, unless used in a block.</p>
 
@@ -124,46 +136,63 @@
 <p>To run the full test suite:</p>
 </blockquote>
     </article>
-</div>
-    </section><div class="code-break">
-    <section class="container"><div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight shell"><span class="gp">$ </span>bundle <span class="nb">exec </span>rake
+    </div>
+    </section>
+  
+    <div class="code-break">
+    <section class="container">
+    <div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight shell"><span class="gp">$ </span>bundle <span class="nb">exec </span>rake
 
 <span class="c"># Or to run a single test suite:</span>
 <span class="gp">$ </span>bundle <span class="nb">exec </span>rake spec:functional
-</pre>    </article>
-</div>
+</code></pre>    </article>
+    </div>
     </section>
-</div>
+    </div>
   
-    <section class="container "><div class="row">
-    <article class="content col-md-10 col-md-offset-1"><p>Occasionally, the fixtures used for functional tests need to be rebuilt. This is especially true when changes are made to the file structure of the Pods directory.</p>
+    <section class="container ">
+    <div class="row">
+    <article class="content col-md-10 col-md-offset-1">
+
+
+<p>Occasionally, the fixtures used for functional tests need to be rebuilt. This is especially true when changes are made to the file structure of the Pods directory.</p>
 
 <blockquote>
 <p>To update these fixtures:</p>
 </blockquote>
     </article>
-</div>
-    </section><div class="code-break">
-    <section class="container"><div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight shell"><span class="gp">$ </span>bundle <span class="nb">exec </span>rake spec:rebuild_integration_fixtures
-</pre>    </article>
-</div>
+    </div>
     </section>
-</div>
   
-    <section class="container "><div class="row">
-    <article class="content col-md-10 col-md-offset-1"><h3 id="documentation">
+    <div class="code-break">
+    <section class="container">
+    <div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight shell"><span class="gp">$ </span>bundle <span class="nb">exec </span>rake spec:rebuild_integration_fixtures
+</code></pre>    </article>
+    </div>
+    </section>
+    </div>
+  
+    <section class="container ">
+    <div class="row">
+    <article class="content col-md-10 col-md-offset-1">
+
+
+<h3 id="documentation">
 <a class="header-link" href="#documentation">&lt;</a>Documentation</h3>
 
 <p>All methods and attributes must be documented. As part of the release process for CocoaPods, documentation is generated from source and posted online. <a href="http://yardoc.org/">YARD</a> is used for generating this documentation.</p>
 
 <p>Documentation should be brief, but explanatory. All paramaters and return values need to be explained. Notes and examples, while not required, are encouraged. Take a look at this method from the <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/project.rb#L42">Project</a> class:</p>
     </article>
-</div>
-    </section><div class="code-break">
-    <section class="container"><div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><span class="c1"># @return [Pathname] Returns the relative path from the project root.</span>
+    </div>
+    </section>
+  
+    <div class="code-break">
+    <section class="container">
+    <div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="c1"># @return [Pathname] Returns the relative path from the project root.</span>
 <span class="c1">#</span>
 <span class="c1"># @param  [Pathname] path</span>
 <span class="c1">#         The path that needs to be converted to the relative format.</span>
@@ -180,13 +209,16 @@
 <span class="c1">#   @sandbox.relativize(path) #=&gt; '../../../../Users/dir'</span>
 <span class="c1">#   @sandbox.relativize(path) #=&gt; '../../../../../Users/dir'</span>
 <span class="c1">#</span>
-</pre>    </article>
-</div>
+</code></pre>    </article>
+    </div>
     </section>
-</div>
+    </div>
   
-    <section class="container "><div class="row">
-    <article class="content col-md-10 col-md-offset-1"></article>
+    <section class="container ">
+    <div class="row">
+    <article class="content col-md-10 col-md-offset-1">
+
+</article>
 </div></section>
 </div>
 <div class="info-row"><section class="container"><div class="row"><article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><a data-container="body" data-content="CocoaPods is an open source project. Help us improve these guides by sending a pull request. ❤" data-original-title="" data-placement="top" data-toggle="popover" data-trigger="hover" href="https://github.com/CocoaPods/guides.cocoapods.org/blob/master/source/contributing/contribute-to-cocoapods.html.md" id="pull-request" title=""></a><ul class="breadcrumb">

@@ -23,7 +23,7 @@
 <meta content="@CocoaPods" name="twitter:site">
 <meta content="@CocoaPods" name="twitter:creator">
 <meta content="CocoPods" name="twitter:title">
-<link href="../stylesheets/app.css" media="screen" rel="stylesheet" type="text/css">
+<link href="../stylesheets/app.css" rel="stylesheet" type="text/css">
 <script src="../javascripts/application.js" type="text/javascript"></script><meta content="CocoaPods Guides" name="twitter:title">
 <meta content="The official documentation site for the CocoaPods dependency manager." name="twitter:description">
 <meta content="CocoaPods Guides" property="og:site_name">
@@ -39,7 +39,8 @@
 <li class="active"><a href="http://guides.cocoapods.org">Guides</a></li>
 <li><a href="http://blog.cocoapods.org">Blog</a></li>
 </ul></div></section></nav><section class="container"><div class="row"><header class="header content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h1>Making a CocoaPod</h1></header></div></section><div class="guide" id="content-wrapper">
-<section class="container"><div class="row"><article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><p>Creating your own CocoaPod is fairly straight forward. If you already have a separate component, you're most of the way there. This guide is an overview to the entire process, with the other guides in this section serving as more of a deep-dive for more advanced users.</p>
+<section class="container"><div class="row">
+<article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><p>Creating your own CocoaPod is fairly straight forward. If you already have a separate component, you're most of the way there. This guide is an overview to the entire process, with the other guides in this section serving as more of a deep-dive for more advanced users.</p>
 
 <h2 id="the-pod-files">
 <a class="header-link" href="#the-pod-files">&lt;</a>The Pod Files</h2>
@@ -56,82 +57,118 @@
 <blockquote>
 <p>Alternatively you can work from an application project using the <code>:path</code> option:</p>
 </blockquote>
-    </article></div>
-    </section><div class="code-break">
-    <section class="container"><div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><span class="n">pod</span> <span class="s1">'Name'</span><span class="p">,</span> <span class="ss">:path</span> <span class="o">=&gt;</span> <span class="s1">'~/code/Pods/'</span>
-</pre>    </article>
-</div>
+    </article>
+    </div>
     </section>
-</div>
   
-    <section class="container "><div class="row">
-    <article class="content col-md-10 col-md-offset-1"><h3 id="testing">
+    <div class="code-break">
+    <section class="container">
+    <div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">pod</span> <span class="s1">'Name'</span><span class="p">,</span> <span class="ss">:path</span> <span class="o">=&gt;</span> <span class="s1">'~/code/Pods/'</span>
+</code></pre>    </article>
+    </div>
+    </section>
+    </div>
+  
+    <section class="container ">
+    <div class="row">
+    <article class="content col-md-10 col-md-offset-1">
+
+
+<h3 id="testing">
 <a class="header-link" href="#testing">&lt;</a>Testing</h3>
 
 <p>You can test the syntax of your podfile by linting the  pod against the files of its directory, this won't test the downloading aspect of linting.</p>
     </article>
-</div>
-    </section><div class="code-break">
-    <section class="container"><div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight shell"><span class="gp">$ </span><span class="nb">cd</span> ~/code/Pods/NAME
-<span class="gp">$ </span>pod lib lint
-</pre>    </article>
-</div>
+    </div>
     </section>
-</div>
   
-    <section class="container "><div class="row">
-    <article class="content col-md-10 col-md-offset-1"><p>Before releasing your new Pod to the world its best to test that you can install your pod successfully into an Xcode project. You can do this in a couple of ways:</p>
+    <div class="code-break">
+    <section class="container">
+    <div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight shell"><span class="gp">$ </span><span class="nb">cd</span> ~/code/Pods/NAME
+<span class="gp">$ </span>pod lib lint
+</code></pre>    </article>
+    </div>
+    </section>
+    </div>
+  
+    <section class="container ">
+    <div class="row">
+    <article class="content col-md-10 col-md-offset-1">
+
+
+<p>Before releasing your new Pod to the world its best to test that you can install your pod successfully into an Xcode project. You can do this in a couple of ways:</p>
 
 <blockquote>
 <p>Push your podspec to your repository, then create a new Xcode project with a Podfile and add your pod to the file like so:</p>
 </blockquote>
     </article>
-</div>
-    </section><div class="code-break">
-    <section class="container"><div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><span class="n">pod</span> <span class="s1">'NAME'</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">'https://example.com/URL/to/repo/NAME.git'</span>
-</pre>    </article>
-</div>
+    </div>
     </section>
-</div>
   
-    <section class="container "><div class="row">
-    <article class="content col-md-10 col-md-offset-1"><blockquote>
+    <div class="code-break">
+    <section class="container">
+    <div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">pod</span> <span class="s1">'NAME'</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">'https://example.com/URL/to/repo/NAME.git'</span>
+</code></pre>    </article>
+    </div>
+    </section>
+    </div>
+  
+    <section class="container ">
+    <div class="row">
+    <article class="content col-md-10 col-md-offset-1">
+
+
+<blockquote>
 <p>Then run</p>
 </blockquote>
     </article>
-</div>
-    </section><div class="code-break">
-    <section class="container"><div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight shell">pod install
+    </div>
+    </section>
+  
+    <div class="code-break">
+    <section class="container">
+    <div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight shell">pod install
 -- or --
 pod update
-</pre>    </article>
-</div>
+</code></pre>    </article>
+    </div>
     </section>
-</div>
+    </div>
   
-    <section class="container "><div class="row">
-    <article class="content col-md-10 col-md-offset-1"><blockquote>
+    <section class="container ">
+    <div class="row">
+    <article class="content col-md-10 col-md-offset-1">
+
+
+<blockquote>
 <p>Alternatively if you have a separate Xcode project for your unit tests you can use a podfile for this project that references your development podspec</p>
 </blockquote>
     </article>
-</div>
-    </section><div class="code-break">
-    <section class="container"><div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><span class="n">xcodeproj</span> <span class="s1">'NAMETests'</span>
+    </div>
+    </section>
+  
+    <div class="code-break">
+    <section class="container">
+    <div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">xcodeproj</span> <span class="s1">'NAMETests'</span>
 <span class="n">workspace</span> <span class="s1">'../NAME'</span>
 
 <span class="n">pod</span> <span class="s1">'NAME'</span><span class="p">,</span> <span class="ss">:path</span> <span class="o">=&gt;</span> <span class="s1">'../'</span>
-</pre>    </article>
-</div>
+</code></pre>    </article>
+    </div>
     </section>
-</div>
+    </div>
   
-    <section class="container "><div class="row">
-    <article class="content col-md-10 col-md-offset-1"><h3 id="release">
+    <section class="container ">
+    <div class="row">
+    <article class="content col-md-10 col-md-offset-1">
+
+
+<h3 id="release">
 <a class="header-link" href="#release">&lt;</a>Release</h3>
 
 <p>Once you have a release ready you'll need to make the corresponding tag. First run a quick <code>pod lib lint</code> then create your tag and push it.</p>
@@ -140,10 +177,13 @@ pod update
 <p>The release workflow is similar to the following.</p>
 </blockquote>
     </article>
-</div>
-    </section><div class="code-break">
-    <section class="container"><div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight shell"><span class="gp">$ </span><span class="nb">cd</span> ~/code/Pods/NAME
+    </div>
+    </section>
+  
+    <div class="code-break">
+    <section class="container">
+    <div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight shell"><span class="gp">$ </span><span class="nb">cd</span> ~/code/Pods/NAME
 <span class="gp">$ </span>edit NAME.podspec
 <span class="c"># set the new version to 0.0.1</span>
 <span class="c"># set the new tag to 0.0.1</span>
@@ -152,13 +192,17 @@ pod update
 <span class="gp">$ </span>git add -A <span class="o">&amp;&amp;</span> git commit -m <span class="s2">"Release 0.0.1."</span>
 <span class="gp">$ </span>git tag <span class="s1">'0.0.1'</span>
 <span class="gp">$ </span>git push --tags
-</pre>    </article>
-</div>
+</code></pre>    </article>
+    </div>
     </section>
-</div>
+    </div>
   
-    <section class="container "><div class="row">
-    <article class="content col-md-10 col-md-offset-1"><h4 id="submitting-open-source-code">Submitting Open Source Code</h4>
+    <section class="container ">
+    <div class="row">
+    <article class="content col-md-10 col-md-offset-1">
+
+
+<h4 id="submitting-open-source-code">Submitting Open Source Code</h4>
 
 <p>Once your tags are pushed you can use the command <code>pod trunk push NAME.podspec</code> to send your library to the Specs repo. For more information on getting this setup see <a href="/making/getting-setup-with-trunk">Getting Setup With Trunk</a>.</p>
 
@@ -183,18 +227,26 @@ pod 'CocoaLumberjack'
 </li>
 <li><p>Some time into the future, the dev wants to update the dependencies, and to do so runs the install command again, which will now install the version of the lib which is the latest version <em>at that time</em>.</p></li>
 <li><p>At some point the dev is finished on the client work (or a newer version of the lib changes the API and the changes aren’t needed) so the dev adds a version requirement to the dependency. For instance, consider that the author of the lib follows the semver guidelines, you can somewhat trust that between ‘1.0.7’ and ‘1.1.0’ <strong>no</strong> API changes will be made, but only bug fixes. So instead of requiring a specific version, the dev can specify that <em>any</em> ‘1.0.x’ is allowed as long as it’s higher than ‘1.0.7’:</p></li>
-</ul></article>
-</div>
-    </section><div class="code-break">
-    <section class="container"><div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><span class="n">pod</span> <span class="s1">'CocoaLumberjack'</span><span class="p">,</span> <span class="s1">'~&gt; 1.0.7'</span>
-</pre>    </article>
-</div>
+</ul>
+    </article>
+    </div>
     </section>
-</div>
   
-    <section class="container "><div class="row">
-    <article class="content col-md-10 col-md-offset-1"><p>The point is that developers can easily keep track of newer versions of dependencies, by simply running <code>pod install</code> again, which they might otherwise do less if they had to change everything manually. CocoaPods uses a less stringent form of Semantic versioning in that it will not force you to use <code>X.Y.Z</code>, you can use <code>X.Y</code> versions.</p>
+    <div class="code-break">
+    <section class="container">
+    <div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">pod</span> <span class="s1">'CocoaLumberjack'</span><span class="p">,</span> <span class="s1">'~&gt; 1.0.7'</span>
+</code></pre>    </article>
+    </div>
+    </section>
+    </div>
+  
+    <section class="container ">
+    <div class="row">
+    <article class="content col-md-10 col-md-offset-1">
+
+
+<p>The point is that developers can easily keep track of newer versions of dependencies, by simply running <code>pod install</code> again, which they might otherwise do less if they had to change everything manually. CocoaPods uses a less stringent form of Semantic versioning in that it will not force you to use <code>X.Y.Z</code>, you can use <code>X.Y</code> versions.</p>
 
 <h3 id="cocoapods-versioning-specifics">
 <a class="header-link" href="#cocoapods-versioning-specifics">&lt;</a>CocoaPods Versioning Specifics</h3>

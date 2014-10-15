@@ -23,7 +23,7 @@
 <meta content="@CocoaPods" name="twitter:site">
 <meta content="@CocoaPods" name="twitter:creator">
 <meta content="CocoPods" name="twitter:title">
-<link href="../stylesheets/app.css" media="screen" rel="stylesheet" type="text/css">
+<link href="../stylesheets/app.css" rel="stylesheet" type="text/css">
 <script src="../javascripts/application.js" type="text/javascript"></script><meta content="CocoaPods Guides" name="twitter:title">
 <meta content="The official documentation site for the CocoaPods dependency manager." name="twitter:description">
 <meta content="CocoaPods Guides" property="og:site_name">
@@ -39,23 +39,33 @@
 <li class="active"><a href="http://guides.cocoapods.org">Guides</a></li>
 <li><a href="http://blog.cocoapods.org">Blog</a></li>
 </ul></div></section></nav><section class="container"><div class="row"><header class="header content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h1>Troubleshooting</h1></header></div></section><div class="guide" id="content-wrapper">
-<section class="container"><div class="row"><article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h3 id="installing-cocoapods">
+<section class="container"><div class="row">
+<article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h3 id="installing-cocoapods">
 <a class="header-link" href="#installing-cocoapods">&lt;</a>Installing CocoaPods</h3>
 
-<ul><li>
+<ul>
+<li>
 <p>After upgrading from OS X 10.8 to 10.9 the installed CocoaPods gem doesn’t work anymore, even after re-installing the gem. To solve this, you might need to uninstall the gem first and then re-install.</p>
-    </li></ul></article></div>
-    </section><div class="code-break">
-    <section class="container"><div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight plaintext"> $ gem uninstall cocoapods
- $ gem install cocoapods
-</pre>    </article>
-</div>
+    </li>
+</ul></article>
+    </div>
     </section>
-</div>
   
-    <section class="container "><div class="row">
-    <article class="content col-md-10 col-md-offset-1"><li><p>The gem might not be able to compile, to solve this you might need to <a href="http://www.relaxdiego.com/2012/02/using-gcc-when-xcode-43-is-installed.html">symlink GCC</a>.</p></li>
+    <div class="code-break">
+    <section class="container">
+    <div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight plaintext"> $ gem uninstall cocoapods
+ $ gem install cocoapods
+</code></pre>    </article>
+    </div>
+    </section>
+    </div>
+  
+    <section class="container ">
+    <div class="row">
+    <article class="content col-md-10 col-md-offset-1">
+
+<li><p>The gem might not be able to compile, to solve this you might need to <a href="http://www.relaxdiego.com/2012/02/using-gcc-when-xcode-43-is-installed.html">symlink GCC</a>.</p></li>
 <li><p>If you used an pre release version of Xcode you might need to update the command line tools.</p></li>
 <li><p>CocoaPods is not compatible with MacRuby.</p></li>
 
@@ -95,9 +105,9 @@
 </ul>
 </li>
 </ol>
+
 <p></p>
-<center> <img alt="Xcode build location settings" src="https://img.skitch.com/20120426-chmda3m5suhcfrhjge6brjhesk.png">
-</center>
+<center> <img alt="Xcode build location settings" src="https://img.skitch.com/20120426-chmda3m5suhcfrhjge6brjhesk.png"> </center>
 
 <ul>
 <li>If you tried to submit app to App Store, and found that "Product" &gt; "Archive" produce nothing in "Organizer":
@@ -107,6 +117,7 @@
 </ul>
 </li>
 </ul>
+
 <p><em>Different Xcode versions can have various problems. Ask for help and tell us what version you're using.</em></p>
 
 <h3 id="running-into-build-failures-after-migrating-to-xcode--and-cocoapods-">
@@ -124,6 +135,7 @@ project/target, otherwise the build <em>will</em> fail.</li>
 tool that comes with Xcode 4, you’ll need to completely disable this setting
 by appending to your build command: <code>ONLY_ACTIVE_ARCH=NO</code>.</li>
 </ol>
+
 <h3 id="can-i-workaround-duplicate-symbol-errors-with-static-libraries">
 <a class="header-link" href="#can-i-workaround-duplicate-symbol-errors-with-static-libraries">&lt;</a>Can I workaround ‘Duplicate Symbol’ errors with static libraries?</h3>
 
@@ -143,32 +155,46 @@ denied errors when performing certain operations. When you come across
 permission errors you may need to delete old files which run as root such as
 the cache data. You can do this with the following commands.</p>
     </article>
-</div>
-    </section><div class="code-break">
-    <section class="container"><div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight plaintext">$ sudo rm -fr ~/Library/Caches/CocoaPods/
-$ sudo rm -fr ~/.cocoapods/repos/master/
-</pre>    </article>
-</div>
+    </div>
     </section>
-</div>
   
-    <section class="container "><div class="row">
-    <article class="content col-md-10 col-md-offset-1"><p>Alongside those global files, there may also be a <code>Pods</code> directory in any place
+    <div class="code-break">
+    <section class="container">
+    <div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight plaintext">$ sudo rm -fr ~/Library/Caches/CocoaPods/
+$ sudo rm -fr ~/.cocoapods/repos/master/
+</code></pre>    </article>
+    </div>
+    </section>
+    </div>
+  
+    <section class="container ">
+    <div class="row">
+    <article class="content col-md-10 col-md-offset-1">
+
+
+<p>Alongside those global files, there may also be a <code>Pods</code> directory in any place
 you have a Podfile. If you still receive permission errors you should delete
 this directory too, and afterwards run <code>pod install</code>.</p>
     </article>
-</div>
-    </section><div class="code-break">
-    <section class="container"><div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight plaintext">$ sudo rm -fr Pods/
-</pre>    </article>
-</div>
+    </div>
     </section>
-</div>
   
-    <section class="container "><div class="row">
-    <article class="content col-md-10 col-md-offset-1"><h3 id="i-didnt-find-the-solution-to-my-problem">
+    <div class="code-break">
+    <section class="container">
+    <div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight plaintext">$ sudo rm -fr Pods/
+</code></pre>    </article>
+    </div>
+    </section>
+    </div>
+  
+    <section class="container ">
+    <div class="row">
+    <article class="content col-md-10 col-md-offset-1">
+
+
+<h3 id="i-didnt-find-the-solution-to-my-problem">
 <a class="header-link" href="#i-didnt-find-the-solution-to-my-problem">&lt;</a>I didn't find the solution to my problem!</h3>
 
 <p>We have multiple avenues for support, here they are in the order we prefer.</p>
@@ -178,6 +204,7 @@ this directory too, and afterwards run <code>pod install</code>.</p>
 <li><p><a href="http://groups.google.com/group/cocoapods">CocoaPods Mailing List</a>, the mailing list is mainly used for announcements of related projects and for support.</p></li>
 <li><p>If your question is regarding a library (to be) distributed through CocoaPods, refer to the <a href="https://github.com/CocoaPods/Specs">spec repo</a>.</p></li>
 </ul>
+
 <h3 id="i-think-this-is-a-bug-with-cocoapods">
 <a class="header-link" href="#i-think-this-is-a-bug-with-cocoapods">&lt;</a>I think this is a bug with CocoaPods</h3>
 
@@ -189,7 +216,8 @@ this directory too, and afterwards run <code>pod install</code>.</p>
 <li><p><strong>Only file tickets about the CocoaPods tool itself.</strong> This includes <a href="https://github.com/CocoaPods/CocoaPods/issues">CocoaPods</a>,
 <a href="https://github.com/CocoaPods/Core/issues">CocoaPods/Core</a>, and <a href="https://github.com/CocoaPods/Xcodeproj/issues">Xcodeproj</a>.</p></li>
 <li><p><strong>Keep tickets short but sweet.</strong> Make sure you include all the context needed to solve the issue. Don't overdo it. Great tickets allow us to focus on solving problems instead of discussing them.</p></li>
-</ul></article>
+</ul>
+</article>
 </div></section>
 </div>
 <div class="info-row"><section class="container"><div class="row"><article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><a data-container="body" data-content="CocoaPods is an open source project. Help us improve these guides by sending a pull request. ❤" data-original-title="" data-placement="top" data-toggle="popover" data-trigger="hover" href="https://github.com/CocoaPods/guides.cocoapods.org/blob/master/source/using/troubleshooting.html.md" id="pull-request" title=""></a><ul class="breadcrumb">

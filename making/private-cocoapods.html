@@ -23,7 +23,7 @@
 <meta content="@CocoaPods" name="twitter:site">
 <meta content="@CocoaPods" name="twitter:creator">
 <meta content="CocoPods" name="twitter:title">
-<link href="../stylesheets/app.css" media="screen" rel="stylesheet" type="text/css">
+<link href="../stylesheets/app.css" rel="stylesheet" type="text/css">
 <script src="../javascripts/application.js" type="text/javascript"></script><meta content="CocoaPods Guides" name="twitter:title">
 <meta content="The official documentation site for the CocoaPods dependency manager." name="twitter:description">
 <meta content="CocoaPods Guides" property="og:site_name">
@@ -39,7 +39,8 @@
 <li class="active"><a href="http://guides.cocoapods.org">Guides</a></li>
 <li><a href="http://blog.cocoapods.org">Blog</a></li>
 </ul></div></section></nav><section class="container"><div class="row"><header class="header content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h1>Private Pods</h1></header></div></section><div class="guide" id="content-wrapper">
-<section class="container"><div class="row"><article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><p>CocoaPods is a great tool not only for adding open source code to your project, but also for sharing components across projects. You can use a private Spec Repo to do this.</p>
+<section class="container"><div class="row">
+<article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><p>CocoaPods is a great tool not only for adding open source code to your project, but also for sharing components across projects. You can use a private Spec Repo to do this.</p>
 
 <p>There are a few steps to getting a private pods setup for your project; creating a private repository for them, letting CocoaPods know where to find it and adding the podspecs to the repository.</p>
 
@@ -53,68 +54,97 @@
 <blockquote>
 <p>The structure of your repo should mirror this:</p>
 </blockquote>
-    </article></div>
-    </section><div class="code-break">
-    <section class="container"><div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight plaintext">.
+    </article>
+    </div>
+    </section>
+  
+    <div class="code-break">
+    <section class="container">
+    <div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight plaintext">.
 ├── Specs
     └── [SPEC_NAME]
         └── [VERSION]
             └── [SPEC_NAME].podspec
-</pre>    </article>
-</div>
+</code></pre>    </article>
+    </div>
     </section>
-</div>
+    </div>
   
-    <section class="container "><div class="row">
-    <article class="content col-md-10 col-md-offset-1"><h3 id="-add-your-private-repo-to-your-cocoapods-installation">
+    <section class="container ">
+    <div class="row">
+    <article class="content col-md-10 col-md-offset-1">
+
+
+<h3 id="-add-your-private-repo-to-your-cocoapods-installation">
 <a class="header-link" href="#-add-your-private-repo-to-your-cocoapods-installation">&lt;</a>2. Add your Private Repo to your CocoaPods installation</h3>
     </article>
-</div>
-    </section><div class="code-break">
-    <section class="container"><div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight shell"><span class="gp">$ </span>pod repo add REPO_NAME SOURCE_URL
-</pre>    </article>
-</div>
+    </div>
     </section>
-</div>
   
-    <section class="container "><div class="row">
-    <article class="content col-md-10 col-md-offset-1"><p><aside>Note: If you plan on creating pods locally, you should have push access to SOURCE_URL</aside></p>
+    <div class="code-break">
+    <section class="container">
+    <div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight shell"><span class="gp">$ </span>pod repo add REPO_NAME SOURCE_URL
+</code></pre>    </article>
+    </div>
+    </section>
+    </div>
+  
+    <section class="container ">
+    <div class="row">
+    <article class="content col-md-10 col-md-offset-1">
+
+
+<p><aside>Note: If you plan on creating pods locally, you should have push access to SOURCE_URL</aside></p>
 
 <blockquote>
 <p>To check if your installation is successful and ready to go:</p>
 </blockquote>
     </article>
-</div>
-    </section><div class="code-break">
-    <section class="container"><div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight shell"><span class="gp">$ </span><span class="nb">cd</span> ~/.cocoapods/repos/REPO_NAME
-<span class="gp">$ </span>pod repo lint .
-</pre>    </article>
-</div>
+    </div>
     </section>
-</div>
   
-    <section class="container "><div class="row">
-    <article class="content col-md-10 col-md-offset-1"><h3 id="-add-your-podspec-to-your-repo">
+    <div class="code-break">
+    <section class="container">
+    <div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight shell"><span class="gp">$ </span><span class="nb">cd</span> ~/.cocoapods/repos/REPO_NAME
+<span class="gp">$ </span>pod repo lint .
+</code></pre>    </article>
+    </div>
+    </section>
+    </div>
+  
+    <section class="container ">
+    <div class="row">
+    <article class="content col-md-10 col-md-offset-1">
+
+
+<h3 id="-add-your-podspec-to-your-repo">
 <a class="header-link" href="#-add-your-podspec-to-your-repo">&lt;</a>3. Add your Podspec to your repo</h3>
 
 <blockquote>
 <p>Make sure you've tagged and versioned your source, then run:</p>
 </blockquote>
     </article>
-</div>
-    </section><div class="code-break">
-    <section class="container"><div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight shell"><span class="gp">$ </span>pod repo push REPO_NAME SPEC_NAME.podspec
-</pre>    </article>
-</div>
+    </div>
     </section>
-</div>
   
-    <section class="container "><div class="row">
-    <article class="content col-md-10 col-md-offset-1"><p>This will run <code>pod spec lint</code>, and take care of all the little details for setting up the spec in your private repo.</p>
+    <div class="code-break">
+    <section class="container">
+    <div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight shell"><span class="gp">$ </span>pod repo push REPO_NAME SPEC_NAME.podspec
+</code></pre>    </article>
+    </div>
+    </section>
+    </div>
+  
+    <section class="container ">
+    <div class="row">
+    <article class="content col-md-10 col-md-offset-1">
+
+
+<p>This will run <code>pod spec lint</code>, and take care of all the little details for setting up the spec in your private repo.</p>
 
 <h2 id="thats-it">
 <a class="header-link" href="#thats-it">&lt;</a>That's it!</h2>
@@ -123,17 +153,24 @@
 repository using the <a href="../syntax/podfile.html#source"><code>source</code> directive</a>
 as shown in the following example:</p>
     </article>
-</div>
-    </section><div class="code-break">
-    <section class="container"><div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><span class="n">source</span> <span class="s1">'URL_TO_REPOSITORY'</span>
-</pre>    </article>
-</div>
+    </div>
     </section>
-</div>
   
-    <section class="container "><div class="row">
-    <article class="content col-md-10 col-md-offset-1"><h2 id="how-to-remove-a-private-repo">
+    <div class="code-break">
+    <section class="container">
+    <div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">source</span> <span class="s1">'URL_TO_REPOSITORY'</span>
+</code></pre>    </article>
+    </div>
+    </section>
+    </div>
+  
+    <section class="container ">
+    <div class="row">
+    <article class="content col-md-10 col-md-offset-1">
+
+
+<h2 id="how-to-remove-a-private-repo">
 <a class="header-link" href="#how-to-remove-a-private-repo">&lt;</a>How to remove a Private Repo</h2>
 
 <p><code>pod repo remove [name]</code></p>

@@ -23,7 +23,7 @@
 <meta content="@CocoaPods" name="twitter:site">
 <meta content="@CocoaPods" name="twitter:creator">
 <meta content="CocoPods" name="twitter:title">
-<link href="../stylesheets/app.css" media="screen" rel="stylesheet" type="text/css">
+<link href="../stylesheets/app.css" rel="stylesheet" type="text/css">
 <script src="../javascripts/application.js" type="text/javascript"></script><meta content="CocoaPods Guides" name="twitter:title">
 <meta content="The official documentation site for the CocoaPods dependency manager." name="twitter:description">
 <meta content="CocoaPods Guides" property="og:site_name">
@@ -39,7 +39,8 @@
 <li class="active"><a href="http://guides.cocoapods.org">Guides</a></li>
 <li><a href="http://blog.cocoapods.org">Blog</a></li>
 </ul></div></section></nav><section class="container"><div class="row"><header class="header content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h1>Getting Started</h1></header></div></section><div class="guide" id="content-wrapper">
-<section class="container"><div class="row"><article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h2 id="what-is-cocoapods">
+<section class="container"><div class="row">
+<article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h2 id="what-is-cocoapods">
 <a class="header-link" href="#what-is-cocoapods">&lt;</a>What is CocoaPods</h2>
 
 <p>CocoaPods manages library dependencies for your Xcode projects.</p>
@@ -60,17 +61,25 @@ you use the standard Ruby available on OS X unless you know what you're doing.</
 
 <p>Using the default Ruby install will require you to use <code>sudo</code> when installing
 gems. (This is only an issue for the duration of the gem installation, though.)</p>
-    </article></div>
-    </section><div class="code-break">
-    <section class="container"><div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight shell"><span class="gp">$ </span>sudo gem install cocoapods
-</pre>    </article>
-</div>
+    </article>
+    </div>
     </section>
-</div>
   
-    <section class="container "><div class="row">
-    <article class="content col-md-10 col-md-offset-1"><p><em>During this process RubyGems might ask you if you want to overwrite the <code>rake</code>
+    <div class="code-break">
+    <section class="container">
+    <div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight shell"><span class="gp">$ </span>sudo gem install cocoapods
+</code></pre>    </article>
+    </div>
+    </section>
+    </div>
+  
+    <section class="container ">
+    <div class="row">
+    <article class="content col-md-10 col-md-offset-1">
+
+
+<p><em>During this process RubyGems might ask you if you want to overwrite the <code>rake</code>
 executable. This warning is raised because the <code>rake</code> gem will be updated as
 part of this process. Simply confirm by typing <code>y</code>.</em></p>
 
@@ -80,67 +89,95 @@ tell RubyGems to install into your user directory by passing either the
 The latter is in our opinion the best solution. To do this, create or edit the
 <code>.profile</code> file in your home directory and add or amend it to include these lines:</p>
     </article>
-</div>
-    </section><div class="code-break">
-    <section class="container"><div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight shell"><span class="nb">export </span><span class="nv">GEM_HOME</span><span class="o">=</span><span class="nv">$HOME</span>/gems
-<span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$GEM_HOME</span>/bin:<span class="nv">$PATH</span>
-</pre>    </article>
-</div>
+    </div>
     </section>
-</div>
   
-    <section class="container "><div class="row">
-    <article class="content col-md-10 col-md-offset-1"><p>Note that if you choose to use the <code>--user-install</code> option, you will still have
+    <div class="code-break">
+    <section class="container">
+    <div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight shell"><span class="nb">export </span><span class="nv">GEM_HOME</span><span class="o">=</span><span class="nv">$HOME</span>/gems
+<span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$GEM_HOME</span>/bin:<span class="nv">$PATH</span>
+</code></pre>    </article>
+    </div>
+    </section>
+    </div>
+  
+    <section class="container ">
+    <div class="row">
+    <article class="content col-md-10 col-md-offset-1">
+
+
+<p>Note that if you choose to use the <code>--user-install</code> option, you will still have
 to configure your <code>.profile</code> file to set the <code>PATH</code> or use the command prepended by
 the full path. You can find out where a gem is installed with <code>gem which
 cocoapods</code>. E.g.</p>
     </article>
-</div>
-    </section><div class="code-break">
-    <section class="container"><div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight shell"><span class="gp">$ </span>gem install cocoapods --user-install
+    </div>
+    </section>
+  
+    <div class="code-break">
+    <section class="container">
+    <div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight shell"><span class="gp">$ </span>gem install cocoapods --user-install
 <span class="gp">$ </span>gem which cocoapods
 /Users/eloy/.gem/ruby/2.0.0/gems/cocoapods-0.29.0/lib/cocoapods.rb
 <span class="gp">$ </span>/Users/eloy/.gem/ruby/2.0.0/bin/pod install
-</pre>    </article>
-</div>
+</code></pre>    </article>
+    </div>
     </section>
-</div>
+    </div>
   
-    <section class="container "><div class="row">
-    <article class="content col-md-10 col-md-offset-1"><h3 id="updating-cocoapods">
+    <section class="container ">
+    <div class="row">
+    <article class="content col-md-10 col-md-offset-1">
+
+
+<h3 id="updating-cocoapods">
 <a class="header-link" href="#updating-cocoapods">&lt;</a>Updating CocoaPods</h3>
 
 <blockquote>
 <p>To update CocoaPods you simply install the gem again</p>
 </blockquote>
     </article>
-</div>
-    </section><div class="code-break">
-    <section class="container"><div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight shell"><span class="gp">$ </span><span class="o">[</span>sudo] gem install cocoapods
-</pre>    </article>
-</div>
+    </div>
     </section>
-</div>
   
-    <section class="container "><div class="row">
-    <article class="content col-md-10 col-md-offset-1"><blockquote>
+    <div class="code-break">
+    <section class="container">
+    <div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight shell"><span class="gp">$ </span><span class="o">[</span>sudo] gem install cocoapods
+</code></pre>    </article>
+    </div>
+    </section>
+    </div>
+  
+    <section class="container ">
+    <div class="row">
+    <article class="content col-md-10 col-md-offset-1">
+
+
+<blockquote>
 <p>Or for a pre-release version</p>
 </blockquote>
     </article>
-</div>
-    </section><div class="code-break">
-    <section class="container"><div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight shell"><span class="gp">$ </span><span class="o">[</span>sudo] gem install cocoapods --pre
-</pre>    </article>
-</div>
+    </div>
     </section>
-</div>
   
-    <section class="container "><div class="row">
-    <article class="content col-md-10 col-md-offset-1"><p>If you originally installed the cocoapods gem using <code>sudo</code>, you should use that command again.</p>
+    <div class="code-break">
+    <section class="container">
+    <div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight shell"><span class="gp">$ </span><span class="o">[</span>sudo] gem install cocoapods --pre
+</code></pre>    </article>
+    </div>
+    </section>
+    </div>
+  
+    <section class="container ">
+    <div class="row">
+    <article class="content col-md-10 col-md-offset-1">
+
+
+<p>If you originally installed the cocoapods gem using <code>sudo</code>, you should use that command again.</p>
 
 <p>Later on, when you're actively using CocoaPods by installing pods, you will be notified when new versions become available with a <em>CocoaPods X.X.X is now available, please update</em> message.</p>
 <h2 id="external-resources">

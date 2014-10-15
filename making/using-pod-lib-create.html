@@ -23,7 +23,7 @@
 <meta content="@CocoaPods" name="twitter:site">
 <meta content="@CocoaPods" name="twitter:creator">
 <meta content="CocoPods" name="twitter:title">
-<link href="../stylesheets/app.css" media="screen" rel="stylesheet" type="text/css">
+<link href="../stylesheets/app.css" rel="stylesheet" type="text/css">
 <script src="../javascripts/application.js" type="text/javascript"></script><meta content="CocoaPods Guides" name="twitter:title">
 <meta content="The official documentation site for the CocoaPods dependency manager." name="twitter:description">
 <meta content="CocoaPods Guides" property="og:site_name">
@@ -39,21 +39,30 @@
 <li class="active"><a href="http://guides.cocoapods.org">Guides</a></li>
 <li><a href="http://blog.cocoapods.org">Blog</a></li>
 </ul></div></section></nav><section class="container"><div class="row"><header class="header content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h1>Using Pod Lib Create</h1></header></div></section><div class="guide" id="content-wrapper">
-<section class="container"><div class="row"><article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h2 id="getting-started">
+<section class="container"><div class="row">
+<article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h2 id="getting-started">
 <a class="header-link" href="#getting-started">&lt;</a>Getting started</h2>
 
 <p>We're going to through the creation of an entire pod using <code>pod lib create</code> to bootstrap the process. So let's start with the initial command:</p>
-    </article></div>
-    </section><div class="code-break">
-    <section class="container"><div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight plaintext">pod lib create MyLibrary
-</pre>    </article>
-</div>
+    </article>
+    </div>
     </section>
-</div>
   
-    <section class="container "><div class="row">
-    <article class="content col-md-10 col-md-offset-1"><blockquote>
+    <div class="code-break">
+    <section class="container">
+    <div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight plaintext">pod lib create MyLibrary
+</code></pre>    </article>
+    </div>
+    </section>
+    </div>
+  
+    <section class="container ">
+    <div class="row">
+    <article class="content col-md-10 col-md-offset-1">
+
+
+<blockquote>
 <p>Note: you can add another parameter with a git repo address to use your own <a href="https://github.com/cocoapods/pod-template">pod-template</a> <br>Second Note: you can press return to select the default (underlined) option</p>
 </blockquote>
 
@@ -69,17 +78,20 @@
 
 <p>You should be testing your library. Testing ensures stability for people using your library. In open source libraries this means people can make changes knowing that they haven't broken implicit expectations. We recommend using a testing framework rather than relying on Apple's XCTest. We include two popular testing frameworks; Specta/Expecta and Kiwi. If you can't decide, use Specta/Expecta.</p>
 
-<p><article class="col-md-6 col-lg-6"><h4>Specta/Expecta<h4></h4>
+<p><article class="col-md-6 col-lg-6">
+<h4>Specta/Expecta<h4></h4>
 </h4>
 <p>A light-weight TDD / BDD framework for Objective-C &amp; Cocoa.</p>
 <blockquote><a href="https://github.com/specta/specta">Github repo</a></blockquote>
 </article></p>
 
-<p><article class="col-md-6 col-lg-6"><h4>Kiwi<h4></h4>
+<p><article class="col-md-6 col-lg-6">
+<h4>Kiwi<h4></h4>
 </h4>
 <p>Kiwi is a Behavior Driven Development library for iOS development. The goal is to provide a BDD library that is exquisitely simple to setup and use.</p>
 <blockquote><a href="https://github.com/kiwi-bdd/Kiwi">Github repo</a></blockquote>
-</article></p>
+</article>
+</p>
 <div class="clearfix"></div>
 
 <p> </p>
@@ -101,10 +113,13 @@
 
 <p>With the questions over, we run <code>pod install</code> on the newly created Project. Let's look at the results:</p>
     </article>
-</div>
-    </section><div class="code-break">
-    <section class="container"><div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight plaintext">$ tree MyLib -L 2
+    </div>
+    </section>
+  
+    <div class="code-break">
+    <section class="container">
+    <div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight plaintext">$ tree MyLib -L 2
 
   MyLib
   ├── .travis.yml
@@ -122,13 +137,17 @@
   │   ├── Assets
   │   └── Classes
   └── README.md
-</pre>    </article>
-</div>
+</code></pre>    </article>
+    </div>
     </section>
-</div>
+    </div>
   
-    <section class="container "><div class="row">
-    <article class="content col-md-10 col-md-offset-1"><p>We've tried to keep the amount in the root folder minimized, You will see the following files:</p>
+    <section class="container ">
+    <div class="row">
+    <article class="content col-md-10 col-md-offset-1">
+
+
+<p>We've tried to keep the amount in the root folder minimized, You will see the following files:</p>
 
 <ul>
 <li>
@@ -142,6 +161,7 @@
 <li>
 <code>README.md</code> - a default README in markdown</li>
 </ul>
+
 <p>and the following folders:</p>
 
 <ul>
@@ -150,6 +170,7 @@
 <li>
 <code>Example</code> - This is the generated Demo &amp; Testing bundle</li>
 </ul>
+
 <h2 id="putting-your-library-together">
 <a class="header-link" href="#putting-your-library-together">&lt;</a>Putting your Library Together</h2>
 
@@ -167,6 +188,7 @@
 <li>This is the Development Pods section, and actually where you can work on your library. See below for more information.</li>
 <li>Finally the Pods used in setting up the project.</li>
 </ol>
+
 <h4 id="development-pods">Development Pods</h4>
 
 <p>Development Pods are different from normal CocoaPods in that they are symlinked files, so making edits to them will change the original files, so you can work on your library from inside Xcode. Your demo &amp; tests will need to include references to headers using the <code>#import &lt;MyLib/XYZ.h&gt;</code> format.</p>
@@ -194,17 +216,24 @@
 
 <p>If you're deploying to a private Specs repo, you will need to have already added that repo. See the guides on <a href="http://guides.cocoapods.org/making/private-cocoapods">Private Specs Repos</a> to set that up. If you are deploying to an existing Private Repo, use this command to deploy:</p>
     </article>
-</div>
-    </section><div class="code-break">
-    <section class="container"><div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight plaintext">pod repo push SPEC_REPO *.podspec --verbose
-</pre>    </article>
-</div>
+    </div>
     </section>
-</div>
   
-    <section class="container "><div class="row">
-    <article class="content col-md-10 col-md-offset-1"><h2 id="done">
+    <div class="code-break">
+    <section class="container">
+    <div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight plaintext">pod repo push SPEC_REPO *.podspec --verbose
+</code></pre>    </article>
+    </div>
+    </section>
+    </div>
+  
+    <section class="container ">
+    <div class="row">
+    <article class="content col-md-10 col-md-offset-1">
+
+
+<h2 id="done">
 <a class="header-link" href="#done">&lt;</a>Done</h2>
 
 <p>👍</p>
