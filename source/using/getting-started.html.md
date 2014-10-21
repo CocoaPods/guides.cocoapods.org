@@ -42,7 +42,7 @@ The latter is in our opinion the best solution. To do this, create or edit the
 `.profile` file in your home directory and add or amend it to include these lines:
 
 ```shell
-export GEM_HOME=$HOME/gems
+export GEM_HOME=$HOME/.gem
 export PATH=$GEM_HOME/bin:$PATH
 ```
 
