@@ -154,4 +154,4 @@ required.
 Unless for trivial changes every pull request should include:
 
 - Tests to prevent a regression
-- A note in the Changelog
+- A note in the CHANGELOG

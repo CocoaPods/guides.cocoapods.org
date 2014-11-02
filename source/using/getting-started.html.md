@@ -14,7 +14,7 @@ CocoaPods manages library dependencies for your Xcode projects.
 
 The dependencies for your projects are specified in a single text file called a Podfile. CocoaPods will resolve dependencies between libraries, fetch the resulting source code, then link it together in an Xcode workspace to build your project.
 
-Ultimately the goal is to improve discoverability of, and engagement in, third party open-source libraries by creating a more centralized ecosystem.
+Ultimately the goal is to improve discoverability of, and engagement in, third party open-source libraries by creating a more centralised ecosystem.
 
 ## Getting Started
 
@@ -42,7 +42,7 @@ The latter is in our opinion the best solution. To do this, create or edit the
 `.profile` file in your home directory and add or amend it to include these lines:
 
 ```shell
-export GEM_HOME=$HOME/gems
+export GEM_HOME=$HOME/.gem
 export PATH=$GEM_HOME/bin:$PATH
 ```
 
