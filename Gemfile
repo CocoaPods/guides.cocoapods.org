@@ -22,8 +22,9 @@ gem 'nokogiri'
 
 gem 'claide', :git => 'https://github.com/CocoaPods/CLAide.git', :branch => 'master'
 gem 'colored'
-gem 'cocoapods-core'
 
+gem 'cocoapods-core'
+gem 'molinillo'
 
 group :development do
   gem 'foreman'

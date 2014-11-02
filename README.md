@@ -1,7 +1,7 @@
 CocoaPods Guides Site
 ==========
 
-This is the repo for the new CocoaPods Guide site.
+This is the repo for the CocoaPods Guides site.
 
 ### I'd like to contribute
 
@@ -17,7 +17,7 @@ Delightful! Double check your link follows our [External Resource Guidelines](CO
 
 ### I'd like to run guides.cocoapods.org locally
 
-The guides site is built on [Middleman](http://middlemanapp.com), and runs on Ruby 1.9.3 or newer.
+The guides site is built on [Middleman](http://middlemanapp.com), and runs on Ruby 2.1.3.
 
 Steps to setup:
 
@@ -25,7 +25,7 @@ Steps to setup:
 2. `$ cd guides.cocoapods.org`
 3. `$ rake bootstrap`
 4. `$ bundle exec rake generate:all`
-5. `$ rake run`
+5. `$ foreman start`
 6. Open [localhost:4567](http://localhost:4567) in your browser. Changes will be processed automatically
 
 ### Deploying the latest version to GitHub Pages
