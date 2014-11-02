@@ -3,7 +3,7 @@ branches:
   only:
   - master
 rvm:
-- 2.0.0
+- 2.1.3
 install:
 - git config --global user.email "bots@cocoapods.org"
 - git config --global user.name "CocoaPods Bot"

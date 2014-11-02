@@ -1,6 +1,5 @@
-# If you have OpenSSL installed, we recommend updating
-# the following line to use "https"
 source 'https://rubygems.org'
+ruby '2.1.3'
 
 gem "middleman"
 
@@ -25,3 +24,7 @@ gem 'claide', :git => 'https://github.com/CocoaPods/CLAide.git', :branch => 'mas
 gem 'colored'
 gem 'cocoapods-core'
 
+
+group :development do
+  gem 'foreman'
+end
