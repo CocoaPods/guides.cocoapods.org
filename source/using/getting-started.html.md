@@ -31,9 +31,9 @@ gems. (This is only an issue for the duration of the gem installation, though.)
 $ sudo gem install cocoapods
 ```
 
-_During this process RubyGems might ask you if you want to overwrite the `rake`
-executable. This warning is raised because the `rake` gem will be updated as
-part of this process. Simply confirm by typing `y`._
+If you encounter any problems during installation, please visit [this](http://guides.cocoapods.org/using/troubleshooting.html#installing-cocoapods) guide.
+
+### Sudo-less installation
 
 If you do *not* want to grant RubyGems admin privileges for this process, you can
 tell RubyGems to install into your user directory by passing either the
@@ -75,10 +75,3 @@ $ [sudo] gem install cocoapods --pre
 If you originally installed the cocoapods gem using `sudo`, you should use that command again.
 
 Later on, when you're actively using CocoaPods by installing pods, you will be notified when new versions become available with a *CocoaPods X.X.X is now available, please update* message.
-
-
-[creating-a-workspace]: http://blog.carbonfive.com/2011/04/04/using-open-source-static-libraries-in-xcode-4/#creating_a_workspace
-[adding-projects-to-workspace]: http://blog.carbonfive.com/2011/04/04/using-open-source-static-libraries-in-xcode-4/#adding_projects_to_a_workspace
-[configuring-project-scheme]: http://blog.carbonfive.com/2011/04/04/using-open-source-static-libraries-in-xcode-4/#configuring_the_projects_scheme
-[adding-build-target-dependencies]: http://blog.carbonfive.com/2011/04/04/using-open-source-static-libraries-in-xcode-4/#adding_build_target_dependencies
-[basing-target-configurations-on-xcconfig]: http://developer.apple.com/library/ios/#documentation/ToolsLanguages/Conceptual/Xcode4UserGuide/025-Configure_Your_Project/configure_project.html
