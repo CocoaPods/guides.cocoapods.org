@@ -58,7 +58,7 @@ order: 4
 
 ### “Why do I have to install Ruby to use CocoaPods?”
 
-  You don’t. OS X comes with a Ruby (1.8.7 or 2.0.0) pre-installed in `/usr/bin/ruby` which are our baselines and these should work out of the box.
+  You don’t. OS X comes with a Ruby 2.0.0 or newer pre-installed in `/usr/bin/ruby` which are our baselines and these should work out of the box.
 
 
 ### “CocoaPods has just changed my entire pbxproj, what gives?”
