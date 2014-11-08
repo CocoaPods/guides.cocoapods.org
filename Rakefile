@@ -63,10 +63,10 @@ namespace :generate do
   require 'pathname'
   ROOT = Pathname.new(File.expand_path('../', __FILE__))
   $:.unshift((ROOT + 'lib').to_s)
-  require 'doc'
 
   desc "Generates the data for the dsl."
   task :dsl do
+    require 'doc'
     puts "\e[1;33mBuilding DSL Data\e[0m"
 
     dsls.each do |dsl|
@@ -84,6 +84,7 @@ namespace :generate do
 
   desc "Generates the data for the commands."
   task :commands do
+    require 'doc'
     puts "\e[1;33mBuilding Commands Data\e[0m"
     files = FileList[(ROOT + "gems/CocoaPods/lib/cocoapods/command/*.rb").to_s]
     # These should probably not be in that directory.
