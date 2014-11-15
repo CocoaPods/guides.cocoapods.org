@@ -8,9 +8,9 @@ order: 1
 
 The standard development on CocoaPods happens like so:
 
-- Setup your development environment with [Rainforest](https://github.com/CocoaPods/Rainforest).
+- Set up your development environment with [Rainforest](https://github.com/CocoaPods/Rainforest).
 - Fork [`CocoaPods/CocoaPods`](https://github.com/CocoaPods/CocoaPods/)
-- Pickup an [Issue ](https://github.com/CocoaPods/CocoaPods/issues?page=1&state=open). See issue classifications [explained below](#issue-classifications)
+- Pick up an [Issue ](https://github.com/CocoaPods/CocoaPods/issues?page=1&state=open). See issue classifications [explained below](#issue-classifications)
 - Check the [CONTRIBUTING](https://github.com/CocoaPods/CocoaPods/blob/master/CONTRIBUTING.md) requirements.
 - Make a [pull request](#making-the-pull-request).
 
