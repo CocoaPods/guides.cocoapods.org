@@ -31,13 +31,7 @@ order: 4
 
 ### “CocoaPods doesn’t do dependency resolution.”
 
-  CocoaPods does in fact do dependency resolution, but it does not automatically resolve conflicts. This means that, when a conflict occurs, CocoaPods will raise an error and leave conflict resolving up to the user. (The user can do this by depending on a specific version of a common dependency _before_ requiring the dependencies that lead to the conflict.)
-
-  If you’re familiar with Ruby then you can compare the former (the current CocoaPods style) to RubyGems’ style resolution and the latter (with conflict resolving) to Bundler’s. (See [this](http://patshaughnessy.net/2011/9/24/how-does-bundler-bundle) article for a detailed look at Bundler’s process.)
-
-  Adding conflict resolution to CocoaPods is on our TODO list and we will try to work with the Bundler team to see if we can share their algorithm, but this will be one of the last things we’ll work on. A feature like this will require a stable basis and since we’re not there yet, working on it now would only make working on the basis more complex than necessary.
-
-  Finally, while conflict resolving is a definite must-have, you should ask yourself if you’re not using too much dependencies whenever you run into conflicts, as this is in general a good indicator. See the link to a blog post about this in #5.
+  CocoaPods has always done dependency resolution, but until version 0.35 it lacked automatic conflict resolution. As of now, CocoaPods can resolve any conflict that is possible to resolve.
 
 
 ### “CocoaPods is bad for the community, because it makes it too easy for users to add many dependencies.”
@@ -65,4 +59,4 @@ order: 4
 
 Xcode projects are ‘PList’ documents. Internally, PList documents can be serialised in a number of ways, two of which are the (OpenStep) ASCII format and a XML format. The former has been deprecated and can no longer be written to disk by official APIs such as the CFPropertyList API. While Xcode still uses this deprecated format, we chose to depend on the CFPropertyList API and not implement custom serialisation code for a format that might be removed without notice.
 
-If you make a change to your project Xcode (currently) will overwrite this change and will save the document in its internal extended ASCII PList format. This is the simplest way for us to support saving Xcode projects without trying to replicate Xcode's internals. 
+If you make a change to your project Xcode (currently) will overwrite this change and will save the document in its internal extended ASCII PList format. This is the simplest way for us to support saving Xcode projects without trying to replicate Xcode's internals.
