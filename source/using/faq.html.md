@@ -36,7 +36,7 @@ order: 4
 
 ### “CocoaPods is bad for the community, because it makes it too easy for users to add many dependencies.”
 
-It's like saying we should not have Cars, as they make us lazy and we forget walking/running. Or we should not have auto-complete and syntax-highlighting in IDE as that makes us a bad programmer, who can't code with just a simple editor. Furthermore, this reasoning applies to basically any means of fetching code (e.g. git) and as such is not a discussion worth having.
+It's like saying we should not have Cars, as they make us lazy and we forget walking/running. Or we should not have auto-complete and syntax-highlighting in IDE as they make us bad programmers, who can't code in editor and can't remember syntax. Furthermore, this reasoning applies to basically any means of fetching code (e.g. git) and as such is not a discussion worth having.
 
   What _is_ worth discussing, however, is informing the user to be responsible. Ironically enough, the original author of CocoaPods is convinced using a lot of dependencies is a really bad idea. For practical advice on how to deal with this, you should read [this blog post](http://www.fngtps.com/2013/a-quick-note-on-minimal-dependencies-in-ruby-on-rails/) by [Manfred Stienstra](http://twitter.com/manfreds).
 
