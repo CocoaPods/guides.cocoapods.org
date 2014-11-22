@@ -67,13 +67,7 @@
 <h3 id="cocoapods-doesnt-do-dependency-resolution">
 <a class="header-link" href="#cocoapods-doesnt-do-dependency-resolution">&lt;</a>“CocoaPods doesn’t do dependency resolution.”</h3>
 
-<p>CocoaPods does in fact do dependency resolution, but it does not automatically resolve conflicts. This means that, when a conflict occurs, CocoaPods will raise an error and leave conflict resolving up to the user. (The user can do this by depending on a specific version of a common dependency <em>before</em> requiring the dependencies that lead to the conflict.)</p>
-
-<p>If you’re familiar with Ruby then you can compare the former (the current CocoaPods style) to RubyGems’ style resolution and the latter (with conflict resolving) to Bundler’s. (See <a href="http://patshaughnessy.net/2011/9/24/how-does-bundler-bundle">this</a> article for a detailed look at Bundler’s process.)</p>
-
-<p>Adding conflict resolution to CocoaPods is on our TODO list and we will try to work with the Bundler team to see if we can share their algorithm, but this will be one of the last things we’ll work on. A feature like this will require a stable basis and since we’re not there yet, working on it now would only make working on the basis more complex than necessary.</p>
-
-<p>Finally, while conflict resolving is a definite must-have, you should ask yourself if you’re not using too much dependencies whenever you run into conflicts, as this is in general a good indicator. See the link to a blog post about this in #5.</p>
+<p>CocoaPods has always done dependency resolution, but until version 0.35 it lacked automatic conflict resolution. As of now, CocoaPods can resolve any conflict that is possible to resolve.</p>
 
 <h3 id="cocoapods-is-bad-for-the-community-because-it-makes-it-too-easy-for-users-to-add-many-dependencies">
 <a class="header-link" href="#cocoapods-is-bad-for-the-community-because-it-makes-it-too-easy-for-users-to-add-many-dependencies">&lt;</a>“CocoaPods is bad for the community, because it makes it too easy for users to add many dependencies.”</h3>
@@ -101,7 +95,7 @@
 
 <p>Xcode projects are ‘PList’ documents. Internally, PList documents can be serialised in a number of ways, two of which are the (OpenStep) ASCII format and a XML format. The former has been deprecated and can no longer be written to disk by official APIs such as the CFPropertyList API. While Xcode still uses this deprecated format, we chose to depend on the CFPropertyList API and not implement custom serialisation code for a format that might be removed without notice.</p>
 
-<p>If you make a change to your project Xcode (currently) will overwrite this change and will save the document in its internal extended ASCII PList format. This is the simplest way for us to support saving Xcode projects without trying to replicate Xcode's internals. </p>
+<p>If you make a change to your project Xcode (currently) will overwrite this change and will save the document in its internal extended ASCII PList format. This is the simplest way for us to support saving Xcode projects without trying to replicate Xcode's internals.</p>
 </article></div></section></div>
 <div class="info-row"><section class="container"><div class="row"><article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><a data-container="body" data-content="CocoaPods is an open source project. Help us improve these guides by sending a pull request. ❤" data-original-title="" data-placement="top" data-toggle="popover" data-trigger="hover" href="https://github.com/CocoaPods/guides.cocoapods.org/blob/master/source/using/faq.html.md" id="pull-request" title=""></a><ul class="breadcrumb">
 <li>
@@ -127,10 +121,10 @@
 <h3><a href="../making/index.html">Making CocoaPods</a></h3>
 <ul>
 <li><a href="../making/making-a-cocoapod.html">Making a CocoaPod</a></li>
-<li><a href="../making/specs-and-specs-repo.html">Specs and the Specs Repo</a></li>
 <li><a href="../making/using-pod-lib-create.html">Using Pod Lib Create</a></li>
-<li><a href="../making/private-cocoapods.html">Private Pods</a></li>
+<li><a href="../making/specs-and-specs-repo.html">Specs and the Specs Repo</a></li>
 <li><a href="../making/getting-setup-with-trunk.html">Getting setup with Trunk</a></li>
+<li><a href="../making/private-cocoapods.html">Private Pods</a></li>
 </ul>
 </div>
 <div class="clearfix visible-xs"></div>
@@ -140,8 +134,8 @@
 <li><a href="../contributing/contribute-to-cocoapods.html">How to Contribute</a></li>
 <li><a href="../contributing/components.html">Core Components</a></li>
 <li><a href="../contributing/dev-environment.html">Setting up for Development</a></li>
-<li><a href="../contributing/release-process.html">Release Process</a></li>
 <li><a href="../contributing/tickets-handling.html">Tickets handling</a></li>
+<li><a href="../contributing/release-process.html">Release Process</a></li>
 </ul>
 </div>
 <div class="col-lg-3 col-sm-3 col-xs-6 footer-index">
