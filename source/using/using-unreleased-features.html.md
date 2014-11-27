@@ -21,7 +21,7 @@ gem 'cocoapods-downloader', :git => 'https://github.com/CocoaPods/cocoapods-down
 If you intend to use 'master' branch for any component, then you can just write something like this:
 
 ```ruby
-gem 'claide', :git => 'https://github.com/CocoaPods/CocoaPods.git'
+gem 'cocoapods', :git => 'https://github.com/CocoaPods/CocoaPods.git'
 ```
 
 If you want to use a branch containing desired feature or bug-fix, which hasn't yet been merged to master then you can mention 'branch name' like this:
