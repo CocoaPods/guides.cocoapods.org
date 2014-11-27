@@ -7,8 +7,7 @@ ignore: true
 
 There may be times when you may want to test an upcoming feature in CocoaPods. At times code for such features may be already available in a 'feature branch'. Here is what you need to do to start using unreleased features in your project:
 
-* Create a [Gemfile](http://bundler.io/gemfile.html)  
-
+##### Create a [Gemfile](http://bundler.io/gemfile.html)  
 Inside your project folder, where you normally create a Podfile, create a new file and call it 'Gemfile'. Your Gemfile should look like this:
 ```ruby
 source 'https://rubygems.org'
@@ -38,7 +37,10 @@ gem 'cocoapods', :git => 'https://github.com/mrackwitz/CocoaPods.git', :branch =
 
 You can even [specify](http://bundler.io/git.html) a tag or commit for the repository as [GIT LOCATION]. 
 
-* Run `$ bundle install` to install unreleased copy of Cocoapods 
-* Run `$ bundle exec pod install` to setup your workspace. `bundle exec` will ensure that you are using unreleased copy of Cocoapods you just installed
+##### Install the unreleased copy of CocoaPods  
+Run `$ bundle install`
+##### Use unreleased copy of CocoaPods
+Run `$ bundle exec pod install`  
+`bundle exec` will ensure that you are using unreleased copy of Cocoapods you just installed (instead of using the system-wide official copy that you probably installed with `gem install cocoa pods` previously some day). You can open the `xcworkspace` file to use and build the project from now on.
 
-That's it.
+Likewise, for any other pod command that you want to run, precede it with `bundle exec` (`bundle exec pod update`, `bundle exec pod lib lint`, etc…) to ensure that you use the the unreleased version for this command, instead of the official version.
