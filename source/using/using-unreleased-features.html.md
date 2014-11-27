@@ -14,7 +14,8 @@ external links:
 There may be times when you may want to test an upcoming feature in CocoaPods. At times code for such features may be already available in a 'feature branch'. Here is what you need to do to start using unreleased features in your project:
 
 #### Create a Gemfile 
-Inside your project folder, where you normally create a Podfile, create a new file and call it 'Gemfile'. Your Gemfile should look like this:
+
+Inside your project folder, where you normally create a `Podfile`, create a new file and call it `Gemfile`. Your `Gemfile` should look like this:
 ```ruby
 source 'https://rubygems.org'
 
@@ -24,13 +25,13 @@ gem 'xcodeproj',  :git => 'https://github.com/CocoaPods/Xcodeproj.git'
 gem 'claide', :git => 'https://github.com/CocoaPods/CLAide.git'
 gem 'cocoapods-downloader', :git => 'https://github.com/CocoaPods/cocoapods-downloader.git'
 ```  
-If you intend to use 'master' branch for any component, then you can just write something like this:
+If you intend to use `master` branch for any component, then you can just write something like this:
 
 ```ruby
 gem 'cocoapods', :git => 'https://github.com/CocoaPods/CocoaPods.git'
 ```
 
-If you want to use a branch containing desired feature or bug-fix, which hasn't yet been merged to master then you can mention 'branch name' like this:
+If you want to use a branch containing desired feature or bug-fix, which hasn't yet been merged to `master` then you can mention 'branch name' like this:
 
 ```ruby
 gem 'cocoapods', :git => 'https://github.com/CocoaPods/CocoaPods.git', :branch => 'swift'
@@ -42,9 +43,11 @@ gem 'cocoapods', :git => 'https://github.com/mrackwitz/CocoaPods.git', :branch =
 ```  
 
 #### Install the unreleased copy of CocoaPods  
+
 Run `$ bundle install`
 
 #### Use unreleased copy of CocoaPods  
+
 Run `$ bundle exec pod install`  
 
 `bundle exec` will ensure that you are using unreleased copy of CocoaPods you just installed (instead of using the system-wide official copy that you probably installed with `gem install cocoapods` previously some day). You can open the `xcworkspace` file to use and build the project from now on.
