@@ -46,7 +46,7 @@ While we aren't terribly picky about writing style, there are a few things we'd 
 - These are not tutorials, but rather explanations of the inner workings of CocoaPods.
 - If you would like to see these in another language, please [open an issue](https://github.com/CocoaPods/guides.cocoapods.org/issues), or simply start translating. We'd love to see this content accessible to more users.
 - Our code blocks are parsed by [Pygments](https://github.com/tmm1/pygments.rb), so please make sure your code additions are highlighted correctly. The best way to check this is to run your changes locally. Instructions can be found in the [README](README.md).
-- We also enjoy the Oxford comma.
+- We also enjoy the Oxford comma, and use British English.
 
 ##Issue Submissions
 
