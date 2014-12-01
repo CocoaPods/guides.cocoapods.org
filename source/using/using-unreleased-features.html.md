@@ -25,11 +25,22 @@ gem 'xcodeproj',  :git => 'https://github.com/CocoaPods/Xcodeproj.git'
 gem 'claide', :git => 'https://github.com/CocoaPods/CLAide.git'
 gem 'cocoapods-downloader', :git => 'https://github.com/CocoaPods/cocoapods-downloader.git'
 ```  
-If you intend to use `master` branch for any component, then you can just write something like this:
+#### Choose correct Branch and Revision 
+
+Please remember that you need to use compatible versions of each component in the `Gemfile`. This can be done by looking at the `Gemfile.lock` from the relevant branch of `CocoaPods`. For 'swift' branch of `CocoaPods`, `Gemfile.lock` at `https://github.com/CocoaPods/CocoaPods/blob/swift/Gemfile.lock` contains:
+
+``` ruby
+GIT
+  remote: https://github.com/CocoaPods/Core.git
+  revision: 8bfbc96858947f4db6dd1f4a3ea085b446ad35d3
+  branch: master
+```  
+Which means for `cocoapods-core` gem we need to use `master` branch with revision `8bfbc96858947f4db6dd1f4a3ea085b446ad35d3` which can be done like this:
 
 ```ruby
-gem 'cocoapods', :git => 'https://github.com/CocoaPods/CocoaPods.git'
+gem 'cocoapods-core', :git => 'https://github.com/CocoaPods/Core.git' :ref => '8bfbc96858947f4db6dd1f4a3ea085b446ad35d3'
 ```
+You need to check the `Gemfile.lock` for all the components and use correct git path.
 
 If you want to use a branch containing desired feature or bug-fix, which hasn't yet been merged to `master` then you can mention 'branch name' like this:
 
