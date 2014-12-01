@@ -75,3 +75,7 @@ $ [sudo] gem install cocoapods --pre
 If you originally installed the cocoapods gem using `sudo`, you should use that command again.
 
 Later on, when you're actively using CocoaPods by installing pods, you will be notified when new versions become available with a *CocoaPods X.X.X is now available, please update* message.
+
+#### Using a CocoaPods Fork
+
+There is [a guide for using a version of CocoaPods to try new features](/using/unreleased-features) that are in discussion or in implementation stage.

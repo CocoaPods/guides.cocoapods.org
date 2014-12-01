@@ -83,6 +83,10 @@ this directory too, and afterwards run `pod install`.
 
     $ sudo rm -fr Pods/
 
+#### The Fix I want is in master / a branch, but I'm blocked on this right now
+
+There is [a guide for using a version of CocoaPods to try new features](/using/unreleased-features) that are in discussion or in implementation stage.
+
 ### I didn't find the solution to my problem!
 
 We have multiple avenues for support, here they are in the order we prefer.
