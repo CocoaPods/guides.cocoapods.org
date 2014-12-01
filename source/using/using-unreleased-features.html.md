@@ -38,7 +38,7 @@ GIT
 Which means for `cocoapods-core` gem we need to use `master` branch with revision `8bfbc96858947f4db6dd1f4a3ea085b446ad35d3` which can be done like this:
 
 ```ruby
-gem 'cocoapods-core', :git => 'https://github.com/CocoaPods/Core.git' :ref => '8bfbc96858947f4db6dd1f4a3ea085b446ad35d3'
+gem 'cocoapods-core', :git => 'https://github.com/CocoaPods/Core.git', :ref => '8bfbc96858947f4db6dd1f4a3ea085b446ad35d3'
 ```
 You need to check the `Gemfile.lock` for all the components and use correct git path.
 
