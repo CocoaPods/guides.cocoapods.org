@@ -19,7 +19,7 @@ The technique to run a branch version of CocoaPods is:
 * Clone a copy of CocoaPods locally.
 * Check out the version to the branch you want.
 * Run `bundle install` to get CocoaPods set up.
-* Use the full path to the new `pod` binary, instead of the one installed.
+* Use the full path to the new `pod` binary, instead of the one installed via rubygems.
 
 Then when you want to update you go back to that local install and run `git pull`, then `bundle install` again.
 
