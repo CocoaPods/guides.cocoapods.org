@@ -33,6 +33,14 @@ $ sudo gem install cocoapods
 
 If you encounter any problems during installation, please visit [this](http://guides.cocoapods.org/using/troubleshooting#installing-cocoapods) guide.
 
+### Setup CocoaPods
+
+After you have installed CocoaPods, you must setup the environment before you can install dependencies.
+
+```shell
+$ pod setup
+```
+
 ### Sudo-less installation
 
 If you do *not* want to grant RubyGems admin privileges for this process, you can
