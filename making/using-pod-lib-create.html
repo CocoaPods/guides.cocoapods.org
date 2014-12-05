@@ -194,7 +194,13 @@
 <p>Development Pods are different from normal CocoaPods in that they are symlinked files, so making edits to them will change the original files, so you can work on your library from inside Xcode. Your demo &amp; tests will need to include references to headers using the <code>#import &lt;MyLib/XYZ.h&gt;</code> format.</p>
 
 <blockquote>
-<p><code>[!] Note:</code> Due to a current Development Pods implementation detail, when you add new/existing files to <code>Pod/Classes</code> or <code>Pod/Assets</code>, you should run <code>pod install</code> or <code>pod update</code>.</p>
+<p><code>[!] Note:</code> Due to a current Development Pods implementation detail, when you add new/existing files to <code>Pod/Classes</code> or <code>Pod/Assets</code> or update your podspec, you should run <code>pod install</code> or <code>pod update</code>.</p>
+</blockquote>
+
+<!-- -->
+
+<blockquote>
+<p><code>[!] Note:</code> Whenever you update your podspec’s version, you must run <code>pod update</code> or <code>pod update POD_NAME</code> instead of <code>pod install</code>.</p>
 </blockquote>
 
 <h2 id="adding-travis-ci">

@@ -3,7 +3,7 @@
 and integrating the dependecies specified in a Podfile.</p><p>Following is presented the basic workflow for integrating CocoaPods in a user project.</p><pre>$ touch Podfile
 $ vim Podfile
 $ pod install</pre><pre>$ open *.xcworkspace</pre><pre>$ vim podfile
-$ pod install</pre><pre>$ pod outdated</pre><pre>$ pod update</pre><h3>Commands</h3><p><code><a data-toggle="tab" href="#tab_pod_init">pod init</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_install">pod install</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_update">pod update</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_outdated">pod outdated</a></code></p></div><div class="tab-pane" id="tab_group_browse"><h2>Browse</h2><p><code><a data-toggle="tab" href="#tab_pod_search">pod search</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_list">pod list</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_list_new">pod list new</a></code></p></div><div class="tab-pane" id="tab_group_specifications"><h2>Specifications</h2><p><code><a data-toggle="tab" href="#tab_pod_spec_create">pod spec create</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_spec_lint">pod spec lint</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_spec_cat">pod spec cat</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_spec_which">pod spec which</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_spec_edit">pod spec edit</a></code></p></div><div class="tab-pane" id="tab_group_repos"><h2>Repos</h2><p><code><a data-toggle="tab" href="#tab_pod_repo_add">pod repo add</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_repo_update">pod repo update</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_repo_lint">pod repo lint</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_repo_list">pod repo list</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_repo_remove">pod repo remove</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_repo_push">pod repo push</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_setup">pod setup</a></code></p></div><div class="tab-pane" id="tab_group_libraries"><h2>Libraries</h2><p><code><a data-toggle="tab" href="#tab_pod_lib_create">pod lib create</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_lib_lint">pod lib lint</a></code></p></div><div class="tab-pane" id="tab_group_ipc"><h2>IPC</h2><p><code><a data-toggle="tab" href="#tab_pod_ipc_repl">pod ipc repl</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_ipc_spec">pod ipc spec</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_ipc_podfile">pod ipc podfile</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_ipc_list">pod ipc list</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_ipc_update_search_index">pod ipc update-search-index</a></code></p></div><div class="tab-pane" id="tab_pod_init"><h2>pod init</h2><pre>pod init [#<CLAide::Argument:0x00000003cb1968 @names=["XCODEPROJ"], @required=:false, @repeatable=false>]</pre><p><p>Creates a Podfile for the current directory if none currently exists. If
+$ pod install</pre><pre>$ pod outdated</pre><pre>$ pod update</pre><h3>Commands</h3><p><code><a data-toggle="tab" href="#tab_pod_init">pod init</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_install">pod install</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_update">pod update</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_outdated">pod outdated</a></code></p></div><div class="tab-pane" id="tab_group_browse"><h2>Browse</h2><p><code><a data-toggle="tab" href="#tab_pod_search">pod search</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_list">pod list</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_list_new">pod list new</a></code></p></div><div class="tab-pane" id="tab_group_specifications"><h2>Specifications</h2><p><code><a data-toggle="tab" href="#tab_pod_spec_create">pod spec create</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_spec_lint">pod spec lint</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_spec_cat">pod spec cat</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_spec_which">pod spec which</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_spec_edit">pod spec edit</a></code></p></div><div class="tab-pane" id="tab_group_repos"><h2>Repos</h2><p><code><a data-toggle="tab" href="#tab_pod_repo_add">pod repo add</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_repo_update">pod repo update</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_repo_lint">pod repo lint</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_repo_list">pod repo list</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_repo_remove">pod repo remove</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_repo_push">pod repo push</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_setup">pod setup</a></code></p></div><div class="tab-pane" id="tab_group_libraries"><h2>Libraries</h2><p><code><a data-toggle="tab" href="#tab_pod_lib_create">pod lib create</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_lib_lint">pod lib lint</a></code></p></div><div class="tab-pane" id="tab_group_ipc"><h2>IPC</h2><p><code><a data-toggle="tab" href="#tab_pod_ipc_repl">pod ipc repl</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_ipc_spec">pod ipc spec</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_ipc_podfile">pod ipc podfile</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_ipc_list">pod ipc list</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_ipc_update_search_index">pod ipc update-search-index</a></code></p></div><div class="tab-pane" id="tab_pod_init"><h2>pod init</h2><pre>pod init [#<CLAide::Argument:0x00000003de9678 @names=["XCODEPROJ"], @required=:false, @repeatable=false>]</pre><p><p>Creates a Podfile for the current directory if none currently exists. If
 an <code>XCODEPROJ</code> project file is specified or if there is only a single
 project file in the current directory, targets will be automatically
 generated based on targets defined in the project.</p>
@@ -41,7 +41,7 @@ Pod resources.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_update"><h2>pod update</h2><pre>pod update [#<CLAide::Argument:0x00000003e89218 @names=["POD_NAMES"], @required=false, @repeatable=true>]</pre><p><p>Updates the Pods identified by the specified <code>POD_NAMES</code>. If no
+</td></tr></table></div><div class="tab-pane" id="tab_pod_update"><h2>pod update</h2><pre>pod update [#<CLAide::Argument:0x00000003fbcb08 @names=["POD_NAMES"], @required=false, @repeatable=true>]</pre><p><p>Updates the Pods identified by the specified <code>POD_NAMES</code>. If no
 <code>POD_NAMES</code> are specified it updates all the Pods ignoring the contents
 of the Podfile.lock.
 This command is reserved to the update of dependencies and pod install
@@ -66,7 +66,7 @@ spec repos, not those from local/external sources or <code>:head</code> versions
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_search"><h2>pod search</h2><pre>pod search [#<CLAide::Argument:0x00000003db14d0 @names=["QUERY"], @required=true, @repeatable=false>]</pre><p><p>Searches for pods, ignoring case, whose name matches <code>QUERY</code>. If the
+</td></tr></table></div><div class="tab-pane" id="tab_pod_search"><h2>pod search</h2><pre>pod search [#<CLAide::Argument:0x00000003ec52e0 @names=["QUERY"], @required=true, @repeatable=false>]</pre><p><p>Searches for pods, ignoring case, whose name matches <code>QUERY</code>. If the
 <code>--full</code> option is specified, this will also search in the summary and
 description of the pods.</p>
 </p><h3>Options:</h3><table class="inherited_options"><tr><td><p><b>--regex</b></p></td><td><p>Interpret the <code>QUERY</code> as a regular expression.</p>
@@ -95,13 +95,13 @@ description of the pods.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_spec_create"><h2>pod spec create</h2><pre>pod spec create [#<CLAide::Argument:0x00000003cd92d8 @names=["NAME", "https://github.com/USER/REPO"], @required=false, @repeatable=false>]</pre><p><p>Creates a PodSpec, in the current working dir, called <code>NAME.podspec</code>.
+</td></tr></table></div><div class="tab-pane" id="tab_pod_spec_create"><h2>pod spec create</h2><pre>pod spec create [#<CLAide::Argument:0x00000003e15070 @names=["NAME", "https://github.com/USER/REPO"], @required=false, @repeatable=false>]</pre><p><p>Creates a PodSpec, in the current working dir, called <code>NAME.podspec</code>.
 If a GitHub url is passed the spec is prepopulated.</p>
 </p><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_spec_lint"><h2>pod spec lint</h2><pre>pod spec lint [#<CLAide::Argument:0x00000003cd90d0 @names=["NAME.podspec", "DIRECTORY", "http://PATH/NAME.podspec"], @required=false, @repeatable=true>]</pre><p><p>Validates <code>NAME.podspec</code>. If a <code>DIRECTORY</code> is provided, it validates
+</td></tr></table></div><div class="tab-pane" id="tab_pod_spec_lint"><h2>pod spec lint</h2><pre>pod spec lint [#<CLAide::Argument:0x00000003e14e68 @names=["NAME.podspec", "DIRECTORY", "http://PATH/NAME.podspec"], @required=false, @repeatable=true>]</pre><p><p>Validates <code>NAME.podspec</code>. If a <code>DIRECTORY</code> is provided, it validates
 the podspec files found, including subfolders. In case
 the argument is omitted, it defaults to the current working dir.</p>
 </p><h3>Options:</h3><table class="inherited_options"><tr><td><p><b>--quick</b></p></td><td><p>Lint skips checks that would require to download and build the spec.</p>
@@ -114,41 +114,41 @@ the argument is omitted, it defaults to the current working dir.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_spec_cat"><h2>pod spec cat</h2><pre>pod spec cat [#<CLAide::Argument:0x00000003cd8c70 @names=["QUERY"], @required=false, @repeatable=false>]</pre><p><p>Prints the content of the podspec(s) whose name matches <code>QUERY</code> to standard output.</p>
+</td></tr></table></div><div class="tab-pane" id="tab_pod_spec_cat"><h2>pod spec cat</h2><pre>pod spec cat [#<CLAide::Argument:0x00000003e14a08 @names=["QUERY"], @required=false, @repeatable=false>]</pre><p><p>Prints the content of the podspec(s) whose name matches <code>QUERY</code> to standard output.</p>
 </p><h3>Options:</h3><table class="inherited_options"><tr><td><p><b>--regex</b></p></td><td><p>Interpret the <code>QUERY</code> as a regular expression.</p>
 </td></tr><tr><td><p><b>--show-all</b></p></td><td><p>Pick from all versions of the given podspec.</p>
 </td></tr></table><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_spec_which"><h2>pod spec which</h2><pre>pod spec which [#<CLAide::Argument:0x00000003cd8e28 @names=["QUERY"], @required=false, @repeatable=false>]</pre><p><p>Prints the path of the .podspec file(s) whose name matches <code>QUERY</code></p>
+</td></tr></table></div><div class="tab-pane" id="tab_pod_spec_which"><h2>pod spec which</h2><pre>pod spec which [#<CLAide::Argument:0x00000003e14cb0 @names=["QUERY"], @required=false, @repeatable=false>]</pre><p><p>Prints the path of the .podspec file(s) whose name matches <code>QUERY</code></p>
 </p><h3>Options:</h3><table class="inherited_options"><tr><td><p><b>--regex</b></p></td><td><p>Interpret the <code>QUERY</code> as a regular expression.</p>
 </td></tr><tr><td><p><b>--show-all</b></p></td><td><p>Print all versions of the given podspec.</p>
 </td></tr></table><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_spec_edit"><h2>pod spec edit</h2><pre>pod spec edit [#<CLAide::Argument:0x00000003cd8a90 @names=["QUERY"], @required=false, @repeatable=false>]</pre><p><p>Opens the podspec matching <code>QUERY</code> to be edited.</p>
+</td></tr></table></div><div class="tab-pane" id="tab_pod_spec_edit"><h2>pod spec edit</h2><pre>pod spec edit [#<CLAide::Argument:0x00000003e14828 @names=["QUERY"], @required=false, @repeatable=false>]</pre><p><p>Opens the podspec matching <code>QUERY</code> to be edited.</p>
 </p><h3>Options:</h3><table class="inherited_options"><tr><td><p><b>--regex</b></p></td><td><p>Interpret the <code>QUERY</code> as a regular expression.</p>
 </td></tr><tr><td><p><b>--show-all</b></p></td><td><p>Pick from all versions of the given podspec.</p>
 </td></tr></table><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_repo_add"><h2>pod repo add</h2><pre>pod repo add [#<CLAide::Argument:0x00000003dd1c80 @names=["NAME"], @required=true, @repeatable=false>, #<CLAide::Argument:0x00000003dd1c08 @names=["URL"], @required=true, @repeatable=false>, #<CLAide::Argument:0x00000003dd1b40 @names=["BRANCH"], @required=false, @repeatable=false>]</pre><p><p>Clones <code>URL</code> in the local spec-repos directory at <code>~/.cocoapods/repos/</code>. The
+</td></tr></table></div><div class="tab-pane" id="tab_pod_repo_add"><h2>pod repo add</h2><pre>pod repo add [#<CLAide::Argument:0x00000003f01ad8 @names=["NAME"], @required=true, @repeatable=false>, #<CLAide::Argument:0x00000003f01a60 @names=["URL"], @required=true, @repeatable=false>, #<CLAide::Argument:0x00000003f019e8 @names=["BRANCH"], @required=false, @repeatable=false>]</pre><p><p>Clones <code>URL</code> in the local spec-repos directory at <code>~/.cocoapods/repos/</code>. The
 remote can later be referred to by <code>NAME</code>.</p>
 </p><h3>Options:</h3><table class="inherited_options"><tr><td><p><b>--shallow</b></p></td><td><p>Create a shallow clone (fast clone, but no push capabilities).</p>
 </td></tr></table><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_repo_update"><h2>pod repo update</h2><pre>pod repo update [#<CLAide::Argument:0x00000003dd18c0 @names=["NAME"], @required=false, @repeatable=false>]</pre><p><p>Updates the local clone of the spec-repo <code>NAME</code>. If <code>NAME</code> is omitted
+</td></tr></table></div><div class="tab-pane" id="tab_pod_repo_update"><h2>pod repo update</h2><pre>pod repo update [#<CLAide::Argument:0x00000003f01768 @names=["NAME"], @required=false, @repeatable=false>]</pre><p><p>Updates the local clone of the spec-repo <code>NAME</code>. If <code>NAME</code> is omitted
 this will update all spec-repos in <code>~/.cocoapods/repos</code>.</p>
 </p><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_repo_lint"><h2>pod repo lint</h2><pre>pod repo lint [#<CLAide::Argument:0x00000003dd15f0 @names=["NAME", "DIRECTORY"], @required=false, @repeatable=false>]</pre><p><p>Lints the spec-repo <code>NAME</code>. If a directory is provided it is assumed
+</td></tr></table></div><div class="tab-pane" id="tab_pod_repo_lint"><h2>pod repo lint</h2><pre>pod repo lint [#<CLAide::Argument:0x00000003f01498 @names=["NAME", "DIRECTORY"], @required=false, @repeatable=false>]</pre><p><p>Lints the spec-repo <code>NAME</code>. If a directory is provided it is assumed
 to be the root of a repo. Finally, if <code>NAME</code> is not provided this
 will lint all the spec-repos known to CocoaPods.</p>
 </p><h3>Options:</h3><table class="inherited_options"><tr><td><p><b>--only-errors</b></p></td><td><p>Lint presents only the errors.</p>
@@ -162,12 +162,12 @@ will lint all the spec-repos known to CocoaPods.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_repo_remove"><h2>pod repo remove</h2><pre>pod repo remove [#<CLAide::Argument:0x00000003dd13c0 @names=["NAME"], @required=true, @repeatable=false>]</pre><p><p>Deletes the remote named <code>NAME</code> from the local spec-repos directory at <code>~/.cocoapods/repos/.</code></p>
+</td></tr></table></div><div class="tab-pane" id="tab_pod_repo_remove"><h2>pod repo remove</h2><pre>pod repo remove [#<CLAide::Argument:0x00000003f01268 @names=["NAME"], @required=true, @repeatable=false>]</pre><p><p>Deletes the remote named <code>NAME</code> from the local spec-repos directory at <code>~/.cocoapods/repos/.</code></p>
 </p><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_repo_push"><h2>pod repo push</h2><pre>pod repo push [#<CLAide::Argument:0x00000003dd2608 @names=["REPO"], @required=true, @repeatable=false>, #<CLAide::Argument:0x00000003dd2590 @names=["NAME.podspec"], @required=false, @repeatable=false>]</pre><p><p>Validates <code>NAME.podspec</code> or <code>*.podspec</code> in the current working dir,
+</td></tr></table></div><div class="tab-pane" id="tab_pod_repo_push"><h2>pod repo push</h2><pre>pod repo push [#<CLAide::Argument:0x00000003f02410 @names=["REPO"], @required=true, @repeatable=false>, #<CLAide::Argument:0x00000003f02398 @names=["NAME.podspec"], @required=false, @repeatable=false>]</pre><p><p>Validates <code>NAME.podspec</code> or <code>*.podspec</code> in the current working dir,
 creates a directory and version folder for the pod in the local copy of
 <code>REPO</code> (~/.cocoapods/repos/[REPO]), copies the podspec file into the
 version directory, and finally it pushes <code>REPO</code> to its remote.</p>
@@ -189,7 +189,7 @@ This is where it will create a clone of the public <code>master</code> spec-repo
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_lib_create"><h2>pod lib create</h2><pre>pod lib create [#<CLAide::Argument:0x00000003e1cca8 @names=["NAME"], @required=true, @repeatable=false>, #<CLAide::Argument:0x00000003e1cc30 @names=["TEMPLATE_URL"], @required=false, @repeatable=false>]</pre><p><p>Creates a scaffold for the development of a new Pod named <code>NAME</code>
+</td></tr></table></div><div class="tab-pane" id="tab_pod_lib_create"><h2>pod lib create</h2><pre>pod lib create [#<CLAide::Argument:0x00000003f48910 @names=["NAME"], @required=true, @repeatable=false>, #<CLAide::Argument:0x00000003f48898 @names=["TEMPLATE_URL"], @required=false, @repeatable=false>]</pre><p><p>Creates a scaffold for the development of a new Pod named <code>NAME</code>
 according to the CocoaPods best practices.
 If a <code>TEMPLATE_URL</code>, pointing to a git repo containing a compatible
 template, is specified, it will be used in place of the default one.</p>
@@ -218,12 +218,12 @@ end of output with the the ASCII CR+LF <code>\n\r</code>.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_ipc_spec"><h2>pod ipc spec</h2><pre>pod ipc spec [#<CLAide::Argument:0x00000003dfc188 @names=["PATH"], @required=true, @repeatable=false>]</pre><p><p>Converts a podspec to JSON and prints it to STDOUT.</p>
+</td></tr></table></div><div class="tab-pane" id="tab_pod_ipc_spec"><h2>pod ipc spec</h2><pre>pod ipc spec [#<CLAide::Argument:0x00000003f33da8 @names=["PATH"], @required=true, @repeatable=false>]</pre><p><p>Converts a podspec to JSON and prints it to STDOUT.</p>
 </p><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_ipc_podfile"><h2>pod ipc podfile</h2><pre>pod ipc podfile [#<CLAide::Argument:0x00000003e07fb0 @names=["PATH"], @required=true, @repeatable=false>]</pre><p><p>Converts a Podfile to YAML and prints it to STDOUT.</p>
+</td></tr></table></div><div class="tab-pane" id="tab_pod_ipc_podfile"><h2>pod ipc podfile</h2><pre>pod ipc podfile [#<CLAide::Argument:0x00000003f33c18 @names=["PATH"], @required=true, @repeatable=false>]</pre><p><p>Converts a Podfile to YAML and prints it to STDOUT.</p>
 </p><h3>Options:</h3><table class="inherited_options"><tr><td><p><b>--project-directory=/project/dir/</b></p></td><td><p>The path to the root of the project directory.</p>
 </td></tr></table><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
