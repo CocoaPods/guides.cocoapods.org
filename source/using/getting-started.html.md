@@ -58,6 +58,16 @@ $ gem which cocoapods
 $ /Users/eloy/.gem/ruby/2.0.0/bin/pod install
 ```
 
+### Post-installation
+
+Before you can start using CocoaPods, you also need to clone the CocoaPods master spec-repo to `~/.cocoapods/repos` with `pod setup`.
+
+```shell
+$ pod setup
+Setting up CocoaPods master repo
+Setup completed
+```
+
 ### Updating CocoaPods
 
 > To update CocoaPods you simply install the gem again
