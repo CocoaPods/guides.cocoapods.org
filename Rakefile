@@ -16,7 +16,8 @@ task :bootstrap do
   title "Environment bootstrap"
 
   puts "Updating submodules"
-  execute_command "git submodule update --init --recursive"
+  # This can take a long time, so showing output
+  sh "git submodule update --init --recursive"
 
   puts "Installing gems"
   execute_command "bundle install"
