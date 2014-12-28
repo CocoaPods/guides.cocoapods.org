@@ -21,7 +21,7 @@ We recommend using the full command to give some context when you look at your s
 $ pod trunk register orta@cocoapods.org 'Orta Therox' --description='macbook air'
 ```
 
-You will then receive an email to the email address verifying the connection between your trunk account and the current computer. You can see you sessions by running `pod trunk me`.
+You will then receive an email to the email address verifying the connection between your trunk account and the current computer. You can see your sessions by running `pod trunk me`.
 
 You do not have a password, only a per-computer session token.
 
