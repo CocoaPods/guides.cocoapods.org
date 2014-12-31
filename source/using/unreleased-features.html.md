@@ -25,7 +25,7 @@ Then when you want to update you go back to that local install and run `git pull
 
 ## Real world walk-through
 
-Let's use [@mrackwitz's](http://twitter.com/mrackwitz) Swift [Pull Request CocoaPods#2835](https://github.com/CocoaPods/CocoaPods/pull/2835) as a example.
+Let's use [@mrackwitz's](http://twitter.com/mrackwitz) Swift [Pull Request CocoaPods#2835](https://github.com/CocoaPods/CocoaPods/pull/2835) as a example. Note, the `swift` branch does not exist anymore. You can see all the current branches [here](https://github.com/CocoaPods/CocoaPods/branches).
 
 #### Clone a local copy
 
