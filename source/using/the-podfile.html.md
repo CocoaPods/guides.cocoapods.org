@@ -81,7 +81,7 @@ In addition to the logic operators CocoaPods has an optimistic operator `~>`:
 For more information, regarding versioning policy, see:
 
 * [Semantic Versioning](http://semver.org)
-* [RubyGems Versioning Policies](http://docs.rubygems.org/read/chapter/7)
+* [RubyGems Versioning Policies](http://guides.rubygems.org/patterns/#semantic-versioning)
 
 Finally, instead of a version, you can specify the `:head` flag. This
 will use the pod’s latest version spec version, but force the download
