@@ -109,7 +109,7 @@ The point is that developers can easily keep track of newer versions of dependen
 
 ### CocoaPods Versioning Specifics
 
-CocoaPods uses RubyGems versions for specifying pod spec versions. The [RubyGems Versioning Policies](http://docs.rubygems.org/read/chapter/7) describes the rules used for interpreting version numbers. The [RubyGems version specifiers](http://docs.rubygems.org/read/chapter/16#page74) describes exactly how to use the comparison operators that specify dependency versions.
+CocoaPods uses RubyGems versions for specifying pod spec versions. The [RubyGems Versioning Policies](http://guides.rubygems.org/patterns/#semantic-versioning) describes the rules used for interpreting version numbers. The [RubyGems version specifiers](http://guides.rubygems.org/patterns/#declaring-dependencies) describes exactly how to use the comparison operators that specify dependency versions.
 
 Following the pattern established in RubyGems, pre-release versions can also be specified in CocoaPods. A pre-release of version 1.2, for example, can be specified by `1.2-beta3`. In this example, the dependency specifier `~> 1.2-beta` will match `1.2-beta3`.
 
