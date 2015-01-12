@@ -5,17 +5,10 @@ GIT
   specs:
     redcarpet (3.0.0)
 
-GIT
-  remote: https://github.com/CocoaPods/CLAide.git
-  revision: 00986e2b185c6eca9d30a7d50073f2a819a0f61a
-  branch: master
-  specs:
-    claide (0.7.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (4.1.6)
+    activesupport (4.1.9)
       i18n (~> 0.6, >= 0.6.9)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
@@ -23,11 +16,11 @@ GEM
       tzinfo (~> 1.1)
     celluloid (0.16.0)
       timers (~> 4.0.0)
-    chunky_png (1.3.1)
-    cocoapods-core (0.34.2)
+    chunky_png (1.3.3)
+    claide (0.8.0)
+    cocoapods-core (0.36.0.beta.1)
       activesupport (>= 3.2.15)
       fuzzy_match (~> 2.0.4)
-      json_pure (~> 1.8)
       nap (~> 0.8.0)
     coffee-script (2.3.0)
       coffee-script-source
@@ -46,23 +39,21 @@ GEM
       sass (>= 3.3.0, < 3.5)
     compass-import-once (1.0.5)
       sass (>= 3.2, < 3.5)
-    dotenv (0.11.1)
-      dotenv-deployment (~> 0.0.2)
-    dotenv-deployment (0.0.2)
+    dotenv (1.0.2)
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
     erubis (2.7.0)
-    eventmachine (1.0.3)
+    eventmachine (1.0.4)
     execjs (2.2.2)
     ffi (1.9.6)
-    foreman (0.75.0)
-      dotenv (~> 0.11.1)
+    foreman (0.77.0)
+      dotenv (~> 1.0.2)
       thor (~> 0.19.1)
     fuzzy_match (2.0.4)
-    github-markup (1.3.0)
+    github-markup (1.3.1)
       posix-spawn (~> 0.3.8)
-    haml (4.0.5)
+    haml (4.0.6)
       tilt
     hike (1.2.3)
     hitimes (1.2.2)
@@ -70,25 +61,24 @@ GEM
       uber (~> 0.0.4)
     http_parser.rb (0.6.0)
     i18n (0.6.11)
-    json (1.8.1)
-    json_pure (1.8.1)
-    kramdown (1.4.2)
-    listen (2.7.11)
+    json (1.8.2)
+    kramdown (1.5.0)
+    listen (2.8.5)
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
-    middleman (3.3.6)
+    middleman (3.3.7)
       coffee-script (~> 2.2)
       compass (>= 1.0.0, < 2.0.0)
       compass-import-once (= 1.0.5)
       execjs (~> 2.0)
       haml (>= 4.0.5)
       kramdown (~> 1.2)
-      middleman-core (= 3.3.6)
+      middleman-core (= 3.3.7)
       middleman-sprockets (>= 3.1.2)
       sass (>= 3.4.0, < 4.0)
       uglifier (~> 2.5)
-    middleman-core (3.3.6)
+    middleman-core (3.3.7)
       activesupport (~> 4.1.0)
       bundler (~> 1.1)
       erubis
@@ -111,53 +101,54 @@ GEM
       middleman-core (>= 3.0.0)
       redcarpet (>= 2.2.0)
       rouge (>= 0.3.0)
-    middleman-sprockets (3.3.10)
-      middleman-core (~> 3.3)
+    middleman-sprockets (3.4.1)
+      middleman-core (>= 3.3)
       sprockets (~> 2.12.1)
       sprockets-helpers (~> 1.1.0)
-      sprockets-sass (~> 1.2.0)
-    mini_portile (0.6.0)
-    minitest (5.4.2)
-    molinillo (0.1.0)
+      sprockets-sass (~> 1.3.0)
+    mini_portile (0.6.2)
+    minitest (5.5.1)
+    molinillo (0.2.0)
     multi_json (1.10.1)
     nap (0.8.0)
-    nokogiri (1.6.3.1)
-      mini_portile (= 0.6.0)
-    padrino-helpers (0.12.3)
+    netrc (0.7.8)
+    nokogiri (1.6.5)
+      mini_portile (~> 0.6.0)
+    padrino-helpers (0.12.4)
       i18n (~> 0.6, >= 0.6.7)
-      padrino-support (= 0.12.3)
+      padrino-support (= 0.12.4)
       tilt (~> 1.4.1)
-    padrino-support (0.12.3)
+    padrino-support (0.12.4)
       activesupport (>= 3.1)
     posix-spawn (0.3.9)
     pygments.rb (0.6.0)
       posix-spawn (~> 0.3.6)
       yajl-ruby (~> 1.1.0)
-    rack (1.5.2)
+    rack (1.6.0)
     rack-livereload (0.3.15)
       rack
-    rack-test (0.6.2)
+    rack-test (0.6.3)
       rack (>= 1.0)
-    rake (10.3.2)
+    rake (10.4.2)
     rb-fsevent (0.9.4)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
-    rouge (1.7.2)
-    sass (3.4.5)
+    rouge (1.7.7)
+    sass (3.4.9)
     slim (1.3.9)
       temple (~> 0.6.3)
       tilt (~> 1.3, >= 1.3.3)
-    sprockets (2.12.2)
+    sprockets (2.12.3)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
     sprockets-helpers (1.1.0)
       sprockets (~> 2.0)
-    sprockets-sass (1.2.0)
+    sprockets-sass (1.3.1)
       sprockets (~> 2.0)
       tilt (~> 1.1)
-    temple (0.6.9)
+    temple (0.6.10)
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
@@ -165,8 +156,8 @@ GEM
       hitimes
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uber (0.0.9)
-    uglifier (2.5.3)
+    uber (0.0.12)
+    uglifier (2.7.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
     yajl-ruby (1.1.0)
@@ -177,8 +168,8 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport
-  claide!
-  cocoapods-core
+  claide
+  cocoapods-core (>= 0.36.0.beta.1)
   colored
   foreman
   github-markup
@@ -188,6 +179,7 @@ DEPENDENCIES
   middleman-rouge
   middleman-sprockets
   molinillo
+  netrc
   nokogiri
   pygments.rb
   rake

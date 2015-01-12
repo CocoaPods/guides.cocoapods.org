@@ -13,9 +13,10 @@ module Pod
           $:.unshift((DOC_GEM_ROOT + 'cocoapods/lib').to_s)
           $:.unshift((DOC_GEM_ROOT + 'cocoapods-downloader/lib').to_s)
           $:.unshift((DOC_GEM_ROOT + 'claide/lib').to_s)
+          $:.unshift((DOC_GEM_ROOT + 'cocoapods-trunk/lib').to_s)
           require 'cocoapods'
           require 'claide'
-          #require 'cocoapods/command'
+          require 'pod/command/trunk'
           super
         end
 
@@ -58,7 +59,6 @@ module Pod
             'Browse' => [
               "pod search",
               "pod list",
-              "pod list new",
             ],
 
             'Specifications' => [
@@ -93,7 +93,7 @@ module Pod
               "pod lib lint",
             ],
 
-           'IPC' => [
+            'IPC' => [
               "pod ipc repl",
               "pod ipc spec",
               "pod ipc podfile",

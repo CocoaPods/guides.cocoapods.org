@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 gem "middleman"
 
 gem 'middleman-rouge'
@@ -20,11 +19,12 @@ gem 'pygments.rb'
 gem 'github-markup'
 gem 'nokogiri'
 
-gem 'claide', :git => 'https://github.com/CocoaPods/CLAide.git', :branch => 'master'
+gem 'claide'
 gem 'colored'
 
-gem 'cocoapods-core'
+gem 'cocoapods-core', '>= 0.36.0.beta.1'
 gem 'molinillo'
+gem 'netrc'
 
 group :development do
   gem 'foreman'
