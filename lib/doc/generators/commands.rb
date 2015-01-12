@@ -41,7 +41,7 @@ module Pod
           message = claide_command.description || claide_command.summary
           # FIXME
           message = message.strip_heredoc.gsub("'", '`')
-          args    = claide_command.arguments
+          args    = CLAide::Command::Banner.new(claide_command).send(:signature_arguments) 
           full_command = claide_command.full_command
           "<pre>#{full_command} #{args}</pre><p>#{markdown_h(message)}</p>"
         end
