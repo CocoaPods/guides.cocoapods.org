@@ -58,7 +58,7 @@
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">source</span> <span class="s1">'https://github.com/CocoaPods/Specs.git'</span>
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><code><span class="n">source</span> <span class="s1">'https://github.com/CocoaPods/Specs.git'</span>
 <span class="n">pod</span> <span class="s1">'AFNetworking'</span><span class="p">,</span> <span class="s1">'~&gt; 1.0'</span>
 </code></pre>    </article>
     </div>
@@ -80,16 +80,16 @@
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">source</span> <span class="s1">'https://github.com/CocoaPods/Specs.git'</span>
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><code><span class="n">source</span> <span class="s1">'https://github.com/CocoaPods/Specs.git'</span>
 
-<span class="n">platform</span> <span class="p">:</span><span class="n">ios</span><span class="p">,</span> <span class="s1">'6.0'</span>
+<span class="n">platform</span> <span class="ss">:ios</span><span class="p">,</span> <span class="s1">'6.0'</span>
 <span class="n">inhibit_all_warnings!</span>
 
 <span class="n">xcodeproj</span> <span class="s1">'MyProject'</span>
 
 <span class="n">pod</span> <span class="s1">'ObjectiveSugar'</span><span class="p">,</span> <span class="s1">'~&gt; 0.5'</span>
 
-<span class="n">target</span> <span class="p">:</span><span class="nb">test</span> <span class="k">do</span>
+<span class="n">target</span> <span class="ss">:test</span> <span class="k">do</span>
     <span class="n">pod</span> <span class="s1">'OCMock'</span><span class="p">,</span> <span class="s1">'~&gt; 2.0.1'</span>
 <span class="k">end</span>
 
@@ -118,7 +118,7 @@
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">platform</span> <span class="p">:</span><span class="n">osx</span><span class="p">,</span> <span class="s1">'10.7'</span>
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><code><span class="n">platform</span> <span class="ss">:osx</span><span class="p">,</span> <span class="s1">'10.7'</span>
 
 <span class="n">link_with</span> <span class="s1">'MyApp'</span><span class="p">,</span> <span class="s1">'MyApp Tests'</span>
 <span class="n">pod</span> <span class="s1">'AFNetworking'</span><span class="p">,</span> <span class="s1">'~&gt; 1.0'</span>
@@ -146,7 +146,7 @@
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">pod</span> <span class="s1">'SSZipArchive'</span>
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><code><span class="n">pod</span> <span class="s1">'SSZipArchive'</span>
 </code></pre>    </article>
     </div>
     </section>
@@ -167,7 +167,7 @@
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">pod</span> <span class="s1">'Objection'</span><span class="p">,</span> <span class="s1">'0.9'</span>
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><code><span class="n">pod</span> <span class="s1">'Objection'</span><span class="p">,</span> <span class="s1">'0.9'</span>
 </code></pre>    </article>
     </div>
     </section>
@@ -220,7 +220,7 @@ might not be compatible with the source material anymore.</p>
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">pod</span> <span class="s1">'Objection'</span><span class="p">,</span> <span class="ss">:head</span>
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><code><span class="n">pod</span> <span class="s1">'Objection'</span><span class="p">,</span> <span class="ss">:head</span>
 </code></pre>    </article>
     </div>
     </section>
@@ -246,7 +246,7 @@ might not be compatible with the source material anymore.</p>
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight shell"><span class="o">[</span>!] Podfile tries to activate <span class="sb">`</span>GoogleAnalytics-iOS-SDK <span class="o">(=</span> 2.0beta4<span class="o">)</span><span class="s1">', but already activated version `3.0'</span> by ARAnalytics/GoogleAnalytics <span class="o">(</span>1.6<span class="o">)</span>.
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight shell"><code><span class="o">[</span>!] Podfile tries to activate <span class="sb">`</span>GoogleAnalytics-iOS-SDK <span class="o">(=</span> 2.0beta4<span class="o">)</span><span class="s1">', but already activated version `3.0'</span> by ARAnalytics/GoogleAnalytics <span class="o">(</span>1.6<span class="o">)</span>.
 </code></pre>    </article>
     </div>
     </section>
@@ -267,7 +267,7 @@ might not be compatible with the source material anymore.</p>
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">pod</span> <span class="s1">'GoogleAnalytics-iOS-SDK'</span><span class="p">,</span> <span class="s1">'2.0beta4'</span>
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><code><span class="n">pod</span> <span class="s1">'GoogleAnalytics-iOS-SDK'</span><span class="p">,</span> <span class="s1">'2.0beta4'</span>
 <span class="n">pod</span> <span class="s1">'ARAnalytics/GoogleAnalytics'</span>
 </code></pre>    </article>
     </div>
@@ -293,7 +293,7 @@ project you can use <code>:path</code>.</p>
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">pod</span> <span class="s1">'AFNetworking'</span><span class="p">,</span> <span class="ss">:path</span> <span class="o">=&gt;</span> <span class="s1">'~/Documents/AFNetworking'</span>
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><code><span class="n">pod</span> <span class="s1">'AFNetworking'</span><span class="p">,</span> <span class="ss">:path</span> <span class="o">=&gt;</span> <span class="s1">'~/Documents/AFNetworking'</span>
 </code></pre>    </article>
     </div>
     </section>
@@ -329,7 +329,7 @@ pod declaration.</p>
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">pod</span> <span class="s1">'AFNetworking'</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">'https://github.com/gowalla/AFNetworking.git'</span>
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><code><span class="n">pod</span> <span class="s1">'AFNetworking'</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">'https://github.com/gowalla/AFNetworking.git'</span>
 </code></pre>    </article>
     </div>
     </section>
@@ -350,7 +350,7 @@ pod declaration.</p>
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">pod</span> <span class="s1">'AFNetworking'</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">'https://github.com/gowalla/AFNetworking.git'</span><span class="p">,</span> <span class="ss">:branch</span> <span class="o">=&gt;</span> <span class="s1">'dev'</span>
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><code><span class="n">pod</span> <span class="s1">'AFNetworking'</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">'https://github.com/gowalla/AFNetworking.git'</span><span class="p">,</span> <span class="ss">:branch</span> <span class="o">=&gt;</span> <span class="s1">'dev'</span>
 </code></pre>    </article>
     </div>
     </section>
@@ -371,7 +371,7 @@ pod declaration.</p>
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">pod</span> <span class="s1">'AFNetworking'</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">'https://github.com/gowalla/AFNetworking.git'</span><span class="p">,</span> <span class="ss">:tag</span> <span class="o">=&gt;</span> <span class="s1">'0.7.0'</span>
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><code><span class="n">pod</span> <span class="s1">'AFNetworking'</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">'https://github.com/gowalla/AFNetworking.git'</span><span class="p">,</span> <span class="ss">:tag</span> <span class="o">=&gt;</span> <span class="s1">'0.7.0'</span>
 </code></pre>    </article>
     </div>
     </section>
@@ -392,7 +392,7 @@ pod declaration.</p>
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">pod</span> <span class="s1">'AFNetworking'</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">'https://github.com/gowalla/AFNetworking.git'</span><span class="p">,</span> <span class="ss">:commit</span> <span class="o">=&gt;</span> <span class="s1">'082f8319af'</span>
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><code><span class="n">pod</span> <span class="s1">'AFNetworking'</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">'https://github.com/gowalla/AFNetworking.git'</span><span class="p">,</span> <span class="ss">:commit</span> <span class="o">=&gt;</span> <span class="s1">'082f8319af'</span>
 </code></pre>    </article>
     </div>
     </section>
@@ -438,8 +438,8 @@ to use one of the approaches outlined in the sections below.</p>
 <li><a href="../making/making-a-cocoapod.html">Making a CocoaPod</a></li>
 <li><a href="../making/using-pod-lib-create.html">Using Pod Lib Create</a></li>
 <li><a href="../making/specs-and-specs-repo.html">Specs and the Specs Repo</a></li>
-<li><a href="../making/private-cocoapods.html">Private Pods</a></li>
 <li><a href="../making/getting-setup-with-trunk.html">Getting setup with Trunk</a></li>
+<li><a href="../making/private-cocoapods.html">Private Pods</a></li>
 </ul>
 </div>
 <div class="clearfix visible-xs"></div>
@@ -447,10 +447,10 @@ to use one of the approaches outlined in the sections below.</p>
 <h3><a href="../contributing/index.html">Contributing</a></h3>
 <ul>
 <li><a href="../contributing/contribute-to-cocoapods.html">How to Contribute</a></li>
-<li><a href="../contributing/components.html">Core Components</a></li>
 <li><a href="../contributing/dev-environment.html">Setting up for Development</a></li>
-<li><a href="../contributing/release-process.html">Release Process</a></li>
+<li><a href="../contributing/components.html">Core Components</a></li>
 <li><a href="../contributing/tickets-handling.html">Tickets handling</a></li>
+<li><a href="../contributing/release-process.html">Release Process</a></li>
 </ul>
 </div>
 <div class="col-lg-3 col-sm-3 col-xs-6 footer-index">
