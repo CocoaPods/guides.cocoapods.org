@@ -69,6 +69,15 @@ module Pod
               "pod spec edit",
             ],
 
+            'Trunk' => [
+              'pod trunk add-owner',
+              'pod trunk info',
+              'pod trunk me',
+              'pod trunk push',
+              'pod trunk register',
+              'pod trunk remove-owner',
+            ],
+
             'Repos' => [
               "pod repo add",
               "pod repo update",
