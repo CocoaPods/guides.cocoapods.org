@@ -9,7 +9,7 @@ order: 2
  The Podfile is a specification that describes the dependencies of the
  targets of one or more Xcode projects. The Podfile always creates an
  implicit target, named `default`, which links to the _first target_ of the
- user project.
+ user project. The file should simply be named `Podfile`. 
 
 > A Podfile can be very simple:
 
