@@ -6,7 +6,7 @@ order: 4
 
 ### “Why not just use git submodules?”
 
-  CocoaPods is **not** about downloading code. While it does do that, but it’s arguably the least interesting part.
+  CocoaPods is **not** about downloading code. While it does do that, it’s arguably the least interesting part.
 
   What defines CocoaPods are the (cross) dependency resolution, (semantic) version management, and automating the ‘integrating it into Xcode’ parts.
 
