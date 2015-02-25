@@ -14,6 +14,7 @@ module Pod
           $:.unshift((DOC_GEM_ROOT + 'cocoapods-downloader/lib').to_s)
           $:.unshift((DOC_GEM_ROOT + 'claide/lib').to_s)
           $:.unshift((DOC_GEM_ROOT + 'cocoapods-trunk/lib').to_s)
+          $:.unshift((DOC_GEM_ROOT + 'xcodeproj/lib').to_s)
           require 'cocoapods'
           require 'claide'
           require 'pod/command/trunk'
@@ -42,7 +43,7 @@ module Pod
           message = claide_command.description || claide_command.summary
           # FIXME
           message = message.strip_heredoc.gsub("'", '`')
-          args    = CLAide::Command::Banner.new(claide_command).send(:signature_arguments) 
+          args    = CLAide::Command::Banner.new(claide_command).send(:signature_arguments)
           full_command = claide_command.full_command
           "<pre>#{full_command} #{args}</pre><p>#{markdown_h(message)}</p>"
         end
