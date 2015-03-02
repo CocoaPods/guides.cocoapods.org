@@ -15,7 +15,7 @@ order: 4
 
 ### “CocoaPods is not ready for prime-time yet.”
 
-  Correct. Version 1.0.0 will be the milestone where we feel confident that all the basic requirements of an Cocoa dependency manager are fulfilled.
+  Correct. Version 1.0.0 will be the milestone where we feel confident that all the basic requirements of a Cocoa dependency manager are fulfilled.
 
   Once we reach the 1.0.0 milestone we will –for the first time ever– contact the community at large through mailing-lists such as cocoa-dev.
 
