@@ -9,12 +9,12 @@ module Pod
       class Commands < Base
 
         def initialize(*args)
-          $:.unshift((DOC_GEM_ROOT + 'core/lib').to_s)
-          $:.unshift((DOC_GEM_ROOT + 'cocoapods/lib').to_s)
+          $:.unshift((DOC_GEM_ROOT + 'Core/lib').to_s)
+          $:.unshift((DOC_GEM_ROOT + 'CocoaPods/lib').to_s)
           $:.unshift((DOC_GEM_ROOT + 'cocoapods-downloader/lib').to_s)
-          $:.unshift((DOC_GEM_ROOT + 'claide/lib').to_s)
+          $:.unshift((DOC_GEM_ROOT + 'CLAide/lib').to_s)
           $:.unshift((DOC_GEM_ROOT + 'cocoapods-trunk/lib').to_s)
-          $:.unshift((DOC_GEM_ROOT + 'xcodeproj/lib').to_s)
+          $:.unshift((DOC_GEM_ROOT + 'Xcodeproj/lib').to_s)
           require 'cocoapods'
           require 'claide'
           require 'pod/command/trunk'
