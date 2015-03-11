@@ -54,17 +54,3 @@ order: 4
 
   You don’t. OS X comes with a Ruby 2.0.0 or newer pre-installed in `/usr/bin/ruby` which are our baselines and these should work out of the box.
 
-
-### “CocoaPods has just changed my entire pbxproj, what gives?”
-
-Xcode projects are ‘PList’ documents. Internally, PList documents can be serialised in a number of ways, two of which are the (OpenStep) ASCII format and a XML format. The former has been deprecated and can no longer be written to disk by official APIs such as the CFPropertyList API. While Xcode still uses this deprecated format, we chose to depend on the CFPropertyList API and not implement custom serialisation code for a format that might be removed without notice.
-
-If you make a change to your project Xcode (currently) will overwrite this change and will save the document in its internal extended ASCII PList format. This is the simplest way for us to support saving Xcode projects without trying to replicate Xcode's internals.
-
-By installing [`xcproj`](https://github.com/0xced/xcproj), CocoaPods will be
-able to write the same deprecated (OpenStep) ASCII plists format as Xcode does.
-
-```bash
-$ brew install xcproj
-```
-
