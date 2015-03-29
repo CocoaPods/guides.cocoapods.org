@@ -9,15 +9,19 @@ module Pod
       class Commands < Base
 
         def initialize(*args)
-          $:.unshift((DOC_GEM_ROOT + 'Core/lib').to_s)
-          $:.unshift((DOC_GEM_ROOT + 'CocoaPods/lib').to_s)
-          $:.unshift((DOC_GEM_ROOT + 'cocoapods-downloader/lib').to_s)
           $:.unshift((DOC_GEM_ROOT + 'CLAide/lib').to_s)
+          $:.unshift((DOC_GEM_ROOT + 'cocoapods-downloader/lib').to_s)
+          $:.unshift((DOC_GEM_ROOT + 'cocoapods-plugins/lib').to_s)
           $:.unshift((DOC_GEM_ROOT + 'cocoapods-trunk/lib').to_s)
+          $:.unshift((DOC_GEM_ROOT + 'cocoapods-try/lib').to_s)
+          $:.unshift((DOC_GEM_ROOT + 'CocoaPods/lib').to_s)
+          $:.unshift((DOC_GEM_ROOT + 'Core/lib').to_s)
           $:.unshift((DOC_GEM_ROOT + 'Xcodeproj/lib').to_s)
-          require 'cocoapods'
           require 'claide'
+          require 'cocoapods'
+          require 'pod/command/plugins'
           require 'pod/command/trunk'
+          require 'pod/command/try'
           super
         end
 
@@ -60,6 +64,7 @@ module Pod
             'Browse' => [
               "pod search",
               "pod list",
+              "pod try",
             ],
 
             'Specifications' => [
@@ -100,6 +105,14 @@ module Pod
               "pod ipc podfile",
               "pod ipc list",
               "pod ipc update-search-index",
+            ],
+
+            'Plugins' => [
+              'pod plugins list',
+              'pod plugins search',
+              'pod plugins installed',
+              'pod plugins create',
+              'pod plugins publish',
             ],
           }
 
