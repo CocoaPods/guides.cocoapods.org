@@ -22,7 +22,7 @@ gem 'nokogiri'
 gem 'claide'
 gem 'colored'
 
-gem 'cocoapods-core', '>= 0.36.0.rc.1'
+gem 'cocoapods-core', '>= 0.36.1'
 gem 'molinillo'
 gem 'netrc'
 
