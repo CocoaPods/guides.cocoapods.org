@@ -125,9 +125,9 @@ The template includes a `.travis.yml` file that will run the default tests inclu
 
 So you've got your library ready to go. First you should check if the Podspec lints correctly, as you can't deploy with errors. This can be done with two methods, `pod lib lint` and `pod spec lint`. The difference between them is that `pod lib lint` does not access the network, whereas `pod spec lint` checks the repo and tag.
 
-If you're deploying an Open Source library to [trunk](http://guides.cocoapods.org/making/getting-setup-with-trunk), you cannot have CocoaPods warnings. You can have Xcode warnings. You should continue to the [getting started with trunk](http://guides.cocoapods.org/making/getting-setup-with-trunk) guide to deploy to the public.
+If you're deploying an Open Source library to [trunk](https://guides.cocoapods.org/making/getting-setup-with-trunk), you cannot have CocoaPods warnings. You can have Xcode warnings. You should continue to the [getting started with trunk](https://guides.cocoapods.org/making/getting-setup-with-trunk) guide to deploy to the public.
 
-If you're deploying to a private Specs repo, you will need to have already added that repo. See the guides on [Private Specs Repos](http://guides.cocoapods.org/making/private-cocoapods) to set that up. If you are deploying to an existing Private Repo, use this command to deploy:
+If you're deploying to a private Specs repo, you will need to have already added that repo. See the guides on [Private Specs Repos](https://guides.cocoapods.org/making/private-cocoapods) to set that up. If you are deploying to an existing Private Repo, use this command to deploy:
 
 
 ```

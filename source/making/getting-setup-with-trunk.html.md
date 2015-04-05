@@ -7,7 +7,7 @@ description: Instructions for creating a CocoaPods user account
 
 ## What do I need to know about trunk
 
-The CocoaPods trunk is an authentication & CocoaPods API service. In order to submit libraries to CocoaPods you will need to have to be registered and have a session on that device. You can read a little about it's history and development on [the blog](http://blog.cocoapods.org/CocoaPods-Trunk/).
+The CocoaPods trunk is an authentication & CocoaPods API service. In order to submit libraries to CocoaPods you will need to have to be registered and have a session on that device. You can read a little about it's history and development on [the blog](https://blog.cocoapods.org/CocoaPods-Trunk/).
 
 From CocoaPods 0.33 on-wards we have a collection of commands under `pod trunk` to deal with automating the deployment and management of your Podspecs. At any time you can run `pod trunk [command] --help` to see inline help.
 

@@ -31,7 +31,7 @@ gems. (This is only an issue for the duration of the gem installation, though.)
 $ sudo gem install cocoapods
 ```
 
-If you encounter any problems during installation, please visit [this](http://guides.cocoapods.org/using/troubleshooting#installing-cocoapods) guide.
+If you encounter any problems during installation, please visit [this](https://guides.cocoapods.org/using/troubleshooting#installing-cocoapods) guide.
 
 ### Sudo-less installation
 

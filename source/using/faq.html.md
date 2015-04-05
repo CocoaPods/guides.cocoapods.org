@@ -22,7 +22,7 @@ order: 4
 
 ### “How can I donate to CocoaPods?”
 
-  TL;DR: While we very much appreciate the sentiment, the project (as an entity) does not accept financial donations. We have a [great blog post](http://blog.cocoapods.org/Why-we-dont-accept-donations/) on this.
+  TL;DR: While we very much appreciate the sentiment, the project (as an entity) does not accept financial donations. We have a [great blog post](https://blog.cocoapods.org/Why-we-dont-accept-donations/) on this.
 
 ### “CocoaPods doesn’t do X, so it’s unusable.”
 
@@ -38,7 +38,7 @@ order: 4
 
  This is akin to saying "we should not have cars", as they make us lazy and we forget walking/running. Or "we should not use [IDEs](http://programmers.stackexchange.com/questions/39798/being-ide-dependent-how-can-it-harm-me/39809#39809)" as they make us bad programmers, who can't code in editor and can't remember syntax. Furthermore, this reasoning applies to basically any means of fetching code (e.g. git) and as such is not a discussion worth having.
 
-  What _is_ worth discussing, however, is informing the user to be responsible. Ironically enough, the original author of CocoaPods is convinced using a lot of dependencies is a really bad idea. For practical advice on how to deal with this, you should read [this blog post](http://www.fngtps.com/2013/a-quick-note-on-minimal-dependencies-in-ruby-on-rails/) by [Manfred Stienstra](http://twitter.com/manfreds).
+  What _is_ worth discussing, however, is informing the user to be responsible. Ironically enough, the original author of CocoaPods is convinced using a lot of dependencies is a really bad idea. For practical advice on how to deal with this, you should read [this blog post](http://www.fngtps.com/2013/a-quick-note-on-minimal-dependencies-in-ruby-on-rails/) by [Manfred Stienstra](https://twitter.com/manfreds).
 
 
 ### “CocoaPods uses workspaces, which are considered user data. Why does it not use normal sub-projects?”
