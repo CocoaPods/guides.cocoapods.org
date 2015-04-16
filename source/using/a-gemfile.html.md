@@ -6,20 +6,21 @@ ignore: true
 
 ---
 
-## Rubygems + Bundler
+## RubyGems + Bundler
 
 For many, CocoaPods is the first introduction to dependency management in programming projects. A lot of
-ideas for CocoaPods came from similar projects ( for example [Rubygems](https://rubygems.org), [Bundler](http://bundler.io), [npm](https://www.npmjs.com) and [Gradle](http://gradle.org)). 
+ideas for CocoaPods came from similar projects ( for example [RubyGems](https://rubygems.org), [Bundler](http://bundler.io), [npm](https://www.npmjs.com) and [Gradle](http://gradle.org)). 
 
 Understanding Ruby dependency management is useful because it allows you to specify versions of CocoaPods or other gems and ensure
-all developers in your team have the exact same version.
+all developers in your team have the exact same version. This guide is for people looking to ensure consistency in their team
+dependencies or for using un-released versions of CocoaPods.
 
-### Rubygems
+### RubyGems
 
-Rubygems is a hosted ruby library service. It centralizes where you look for a library, and installing ruby libraries / apps. 
+RubyGems is a hosted ruby library service. It centralizes where you look for a library, and installing ruby libraries / apps. 
 You'll have seen `gem install xxx`. These are installed into a central database of versions. If you imagine that CocoaPods
 installs all libraries/frameworks into a System folder and they are linked at runtime, then you have the rough idea
-of how Rubygems keeps all the gems.
+of how RubyGems keeps all the gems.
 
 The downside of this is that there is no way to ensure that a project needing a specific version of a library can use that, 
 it would always use the latest version. So as a developer, you would be cautious installing a new version of a library
@@ -59,7 +60,7 @@ With a Gemfile setup, you run `bundle install` to install, or `bundle update` to
 From here on in however, you will need to remember to run `bundle exec` before any terminal commands that have come in via
 bundler. Given that CocoaPods is included in the above this means any time you would write `pod XX YY` you need to do `bundle exec pod XX YY`.
 
-Doing it without `bundle exec` will bypass your Gemfile's specific versioning and will use the latest version of the library within Rubygems. This
+Doing it without `bundle exec` will bypass your Gemfile's specific versioning and will use the latest version of the library within RubyGems. This
 could potentially be the exact same version, but it can often not. If you are including CocoaPods plugins then they may also not be ran.
 
 This means you can be sure that foundational tooling for projects are versioned just like your personal libraries.

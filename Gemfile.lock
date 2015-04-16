@@ -6,13 +6,6 @@ GIT
     redcarpet (3.0.0)
 
 GIT
-  remote: https://github.com/CocoaPods/CLAide.git
-  revision: 00986e2b185c6eca9d30a7d50073f2a819a0f61a
-  branch: master
-  specs:
-    claide (0.7.0)
-
-GIT
   remote: https://github.com/orta/middleman-gh-pages.git
   revision: 9f2df910db8435ddd533e7c44a0184d8d922508f
   specs:
@@ -31,10 +24,10 @@ GEM
     celluloid (0.16.0)
       timers (~> 4.0.0)
     chunky_png (1.3.1)
-    cocoapods-core (0.34.2)
+    claide (0.8.1)
+    cocoapods-core (0.36.3)
       activesupport (>= 3.2.15)
       fuzzy_match (~> 2.0.4)
-      json_pure (~> 1.8)
       nap (~> 0.8.0)
     coffee-script (2.3.0)
       coffee-script-source
@@ -78,7 +71,6 @@ GEM
     http_parser.rb (0.6.0)
     i18n (0.6.11)
     json (1.8.1)
-    json_pure (1.8.1)
     kramdown (1.4.2)
     listen (2.7.11)
       celluloid (>= 0.15.2)
@@ -126,6 +118,7 @@ GEM
     molinillo (0.1.0)
     multi_json (1.10.1)
     nap (0.8.0)
+    netrc (0.10.3)
     nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
     padrino-helpers (0.12.3)
@@ -182,8 +175,8 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport
-  claide!
-  cocoapods-core
+  claide
+  cocoapods-core (>= 0.36.1)
   colored
   foreman
   github-markup
@@ -193,6 +186,7 @@ DEPENDENCIES
   middleman-rouge
   middleman-sprockets
   molinillo
+  netrc
   nokogiri
   pygments.rb
   rake
