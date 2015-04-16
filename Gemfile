@@ -4,7 +4,7 @@ gem "middleman"
 
 gem 'middleman-rouge'
 gem "middleman-sprockets"
-gem 'middleman-gh-pages'
+gem 'middleman-gh-pages', :git => "https://github.com/orta/middleman-gh-pages.git"
 gem "middleman-livereload", "~> 3.1.0"
 
 gem 'redcarpet', github: 'vmg/redcarpet', ref: 'cef9abbcc411d07fd1b8c80e348a80efde2db323'
