@@ -8,7 +8,7 @@ order: 1
 
 #### Before you begin
 
-1. Check the [Specs](http://github.com/CocoaPods/Specs) repository or [cocoapods.org](http://cocoapods.org) to make sure the libraries you would like to use are available.
+1. Check the [Specs](https://github.com/CocoaPods/Specs) repository or [cocoapods.org](https://cocoapods.org) to make sure the libraries you would like to use are available.
 2. [Install CocoaPods](/using/getting-started.html#toc_3) on your computer.
 
 ### Installation

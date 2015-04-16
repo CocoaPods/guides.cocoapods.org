@@ -1,3 +1,14 @@
+
+# Run task
+#-----------------------------------------------------------------------------#
+
+desc "Runs the site locally"
+task :serve do
+  title 'Running locally'
+  sh "open http://0.0.0.0:4567"
+  sh "bundle exec middleman server"
+end
+
 # Bootstrap task
 #-----------------------------------------------------------------------------#
 
@@ -6,7 +17,8 @@ task :bootstrap do
   title "Environment bootstrap"
 
   puts "Updating submodules"
-  execute_command "git submodule update --init --recursive"
+  # This can take a long time, so showing output
+  sh "git submodule update --init --recursive"
 
   puts "Installing gems"
   execute_command "bundle install"
@@ -53,10 +65,10 @@ namespace :generate do
   require 'pathname'
   ROOT = Pathname.new(File.expand_path('../', __FILE__))
   $:.unshift((ROOT + 'lib').to_s)
-  require 'doc'
 
   desc "Generates the data for the dsl."
   task :dsl do
+    require 'doc'
     puts "\e[1;33mBuilding DSL Data\e[0m"
 
     dsls.each do |dsl|
@@ -74,6 +86,7 @@ namespace :generate do
 
   desc "Generates the data for the commands."
   task :commands do
+    require 'doc'
     puts "\e[1;33mBuilding Commands Data\e[0m"
     files = FileList[(ROOT + "gems/CocoaPods/lib/cocoapods/command/*.rb").to_s]
     # These should probably not be in that directory.

@@ -46,7 +46,7 @@ While we aren't terribly picky about writing style, there are a few things we'd 
 - These are not tutorials, but rather explanations of the inner workings of CocoaPods.
 - If you would like to see these in another language, please [open an issue](https://github.com/CocoaPods/guides.cocoapods.org/issues), or simply start translating. We'd love to see this content accessible to more users.
 - Our code blocks are parsed by [Pygments](https://github.com/tmm1/pygments.rb), so please make sure your code additions are highlighted correctly. The best way to check this is to run your changes locally. Instructions can be found in the [README](README.md).
-- We also enjoy the Oxford comma.
+- We also enjoy the Oxford comma, and use British English.
 
 ##Issue Submissions
 
@@ -55,7 +55,7 @@ We are always looking for the best way to present information about CocoaPods. I
 - Double check there is no open issue for a potential topic. If it is related, but not quite the same, make sure to mention the issue in your post.
 - When opening a new issue, please reference the specific guide you would like to talk about. If it does not exist, make sure to say so.
 - While discussing issues, links to external sites are welcome, but this site is for original content. If you'd like to add a link to a blog post or article, see the External Resource Submission guidelines below.
-- There are some topics, e.g. whether or not to check in the Pods folder, that will be heavily debated. In these situations, we would like to present both sides and give the user the best information to make an informed decision. Please be courteous and resepectful to your fellow developers.
+- There are some topics, e.g. whether or not to check in the Pods folder, that will be heavily debated. In these situations, we would like to present both sides and give the user the best information to make an informed decision. Please be courteous and respectful to your fellow developers.
 - UX suggestions are not only welcome, but encouraged. We want to make sure this content is easy to browse and easy to read.
 
 ##External Resource Submissions
@@ -64,7 +64,7 @@ We love including content from the greater community. When adding a new resource
 
 - External resources are to be placed at the bottom of the guide for reference.
 - These should serve to enhance the content available on the Guides site, not duplicate it.
-- Make sure to add a resource on the correct page. E.g. a blog post on creating a private cocoapod should not be on the Specs and Spec Repo guide.
+- Make sure to add a resource on the correct page. E.g. a blog post on creating a private CocoaPod should not be on the Specs and Spec Repo guide.
 - Links should lead to articles or blog posts. Please do not add links to StackOverflow, GitHub Issues, Gists, or our mailing list.
 - Links should be active at the time of submission. Please do not link to a mirror site.
 - Any external resource links should lead directly to the resource. Links with paywalls, adwalls, etc will not be accepted.

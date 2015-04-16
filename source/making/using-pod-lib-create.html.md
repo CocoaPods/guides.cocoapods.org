@@ -106,7 +106,10 @@ CocoaPods will open your Xcode project straight away; from there you can edit al
 
 Development Pods are different from normal CocoaPods in that they are symlinked files, so making edits to them will change the original files, so you can work on your library from inside Xcode. Your demo & tests will need to include references to headers using the `#import <MyLib/XYZ.h>` format.
 
-> `[!] Note:` Due to a current Development Pods implementation detail, when you add new/existing files to `Pod/Classes` or `Pod/Assets`, you should run `pod install` or `pod update`.
+> `[!] Note:` Due to a current Development Pods implementation detail, when you add new/existing files to `Pod/Classes` or `Pod/Assets` or update your podspec, you should run `pod install` or `pod update`.
+
+<!-- -->
+> `[!] Note:` Whenever you update your podspec’s version, you must run `pod update` or `pod update POD_NAME` instead of `pod install`.
 
 
 ## Adding Travis CI
@@ -122,9 +125,9 @@ The template includes a `.travis.yml` file that will run the default tests inclu
 
 So you've got your library ready to go. First you should check if the Podspec lints correctly, as you can't deploy with errors. This can be done with two methods, `pod lib lint` and `pod spec lint`. The difference between them is that `pod lib lint` does not access the network, whereas `pod spec lint` checks the repo and tag.
 
-If you're deploying an Open Source library to [trunk](http://guides.cocoapods.org/making/getting-setup-with-trunk), you cannot have CocoaPods warnings. You can have Xcode warnings. You should continue to the [getting started with trunk](http://guides.cocoapods.org/making/getting-setup-with-trunk) guide to deploy to the public.
+If you're deploying an Open Source library to [trunk](https://guides.cocoapods.org/making/getting-setup-with-trunk), you cannot have CocoaPods warnings. You can have Xcode warnings. You should continue to the [getting started with trunk](https://guides.cocoapods.org/making/getting-setup-with-trunk) guide to deploy to the public.
 
-If you're deploying to a private Specs repo, you will need to have already added that repo. See the guides on [Private Specs Repos](http://guides.cocoapods.org/making/private-cocoapods) to set that up. If you are deploying to an existing Private Repo, use this command to deploy:
+If you're deploying to a private Specs repo, you will need to have already added that repo. See the guides on [Private Specs Repos](https://guides.cocoapods.org/making/private-cocoapods) to set that up. If you are deploying to an existing Private Repo, use this command to deploy:
 
 
 ```

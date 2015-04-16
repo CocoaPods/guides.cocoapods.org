@@ -16,3 +16,12 @@
 [submodule "gems/cocoapods-downloader"]
 	path = gems/cocoapods-downloader
 	url = https://github.com/CocoaPods/cocoapods-downloader.git
+[submodule "gems/cocoapods-trunk"]
+	path = gems/cocoapods-trunk
+	url = https://github.com/CocoaPods/cocoapods-trunk.git
+[submodule "gems/cocoapods-try"]
+	path = gems/cocoapods-try
+	url = https://github.com/CocoaPods/cocoapods-try.git
+[submodule "gems/cocoapods-plugins"]
+	path = gems/cocoapods-plugins
+	url = https://github.com/CocoaPods/cocoapods-plugins.git

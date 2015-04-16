@@ -6,7 +6,7 @@ order: 4
 
 ### “Why not just use git submodules?”
 
-  CocoaPods is **not** about downloading code. While it does do that, but it’s arguably the least interesting part.
+  CocoaPods is **not** about downloading code. While it does do that, it’s arguably the least interesting part.
 
   What defines CocoaPods are the (cross) dependency resolution, (semantic) version management, and automating the ‘integrating it into Xcode’ parts.
 
@@ -15,14 +15,14 @@ order: 4
 
 ### “CocoaPods is not ready for prime-time yet.”
 
-  Correct. Version 1.0.0 will be the milestone where we feel confident that all the basic requirements of a Objective-C dependency manager are fulfilled.
+  Correct. Version 1.0.0 will be the milestone where we feel confident that all the basic requirements of a Cocoa dependency manager are fulfilled.
 
   Once we reach the 1.0.0 milestone we will –for the first time ever– contact the community at large through mailing-lists such as cocoa-dev.
 
 
 ### “How can I donate to CocoaPods?”
 
-  TL;DR: While we very much appreciate the sentiment, the project (as an entity) does not accept financial donations. We have a [great blog post](http://blog.cocoapods.org/Why-we-dont-accept-donations/) on this.
+  TL;DR: While we very much appreciate the sentiment, the project (as an entity) does not accept financial donations. We have a [great blog post](https://blog.cocoapods.org/Why-we-dont-accept-donations/) on this.
 
 ### “CocoaPods doesn’t do X, so it’s unusable.”
 
@@ -31,20 +31,14 @@ order: 4
 
 ### “CocoaPods doesn’t do dependency resolution.”
 
-  CocoaPods does in fact do dependency resolution, but it does not automatically resolve conflicts. This means that, when a conflict occurs, CocoaPods will raise an error and leave conflict resolving up to the user. (The user can do this by depending on a specific version of a common dependency _before_ requiring the dependencies that lead to the conflict.)
-
-  If you’re familiar with Ruby then you can compare the former (the current CocoaPods style) to RubyGems’ style resolution and the latter (with conflict resolving) to Bundler’s. (See [this](http://patshaughnessy.net/2011/9/24/how-does-bundler-bundle) article for a detailed look at Bundler’s process.)
-
-  Adding conflict resolution to CocoaPods is on our TODO list and we will try to work with the Bundler team to see if we can share their algorithm, but this will be one of the last things we’ll work on. A feature like this will require a stable basis and since we’re not there yet, working on it now would only make working on the basis more complex than necessary.
-
-  Finally, while conflict resolving is a definite must-have, you should ask yourself if you’re not using too much dependencies whenever you run into conflicts, as this is in general a good indicator. See the link to a blog post about this in #5.
+  CocoaPods has always done dependency resolution, but until version 0.35 it lacked automatic conflict resolution. As of now, CocoaPods can resolve any conflict that is possible to resolve.
 
 
 ### “CocoaPods is bad for the community, because it makes it too easy for users to add many dependencies.”
 
-  This is akin to saying “guns kill people”, but everybody knows it’s really people who kill people (and [psychotic bears with machetes](http://www.sebastienmillon.com/Machete-Bear-Art-Print-15-00)). Furthermore, this reasoning applies to basically any means of fetching code (e.g. git) and as such is not a discussion worth having.
+ This is akin to saying "we should not have cars", as they make us lazy and we forget walking/running. Or "we should not use [IDEs](http://programmers.stackexchange.com/questions/39798/being-ide-dependent-how-can-it-harm-me/39809#39809)" as they make us bad programmers, who can't code in editor and can't remember syntax. Furthermore, this reasoning applies to basically any means of fetching code (e.g. git) and as such is not a discussion worth having.
 
-  What _is_ worth discussing, however, is informing the user to be responsible. Ironically enough, the original author of CocoaPods is convinced using a lot of dependencies is a really bad idea. For practical advice on how to deal with this, you should read [this blog post](http://www.fngtps.com/2013/a-quick-note-on-minimal-dependencies-in-ruby-on-rails/) by [Manfred Stienstra](http://twitter.com/manfreds).
+  What _is_ worth discussing, however, is informing the user to be responsible. Ironically enough, the original author of CocoaPods is convinced using a lot of dependencies is a really bad idea. For practical advice on how to deal with this, you should read [this blog post](http://www.fngtps.com/2013/a-quick-note-on-minimal-dependencies-in-ruby-on-rails/) by [Manfred Stienstra](https://twitter.com/manfreds).
 
 
 ### “CocoaPods uses workspaces, which are considered user data. Why does it not use normal sub-projects?”
@@ -58,11 +52,5 @@ order: 4
 
 ### “Why do I have to install Ruby to use CocoaPods?”
 
-  You don’t. OS X comes with a Ruby (1.8.7 or 2.0.0) pre-installed in `/usr/bin/ruby` which are our baselines and these should work out of the box.
+  You don’t. OS X comes with a Ruby 2.0.0 or newer pre-installed in `/usr/bin/ruby` which are our baselines and these should work out of the box.
 
-
-### “CocoaPods has just changed my entire pbxproj, what gives?”
-
-Xcode projects are ‘PList’ documents. Internally, PList documents can be serialised in a number of ways, two of which are the (OpenStep) ASCII format and a XML format. The former has been deprecated and can no longer be written to disk by official APIs such as the CFPropertyList API. While Xcode still uses this deprecated format, we chose to depend on the CFPropertyList API and not implement custom serialisation code for a format that might be removed without notice.
-
-If you make a change to your project Xcode (currently) will overwrite this change and will save the document in its internal extended ASCII PList format. This is the simplest way for us to support saving Xcode projects without trying to replicate Xcode's internals. 

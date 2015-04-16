@@ -9,13 +9,19 @@ module Pod
       class Commands < Base
 
         def initialize(*args)
-          $:.unshift((DOC_GEM_ROOT + 'core/lib').to_s)
-          $:.unshift((DOC_GEM_ROOT + 'cocoapods/lib').to_s)
+          $:.unshift((DOC_GEM_ROOT + 'CLAide/lib').to_s)
           $:.unshift((DOC_GEM_ROOT + 'cocoapods-downloader/lib').to_s)
-          $:.unshift((DOC_GEM_ROOT + 'claide/lib').to_s)
-          require 'cocoapods'
+          $:.unshift((DOC_GEM_ROOT + 'cocoapods-plugins/lib').to_s)
+          $:.unshift((DOC_GEM_ROOT + 'cocoapods-trunk/lib').to_s)
+          $:.unshift((DOC_GEM_ROOT + 'cocoapods-try/lib').to_s)
+          $:.unshift((DOC_GEM_ROOT + 'CocoaPods/lib').to_s)
+          $:.unshift((DOC_GEM_ROOT + 'Core/lib').to_s)
+          $:.unshift((DOC_GEM_ROOT + 'Xcodeproj/lib').to_s)
           require 'claide'
-          #require 'cocoapods/command'
+          require 'cocoapods'
+          require 'pod/command/plugins'
+          require 'pod/command/trunk'
+          require 'pod/command/try'
           super
         end
 
@@ -41,7 +47,7 @@ module Pod
           message = claide_command.description || claide_command.summary
           # FIXME
           message = message.strip_heredoc.gsub("'", '`')
-          args    = claide_command.arguments
+          args    = CLAide::Command::Banner.new(claide_command).send(:signature_arguments)
           full_command = claide_command.full_command
           "<pre>#{full_command} #{args}</pre><p>#{markdown_h(message)}</p>"
         end
@@ -58,7 +64,7 @@ module Pod
             'Browse' => [
               "pod search",
               "pod list",
-              "pod list new",
+              "pod try",
             ],
 
             'Specifications' => [
@@ -67,6 +73,15 @@ module Pod
               "pod spec cat",
               "pod spec which",
               "pod spec edit",
+            ],
+
+            'Trunk' => [
+              'pod trunk add-owner',
+              'pod trunk info',
+              'pod trunk me',
+              'pod trunk push',
+              'pod trunk register',
+              'pod trunk remove-owner',
             ],
 
             'Repos' => [
@@ -84,12 +99,20 @@ module Pod
               "pod lib lint",
             ],
 
-           'IPC' => [
+            'IPC' => [
               "pod ipc repl",
               "pod ipc spec",
               "pod ipc podfile",
               "pod ipc list",
               "pod ipc update-search-index",
+            ],
+
+            'Plugins' => [
+              'pod plugins list',
+              'pod plugins search',
+              'pod plugins installed',
+              'pod plugins create',
+              'pod plugins publish',
             ],
           }
 

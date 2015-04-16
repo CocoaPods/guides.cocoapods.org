@@ -6,6 +6,7 @@ order: 3
 
 ### Installing CocoaPods
 
+* If you are installing on OS X 10.9.0-10.9.2, you may run into an issue when RubyGems tries to install the `json` gem. To fix this follow [these](https://gist.github.com/alloy/62326fcbc5b8ef987c17) instructions.
 * After upgrading from OS X 10.8 to 10.9 the installed CocoaPods gem doesn’t work anymore, even after re-installing the gem. To solve this, you might need to uninstall the gem first and then re-install.
 
          $ gem uninstall cocoapods
@@ -81,6 +82,10 @@ you have a Podfile. If you still receive permission errors you should delete
 this directory too, and afterwards run `pod install`.
 
     $ sudo rm -fr Pods/
+
+### The Fix I want is in master / a branch, but I'm blocked on this right now
+
+There is [a guide for using a version of CocoaPods to try new features](/using/unreleased-features) that are in discussion or in implementation stage.
 
 ### I didn't find the solution to my problem!
 
