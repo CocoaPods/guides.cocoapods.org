@@ -104,7 +104,7 @@
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><code><span class="k">def</span> <span class="nf">install!</span>
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="k">def</span> <span class="nf">install!</span>
   <span class="n">resolve_dependencies</span>
   <span class="n">download_dependencies</span>
   <span class="n">generate_pods_project</span>
@@ -144,7 +144,7 @@
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight shell"><code><span class="gp">$ </span>bundle <span class="nb">exec </span>rake
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight shell"><span class="gp">$ </span>bundle <span class="nb">exec </span>rake
 
 <span class="c"># Or to run a single test suite:</span>
 <span class="gp">$ </span>bundle <span class="nb">exec </span>rake spec:functional
@@ -170,7 +170,7 @@
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight shell"><code><span class="gp">$ </span>bundle <span class="nb">exec </span>rake spec:rebuild_integration_fixtures
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight shell"><span class="gp">$ </span>bundle <span class="nb">exec </span>rake spec:rebuild_integration_fixtures
 </code></pre>    </article>
     </div>
     </section>
@@ -194,7 +194,7 @@
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><code><span class="c1"># @return [Pathname] Returns the relative path from the project root.</span>
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="c1"># @return [Pathname] Returns the relative path from the project root.</span>
 <span class="c1">#</span>
 <span class="c1"># @param  [Pathname] path</span>
 <span class="c1">#         The path that needs to be converted to the relative format.</span>
@@ -247,10 +247,10 @@
 <h3><a href="../making/index.html">Making CocoaPods</a></h3>
 <ul>
 <li><a href="../making/making-a-cocoapod.html">Making a CocoaPod</a></li>
-<li><a href="../making/using-pod-lib-create.html">Using Pod Lib Create</a></li>
 <li><a href="../making/specs-and-specs-repo.html">Specs and the Specs Repo</a></li>
-<li><a href="../making/private-cocoapods.html">Private Pods</a></li>
+<li><a href="../making/using-pod-lib-create.html">Using Pod Lib Create</a></li>
 <li><a href="../making/getting-setup-with-trunk.html">Getting setup with Trunk</a></li>
+<li><a href="../making/private-cocoapods.html">Private Pods</a></li>
 </ul>
 </div>
 <div class="clearfix visible-xs"></div>
@@ -258,8 +258,8 @@
 <h3><a href="index.html">Contributing</a></h3>
 <ul>
 <li><a href="contribute-to-cocoapods.html">How to Contribute</a></li>
-<li><a href="components.html">Core Components</a></li>
 <li><a href="dev-environment.html">Setting up for Development</a></li>
+<li><a href="components.html">Core Components</a></li>
 <li><a href="release-process.html">Release Process</a></li>
 <li><a href="tickets-handling.html">Tickets handling</a></li>
 </ul>

@@ -66,7 +66,7 @@
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><code><span class="n">pod</span> <span class="s1">'Name'</span><span class="p">,</span> <span class="ss">:path</span> <span class="o">=&gt;</span> <span class="s1">'~/code/Pods/'</span>
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">pod</span> <span class="s1">'Name'</span><span class="p">,</span> <span class="ss">:path</span> <span class="o">=&gt;</span> <span class="s1">'~/code/Pods/'</span>
 </code></pre>    </article>
     </div>
     </section>
@@ -88,7 +88,7 @@
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight shell"><code><span class="gp">$ </span><span class="nb">cd</span> ~/code/Pods/NAME
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight shell"><span class="gp">$ </span><span class="nb">cd</span> ~/code/Pods/NAME
 <span class="gp">$ </span>pod lib lint
 </code></pre>    </article>
     </div>
@@ -112,7 +112,7 @@
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><code><span class="n">pod</span> <span class="s1">'NAME'</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">'https://example.com/URL/to/repo/NAME.git'</span>
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">pod</span> <span class="s1">'NAME'</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">'https://example.com/URL/to/repo/NAME.git'</span>
 </code></pre>    </article>
     </div>
     </section>
@@ -133,7 +133,7 @@
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight shell"><code>pod install
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight shell">pod install
 -- or --
 pod update
 </code></pre>    </article>
@@ -156,7 +156,7 @@ pod update
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><code><span class="n">xcodeproj</span> <span class="s1">'NAMETests'</span>
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">xcodeproj</span> <span class="s1">'NAMETests'</span>
 <span class="n">workspace</span> <span class="s1">'../NAME'</span>
 
 <span class="n">pod</span> <span class="s1">'NAME'</span><span class="p">,</span> <span class="ss">:path</span> <span class="o">=&gt;</span> <span class="s1">'../'</span>
@@ -185,7 +185,7 @@ pod update
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight shell"><code><span class="gp">$ </span><span class="nb">cd</span> ~/code/Pods/NAME
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight shell"><span class="gp">$ </span><span class="nb">cd</span> ~/code/Pods/NAME
 <span class="gp">$ </span>edit NAME.podspec
 <span class="c"># set the new version to 0.0.1</span>
 <span class="c"># set the new tag to 0.0.1</span>
@@ -237,7 +237,7 @@ pod 'CocoaLumberjack'
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><code><span class="n">pod</span> <span class="s1">'CocoaLumberjack'</span><span class="p">,</span> <span class="s1">'~&gt; 1.0.7'</span>
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">pod</span> <span class="s1">'CocoaLumberjack'</span><span class="p">,</span> <span class="s1">'~&gt; 1.0.7'</span>
 </code></pre>    </article>
     </div>
     </section>
@@ -300,10 +300,10 @@ pod 'CocoaLumberjack'
 <h3><a href="index.html">Making CocoaPods</a></h3>
 <ul>
 <li><a href="making-a-cocoapod.html">Making a CocoaPod</a></li>
-<li><a href="using-pod-lib-create.html">Using Pod Lib Create</a></li>
 <li><a href="specs-and-specs-repo.html">Specs and the Specs Repo</a></li>
-<li><a href="private-cocoapods.html">Private Pods</a></li>
+<li><a href="using-pod-lib-create.html">Using Pod Lib Create</a></li>
 <li><a href="getting-setup-with-trunk.html">Getting setup with Trunk</a></li>
+<li><a href="private-cocoapods.html">Private Pods</a></li>
 </ul>
 </div>
 <div class="clearfix visible-xs"></div>
@@ -311,8 +311,8 @@ pod 'CocoaLumberjack'
 <h3><a href="../contributing/index.html">Contributing</a></h3>
 <ul>
 <li><a href="../contributing/contribute-to-cocoapods.html">How to Contribute</a></li>
-<li><a href="../contributing/components.html">Core Components</a></li>
 <li><a href="../contributing/dev-environment.html">Setting up for Development</a></li>
+<li><a href="../contributing/components.html">Core Components</a></li>
 <li><a href="../contributing/release-process.html">Release Process</a></li>
 <li><a href="../contributing/tickets-handling.html">Tickets handling</a></li>
 </ul>

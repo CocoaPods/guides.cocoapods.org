@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>CocoaPods Guides - Getting Started</title>
+<title>CocoaPods Guides - Using a Gemfile</title>
 <link rel="shortcut icon" href="https://cocoapods.org/favicons/favicon.ico" type="image/x-icon">
 <link rel="apple-touch-icon" href="https://cocoapods.org/favicons/apple-touch-icon.png">
 <link rel="apple-touch-icon" sizes="57x57" href="https://cocoapods.org/favicons/apple-touch-icon-57x57.png">
@@ -40,29 +40,43 @@
 <li><a href="https://cocoapods.org/about">About</a></li>
 <li class="active"><a href="https://guides.cocoapods.org">Guides</a></li>
 <li><a href="https://blog.cocoapods.org">Blog</a></li>
-</ul></div></section></nav><section class="container"><div class="row"><header class="header content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h1>Getting Started</h1></header></div></section><div class="guide" id="content-wrapper">
+</ul></div></section></nav><section class="container"><div class="row"><header class="header content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h1>Using a Gemfile</h1></header></div></section><div class="guide" id="content-wrapper">
 <section class="container"><div class="row">
-<article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h2 id="what-is-cocoapods">
-<a class="header-link" href="#what-is-cocoapods">&lt;</a>What is CocoaPods</h2>
+<article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h2 id="rubygems--bundler">
+<a class="header-link" href="#rubygems--bundler">&lt;</a>RubyGems + Bundler</h2>
 
-<p>CocoaPods manages library dependencies for your Xcode projects.</p>
+<p>For many, CocoaPods is the first introduction to dependency management in programming projects. A lot of
+ideas for CocoaPods came from similar projects ( for example <a href="https://rubygems.org">RubyGems</a>, <a href="http://bundler.io">Bundler</a>, <a href="https://www.npmjs.com">npm</a> and <a href="http://gradle.org">Gradle</a>). </p>
 
-<p>The dependencies for your projects are specified in a single text file called a Podfile. CocoaPods will resolve dependencies between libraries, fetch the resulting source code, then link it together in an Xcode workspace to build your project.</p>
+<p>Understanding Ruby dependency management is useful because it allows you to specify versions of CocoaPods or other gems and ensure
+all developers in your team have the exact same version. This guide is for people looking to ensure consistency in their team
+dependencies or for using un-released versions of CocoaPods.</p>
 
-<p>Ultimately the goal is to improve discoverability of, and engagement in, third party open-source libraries by creating a more centralised ecosystem.</p>
+<h3 id="rubygems">
+<a class="header-link" href="#rubygems">&lt;</a>RubyGems</h3>
 
-<h2 id="getting-started">
-<a class="header-link" href="#getting-started">&lt;</a>Getting Started</h2>
+<p>RubyGems is a hosted ruby library service. It centralizes where you look for a library, and installing ruby libraries / apps. 
+You'll have seen <code>gem install xxx</code>. These are installed into a central database of versions. If you imagine that CocoaPods
+installs all libraries/frameworks into a System folder and they are linked at runtime, then you have the rough idea
+of how RubyGems keeps all the gems.</p>
 
-<h3 id="installation">
-<a class="header-link" href="#installation">&lt;</a>Installation</h3>
+<p>The downside of this is that there is no way to ensure that a project needing a specific version of a library can use that, 
+it would always use the latest version. So as a developer, you would be cautious installing a new version of a library
+because it would be used in every library / app. This is the problem bundler solves.</p>
 
-<p>CocoaPods is built with Ruby and it will be installable with the default Ruby
-available on OS X. You can use a Ruby Version manager, however we recommend that
-you use the standard Ruby available on OS X unless you know what you're doing.</p>
+<h3 id="bundler">
+<a class="header-link" href="#bundler">&lt;</a>Bundler</h3>
 
-<p>Using the default Ruby install will require you to use <code>sudo</code> when installing
-gems. (This is only an issue for the duration of the gem installation, though.)</p>
+<p>Bundler creates a consistent application environment for your application, by allowing you to specify the version of libraries.
+We took this idea almost whole-sale for CocoaPods. You define a Gemfile that says what libraries you want to include, and can 
+optionally specify a version or range. You run <code>bundle install</code> and it will generate a Gemfile.lock saying the exact version of
+all of your libraries and then anyone else running <code>bundle install</code> with that project gets the exact same versions.</p>
+
+<h3 id="what-is-a-gemfile">
+<a class="header-link" href="#what-is-a-gemfile">&lt;</a>What is a Gemfile?</h3>
+
+<p>If you have read the guide on the <a href="the-podfile.html">Podfile</a>, it will feel very similar. A Gemfile is a ruby file that defines your ruby
+dependencies. Here is an <a href="https://github.com/artsy/eigen/blob/2d9bfb8fba58e6ec0f2f3a18da7fbf45aaef6ba8/Gemfile">existing one</a> from a Cocoa project.</p>
     </article>
     </div>
     </section>
@@ -70,7 +84,15 @@ gems. (This is only an issue for the duration of the gem installation, though.)<
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight shell"><span class="gp">$ </span>sudo gem install cocoapods
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">source</span> <span class="s1">'https://rubygems.org'</span>
+
+<span class="n">gem</span> <span class="s1">'cocoapods'</span>
+<span class="n">gem</span> <span class="s2">"cocoapods-keys"</span>
+
+<span class="n">gem</span> <span class="s1">'fui'</span><span class="p">,</span> <span class="s1">'~&gt; 0.3.0'</span>
+<span class="n">gem</span> <span class="s1">'xcpretty'</span>
+<span class="n">gem</span> <span class="s1">'second_curtain'</span><span class="p">,</span> <span class="s1">'~&gt; 0.2.3'</span>
+<span class="n">gem</span> <span class="s1">'fastlane'</span>
 </code></pre>    </article>
     </div>
     </section>
@@ -81,16 +103,28 @@ gems. (This is only an issue for the duration of the gem installation, though.)<
     <article class="content col-md-10 col-md-offset-1">
 
 
-<p>If you encounter any problems during installation, please visit <a href="https://guides.cocoapods.org/using/troubleshooting#installing-cocoapods">this</a> guide.</p>
+<p>All Gemfiles must include a source for their Gems, other than that you use the more or less the same syntax. 
+This generates a <a href="https://github.com/artsy/eigen/blob/2d9bfb8fba58e6ec0f2f3a18da7fbf45aaef6ba8/Gemfile.lock">Gemfile.lock</a> which in this case locks CocoaPods to version
+<a href="https://github.com/artsy/eigen/blob/2d9bfb8fba58e6ec0f2f3a18da7fbf45aaef6ba8/Gemfile.lock#L31">0.36.3</a>.</p>
 
-<h3 id="sudo-less-installation">
-<a class="header-link" href="#sudo-less-installation">&lt;</a>Sudo-less installation</h3>
+<h3 id="using-cocoapods-with-a-gemfile">
+<a class="header-link" href="#using-cocoapods-with-a-gemfile">&lt;</a>Using CocoaPods with a Gemfile</h3>
 
-<p>If you do <em>not</em> want to grant RubyGems admin privileges for this process, you can
-tell RubyGems to install into your user directory by passing either the
-<code>--user-install</code> flag to <code>gem install</code> or by configuring the RubyGems environment.
-The latter is in our opinion the best solution. To do this, create or edit the
-<code>.profile</code> file in your home directory and add or amend it to include these lines:</p>
+<p>With a Gemfile setup, you run <code>bundle install</code> to install, or <code>bundle update</code> to update within your Gemfile's constraints.
+From here on in however, you will need to remember to run <code>bundle exec</code> before any terminal commands that have come in via
+bundler. Given that CocoaPods is included in the above this means any time you would write <code>pod XX YY</code> you need to do <code>bundle exec pod XX YY</code>.</p>
+
+<p>Doing it without <code>bundle exec</code> will bypass your Gemfile's specific versioning and will use the latest version of the library within RubyGems. This
+could potentially be the exact same version, but it can often not. If you are including CocoaPods plugins then they may also not be ran.</p>
+
+<p>This means you can be sure that foundational tooling for projects are versioned just like your personal libraries.</p>
+
+<h3 id="using-master-cocoapods">
+<a class="header-link" href="#using-master-cocoapods">&lt;</a>Using master CocoaPods</h3>
+
+<p>Often in-between releases you may be interested in using a Gemfile to work with an unreleased version of CocoaPods. Due to the size of the project
+we try to release slowly when we're sure it won't break projects. Like with CocoaPods you can easily use master, or forks of your ruby project. Here is 
+an <a href="https://github.com/artsy/eidolon/blob/3b1d28d9178a5790db3842c43513196e422ee0fb/Gemfile">example of a Gemfile</a> using CocoaPods master.</p>
     </article>
     </div>
     </section>
@@ -98,8 +132,16 @@ The latter is in our opinion the best solution. To do this, create or edit the
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight shell"><span class="nb">export </span><span class="nv">GEM_HOME</span><span class="o">=</span><span class="nv">$HOME</span>/.gem
-<span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$GEM_HOME</span>/bin:<span class="nv">$PATH</span>
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">source</span> <span class="s1">'https://rubygems.org'</span>
+
+<span class="n">gem</span> <span class="s1">'cocoapods'</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">'https://github.com/CocoaPods/CocoaPods.git'</span>
+<span class="n">gem</span> <span class="s1">'xcodeproj'</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">'https://github.com/CocoaPods/Xcodeproj.git'</span>
+
+<span class="n">gem</span> <span class="s1">'cocoapods-keys'</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">'https://github.com/orta/cocoapods-keys.git'</span>
+
+<span class="n">gem</span> <span class="s1">'xcpretty'</span>
+<span class="n">gem</span> <span class="s1">'shenzhen'</span>
+<span class="n">gem</span> <span class="s1">'sbconstants'</span>
 </code></pre>    </article>
     </div>
     </section>
@@ -110,99 +152,18 @@ The latter is in our opinion the best solution. To do this, create or edit the
     <article class="content col-md-10 col-md-offset-1">
 
 
-<p>Note that if you choose to use the <code>--user-install</code> option, you will still have
-to configure your <code>.profile</code> file to set the <code>PATH</code> or use the command prepended by
-the full path. You can find out where a gem is installed with <code>gem which
-cocoapods</code>. E.g.</p>
-    </article>
-    </div>
-    </section>
-  
-    <div class="code-break">
-    <section class="container">
-    <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight shell"><span class="gp">$ </span>gem install cocoapods --user-install
-<span class="gp">$ </span>gem which cocoapods
-/Users/eloy/.gem/ruby/2.0.0/gems/cocoapods-0.29.0/lib/cocoapods.rb
-<span class="gp">$ </span>/Users/eloy/.gem/ruby/2.0.0/bin/pod install
-</code></pre>    </article>
-    </div>
-    </section>
-    </div>
-  
-    <section class="container ">
-    <div class="row">
-    <article class="content col-md-10 col-md-offset-1">
-
-
-<h3 id="updating-cocoapods">
-<a class="header-link" href="#updating-cocoapods">&lt;</a>Updating CocoaPods</h3>
-
-<blockquote>
-<p>To update CocoaPods you simply install the gem again</p>
-</blockquote>
-    </article>
-    </div>
-    </section>
-  
-    <div class="code-break">
-    <section class="container">
-    <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight shell"><span class="gp">$ </span><span class="o">[</span>sudo] gem install cocoapods
-</code></pre>    </article>
-    </div>
-    </section>
-    </div>
-  
-    <section class="container ">
-    <div class="row">
-    <article class="content col-md-10 col-md-offset-1">
-
-
-<blockquote>
-<p>Or for a pre-release version</p>
-</blockquote>
-    </article>
-    </div>
-    </section>
-  
-    <div class="code-break">
-    <section class="container">
-    <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight shell"><span class="gp">$ </span><span class="o">[</span>sudo] gem install cocoapods --pre
-</code></pre>    </article>
-    </div>
-    </section>
-    </div>
-  
-    <section class="container ">
-    <div class="row">
-    <article class="content col-md-10 col-md-offset-1">
-
-
-<p>If you originally installed the cocoapods gem using <code>sudo</code>, you should use that command again.</p>
-
-<p>Later on, when you're actively using CocoaPods by installing pods, you will be notified when new versions become available with a <em>CocoaPods X.X.X is now available, please update</em> message.</p>
-
-<h4 id="using-a-cocoapods-fork">Using a CocoaPods Fork</h4>
-
-<p>There is <a href="/using/unreleased-features">a guide for using a version of CocoaPods to try new features</a> that are in discussion or in implementation stage.</p>
-<h2 id="external-resources">
-<a class="header-link" href="#external-resources">&lt;</a><a class="header-link" href="#external-resources">&lt;</a> External resources</h2>
-<ul>
-<li><a href="http://teamtreehouse.com/library/ios-tools/cocoapods/cocoapods">CocoaPods at Treehouse</a></li>
-<li><a href="http://code.tutsplus.com/tutorials/streamlining-cocoa-development-with-cocoapods--mobile-15938">Streamlining Cocoa Development With CocoaPods</a></li>
-</ul></article>
+<p>Running <code>bundle install</code> will get the versions from master. As CocoaPods is multiple gems, you may have to include <a href="../contributing/components.html">other dependencies</a> like above.</p>
+</article>
 </div></section>
 </div>
-<div class="info-row"><section class="container"><div class="row"><article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><a data-container="body" data-content="CocoaPods is an open source project. Help us improve these guides by sending a pull request. ❤" data-original-title="" data-placement="top" data-toggle="popover" data-trigger="hover" href="https://github.com/CocoaPods/guides.cocoapods.org/blob/master/source/using/getting-started.html.md" id="pull-request" title=""></a><ul class="breadcrumb">
+<div class="info-row"><section class="container"><div class="row"><article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><a data-container="body" data-content="CocoaPods is an open source project. Help us improve these guides by sending a pull request. ❤" data-original-title="" data-placement="top" data-toggle="popover" data-trigger="hover" href="https://github.com/CocoaPods/guides.cocoapods.org/blob/master/source/using/a-gemfile.html.md" id="pull-request" title=""></a><ul class="breadcrumb">
 <li>
 <a href="../index.html">Home</a><span class="divider"></span>
 </li>
 <li>
 <a href="index.html">Using CocoaPods</a><span class="divider"></span>
 </li>
-<li class="active">Getting Started</li>
+<li class="active">Using a Gemfile</li>
 </ul></article></div></section></div>
 <section class="site_navigation container"><div class="row">
 <div class="col-lg-3 col-sm-3 col-xs-6 footer-index">
