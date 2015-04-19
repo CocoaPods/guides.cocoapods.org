@@ -3,11 +3,11 @@ targets of one or more Xcode projects. The Podfile always creates an
 implicit target, named <code>default</code>, which links to the first target of the
 user project.</p>
 
-<p>A podfile can be very simple:</p>
+<p>A Podfile can be very simple:</p>
 <div class="highlight"><pre><span class="n">source</span> <span class="s1">&#39;https://github.com/CocoaPods/Specs.git&#39;</span>
 <span class="n">pod</span> <span class="s1">&#39;AFNetworking&#39;</span><span class="p">,</span> <span class="s1">&#39;~&gt; 1.0&#39;</span>
 </pre></div>
-<p>An example of a more complex podfile can be:</p>
+<p>An example of a more complex Podfile can be:</p>
 <div class="highlight"><pre><span class="n">source</span> <span class="s1">&#39;https://github.com/CocoaPods/Specs.git&#39;</span>
 
 <span class="n">platform</span> <span class="ss">:ios</span><span class="p">,</span> <span class="s1">&#39;6.0&#39;</span>
@@ -99,11 +99,24 @@ enabled only on a given list of build configuration names.</p>
 </pre></div>
 <hr>
 
+<h3>Subspecs</h3>
+
+<p>When installing a Pod via it&#39;s name, it will install all of the
+default subspecs defined in the podspec.</p>
+
+<p>You may install a specific subspec using the following:</p>
+<div class="highlight"><pre><span class="n">pod</span> <span class="s1">&#39;QueryKit/Attribute&#39;</span>
+</pre></div>
+<p>You may specify a collection of subspecs to be installed as follows:</p>
+<div class="highlight"><pre><span class="n">pod</span> <span class="s1">&#39;QueryKit&#39;</span><span class="p">,</span> <span class="ss">:subspecs</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s1">&#39;Attribute&#39;</span><span class="p">,</span> <span class="s1">&#39;QuerySet&#39;</span><span class="o">]</span>
+</pre></div>
+<hr>
+
 <p>Dependencies can be obtained also from external sources.</p>
 
 <h3>Using the files from a local path.</h3>
 
-<p>If you wold like to use develop a Pod in tandem with its client
+<p>If you would like to use develop a Pod in tandem with its client
  project you can use the <code>path</code> option.</p>
 <div class="highlight"><pre><span class="n">pod</span> <span class="s1">&#39;AFNetworking&#39;</span><span class="p">,</span> <span class="ss">:path</span> <span class="o">=&gt;</span> <span class="s1">&#39;~/Documents/AFNetworking&#39;</span>
 </pre></div>
@@ -112,25 +125,25 @@ enabled only on a given list of build configuration names.</p>
  Pods project. This means that your edits will persist to CocoaPods
  installations.</p>
 
-<p>The referenced folder can be a checkout of your your favorite SCM or
- even a git submodule of the current repo.</p>
+<p>The referenced folder can be a checkout of your your favourite SCM or
+ even a git submodule of the current repository.</p>
 
 <p>Note that the <code>podspec</code> of the Pod file is expected to be in the
  folder.</p>
 
-<h3>From a podspec in the root of a library repo.</h3>
+<h3>From a podspec in the root of a library repository.</h3>
 
 <p>Sometimes you may want to use the bleeding edge version of a Pod. Or a
 specific revision. If this is the case, you can specify that with your
 pod declaration.</p>
 
-<p>To use the <code>master</code> branch of the repo:</p>
+<p>To use the <code>master</code> branch of the repository:</p>
 <div class="highlight"><pre><span class="n">pod</span> <span class="s1">&#39;AFNetworking&#39;</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">&#39;https://github.com/gowalla/AFNetworking.git&#39;</span>
 </pre></div>
-<p>To use a different branch of the repo:</p>
+<p>To use a different branch of the repository:</p>
 <div class="highlight"><pre><span class="n">pod</span> <span class="s1">&#39;AFNetworking&#39;</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">&#39;https://github.com/gowalla/AFNetworking.git&#39;</span><span class="p">,</span> <span class="ss">:branch</span> <span class="o">=&gt;</span> <span class="s1">&#39;dev&#39;</span>
 </pre></div>
-<p>To use a tag of the repo:</p>
+<p>To use a tag of the repository:</p>
 <div class="highlight"><pre><span class="n">pod</span> <span class="s1">&#39;AFNetworking&#39;</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">&#39;https://github.com/gowalla/AFNetworking.git&#39;</span><span class="p">,</span> <span class="ss">:tag</span> <span class="o">=&gt;</span> <span class="s1">&#39;0.7.0&#39;</span>
 </pre></div>
 <p>Or specify a commit:</p>
@@ -139,14 +152,15 @@ pod declaration.</p>
 <p>It is important to note, though, that this means that the version will
 have to satisfy any other dependencies on the Pod by other Pods.</p>
 
-<p>The <code>podspec</code> file is expected to be in the root of the repo, if this
-library does not have a <code>podspec</code> file in its repo yet, you will have
-to use one of the approaches outlined in the sections below.</p>
+<p>The <code>podspec</code> file is expected to be in the root of the repository,
+if this library does not have a <code>podspec</code> file in its repository
+yet, you will have to use one of the approaches outlined in the
+sections below.</p>
 
-<h3>From a podspec outside a spec repo, for a library without podspec.</h3>
+<h3>From a podspec outside a spec repository, for a library without podspec.</h3>
 
 <p>If a podspec is available from another source outside of the library’s
-repo. Consider, for instance, a podspec available via HTTP:</p>
+repository. Consider, for instance, a podspec available via HTTP:</p>
 <div class="highlight"><pre><span class="n">pod</span> <span class="s1">&#39;JSONKit&#39;</span><span class="p">,</span> <span class="ss">:podspec</span> <span class="o">=&gt;</span> <span class="s1">&#39;https://example.com/JSONKit.podspec&#39;</span>
 </pre></div></div><div class="tab-pane method" id="tab_podspec"><h3 class="code">podspec</h3><p>Use the dependencies of a Pod defined in the given podspec file. If no
 arguments are passed the first podspec in the root of the Podfile is
@@ -201,7 +215,7 @@ explicit project and there is only <strong>one</strong> project in the same
 directory as the Podfile then that project will be used.</p>
 
 <p>It is possible also to specify whether the build settings of your
-custom build configurations should be modeled after the release or
+custom build configurations should be modelled after the release or
 the debug presets. To do so you need to specify a hash where the name
 of each build configuration is associated to either <code>:release</code> or
 <code>:debug</code>.</p>
@@ -268,7 +282,7 @@ Xcode 4.3.2 no longer seems to support the <code>-fobjc-arc</code> flag. Therefo
 it now has to be enabled explicitly using this method.</p>
 
 <p>Support for this method might be dropped in CocoaPods <code>1.0</code>.</p>
-</div><div class="tab-pane group" id="tab_group_sources"><h2>Sources</h2><p>The Podfile retrieves specs from a given list of sources (repos).</p>
+</div><div class="tab-pane group" id="tab_group_sources"><h2>Sources</h2><p>The Podfile retrieves specs from a given list of sources (repositories).</p>
 
 <p>Sources are <strong>global</strong> and they are not stored per target definition.</p>
 </div><div class="tab-pane method" id="tab_source"><h3 class="code">source</h3><p>Specifies the location of specs</p>
@@ -279,7 +293,7 @@ it now has to be enabled explicitly using this method.</p>
 relevant. CocoaPods will use the highest version of a Pod of the first
 source which includes the Pod (regardless whether other sources have a
 higher version).</p>
-<h3>Examples:</h3><blockquote>Specifying to first use the artsy repo and then the</blockquote><div class="highlight"><pre><span class="no">CocoaPods</span> <span class="no">Master</span> <span class="no">Repo</span>
+<h3>Examples:</h3><blockquote>Specifying to first use the Artsy repository and then the</blockquote><div class="highlight"><pre><span class="no">CocoaPods</span> <span class="no">Master</span> <span class="no">Repository</span>
 
 <span class="n">source</span> <span class="s1">&#39;https://github.com/artsy/Specs.git&#39;</span>
 <span class="n">source</span> <span class="s1">&#39;https://github.com/CocoaPods/Specs.git&#39;</span>
@@ -294,7 +308,7 @@ installation process.</p>
 <p>Use this method to specify a plugin that should be used during
 installation, along with the options that should be passed to the plugin
 when it is invoked.</p>
-<h3>Examples:</h3><blockquote>Specifying to use the `slather` and `cocoapods-keys` plugins.</blockquote><div class="highlight"><pre><span class="n">plugin</span> <span class="s1">&#39;cocoapods-keys&#39;</span><span class="p">,</span> <span class="ss">keyring</span><span class="p">:</span> <span class="s1">&#39;Eidolon&#39;</span>
+<h3>Examples:</h3><blockquote>Specifying to use the `slather` and `cocoapods-keys` plugins.</blockquote><div class="highlight"><pre><span class="n">plugin</span> <span class="s1">&#39;cocoapods-keys&#39;</span><span class="p">,</span> <span class="ss">:keyring</span> <span class="o">=&gt;</span> <span class="s1">&#39;Eidolon&#39;</span>
 <span class="n">plugin</span> <span class="s1">&#39;slather&#39;</span>
 </pre></div></div><div class="tab-pane method" id="tab_pre_install"><h3 class="code">pre_install</h3><p>This hook allows you to make any changes to the Pods after they have
 been downloaded but before they are installed.</p>
@@ -312,7 +326,7 @@ to perform.</p>
 <p>It receives the
 <a href="http://rubydoc.info/gems/cocoapods/Pod/Hooks/InstallerRepresentation/"><code>Pod::Hooks::InstallerRepresentation</code></a>
 as its only argument.</p>
-<h3>Examples:</h3><blockquote>Customizing the `OTHER_LDFLAGS` of all targets</blockquote><div class="highlight"><pre><span class="n">post_install</span> <span class="k">do</span> <span class="o">|</span><span class="n">installer_representation</span><span class="o">|</span>
+<h3>Examples:</h3><blockquote>Customising the `OTHER_LDFLAGS` of all targets</blockquote><div class="highlight"><pre><span class="n">post_install</span> <span class="k">do</span> <span class="o">|</span><span class="n">installer_representation</span><span class="o">|</span>
   <span class="n">installer_representation</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">targets</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">target</span><span class="o">|</span>
     <span class="n">target</span><span class="o">.</span><span class="n">build_configurations</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
       <span class="n">config</span><span class="o">.</span><span class="n">build_settings</span><span class="o">[</span><span class="s1">&#39;GCC_ENABLE_OBJC_GC&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="s1">&#39;supported&#39;</span>
@@ -329,7 +343,7 @@ as its only argument.</p>
     $('tab-content li').removeClass('active');
       $(this).addClass('active');
   });
-});</script></article></div></section></div><section class="site_navigation container"><div class="row"><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="../using/index.html">Using CocoaPods</a></h3><ul><li><a href="../using/getting-started.html">Getting Started</a></li><li><a href="../using/using-cocoapods.html">Using CocoaPods</a></li><li><a href="../using/the-podfile.html">The Podfile</a></li><li><a href="../using/troubleshooting.html">Troubleshooting</a></li><li><a href="../using/faq.html">F.A.Q</a></li></ul></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="../making/index.html">Making CocoaPods</a></h3><ul><li><a href="../making/making-a-cocoapod.html">Making a CocoaPod</a></li><li><a href="../making/specs-and-specs-repo.html">Specs and the Specs Repo</a></li><li><a href="../making/using-pod-lib-create.html">Using Pod Lib Create</a></li><li><a href="../making/getting-setup-with-trunk.html">Getting setup with Trunk</a></li><li><a href="../making/private-cocoapods.html">Private Pods</a></li></ul></div><div class="clearfix visible-xs"></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="../contributing/index.html">Contributing</a></h3><ul><li><a href="../contributing/contribute-to-cocoapods.html">How to Contribute</a></li><li><a href="../contributing/dev-environment.html">Setting up for Development</a></li><li><a href="../contributing/components.html">Core Components</a></li><li><a href="../contributing/release-process.html">Release Process</a></li><li><a href="../contributing/tickets-handling.html">Tickets handling</a></li></ul></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3> <a href='/reference.html'>Reference</a></h3><ul><li><a href='/syntax/podfile.html'>Podfile Syntax</a></li><li><a href='/syntax/podspec.html'>Podspec Syntax</a></li><li><a href='/terminal/commands.html'>Command-line Reference</a></li></ul></div></div></section><footer class="page-footer"><section class="container"><div class="row"><article class="col-md-8 col-lg-8 col-sm-12 col-md-offset-2 col-lg-offset-2 col-xs-12"><h4>CocoaPods is a project from</h4><p class="contributors"><a href="http://kylefuller.co.uk">Kyle Fuller</a>, <a href="http://orta.github.io">Orta Therox</a>, <a href="http://segiddins.me">Samuel Giddins</a>, and <a href="https://cocoapods.org/about#team">The CocoaPods Dev Team</a> with contributions from <a href="https://github.com/CocoaPods/Specs/graphs/contributors">many, many others</a>.</p><h4>Lovingly sponsored by</h4><p class="sponsors"><a href="http://artsy.net">Artsy</a>, <a href="http://www.usebutton.com">Button</a>, <a href="http://discontinuity.eu">Discontinuity</a>, <a href="http://www.fngtps.com">Fingertips</a>, <a href="https://www.heroku.com">Heroku</a>, <a href="http://www.rubymotion.com">RubyMotion</a>, <a href="https://www.sauspiel.de">Sauspiel</a>, <a href="https://www.slack.com">Slack</a>, <a href="https://www.soundcloud.com">SoundCloud</a>, <a href="https://www.stripe.com">Stripe</a> and <a href="http://www.technologyastronauts.ch">Technology&nbsp;Astronauts</a>.</p></article></div></section></footer><footer class="footer-links"><section class="container"><div class="row"><article class="col-md-8 col-lg-8 col-sm-12 col-md-offset-2 col-lg-offset-2 col-xs-12"><a class="cocoapods-small-logo" href="https://cocoapods.org"></a><ul><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://guides.cocoapods.org/using/troubleshooting.html">Support</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://github.com/CocoaPods/CocoaPods">Github Repo</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://github.com/CocoaPods/Specs">Podspecs Repo</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://twitter.com/CocoaPods">@CocoaPods</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="http://groups.google.com/group/cocoapods">Mailing List</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://cocoapods.org/about"><span class="visible-lg-span">CocoaPods</span> Dev Team</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://guides.cocoapods.org/syntax/podfile.html">Podfile Doc<span class="hidden-lg-span">s</span><span class="visible-lg-span">umentation</span></a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://cocoapods.org/legal">Legal / Conduct</a></li></ul></article></div></section></footer></body><script type="text/javascript">(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+});</script></article></div></section></div><section class="site_navigation container"><div class="row"><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="../using/index.html">Using CocoaPods</a></h3><ul><li><a href="../using/getting-started.html">Getting Started</a></li><li><a href="../using/using-cocoapods.html">Using CocoaPods</a></li><li><a href="../using/the-podfile.html">The Podfile</a></li><li><a href="../using/troubleshooting.html">Troubleshooting</a></li><li><a href="../using/faq.html">F.A.Q</a></li></ul></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="../making/index.html">Making CocoaPods</a></h3><ul><li><a href="../making/making-a-cocoapod.html">Making a CocoaPod</a></li><li><a href="../making/specs-and-specs-repo.html">Specs and the Specs Repo</a></li><li><a href="../making/using-pod-lib-create.html">Using Pod Lib Create</a></li><li><a href="../making/private-cocoapods.html">Private Pods</a></li><li><a href="../making/getting-setup-with-trunk.html">Getting setup with Trunk</a></li></ul></div><div class="clearfix visible-xs"></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="../contributing/index.html">Contributing</a></h3><ul><li><a href="../contributing/contribute-to-cocoapods.html">How to Contribute</a></li><li><a href="../contributing/components.html">Core Components</a></li><li><a href="../contributing/dev-environment.html">Setting up for Development</a></li><li><a href="../contributing/release-process.html">Release Process</a></li><li><a href="../contributing/tickets-handling.html">Tickets handling</a></li></ul></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3> <a href='/reference.html'>Reference</a></h3><ul><li><a href='/syntax/podfile.html'>Podfile Syntax</a></li><li><a href='/syntax/podspec.html'>Podspec Syntax</a></li><li><a href='/terminal/commands.html'>Command-line Reference</a></li></ul></div></div></section><footer class="page-footer"><section class="container"><div class="row"><article class="col-md-8 col-lg-8 col-sm-12 col-md-offset-2 col-lg-offset-2 col-xs-12"><h4>CocoaPods is a project from</h4><p class="contributors"><a href="http://kylefuller.co.uk">Kyle Fuller</a>, <a href="http://orta.github.io">Orta Therox</a>, <a href="http://segiddins.me">Samuel Giddins</a>, and <a href="https://cocoapods.org/about#team">The CocoaPods Dev Team</a> with contributions from <a href="https://github.com/CocoaPods/Specs/graphs/contributors">many, many others</a>.</p><h4>Lovingly sponsored by</h4><p class="sponsors"><a href="http://artsy.net">Artsy</a>, <a href="http://www.usebutton.com">Button</a>, <a href="http://discontinuity.eu">Discontinuity</a>, <a href="http://www.fngtps.com">Fingertips</a>, <a href="https://www.heroku.com">Heroku</a>, <a href="http://www.rubymotion.com">RubyMotion</a>, <a href="https://www.sauspiel.de">Sauspiel</a>, <a href="https://www.slack.com">Slack</a>, <a href="https://www.soundcloud.com">SoundCloud</a>, <a href="https://www.stripe.com">Stripe</a> and <a href="http://www.technologyastronauts.ch">Technology&nbsp;Astronauts</a>.</p></article></div></section></footer><footer class="footer-links"><section class="container"><div class="row"><article class="col-md-8 col-lg-8 col-sm-12 col-md-offset-2 col-lg-offset-2 col-xs-12"><a class="cocoapods-small-logo" href="https://cocoapods.org"></a><ul><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://guides.cocoapods.org/using/troubleshooting.html">Support</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://github.com/CocoaPods/CocoaPods">Github Repo</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://github.com/CocoaPods/Specs">Podspecs Repo</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://twitter.com/CocoaPods">@CocoaPods</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="http://groups.google.com/group/cocoapods">Mailing List</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://cocoapods.org/about"><span class="visible-lg-span">CocoaPods</span> Dev Team</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://guides.cocoapods.org/syntax/podfile.html">Podfile Doc<span class="hidden-lg-span">s</span><span class="visible-lg-span">umentation</span></a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://cocoapods.org/legal">Legal / Conduct</a></li></ul></article></div></section></footer></body><script type="text/javascript">(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
