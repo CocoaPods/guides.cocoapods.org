@@ -55,7 +55,7 @@ workspace 'MyWorkspace'
 
 ## Should I check the Pods directory into source control?
 
-Whether or not you check in your `Pods` folder is up to you, as workflows vary from project to project. We recommend that you keep the Pods directory under source control, and do not add it to your `.gitignore`. But ultimately this decision is up to you:
+Whether or not you check in your `Pods` folder is up to you, as workflows vary from project to project. We recommend that you keep the Pods directory under source control, and don't add it to your `.gitignore`. But ultimately this decision is up to you:
 
 ### Benefits of checking in the Pods directory
 
