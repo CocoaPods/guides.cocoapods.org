@@ -79,7 +79,7 @@ This file is generated after the first run of `pod install`, and tracks the vers
 pod 'RestKit'
 ```
 
-Running `pod install` will install the current version of RestKit, causing a `Podfile.lock` to be generated that indicates the exact version installed (e.g. `Restkit 0.10.3`). Thanks to the `Podfile.lock`, running `pod install` on this hypothetical project at a later point in time on a different machine will still install RestKit 0.10.3 even if a newer version is available. CocoaPods will honour the Pod version in `Podfile.lock` unless the dependency is updated in the Podfile or `pod update` is called (which will cause a new `Podfile.lock` to be generated). In this way CocoaPods avoids headaches caused by unexpected changes to dependencies.
+Running `pod install` will install the current version of RestKit, causing a `Podfile.lock` to be generated that indicates the exact version installed (e.g. `RestKit 0.10.3`). Thanks to the `Podfile.lock`, running `pod install` on this hypothetical project at a later point in time on a different machine will still install RestKit 0.10.3 even if a newer version is available. CocoaPods will honour the Pod version in `Podfile.lock` unless the dependency is updated in the Podfile or `pod update` is called (which will cause a new `Podfile.lock` to be generated). In this way CocoaPods avoids headaches caused by unexpected changes to dependencies.
 
 This file should always be kept under version control.
 
