@@ -162,34 +162,35 @@
     <article class="content col-md-10 col-md-offset-1">
 
 
-<h2 id="should-i-ignore-the-pods-directory-in-source-control">
-<a class="header-link" href="#should-i-ignore-the-pods-directory-in-source-control">&lt;</a>Should I ignore the Pods directory in source control?</h2>
+<h2 id="should-i-check-the-pods-directory-into-source-control">
+<a class="header-link" href="#should-i-check-the-pods-directory-into-source-control">&lt;</a>Should I check the Pods directory into source control?</h2>
 
-<p>Whether or not you check in your Pods folder is up to you, as workflows vary from project to project. We recommend against adding the Pods directory to your <code>.gitignore</code>. However you should judge for yourself, here are the pros and cons:</p>
+<p>Whether or not you check in your <code>Pods</code> folder is up to you, as workflows vary from project to project. We recommend that you keep the Pods directory under source control, and don't add it to your <code>.gitignore</code>. But ultimately this decision is up to you:</p>
 
-<h3 id="pros">
-<a class="header-link" href="#pros">&lt;</a>Pros</h3>
-
-<ul>
-<li>Smaller repo under source control</li>
-<li>CocoaPods given the availability of the sources is capable to recreate (almost) the same exact installation. </li>
-<li>No conflicts to handle in the dependencies of the management system of source control.</li>
-</ul>
-
-<h3 id="cons">
-<a class="header-link" href="#cons">&lt;</a>Cons</h3>
+<h3 id="benefits-of-checking-in-the-pods-directory">
+<a class="header-link" href="#benefits-of-checking-in-the-pods-directory">&lt;</a>Benefits of checking in the Pods directory</h3>
 
 <ul>
-<li>The sources of the Pods can go down.</li>
-<li>External sources are not recreated perfectly (at the moment the commit is not used) and in some cases will never be (zip files)</li>
-<li>Requires internet connection and the installation of CocoaPods for clients of the project.</li>
+<li>After cloning the repo, the project can immediately build and run, even without having CocoaPods installed on the machine. There is no need to run <code>pod install</code>, and no Internet connection is necessary.</li>
+<li>The Pod artifacts (code/libraries) are always available, even if the source of a Pod (e.g. GitHub) were to go down.</li>
+<li>The Pod artifacts are guaranteed to be identical to those in the original installation after cloning the repo.</li>
 </ul>
 
-<h2 id="what-is-a-podfilelock">
-<a class="header-link" href="#what-is-a-podfilelock">&lt;</a>What is a Podfile.lock</h2>
+<h3 id="benefits-of-ignoring-the-pods-directory">
+<a class="header-link" href="#benefits-of-ignoring-the-pods-directory">&lt;</a>Benefits of ignoring the Pods directory</h3>
 
-<p>This file keeps track of what version of a Pod is installed. For example the
-following dependency might install RestKit 0.10.3:</p>
+<ul>
+<li>The source control repo will be smaller and take up less space.</li>
+<li>As long as the sources (e.g. GitHub) for all Pods are available, CocoaPods is generally able to recreate the same installation. (Technically there is no guarantee that running <code>pod install</code> will fetch and recreate identical artifacts when not using a commit SHA in the Podfile. This is especially true when using zip files in the Podfile.)</li>
+<li>There won't be any conflicts to deal with when performing source control operations, such as merging branches with different Pod versions.</li>
+</ul>
+
+<p>Whether or not you check in the <code>Pods</code> directory, the <code>Podfile</code> and <code>Podfile.lock</code> should always be kept under version control.</p>
+
+<h2 id="what-is-podfilelock">
+<a class="header-link" href="#what-is-podfilelock">&lt;</a>What is <code>Podfile.lock</code>?</h2>
+
+<p>This file is generated after the first run of <code>pod install</code>, and tracks the version of each Pod that was installed. For example, imagine the following dependency specified in the Podfile:</p>
     </article>
     </div>
     </section>
@@ -208,11 +209,7 @@ following dependency might install RestKit 0.10.3:</p>
     <article class="content col-md-10 col-md-offset-1">
 
 
-<p>Thanks to the <code>Podfile.lock</code> every machine which runs pod install on the
-hypothetical project will use RestKit 0.10.3 even if a newer version is
-available. CocoaPods will honour this version unless the dependency is updated
-on the Podfile or <code>pod update</code> is called. In this way CocoaPods avoids headaches
-caused by unexpected changes to dependencies.</p>
+<p>Running <code>pod install</code> will install the current version of RestKit, causing a <code>Podfile.lock</code> to be generated that indicates the exact version installed (e.g. <code>RestKit 0.10.3</code>). Thanks to the <code>Podfile.lock</code>, running <code>pod install</code> on this hypothetical project at a later point in time on a different machine will still install RestKit 0.10.3 even if a newer version is available. CocoaPods will honour the Pod version in <code>Podfile.lock</code> unless the dependency is updated in the Podfile or <code>pod update</code> is called (which will cause a new <code>Podfile.lock</code> to be generated). In this way CocoaPods avoids headaches caused by unexpected changes to dependencies.</p>
 
 <p>This file should always be kept under version control.</p>
 
@@ -303,8 +300,8 @@ caused by unexpected changes to dependencies.</p>
 <li><a href="../contributing/contribute-to-cocoapods.html">How to Contribute</a></li>
 <li><a href="../contributing/components.html">Core Components</a></li>
 <li><a href="../contributing/dev-environment.html">Setting up for Development</a></li>
-<li><a href="../contributing/release-process.html">Release Process</a></li>
 <li><a href="../contributing/tickets-handling.html">Tickets handling</a></li>
+<li><a href="../contributing/release-process.html">Release Process</a></li>
 </ul>
 </div>
 <div class="col-lg-3 col-sm-3 col-xs-6 footer-index">
