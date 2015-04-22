@@ -53,36 +53,33 @@ Integrating CocoaPods with an existing workspace requires one extra line in your
 workspace 'MyWorkspace'
 ```
 
-## Should I ignore the Pods directory in source control?
+## Should I check the Pods directory into source control?
 
-Whether or not you check in your Pods folder is up to you, as workflows vary from project to project. We recommend against adding the Pods directory to your `.gitignore`. However you should judge for yourself, here are the pros and cons:
+Whether or not you check in your `Pods` folder is up to you, as workflows vary from project to project. We recommend that you keep the Pods directory under source control, and don't add it to your `.gitignore`. But ultimately this decision is up to you:
 
-### Pros
+### Benefits of checking in the Pods directory
 
-- Smaller repo under source control
-- CocoaPods given the availability of the sources is capable to recreate (almost) the same exact installation. 
-- No conflicts to handle in the dependencies of the management system of source control.
+- After cloning the repo, the project can immediately build and run, even without having CocoaPods installed on the machine. There is no need to run `pod install`, and no Internet connection is necessary.
+- The Pod artifacts (code/libraries) are always available, even if the source of a Pod (e.g. GitHub) were to go down.
+- The Pod artifacts are guaranteed to be identical to those in the original installation after cloning the repo.
 
-### Cons
+### Benefits of ignoring the Pods directory
 
-- The sources of the Pods can go down.
-- External sources are not recreated perfectly (at the moment the commit is not used) and in some cases will never be (zip files)
-- Requires internet connection and the installation of CocoaPods for clients of the project.
+- The source control repo will be smaller and take up less space.
+- As long as the sources (e.g. GitHub) for all Pods are available, CocoaPods is generally able to recreate the same installation. (Technically there is no guarantee that running `pod install` will fetch and recreate identical artifacts when not using a commit SHA in the Podfile. This is especially true when using zip files in the Podfile.)
+- There won't be any conflicts to deal with when performing source control operations, such as merging branches with different Pod versions.
 
-## What is a Podfile.lock
+Whether or not you check in the `Pods` directory, the `Podfile` and `Podfile.lock` should always be kept under version control.
 
-This file keeps track of what version of a Pod is installed. For example the
-following dependency might install RestKit 0.10.3:
+## What is `Podfile.lock`?
+
+This file is generated after the first run of `pod install`, and tracks the version of each Pod that was installed. For example, imagine the following dependency specified in the Podfile:
 
 ```ruby
 pod 'RestKit'
 ```
 
-Thanks to the `Podfile.lock` every machine which runs pod install on the
-hypothetical project will use RestKit 0.10.3 even if a newer version is
-available. CocoaPods will honour this version unless the dependency is updated
-on the Podfile or `pod update` is called. In this way CocoaPods avoids headaches
-caused by unexpected changes to dependencies.
+Running `pod install` will install the current version of RestKit, causing a `Podfile.lock` to be generated that indicates the exact version installed (e.g. `RestKit 0.10.3`). Thanks to the `Podfile.lock`, running `pod install` on this hypothetical project at a later point in time on a different machine will still install RestKit 0.10.3 even if a newer version is available. CocoaPods will honour the Pod version in `Podfile.lock` unless the dependency is updated in the Podfile or `pod update` is called (which will cause a new `Podfile.lock` to be generated). In this way CocoaPods avoids headaches caused by unexpected changes to dependencies.
 
 This file should always be kept under version control.
 
