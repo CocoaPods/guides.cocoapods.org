@@ -10,7 +10,7 @@ The only exception is for the pages describing the **reference syntaxes**, which
 
  * The [Podfile syntax](https://guides.cocoapods.org/syntax/podfile.html) page is generated from [those documentation comments](https://github.com/CocoaPods/Core/blob/master/lib/cocoapods-core/podfile/dsl.rb)
  * The [Podspec syntax](https://guides.cocoapods.org/syntax/podspec.html) page is generated from [those documentation comments](https://github.com/CocoaPods/Core/blob/master/lib/cocoapods-core/specification/dsl.rb)
- * The [Command Line API](https://guides.cocoapods.org/terminal/commands.html) page is generated from [those documentation comments]()
+ * The [Command Line API](https://guides.cocoapods.org/terminal/commands.html) page is generated from [the various source files here](https://github.com/CocoaPods/CocoaPods/tree/master/lib/cocoapods/command) and from [those template files](https://github.com/CocoaPods/guides.cocoapods.org/blob/master/source/templates/commands.html.slim#L26-L44)
 
 ###How do I make a change?
 
