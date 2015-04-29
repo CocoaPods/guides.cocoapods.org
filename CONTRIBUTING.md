@@ -4,7 +4,13 @@ This repository is for user guides on how to use CocoaPods. It replaces the mult
 
 ###Where is the content?
 
-You can find all of the guides source in `/source`. Each section is then broken down into its own content folder. So the guides for using CocoaPods can be found in `/source/using`. Also, if you view a page on guides, there is a link at the bottom of the footer to the source page in this repo.
+You can find almost all of the guides source in `/source`. Each section is then broken down into its own content folder. So the guides for using CocoaPods can be found in `/source/using`. Also, if you view a page on guides, there is a link at the bottom of the footer to the source page in this repo.
+
+The only exception is for the pages describing the **reference syntaxes**, which are dynamically generated from the Ruby documentation of the source code:
+
+ * The [Podfile syntax](https://guides.cocoapods.org/syntax/podfile.html) page is generated from [those documentation comments](https://github.com/CocoaPods/Core/blob/master/lib/cocoapods-core/podfile/dsl.rb)
+ * The [Podspec syntax](https://guides.cocoapods.org/syntax/podspec.html) page is generated from [those documentation comments](https://github.com/CocoaPods/Core/blob/master/lib/cocoapods-core/specification/dsl.rb)
+ * The [Command Line API](https://guides.cocoapods.org/terminal/commands.html) page is generated from [the various source files here](https://github.com/CocoaPods/CocoaPods/tree/master/lib/cocoapods/command) and from [those template files](https://github.com/CocoaPods/guides.cocoapods.org/blob/master/source/templates/commands.html.slim#L26-L44)
 
 ###How do I make a change?
 
