@@ -4,7 +4,9 @@ This repository is for user guides on how to use CocoaPods. It replaces the mult
 
 ###Where is the content?
 
-You can find all of the guides source in `/source`. Each section is then broken down into its own content folder. So the guides for using CocoaPods can be found in `/source/using`. Also, if you view a page on guides, there is a link at the bottom of the footer to the source page in this repo.
+You can find almost all of the guides source in `/source`. Each section is then broken down into its own content folder. So the guides for using CocoaPods can be found in `/source/using`. Also, if you view a page on guides, there is a link at the bottom of the footer to the source page in this repo.
+
+The only exception is for the pages describing the Podfile and Podspec syntaxes, whichare dynamically generated from the Ruby documentation of the source code, which you can find [here](https://github.com/CocoaPods/Core/blob/master/lib/cocoapods-core/podfile/dsl.rb) for the Podfile syntax and [here](https://github.com/CocoaPods/Core/blob/master/lib/cocoapods-core/specification/dsl.rb) for the Podspec syntax.
 
 ###How do I make a change?
 
