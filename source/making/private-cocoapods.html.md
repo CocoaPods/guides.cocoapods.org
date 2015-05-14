@@ -13,19 +13,9 @@ CocoaPods is a great tool not only for adding open source code to your project, 
 There are a few steps to getting a private pods setup for your project; creating a private repository for them, letting CocoaPods know where to find it and adding the podspecs to the repository.
 
 ###1. Create a Private Spec Repo
-To work with your collection of private pods, we suggest creating your own Spec repo.
+To work with your collection of private pods, we suggest creating your own Spec repo. This should be in a location that is accessible to all who will use the repo.
 
 **You do not need to fork the CocoaPods/Specs Master repo.** Make sure that everyone on your team has access to this repo, but it does not need to be public.
-
-> The structure of your repo should mirror this:
-
-```
-.
-├── Specs
-    └── [SPEC_NAME]
-        └── [VERSION]
-            └── [SPEC_NAME].podspec
-```
 
 ###2. Add your Private Repo to your CocoaPods installation
 ```shell
@@ -42,7 +32,7 @@ $ pod repo lint .
 
 ###3. Add your Podspec to your repo
 
-> Make sure you've tagged and versioned your source, then run:
+> Make sure you've tagged and versioned your source appropriately, then run:
 
 ```shell
 $ pod repo push REPO_NAME SPEC_NAME.podspec
@@ -50,11 +40,21 @@ $ pod repo push REPO_NAME SPEC_NAME.podspec
 
 This will run `pod spec lint`, and take care of all the little details for setting up the spec in your private repo.
 
+> The structure of your repo should mirror this:
+
+```
+.
+├── Specs
+    └── [SPEC_NAME]
+        └── [VERSION]
+            └── [SPEC_NAME].podspec
+```
+
 ## That's it!
 
-Your private Pod is ready to be used in a Podfile. You can use your spec
-repository using the [`source` directive](/syntax/podfile.html#source)
-as shown in the following example:
+Your private Pod is ready to be used in a Podfile. You can use the spec
+repository with the [`source` directive](/syntax/podfile.html#source)
+in your Podfile as shown in the following example:
 
 ```ruby
 source 'URL_TO_REPOSITORY'
