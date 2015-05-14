@@ -49,34 +49,9 @@
 <h3 id="-create-a-private-spec-repo">
 <a class="header-link" href="#-create-a-private-spec-repo">&lt;</a>1. Create a Private Spec Repo</h3>
 
-<p>To work with your collection of private pods, we suggest creating your own Spec repo.</p>
+<p>To work with your collection of private pods, we suggest creating your own Spec repo. This should be in a location that is accessible to all who will use the repo.</p>
 
 <p><strong>You do not need to fork the CocoaPods/Specs Master repo.</strong> Make sure that everyone on your team has access to this repo, but it does not need to be public.</p>
-
-<blockquote>
-<p>The structure of your repo should mirror this:</p>
-</blockquote>
-    </article>
-    </div>
-    </section>
-  
-    <div class="code-break">
-    <section class="container">
-    <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight plaintext">.
-├── Specs
-    └── [SPEC_NAME]
-        └── [VERSION]
-            └── [SPEC_NAME].podspec
-</code></pre>    </article>
-    </div>
-    </section>
-    </div>
-  
-    <section class="container ">
-    <div class="row">
-    <article class="content col-md-10 col-md-offset-1">
-
 
 <h3 id="-add-your-private-repo-to-your-cocoapods-installation">
 <a class="header-link" href="#-add-your-private-repo-to-your-cocoapods-installation">&lt;</a>2. Add your Private Repo to your CocoaPods installation</h3>
@@ -126,7 +101,7 @@
 <a class="header-link" href="#-add-your-podspec-to-your-repo">&lt;</a>3. Add your Podspec to your repo</h3>
 
 <blockquote>
-<p>Make sure you've tagged and versioned your source, then run:</p>
+<p>Make sure you've tagged and versioned your source appropriately, then run:</p>
 </blockquote>
     </article>
     </div>
@@ -148,12 +123,37 @@
 
 <p>This will run <code>pod spec lint</code>, and take care of all the little details for setting up the spec in your private repo.</p>
 
+<blockquote>
+<p>The structure of your repo should mirror this:</p>
+</blockquote>
+    </article>
+    </div>
+    </section>
+  
+    <div class="code-break">
+    <section class="container">
+    <div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight plaintext">.
+├── Specs
+    └── [SPEC_NAME]
+        └── [VERSION]
+            └── [SPEC_NAME].podspec
+</code></pre>    </article>
+    </div>
+    </section>
+    </div>
+  
+    <section class="container ">
+    <div class="row">
+    <article class="content col-md-10 col-md-offset-1">
+
+
 <h2 id="thats-it">
 <a class="header-link" href="#thats-it">&lt;</a>That's it!</h2>
 
-<p>Your private Pod is ready to be used in a Podfile. You can use your spec
-repository using the <a href="../syntax/podfile.html#source"><code>source</code> directive</a>
-as shown in the following example:</p>
+<p>Your private Pod is ready to be used in a Podfile. You can use the spec
+repository with the <a href="../syntax/podfile.html#source"><code>source</code> directive</a>
+in your Podfile as shown in the following example:</p>
     </article>
     </div>
     </section>
@@ -171,6 +171,198 @@ as shown in the following example:</p>
     <div class="row">
     <article class="content col-md-10 col-md-offset-1">
 
+
+<h2 id="an-example">
+<a class="header-link" href="#an-example">&lt;</a>An Example</h2>
+
+<h3 id="-create-a-private-spec-repo">
+<a class="header-link" href="#-create-a-private-spec-repo">&lt;</a>1. Create a Private Spec Repo</h3>
+
+<blockquote>
+<p>Create a repo on your server. This can be acheived on Github or on your own server as follows</p>
+</blockquote>
+    </article>
+    </div>
+    </section>
+  
+    <div class="code-break">
+    <section class="container">
+    <div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight shell"><span class="gp">$ </span><span class="nb">cd</span> /opt/git
+<span class="gp">$ </span>mkdir Specs.git
+<span class="gp">$ </span><span class="nb">cd </span>Specs.git
+<span class="gp">$ </span>git init --bare
+</code></pre>    </article>
+    </div>
+    </section>
+    </div>
+  
+    <section class="container ">
+    <div class="row">
+    <article class="content col-md-10 col-md-offset-1">
+
+
+<p>(The rest of this example uses the repo at <a href="https://github.com/artsy/Specs">https://github.com/artsy/Specs</a>)</p>
+
+<h3 id="-add-your-repo-to-your-cocoapods-installation">
+<a class="header-link" href="#-add-your-repo-to-your-cocoapods-installation">&lt;</a>2. Add your repo to your CocoaPods installation</h3>
+
+<blockquote>
+<p>Using the URL of your repo on your server, add your repo using</p>
+</blockquote>
+    </article>
+    </div>
+    </section>
+  
+    <div class="code-break">
+    <section class="container">
+    <div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight shell"><span class="gp">$ </span>pod repo add artsy-specs git@github:artsy/Specs.git
+</code></pre>    </article>
+    </div>
+    </section>
+    </div>
+  
+    <section class="container ">
+    <div class="row">
+    <article class="content col-md-10 col-md-offset-1">
+
+
+<blockquote>
+<p>Check your installation is successful and ready to go:</p>
+</blockquote>
+    </article>
+    </div>
+    </section>
+  
+    <div class="code-break">
+    <section class="container">
+    <div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight shell"><span class="gp">$ </span><span class="nb">cd</span> ~/.cocoapods/repos/artsy-specs
+<span class="gp">$ </span>pod repo lint .
+</code></pre>    </article>
+    </div>
+    </section>
+    </div>
+  
+    <section class="container ">
+    <div class="row">
+    <article class="content col-md-10 col-md-offset-1">
+
+
+<h3 id="-add-your-podspec-to-your-repo">
+<a class="header-link" href="#-add-your-podspec-to-your-repo">&lt;</a>3. Add your Podspec to your repo</h3>
+
+<blockquote>
+<p>Create your Podspec</p>
+</blockquote>
+    </article>
+    </div>
+    </section>
+  
+    <div class="code-break">
+    <section class="container">
+    <div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight shell"><span class="nb">cd</span> ~/Desktop
+touch Artsy+OSSUIFonts.podspec
+</code></pre>    </article>
+    </div>
+    </section>
+    </div>
+  
+    <section class="container ">
+    <div class="row">
+    <article class="content col-md-10 col-md-offset-1">
+
+
+<blockquote>
+<p>Artsy+OSSUIFonts.podspec should be opened in the text editor of your choice. Typical contents are </p>
+</blockquote>
+    </article>
+    </div>
+    </section>
+  
+    <div class="code-break">
+    <section class="container">
+    <div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight plaintext">Pod::Spec.new do |s|
+  s.name             = "Artsy+OSSUIFonts"
+  s.version          = "1.1.1"
+  s.summary          = "The open source fonts for Artsy apps + UIFont categories."
+  s.homepage         = "https://github.com/artsy/Artsy-OSSUIFonts"
+  s.license          = 'Code is MIT, then custom font licenses.'
+  s.author           = { "Orta" =&gt; "orta.therox@gmail.com" }
+  s.source           = { :git =&gt; "https://github.com/artsy/Artsy-OSSUIFonts.git", :tag =&gt; s.version }
+  s.social_media_url = 'https://twitter.com/artsy'
+
+  s.platform     = :ios, '7.0'
+  s.requires_arc = true
+
+  s.source_files = 'Pod/Classes'
+  s.resources = 'Pod/Assets/*'
+
+  s.frameworks = 'UIKit', 'CoreText'
+  s.module_name = 'Artsy_UIFonts'
+end
+</code></pre>    </article>
+    </div>
+    </section>
+    </div>
+  
+    <section class="container ">
+    <div class="row">
+    <article class="content col-md-10 col-md-offset-1">
+
+
+<blockquote>
+<p>Save your Podspec and add to the repo</p>
+</blockquote>
+    </article>
+    </div>
+    </section>
+  
+    <div class="code-break">
+    <section class="container">
+    <div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight shell">pod repo push artsy-specs ~/Desktop/Artsy+OSSUIFonts.podspec
+</code></pre>    </article>
+    </div>
+    </section>
+    </div>
+  
+    <section class="container ">
+    <div class="row">
+    <article class="content col-md-10 col-md-offset-1">
+
+
+<blockquote>
+<p>Assuming your Podspec validates, it will be added to the repo.  The repo will now look like this</p>
+</blockquote>
+    </article>
+    </div>
+    </section>
+  
+    <div class="code-break">
+    <section class="container">
+    <div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight plaintext">.
+├── Specs
+    └── Artsy+OSSUIFonts
+        └── 1.1.1
+            └── Artsy+OSSUIFonts.podspec
+</code></pre>    </article>
+    </div>
+    </section>
+    </div>
+  
+    <section class="container ">
+    <div class="row">
+    <article class="content col-md-10 col-md-offset-1">
+
+
+<blockquote>
+<p>See this <a href="https://github.com/artsy/eigen/blob/master/Podfile">Podfile</a> for an example of how the repo URL is included</p>
+</blockquote>
 
 <h2 id="how-to-remove-a-private-repo">
 <a class="header-link" href="#how-to-remove-a-private-repo">&lt;</a>How to remove a Private Repo</h2>
@@ -216,8 +408,8 @@ as shown in the following example:</p>
 <h3><a href="../contributing/index.html">Contributing</a></h3>
 <ul>
 <li><a href="../contributing/contribute-to-cocoapods.html">How to Contribute</a></li>
-<li><a href="../contributing/components.html">Core Components</a></li>
 <li><a href="../contributing/dev-environment.html">Setting up for Development</a></li>
+<li><a href="../contributing/components.html">Core Components</a></li>
 <li><a href="../contributing/release-process.html">Release Process</a></li>
 <li><a href="../contributing/tickets-handling.html">Tickets handling</a></li>
 </ul>
