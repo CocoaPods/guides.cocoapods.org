@@ -68,17 +68,22 @@
 <p>Note: you can add another parameter with a git repo address to use your own <a href="https://github.com/cocoapods/pod-template">pod-template</a> <br>Second Note: you can press return to select the default (underlined) option</p>
 </blockquote>
 
+<h2 id="objective-c-or-swift">
+<a class="header-link" href="#objective-c-or-swift">&lt;</a>Objective-C or Swift</h2>
+
+<p>The first question you're asked is what language you want to build a pod in. For both choices CocoaPods will set up your library as a framework.</p>
+
 <h2 id="making-a-demo-application">
 <a class="header-link" href="#making-a-demo-application">&lt;</a>Making a Demo Application</h2>
 
-<p>The template will generate an Xcode project for your library. This means you don't have to go through creating a new project in Xcode. </p>
+<p>The template will generate an Xcode project for your library. This means you don't have to go through creating a new project in Xcode.</p>
 
 <p>If you want to have an example project for <code>pod try MyLib</code> or need to have your library's tests run inside an application ( interaction tests, custom fonts, etc ) then you should say yes. A good metric is <em>"Should this Pod include a screenshot?"</em>; if so, then you should have a demo.</p>
 
 <h2 id="choosing-a-test-framework">
 <a class="header-link" href="#choosing-a-test-framework">&lt;</a>Choosing a Test Framework</h2>
 
-<p>You should be testing your library. Testing ensures stability for people using your library. In open source libraries this means people can make changes knowing that they haven't broken implicit expectations. We recommend using a testing framework rather than relying on Apple's XCTest. We include two popular testing frameworks; Specta/Expecta and Kiwi. If you can't decide, use Specta/Expecta.</p>
+<p>You should be testing your library. Testing ensures stability for people using your library. In open source libraries this means people can make changes knowing that they haven't broken implicit expectations. We recommend using a testing framework rather than relying on Apple's XCTest but that is included. In Objective-C we include a choice of two popular testing frameworks; Specta/Expecta and Kiwi. If you can't decide, use Specta/Expecta.</p>
 
 <p><article class="col-md-6 col-lg-6">
 <h4>Specta/Expecta<h4></h4>
@@ -100,15 +105,17 @@
 
 <p>The major differences is that Kiwi is an all-in-one approach to Stubs/Mocks/Expectations whereas Specta/Expecta is a modular approach through different Podspecs. We include all the necessary includes and setup for your testing framework in <code>MyLib-Tests.pch</code> so that you don't have to include them in each file.</p>
 
+<p>In Swift we only offer the choice of <a href="https://github.com/Quick/Quick">Quick/Nimble</a> as this looks to be the dominant testing library.</p>
+
 <h2 id="view-based-testing">
 <a class="header-link" href="#view-based-testing">&lt;</a>View-based Testing</h2>
 
-<p>Depending on what library you are building you may find Snapshot based testing to be a smart way to verify the results of <a href="https://github.com/neilang/NAMapKit/blob/master/Demo/DemoTests/NAInteractiveDemoViewControllerTests.m">different</a> <a href="https://github.com/orta/ORStackView/blob/master/ORStackViewExampleTests/ORFourthViewControllerTests.m">actions</a> <a href="https://github.com/liaojinxing/StarRatingView/blob/599390e258b44e8efe2121356bac5d74494086f9/StarRatingViewTests/StarRatingViewTests.m">on</a> <a href="https://github.com/AshFurrow/ARCollectionViewMasonryLayout/blob/58f2b987756bd1d1b710a74c51aa48204006fc99/IntegrationTests/ARCollectionViewMasonryLayoutTests.m">your</a> <a href="https://github.com/yujinakayama/NAKPlaybackIndicatorView/blob/b81c29b399e109c56024eefdffd89dfd606d662c/Tests/SnapshotTests.m">views</a>. We recommend using <a href="https://github.com/facebook/ios-snapshot-test-case">FBSnapShotTestCase</a>, if you are using Specta/Expecta then we <a href="https://github.com/dblock/ios-snapshot-test-case-expecta">include a Pod</a> to improve the syntax. The guide author also recommends this Xcode plugin: <a href="https://github.com/orta/snapshots">Snapshots</a>.</p>
+<p>Depending on what library you are building you may find Snapshot based testing to be a smart way to verify the results of <a href="https://github.com/neilang/NAMapKit/blob/master/Demo/DemoTests/NAInteractiveDemoViewControllerTests.m">different</a> <a href="https://github.com/orta/ORStackView/blob/master/ORStackViewExampleTests/ORFourthViewControllerTests.m">actions</a> <a href="https://github.com/liaojinxing/StarRatingView/blob/599390e258b44e8efe2121356bac5d74494086f9/StarRatingViewTests/StarRatingViewTests.m">on</a> <a href="https://github.com/AshFurrow/ARCollectionViewMasonryLayout/blob/58f2b987756bd1d1b710a74c51aa48204006fc99/IntegrationTests/ARCollectionViewMasonryLayoutTests.m">your</a> <a href="https://github.com/yujinakayama/NAKPlaybackIndicatorView/blob/b81c29b399e109c56024eefdffd89dfd606d662c/Tests/SnapshotTests.m">views</a>. We recommend using <a href="https://github.com/facebook/ios-snapshot-test-case">FBSnapShotTestCase</a>, if you are using Specta/Expecta then we <a href="https://github.com/dblock/ios-snapshot-test-case-expecta">include a Pod</a> to improve the syntax.</p>
 
-<h2 id="prefixes">
-<a class="header-link" href="#prefixes">&lt;</a>Prefixes</h2>
+<h2 id="prefixes-for-objective-c">
+<a class="header-link" href="#prefixes-for-objective-c">&lt;</a>Prefixes for Objective-C</h2>
 
-<p>To wrap up we want to know your class prefix. This means that we can make all the classes generated by CocoaPods fit in with your style, also all classes generated from inside Xcode will start with your prefix.</p>
+<p>To wrap up an Objective-C project we want to know your class prefix. This means that we can make all the classes generated by CocoaPods fit in with your style, also all classes generated from inside Xcode will start with your prefix. We know that Apple is deprecating prefixes, but in reality they still have their place in Objective-C codebases.</p>
 
 <h2 id="the-pod-lib-create-template">
 <a class="header-link" href="#the-pod-lib-create-template">&lt;</a>The Pod Lib Create Template</h2>
@@ -138,6 +145,7 @@
   ├── Pod
   │   ├── Assets
   │   └── Classes
+  │     └── RemoveMe.[swift/m]
   └── README.md
 </code></pre>    </article>
     </div>
@@ -153,15 +161,15 @@
 
 <ul>
 <li>
-<code>.travis.yml</code> - a setup file for <a href="https://travis-ci.org/">travis-ci</a>
-</li>
+<code>.travis.yml</code> - a setup file for <a href="https://travis-ci.org/">travis-ci</a>.</li>
 <li>
-<code>LICENSE</code> - defaulting to the <a href="http://en.wikipedia.org/wiki/MIT_License">MIT License</a>
-</li>
+<code>LICENSE</code> - defaulting to the <a href="http://en.wikipedia.org/wiki/MIT_License">MIT License</a>.</li>
 <li>
-<code>MyLib.podspec</code> - the Podspec for your Library</li>
+<code>MyLib.podspec</code> - the Podspec for your Library.</li>
 <li>
-<code>README.md</code> - a default README in markdown</li>
+<code>README.md</code> - a default README in markdown.</li>
+<li>
+<code>RemoveMe.swift/m</code> - a single file to to ensure compilation works initially.</li>
 </ul>
 
 <p>and the following folders:</p>
@@ -196,13 +204,7 @@
 <p>Development Pods are different from normal CocoaPods in that they are symlinked files, so making edits to them will change the original files, so you can work on your library from inside Xcode. Your demo &amp; tests will need to include references to headers using the <code>#import &lt;MyLib/XYZ.h&gt;</code> format.</p>
 
 <blockquote>
-<p><code>[!] Note:</code> Due to a current Development Pods implementation detail, when you add new/existing files to <code>Pod/Classes</code> or <code>Pod/Assets</code> or update your podspec, you should run <code>pod install</code> or <code>pod update</code>.</p>
-</blockquote>
-
-<!-- -->
-
-<blockquote>
-<p><code>[!] Note:</code> Whenever you update your podspec’s version, you must run <code>pod update</code> or <code>pod update POD_NAME</code> instead of <code>pod install</code>.</p>
+<p><code>[!] Note:</code> Due to a Development Pods implementation detail, when you add new/existing files to <code>Pod/Classes</code> or <code>Pod/Assets</code> or update your podspec, you should run <code>pod install</code> or <code>pod update</code>.</p>
 </blockquote>
 
 <h2 id="adding-travis-ci">
@@ -218,9 +220,9 @@
 <h2 id="deploying-your-library">
 <a class="header-link" href="#deploying-your-library">&lt;</a>Deploying your Library</h2>
 
-<p>So you've got your library ready to go. First you should check if the Podspec lints correctly, as you can't deploy with errors. This can be done with two methods, <code>pod lib lint</code> and <code>pod spec lint</code>. The difference between them is that <code>pod lib lint</code> does not access the network, whereas <code>pod spec lint</code> checks the repo and tag.</p>
+<p>So you've got your library ready to go. First you should check if the Podspec lints correctly, as you can't deploy with errors. This can be done with two methods, <code>pod lib lint</code> and <code>pod spec lint</code>. The difference between them is that <code>pod lib lint</code> does not access the network, whereas <code>pod spec lint</code> checks the external repo and associated tag.</p>
 
-<p>If you're deploying an Open Source library to <a href="https://guides.cocoapods.org/making/getting-setup-with-trunk">trunk</a>, you cannot have CocoaPods warnings. You can have Xcode warnings. You should continue to the <a href="https://guides.cocoapods.org/making/getting-setup-with-trunk">getting started with trunk</a> guide to deploy to the public.</p>
+<p>If you're deploying an Open Source library to <a href="https://guides.cocoapods.org/making/getting-setup-with-trunk">trunk</a>, you cannot have CocoaPods warnings. You can have Xcode warnings though. You should continue to the <a href="https://guides.cocoapods.org/making/getting-setup-with-trunk">getting started with trunk</a> guide to deploy to the public.</p>
 
 <p>If you're deploying to a private Specs repo, you will need to have already added that repo. See the guides on <a href="https://guides.cocoapods.org/making/private-cocoapods">Private Specs Repos</a> to set that up. If you are deploying to an existing Private Repo, use this command to deploy:</p>
     </article>
@@ -272,10 +274,10 @@
 <h3><a href="index.html">Making CocoaPods</a></h3>
 <ul>
 <li><a href="making-a-cocoapod.html">Making a CocoaPod</a></li>
-<li><a href="using-pod-lib-create.html">Using Pod Lib Create</a></li>
 <li><a href="specs-and-specs-repo.html">Specs and the Specs Repo</a></li>
-<li><a href="getting-setup-with-trunk.html">Getting setup with Trunk</a></li>
+<li><a href="using-pod-lib-create.html">Using Pod Lib Create</a></li>
 <li><a href="private-cocoapods.html">Private Pods</a></li>
+<li><a href="getting-setup-with-trunk.html">Getting setup with Trunk</a></li>
 </ul>
 </div>
 <div class="clearfix visible-xs"></div>
@@ -283,8 +285,8 @@
 <h3><a href="../contributing/index.html">Contributing</a></h3>
 <ul>
 <li><a href="../contributing/contribute-to-cocoapods.html">How to Contribute</a></li>
-<li><a href="../contributing/dev-environment.html">Setting up for Development</a></li>
 <li><a href="../contributing/components.html">Core Components</a></li>
+<li><a href="../contributing/dev-environment.html">Setting up for Development</a></li>
 <li><a href="../contributing/release-process.html">Release Process</a></li>
 <li><a href="../contributing/tickets-handling.html">Tickets handling</a></li>
 </ul>
