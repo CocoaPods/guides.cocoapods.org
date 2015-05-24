@@ -33,7 +33,7 @@ To create a new project with CocoaPods, follow these simple steps:
 * Open your Podfile. The first line should specify the platform and version supported.
 
 ```ruby
-platform :ios, '6.0'
+platform :ios, '8.0'
 ````
 
 * Add a CocoaPod by specifying `pod '$PODNAME'` on a single line
@@ -98,7 +98,7 @@ In Xcode, with references directly from the [ruby source](https://github.com/Coc
   * Script: `${SRCROOT}/Pods/PodsResources.sh`
 
 <!-- (Expand the ‘To add a new build configuration…’ section of the linked page for a howto.) -->
-  
+
 Note that steps 3 onwards are skipped if the CocoaPods static library is already in your project. This is largely based on Jonah Williams' work on [Static Libraries](http://blog.carbonfive.com/2011/04/04/using-open-source-static-libraries-in-xcode-4).
 
 ## Pods and Submodules
