@@ -119,7 +119,7 @@ In general this means that:
 
 ## How do I update an existing Pod?
 
-1. Create your Podspec as described described above.
+1. Create your Podspec as described above.
 2. Run `pod spec lint` to check for errors.
 3. Submit your Podspec to Trunk with `pod trunk push NAME.podspec`
 
