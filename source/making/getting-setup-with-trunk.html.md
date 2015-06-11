@@ -27,7 +27,7 @@ Trunk accounts do not have passwords, only per-computer session tokens.
 
 ### Deploying a library
 
-`pod trunk push [PATH]` will deploy your Podspec to Trunk and make it publicly available. You can also deploy Podspecs to your own private specs repo with `pod repo push REPO [NAME.podspec]`.
+`pod trunk push [NAME.podspec]` will deploy your Podspec to Trunk and make it publicly available. You can also deploy Podspecs to your own private specs repo with `pod repo push REPO [NAME.podspec]`.
 
 Deploying with `push`:
 
