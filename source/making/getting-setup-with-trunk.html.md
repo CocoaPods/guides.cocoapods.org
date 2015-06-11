@@ -7,7 +7,7 @@ description: Instructions for creating a CocoaPods user account
 
 ## CocoaPods Trunk
 
-CocoaPods Trunk is an authentication and CocoaPods API service. To publish new or updated libraries to CocoaPods for public release you will need to be registered with Trunk and have a valid Trunk session on your current device. You can read about Trunk's history and development on [the blog](https://blog.cocoapods.org/CocoaPods-Trunk/), and about [private pods](http://guides.cocoapods.org/making/private-cocoapods.html) for yourself or your team.
+CocoaPods Trunk is an authentication and CocoaPods API service. To publish new or updated libraries to CocoaPods for public release you will need to be registered with Trunk and have a valid Trunk session on your current device. You can read about Trunk's history and development on [the blog](https://blog.cocoapods.org/CocoaPods-Trunk/), and about [private pods](private-cocoapods.html) for yourself or your team.
 
 CocoaPods Trunk is available starting with CocoaPods 0.33. A collection of commands under `pod trunk` automate the deployment and management of your Podspecs. At any time you can run `pod trunk [command] --help` to see inline help.
 
@@ -44,7 +44,7 @@ The first person to push a Podspec version to Trunk can add other maintainers. F
 ```
 $ pod trunk add-owner ARAnalytics kyle@cocoapods.org
 ```
- 
+
 This will then list all the known library owners.
 
 ### Claiming an existing library
