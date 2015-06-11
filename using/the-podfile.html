@@ -48,7 +48,7 @@
 <p>The Podfile is a specification that describes the dependencies of the
  targets of one or more Xcode projects. The Podfile always creates an
  implicit target, named <code>default</code>, which links to the <em>first target</em> of the
- user project. The file should simply be named <code>Podfile</code>. </p>
+ user project. The file should simply be named <code>Podfile</code>.</p>
 
 <blockquote>
 <p>A Podfile can be very simple:</p>
@@ -60,8 +60,7 @@
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">source</span> <span class="s1">'https://github.com/CocoaPods/Specs.git'</span>
-<span class="n">pod</span> <span class="s1">'AFNetworking'</span><span class="p">,</span> <span class="s1">'~&gt; 1.0'</span>
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">pod</span> <span class="s1">'AFNetworking'</span><span class="p">,</span> <span class="s1">'~&gt; 2.0'</span>
 </code></pre>    </article>
     </div>
     </section>
@@ -83,13 +82,15 @@
     <section class="container">
     <div class="row">
     <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">source</span> <span class="s1">'https://github.com/CocoaPods/Specs.git'</span>
+<span class="n">source</span> <span class="s1">'https://github.com/Artsy/Specs.git'</span>
 
-<span class="n">platform</span> <span class="p">:</span><span class="n">ios</span><span class="p">,</span> <span class="s1">'6.0'</span>
+<span class="n">platform</span> <span class="p">:</span><span class="n">ios</span><span class="p">,</span> <span class="s1">'8.0'</span>
 <span class="n">inhibit_all_warnings!</span>
 
 <span class="n">xcodeproj</span> <span class="s1">'MyProject'</span>
 
 <span class="n">pod</span> <span class="s1">'ObjectiveSugar'</span><span class="p">,</span> <span class="s1">'~&gt; 0.5'</span>
+<span class="n">pod</span> <span class="s1">'Artsy+UILabels'</span><span class="p">,</span> <span class="s1">'~&gt; 1.0'</span>
 
 <span class="n">target</span> <span class="p">:</span><span class="nb">test</span> <span class="k">do</span>
     <span class="n">pod</span> <span class="s1">'OCMock'</span><span class="p">,</span> <span class="s1">'~&gt; 2.0.1'</span>
@@ -123,7 +124,7 @@
     <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">platform</span> <span class="p">:</span><span class="n">osx</span><span class="p">,</span> <span class="s1">'10.7'</span>
 
 <span class="n">link_with</span> <span class="s1">'MyApp'</span><span class="p">,</span> <span class="s1">'MyApp Tests'</span>
-<span class="n">pod</span> <span class="s1">'AFNetworking'</span><span class="p">,</span> <span class="s1">'~&gt; 1.0'</span>
+<span class="n">pod</span> <span class="s1">'AFNetworking'</span><span class="p">,</span> <span class="s1">'~&gt; 2.0'</span>
 <span class="n">pod</span> <span class="s1">'Objection'</span><span class="p">,</span> <span class="s1">'0.9'</span>
 </code></pre>    </article>
     </div>
@@ -438,10 +439,10 @@ to use one of the approaches outlined in the sections below.</p>
 <h3><a href="../making/index.html">Making CocoaPods</a></h3>
 <ul>
 <li><a href="../making/making-a-cocoapod.html">Making a CocoaPod</a></li>
-<li><a href="../making/specs-and-specs-repo.html">Specs and the Specs Repo</a></li>
 <li><a href="../making/using-pod-lib-create.html">Using Pod Lib Create</a></li>
-<li><a href="../making/private-cocoapods.html">Private Pods</a></li>
+<li><a href="../making/specs-and-specs-repo.html">Specs and the Specs Repo</a></li>
 <li><a href="../making/getting-setup-with-trunk.html">Getting setup with Trunk</a></li>
+<li><a href="../making/private-cocoapods.html">Private Pods</a></li>
 </ul>
 </div>
 <div class="clearfix visible-xs"></div>
