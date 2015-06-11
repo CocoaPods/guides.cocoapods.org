@@ -42,19 +42,19 @@
 <li><a href="https://blog.cocoapods.org">Blog</a></li>
 </ul></div></section></nav><section class="container"><div class="row"><header class="header content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h1>Getting setup with Trunk</h1></header></div></section><div class="guide" id="content-wrapper">
 <section class="container"><div class="row">
-<article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h2 id="what-do-i-need-to-know-about-trunk">
-<a class="header-link" href="#what-do-i-need-to-know-about-trunk">&lt;</a>What do I need to know about trunk</h2>
+<article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h2 id="cocoapods-trunk">
+<a class="header-link" href="#cocoapods-trunk">&lt;</a>CocoaPods Trunk</h2>
 
-<p>The CocoaPods trunk is an authentication &amp; CocoaPods API service. In order to submit libraries to CocoaPods you will need to have to be registered and have a session on that device. You can read a little about it's history and development on <a href="https://blog.cocoapods.org/CocoaPods-Trunk/">the blog</a>.</p>
+<p>CocoaPods Trunk is an authentication and CocoaPods API service. To publish new or updated libraries to CocoaPods for public release you will need to be registered with Trunk and have a valid Trunk session on your current device. You can read about Trunk's history and development on <a href="https://blog.cocoapods.org/CocoaPods-Trunk/">the blog</a>, and about <a href="private-cocoapods.html">private pods</a> for yourself or your team.</p>
 
-<p>From CocoaPods 0.33 on-wards we have a collection of commands under <code>pod trunk</code> to deal with automating the deployment and management of your Podspecs. At any time you can run <code>pod trunk [command] --help</code> to see inline help.</p>
+<p>CocoaPods Trunk is available starting with CocoaPods 0.33. A collection of commands under <code>pod trunk</code> automate the deployment and management of your Podspecs. At any time you can run <code>pod trunk [command] --help</code> to see inline help.</p>
 
 <h3 id="getting-started">
 <a class="header-link" href="#getting-started">&lt;</a>Getting started</h3>
 
-<p>Get started by signing up for an account with the command <code>pod trunk register</code>, think of this as registering this single device rather than registering a user account. </p>
+<p>First sign up for an account with your email address. This begins a session on your current device.</p>
 
-<p>We recommend using the full command to give some context when you look at your sessions later, so for example:</p>
+<p>We recommend including a description with your session to give some context when you list your sessions later. For example:</p>
     </article>
     </div>
     </section>
@@ -73,27 +73,30 @@
     <article class="content col-md-10 col-md-offset-1">
 
 
-<p>You will then receive an email to the email address verifying the connection between your trunk account and the current computer. You can see your sessions by running <code>pod trunk me</code>.</p>
+<p>You must click a link in an email Trunk sends you to verify the connection between your Trunk account and the current computer. You can list your sessions by running <code>pod trunk me</code>.</p>
 
-<p>You do not have a password, only a per-computer session token.</p>
+<p>Trunk accounts do not have passwords, only per-computer session tokens.</p>
 
 <h3 id="deploying-a-library">
 <a class="header-link" href="#deploying-a-library">&lt;</a>Deploying a library</h3>
 
-<p>In the library's folder with the Podspec run <code>pod trunk push</code> - note this is different to <code>pod push</code> which is used for private pod repos. This will:</p>
+<p><code>pod trunk push [NAME.podspec]</code> will deploy your Podspec to Trunk and make it publicly available. You can also deploy Podspecs to your own private specs repo with <code>pod repo push REPO [NAME.podspec]</code>.</p>
+
+<p>Deploying with <code>push</code>:</p>
 
 <ul>
-<li>Lint your Podspec locally</li>
-<li>After a successful lint pushes the Pod converted to JSON to trunk</li>
-<li>Trunk will generate the canonical JSON representation of your library</li>
+<li>Lints your Podspec locally. You can lint at any time with <code>pod spec lint [NAME.podspec]</code>
+</li>
+<li>A successful lint pushes your Podspec to Trunk or your private specs repo</li>
+<li>Trunk will publish a canonical JSON representation of your Podspec</li>
 </ul>
 
-<p>Once the library has been added trunk will submit a web hook to other services alerting it of a new CocoaPod, for example <a href="http://cocoadocs.org">CocoaDocs.org</a>.</p>
+<p>Trunk will also post a web hook to other services alerting them of a new CocoaPod, for example <a href="http://cocoadocs.org">CocoaDocs.org</a> and <a href="https://twitter.com/cocoapodsfeed">@CocoaPodsFeed</a>.</p>
 
 <h3 id="adding-other-people-as-contributors">
 <a class="header-link" href="#adding-other-people-as-contributors">&lt;</a>Adding other people as contributors</h3>
 
-<p>For libraries with multiple maintainers, the first person to push a version can add other maintainers with the command <code>pod trunk add-owner</code> for example to add <code>kyle@cocoapods.org</code> to my library <code>ARAnalytics</code> I would run:</p>
+<p>The first person to push a Podspec version to Trunk can add other maintainers. For example, to add <code>kyle@cocoapods.org</code> to the library <code>ARAnalytics</code>:</p>
     </article>
     </div>
     </section>
@@ -117,7 +120,7 @@
 <h3 id="claiming-an-existing-library">
 <a class="header-link" href="#claiming-an-existing-library">&lt;</a>Claiming an existing library</h3>
 
-<p>If you want to claim a library that someone has already claimed, then you can use <a href="https://trunk.cocoapods.org/claims/new">our Claims form</a> to say that you are the maintainer / owner of a collection of libraries. Any issues regarding ownership of libraries will be arbitrated by the CocoaPods dev team.</p>
+<p>If you want to claim a library that someone has already claimed, then you can use <a href="https://trunk.cocoapods.org/claims/new">our Claims form</a> to say that you are the owner or maintainer of a collection of libraries. Any issues regarding ownership of libraries will be arbitrated by the CocoaPods dev team.</p>
 </article>
 </div></section>
 </div>
@@ -145,8 +148,8 @@
 <h3><a href="index.html">Making CocoaPods</a></h3>
 <ul>
 <li><a href="making-a-cocoapod.html">Making a CocoaPod</a></li>
-<li><a href="using-pod-lib-create.html">Using Pod Lib Create</a></li>
 <li><a href="specs-and-specs-repo.html">Specs and the Specs Repo</a></li>
+<li><a href="using-pod-lib-create.html">Using Pod Lib Create</a></li>
 <li><a href="private-cocoapods.html">Private Pods</a></li>
 <li><a href="getting-setup-with-trunk.html">Getting setup with Trunk</a></li>
 </ul>
