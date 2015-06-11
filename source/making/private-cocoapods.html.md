@@ -64,7 +64,7 @@ source 'URL_TO_REPOSITORY'
 
 ###1. Create a Private Spec Repo
 
-> Create a repo on your server. This can be acheived on Github or on your own server as follows
+> Create a repo on your server. This can be achieved on Github or on your own server as follows
 
 ```shell
 $ cd /opt/git
