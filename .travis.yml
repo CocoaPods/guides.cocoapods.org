@@ -7,6 +7,7 @@ rvm:
 install:
 - git config --global user.email "bots@cocoapods.org"
 - git config --global user.name "CocoaPods Bot"
+- gem install bundler
 - bundle install
 - rake bootstrap
 script:
