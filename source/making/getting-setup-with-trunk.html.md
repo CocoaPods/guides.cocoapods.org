@@ -49,4 +49,4 @@ This will then list all the known library owners.
 
 ### Claiming an existing library
 
-If you want to claim a library that someone has already claimed, then you can use [our Claims form](https://trunk.cocoapods.org/claims/new) to say that you are the owner or maintainer  a collection of libraries. Any issues regarding ownership of libraries will be arbitrated by the CocoaPods dev team.
+If you want to claim a library that someone has already claimed, then you can use [our Claims form](https://trunk.cocoapods.org/claims/new) to say that you are the owner or maintainer of a collection of libraries. Any issues regarding ownership of libraries will be arbitrated by the CocoaPods dev team.
