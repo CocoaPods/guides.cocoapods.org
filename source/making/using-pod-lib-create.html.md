@@ -65,6 +65,7 @@ $ tree MyLib -L 2
 
   MyLib
   ├── .travis.yml
+  ├── _Pods.xcproject
   ├── Example
   │   ├── MyLib
   │   ├── MyLib.xcodeproj
@@ -85,6 +86,7 @@ $ tree MyLib -L 2
 We've tried to keep the amount in the root folder minimised, You will see the following files:
 
 * `.travis.yml` - a setup file for [travis-ci](https://travis-ci.org/).
+* `_Pods.xcproject` - a symlink to your Pod's project for Carthage support
 * `LICENSE` - defaulting to the [MIT License](http://en.wikipedia.org/wiki/MIT_License).
 * `MyLib.podspec` - the Podspec for your Library.
 * `README.md` - a default README in markdown.
