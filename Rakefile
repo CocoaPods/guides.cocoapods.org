@@ -51,6 +51,7 @@ namespace :gems do
         sh "git fetch"
         tag = `git for-each-ref --sort='*authordate' --format='%(refname:short)' refs/tags`.split("\n").last
         sh "git checkout #{tag}"
+        sh "git submodule update"
       end
     end
   end
@@ -128,4 +129,3 @@ def title(title)
   puts "-" * 80
   puts
 end
-
