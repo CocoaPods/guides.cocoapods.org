@@ -25,3 +25,6 @@
 [submodule "gems/cocoapods-plugins"]
 	path = gems/cocoapods-plugins
 	url = https://github.com/CocoaPods/cocoapods-plugins.git
+[submodule "external/cocoadocs-api"]
+	path = external/cocoadocs-api
+	url = git@github.com:CocoaPods/cocoadocs-api.git

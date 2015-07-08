@@ -1,0 +1,19 @@
+ruby:
+  # Make the code renderer ruby by default
+  class HTMLwithPygments < Redcarpet::Render::HTML
+    def block_code(code, language)
+      Pygments.highlight(code, lexer: "ruby")
+    end
+  end
+
+
+  quality = File.read "external/cocoadocs-api/quality_modifiers.rb"
+  markdown = quality.split("#### <---- Start of Markdown").last.split("#### End of Markdown --->").first
+  markdown = markdown.lines.map { |l| l[1...-1] }.join("\n")
+
+  renderer = Redcarpet::Markdown.new(HTMLwithPygments)
+  result = renderer.render(markdown)
+
+= wrap_layout :layout do
+  == yield
+  == result
