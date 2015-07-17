@@ -59,11 +59,11 @@
     <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="no">Pod</span><span class="o">::</span><span class="no">Spec</span><span class="p">.</span><span class="nf">new</span> <span class="k">do</span> <span class="o">|</span><span class="n">spec</span><span class="o">|</span>
   <span class="n">spec</span><span class="p">.</span><span class="nf">name</span>             <span class="o">=</span> <span class="s1">'Reachability'</span>
   <span class="n">spec</span><span class="p">.</span><span class="nf">version</span>          <span class="o">=</span> <span class="s1">'3.1.0'</span>
-  <span class="n">spec</span><span class="p">.</span><span class="nf">license</span>          <span class="o">=</span>  <span class="ss">:type</span> <span class="o">=&gt;</span> <span class="s1">'BSD'</span> 
+  <span class="n">spec</span><span class="p">.</span><span class="nf">license</span>          <span class="o">=</span> <span class="p">{</span> <span class="ss">:type</span> <span class="o">=&gt;</span> <span class="s1">'BSD'</span> <span class="p">}</span>
   <span class="n">spec</span><span class="p">.</span><span class="nf">homepage</span>         <span class="o">=</span> <span class="s1">'https://github.com/tonymillion/Reachability'</span>
-  <span class="n">spec</span><span class="p">.</span><span class="nf">authors</span>          <span class="o">=</span> <span class="s1">'Tony Million'</span> <span class="o">=&gt;</span> <span class="s1">'tonymillion@gmail.com'</span>
+  <span class="n">spec</span><span class="p">.</span><span class="nf">authors</span>          <span class="o">=</span> <span class="p">{</span> <span class="s1">'Tony Million'</span> <span class="o">=&gt;</span> <span class="s1">'tonymillion@gmail.com'</span> <span class="p">}</span>
   <span class="n">spec</span><span class="p">.</span><span class="nf">summary</span>          <span class="o">=</span> <span class="s1">'ARC and GCD Compatible Reachability Class for iOS and OS X.'</span>
-  <span class="n">spec</span><span class="p">.</span><span class="nf">source</span>           <span class="o">=</span>  <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">'https://github.com/tonymillion/Reachability.git'</span><span class="p">,</span> <span class="ss">:tag</span> <span class="o">=&gt;</span> <span class="s1">'v3.1.0'</span> 
+  <span class="n">spec</span><span class="p">.</span><span class="nf">source</span>           <span class="o">=</span> <span class="p">{</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">'https://github.com/tonymillion/Reachability.git'</span><span class="p">,</span> <span class="ss">:tag</span> <span class="o">=&gt;</span> <span class="s1">'v3.1.0'</span> <span class="p">}</span>
   <span class="n">spec</span><span class="p">.</span><span class="nf">source_files</span>     <span class="o">=</span> <span class="s1">'Reachability.h,m'</span>
   <span class="n">spec</span><span class="p">.</span><span class="nf">framework</span>        <span class="o">=</span> <span class="s1">'SystemConfiguration'</span>
   <span class="n">spec</span><span class="p">.</span><span class="nf">requires_arc</span>     <span class="o">=</span> <span class="kp">true</span>
@@ -102,7 +102,7 @@
   <span class="n">spec</span><span class="p">.</span><span class="nf">summary</span>      <span class="o">=</span> <span class="s1">'An Objective-C client for the Pusher.com service'</span>
   <span class="n">spec</span><span class="p">.</span><span class="nf">homepage</span>     <span class="o">=</span> <span class="s1">'https://github.com/lukeredpath/libPusher'</span>
   <span class="n">spec</span><span class="p">.</span><span class="nf">author</span>       <span class="o">=</span> <span class="s1">'Luke Redpath'</span>
-  <span class="n">spec</span><span class="p">.</span><span class="nf">source</span>       <span class="o">=</span>  <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">'git://github.com/lukeredpath/libPusher.git'</span><span class="p">,</span> <span class="ss">:tag</span> <span class="o">=&gt;</span> <span class="s1">'v1.3'</span>
+  <span class="n">spec</span><span class="p">.</span><span class="nf">source</span>       <span class="o">=</span> <span class="p">{</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">'git://github.com/lukeredpath/libPusher.git'</span><span class="p">,</span> <span class="ss">:tag</span> <span class="o">=&gt;</span> <span class="s1">'v1.3'</span> <span class="p">}</span>
   <span class="n">spec</span><span class="p">.</span><span class="nf">source_files</span> <span class="o">=</span> <span class="s1">'Library/*'</span>
   <span class="n">spec</span><span class="p">.</span><span class="nf">requires_arc</span> <span class="o">=</span> <span class="kp">true</span>
   <span class="n">spec</span><span class="p">.</span><span class="nf">dependency</span> <span class="s1">'SocketRocket'</span>
@@ -265,8 +265,8 @@ CocoaPods installations.</p>
 <h3><a href="index.html">Making CocoaPods</a></h3>
 <ul>
 <li><a href="making-a-cocoapod.html">Making a CocoaPod</a></li>
-<li><a href="using-pod-lib-create.html">Using Pod Lib Create</a></li>
 <li><a href="specs-and-specs-repo.html">Specs and the Specs Repo</a></li>
+<li><a href="using-pod-lib-create.html">Using Pod Lib Create</a></li>
 <li><a href="private-cocoapods.html">Private Pods</a></li>
 <li><a href="getting-setup-with-trunk.html">Getting setup with Trunk</a></li>
 <li><a href="quality-indexes.html">Quality Indexes</a></li>
