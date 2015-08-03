@@ -57,9 +57,9 @@ html
                 h2#external-resources <a class="header-link" href="#external-resources">&lt;</a> External resources
 
                 ul
-                  - for value, href in current_resource.data["external links"][0]
+                  - for link in current_resource.data["external links"]
                     li
-                      a href=href =value
+                      a href=link.values.first =link.keys.first
     - else
 
       == yield
