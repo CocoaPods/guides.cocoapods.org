@@ -1,0 +1,9 @@
+---
+title: Making CocoaPods
+layout: index
+
+footer: yes
+footer_order: 2
+---
+
+<p> If you want to release some of your own code to the world, or are interesting in having your own repository of podspecs for internal use, this is what you're looking for. Here you can find out about making your own Podspecs, creating a private repo and understand what we consider to be the best practices for libraries.</p>

@@ -8,6 +8,8 @@ external links:
   "Streamlining Cocoa Development With CocoaPods": http://code.tutsplus.com/tutorials/streamlining-cocoa-development-with-cocoapods--mobile-15938
 ---
 
+ <div class ="col-md-8">
+
 ## What is CocoaPods
 
 CocoaPods manages library dependencies for your Xcode projects.
@@ -15,6 +17,18 @@ CocoaPods manages library dependencies for your Xcode projects.
 The dependencies for your projects are specified in a single text file called a Podfile. CocoaPods will resolve dependencies between libraries, fetch the resulting source code, then link it together in an Xcode workspace to build your project.
 
 Ultimately the goal is to improve discoverability of, and engagement in, third party open-source libraries by creating a more centralised ecosystem.
+
+ </div>
+ <div class ="col-md-4">
+
+## Prefer video?
+
+Google have created a great overview for Route 85 video series going through this entire guide and more.
+
+<a href="https://www.youtube.com/watch?v=iEAjvNRdZa0&spfreload=10"><img src="/assets/images/guides/google_route_85.jpg"></a>
+
+ </div>
+ <div class ="clearfix"></div>
 
 ## Getting Started
 
@@ -78,4 +92,5 @@ Later on, when you're actively using CocoaPods by installing pods, you will be n
 
 #### Using a CocoaPods Fork
 
-There is [a guide for using a version of CocoaPods to try new features](/using/unreleased-features) that are in discussion or in implementation stage.
+
+There are two ways to do this, [using a Gemfile](/using/a-gemfile.html) (recommended) or using a [development build](/using/unreleased-features) that are in discussion or in implementation stage.

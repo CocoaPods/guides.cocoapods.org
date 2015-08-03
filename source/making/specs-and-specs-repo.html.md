@@ -14,11 +14,11 @@ You can create one by hand, or run `pod spec create` to generate a stub. Podspec
 Pod::Spec.new do |spec|
   spec.name             = 'Reachability'
   spec.version          = '3.1.0'
-  spec.license          =  :type => 'BSD' 
+  spec.license          = { :type => 'BSD' }
   spec.homepage         = 'https://github.com/tonymillion/Reachability'
-  spec.authors          = 'Tony Million' => 'tonymillion@gmail.com'
+  spec.authors          = { 'Tony Million' => 'tonymillion@gmail.com' }
   spec.summary          = 'ARC and GCD Compatible Reachability Class for iOS and OS X.'
-  spec.source           =  :git => 'https://github.com/tonymillion/Reachability.git', :tag => 'v3.1.0' 
+  spec.source           = { :git => 'https://github.com/tonymillion/Reachability.git', :tag => 'v3.1.0' }
   spec.source_files     = 'Reachability.h,m'
   spec.framework        = 'SystemConfiguration'
   spec.requires_arc     = true
@@ -41,7 +41,7 @@ Pod::Spec.new do |spec|
   spec.summary      = 'An Objective-C client for the Pusher.com service'
   spec.homepage     = 'https://github.com/lukeredpath/libPusher'
   spec.author       = 'Luke Redpath'
-  spec.source       =  :git => 'git://github.com/lukeredpath/libPusher.git', :tag => 'v1.3'
+  spec.source       = { :git => 'git://github.com/lukeredpath/libPusher.git', :tag => 'v1.3' }
   spec.source_files = 'Library/*'
   spec.requires_arc = true
   spec.dependency 'SocketRocket'
@@ -119,7 +119,7 @@ In general this means that:
 
 ## How do I update an existing Pod?
 
-1. Create your Podspec as described described above.
+1. Create your Podspec as described above.
 2. Run `pod spec lint` to check for errors.
 3. Submit your Podspec to Trunk with `pod trunk push NAME.podspec`
 

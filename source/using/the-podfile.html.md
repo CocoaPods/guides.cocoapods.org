@@ -12,33 +12,34 @@ external links:
  The Podfile is a specification that describes the dependencies of the
  targets of one or more Xcode projects. The Podfile always creates an
  implicit target, named `default`, which links to the _first target_ of the
- user project. The file should simply be named `Podfile`. 
+ user project. The file should simply be named `Podfile`.
 
 > A Podfile can be very simple:
 
 ```ruby
-source 'https://github.com/CocoaPods/Specs.git'
-pod 'AFNetworking', '~> 1.0'
+pod 'AFNetworking', '~> 2.0'
 ```
 
 > An example of a more complex Podfile can be:
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/Artsy/Specs.git'
 
-platform :ios, '6.0'
+platform :ios, '8.0'
 inhibit_all_warnings!
 
 xcodeproj 'MyProject'
 
 pod 'ObjectiveSugar', '~> 0.5'
+pod 'Artsy+UILabels', '~> 1.0'
 
 target :test do
     pod 'OCMock', '~> 2.0.1'
 end
 
 post_install do |installer|
-    installer.project.targets.each do |target|
+    installer.pods_project.targets.each do |target|
         puts target.name
     end
 end
@@ -50,7 +51,7 @@ end
 platform :osx, '10.7'
 
 link_with 'MyApp', 'MyApp Tests'
-pod 'AFNetworking', '~> 1.0'
+pod 'AFNetworking', '~> 2.0'
 pod 'Objection', '0.9'
 ```
 

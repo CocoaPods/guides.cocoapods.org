@@ -114,6 +114,11 @@ module Pod
               'pod plugins create',
               'pod plugins publish',
             ],
+
+            'Cache' => [
+              'pod cache list',
+              'pod cache clean',
+            ],
           }
 
         end
