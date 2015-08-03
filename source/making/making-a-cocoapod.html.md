@@ -93,9 +93,9 @@ However, arbitrary revisions as version is not a good idea for a library manager
 
 * “I want to start using CocoaLumberjack, the current version will be fine for now.” So the dev adds a dependency on the lib _without_ a version requirement and `pod install`s which will use the latest version:
 
-  <code>
+``` ruby
   pod 'CocoaLumberjack'
-  </code>
+```
 
 * Some time into the future, the dev wants to update the dependencies, and to do so runs the install command again, which will now install the version of the lib which is the latest version _at that time_.
 
