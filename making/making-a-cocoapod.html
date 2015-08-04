@@ -44,12 +44,12 @@
 <section class="container"><div class="row">
 <article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><p>Creating your own CocoaPod is fairly straight forward. If you already have a separate component, you're most of the way there. This guide is an overview to the entire process, with the other guides in this section serving as more of a deep-dive for more advanced users.</p>
 
+<p>We recommend letting CocoaPods do the hard work here. Running <code>pod lib create [pod name]</code> will set you up with a well thought out library structure allowing you to easily include your files and get started quickly, we have a <a href="/making/using-pod-lib-create">guide for this</a>. If you'd like an up-to-date walkthrough of the whole process through to pushing to trunk, check out this 3rd party <a href="http://code.tutsplus.com/tutorials/creating-your-first-cocoapod--cms-24332">tutorial from tutsplus</a>.</p>
+
 <h2 id="the-pod-files">
 <a class="header-link" href="#the-pod-files">&lt;</a>The Pod Files</h2>
 
 <p>There are only a few differences between a CocoaPod and a generic open source library. The most important ones, aside from the actual source, are the <code>.podspec</code> and <code>LICENSE</code>. We do not accept libraries into the trunk without a code license. For information on what license to choose, we suggest reading <a href="http://www.codinghorror.com/blog/2007/04/pick-a-license-any-license.html">this article on CodingHorror</a> or <a href="http://www.tldrlegal.com/">tl;dr Legal</a>.</p>
-
-<p>We recommend letting CocoaPods do the hard work here. Running <code>pod lib create [pod name]</code> will set you up with a well thought out library structure allowing you to easily include your files and get started quickly, we have a <a href="/making/using-pod-lib-create">guide for this</a>.</p>
 
 <h3 id="development">
 <a class="header-link" href="#development">&lt;</a>Development</h3>
