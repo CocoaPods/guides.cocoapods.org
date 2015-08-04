@@ -4,17 +4,17 @@ description: Instructions for creating and maintaining a CocoaPod.
 order: 0
 
 external links:
--
-  Why your podspec is failing: http://codeslingers.co.uk/2014/05/16/why-your-podspec-is-failing/
+- Why your podspec is failing: http://codeslingers.co.uk/2014/05/16/why-your-podspec-is-failing/
 ---
 
 Creating your own CocoaPod is fairly straight forward. If you already have a separate component, you're most of the way there. This guide is an overview to the entire process, with the other guides in this section serving as more of a deep-dive for more advanced users.
 
+We recommend letting CocoaPods do the hard work here. Running `pod lib create [pod name]` will set you up with a well thought out library structure allowing you to easily include your files and get started quickly, we have a [guide for this](/making/using-pod-lib-create). If you'd like an up-to-date walkthrough of the whole process through to pushing to trunk, check out this 3rd party [tutorial from tutsplus](http://code.tutsplus.com/tutorials/creating-your-first-cocoapod--cms-24332).
+
+
 ## The Pod Files
 
 There are only a few differences between a CocoaPod and a generic open source library. The most important ones, aside from the actual source, are the `.podspec` and `LICENSE`. We do not accept libraries into the trunk without a code license. For information on what license to choose, we suggest reading [this article on CodingHorror](http://www.codinghorror.com/blog/2007/04/pick-a-license-any-license.html) or [tl;dr Legal](http://www.tldrlegal.com/).
-
-We recommend letting CocoaPods do the hard work here. Running `pod lib create [pod name]` will set you up with a well thought out library structure allowing you to easily include your files and get started quickly, we have a [guide for this](/making/using-pod-lib-create).
 
 ### Development
 
