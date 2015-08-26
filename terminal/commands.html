@@ -111,7 +111,8 @@ the argument is omitted, it defaults to the current working dir.</p>
 </td></tr><tr><td><p><b>--no-clean</b></p></td><td><p>Lint leaves the build directory intact for inspection.</p>
 </td></tr><tr><td><p><b>--fail-fast</b></p></td><td><p>Lint stops on the first failing platform or subspec.</p>
 </td></tr><tr><td><p><b>--use-libraries</b></p></td><td><p>Lint uses static libraries to install the spec.</p>
-</td></tr><tr><td><p><b>--sources=https://github.com/artsy/Specs,master</b></p></td><td><p>The sources from which to pull dependant pods (defaults to <a href="https://github.com/CocoaPods/Specs.git">https://github.com/CocoaPods/Specs.git</a>). Multiple sources must be comma-delimited..</p>
+</td></tr><tr><td><p><b>--sources=https://github.com/artsy/Specs,master</b></p></td><td><p>The sources from which to pull dependent pods (defaults to <a href="https://github.com/CocoaPods/Specs.git">https://github.com/CocoaPods/Specs.git</a>). Multiple sources must be comma-delimited..</p>
+</td></tr><tr><td><p><b>--private</b></p></td><td><p>Lint skips checks that apply only to public specs.</p>
 </td></tr></table><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
@@ -247,7 +248,9 @@ creates a directory and version folder for the pod in the local copy of
 version directory, and finally it pushes <code>REPO</code> to its remote.</p>
 </p><h3>Options:</h3><table class="inherited_options"><tr><td><p><b>--allow-warnings</b></p></td><td><p>Allows pushing even if there are warnings.</p>
 </td></tr><tr><td><p><b>--use-libraries</b></p></td><td><p>Linter uses static libraries to install the spec.</p>
+</td></tr><tr><td><p><b>--sources=https://github.com/artsy/Specs,master</b></p></td><td><p>The sources from which to pull dependent pods (defaults to all available repos). Multiple sources must be comma-delimited..</p>
 </td></tr><tr><td><p><b>--local-only</b></p></td><td><p>Does not perform the step of pushing REPO to its remote.</p>
+</td></tr><tr><td><p><b>--no-private</b></p></td><td><p>Lint includes checks that apply only to public repos.</p>
 </td></tr></table><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
@@ -280,7 +283,8 @@ template, is specified, it will be used in place of the default one.</p>
 </td></tr><tr><td><p><b>--no-clean</b></p></td><td><p>Lint leaves the build directory intact for inspection.</p>
 </td></tr><tr><td><p><b>--fail-fast</b></p></td><td><p>Lint stops on the first failing platform or subspec.</p>
 </td></tr><tr><td><p><b>--use-libraries</b></p></td><td><p>Lint uses static libraries to install the spec.</p>
-</td></tr><tr><td><p><b>--sources=https://github.com/artsy/Specs,master</b></p></td><td><p>The sources from which to pull dependant pods (defaults to <a href="https://github.com/CocoaPods/Specs.git">https://github.com/CocoaPods/Specs.git</a>). Multiple sources must be comma-delimited..</p>
+</td></tr><tr><td><p><b>--sources=https://github.com/artsy/Specs,master</b></p></td><td><p>The sources from which to pull dependent pods (defaults to <a href="https://github.com/CocoaPods/Specs.git">https://github.com/CocoaPods/Specs.git</a>). Multiple sources must be comma-delimited..</p>
+</td></tr><tr><td><p><b>--private</b></p></td><td><p>Lint skips checks that apply only to public specs.</p>
 </td></tr></table><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
