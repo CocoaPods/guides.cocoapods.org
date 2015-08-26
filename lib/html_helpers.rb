@@ -14,8 +14,7 @@ module HTMLHelpers
       end
     end, :autolink => true, :space_after_headers => true, :no_intra_emphasis => true)
     # TODO: experimental
-    input = (input.slice(0,1).capitalize || '') + (input.slice(1..-1) || '')
-    result = @markdown_instance.render(input)
+    @markdown_instance.render(capitalize_first_letter(input))
   end
 
   # Capitalizes the firs letter of a string.
