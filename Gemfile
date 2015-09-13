@@ -26,6 +26,8 @@ gem 'cocoapods-core', '>= 0.36.1'
 gem 'molinillo'
 gem 'netrc'
 
+gem 'sqlite3'
+
 group :development do
   gem 'foreman'
 end

@@ -1,0 +1,58 @@
+ruby:
+  parents = []
+  parent = current_resource
+  while parent = parent.parent
+    parents.unshift(parent)
+  end
+
+  topnav = []
+  for resource in sitemap.resources
+    if resource.ext == '.html' && resource.children.count > 0 && resource.parent != nil
+      topnav.unshift(resource)
+    end
+  end
+
+  footer_resources = sitemap.resources.select do |resource|
+    resource.data.footer
+  end.sort_by { |resource| resource.data.footer_order }
+
+  if current_resource.data.fullwidth || current_resource.parent == nil
+    width_classes = "content"
+  else
+    width_classes = "content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"
+  end
+
+doctype html
+html
+  head
+    title = "CocoaPods Guides - " + page_title
+
+    == shared_partial "favicons", "header_meta"
+    == stylesheet_link_tag "app.css"
+    == javascript_include_tag "application.js"
+
+  body
+
+    - unless current_resource.data.hide_title
+      section.container
+        .row
+          header.header class=width_classes
+            h1 == page_title
+
+      #content-wrapper.guide
+        section.container
+          .row
+            article class=width_classes
+              == yield
+
+              / Add support for external links in the headers of the guides
+              - if current_resource.data["external links"]
+                h2#external-resources <a class="header-link" href="#external-resources">&lt;</a> External resources
+
+                ul
+                  - for link in current_resource.data["external links"]
+                    li
+                      a href=link.values.first =link.keys.first
+    - else
+
+      == yield
