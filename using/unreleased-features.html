@@ -47,6 +47,15 @@
 
 <p>There may be times when you may want to test an upcoming feature in CocoaPods. At times code for such features may be already available in a 'feature branch'. This document is based on an existing Pull Request which can/will change with time, as such it may be out of date slightly.</p>
 
+<h2 id="two-options">
+<a class="header-link" href="#two-options">&lt;</a>Two Options</h2>
+
+<h4 id="use-a-gemfile">Use a Gemfile</h4>
+
+<p>This isn't covered in this guide, but instead in <a href="a-gemfile.html">Using a Gemfile</a>. This is a simpler technique, but requires you to remember to use <code>bundle exec</code> before running any <code>pod</code> command.  </p>
+
+<h4 id="set-up-a-local-dev-copy-of-cocoapods">Set up a local dev copy of CocoaPods</h4>
+
 <p>The technique to run a branch version of CocoaPods is:</p>
 
 <ul>
@@ -68,7 +77,7 @@
 <p>By looking at the subheading <code>mrackwitz  wants to merge 85 commits into master from swift</code> you can infer that this pull request comes from a branch on the CocoaPods repo. If it looked like <a href="https://github.com/CocoaPods/CocoaPods/pull/2880">Pull Request CocoaPods#2880</a> (<code>[...] CocoaPods:master from samdmarshall:xclegacy-build-setting-build-dir-fix</code>) then you could see that it comes from the <a href="https://github.com/samdmarshall/cocoapods/tree/xclegacy-build-setting-build-dir-fix">samdmarshall</a> fork and you would need to clone from that repo.</p>
 
 <blockquote>
-<p>Cloning a local copy </p>
+<p>Cloning a local copy</p>
 </blockquote>
     </article>
     </div>
