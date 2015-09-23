@@ -8,11 +8,19 @@ external links:
 -
   "CocoaPods Is Ready for Swift": http://swiftwala.com/cocoapods-is-ready-for-swift/
 
---- 
+---
 
 ## Using Unreleased Features
 
 There may be times when you may want to test an upcoming feature in CocoaPods. At times code for such features may be already available in a 'feature branch'. This document is based on an existing Pull Request which can/will change with time, as such it may be out of date slightly.
+
+## Two Options
+
+#### Use a Gemfile
+
+This isn't covered in this guide, but instead in [Using a Gemfile](/using/a-gemfile.html). This is a simpler technique, but requires you to remember to use `bundle exec` before running any `pod` command.  
+
+#### Set up a local dev copy of CocoaPods
 
 The technique to run a branch version of CocoaPods is:
 
@@ -31,7 +39,7 @@ Let's use [@mrackwitz's](http://twitter.com/mrackwitz) Swift [Pull Request Cocoa
 
 By looking at the subheading `mrackwitz  wants to merge 85 commits into master from swift` you can infer that this pull request comes from a branch on the CocoaPods repo. If it looked like [Pull Request CocoaPods#2880](https://github.com/CocoaPods/CocoaPods/pull/2880) (`[...] CocoaPods:master from samdmarshall:xclegacy-build-setting-build-dir-fix`) then you could see that it comes from the [samdmarshall](https://github.com/samdmarshall/cocoapods/tree/xclegacy-build-setting-build-dir-fix) fork and you would need to clone from that repo.
 
-> Cloning a local copy 
+> Cloning a local copy
 
 ``` bash
 cd projects/cocoapods/
