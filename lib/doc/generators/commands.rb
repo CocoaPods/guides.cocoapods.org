@@ -12,6 +12,7 @@ module Pod
           $:.unshift((DOC_GEM_ROOT + 'CLAide/lib').to_s)
           $:.unshift((DOC_GEM_ROOT + 'cocoapods-downloader/lib').to_s)
           $:.unshift((DOC_GEM_ROOT + 'cocoapods-plugins/lib').to_s)
+          $:.unshift((DOC_GEM_ROOT + 'cocoapods-search/lib').to_s)
           $:.unshift((DOC_GEM_ROOT + 'cocoapods-trunk/lib').to_s)
           $:.unshift((DOC_GEM_ROOT + 'cocoapods-try/lib').to_s)
           $:.unshift((DOC_GEM_ROOT + 'CocoaPods/lib').to_s)
@@ -20,6 +21,7 @@ module Pod
           require 'claide'
           require 'cocoapods'
           require 'pod/command/plugins'
+          require 'cocoapods-search/command/search'
           require 'pod/command/trunk'
           require 'pod/command/try'
           super
