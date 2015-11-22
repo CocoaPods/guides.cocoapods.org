@@ -36,6 +36,10 @@ configure :development do
   activate :livereload
 end
 
+if ENV['BUILDING_DOCSET']
+  puts "Using .docset layout"
+  set :layout, "docset_layout"
+end
 
 helpers do
 

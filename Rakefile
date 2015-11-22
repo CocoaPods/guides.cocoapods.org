@@ -103,6 +103,13 @@ namespace :generate do
   task :default => 'all'
 end
 
+desc "Generate the Dash docset"
+task :docset do
+  require 'docset'
+  sh "BUILDING_DOCSET=1 bundle exec middleman build --clean"
+  generate_docset
+end
+
 # Helpers
 #-----------------------------------------------------------------------------#
 
