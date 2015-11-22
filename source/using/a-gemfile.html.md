@@ -75,6 +75,7 @@ an [example of a Gemfile](https://github.com/artsy/eidolon/blob/3b1d28d9178a5790
 source 'https://rubygems.org'
 
 gem 'cocoapods', :git => 'https://github.com/CocoaPods/CocoaPods.git'
+gem 'cocoapods-core', :git => 'https://github.com/CocoaPods/Core.git'
 gem 'xcodeproj', :git => 'https://github.com/CocoaPods/Xcodeproj.git'
 
 gem 'cocoapods-keys', :git => 'https://github.com/orta/cocoapods-keys.git'
