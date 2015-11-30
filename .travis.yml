@@ -14,6 +14,3 @@ script:
 - git config credential.helper 'cache'
 - echo "protocol=https\nhost=github.com\nusername=CocoaPodsBot\npassword=${GH_TOKEN}" | git credential approve
 - bundle exec rake deploy
-env:
-  global:
-  - secure: CmicE0C7gSvcKikRAuVKrT3GyyMZtVdoHrKurZGfR8i7IF58sjeHXAqDedno8UVhBnEVzGHWbTvO2AytWBVZVItGWd9W9Mno/Qs7VWbmyeUbSFvdQII6AjAMK4TUCDUavZIrRYB2ADIX6Tx0heOiccITpqyhjGyXSgT8R7oRt9w=
