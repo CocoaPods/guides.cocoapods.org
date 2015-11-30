@@ -11,7 +11,8 @@ install:
 - bundle install
 - rake bootstrap
 script:
-- git remote set-url origin "https://${GH_TOKEN}@github.com/CocoaPods/guides.cocoapods.org.git"
+- git config credential.helper 'cache'
+- echo "protocol=https\nhost=github.com\nusername=CocoaPodsBot\npassword=${GH_TOKEN}" | git credential approve
 - bundle exec rake deploy
 env:
   global:
