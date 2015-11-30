@@ -11,5 +11,5 @@ install:
 - bundle install
 - rake bootstrap
 script:
-- git remote set-url origin "https://${GH_TOKEN}@github.com/CocoaPods/guides.cocoapods.org.git
+- git remote set-url origin "https://${GH_TOKEN}@github.com/CocoaPods/guides.cocoapods.org.git"
 - bundle exec rake deploy
