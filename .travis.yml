@@ -5,12 +5,10 @@ branches:
 rvm:
 - 2.1.3
 install:
-- git config --global user.email "bots@cocoapods.org"
-- git config --global user.name "CocoaPods Bot"
 - gem install bundler
 - bundle install
 - rake bootstrap
 script:
 - git config credential.helper 'cache'
-- echo "protocol=https\nhost=github.com\nusername=CocoaPodsBot\npassword=${GH_TOKEN}" | git credential approve
+- echo "protocol=https\nhost=github.com\npassword=${GH_TOKEN}" | git credential approve
 - bundle exec rake deploy
