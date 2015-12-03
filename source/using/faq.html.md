@@ -4,6 +4,11 @@ description: Is CocoaPods ready for prime-time? Why not just use git submodules?
 order: 4
 ---
 
+### "Will CocoaPods stop development now that Swift has a built-in package manager?"
+
+  As of writing, the [Swift Package Manager (SPM)](https://github.com/apple/swift-package-manager) is in "early design and development" [[1]](https://github.com/apple/swift-package-manager/blob/14f47ad34967c7e7808863fb29fa3f9baf5db7a4/README.md#a-work-in-progress). It  does not currently support iOS, OS X, watch OS, or Objective-C [[2]](https://github.com/apple/swift-package-manager/blob/14f47ad34967c7e7808863fb29fa3f9baf5db7a4/Documentation/Package.swift.md#depending-on-apple-modules-eg-foundation)[[3]](https://github.com/apple/swift-package-manager/blob/14f47ad34967c7e7808863fb29fa3f9baf5db7a4/Documentation/PackageManagerCommunityProposal.md#support-for-other-languages). CocoaPods will continue development supporting both Swift and Objective-C while SPM develops. As SPM approaches maturity, we will evaluate the best course forward for CocoaPods and the CocoaPods community.
+  
+
 ### “Why not just use git submodules?”
 
   CocoaPods is **not** about downloading code. While it does do that, it’s arguably the least interesting part.
@@ -18,11 +23,6 @@ order: 4
   Correct. Version 1.0.0 will be the milestone where we feel confident that all the basic requirements of a Cocoa dependency manager are fulfilled.
 
   Once we reach the 1.0.0 milestone we will –for the first time ever– contact the community at large through mailing-lists such as cocoa-dev.
-
-
-### "Will CocoaPods stop development now that Swift has a built-in package manager?"
-
-  As of writing, the [Swift Package Manager (SPM)](https://github.com/apple/swift-package-manager) is in "early design and development" [[1]](https://github.com/apple/swift-package-manager/blob/14f47ad34967c7e7808863fb29fa3f9baf5db7a4/README.md#a-work-in-progress). It  does not currently support iOS, OS X, watch OS, or Objective-C [[2]](https://github.com/apple/swift-package-manager/blob/14f47ad34967c7e7808863fb29fa3f9baf5db7a4/Documentation/Package.swift.md#depending-on-apple-modules-eg-foundation)[[3]](https://github.com/apple/swift-package-manager/blob/14f47ad34967c7e7808863fb29fa3f9baf5db7a4/Documentation/PackageManagerCommunityProposal.md#support-for-other-languages). CocoaPods will continue development supporting both Swift and Objective-C while SPM develops. As SPM approaches maturity, we will evaluate the best course forward for CocoaPods and the CocoaPods community.
   
 
 ### “How can I donate to CocoaPods?”
