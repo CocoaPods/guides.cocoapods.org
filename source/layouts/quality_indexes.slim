@@ -11,6 +11,9 @@ ruby:
   markdown = quality.split("#### <---- Start of Markdown").last.split("#### End of Markdown --->").first
   markdown = markdown.lines.map { |l| l[1...-1] }.join("\n")
 
+  # These procs are getting a bit unweildy for users to see now IMO
+  markdown = markdown.gsub("Proc.new { |spec, cd_stats, stats, cp_stats, owners|", "{ |...|")
+
   renderer = Redcarpet::Markdown.new(HTMLwithPygments)
   result = renderer.render(markdown)
 
