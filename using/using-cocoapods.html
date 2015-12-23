@@ -211,7 +211,7 @@
 
 <p>Running <code>pod install</code> will install the current version of RestKit, causing a <code>Podfile.lock</code> to be generated that indicates the exact version installed (e.g. <code>RestKit 0.10.3</code>). Thanks to the <code>Podfile.lock</code>, running <code>pod install</code> on this hypothetical project at a later point in time on a different machine will still install RestKit 0.10.3 even if a newer version is available. CocoaPods will honour the Pod version in <code>Podfile.lock</code> unless the dependency is updated in the Podfile or <code>pod update</code> is called (which will cause a new <code>Podfile.lock</code> to be generated). In this way CocoaPods avoids headaches caused by unexpected changes to dependencies.</p>
 
-<p>This file should always be kept under version control.</p>
+<p>There's a great video from Google about how this works: <a href="https://www.youtube.com/watch?v=H-zK1mEwTe0">"CocoaPods and Lockfiles (Route 85)"</a>.</p>
 
 <h2 id="what-is-happening-behind-the-scenes">
 <a class="header-link" href="#what-is-happening-behind-the-scenes">&lt;</a>What is happening behind the scenes?</h2>
@@ -299,9 +299,9 @@
 <h3><a href="../contributing/index.html">Contributing</a></h3>
 <ul>
 <li><a href="../contributing/contribute-to-cocoapods.html">How to Contribute</a></li>
-<li><a href="../contributing/components.html">Core Components</a></li>
 <li><a href="../contributing/dev-environment.html">Setting up for Development</a></li>
-<li><a href="../contributing/tickets-handling.html">Tickets handling</a></li>
+<li><a href="../contributing/components.html">Core Components</a></li>
+<li><a href="../contributing/tickets-handling.html">Ticket handling</a></li>
 <li><a href="../contributing/release-process.html">Release Process</a></li>
 </ul>
 </div>

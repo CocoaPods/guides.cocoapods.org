@@ -116,28 +116,12 @@
 <li>If you tried to submit app to App Store, and found that "Product" &gt; "Archive" produce nothing in "Organizer":
 
 <ul>
-<li>In Xcode "Build Settings", find "Skip Install". Set the value for "Release" to "NO" on your application target. Build again and it should work. </li>
+<li>In Xcode "Build Settings", find "Skip Install". Set the value for "Release" to "NO" on your application target. Build again and it should work.</li>
 </ul>
 </li>
 </ul>
 
 <p><em>Different Xcode versions can have various problems. Ask for help and tell us what version you're using.</em></p>
-
-<h3 id="running-into-build-failures-after-migrating-to-xcode--and-cocoapods-">
-<a class="header-link" href="#running-into-build-failures-after-migrating-to-xcode--and-cocoapods-">&lt;</a>Running into build failures after migrating to Xcode 5 and CocoaPods 0.25.0?</h3>
-
-<p>This applies to users migrating projects from Xcode 4, or are still using Xcode 4.</p>
-
-<ol>
-<li>The Pods Xcode project now sets the <code>ONLY_ACTIVE_ARCH</code> build setting to
-<code>YES</code> in the <code>Debug</code> configuration. You <em>will</em> have to set the same on your
-project/target, otherwise the build <em>will</em> fail.</li>
-<li>Ensure your project/target has an <code>ARCHS</code> value set, otherwise the build
-<em>will</em> fail.</li>
-<li>When building a <strong>iOS</strong> project from the command-line, with the <code>xcodebuild</code>
-tool that comes with Xcode 4, you’ll need to completely disable this setting
-by appending to your build command: <code>ONLY_ACTIVE_ARCH=NO</code>.</li>
-</ol>
 
 <h3 id="can-i-workaround-duplicate-symbol-errors-with-static-libraries">
 <a class="header-link" href="#can-i-workaround-duplicate-symbol-errors-with-static-libraries">&lt;</a>Can I workaround ‘Duplicate Symbol’ errors with static libraries?</h3>
@@ -221,6 +205,7 @@ this directory too, and afterwards run <code>pod install</code>.</p>
 <ul>
 <li>
 <strong>Search tickets before you file a new one.</strong> Add to existing tickets if you have new information about the issue.</li>
+<li>
 <li><p><strong>Only file tickets about the CocoaPods tool itself.</strong> This includes <a href="https://github.com/CocoaPods/CocoaPods/issues">CocoaPods</a>,
 <a href="https://github.com/CocoaPods/Core/issues">CocoaPods/Core</a>, and <a href="https://github.com/CocoaPods/Xcodeproj/issues">Xcodeproj</a>.</p></li>
 <li><p><strong>Keep tickets short but sweet.</strong> Make sure you include all the context needed to solve the issue. Don't overdo it. Great tickets allow us to focus on solving problems instead of discussing them.</p></li>
@@ -264,9 +249,9 @@ this directory too, and afterwards run <code>pod install</code>.</p>
 <h3><a href="../contributing/index.html">Contributing</a></h3>
 <ul>
 <li><a href="../contributing/contribute-to-cocoapods.html">How to Contribute</a></li>
-<li><a href="../contributing/components.html">Core Components</a></li>
 <li><a href="../contributing/dev-environment.html">Setting up for Development</a></li>
-<li><a href="../contributing/tickets-handling.html">Tickets handling</a></li>
+<li><a href="../contributing/components.html">Core Components</a></li>
+<li><a href="../contributing/tickets-handling.html">Ticket handling</a></li>
 <li><a href="../contributing/release-process.html">Release Process</a></li>
 </ul>
 </div>
