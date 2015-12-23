@@ -4,10 +4,6 @@ description: Instructions to use CocoaPods from a feature branch or a Work-in-pr
 ignore: true
 order: 0
 thanks: "Sachin Palewar"
-external links:
--
-  "CocoaPods Is Ready for Swift": http://swiftwala.com/cocoapods-is-ready-for-swift/
-
 ---
 
 ## Using Unreleased Features

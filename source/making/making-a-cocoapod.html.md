@@ -113,10 +113,11 @@ CocoaPods uses RubyGems versions for specifying pod spec versions. The [RubyGems
 
 Following the pattern established in RubyGems, pre-release versions can also be specified in CocoaPods. A pre-release of version 1.2, for example, can be specified by `1.2-beta3`. In this example, the dependency specifier `~> 1.2-beta` will match `1.2-beta3`.
 
+There's a great video from Google about how this works: ["CocoaPods and the Case of the Squiggly Arrow (Route 85)"](https://www.youtube.com/watch?v=x4ARXyovvPc).
 
 ## Documenting a Pod
 
-Right now the best place to get information on documenting your Pods in anticipation of CocoaDocs and Xcode 5 support is via [NSHipster's blog post on Documentation](http://nshipster.com/documentation/). [CocoaDocs](http://github.com/cocoapods/cocoadocs.org) will release an appledoc parsed code based on your Podspec's public API roughly 15 minutes after it is pushed. More information on CocoaDocs can be found on the [CocoaDocs developer readme](http://cocoadocs.org/readme)
+Right now the best place to get information on documenting your Pods is NSHipster's blog post on [Obj-C](http://nshipster.com/documentation/) and [Swift](http://nshipster.com/swift-documentation/) Documentation. [CocoaDocs](http://github.com/cocoapods/cocoadocs.org) will release an appledoc/jazzy parsed code based on your Podspec's public API roughly 15 minutes after it is pushed. More information on CocoaDocs can be found on the [CocoaDocs developer README](http://cocoadocs.org/readme)
 
 ## Where can I ask questions?
 
@@ -124,4 +125,4 @@ We have multiple avenues for support, here they are in the order we prefer.
 
 * [Stack Overflow](http://stackoverflow.com/search?q=CocoaPods), get yourself some internet points. This keeps the pressure off the CocoaPods dev team and gives us time to work on the project and not support. One of the advantages of using Stack Overflow is that the answer is then easily accessible for others.
 
-* [CocoaPods Mailing List](http://groups.google.com/group/cocoapods), the mailing list is mainly used for announcements of related projects and for support.
+* [CocoaPods Mailing List](http://groups.google.com/group/cocoapods), the mailing list is mainly used for announcements of related projects and occasionally for support.
