@@ -92,5 +92,4 @@ Later on, when you're actively using CocoaPods by installing pods, you will be n
 
 #### Using a CocoaPods Fork
 
-
 There are two ways to do this, [using a Gemfile](/using/a-gemfile.html) (recommended) or using a [development build](/using/unreleased-features) that are in discussion or in implementation stage.

@@ -1,5 +1,5 @@
 ---
-title: Tickets handling
+title: Ticket handling
 description: The easiest way to contribute is to help us handling the tickets.
 order: 4
 ---
@@ -14,7 +14,7 @@ Open Source Project.
 The following guidelines are indicative and any step can be skipped when
 reasonably useless.
 
-CocoaPods ticket handling and development is an open process where actors use
+CocoaPods' ticket handling and development is an open process where actors use
 their own judgement to decide whether they are comfortable undertaking an
 action. If for any reason there is no enough confidence for an action the rest
 of the team can be called.

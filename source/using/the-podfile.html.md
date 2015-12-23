@@ -86,6 +86,7 @@ For more information, regarding versioning policy, see:
 
 * [Semantic Versioning](http://semver.org)
 * [RubyGems Versioning Policies](http://guides.rubygems.org/patterns/#semantic-versioning)
+* There's a great video from Google about how this works: ["CocoaPods and the Case of the Squiggly Arrow (Route 85)"](https://www.youtube.com/watch?v=x4ARXyovvPc).
 
 Finally, instead of a version, you can specify the `:head` flag. This
 will use the pod’s latest version spec version, but force the download

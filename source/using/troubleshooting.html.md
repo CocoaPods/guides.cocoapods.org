@@ -11,7 +11,7 @@ order: 3
 
          $ gem uninstall cocoapods
          $ gem install cocoapods
-         
+
 * The gem might not be able to compile, to solve this you might need to [symlink GCC](http://www.relaxdiego.com/2012/02/using-gcc-when-xcode-43-is-installed.html).
 * If you used an pre release version of Xcode you might need to update the command line tools.
 * CocoaPods is not compatible with MacRuby.
@@ -40,22 +40,9 @@ order: 3
 <center> ![Xcode build location settings](https://img.skitch.com/20120426-chmda3m5suhcfrhjge6brjhesk.png) </center>
 
 * If you tried to submit app to App Store, and found that "Product" > "Archive" produce nothing in "Organizer":
-    * In Xcode "Build Settings", find "Skip Install". Set the value for "Release" to "NO" on your application target. Build again and it should work. 
+    * In Xcode "Build Settings", find "Skip Install". Set the value for "Release" to "NO" on your application target. Build again and it should work.
 
 _Different Xcode versions can have various problems. Ask for help and tell us what version you're using._
-
-### Running into build failures after migrating to Xcode 5 and CocoaPods 0.25.0?
-
-This applies to users migrating projects from Xcode 4, or are still using Xcode 4.
-
-1. The Pods Xcode project now sets the `ONLY_ACTIVE_ARCH` build setting to
-   `YES` in the `Debug` configuration. You _will_ have to set the same on your
-   project/target, otherwise the build _will_ fail.
-2. Ensure your project/target has an `ARCHS` value set, otherwise the build
-   _will_ fail.
-3. When building a **iOS** project from the command-line, with the `xcodebuild`
-   tool that comes with Xcode 4, you’ll need to completely disable this setting
-   by appending to your build command: `ONLY_ACTIVE_ARCH=NO`.
 
 ### Can I workaround ‘Duplicate Symbol’ errors with static libraries?
 
@@ -102,7 +89,8 @@ We have multiple avenues for support, here they are in the order we prefer.
 In this case we want to get it on a GitHub issues tracker, we use this to keep track of the development work we have to do.
 
 * **Search tickets before you file a new one.** Add to existing tickets if you have new information about the issue.
+* 
 * **Only file tickets about the CocoaPods tool itself.** This includes [CocoaPods](https://github.com/CocoaPods/CocoaPods/issues),
   [CocoaPods/Core](https://github.com/CocoaPods/Core/issues), and [Xcodeproj](https://github.com/CocoaPods/Xcodeproj/issues).
-  
+
 * **Keep tickets short but sweet.** Make sure you include all the context needed to solve the issue. Don't overdo it. Great tickets allow us to focus on solving problems instead of discussing them.

@@ -25,4 +25,4 @@ Pull requests will be looked over by at least one core team member. Comments wil
 
 Tests must pass in order for your pull request to be merged. For new functionality, tests must be added. For the removal of functionality, or significant refactoring, tests can be removed. Make sure to note this in your commit messages, or in the pull request description.
 
-Lastly, make sure to update the `CHANGELOG` with an appropriate message and to give yourself some credit.
+Lastly, make sure to update the `CHANGELOG` with an appropriate message and to give yourself some credit. Awesome.
