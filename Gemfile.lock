@@ -15,7 +15,7 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (4.1.13)
+    activesupport (4.1.14)
       i18n (~> 0.6, >= 0.6.9)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
@@ -24,11 +24,38 @@ GEM
     celluloid (0.16.0)
       timers (~> 4.0.0)
     chunky_png (1.3.1)
-    claide (0.9.1)
-    cocoapods-core (0.39.0)
+    claide (1.0.0.beta.1)
+    cocoapods (1.0.0.beta.1)
+      activesupport (>= 4.0.2)
+      claide (>= 1.0.0.beta.1, < 2.0)
+      cocoapods-core (= 1.0.0.beta.1)
+      cocoapods-deintegrate (>= 1.0.0.beta.1, < 2.0)
+      cocoapods-downloader (>= 1.0.0.beta.1, < 2.0)
+      cocoapods-plugins (>= 1.0.0.beta.1, < 2.0)
+      cocoapods-search (>= 1.0.0.beta.1, < 2.0)
+      cocoapods-stats (>= 1.0.0.beta.1, < 2.0)
+      cocoapods-trunk (>= 1.0.0.beta.1, < 2.0)
+      cocoapods-try (>= 1.0.0.beta.1, < 2.0)
+      colored (~> 1.2)
+      escape (~> 0.0.4)
+      fourflusher (~> 0.3.0)
+      molinillo (~> 0.4.1)
+      nap (~> 1.0)
+      xcodeproj (>= 1.0.0.beta.1, < 2.0)
+    cocoapods-core (1.0.0.beta.1)
       activesupport (>= 4.0.2)
       fuzzy_match (~> 2.0.4)
       nap (~> 1.0)
+    cocoapods-deintegrate (1.0.0.beta.1)
+    cocoapods-downloader (1.0.0.beta.1)
+    cocoapods-plugins (1.0.0.beta.1)
+      nap
+    cocoapods-search (1.0.0.beta.1)
+    cocoapods-stats (1.0.0.beta.1)
+    cocoapods-trunk (1.0.0.beta.1)
+      nap (>= 0.8, < 2.0)
+      netrc (= 0.7.8)
+    cocoapods-try (1.0.0.beta.1)
     coffee-script (2.3.0)
       coffee-script-source
       execjs
@@ -53,12 +80,14 @@ GEM
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
     erubis (2.7.0)
+    escape (0.0.4)
     eventmachine (1.0.7)
     execjs (2.2.2)
     ffi (1.9.6)
     foreman (0.75.0)
       dotenv (~> 0.11.1)
       thor (~> 0.19.1)
+    fourflusher (0.3.0)
     fuzzy_match (2.0.4)
     github-markup (1.3.0)
       posix-spawn (~> 0.3.8)
@@ -114,11 +143,11 @@ GEM
       sprockets-helpers (~> 1.1.0)
       sprockets-sass (~> 1.2.0)
     mini_portile (0.6.0)
-    minitest (5.8.1)
-    molinillo (0.4.0)
+    minitest (5.8.3)
+    molinillo (0.4.1)
     multi_json (1.10.1)
     nap (1.0.0)
-    netrc (0.10.3)
+    netrc (0.7.8)
     nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
     padrino-helpers (0.12.3)
@@ -167,6 +196,10 @@ GEM
     uglifier (2.5.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    xcodeproj (1.0.0.beta.2)
+      activesupport (>= 3)
+      claide (>= 1.0.0.beta.1, < 2.0)
+      colored (~> 1.2)
     yajl-ruby (1.1.0)
     yard (0.8.6.2)
 
@@ -175,9 +208,7 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport
-  claide
-  cocoapods-core (>= 0.36.1)
-  colored
+  cocoapods (> 0.a)
   foreman
   github-markup
   middleman
@@ -185,8 +216,6 @@ DEPENDENCIES
   middleman-livereload (~> 3.1.0)
   middleman-rouge
   middleman-sprockets
-  molinillo
-  netrc
   nokogiri
   pygments.rb
   rake
@@ -196,4 +225,4 @@ DEPENDENCIES
   yard (~> 0.8.6.2)
 
 BUNDLED WITH
-   1.11.0.pre.1
+   1.11.2

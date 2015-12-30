@@ -19,12 +19,7 @@ gem 'pygments.rb'
 gem 'github-markup'
 gem 'nokogiri'
 
-gem 'claide'
-gem 'colored'
-
-gem 'cocoapods-core', '>= 0.36.1'
-gem 'molinillo'
-gem 'netrc'
+gem 'cocoapods', '> 0.a'
 
 group :development do
   gem 'foreman'

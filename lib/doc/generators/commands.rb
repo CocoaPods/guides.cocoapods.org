@@ -10,6 +10,7 @@ module Pod
 
         def initialize(*args)
           $:.unshift((DOC_GEM_ROOT + 'CLAide/lib').to_s)
+          $:.unshift((DOC_GEM_ROOT + 'cocoapods-deintegrate/lib').to_s)
           $:.unshift((DOC_GEM_ROOT + 'cocoapods-downloader/lib').to_s)
           $:.unshift((DOC_GEM_ROOT + 'cocoapods-plugins/lib').to_s)
           $:.unshift((DOC_GEM_ROOT + 'cocoapods-search/lib').to_s)
@@ -20,8 +21,10 @@ module Pod
           $:.unshift((DOC_GEM_ROOT + 'Xcodeproj/lib').to_s)
           require 'claide'
           require 'cocoapods'
-          require 'pod/command/plugins'
+
+          require 'cocoapods/command/deintegrate'
           require 'cocoapods-search/command/search'
+          require 'pod/command/plugins'
           require 'pod/command/trunk'
           require 'pod/command/try'
           super
@@ -61,6 +64,11 @@ module Pod
               'pod install',
               'pod update',
               'pod outdated',
+              'pod deintegrate',
+            ],
+
+            'Environment' => [
+              'pod env'
             ],
 
             'Browse' => [
@@ -84,6 +92,8 @@ module Pod
               'pod trunk push',
               'pod trunk register',
               'pod trunk remove-owner',
+              'pod trunk deprecate',
+              'pod trunk delete',
             ],
 
             'Repos' => [

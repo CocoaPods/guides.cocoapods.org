@@ -31,3 +31,6 @@
 [submodule "gems/cocoapods-search"]
 	path = gems/cocoapods-search
 	url = https://github.com/CocoaPods/cocoapods-search.git
+[submodule "gems/cocoapods-deintegrate"]
+	path = gems/cocoapods-deintegrate
+	url = https://github.com/CocoaPods/cocoapods-deintegrate.git
