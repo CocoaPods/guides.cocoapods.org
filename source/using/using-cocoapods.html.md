@@ -16,8 +16,10 @@ order: 1
 * Create a [Podfile](/using/the-podfile.html), and add your dependencies:
 
 ```ruby
-pod 'AFNetworking', '~> 2.0'  
-pod 'ObjectiveSugar', '~> 0.5'
+target 'MyApp' do
+  pod 'AFNetworking', '~> 3.0'
+  pod 'FBSDKCoreKit', '~> 4.9'
+end
 ```
 
 * Run `$ pod install` in your project directory.
@@ -29,17 +31,20 @@ To create a new project with CocoaPods, follow these simple steps:
 
 * Create a new project in Xcode as you would normally.
 * Open a terminal window, and `$ cd` into your project directory.
-* Create a Podfile. This can be done by running `$ touch Podfile`.
+* Create a Podfile. This can be done by running `$ pod init`.
 * Open your Podfile. The first line should specify the platform and version supported.
 
 ```ruby
-platform :ios, '8.0'
+platform :ios, '9.0'
 ````
 
-* Add a CocoaPod by specifying `pod '$PODNAME'` on a single line
+* In order to use CocoaPods you need to define the Xcode target to link them to. So for example if you are writing an iOS app, it would be the name of your app. Create a target section by writing `target '$TARGET_NAME' do` and an `end` a few lines after.
+* Add a CocoaPod by specifying `pod '$PODNAME'` on a single line inside your target block.
 
 ```ruby
-pod 'ObjectiveSugar'
+target 'MyApp' do
+  pod 'ObjectiveSugar'
+end
 ```
 * Save your Podfile.
 * Run `$ pod install`
@@ -47,7 +52,7 @@ pod 'ObjectiveSugar'
 
 ### Integration with an existing workspace
 
-Integrating CocoaPods with an existing workspace requires one extra line in your Podfile. Simply specify the `.xcworkspace` root filename like so:
+Integrating CocoaPods with an existing workspace requires one extra line in your Podfile. Simply specify the `.xcworkspace` filename in a target block like so:
 
 ```ruby
 workspace 'MyWorkspace'
