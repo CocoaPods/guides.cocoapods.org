@@ -52,7 +52,7 @@ end
 
 ### Integration with an existing workspace
 
-Integrating CocoaPods with an existing workspace requires one extra line in your Podfile. Simply specify the `.xcworkspace` filename in a target block like so:
+Integrating CocoaPods with an existing workspace requires one extra line in your Podfile. Simply specify the `.xcworkspace` filename in outside your target blocks like so:
 
 ```ruby
 workspace 'MyWorkspace'
