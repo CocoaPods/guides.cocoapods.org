@@ -1,36 +1,6 @@
 [submodule "shared"]
 	path = shared
 	url = https://github.com/CocoaPods/shared_resources.git
-[submodule "gems/CLAide"]
-	path = gems/CLAide
-	url = https://github.com/CocoaPods/CLAide.git
-[submodule "gems/CocoaPods"]
-	path = gems/CocoaPods
-	url = https://github.com/CocoaPods/CocoaPods.git
-[submodule "gems/Core"]
-	path = gems/Core
-	url = https://github.com/CocoaPods/Core.git
-[submodule "gems/Xcodeproj"]
-	path = gems/Xcodeproj
-	url = https://github.com/CocoaPods/Xcodeproj.git
-[submodule "gems/cocoapods-downloader"]
-	path = gems/cocoapods-downloader
-	url = https://github.com/CocoaPods/cocoapods-downloader.git
-[submodule "gems/cocoapods-trunk"]
-	path = gems/cocoapods-trunk
-	url = https://github.com/CocoaPods/cocoapods-trunk.git
-[submodule "gems/cocoapods-try"]
-	path = gems/cocoapods-try
-	url = https://github.com/CocoaPods/cocoapods-try.git
-[submodule "gems/cocoapods-plugins"]
-	path = gems/cocoapods-plugins
-	url = https://github.com/CocoaPods/cocoapods-plugins.git
 [submodule "external/cocoadocs-api"]
 	path = external/cocoadocs-api
 	url = https://github.com/CocoaPods/cocoadocs-api.git
-[submodule "gems/cocoapods-search"]
-	path = gems/cocoapods-search
-	url = https://github.com/CocoaPods/cocoapods-search.git
-[submodule "gems/cocoapods-deintegrate"]
-	path = gems/cocoapods-deintegrate
-	url = https://github.com/CocoaPods/cocoapods-deintegrate.git
