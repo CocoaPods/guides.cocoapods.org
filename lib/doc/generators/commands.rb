@@ -9,25 +9,15 @@ module Pod
       class Commands < Base
 
         def initialize(*args)
-          $:.unshift((DOC_GEM_ROOT + 'CLAide/lib').to_s)
-          $:.unshift((DOC_GEM_ROOT + 'cocoapods-deintegrate/lib').to_s)
-          $:.unshift((DOC_GEM_ROOT + 'cocoapods-downloader/lib').to_s)
-          $:.unshift((DOC_GEM_ROOT + 'cocoapods-plugins/lib').to_s)
-          $:.unshift((DOC_GEM_ROOT + 'cocoapods-search/lib').to_s)
-          $:.unshift((DOC_GEM_ROOT + 'cocoapods-trunk/lib').to_s)
-          $:.unshift((DOC_GEM_ROOT + 'cocoapods-try/lib').to_s)
-          $:.unshift((DOC_GEM_ROOT + 'CocoaPods/lib').to_s)
-          $:.unshift((DOC_GEM_ROOT + 'Core/lib').to_s)
-          $:.unshift((DOC_GEM_ROOT + 'Xcodeproj/lib').to_s)
-          require 'claide'
-          require 'cocoapods'
-
-          require 'cocoapods/command/deintegrate'
-          require 'cocoapods-search/command/search'
-          require 'pod/command/plugins'
-          require 'pod/command/trunk'
-          require 'pod/command/try'
           super
+          require 'cocoapods'
+          load_plugins
+        end
+
+        def load_plugins
+          claide_command.plugin_prefixes.each do |plugin_prefix|
+            CLAide::Command::PluginManager.load_plugins(plugin_prefix)
+          end
         end
 
         def name

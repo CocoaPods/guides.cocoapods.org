@@ -7,7 +7,6 @@ module Pod
       class DSL < Base
 
         def initialize(*args)
-          $:.unshift((DOC_GEM_ROOT + 'core/lib').to_s)
           require 'cocoapods-core'
           super
         end

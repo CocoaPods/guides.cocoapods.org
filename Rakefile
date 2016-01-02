@@ -1,14 +1,4 @@
 
-# Run task
-#-----------------------------------------------------------------------------#
-
-desc "Runs the site locally"
-task :serve do
-  title 'Running locally'
-  sh "open http://0.0.0.0:4567"
-  sh "bundle exec middleman server"
-end
-
 # Bootstrap task
 #-----------------------------------------------------------------------------#
 
@@ -27,89 +17,107 @@ task :bootstrap do
   execute_command "mkdir -p docs_data"
 end
 
-# Deploy task
-#-----------------------------------------------------------------------------#
-
 begin
-  require 'middleman-gh-pages'
-  desc 'Build and push the guides to GitHub Pages'
-  task :deploy => ['generate:all', :publish]
-rescue LoadError
-  $stderr.puts "[!] Disabled the middleman publish task, run `rake bootstrap` first."
-end
 
-# Gems namespace
-#-----------------------------------------------------------------------------#
+  require 'bundler/setup'
 
-namespace :gems do
+  # Run task
+  #-----------------------------------------------------------------------------#
 
-  desc "Checks out the latest tag available for each gem."
-  task :update do
-    Dir.glob('gems/*').each do |dir|
-      Dir.chdir(dir) do
-        puts "\e[1;33mUpdating #{dir}\e[0m"
-        sh "git fetch"
-        tag = `git for-each-ref --sort='*authordate' --format='%(refname:short)' refs/tags`.split("\n").last
-        sh "git checkout #{tag}"
-        sh "git submodule update"
+  desc "Runs the site locally"
+  task :serve do
+    title 'Running locally'
+    sh "open http://0.0.0.0:4567"
+    sh "bundle exec middleman server"
+  end
+
+  # Deploy task
+  #-----------------------------------------------------------------------------#
+
+  begin
+    require 'middleman-gh-pages'
+    desc 'Build and push the guides to GitHub Pages'
+    task :deploy => ['generate:all', :publish]
+  rescue LoadError
+    $stderr.puts "[!] Disabled the middleman publish task, run `rake bootstrap` first."
+  end
+
+  # Gems namespace
+  #-----------------------------------------------------------------------------#
+
+  namespace :gems do
+    desc "Checks out the latest tag available for each gem."
+    task :update do
+      require 'bundler'
+      Bundler.with_clean_env do
+        sh "bundle update cocoapods"
       end
     end
   end
-end
 
-# Generate namespace
-#-----------------------------------------------------------------------------#
+  # Generate namespace
+  #-----------------------------------------------------------------------------#
 
-# Generates the data YAML ready to be used by the Middleman.
-#
-namespace :generate do
-  require 'pathname'
-  ROOT = Pathname.new(File.expand_path('../', __FILE__))
-  $:.unshift((ROOT + 'lib').to_s)
+  # Generates the data YAML ready to be used by the Middleman.
+  #
+  namespace :generate do
 
-  desc "Generates the data for the dsl."
-  task :dsl do
-    require 'doc'
-    puts "\e[1;33mBuilding DSL Data\e[0m"
+    desc "Generates the data for the dsl."
+    task :dsl do
+      require 'doc'
+      puts "\e[1;33mBuilding DSL Data\e[0m"
 
-    dsls.each do |dsl|
-      name = dsl[:name]
-      title = dsl[:title]
+      dsls.each do |dsl|
+        name = dsl[:name]
+        title = dsl[:title]
 
-      dsl_file = (ROOT + "gems/Core/lib/cocoapods-core/#{name.downcase}/dsl.rb").to_s
-      generator = Pod::Doc::Generators::DSL.new(dsl_file)
-      generator.name = name
+        lib = Gem.loaded_specs['cocoapods-core'].full_require_paths.first
+        dsl_file = File.join(lib, "cocoapods-core/#{name.downcase}/dsl.rb")
+        generator = Pod::Doc::Generators::DSL.new(dsl_file)
+        generator.name = name
 
-      generator.output_file = "docs_data/#{title.downcase}.yaml"
+        generator.output_file = "docs_data/#{title.downcase}.yaml"
+        generator.save
+      end
+    end
+
+    desc "Generates the data for the commands."
+    task :commands do
+      require 'doc'
+      puts "\e[1;33mBuilding Commands Data\e[0m"
+      lib = Gem.loaded_specs['cocoapods'].full_require_paths.first
+      files = FileList[File.join(lib, 'lib/cocoapods/command/*.rb')]
+      generator = Pod::Doc::Generators::Commands.new(files)
+      generator.output_file = "docs_data/commands.yaml"
       generator.save
     end
+
+    desc "Generates all the metadata necessary for the middleman"
+    task :all => [:dsl, :commands]
   end
 
-  desc "Generates the data for the commands."
-  task :commands do
-    require 'doc'
-    puts "\e[1;33mBuilding Commands Data\e[0m"
-    files = FileList[(ROOT + "gems/CocoaPods/lib/cocoapods/command/*.rb").to_s]
-    # These should probably not be in that directory.
-    files.exclude(/advanced_linter/)
-    files.exclude(/error_report/)
-    generator = Pod::Doc::Generators::Commands.new(files)
-    generator.output_file = "docs_data/commands.yaml"
-    generator.save
+rescue LoadError, NameError => e
+  $stderr.puts "\033[0;31m" \
+    '[!] Some Rake tasks haven been disabled because the environment' \
+    ' couldn’t be loaded. Be sure to run `rake bootstrap` first or use the ' \
+    "VERBOSE environment variable to see errors.\e[0m"
+  if ENV['VERBOSE']
+    $stderr.puts e.message
+    $stderr.puts e.backtrace
+    $stderr.puts
   end
-
-  desc "Generates all the metadata necessary for the middleman"
-  task :all => [:dsl, :gems, :commands]
-  task :default => 'all'
 end
 
 # Helpers
 #-----------------------------------------------------------------------------#
 
-$LOAD_PATH << 'lib'
+$LOAD_PATH << File.expand_path('lib')
 
 def dsls
-  [ { :name => "Podfile", :title => "podfile" }, {:name => "Specification", :title => "podspec"} ]
+  [
+    { :name => "Podfile", :title => "podfile" },
+    { :name => "Specification", :title => "podspec" },
+  ]
 end
 
 def execute_command(command)
