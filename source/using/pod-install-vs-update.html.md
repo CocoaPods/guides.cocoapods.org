@@ -23,7 +23,7 @@ The aim of this guide is to explain when you should use `pod install` and when y
 
 This is to be used every time you edit your `Podfile` to add a new pod to it (or remove one from it).
 
-* Every time the `pod install` command is run — and downloads and install new pods — it writes the version it has installed, for each pods, in the `Podfile.lock` file. This file keeps track of the installed version of each pod and to *lock* those versions.
+* Every time the `pod install` command is run — and downloads and install new pods — it writes the version it has installed, for each pods, in the `Podfile.lock` file. This file keeps track of the installed version of each pod and *locks* those versions.
 * When you run `pod install`, it only resolve dependencies for pods that are **not** already listed in the Podfile.lock.
   * For pods listed in the `Podfile.lock`, it downloads the explicit version listed in the `Podfile.lock` without trying to check if a newer version is available
   * For pods not listed in the `Podfile.lock` yet, it searches for the version that matches what is described in the `Podfile` (like in `pod 'MyPod', '~>1.2'`)
