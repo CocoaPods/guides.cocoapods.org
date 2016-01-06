@@ -46,9 +46,15 @@ When you add a pod to your `Podfile`, you should run `pod install`, not `pod upd
 
 You will only use `pod update` when you want to update the version of a specific pod (or all the pods).
 
+## Commit your Podfile.lock
+
+As an reminder, even if [your policy is not to commit the `Pods` folder into your shared repository](https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control), **you should always commit & push your `Podfile.lock` file**.
+
+_Otherwise, it would break the whole logic explained above about `pod install` being able to lock the installed versions of your pods._
+
 ## Scenario Example
 
-If [your policy is not to commit the `Pods` folder into your shared repository](https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control), don't forget to at least commit & push your `Podfile.lock` file. This file must always be pushed to the repository.
+Here is a scenario example to illustrate the various use case one might encounter during the life of a project.
 
 #### Stage 1: User create the project
 
