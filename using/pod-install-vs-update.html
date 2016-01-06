@@ -113,10 +113,10 @@
 <h2 id="scenario-example">
 <a class="header-link" href="#scenario-example">&lt;</a>Scenario Example</h2>
 
-<p>Here is a scenario example to illustrate the various use case one might encounter during the life of a project.</p>
+<p>Here is a scenario example to illustrate the various use cases one might encounter during the life of a project.</p>
 
 <h3 id="stage--user-creates-the-project">
-<a class="header-link" href="#stage--user-creates-the-project">&lt;</a>Stage 1: User creates the project</h3>
+<a class="header-link" href="#stage--user-creates-the-project">&lt;</a>Stage 1: User1 creates the project</h3>
 
 <p><em>user1</em> creates a project and wants to use pods <code>A</code>,<code>B</code>,<code>C</code>. They create a <code>Podfile</code> with those pods, and run <code>pod install</code>.</p>
 
@@ -131,9 +131,9 @@
 <h3 id="stage--user-adds-a-new-pod">
 <a class="header-link" href="#stage--user-adds-a-new-pod">&lt;</a>Stage 2: User1 adds a new pod</h3>
 
-<p>Later, <em>user1</em> wants to add a pod <code>D</code> into its <code>Podfile</code>.</p>
+<p>Later, <em>user1</em> wants to add a pod <code>D</code> into their <code>Podfile</code>.</p>
 
-<p><strong>They should thus run <code>pod install</code></strong> afterwards, so that even if the maintener of pod <code>B</code> released a version <code>1.1.0</code> of their pod since the first execution of <code>pod install</code>, the project will keep using version <code>1.0.0</code> — because they only want to add pod <code>D</code>, without risking an unexpected update to pod <code>B</code>.</p>
+<p><strong>They should thus run <code>pod install</code></strong> afterwards, so that even if the maintener of pod <code>B</code> released a version <code>1.1.0</code> of their pod since the first execution of <code>pod install</code>, the project will keep using version <code>1.0.0</code> — because <em>user1</em> only wants to add pod <code>D</code>, without risking an unexpected update to pod <code>B</code>.</p>
 
 <blockquote>
 <p><em>That's where some people get it wrong, because they use <code>pod update</code> here — probably thinking this as "I want to update my <em>project</em> with new pods"? — instead of using <code>pod install</code> — to install new pods in the project.</em></p>
@@ -146,25 +146,25 @@
 
 <p>The contents of <code>Podfile.lock</code> (which should be committed onto the git repo) will guarantee they will get the exact same pods, with the exact same versions that <em>user1</em> was using.</p>
 
-<p>Even if a version <code>1.2.0</code> of pod <code>C</code> is now available, <em>user2</em> will get the pod <code>C</code> in version <code>1.0.0</code>. Because that's what is registered is <code>Podfile.lock</code>. pod <code>C</code> is <em>locked</em> to version <code>1.0.0</code> by the <code>Podfile.lock</code> (hence the name of this file).</p>
+<p>Even if a version <code>1.2.0</code> of pod <code>C</code> is now available, <em>user2</em> will get the pod <code>C</code> in version <code>1.0.0</code>. Because that's what is registered in <code>Podfile.lock</code>. pod <code>C</code> is <em>locked</em> to version <code>1.0.0</code> by the <code>Podfile.lock</code> (hence the name of this file).</p>
 
 <h3 id="stage--checking-for-new-versions-of-a-pod">
 <a class="header-link" href="#stage--checking-for-new-versions-of-a-pod">&lt;</a>Stage 4: Checking for new versions of a pod</h3>
 
-<p>Later, <em>user1</em> wants to check if any updates are available for the pods. They run <code>pod outdated</code> which will tell them that pod <code>B</code> have a new version <code>1.1.0</code> and pod <code>C</code> have a new <code>1.2.0</code> version released.</p>
+<p>Later, <em>user1</em> wants to check if any updates are available for the pods. They run <code>pod outdated</code> which will tell them that pod <code>B</code> have a new <code>1.1.0</code> version, and pod <code>C</code> have a new <code>1.2.0</code> version released.</p>
 
-<p><em>user1</em> decides they want to update pod <code>B</code>, but not pod <code>C</code>; so they will <strong>run <code>pod update B</code></strong>  which will install <code>B</code> in version <code>1.1.0</code> (and update the <code>Podfile.lock</code> accordingly) <strong>but</strong> will keep pod <code>C</code> in version <code>1.0.0</code> (and <em>won't</em> update it to <code>1.2.0</code>).</p>
+<p><em>user1</em> decides they want to update pod <code>B</code>, but not pod <code>C</code>; so they will <strong>run <code>pod update B</code></strong>  which will update <code>B</code> from version <code>1.0.0</code> to version <code>1.1.0</code> (and update the <code>Podfile.lock</code> accordingly) <strong>but</strong> will keep pod <code>C</code> in version <code>1.0.0</code> (and <em>won't</em> update it to <code>1.2.0</code>).</p>
 
 <h2 id="using-exact-versions-in-the-podfile-is-not-enough">
 <a class="header-link" href="#using-exact-versions-in-the-podfile-is-not-enough">&lt;</a>Using exact versions in the <code>Podfile</code> is not enough</h2>
 
-<p>Some people think that by specifying exact versions of their pods in their <code>Podfile</code>, like <code>pod 'A', '1.0.0'</code> is enough to guarantee that every user will have the same version as other people on the team.</p>
+<p>Some might think that by specifying exact versions of their pods in their <code>Podfile</code>, like <code>pod 'A', '1.0.0'</code>, is enough to guarantee that every user will have the same version as other people on the team.</p>
 
-<p>Then they might even use <code>pod update</code> even when just adding a new pod, thinking it would never risk to update other pods because they are fixed to a specific version in the <code>Podfile</code>.</p>
+<p>Then they might even use <code>pod update</code>, even when just adding a new pod, thinking it would never risk to update other pods because they are fixed to a specific version in the <code>Podfile</code>.</p>
 
 <p>But in fact, <strong>that is not enough to guarantee that <em>user1</em> and <em>user2</em> in our above scenario will always get the exact same version of all their pods</strong>.</p>
 
-<p>The typical example is if the pod <code>A</code> has a dependency on pod <code>A2</code>, declared in <code>A.podspec</code> as <code>dependency 'A2', '~&gt; 3.0'</code>. In such case, using <code>pod 'A', '1.0.0'</code> in your <code>Podfile</code> will indeed force <em>user1</em> and <em>user2</em> to both always use version <code>1.0.0</code> of the pod <code>A</code>, but:</p>
+<p>One typical example is if the pod <code>A</code> has a dependency on pod <code>A2</code> — declared in <code>A.podspec</code> as <code>dependency 'A2', '~&gt; 3.0'</code>. In such case, using <code>pod 'A', '1.0.0'</code> in your <code>Podfile</code> will indeed force <em>user1</em> and <em>user2</em> to both always use version <code>1.0.0</code> of the pod <code>A</code>, but:</p>
 
 <ul>
 <li>
