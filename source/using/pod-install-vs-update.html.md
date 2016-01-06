@@ -23,7 +23,7 @@ _TL;DR:_
 
 ### `pod install`
 
-This is to be used every time you edit your `Podfile` to add a new pod to it (or remove one from it).
+This is to be used the first time you want to retrieve the pods for the project, but also every time you edit your Podfile to add, update or remove a pod.
 
 * Every time the `pod install` command is run — and downloads and install new pods — it writes the version it has installed, for each pods, in the `Podfile.lock` file. This file keeps track of the installed version of each pod and *locks* those versions.
 * When you run `pod install`, it only resolve dependencies for pods that are **not** already listed in the `Podfile.lock`.
@@ -32,7 +32,7 @@ This is to be used every time you edit your `Podfile` to add a new pod to it (or
 
 ### `pod outdated`
 
-When you run `pod outdated`, CocoaPods will list all pods which have newer versions than the ones listed in the `Podfile.lock` (the versions currently installed for each pod) and which could be updated (as long as it matches the restrictions like `pod 'MyPod', '~>x.y'` set in your `Podfile`).
+When you run `pod outdated`, CocoaPods will list all pods which have newer versions than the ones listed in the `Podfile.lock` (the versions currently installed for each pod). This means that if you run `pod update PODNAME` on those pods, they will be updated — as long as the new version still matches the restrictions like `pod 'MyPod', '~>x.y'` set in your `Podfile`.
 
 ### `pod update`
 
