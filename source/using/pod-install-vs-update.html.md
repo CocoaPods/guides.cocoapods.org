@@ -50,7 +50,7 @@ You will only use `pod update` when you want to update the version of a specific
 
 ## Commit your Podfile.lock
 
-As an reminder, even if [your policy is not to commit the `Pods` folder into your shared repository](https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control), **you should always commit & push your `Podfile.lock` file**.
+As an reminder, even if [your policy is not to commit the `Pods` folder into your shared repository](/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control), **you should always commit & push your `Podfile.lock` file**.
 
 _Otherwise, it would break the whole logic explained above about `pod install` being able to lock the installed versions of your pods._
 
