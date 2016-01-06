@@ -56,9 +56,9 @@ _Otherwise, it would break the whole logic explained above about `pod install` b
 
 ## Scenario Example
 
-Here is a scenario example to illustrate the various use case one might encounter during the life of a project.
+Here is a scenario example to illustrate the various use cases one might encounter during the life of a project.
 
-### Stage 1: User creates the project
+### Stage 1: User1 creates the project
 
 _user1_ creates a project and wants to use pods `A`,`B`,`C`. They create a `Podfile` with those pods, and run `pod install`.
 
@@ -70,9 +70,9 @@ The `Podfile.lock` will keep track of that and note that `A`,`B` and `C` are eac
 
 ### Stage 2: User1 adds a new pod
 
-Later, _user1_ wants to add a pod `D` into its `Podfile`.
+Later, _user1_ wants to add a pod `D` into their `Podfile`.
 
-**They should thus run `pod install`** afterwards, so that even if the maintener of pod `B` released a version `1.1.0` of their pod since the first execution of `pod install`, the project will keep using version `1.0.0` — because they only want to add pod `D`, without risking an unexpected update to pod `B`.
+**They should thus run `pod install`** afterwards, so that even if the maintener of pod `B` released a version `1.1.0` of their pod since the first execution of `pod install`, the project will keep using version `1.0.0` — because _user1_ only wants to add pod `D`, without risking an unexpected update to pod `B`.
 
 > _That's where some people get it wrong, because they use `pod update` here — probably thinking this as "I want to update my *project* with new pods"? — instead of using `pod install` — to install new pods in the project._
 
@@ -82,23 +82,23 @@ Then _user2_, who never worked on the project before, joins the team. They clone
 
 The contents of `Podfile.lock` (which should be committed onto the git repo) will guarantee they will get the exact same pods, with the exact same versions that _user1_ was using.
 
-Even if a version `1.2.0` of pod `C` is now available, _user2_ will get the pod `C` in version `1.0.0`. Because that's what is registered is `Podfile.lock`. pod `C` is *locked* to version `1.0.0` by the `Podfile.lock` (hence the name of this file).
+Even if a version `1.2.0` of pod `C` is now available, _user2_ will get the pod `C` in version `1.0.0`. Because that's what is registered in `Podfile.lock`. pod `C` is *locked* to version `1.0.0` by the `Podfile.lock` (hence the name of this file).
 
 ### Stage 4: Checking for new versions of a pod
 
-Later, _user1_ wants to check if any updates are available for the pods. They run `pod outdated` which will tell them that pod `B` have a new version `1.1.0` and pod `C` have a new `1.2.0` version released.
+Later, _user1_ wants to check if any updates are available for the pods. They run `pod outdated` which will tell them that pod `B` have a new `1.1.0` version, and pod `C` have a new `1.2.0` version released.
 
-_user1_ decides they want to update pod `B`, but not pod `C`; so they will **run `pod update B`**  which will install `B` in version `1.1.0` (and update the `Podfile.lock` accordingly) **but** will keep pod `C` in version `1.0.0` (and _won't_ update it to `1.2.0`).
+_user1_ decides they want to update pod `B`, but not pod `C`; so they will **run `pod update B`**  which will update `B` from version `1.0.0` to version `1.1.0` (and update the `Podfile.lock` accordingly) **but** will keep pod `C` in version `1.0.0` (and _won't_ update it to `1.2.0`).
 
 ## Using exact versions in the `Podfile` is not enough
 
-Some people think that by specifying exact versions of their pods in their `Podfile`, like `pod 'A', '1.0.0'` is enough to guarantee that every user will have the same version as other people on the team.
+Some might think that by specifying exact versions of their pods in their `Podfile`, like `pod 'A', '1.0.0'`, is enough to guarantee that every user will have the same version as other people on the team.
 
-Then they might even use `pod update` even when just adding a new pod, thinking it would never risk to update other pods because they are fixed to a specific version in the `Podfile`.
+Then they might even use `pod update`, even when just adding a new pod, thinking it would never risk to update other pods because they are fixed to a specific version in the `Podfile`.
 
 But in fact, **that is not enough to guarantee that _user1_ and _user2_ in our above scenario will always get the exact same version of all their pods**.
 
-The typical example is if the pod `A` has a dependency on pod `A2`, declared in `A.podspec` as `dependency 'A2', '~> 3.0'`. In such case, using `pod 'A', '1.0.0'` in your `Podfile` will indeed force _user1_ and _user2_ to both always use version `1.0.0` of the pod `A`, but:
+One typical example is if the pod `A` has a dependency on pod `A2` — declared in `A.podspec` as `dependency 'A2', '~> 3.0'`. In such case, using `pod 'A', '1.0.0'` in your `Podfile` will indeed force _user1_ and _user2_ to both always use version `1.0.0` of the pod `A`, but:
 
 * _user1_ might end up with pod `A2` in version `3.4` (because that was `A2`'s latest version at that time)
 * while when _user2_ runs `pod install` when joining the project later, they might get pod `A2` in version `3.5` (because the maintainer of `A2` might have released a new version in the meantime).
