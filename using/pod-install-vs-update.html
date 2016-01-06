@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>CocoaPods Guides - pod install vs. pod update</title>
+<link rel="shortcut icon" href="https://cocoapods.org/favicons/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="https://cocoapods.org/favicons/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="57x57" href="https://cocoapods.org/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="https://cocoapods.org/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="https://cocoapods.org/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="https://cocoapods.org/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="https://cocoapods.org/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="https://cocoapods.org/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="https://cocoapods.org/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="https://cocoapods.org/favicons/apple-touch-icon-152x152.png">
+<meta charset="utf-8">
+<meta content="cocoapods objective-c objc swift package manager libraries documentation search pods podspec podfile cocoa apple ios library" name="keywords">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="The Dependency Manager for iOS &amp; Mac projects" name="description">
+<meta content="CocoaPods Dev Team" name="author">
+<meta content="summary" name="twitter:card">
+<meta content="@CocoaPods" name="twitter:site">
+<meta content="@CocoaPods" name="twitter:creator">
+<meta content="CocoaPods.org" name="twitter:title">
+<meta content="The Dependency Manager for iOS &amp; Mac projects." name="twitter:description">
+<meta content="https://www.cocoapods.org/" name="twitter:url">
+<link href="../stylesheets/app.css" rel="stylesheet" type="text/css">
+<script src="../javascripts/application.js" type="text/javascript"></script><meta content="CocoaPods Guides" name="twitter:title">
+<meta content="The official documentation site for the CocoaPods dependency manager." name="twitter:description">
+<meta content="CocoaPods Guides" property="og:site_name">
+<meta content="CocoaPods Guides" property="og:title">
+<meta content="https://guides.cocoapods.org" property="og:url">
+</head>
+<body>
+<nav class="navbar navbar-static-top" role="navigation"><section class="container"><div class="navbar-header">
+<button class="navbar-toggle" data-target=".navbar-header-collapse" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span><span class="glyphicon glyphicon-plus"></span></button><a class="navbar-brand" href="https://cocoapods.org"></a>
+</div>
+<div class="collapse navbar-collapse navbar-header-collapse"><ul class="nav navbar-nav navbar-right">
+<li><a href="https://cocoapods.org/about">About</a></li>
+<li class="active"><a href="https://guides.cocoapods.org">Guides</a></li>
+<li><a href="https://blog.cocoapods.org">Blog</a></li>
+</ul></div></section></nav><section class="container"><div class="row"><header class="header content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h1>pod install vs. pod update</h1></header></div></section><div class="guide" id="content-wrapper"><section class="container"><div class="row"><article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h2 id="introduction">
+<a class="header-link" href="#introduction">&lt;</a>Introduction</h2>
+
+<p>Many people starting with CocoaPods seem to think <code>pod install</code> is only used the first time you setup a project using CocoaPods and <code>pod update</code> is used afterwards. <strong>But that's not the case at all</strong>.</p>
+
+<p>The aim of this guide is to explain when you should use <code>pod install</code> and when you should use <code>pod update</code>.</p>
+
+<hr>
+
+<p><em>TL;DR:</em></p>
+
+<ul>
+<li>Use <code>pod install</code> to <em>install new pods</em> in your project. <strong>Even if you already have a <code>Podfile</code> and ran <code>pod install</code> before</strong>; so even if you are just adding/removing pods to a project already using CocoaPods.</li>
+<li>Use <code>pod update [PODNAME]</code> only when you want to <strong>update pods to a newer version</strong>.</li>
+</ul>
+
+<h2 id="detailed-presentation-of-the-commands">
+<a class="header-link" href="#detailed-presentation-of-the-commands">&lt;</a>Detailed presentation of the commands</h2>
+
+<blockquote>
+<p>Note: the vocabulary of <code>install</code> vs. <code>update</code> is not actually specific to CocoaPods. It is inspired by a lot of other dependency managers like <a href="http://bundler.io">bundler</a>, <a href="https://rubygems.org">RubyGems</a> or <a href="https://getcomposer.org">composer</a>, which have similar commands, with the exact same behavior and intents as the one described in this document.</p>
+</blockquote>
+
+<h3 id="pod-install">
+<a class="header-link" href="#pod-install">&lt;</a><code>pod install</code>
+</h3>
+
+<p>This is to be used the first time you want to retrieve the pods for the project, but also every time you edit your Podfile to add, update or remove a pod.</p>
+
+<ul>
+<li>Every time the <code>pod install</code> command is run — and downloads and install new pods — it writes the version it has installed, for each pods, in the <code>Podfile.lock</code> file. This file keeps track of the installed version of each pod and <em>locks</em> those versions.</li>
+<li>When you run <code>pod install</code>, it only resolve dependencies for pods that are <strong>not</strong> already listed in the <code>Podfile.lock</code>.
+
+<ul>
+<li>For pods listed in the <code>Podfile.lock</code>, it downloads the explicit version listed in the <code>Podfile.lock</code> without trying to check if a newer version is available</li>
+<li>For pods not listed in the <code>Podfile.lock</code> yet, it searches for the version that matches what is described in the <code>Podfile</code> (like in <code>pod 'MyPod', '~&gt;1.2'</code>)</li>
+</ul>
+</li>
+</ul>
+
+<h3 id="pod-outdated">
+<a class="header-link" href="#pod-outdated">&lt;</a><code>pod outdated</code>
+</h3>
+
+<p>When you run <code>pod outdated</code>, CocoaPods will list all pods which have newer versions than the ones listed in the <code>Podfile.lock</code> (the versions currently installed for each pod). This means that if you run <code>pod update PODNAME</code> on those pods, they will be updated — as long as the new version still matches the restrictions like <code>pod 'MyPod', '~&gt;x.y'</code> set in your <code>Podfile</code>.</p>
+
+<h3 id="pod-update">
+<a class="header-link" href="#pod-update">&lt;</a><code>pod update</code>
+</h3>
+
+<p>When you run <code>pod update PODNAME</code>, CocoaPods will try to find an updated version of the pod <code>PODNAME</code>, without taking into account the version listed in <code>Podfile.lock</code>. It will update the pod to the latest version possible (as long as it matches the version restrictions in your <code>Podfile</code>).</p>
+
+<p>If you run <code>pod update</code> with no pod name, CocoaPods will update every pod listed in your <code>Podfile</code> to the latest version possible.</p>
+
+<h2 id="intended-usage">
+<a class="header-link" href="#intended-usage">&lt;</a>Intended usage</h2>
+
+<p>With <code>pod update PODNAME</code>, you will be able to only <strong>update</strong> a specific pod (check if a new version exists and update the pod accordingly). As opposed to <code>pod install</code> which won't try to update versions of pods already installed.</p>
+
+<p>When you add a pod to your <code>Podfile</code>, you should run <code>pod install</code>, not <code>pod update</code> — to install this new pod without risking to update existing pod in the same process.</p>
+
+<p>You will only use <code>pod update</code> when you want to update the version of a specific pod (or all the pods).</p>
+
+<h2 id="commit-your-podfilelock">
+<a class="header-link" href="#commit-your-podfilelock">&lt;</a>Commit your Podfile.lock</h2>
+
+<p>As an reminder, even if <a href="using-cocoapods.html#should-i-check-the-pods-directory-into-source-control">your policy is not to commit the <code>Pods</code> folder into your shared repository</a>, <strong>you should always commit &amp; push your <code>Podfile.lock</code> file</strong>.</p>
+
+<p><em>Otherwise, it would break the whole logic explained above about <code>pod install</code> being able to lock the installed versions of your pods.</em></p>
+
+<h2 id="scenario-example">
+<a class="header-link" href="#scenario-example">&lt;</a>Scenario Example</h2>
+
+<p>Here is a scenario example to illustrate the various use case one might encounter during the life of a project.</p>
+
+<h3 id="stage--user-creates-the-project">
+<a class="header-link" href="#stage--user-creates-the-project">&lt;</a>Stage 1: User creates the project</h3>
+
+<p><em>user1</em> creates a project and wants to use pods <code>A</code>,<code>B</code>,<code>C</code>. They create a <code>Podfile</code> with those pods, and run <code>pod install</code>.</p>
+
+<p>This will install pods <code>A</code>,<code>B</code>,<code>C</code>, which we'll say are all in version <code>1.0.0</code>.</p>
+
+<p>The <code>Podfile.lock</code> will keep track of that and note that <code>A</code>,<code>B</code> and <code>C</code> are each installed as version <code>1.0.0</code>.</p>
+
+<blockquote>
+<p><em>Incidentally, because that's the first time they run <code>pod install</code> and the <code>Pods.xcodeproj</code> project doesn't exist yet, the command will also create the <code>Pods.xcodeproj</code> and the <code>.xcworkspace</code>, but that's a side effect of the command, not its primary role.</em></p>
+</blockquote>
+
+<h3 id="stage--user-adds-a-new-pod">
+<a class="header-link" href="#stage--user-adds-a-new-pod">&lt;</a>Stage 2: User1 adds a new pod</h3>
+
+<p>Later, <em>user1</em> wants to add a pod <code>D</code> into its <code>Podfile</code>.</p>
+
+<p><strong>They should thus run <code>pod install</code></strong> afterwards, so that even if the maintener of pod <code>B</code> released a version <code>1.1.0</code> of their pod since the first execution of <code>pod install</code>, the project will keep using version <code>1.0.0</code> — because they only want to add pod <code>D</code>, without risking an unexpected update to pod <code>B</code>.</p>
+
+<blockquote>
+<p><em>That's where some people get it wrong, because they use <code>pod update</code> here — probably thinking this as "I want to update my <em>project</em> with new pods"? — instead of using <code>pod install</code> — to install new pods in the project.</em></p>
+</blockquote>
+
+<h3 id="stage--user-joins-the-project">
+<a class="header-link" href="#stage--user-joins-the-project">&lt;</a>Stage 3: User2 joins the project</h3>
+
+<p>Then <em>user2</em>, who never worked on the project before, joins the team. They clone the repository then use <code>pod install</code>.</p>
+
+<p>The contents of <code>Podfile.lock</code> (which should be committed onto the git repo) will guarantee they will get the exact same pods, with the exact same versions that <em>user1</em> was using.</p>
+
+<p>Even if a version <code>1.2.0</code> of pod <code>C</code> is now available, <em>user2</em> will get the pod <code>C</code> in version <code>1.0.0</code>. Because that's what is registered is <code>Podfile.lock</code>. pod <code>C</code> is <em>locked</em> to version <code>1.0.0</code> by the <code>Podfile.lock</code> (hence the name of this file).</p>
+
+<h3 id="stage--checking-for-new-versions-of-a-pod">
+<a class="header-link" href="#stage--checking-for-new-versions-of-a-pod">&lt;</a>Stage 4: Checking for new versions of a pod</h3>
+
+<p>Later, <em>user1</em> wants to check if any updates are available for the pods. They run <code>pod outdated</code> which will tell them that pod <code>B</code> have a new version <code>1.1.0</code> and pod <code>C</code> have a new <code>1.2.0</code> version released.</p>
+
+<p><em>user1</em> decides they want to update pod <code>B</code>, but not pod <code>C</code>; so they will <strong>run <code>pod update B</code></strong>  which will install <code>B</code> in version <code>1.1.0</code> (and update the <code>Podfile.lock</code> accordingly) <strong>but</strong> will keep pod <code>C</code> in version <code>1.0.0</code> (and <em>won't</em> update it to <code>1.2.0</code>).</p>
+
+<h2 id="using-exact-versions-in-the-podfile-is-not-enough">
+<a class="header-link" href="#using-exact-versions-in-the-podfile-is-not-enough">&lt;</a>Using exact versions in the <code>Podfile</code> is not enough</h2>
+
+<p>Some people think that by specifying exact versions of their pods in their <code>Podfile</code>, like <code>pod 'A', '1.0.0'</code> is enough to guarantee that every user will have the same version as other people on the team.</p>
+
+<p>Then they might even use <code>pod update</code> even when just adding a new pod, thinking it would never risk to update other pods because they are fixed to a specific version in the <code>Podfile</code>.</p>
+
+<p>But in fact, <strong>that is not enough to guarantee that <em>user1</em> and <em>user2</em> in our above scenario will always get the exact same version of all their pods</strong>.</p>
+
+<p>The typical example is if the pod <code>A</code> has a dependency on pod <code>A2</code>, declared in <code>A.podspec</code> as <code>dependency 'A2', '~&gt; 3.0'</code>. In such case, using <code>pod 'A', '1.0.0'</code> in your <code>Podfile</code> will indeed force <em>user1</em> and <em>user2</em> to both always use version <code>1.0.0</code> of the pod <code>A</code>, but:</p>
+
+<ul>
+<li>
+<em>user1</em> might end up with pod <code>A2</code> in version <code>3.4</code> (because that was <code>A2</code>'s latest version at that time)</li>
+<li>while when <em>user2</em> runs <code>pod install</code> when joining the project later, they might get pod <code>A2</code> in version <code>3.5</code> (because the maintainer of <code>A2</code> might have released a new version in the meantime).</li>
+</ul>
+
+<p>That's why the only way to ensure every team member work with the same versions of all the pod on each's computer is to use the <code>Podfile.lock</code> and properly use <code>pod install</code> vs. <code>pod update</code>.</p>
+</article></div></section></div>
+<div class="info-row"><section class="container"><div class="row"><article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><a data-container="body" data-content="CocoaPods is an open source project. Help us improve these guides by sending a pull request. ❤" data-original-title="" data-placement="top" data-toggle="popover" data-trigger="hover" href="https://github.com/CocoaPods/guides.cocoapods.org/blob/master/source/using/pod-install-vs-update.html.md" id="pull-request" title=""></a><ul class="breadcrumb">
+<li>
+<a href="../index.html">Home</a><span class="divider"></span>
+</li>
+<li>
+<a href="index.html">Using CocoaPods</a><span class="divider"></span>
+</li>
+<li class="active">pod install vs. pod update</li>
+</ul></article></div></section></div>
+<section class="site_navigation container"><div class="row">
+<div class="col-lg-3 col-sm-3 col-xs-6 footer-index">
+<h3><a href="index.html">Using CocoaPods</a></h3>
+<ul>
+<li><a href="getting-started.html">Getting Started</a></li>
+<li><a href="using-cocoapods.html">Using CocoaPods</a></li>
+<li><a href="pod-install-vs-update.html">pod install vs. pod update</a></li>
+<li><a href="the-podfile.html">The Podfile</a></li>
+<li><a href="troubleshooting.html">Troubleshooting</a></li>
+<li><a href="faq.html">F.A.Q</a></li>
+</ul>
+</div>
+<div class="col-lg-3 col-sm-3 col-xs-6 footer-index">
+<h3><a href="../making/index.html">Making CocoaPods</a></h3>
+<ul>
+<li><a href="../making/making-a-cocoapod.html">Making a CocoaPod</a></li>
+<li><a href="../making/using-pod-lib-create.html">Using Pod Lib Create</a></li>
+<li><a href="../making/specs-and-specs-repo.html">Specs and the Specs Repo</a></li>
+<li><a href="../making/getting-setup-with-trunk.html">Getting setup with Trunk</a></li>
+<li><a href="../making/private-cocoapods.html">Private Pods</a></li>
+<li><a href="../making/quality-indexes.html">Quality Indexes</a></li>
+</ul>
+</div>
+<div class="clearfix visible-xs"></div>
+<div class="col-lg-3 col-sm-3 col-xs-6 footer-index">
+<h3><a href="../contributing/index.html">Contributing</a></h3>
+<ul>
+<li><a href="../contributing/contribute-to-cocoapods.html">How to Contribute</a></li>
+<li><a href="../contributing/dev-environment.html">Setting up for Development</a></li>
+<li><a href="../contributing/components.html">Core Components</a></li>
+<li><a href="../contributing/tickets-handling.html">Ticket handling</a></li>
+<li><a href="../contributing/release-process.html">Release Process</a></li>
+</ul>
+</div>
+<div class="col-lg-3 col-sm-3 col-xs-6 footer-index">
+<h3> <a href="/reference.html">Reference</a>
+</h3>
+<ul>
+<li><a href="/syntax/podfile.html">Podfile Syntax</a></li>
+<li><a href="/syntax/podspec.html">Podspec Syntax</a></li>
+<li><a href="/terminal/commands.html">Command-line Reference</a></li>
+</ul>
+</div>
+</div></section><footer class="page-footer"><section class="container"><div class="row"><article class="col-md-8 col-lg-8 col-sm-12 col-md-offset-2 col-lg-offset-2 col-xs-12"><h4>CocoaPods is a project from</h4>
+<p class="contributors"> <a href="http://buegling.com">Boris Bügling</a>, <a href="http://mariusrackwitz.de">Marius Rackwitz</a>, <a href="http://orta.io">Orta Therox</a>, <a href="http://segiddins.me">Samuel Giddins</a>, and <a href="https://cocoapods.org/about#team">The CocoaPods Dev Team</a> with contributions from <a href="https://github.com/CocoaPods/Specs/graphs/contributors">many, many others</a>.</p>
+<h4>Lovingly sponsored by</h4>
+<p class="sponsors"><a href="http://artsy.net">Artsy</a>, <a href="http://www.usebutton.com">Button</a>, <a href="http://www.capitalone.io">Capital One</a>, <a href="http://discontinuity.eu">Discontinuity</a>, <a href="http://www.fngtps.com">Fingertips</a>, <a href="https://www.heroku.com">Heroku</a>, <a href="http://www.rubymotion.com">RubyMotion</a>, <a href="https://www.sauspiel.de">Sauspiel</a>, <a href="https://www.slack.com">Slack</a>, <a href="https://www.soundcloud.com">SoundCloud</a>, <a href="https://www.stripe.com">Stripe</a> and <a href="http://www.technologyastronauts.ch">Technology Astronauts</a>.</p></article></div></section></footer><footer class="footer-links"><section class="container"><div class="row"><article class="col-md-8 col-lg-8 col-sm-12 col-md-offset-2 col-lg-offset-2 col-xs-12"><a class="cocoapods-small-logo" href="https://cocoapods.org"></a><ul>
+<li class="col-md-3 col-sm-3 col-xs-6"><a href="https://guides.cocoapods.org/using/troubleshooting.html">Support</a></li>
+<li class="col-md-3 col-sm-3 col-xs-6"><a href="https://github.com/CocoaPods/CocoaPods">GitHub Repo</a></li>
+<li class="col-md-3 col-sm-3 col-xs-6"><a href="https://status.cocoapods.org">Web Properties Status</a></li>
+<li class="col-md-3 col-sm-3 col-xs-6"><a href="https://twitter.com/CocoaPods">@CocoaPods</a></li>
+<li class="col-md-3 col-sm-3 col-xs-6"><a href="http://groups.google.com/group/cocoapods">Mailing List</a></li>
+<li class="col-md-3 col-sm-3 col-xs-6"><a href="https://cocoapods.org/about"><span class="visible-lg-span">CocoaPods</span> Dev Team</a></li>
+<li class="col-md-3 col-sm-3 col-xs-6"><a href="https://guides.cocoapods.org/syntax/podfile.html">Podfile Doc<span class="hidden-lg-span">s</span><span class="visible-lg-span">umentation</span></a></li>
+<li class="col-md-3 col-sm-3 col-xs-6"><a href="https://cocoapods.org/legal">Legal / Conduct</a></li>
+</ul></article></div></section></footer>
+</body>
+<script type="text/javascript">(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-29866548-4', 'cocoapods.org');
+ga('send', 'pageview');</script>
+</html>
