@@ -17,9 +17,9 @@ The aim of this guide is to explain when you should use `pod install` and when y
 
 ## Detailed presentation of the commands
 
-> Note: the vocabulary of `install` vs. `update` is not actually specific to CocoaPods: it is inspired by a lot of other dependency managers like `bundler`, `rubygem` and `homebrew` which have similar commands, with the exact same behavior and intents as the one described in this document.
+> Note: the vocabulary of `install` vs. `update` is not actually specific to CocoaPods. It is inspired by a lot of other dependency managers like `bundler`, `rubygem` or PHP's `composer`, which have similar commands, with the exact same behavior and intents as the one described in this document.
 
-### pod install
+### `pod install`
 
 This is to be used every time you edit your `Podfile` to add a new pod to it (or remove one from it).
 
@@ -28,11 +28,11 @@ This is to be used every time you edit your `Podfile` to add a new pod to it (or
   * For pods listed in the `Podfile.lock`, it downloads the explicit version listed in the `Podfile.lock` without trying to check if a newer version is available
   * For pods not listed in the `Podfile.lock` yet, it searches for the version that matches what is described in the `Podfile` (like in `pod 'MyPod', '~>1.2'`)
 
-### pod outdated
+### `pod outdated`
 
 When you run `pod outdated`, CocoaPods will list all pods which have newer versions than the ones listed in the `Podfile.lock` (the versions currently installed for each pod) and which could be updated (as long as it matches the restrictions like `pod 'MyPod', '~>x.y'` set in your `Podfile`)
 
-### pod update
+### `pod update`
 
 When you run `pod update PODNAME`, CocoaPods will try to find an updated version of the pod `PODNAME`, without taking into account the version listed in `Podfile.lock`. It will update the pod to the latest version possible (as long as it matches the version restrictions in your `Podfile`).
 
@@ -70,7 +70,7 @@ Later, _user1_ wants to add a pod `D` into its `Podfile`.
 
 Then _user2_, who never worked on the project before, joins the team. They clone the repository then use `pod install`.
 
-The content of `Podfile.lock` (which must be committed onto the git repo) will guaranty them they will get the exact same pods, with the exact same versions that _user1_ was using. Even if a version `2.0` of pod `C` is now available — but you didn't have the occasion to test the project's code with this version `2.0` yet —, _user2_ will get the pod `C` in version `1.0`. Because that's what is registered is `Podfile.lock`. pod `C` is *locked* to version `1.0` by the `Podfile.lock` (hence the name of this file)
+The content of `Podfile.lock` (which must be committed onto the git repo) will guarantee them they will get the exact same pods, with the exact same versions that _user1_ was using. Even if a version `2.0` of pod `C` is now available — but you didn't have the occasion to test the project's code with this version `2.0` yet —, _user2_ will get the pod `C` in version `1.0`. Because that's what is registered is `Podfile.lock`. pod `C` is *locked* to version `1.0` by the `Podfile.lock` (hence the name of this file)
 
 #### Stage 4: Checking for new versions of a pod
 
