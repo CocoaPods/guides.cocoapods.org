@@ -56,11 +56,11 @@ _Otherwise, it would break the whole logic explained above about `pod install` b
 
 Here is a scenario example to illustrate the various use case one might encounter during the life of a project.
 
-#### Stage 1: User create the project
+#### Stage 1: User creates the project
 
-_user1_ create a project and want to use pods `A`,`B`,`C`. They create a `Podfile` with those pods, and run `pod install`.
+_user1_ creates a project and wants to use pods `A`,`B`,`C`. They create a `Podfile` with those pods, and run `pod install`.
 
-This will install pods `A`,`B`,`C`, say all in version `1.0`, because they are all in version `1.0` at that time.
+This will install pods `A`,`B`,`C`, which we'll say are all in version `1.0`.
 
 The `Podfile.lock` will keep track of that and note that `A`,`B` and `C` are each installed as version `1.0`.
 
@@ -70,21 +70,21 @@ The `Podfile.lock` will keep track of that and note that `A`,`B` and `C` are eac
 
 Later, _user1_ wants to add a pod `D` into its `Podfile`.
 
-**They should thus run `pod install`** afterwards, so that even if the maintener of pod `B` released a version `2.0` of their pod since the first execution of `pod install`, the project will keep using version `1.0` — because they only want to add pod `D` without risking to update pod `B` unexpectedly.
+**They should thus run `pod install`** afterwards, so that even if the maintener of pod `B` released a version `2.0` of their pod since the first execution of `pod install`, the project will keep using version `1.0` — because they only want to add pod `D`, without risking an unexpected update to pod `B`.
 
-> _That's where some people get it wrong, because they use `pod update` here — probably thinking this as "I want to update my *project* with new pods"? — instead of using `pod install` — to install new pods in the project_
+> _That's where some people get it wrong, because they use `pod update` here — probably thinking this as "I want to update my *project* with new pods"? — instead of using `pod install` — to install new pods in the project._
 
 #### Stage 3: User2 joins the project
 
 Then _user2_, who never worked on the project before, joins the team. They clone the repository then use `pod install`.
 
-The content of `Podfile.lock` (which must be committed onto the git repo) will guarantee them they will get the exact same pods, with the exact same versions that _user1_ was using.
+The contents of `Podfile.lock` (which must be committed onto the git repo) will guarantee they will get the exact same pods, with the exact same versions that _user1_ was using.
 
-Even if a version `2.0` of pod `C` is now available — but you didn't have the occasion to test the project's code with this version `2.0` yet —, _user2_ will get the pod `C` in version `1.0`. Because that's what is registered is `Podfile.lock`. pod `C` is *locked* to version `1.0` by the `Podfile.lock` (hence the name of this file)
+Even if a version `2.0` of pod `C` is now available, _user2_ will get the pod `C` in version `1.0`. Because that's what is registered is `Podfile.lock`. pod `C` is *locked* to version `1.0` by the `Podfile.lock` (hence the name of this file).
 
 #### Stage 4: Checking for new versions of a pod
 
-Later, _user1_ wants to check if any updates are available for the pods. They run `pod outdated` which will tell him that both pods `B` and `C` have a version `2.0` released.
+Later, _user1_ wants to check if any updates are available for the pods. They run `pod outdated` which will tell them that both pods `B` and `C` have a version `2.0` released.
 
 _user1_ decides they want to update pod `B`, but not pod `C`; so they will **run `pod update B`**  which will install `B` in version `2.0` (and update the `Podfile.lock` accordingly) **but** will keep pod `C` in version `1.0`.
 
