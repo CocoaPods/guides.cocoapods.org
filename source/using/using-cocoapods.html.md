@@ -53,6 +53,12 @@ Integrating CocoaPods with an existing workspace requires one extra line in your
 workspace 'MyWorkspace'
 ```
 
+## When to use `pod install` vs `pod update`?
+
+Many people are confused about when to use `pod install` and when to use `pod update`. Especially, they often use `pod update` where they should instead use `pod install`.
+
+You can find a detailed explanation about when to use each and what are the intended usage of each command [in this dedicated guide](/using/pod-install-vs-pod-update.html).
+
 ## Should I check the Pods directory into source control?
 
 Whether or not you check in your `Pods` folder is up to you, as workflows vary from project to project. We recommend that you keep the Pods directory under source control, and don't add it to your `.gitignore`. But ultimately this decision is up to you:
