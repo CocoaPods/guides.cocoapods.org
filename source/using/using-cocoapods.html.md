@@ -57,7 +57,7 @@ workspace 'MyWorkspace'
 
 Many people are confused about when to use `pod install` and when to use `pod update`. Especially, they often use `pod update` where they should instead use `pod install`.
 
-You can find a detailed explanation about when to use each and what are the intended usage of each command [in this dedicated guide](/using/pod-install-vs-pod-update.html).
+You can find a detailed explanation about when to use each and what are the intended usage of each command [in this dedicated guide](/using/pod-install-vs-update.html).
 
 ## Should I check the Pods directory into source control?
 
