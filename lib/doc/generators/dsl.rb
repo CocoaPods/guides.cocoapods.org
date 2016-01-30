@@ -63,17 +63,19 @@ module Pod
           method                  = CodeObjects::DSLAttribute.new
           method.name             = yard_method.name.to_s.sub('=','')
           method.html_description = markdown_h(yard_method.docstring.to_s)
-          method.examples    = compute_method_examples(yard_method)
+          method.examples         = compute_method_examples(yard_method)
 
-          if yard_object.to_s == 'Pod::Specification::DSL'
-            attribute = Pod::Specification::DSL.attributes.find { |attr| attr.to_s == method.name }
-            if attribute
-              method.html_default_values = compute_method_default_values(attribute)
-              method.required            = attribute.required?
-              method.multi_platform      = attribute.multi_platform?
-              method.html_keys           = compute_method_keys(attribute)
-            end
+          if yard_object.to_s == 'Pod::Podfile::DSL' && method.name == 'install!'
+            require 'cocoapods'
+            method.html_keys           = installation_options_keys_html
+          elsif yard_object.to_s == 'Pod::Specification::DSL' &&
+                attribute = Pod::Specification::DSL.attributes[method.name.to_sym]
+            method.html_default_values = compute_method_default_values(attribute)
+            method.required            = attribute.required?
+            method.multi_platform      = attribute.multi_platform?
+            method.html_keys           = compute_method_keys(attribute)
           end
+
           method
         end
 
@@ -130,6 +132,11 @@ module Pod
             keys.map { |key| code_for_key(key) }
           end
           keys.map { |k| markdown_h(k) }
+        end
+
+        def installation_options_keys_html
+          Pod::Installer::InstallationOptions.all_options
+            .map { |o| markdown_h(code_for_key(o)) }
         end
 
         def code_for_key(key)
