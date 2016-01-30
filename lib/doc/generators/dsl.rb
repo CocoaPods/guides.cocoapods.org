@@ -114,23 +114,26 @@ module Pod
         #         attribute in HTML.
         #
         def compute_method_keys(attribute)
-          keys = attribute.keys if attribute
-          keys ||= []
-          if keys.is_a?(Hash)
+          keys = attribute.keys || []
+          keys = if keys.is_a?(Hash)
             new_keys = []
             keys.each do |key, subkeys|
               if subkeys && !subkeys.empty?
-                subkeys = subkeys.map { |key| "`:#{key.to_s}`" }
-                new_keys << "`:#{key.to_s}` #{subkeys * " "}"
+                subkeys = subkeys.map { |key| code_for_key(key) }
+                new_keys << "#{code_for_key(key)} => #{subkeys * ", "}"
               else
-                new_keys << "`:#{key.to_s}`"
+                new_keys << code_for_key(key)
               end
             end
-            keys = new_keys
+            new_keys
           else
-            keys = keys.map { |key| "`:#{key.to_s}`" }
+            keys.map { |key| code_for_key(key) }
           end
-          keys.map { |k| markdown_h(k) } unless keys.empty?
+          keys.map { |k| markdown_h(k) }
+        end
+
+        def code_for_key(key)
+          "`:#{key}`"
         end
 
         # @return [String]
