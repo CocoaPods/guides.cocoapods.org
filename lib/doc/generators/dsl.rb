@@ -63,17 +63,19 @@ module Pod
           method                  = CodeObjects::DSLAttribute.new
           method.name             = yard_method.name.to_s.sub('=','')
           method.html_description = markdown_h(yard_method.docstring.to_s)
-          method.examples    = compute_method_examples(yard_method)
+          method.examples         = compute_method_examples(yard_method)
 
-          if yard_object.to_s == 'Pod::Specification::DSL'
-            attribute = Pod::Specification::DSL.attributes.find { |attr| attr.to_s == method.name }
-            if attribute
-              method.html_default_values = compute_method_default_values(attribute)
-              method.required            = attribute.required?
-              method.multi_platform      = attribute.multi_platform?
-              method.html_keys           = compute_method_keys(attribute)
-            end
+          if yard_object.to_s == 'Pod::Podfile::DSL' && method.name == 'install!'
+            require 'cocoapods'
+            method.html_keys           = installation_options_keys_html
+          elsif yard_object.to_s == 'Pod::Specification::DSL' &&
+                attribute = Pod::Specification::DSL.attributes[method.name.to_sym]
+            method.html_default_values = compute_method_default_values(attribute)
+            method.required            = attribute.required?
+            method.multi_platform      = attribute.multi_platform?
+            method.html_keys           = compute_method_keys(attribute)
           end
+
           method
         end
 
@@ -114,23 +116,31 @@ module Pod
         #         attribute in HTML.
         #
         def compute_method_keys(attribute)
-          keys = attribute.keys if attribute
-          keys ||= []
-          if keys.is_a?(Hash)
+          keys = attribute.keys || []
+          keys = if keys.is_a?(Hash)
             new_keys = []
             keys.each do |key, subkeys|
               if subkeys && !subkeys.empty?
-                subkeys = subkeys.map { |key| "`:#{key.to_s}`" }
-                new_keys << "`:#{key.to_s}` #{subkeys * " "}"
+                subkeys = subkeys.map { |key| code_for_key(key) }
+                new_keys << "#{code_for_key(key)} => #{subkeys * ", "}"
               else
-                new_keys << "`:#{key.to_s}`"
+                new_keys << code_for_key(key)
               end
             end
-            keys = new_keys
+            new_keys
           else
-            keys = keys.map { |key| "`:#{key.to_s}`" }
+            keys.map { |key| code_for_key(key) }
           end
-          keys.map { |k| markdown_h(k) } unless keys.empty?
+          keys.map { |k| markdown_h(k) }
+        end
+
+        def installation_options_keys_html
+          Pod::Installer::InstallationOptions.all_options
+            .map { |o| markdown_h(code_for_key(o)) }
+        end
+
+        def code_for_key(key)
+          "`:#{key}`"
         end
 
         # @return [String]
