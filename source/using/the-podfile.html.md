@@ -9,8 +9,9 @@ external links:
 
 ## What is a Podfile?
 
- The Podfile is a specification that describes the dependencies of the
- targets of one or more Xcode projects. The file should simply be named `Podfile`.
+The Podfile is a specification that describes the dependencies of the
+targets of one or more Xcode projects. The file should simply be named `Podfile`.
+All the examples in the guides are based on CocoaPods version 1.0 and onwards.
 
 > A Podfile can be very simple, this adds AFNetworking to a single target:
 
@@ -44,7 +45,7 @@ end
 
 post_install do |installer|
   installer.pods_project.targets.each do |target|
-    puts "#{target.name}"
+    puts target.name
   end
 end
  ```
@@ -54,20 +55,41 @@ end
 ```ruby
 # There are no targets called "Shows" in any Xcode projects
 abstract_target 'Shows' do
-   pod 'ShowsKit'
-   pod 'Fabric'
+  pod 'ShowsKit'
+  pod 'Fabric'
 
-   # Has it's own copy of ShowsKit + ShowWebAuth
-   target 'ShowsiOS' do
-     pod 'ShowWebAuth'
-   end
+  # Has it's own copy of ShowsKit + ShowWebAuth
+  target 'ShowsiOS' do
+    pod 'ShowWebAuth'
+  end
 
-   # Has it's own copy of ShowsKit + ShowTVAuth
-   target 'ShowsTV' do
-     pod 'ShowTVAuth'
-   end
+  # Has it's own copy of ShowsKit + ShowTVAuth
+  target 'ShowsTV' do
+    pod 'ShowTVAuth'
+  end
 end
 ```
+
+There is implicit abstract target at the root of the Podfile, so you could write the above example as:
+
+``` ruby
+pod 'ShowsKit'
+pod 'Fabric'
+
+# Has it's own copy of ShowsKit + ShowWebAuth
+target 'ShowsiOS' do
+  pod 'ShowWebAuth'
+end
+
+# Has it's own copy of ShowsKit + ShowTVAuth
+target 'ShowsTV' do
+  pod 'ShowTVAuth'
+end
+```
+
+### Migrating from 0.x to 1.0
+
+We have a [blog post](http://blog.cocoapods.org/CocoaPods-1.0/) explaining the changes in depth.
 
 ### Specifying pod versions
 
@@ -115,7 +137,7 @@ Using this option CocoaPods will assume the given folder to be the
 root of the Pod and will link the files directly from there in the
 Pods project. This means that your edits will persist between CocoaPods
 installations. The referenced folder can be a checkout of your favourite SCM or
-even a git submodule of the current repo.  
+even a git submodule of the current repo.
 
 <aside>Note that the `podspec` of the Pod file is expected to be in that the designated folder.</aside>
 
