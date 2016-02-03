@@ -47,12 +47,11 @@
 <a class="header-link" href="#what-is-a-podfile">&lt;</a>What is a Podfile?</h2>
 
 <p>The Podfile is a specification that describes the dependencies of the
- targets of one or more Xcode projects. The Podfile always creates an
- implicit target, named <code>default</code>, which links to the <em>first target</em> of the
- user project. The file should simply be named <code>Podfile</code>.</p>
+targets of one or more Xcode projects. The file should simply be named <code>Podfile</code>.
+All the examples in the guides are based on CocoaPods version 1.0 and onwards.</p>
 
 <blockquote>
-<p>A Podfile can be very simple:</p>
+<p>A Podfile can be very simple, this adds AFNetworking to a single target:</p>
 </blockquote>
     </article>
     </div>
@@ -61,7 +60,9 @@
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">pod</span> <span class="s1">'AFNetworking'</span><span class="p">,</span> <span class="s1">'~&gt; 2.0'</span>
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">target</span> <span class="s1">'MyApp'</span> <span class="k">do</span>
+  <span class="n">pod</span> <span class="s1">'AFNetworking'</span><span class="p">,</span> <span class="s1">'~&gt; 3.0'</span>
+<span class="k">end</span>
 </code></pre>    </article>
     </div>
     </section>
@@ -73,7 +74,7 @@
 
 
 <blockquote>
-<p>An example of a more complex Podfile can be:</p>
+<p>An example of a more complex Podfile linking an app and it's test bundle:</p>
 </blockquote>
     </article>
     </div>
@@ -85,22 +86,26 @@
     <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">source</span> <span class="s1">'https://github.com/CocoaPods/Specs.git'</span>
 <span class="n">source</span> <span class="s1">'https://github.com/Artsy/Specs.git'</span>
 
-<span class="n">platform</span> <span class="p">:</span><span class="n">ios</span><span class="p">,</span> <span class="s1">'8.0'</span>
+<span class="n">platform</span> <span class="p">:</span><span class="n">ios</span><span class="p">,</span> <span class="s1">'9.0'</span>
 <span class="n">inhibit_all_warnings!</span>
 
-<span class="n">xcodeproj</span> <span class="s1">'MyProject'</span>
+<span class="n">target</span> <span class="s1">'MyApp'</span> <span class="k">do</span>
+  <span class="n">pod</span> <span class="s1">'GoogleAnalytics'</span><span class="p">,</span> <span class="s1">'~&gt; 3.1'</span>
 
-<span class="n">pod</span> <span class="s1">'ObjectiveSugar'</span><span class="p">,</span> <span class="s1">'~&gt; 0.5'</span>
-<span class="n">pod</span> <span class="s1">'Artsy+UILabels'</span><span class="p">,</span> <span class="s1">'~&gt; 1.0'</span>
+  <span class="c1"># Has it's own copy of OCMock</span>
+  <span class="c1"># and has access to GoogleAnalytics via the app</span>
+  <span class="c1"># that hosts the test target</span>
 
-<span class="n">target</span> <span class="p">:</span><span class="nb">test</span> <span class="k">do</span>
+  <span class="n">target</span> <span class="s1">'MyAppTests'</span> <span class="k">do</span>
+    <span class="n">inherit!</span> <span class="ss">:search_paths</span>
     <span class="n">pod</span> <span class="s1">'OCMock'</span><span class="p">,</span> <span class="s1">'~&gt; 2.0.1'</span>
+  <span class="k">end</span>
 <span class="k">end</span>
 
 <span class="n">post_install</span> <span class="k">do</span> <span class="o">|</span><span class="n">installer</span><span class="o">|</span>
-    <span class="n">installer</span><span class="p">.</span><span class="nf">pods_project</span><span class="p">.</span><span class="nf">targets</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">target</span><span class="o">|</span>
-        <span class="nb">puts</span> <span class="n">target</span><span class="p">.</span><span class="nf">name</span>
-    <span class="k">end</span>
+  <span class="n">installer</span><span class="p">.</span><span class="nf">pods_project</span><span class="p">.</span><span class="nf">targets</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">target</span><span class="o">|</span>
+    <span class="nb">puts</span> <span class="n">target</span><span class="p">.</span><span class="nf">name</span>
+  <span class="k">end</span>
 <span class="k">end</span>
 </code></pre>    </article>
     </div>
@@ -113,7 +118,7 @@
 
 
 <blockquote>
-<p>If you want multiple targets, like adding tests, to share the same pods.</p>
+<p>If you want multiple targets to share the same pods, use an <code>abstract_target</code>.</p>
 </blockquote>
     </article>
     </div>
@@ -122,11 +127,21 @@
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">platform</span> <span class="p">:</span><span class="n">osx</span><span class="p">,</span> <span class="s1">'10.7'</span>
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="c1"># There are no targets called "Shows" in any Xcode projects</span>
+<span class="n">abstract_target</span> <span class="s1">'Shows'</span> <span class="k">do</span>
+  <span class="n">pod</span> <span class="s1">'ShowsKit'</span>
+  <span class="n">pod</span> <span class="s1">'Fabric'</span>
 
-<span class="n">link_with</span> <span class="s1">'MyApp'</span><span class="p">,</span> <span class="s1">'MyApp Tests'</span>
-<span class="n">pod</span> <span class="s1">'AFNetworking'</span><span class="p">,</span> <span class="s1">'~&gt; 2.0'</span>
-<span class="n">pod</span> <span class="s1">'Objection'</span><span class="p">,</span> <span class="s1">'0.9'</span>
+  <span class="c1"># Has it's own copy of ShowsKit + ShowWebAuth</span>
+  <span class="n">target</span> <span class="s1">'ShowsiOS'</span> <span class="k">do</span>
+    <span class="n">pod</span> <span class="s1">'ShowWebAuth'</span>
+  <span class="k">end</span>
+
+  <span class="c1"># Has it's own copy of ShowsKit + ShowTVAuth</span>
+  <span class="n">target</span> <span class="s1">'ShowsTV'</span> <span class="k">do</span>
+    <span class="n">pod</span> <span class="s1">'ShowTVAuth'</span>
+  <span class="k">end</span>
+<span class="k">end</span>
 </code></pre>    </article>
     </div>
     </section>
@@ -136,6 +151,41 @@
     <div class="row">
     <article class="content col-md-10 col-md-offset-1">
 
+
+<p>There is implicit abstract target at the root of the Podfile, so you could write the above example as:</p>
+    </article>
+    </div>
+    </section>
+  
+    <div class="code-break">
+    <section class="container">
+    <div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">pod</span> <span class="s1">'ShowsKit'</span>
+<span class="n">pod</span> <span class="s1">'Fabric'</span>
+
+<span class="c1"># Has it's own copy of ShowsKit + ShowWebAuth</span>
+<span class="n">target</span> <span class="s1">'ShowsiOS'</span> <span class="k">do</span>
+  <span class="n">pod</span> <span class="s1">'ShowWebAuth'</span>
+<span class="k">end</span>
+
+<span class="c1"># Has it's own copy of ShowsKit + ShowTVAuth</span>
+<span class="n">target</span> <span class="s1">'ShowsTV'</span> <span class="k">do</span>
+  <span class="n">pod</span> <span class="s1">'ShowTVAuth'</span>
+<span class="k">end</span>
+</code></pre>    </article>
+    </div>
+    </section>
+    </div>
+  
+    <section class="container ">
+    <div class="row">
+    <article class="content col-md-10 col-md-offset-1">
+
+
+<h3 id="migrating-from-x-to-">
+<a class="header-link" href="#migrating-from-x-to-">&lt;</a>Migrating from 0.x to 1.0</h3>
+
+<p>We have a <a href="http://blog.cocoapods.org/CocoaPods-1.0/">blog post</a> explaining the changes in depth.</p>
 
 <h3 id="specifying-pod-versions">
 <a class="header-link" href="#specifying-pod-versions">&lt;</a>Specifying pod versions</h3>
@@ -214,76 +264,6 @@
 <li>There's a great video from Google about how this works: <a href="https://www.youtube.com/watch?v=x4ARXyovvPc">"CocoaPods and the Case of the Squiggly Arrow (Route 85)"</a>.</li>
 </ul>
 
-<p>Finally, instead of a version, you can specify the <code>:head</code> flag. This
-will use the pod’s latest version spec version, but force the download
-of the ‘bleeding edge’ version. Use this with caution, as the spec
-might not be compatible with the source material anymore.</p>
-    </article>
-    </div>
-    </section>
-  
-    <div class="code-break">
-    <section class="container">
-    <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">pod</span> <span class="s1">'Objection'</span><span class="p">,</span> <span class="ss">:head</span>
-</code></pre>    </article>
-    </div>
-    </section>
-    </div>
-  
-    <section class="container ">
-    <div class="row">
-    <article class="content col-md-10 col-md-offset-1">
-
-
-<h2 id="version-conflicts">
-<a class="header-link" href="#version-conflicts">&lt;</a>Version Conflicts</h2>
-
-<p>Pods often depend on other pods. Conflicts arise when multiple pods depend on different versions of another. Or you may want to tie a dependent pod to a particular version.</p>
-
-<blockquote>
-<p>The conflict error looks like this:</p>
-</blockquote>
-    </article>
-    </div>
-    </section>
-  
-    <div class="code-break">
-    <section class="container">
-    <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight shell"><span class="o">[</span>!] Podfile tries to activate <span class="sb">`</span>GoogleAnalytics-iOS-SDK <span class="o">(=</span> 2.0beta4<span class="o">)</span><span class="s1">', but already activated version `3.0'</span> by ARAnalytics/GoogleAnalytics <span class="o">(</span>1.6<span class="o">)</span>.
-</code></pre>    </article>
-    </div>
-    </section>
-    </div>
-  
-    <section class="container ">
-    <div class="row">
-    <article class="content col-md-10 col-md-offset-1">
-
-
-<blockquote>
-<p>To fix this, you simply add the <code>GoogleAnalytics-iOS-SDK</code> pod line before <code>ARAnalytics</code> and specify the version:</p>
-</blockquote>
-    </article>
-    </div>
-    </section>
-  
-    <div class="code-break">
-    <section class="container">
-    <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">pod</span> <span class="s1">'GoogleAnalytics-iOS-SDK'</span><span class="p">,</span> <span class="s1">'2.0beta4'</span>
-<span class="n">pod</span> <span class="s1">'ARAnalytics/GoogleAnalytics'</span>
-</code></pre>    </article>
-    </div>
-    </section>
-    </div>
-  
-    <section class="container ">
-    <div class="row">
-    <article class="content col-md-10 col-md-offset-1">
-
-
 <h2 id="using-the-files-from-a-folder-local-to-the-machine">
 <a class="header-link" href="#using-the-files-from-a-folder-local-to-the-machine">&lt;</a>Using the files from a folder local to the machine.</h2>
 
@@ -313,9 +293,9 @@ project you can use <code>:path</code>.</p>
 root of the Pod and will link the files directly from there in the
 Pods project. This means that your edits will persist between CocoaPods
 installations. The referenced folder can be a checkout of your favourite SCM or
-even a git submodule of the current repo.  </p>
+even a git submodule of the current repo.</p>
 
-<p><aside>Note that the <code>podspec</code> of the Pod file is expected to be in that folder.</aside></p>
+<p><aside>Note that the <code>podspec</code> of the Pod file is expected to be in that the designated folder.</aside></p>
 
 <h3 id="from-a-podspec-in-the-root-of-a-library-repo">
 <a class="header-link" href="#from-a-podspec-in-the-root-of-a-library-repo">&lt;</a>From a podspec in the root of a library repo.</h3>
@@ -417,8 +397,8 @@ to use one of the approaches outlined in the sections below.</p>
 <h2 id="external-resources">
 <a class="header-link" href="#external-resources">&lt;</a><a class="header-link" href="#external-resources">&lt;</a> External resources</h2>
 <ul>
-<li><a href="https://github.com/artsy/eigen/blob/8d9d6eb3328d45bb1b46dadc5ddc3008d2fe1fc9/Podfile">Non-trivial Podfile in Artsy/Eigen</a></li>
-<li><a href="https://github.com/artsy/eidolon/blob/master/Podfile">Swift Podspec in Artsy/Eidolon</a></li>
+<li><a href="https://github.com/artsy/eigen/blob/master/Podfile">Non-trivial Podfile in Artsy/Eigen</a></li>
+<li><a href="https://github.com/artsy/eidolon/blob/master/Podfile">Podfile for a Swift project in Artsy/Eidolon</a></li>
 </ul></article>
 </div></section>
 </div>

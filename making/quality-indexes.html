@@ -81,7 +81,7 @@
  <span class="p">}),</span>
 
  <span class="no">Modifier</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Empty README&quot;</span><span class="p">,</span> <span class="s2">&quot;The README is the front page of a library. To have this applied you may have a very empty README.&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="p">{</span> <span class="o">|.</span><span class="n">.</span><span class="o">.|</span>
-   <span class="n">cd_stats</span><span class="o">[</span><span class="ss">:readme_complexity</span><span class="o">].</span><span class="n">to_i</span> <span class="o">&lt;</span> <span class="mi">25</span> <span class="o">||</span> <span class="n">spec</span><span class="o">.</span><span class="n">documentation_url</span> <span class="o">!=</span> <span class="kp">nil</span>
+   <span class="n">cd_stats</span><span class="o">[</span><span class="ss">:readme_complexity</span><span class="o">].</span><span class="n">to_i</span> <span class="o">&lt;</span> <span class="mi">25</span> <span class="o">&amp;&amp;</span> <span class="n">spec</span><span class="o">.</span><span class="n">documentation_url</span> <span class="o">==</span> <span class="kp">nil</span>
  <span class="p">}),</span>
 </pre></div>
 <h2>CHANGELOG</h2>

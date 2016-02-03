@@ -67,8 +67,10 @@
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">pod</span> <span class="s1">'AFNetworking'</span><span class="p">,</span> <span class="s1">'~&gt; 2.0'</span>  
-<span class="n">pod</span> <span class="s1">'ObjectiveSugar'</span><span class="p">,</span> <span class="s1">'~&gt; 0.5'</span>
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">target</span> <span class="s1">'MyApp'</span> <span class="k">do</span>
+  <span class="n">pod</span> <span class="s1">'AFNetworking'</span><span class="p">,</span> <span class="s1">'~&gt; 3.0'</span>
+  <span class="n">pod</span> <span class="s1">'FBSDKCoreKit'</span><span class="p">,</span> <span class="s1">'~&gt; 4.9'</span>
+<span class="k">end</span>
 </code></pre>    </article>
     </div>
     </section>
@@ -92,7 +94,7 @@
 <ul>
 <li>Create a new project in Xcode as you would normally.</li>
 <li>Open a terminal window, and <code>$ cd</code> into your project directory.</li>
-<li>Create a Podfile. This can be done by running <code>$ touch Podfile</code>.</li>
+<li>Create a Podfile. This can be done by running <code>$ pod init</code>.</li>
 <li>Open your Podfile. The first line should specify the platform and version supported.</li>
 </ul>
     </article>
@@ -102,7 +104,7 @@
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">platform</span> <span class="p">:</span><span class="n">ios</span><span class="p">,</span> <span class="s1">'8.0'</span>
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">platform</span> <span class="p">:</span><span class="n">ios</span><span class="p">,</span> <span class="s1">'9.0'</span>
 </code></pre>    </article>
     </div>
     </section>
@@ -114,7 +116,8 @@
 
 
 <ul>
-<li>Add a CocoaPod by specifying <code>pod '$PODNAME'</code> on a single line</li>
+<li>In order to use CocoaPods you need to define the Xcode target to link them to. So for example if you are writing an iOS app, it would be the name of your app. Create a target section by writing <code>target '$TARGET_NAME' do</code> and an <code>end</code> a few lines after.</li>
+<li>Add a CocoaPod by specifying <code>pod '$PODNAME'</code> on a single line inside your target block.</li>
 </ul>
     </article>
     </div>
@@ -123,7 +126,9 @@
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">pod</span> <span class="s1">'ObjectiveSugar'</span>
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">target</span> <span class="s1">'MyApp'</span> <span class="k">do</span>
+  <span class="n">pod</span> <span class="s1">'ObjectiveSugar'</span>
+<span class="k">end</span>
 </code></pre>    </article>
     </div>
     </section>
@@ -144,7 +149,7 @@
 <h3 id="integration-with-an-existing-workspace">
 <a class="header-link" href="#integration-with-an-existing-workspace">&lt;</a>Integration with an existing workspace</h3>
 
-<p>Integrating CocoaPods with an existing workspace requires one extra line in your Podfile. Simply specify the <code>.xcworkspace</code> root filename like so:</p>
+<p>Integrating CocoaPods with an existing workspace requires one extra line in your Podfile. Simply specify the <code>.xcworkspace</code> filename in outside your target blocks like so:</p>
     </article>
     </div>
     </section>
