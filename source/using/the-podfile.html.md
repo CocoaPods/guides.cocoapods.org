@@ -3,57 +3,93 @@ title: The Podfile
 description: Learn all about the Podfile, which is used to declare dependencies for your project.
 order: 2
 external links:
-  - "Non-trivial Podfile in Artsy/Eigen": https://github.com/artsy/eigen/blob/8d9d6eb3328d45bb1b46dadc5ddc3008d2fe1fc9/Podfile
-  - "Swift Podspec in Artsy/Eidolon": https://github.com/artsy/eidolon/blob/master/Podfile
+  - "Non-trivial Podfile in Artsy/Eigen": https://github.com/artsy/eigen/blob/master/Podfile
+  - "Podfile for a Swift project in Artsy/Eidolon": https://github.com/artsy/eidolon/blob/master/Podfile
 ---
 
 ## What is a Podfile?
 
- The Podfile is a specification that describes the dependencies of the
- targets of one or more Xcode projects. The Podfile always creates an
- implicit target, named `default`, which links to the _first target_ of the
- user project. The file should simply be named `Podfile`.
+The Podfile is a specification that describes the dependencies of the
+targets of one or more Xcode projects. The file should simply be named `Podfile`.
+All the examples in the guides are based on CocoaPods version 1.0 and onwards.
 
-> A Podfile can be very simple:
+> A Podfile can be very simple, this adds AFNetworking to a single target:
 
 ```ruby
-pod 'AFNetworking', '~> 2.0'
+target 'MyApp' do
+  pod 'AFNetworking', '~> 3.0'
+end
 ```
 
-> An example of a more complex Podfile can be:
+> An example of a more complex Podfile linking an app and it's test bundle:
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/Artsy/Specs.git'
 
-platform :ios, '8.0'
+platform :ios, '9.0'
 inhibit_all_warnings!
 
-xcodeproj 'MyProject'
+target 'MyApp' do
+  pod 'GoogleAnalytics', '~> 3.1'
 
-pod 'ObjectiveSugar', '~> 0.5'
-pod 'Artsy+UILabels', '~> 1.0'
+  # Has it's own copy of OCMock
+  # and has access to GoogleAnalytics via the app
+  # that hosts the test target
 
-target :test do
+  target 'MyAppTests' do
+    inherit! :search_paths
     pod 'OCMock', '~> 2.0.1'
+  end
 end
 
 post_install do |installer|
-    installer.pods_project.targets.each do |target|
-        puts target.name
-    end
+  installer.pods_project.targets.each do |target|
+    puts target.name
+  end
 end
  ```
 
-> If you want multiple targets, like adding tests, to share the same pods.
+> If you want multiple targets to share the same pods, use an `abstract_target`.
 
 ```ruby
-platform :osx, '10.7'
+# There are no targets called "Shows" in any Xcode projects
+abstract_target 'Shows' do
+  pod 'ShowsKit'
+  pod 'Fabric'
 
-link_with 'MyApp', 'MyApp Tests'
-pod 'AFNetworking', '~> 2.0'
-pod 'Objection', '0.9'
+  # Has it's own copy of ShowsKit + ShowWebAuth
+  target 'ShowsiOS' do
+    pod 'ShowWebAuth'
+  end
+
+  # Has it's own copy of ShowsKit + ShowTVAuth
+  target 'ShowsTV' do
+    pod 'ShowTVAuth'
+  end
+end
 ```
+
+There is implicit abstract target at the root of the Podfile, so you could write the above example as:
+
+``` ruby
+pod 'ShowsKit'
+pod 'Fabric'
+
+# Has it's own copy of ShowsKit + ShowWebAuth
+target 'ShowsiOS' do
+  pod 'ShowWebAuth'
+end
+
+# Has it's own copy of ShowsKit + ShowTVAuth
+target 'ShowsTV' do
+  pod 'ShowTVAuth'
+end
+```
+
+### Migrating from 0.x to 1.0
+
+We have a [blog post](http://blog.cocoapods.org/CocoaPods-1.0/) explaining the changes in depth.
 
 ### Specifying pod versions
 
@@ -88,32 +124,6 @@ For more information, regarding versioning policy, see:
 * [RubyGems Versioning Policies](http://guides.rubygems.org/patterns/#semantic-versioning)
 * There's a great video from Google about how this works: ["CocoaPods and the Case of the Squiggly Arrow (Route 85)"](https://www.youtube.com/watch?v=x4ARXyovvPc).
 
-Finally, instead of a version, you can specify the `:head` flag. This
-will use the pod’s latest version spec version, but force the download
-of the ‘bleeding edge’ version. Use this with caution, as the spec
-might not be compatible with the source material anymore.
-
-```ruby
-pod 'Objection', :head
-```
-
-## Version Conflicts
-
-Pods often depend on other pods. Conflicts arise when multiple pods depend on different versions of another. Or you may want to tie a dependent pod to a particular version.
-
-> The conflict error looks like this:
-
-```shell
-[!] Podfile tries to activate `GoogleAnalytics-iOS-SDK (= 2.0beta4)', but already activated version `3.0' by ARAnalytics/GoogleAnalytics (1.6).
-```
-
-> To fix this, you simply add the `GoogleAnalytics-iOS-SDK` pod line before `ARAnalytics` and specify the version:
-
-```ruby
-pod 'GoogleAnalytics-iOS-SDK', '2.0beta4'
-pod 'ARAnalytics/GoogleAnalytics'
-```
-
 ## Using the files from a folder local to the machine.
 
 > If you would like to develop a Pod in tandem with its client
@@ -127,9 +137,9 @@ Using this option CocoaPods will assume the given folder to be the
 root of the Pod and will link the files directly from there in the
 Pods project. This means that your edits will persist between CocoaPods
 installations. The referenced folder can be a checkout of your favourite SCM or
-even a git submodule of the current repo.  
+even a git submodule of the current repo.
 
-<aside>Note that the `podspec` of the Pod file is expected to be in that folder.</aside>
+<aside>Note that the `podspec` of the Pod file is expected to be in that the designated folder.</aside>
 
 ### From a podspec in the root of a library repo.
 
