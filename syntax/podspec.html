@@ -92,9 +92,9 @@ section of the final application.</p>
                 <span class="ss">:tag</span> <span class="o">=&gt;</span> <span class="n">spec</span><span class="o">.</span><span class="n">version</span><span class="o">.</span><span class="n">to_s</span> <span class="p">}</span>
 </pre></div><blockquote>Using a tag prefixed with 'v' and submodules.</blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">source</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">&#39;https://github.com/typhoon-framework/Typhoon.git&#39;</span><span class="p">,</span>
                 <span class="ss">:tag</span> <span class="o">=&gt;</span> <span class="s2">&quot;v</span><span class="si">#{</span><span class="n">spec</span><span class="o">.</span><span class="n">version</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="ss">:submodules</span> <span class="o">=&gt;</span> <span class="kp">true</span> <span class="p">}</span>
-</pre></div><blockquote>Using Subversion with a tag.</blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">source</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">:svn</span> <span class="o">=&gt;</span> <span class="s2">&quot;http://svn.code.sf.net/p/polyclipping/code&quot;</span><span class="p">,</span> <span class="ss">:tag</span> <span class="o">=&gt;</span> <span class="s1">&#39;4.8.8&#39;</span> <span class="p">}</span>
-</pre></div><blockquote>Using Mercurial with the same revision as the spec's semantic version string.</blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">source</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">:hg</span> <span class="o">=&gt;</span> <span class="s2">&quot;https://bitbucket.org/dcutting/hyperbek&quot;</span><span class="p">,</span> <span class="ss">:revision</span> <span class="o">=&gt;</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">s</span><span class="o">.</span><span class="n">version</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">}</span>
-</pre></div><blockquote>Using HTTP to download a compressed file of the code. It supports zip, tgz, bz2, txz and tar.</blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">source</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">:http</span> <span class="o">=&gt;</span> <span class="s2">&quot;http://dev.wechatapp.com/download/sdk/WeChat_SDK_iOS_en.zip&quot;</span> <span class="p">}</span>
+</pre></div><blockquote>Using Subversion with a tag.</blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">source</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">:svn</span> <span class="o">=&gt;</span> <span class="s1">&#39;http://svn.code.sf.net/p/polyclipping/code&#39;</span><span class="p">,</span> <span class="ss">:tag</span> <span class="o">=&gt;</span> <span class="s1">&#39;4.8.8&#39;</span> <span class="p">}</span>
+</pre></div><blockquote>Using Mercurial with the same revision as the spec's semantic version string.</blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">source</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">:hg</span> <span class="o">=&gt;</span> <span class="s1">&#39;https://bitbucket.org/dcutting/hyperbek&#39;</span><span class="p">,</span> <span class="ss">:revision</span> <span class="o">=&gt;</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">s</span><span class="o">.</span><span class="n">version</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">}</span>
+</pre></div><blockquote>Using HTTP to download a compressed file of the code. It supports zip, tgz, bz2, txz and tar.</blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">source</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">:http</span> <span class="o">=&gt;</span> <span class="s1">&#39;http://dev.wechatapp.com/download/sdk/WeChat_SDK_iOS_en.zip&#39;</span> <span class="p">}</span>
 </pre></div><blockquote>Using HTTP to download a file using a hash to verify the download. It supports sha1 and sha256.</blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">source</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">:http</span> <span class="o">=&gt;</span> <span class="s1">&#39;http://dev.wechatapp.com/download/sdk/WeChat_SDK_iOS_en.zip&#39;</span><span class="p">,</span>
                 <span class="ss">:sha1</span> <span class="o">=&gt;</span> <span class="s1">&#39;7e21857fe11a511f472cfd7cfa2d979bd7ab7d96&#39;</span> <span class="p">}</span>
 </pre></div><h3>Supported Keys:</h3><p><code>:git</code> =&gt; <code>:tag</code>, <code>:branch</code>, <code>:commit</code>, <code>:submodules</code></p>
@@ -123,9 +123,9 @@ correct punctuation.</p>
 <span class="no">                   DESC</span>
 </pre></div><h3>Supported Keys:</h3></div><div class="tab-pane method" id="tab_screenshots"><h3 class="code">screenshots</h3><p>A list of URLs to images showcasing the Pod. Intended for UI oriented
 libraries. CocoaPods recommends the usage of the <code>gif</code> format.</p>
-<h3>Examples:</h3><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">screenshot</span>  <span class="o">=</span> <span class="s2">&quot;http://dl.dropbox.com/u/378729/MBProgressHUD/1.png&quot;</span>
-</pre></div><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">screenshots</span> <span class="o">=</span> <span class="o">[</span> <span class="s2">&quot;http://dl.dropbox.com/u/378729/MBProgressHUD/1.png&quot;</span><span class="p">,</span>
-                     <span class="s2">&quot;http://dl.dropbox.com/u/378729/MBProgressHUD/2.png&quot;</span> <span class="o">]</span>
+<h3>Examples:</h3><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">screenshot</span>  <span class="o">=</span> <span class="s1">&#39;http://dl.dropbox.com/u/378729/MBProgressHUD/1.png&#39;</span>
+</pre></div><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">screenshots</span> <span class="o">=</span> <span class="o">[</span> <span class="s1">&#39;http://dl.dropbox.com/u/378729/MBProgressHUD/1.png&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;http://dl.dropbox.com/u/378729/MBProgressHUD/2.png&#39;</span> <span class="o">]</span>
 </pre></div><h3>Supported Keys:</h3></div><div class="tab-pane method" id="tab_documentation_url"><h3 class="code">documentation_url</h3><p>An optional URL for the documentation of the Pod which will be honoured by
 CocoaPods web properties. Leaving it blank will default to a CocoaDocs
 generated URL for your library.</p>
@@ -158,7 +158,7 @@ value of the parent.</p>
 </div><div class="tab-pane method" id="tab_platform"><h3 class="code">platform</h3><p>The platform on which this Pod is supported. Leaving this blank
 means the Pod is supported on all platforms. When supporting multiple
 platforms you should use deployment_target below instead.</p>
-<h3>Examples:</h3><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">platform</span> <span class="o">=</span> <span class="ss">:osx</span><span class="p">,</span> <span class="s2">&quot;10.8&quot;</span>
+<h3>Examples:</h3><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">platform</span> <span class="o">=</span> <span class="ss">:osx</span><span class="p">,</span> <span class="s1">&#39;10.8&#39;</span>
 </pre></div><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">platform</span> <span class="o">=</span> <span class="ss">:ios</span>
 </pre></div><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">platform</span> <span class="o">=</span> <span class="ss">:osx</span>
 </pre></div></div><div class="tab-pane method" id="tab_deployment_target"><h3 class="code">deployment_target</h3><p>The minimum deployment targets of the supported platforms.</p>
@@ -195,8 +195,8 @@ issue at all.</p></li>
 
 <p>For more information, see: <a href="http://opensource.apple.com/source/libdispatch/libdispatch-228.18/os/object.h">http://opensource.apple.com/source/libdispatch/libdispatch-228.18/os/object.h</a></p></li>
 </ul>
-<h3>Examples:</h3><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">ios</span><span class="o">.</span><span class="n">deployment_target</span> <span class="o">=</span> <span class="s2">&quot;6.0&quot;</span>
-</pre></div><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">osx</span><span class="o">.</span><span class="n">deployment_target</span> <span class="o">=</span> <span class="s2">&quot;10.8&quot;</span>
+<h3>Examples:</h3><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">ios</span><span class="o">.</span><span class="n">deployment_target</span> <span class="o">=</span> <span class="s1">&#39;6.0&#39;</span>
+</pre></div><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">osx</span><span class="o">.</span><span class="n">deployment_target</span> <span class="o">=</span> <span class="s1">&#39;10.8&#39;</span>
 </pre></div></div><div class="tab-pane group" id="tab_group_build_settings"><h2>Build settings</h2><p>In this group are listed the attributes related to the configuration
 of the build environment that should be used to build the library.</p>
 
@@ -367,8 +367,8 @@ two literals may be specified.</p>
 <span class="s2">&quot;*.{h,m}&quot;</span>      <span class="c1">#=&gt; [&quot;JSONKit.h&quot;, &quot;JSONKit.m&quot;]</span>
 <span class="s2">&quot;*&quot;</span>            <span class="c1">#=&gt; [&quot;CHANGELOG.md&quot;, &quot;JSONKit.h&quot;, &quot;JSONKit.m&quot;, &quot;README.md&quot;]</span>
 </pre></div></div><div class="tab-pane method" id="tab_source_files"><h3 class="code">source_files<a class="select-tab" href="#tab_multi-platform-support-group"><span class="label label-big">multi-platform</span></a></h3><p>The source files of the Pod.</p>
-<h3>Examples:</h3><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">source_files</span> <span class="o">=</span> <span class="s2">&quot;Classes/**/*.{h,m}&quot;</span>
-</pre></div><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">source_files</span> <span class="o">=</span> <span class="s2">&quot;Classes/**/*.{h,m}&quot;</span><span class="p">,</span> <span class="s2">&quot;More_Classes/**/*.{h,m}&quot;</span>
+<h3>Examples:</h3><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">source_files</span> <span class="o">=</span> <span class="s1">&#39;Classes/**/*.{h,m}&#39;</span>
+</pre></div><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">source_files</span> <span class="o">=</span> <span class="s1">&#39;Classes/**/*.{h,m}&#39;</span><span class="p">,</span> <span class="s1">&#39;More_Classes/**/*.{h,m}&#39;</span>
 </pre></div><h3>Supported Keys:</h3></div><div class="tab-pane method" id="tab_public_header_files"><h3 class="code">public_header_files<a class="select-tab" href="#tab_multi-platform-support-group"><span class="label label-big">multi-platform</span></a></h3><p>A list of file patterns that should be used as public headers.</p>
 
 <hr>
@@ -376,7 +376,7 @@ two literals may be specified.</p>
 <p>These are the headers that will be exposed to the user’s project and
 from which documentation will be generated. If no public headers are
 specified then <strong>all</strong> the headers in source_files are considered public.</p>
-<h3>Examples:</h3><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">public_header_files</span> <span class="o">=</span> <span class="s2">&quot;Headers/Public/*.h&quot;</span>
+<h3>Examples:</h3><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">public_header_files</span> <span class="o">=</span> <span class="s1">&#39;Headers/Public/*.h&#39;</span>
 </pre></div><h3>Supported Keys:</h3></div><div class="tab-pane method" id="tab_private_header_files"><h3 class="code">private_header_files<a class="select-tab" href="#tab_multi-platform-support-group"><span class="label label-big">multi-platform</span></a></h3><p>A list of file patterns that should be used to mark private headers.</p>
 
 <hr>
@@ -385,7 +385,7 @@ specified then <strong>all</strong> the headers in source_files are considered p
 headers if no public headers have been specified) to exclude those
 headers which should not be exposed to the user project and which
 should not be used to generate the documentation.</p>
-<h3>Examples:</h3><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">private_header_files</span> <span class="o">=</span> <span class="s2">&quot;Headers/Private/*.h&quot;</span>
+<h3>Examples:</h3><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">private_header_files</span> <span class="o">=</span> <span class="s1">&#39;Headers/Private/*.h&#39;</span>
 </pre></div><h3>Supported Keys:</h3></div><div class="tab-pane method" id="tab_vendored_frameworks"><h3 class="code">vendored_frameworks<a class="select-tab" href="#tab_multi-platform-support-group"><span class="label label-big">multi-platform</span></a></h3><p>The paths of the framework bundles that come shipped with the Pod.</p>
 <h3>Examples:</h3><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">ios</span><span class="o">.</span><span class="n">vendored_frameworks</span> <span class="o">=</span> <span class="s1">&#39;Frameworks/MyFramework.framework&#39;</span>
 </pre></div><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">vendored_frameworks</span> <span class="o">=</span> <span class="s1">&#39;MyFramework.framework&#39;</span><span class="p">,</span> <span class="s1">&#39;TheirFramework.framework&#39;</span>
@@ -419,20 +419,20 @@ as there can be name collisions using the resources attribute.
 Moreover, resources specified with this attribute are copied
 directly to the client target and therefore they are not
 optimised by Xcode.</p>
-<h3>Examples:</h3><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">resource</span> <span class="o">=</span> <span class="s2">&quot;Resources/HockeySDK.bundle&quot;</span>
-</pre></div><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">resources</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;Images/*.png&quot;</span><span class="p">,</span> <span class="s2">&quot;Sounds/*&quot;</span><span class="o">]</span>
+<h3>Examples:</h3><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">resource</span> <span class="o">=</span> <span class="s1">&#39;Resources/HockeySDK.bundle&#39;</span>
+</pre></div><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">resources</span> <span class="o">=</span> <span class="o">[</span><span class="s1">&#39;Images/*.png&#39;</span><span class="p">,</span> <span class="s1">&#39;Sounds/*&#39;</span><span class="o">]</span>
 </pre></div><h3>Supported Keys:</h3></div><div class="tab-pane method" id="tab_exclude_files"><h3 class="code">exclude_files<a class="select-tab" href="#tab_multi-platform-support-group"><span class="label label-big">multi-platform</span></a></h3><p>A list of file patterns that should be excluded from the other
 file patterns.</p>
-<h3>Examples:</h3><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">ios</span><span class="o">.</span><span class="n">exclude_files</span> <span class="o">=</span> <span class="s2">&quot;Classes/osx&quot;</span>
-</pre></div><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">exclude_files</span> <span class="o">=</span> <span class="s2">&quot;Classes/**/unused.{h,m}&quot;</span>
+<h3>Examples:</h3><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">ios</span><span class="o">.</span><span class="n">exclude_files</span> <span class="o">=</span> <span class="s1">&#39;Classes/osx&#39;</span>
+</pre></div><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">exclude_files</span> <span class="o">=</span> <span class="s1">&#39;Classes/**/unused.{h,m}&#39;</span>
 </pre></div><h3>Supported Keys:</h3></div><div class="tab-pane method" id="tab_preserve_paths"><h3 class="code">preserve_paths<a class="select-tab" href="#tab_multi-platform-support-group"><span class="label label-big">multi-platform</span></a></h3><p>Any file that should <strong>not</strong> be removed after being downloaded.</p>
 
 <hr>
 
 <p>By default, CocoaPods removes all files that are not matched by any
 of the other file pattern.</p>
-<h3>Examples:</h3><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">preserve_path</span> <span class="o">=</span> <span class="s2">&quot;IMPORTANT.txt&quot;</span>
-</pre></div><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">preserve_paths</span> <span class="o">=</span> <span class="s2">&quot;Frameworks/*.framework&quot;</span>
+<h3>Examples:</h3><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">preserve_path</span> <span class="o">=</span> <span class="s1">&#39;IMPORTANT.txt&#39;</span>
+</pre></div><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">preserve_paths</span> <span class="o">=</span> <span class="s1">&#39;Frameworks/*.framework&#39;</span>
 </pre></div><h3>Supported Keys:</h3></div><div class="tab-pane method" id="tab_module_map"><h3 class="code">module_map<a class="select-tab" href="#tab_multi-platform-support-group"><span class="label label-big">multi-platform</span></a></h3><p>The module map file that should be used when this pod is integrated as
 a framework.</p>
 
@@ -440,7 +440,7 @@ a framework.</p>
 
 <p>By default, CocoaPods creates a module map file based upon the public
 headers in a specification.</p>
-<h3>Examples:</h3><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">module_map</span> <span class="o">=</span> <span class="s2">&quot;source/module.modulemap&quot;</span>
+<h3>Examples:</h3><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">module_map</span> <span class="o">=</span> <span class="s1">&#39;source/module.modulemap&#39;</span>
 </pre></div><h3>Supported Keys:</h3></div><div class="tab-pane group" id="tab_group_subspecs"><h2>Subspecs</h2><p>A library can specify a dependency on either another library, a
 subspec of another library, or a subspec of itself.</p>
 </div><div class="tab-pane method" id="tab_subspec"><h3 class="code">subspec</h3><p>Represents specification for a module of the library.</p>
@@ -471,12 +471,12 @@ general do what you would expect:</p>
 to compile need the source files, the dependencies, and the other
 attributes defined by the root specification. CocoaPods is smart enough
 to handle any issues arising from duplicate attributes.</p>
-<h3>Examples:</h3><blockquote>Subspecs with different source files.</blockquote><div class="highlight"><pre><span class="n">subspec</span> <span class="s2">&quot;Twitter&quot;</span> <span class="k">do</span> <span class="o">|</span><span class="n">sp</span><span class="o">|</span>
-  <span class="n">sp</span><span class="o">.</span><span class="n">source_files</span> <span class="o">=</span> <span class="s2">&quot;Classes/Twitter&quot;</span>
+<h3>Examples:</h3><blockquote>Subspecs with different source files.</blockquote><div class="highlight"><pre><span class="n">subspec</span> <span class="s1">&#39;Twitter&#39;</span> <span class="k">do</span> <span class="o">|</span><span class="n">sp</span><span class="o">|</span>
+  <span class="n">sp</span><span class="o">.</span><span class="n">source_files</span> <span class="o">=</span> <span class="s1">&#39;Classes/Twitter&#39;</span>
 <span class="k">end</span>
 
-<span class="n">subspec</span> <span class="s2">&quot;Pinboard&quot;</span> <span class="k">do</span> <span class="o">|</span><span class="n">sp</span><span class="o">|</span>
-  <span class="n">sp</span><span class="o">.</span><span class="n">source_files</span> <span class="o">=</span> <span class="s2">&quot;Classes/Pinboard&quot;</span>
+<span class="n">subspec</span> <span class="s1">&#39;Pinboard&#39;</span> <span class="k">do</span> <span class="o">|</span><span class="n">sp</span><span class="o">|</span>
+  <span class="n">sp</span><span class="o">.</span><span class="n">source_files</span> <span class="o">=</span> <span class="s1">&#39;Classes/Pinboard&#39;</span>
 <span class="k">end</span>
 </pre></div><blockquote>Subspecs referencing dependencies to other subspecs.</blockquote><div class="highlight"><pre><span class="no">Pod</span><span class="o">::</span><span class="no">Spec</span><span class="o">.</span><span class="n">new</span> <span class="k">do</span> <span class="o">|</span><span class="n">s</span><span class="o">|</span>
   <span class="n">s</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;RestKit&#39;</span>
@@ -520,16 +520,16 @@ platform.</p>
 
 <p>For example one might want to store resources which are specific to
 only iOS projects.</p>
-<div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">resources</span> <span class="o">=</span> <span class="s2">&quot;Resources/**/*.png&quot;</span>
-<span class="n">spec</span><span class="o">.</span><span class="n">ios</span><span class="o">.</span><span class="n">resources</span> <span class="o">=</span> <span class="s2">&quot;Resources_ios/**/*.png&quot;</span>
+<div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">resources</span> <span class="o">=</span> <span class="s1">&#39;Resources/**/*.png&#39;</span>
+<span class="n">spec</span><span class="o">.</span><span class="n">ios</span><span class="o">.</span><span class="n">resources</span> <span class="o">=</span> <span class="s1">&#39;Resources_ios/**/*.png&#39;</span>
 </pre></div></div><div class="tab-pane method" id="tab_ios"><h3 class="code">ios</h3><p>Provides support for specifying iOS attributes.</p>
-<h3>Examples:</h3><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">ios</span><span class="o">.</span><span class="n">source_files</span> <span class="o">=</span> <span class="s2">&quot;Classes/ios/**/*.{h,m}&quot;</span>
+<h3>Examples:</h3><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">ios</span><span class="o">.</span><span class="n">source_files</span> <span class="o">=</span> <span class="s1">&#39;Classes/ios/**/*.{h,m}&#39;</span>
 </pre></div></div><div class="tab-pane method" id="tab_osx"><h3 class="code">osx</h3><p>Provides support for specifying OS X attributes.</p>
-<h3>Examples:</h3><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">osx</span><span class="o">.</span><span class="n">source_files</span> <span class="o">=</span> <span class="s2">&quot;Classes/osx/**/*.{h,m}&quot;</span>
+<h3>Examples:</h3><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">osx</span><span class="o">.</span><span class="n">source_files</span> <span class="o">=</span> <span class="s1">&#39;Classes/osx/**/*.{h,m}&#39;</span>
 </pre></div></div><div class="tab-pane method" id="tab_tvos"><h3 class="code">tvos</h3><p>Provides support for specifying tvOS attributes.</p>
-<h3>Examples:</h3><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">tvos</span><span class="o">.</span><span class="n">source_files</span> <span class="o">=</span> <span class="s2">&quot;Classes/tvos/**/*.{h,m}&quot;</span>
+<h3>Examples:</h3><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">tvos</span><span class="o">.</span><span class="n">source_files</span> <span class="o">=</span> <span class="s1">&#39;Classes/tvos/**/*.{h,m}&#39;</span>
 </pre></div></div><div class="tab-pane method" id="tab_watchos"><h3 class="code">watchos</h3><p>Provides support for specifying watchOS attributes.</p>
-<h3>Examples:</h3><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">watchos</span><span class="o">.</span><span class="n">source_files</span> <span class="o">=</span> <span class="s2">&quot;Classes/watchos/**/*.{h,m}&quot;</span>
+<h3>Examples:</h3><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">watchos</span><span class="o">.</span><span class="n">source_files</span> <span class="o">=</span> <span class="s1">&#39;Classes/watchos/**/*.{h,m}&#39;</span>
 </pre></div></div></div></div><div class="clearfix"></div><script type="text/javascript">$('#tab-all').click(function(){
   $('.bs-sidenav li.active').removeClass('active');
   $('#tab-all').parent().addClass('active');

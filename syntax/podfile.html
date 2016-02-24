@@ -9,7 +9,7 @@ targets of one or more Xcode projects.</p>
 <div class="highlight"><pre><span class="n">platform</span> <span class="ss">:ios</span><span class="p">,</span> <span class="s1">&#39;9.0&#39;</span>
 <span class="n">inhibit_all_warnings!</span>
 
-<span class="n">target</span> <span class="s2">&quot;MyApp&quot;</span> <span class="k">do</span>
+<span class="n">target</span> <span class="s1">&#39;MyApp&#39;</span> <span class="k">do</span>
   <span class="n">pod</span> <span class="s1">&#39;ObjectiveSugar&#39;</span><span class="p">,</span> <span class="s1">&#39;~&gt; 0.5&#39;</span>
 
   <span class="n">target</span> <span class="s2">&quot;MyAppTests&quot;</span> <span class="k">do</span>
@@ -18,9 +18,8 @@ targets of one or more Xcode projects.</p>
   <span class="k">end</span>
 <span class="k">end</span>
 
-
 <span class="n">post_install</span> <span class="k">do</span> <span class="o">|</span><span class="n">installer</span><span class="o">|</span>
-  <span class="n">installer</span><span class="o">.</span><span class="n">pods_project</span><span class="o">.</span><span class="n">targets</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">target</span><span class="o">|</span>
+  <span class="n">installer</span><span class="o">.</span><span class="n">pods_project</span><span class="o">.</span><span class="n">pod_targets</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">target</span><span class="o">|</span>
     <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">target</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span>
   <span class="k">end</span>
 <span class="k">end</span>
@@ -182,30 +181,30 @@ CocoaPods infrastructure.</p>
 within the given block. A target should correspond to an Xcode target.
 By default the target includes the dependencies defined outside of
 the block, unless instructed not to <code>inherit!</code> them.</p>
-<h3>Examples:</h3><blockquote>Defining a target</blockquote><div class="highlight"><pre><span class="n">target</span> <span class="s2">&quot;ZipApp&quot;</span> <span class="k">do</span>
+<h3>Examples:</h3><blockquote>Defining a target</blockquote><div class="highlight"><pre><span class="n">target</span> <span class="s1">&#39;ZipApp&#39;</span> <span class="k">do</span>
   <span class="n">pod</span> <span class="s1">&#39;SSZipArchive&#39;</span>
 <span class="k">end</span>
-</pre></div><blockquote>Defining a test target accessing SSZipArchive pod from its parent</blockquote><div class="highlight"><pre><span class="n">target</span> <span class="s2">&quot;ZipApp&quot;</span> <span class="k">do</span>
+</pre></div><blockquote>Defining a test target accessing SSZipArchive pod from its parent</blockquote><div class="highlight"><pre><span class="n">target</span> <span class="s1">&#39;ZipApp&#39;</span> <span class="k">do</span>
   <span class="n">pod</span> <span class="s1">&#39;SSZipArchive&#39;</span>
 
-  <span class="n">target</span> <span class="s2">&quot;ZipAppTests&quot;</span> <span class="k">do</span>
+  <span class="n">target</span> <span class="s1">&#39;ZipAppTests&#39;</span> <span class="k">do</span>
     <span class="n">inherit!</span> <span class="ss">:search_paths</span>
     <span class="n">pod</span> <span class="s1">&#39;Nimble&#39;</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</pre></div><blockquote>Defining a target applies Pods to multiple targets via its parent target</blockquote><div class="highlight"><pre><span class="n">target</span> <span class="s2">&quot;ShowsApp&quot;</span> <span class="k">do</span>
+</pre></div><blockquote>Defining a target applies Pods to multiple targets via its parent target</blockquote><div class="highlight"><pre><span class="n">target</span> <span class="s1">&#39;ShowsApp&#39;</span> <span class="k">do</span>
   <span class="n">pod</span> <span class="s1">&#39;ShowsKit&#39;</span>
 
   <span class="c1"># Has it&#39;s own copy of ShowsKit + ShowTVAuth</span>
-  <span class="n">target</span> <span class="s2">&quot;ShowsTV&quot;</span> <span class="k">do</span>
-    <span class="n">pod</span> <span class="s2">&quot;ShowTVAuth&quot;</span>
+  <span class="n">target</span> <span class="s1">&#39;ShowsTV&#39;</span> <span class="k">do</span>
+    <span class="n">pod</span> <span class="s1">&#39;ShowTVAuth&#39;</span>
   <span class="k">end</span>
 
   <span class="c1"># Has it&#39;s own copy of Specta + Expecta</span>
   <span class="c1"># and has access to ShowsKit via the app</span>
   <span class="c1"># that the test target is bundled into</span>
 
-  <span class="n">target</span> <span class="s2">&quot;ShowsTests&quot;</span> <span class="k">do</span>
+  <span class="n">target</span> <span class="s1">&#39;ShowsTests&#39;</span> <span class="k">do</span>
     <span class="n">inherit!</span> <span class="ss">:search_paths</span>
     <span class="n">pod</span> <span class="s1">&#39;Specta&#39;</span>
     <span class="n">pod</span> <span class="s1">&#39;Expecta&#39;</span>
@@ -220,24 +219,24 @@ target dependency inheritance.</p>
   <span class="n">target</span> <span class="s1">&#39;Networking App 2&#39;</span>
 <span class="k">end</span>
 </pre></div><blockquote>Defining an abstract_target wrapping Pods to multiple targets</blockquote><div class="highlight"><pre><span class="c1"># There are no targets called &quot;Shows&quot; in any Xcode projects</span>
-<span class="n">abstract_target</span> <span class="s2">&quot;Shows&quot;</span> <span class="k">do</span>
+<span class="n">abstract_target</span> <span class="s1">&#39;Shows&#39;</span> <span class="k">do</span>
   <span class="n">pod</span> <span class="s1">&#39;ShowsKit&#39;</span>
 
   <span class="c1"># Has it&#39;s own copy of ShowsKit + ShowWebAuth</span>
-  <span class="n">target</span> <span class="s2">&quot;ShowsiOS&quot;</span> <span class="k">do</span>
-    <span class="n">pod</span> <span class="s2">&quot;ShowWebAuth&quot;</span>
+  <span class="n">target</span> <span class="s1">&#39;ShowsiOS&#39;</span> <span class="k">do</span>
+    <span class="n">pod</span> <span class="s1">&#39;ShowWebAuth&#39;</span>
   <span class="k">end</span>
 
   <span class="c1"># Has it&#39;s own copy of ShowsKit + ShowTVAuth</span>
-  <span class="n">target</span> <span class="s2">&quot;ShowsTV&quot;</span> <span class="k">do</span>
-    <span class="n">pod</span> <span class="s2">&quot;ShowTVAuth&quot;</span>
+  <span class="n">target</span> <span class="s1">&#39;ShowsTV&#39;</span> <span class="k">do</span>
+    <span class="n">pod</span> <span class="s1">&#39;ShowTVAuth&#39;</span>
   <span class="k">end</span>
 
   <span class="c1"># Has it&#39;s own copy of Specta + Expecta</span>
   <span class="c1"># and has access to ShowsKit via the app</span>
   <span class="c1"># that the test target is bundled into</span>
 
-  <span class="n">target</span> <span class="s2">&quot;ShowsTests&quot;</span> <span class="k">do</span>
+  <span class="n">target</span> <span class="s1">&#39;ShowsTests&#39;</span> <span class="k">do</span>
     <span class="n">inherit!</span> <span class="ss">:search_paths</span>
     <span class="n">pod</span> <span class="s1">&#39;Specta&#39;</span>
     <span class="n">pod</span> <span class="s1">&#39;Expecta&#39;</span>
@@ -264,7 +263,7 @@ and <code>2.0</code> for watchOS.</p>
 
 <p>If the deployment target requires it (iOS &lt; <code>4.3</code>), <code>armv6</code>
 architecture will be added to <code>ARCHS</code>.</p>
-<h3>Examples:</h3><blockquote>Specifying the platform</blockquote><div class="highlight"><pre><span class="n">platform</span> <span class="ss">:ios</span><span class="p">,</span> <span class="s2">&quot;4.0&quot;</span>
+<h3>Examples:</h3><blockquote>Specifying the platform</blockquote><div class="highlight"><pre><span class="n">platform</span> <span class="ss">:ios</span><span class="p">,</span> <span class="s1">&#39;4.0&#39;</span>
 <span class="n">platform</span> <span class="ss">:ios</span>
 </pre></div></div><div class="tab-pane method" id="tab_project"><h3 class="code">project</h3><p>Specifies the Xcode project that contains the target that the Pods
 library should be linked with.</p>
@@ -281,21 +280,21 @@ the debug presets. To do so you need to specify a hash where the name
 of each build configuration is associated to either <code>:release</code> or
 <code>:debug</code>.</p>
 <h3>Examples:</h3><blockquote>Specifying the user project</blockquote><div class="highlight"><pre><span class="c1"># This Target can be found in a Xcode project called `FastGPS`</span>
-<span class="n">target</span> <span class="s2">&quot;MyGPSApp&quot;</span> <span class="k">do</span>
+<span class="n">target</span> <span class="s1">&#39;MyGPSApp&#39;</span> <span class="k">do</span>
   <span class="n">project</span> <span class="s1">&#39;FastGPS&#39;</span>
   <span class="o">.</span><span class="n">.</span><span class="o">.</span>
 <span class="k">end</span>
 
 <span class="c1"># Same Podfile, multiple Xcodeprojects</span>
-<span class="n">target</span> <span class="s2">&quot;MyNotesApp&quot;</span> <span class="k">do</span>
+<span class="n">target</span> <span class="s1">&#39;MyNotesApp&#39;</span> <span class="k">do</span>
   <span class="n">project</span> <span class="s1">&#39;FastNotes&#39;</span>
   <span class="o">.</span><span class="n">.</span><span class="o">.</span>
 <span class="k">end</span>
 </pre></div><blockquote>Using custom build configurations</blockquote><div class="highlight"><pre><span class="n">project</span> <span class="s1">&#39;TestProject&#39;</span><span class="p">,</span> <span class="s1">&#39;Mac App Store&#39;</span> <span class="o">=&gt;</span> <span class="ss">:release</span><span class="p">,</span> <span class="s1">&#39;Test&#39;</span> <span class="o">=&gt;</span> <span class="ss">:debug</span>
-</pre></div></div><div class="tab-pane method" id="tab_xcodeproj"><h3 class="code">xcodeproj</h3><p>TODO: This method can be deleted once people have migrated to this 1.0
-DSL.</p>
-</div><div class="tab-pane method" id="tab_link_with"><h3 class="code">link_with</h3><p>TODO: This method can be deleted once people have migrated to this 1.0
-DSL.</p>
+</pre></div></div><div class="tab-pane method" id="tab_xcodeproj"><h3 class="code">xcodeproj</h3><p><code>xcodeproj</code> is deprecated in <a href="http://blog.cocoapods.org/CocoaPods-1.0/">1.0</a> and has been renamed to <code>project</code>.
+For pre-1.0 versions use <code>xcodeproj</code>.</p>
+</div><div class="tab-pane method" id="tab_link_with"><h3 class="code">link_with</h3><p><code>link_with</code> is deprecated in <a href="http://blog.cocoapods.org/CocoaPods-1.0/">1.0</a> in
+favour of <code>abstract_target</code> and target inheritance instead.</p>
 </div><div class="tab-pane method" id="tab_inhibit_all_warnings_bang"><h3 class="code">inhibit_all_warnings!</h3><p>Inhibits <strong>all</strong> the warnings from the CocoaPods libraries.</p>
 
 <hr>
