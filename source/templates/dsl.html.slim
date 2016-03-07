@@ -72,7 +72,7 @@ ruby:
                 blockquote = example.description
               == example.html
 
-          - if method.respond_to?(:html_keys) && method.html_keys
+          - if method.respond_to?(:html_keys) && method.html_keys && !method.html_keys.empty?
             h3 Supported Keys:
             - for key in method.html_keys
               == key
