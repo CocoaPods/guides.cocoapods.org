@@ -74,7 +74,7 @@ All the examples in the guides are based on CocoaPods version 1.0 and onwards.</
 
 
 <blockquote>
-<p>An example of a more complex Podfile linking an app and it's test bundle:</p>
+<p>An example of a more complex Podfile linking an app and its test bundle:</p>
 </blockquote>
     </article>
     </div>
@@ -92,7 +92,7 @@ All the examples in the guides are based on CocoaPods version 1.0 and onwards.</
 <span class="n">target</span> <span class="s1">'MyApp'</span> <span class="k">do</span>
   <span class="n">pod</span> <span class="s1">'GoogleAnalytics'</span><span class="p">,</span> <span class="s1">'~&gt; 3.1'</span>
 
-  <span class="c1"># Has it's own copy of OCMock</span>
+  <span class="c1"># Has its own copy of OCMock</span>
   <span class="c1"># and has access to GoogleAnalytics via the app</span>
   <span class="c1"># that hosts the test target</span>
 
@@ -132,12 +132,12 @@ All the examples in the guides are based on CocoaPods version 1.0 and onwards.</
   <span class="n">pod</span> <span class="s1">'ShowsKit'</span>
   <span class="n">pod</span> <span class="s1">'Fabric'</span>
 
-  <span class="c1"># Has it's own copy of ShowsKit + ShowWebAuth</span>
+  <span class="c1"># Has its own copy of ShowsKit + ShowWebAuth</span>
   <span class="n">target</span> <span class="s1">'ShowsiOS'</span> <span class="k">do</span>
     <span class="n">pod</span> <span class="s1">'ShowWebAuth'</span>
   <span class="k">end</span>
 
-  <span class="c1"># Has it's own copy of ShowsKit + ShowTVAuth</span>
+  <span class="c1"># Has its own copy of ShowsKit + ShowTVAuth</span>
   <span class="n">target</span> <span class="s1">'ShowsTV'</span> <span class="k">do</span>
     <span class="n">pod</span> <span class="s1">'ShowTVAuth'</span>
   <span class="k">end</span>
@@ -163,12 +163,12 @@ All the examples in the guides are based on CocoaPods version 1.0 and onwards.</
     <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">pod</span> <span class="s1">'ShowsKit'</span>
 <span class="n">pod</span> <span class="s1">'Fabric'</span>
 
-<span class="c1"># Has it's own copy of ShowsKit + ShowWebAuth</span>
+<span class="c1"># Has its own copy of ShowsKit + ShowWebAuth</span>
 <span class="n">target</span> <span class="s1">'ShowsiOS'</span> <span class="k">do</span>
   <span class="n">pod</span> <span class="s1">'ShowWebAuth'</span>
 <span class="k">end</span>
 
-<span class="c1"># Has it's own copy of ShowsKit + ShowTVAuth</span>
+<span class="c1"># Has its own copy of ShowsKit + ShowTVAuth</span>
 <span class="n">target</span> <span class="s1">'ShowsTV'</span> <span class="k">do</span>
   <span class="n">pod</span> <span class="s1">'ShowTVAuth'</span>
 <span class="k">end</span>
