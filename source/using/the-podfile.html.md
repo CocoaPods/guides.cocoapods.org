@@ -21,7 +21,7 @@ target 'MyApp' do
 end
 ```
 
-> An example of a more complex Podfile linking an app and it's test bundle:
+> An example of a more complex Podfile linking an app and its test bundle:
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
@@ -33,7 +33,7 @@ inhibit_all_warnings!
 target 'MyApp' do
   pod 'GoogleAnalytics', '~> 3.1'
 
-  # Has it's own copy of OCMock
+  # Has its own copy of OCMock
   # and has access to GoogleAnalytics via the app
   # that hosts the test target
 
@@ -58,12 +58,12 @@ abstract_target 'Shows' do
   pod 'ShowsKit'
   pod 'Fabric'
 
-  # Has it's own copy of ShowsKit + ShowWebAuth
+  # Has its own copy of ShowsKit + ShowWebAuth
   target 'ShowsiOS' do
     pod 'ShowWebAuth'
   end
 
-  # Has it's own copy of ShowsKit + ShowTVAuth
+  # Has its own copy of ShowsKit + ShowTVAuth
   target 'ShowsTV' do
     pod 'ShowTVAuth'
   end
@@ -76,12 +76,12 @@ There is implicit abstract target at the root of the Podfile, so you could write
 pod 'ShowsKit'
 pod 'Fabric'
 
-# Has it's own copy of ShowsKit + ShowWebAuth
+# Has its own copy of ShowsKit + ShowWebAuth
 target 'ShowsiOS' do
   pod 'ShowWebAuth'
 end
 
-# Has it's own copy of ShowsKit + ShowTVAuth
+# Has its own copy of ShowsKit + ShowTVAuth
 target 'ShowsTV' do
   pod 'ShowTVAuth'
 end
