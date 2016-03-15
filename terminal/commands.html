@@ -21,7 +21,7 @@ the template in the <code>Podfile.default</code> (normal targets) <code>Podfile.
 Pods library project in <code>./Pods</code>.</p>
 
 <p>The Xcode project file should be specified in your <code>Podfile</code> like this:</p>
-<div class="highlight"><pre><span class="n">project</span> <span class="sb">`path/to/XcodeProject`</span>
+<div class="highlight"><pre><span class="n">project</span> <span class="sb">`path/to/XcodeProject.xcodeproj`</span>
 </pre></div>
 <p>If no project is specified, then a search for an Xcode project will
 be made. If more than one Xcode project is found, the command will
@@ -30,8 +30,8 @@ raise an error.</p>
 <p>This will configure the project to reference the Pods static library,
 add a build configuration file, and add a post build script to copy
 Pod resources.</p>
-</p><h3>Options:</h3><table class="inherited_options"><tr><td><p><b>--project-directory=/project/dir/</b></p></td><td><p>The path to the root of the project directory.</p>
-</td></tr><tr><td><p><b>--no-repo-update</b></p></td><td><p>Skip running <code>pod repo update</code> before install.</p>
+</p><h3>Options:</h3><table class="inherited_options"><tr><td><p><b>--repo-update</b></p></td><td><p>Force running <code>pod repo update</code> before install.</p>
+</td></tr><tr><td><p><b>--project-directory=/project/dir/</b></p></td><td><p>The path to the root of the project directory.</p>
 </td></tr></table><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
 </td></tr><tr><td><p><b>--version</b></p></td><td><p>Show the version of the tool.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
@@ -51,8 +51,8 @@ should be used to install changes to the Podfile.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
 </td></tr></table></div><div class="tab-pane" id="tab_pod_outdated"><h2>pod outdated</h2><pre>pod outdated </pre><p><p>Shows the outdated pods in the current Podfile.lock, but only those from
 spec repos, not those from local/external sources or <code>:head</code> versions.</p>
-</p><h3>Options:</h3><table class="inherited_options"><tr><td><p><b>--no-repo-update</b></p></td><td><p>Skip running <code>pod repo update</code> before install.</p>
-</td></tr><tr><td><p><b>--project-directory=/project/dir/</b></p></td><td><p>The path to the root of the project directory.</p>
+</p><h3>Options:</h3><table class="inherited_options"><tr><td><p><b>--project-directory=/project/dir/</b></p></td><td><p>The path to the root of the project directory.</p>
+</td></tr><tr><td><p><b>--no-repo-update</b></p></td><td><p>Skip running <code>pod repo update</code> before install.</p>
 </td></tr></table><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
 </td></tr><tr><td><p><b>--version</b></p></td><td><p>Show the version of the tool.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
@@ -240,8 +240,7 @@ repo. Once deleted, this version can never be pushed again.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
 </td></tr></table></div><div class="tab-pane" id="tab_pod_repo_add"><h2>pod repo add</h2><pre>pod repo add NAME URL [BRANCH]</pre><p><p>Clones <code>URL</code> in the local spec-repos directory at <code>~/.cocoapods/repos/</code>. The
 remote can later be referred to by <code>NAME</code>.</p>
-</p><h3>Options:</h3><table class="inherited_options"><tr><td><p><b>--shallow</b></p></td><td><p>Create a shallow clone (fast clone, but no push capabilities).</p>
-</td></tr></table><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
+</p><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
@@ -289,8 +288,7 @@ This is where it will create a clone of the public <code>master</code> spec-repo
 <div class="highlight"><pre><span class="ss">https</span><span class="p">:</span><span class="sr">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="no">CocoaPods</span><span class="o">/</span><span class="no">Specs</span>
 </pre></div>
 <p>If the clone already exists, it will ensure that it is up-to-date.</p>
-</p><h3>Options:</h3><table class="inherited_options"><tr><td><p><b>--no-shallow</b></p></td><td><p>Clone full history so push will work.</p>
-</td></tr></table><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
+</p><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
 </td></tr><tr><td><p><b>--version</b></p></td><td><p>Show the version of the tool.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
