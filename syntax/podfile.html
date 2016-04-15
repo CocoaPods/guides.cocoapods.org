@@ -96,19 +96,20 @@ the strong demand for it. You can use it but you might need to change
 your Podfile to use future versions of CocoaPods. Anyway a clear and
 simple upgrade path will be provided.</p>
 
-<p>By default dependencies are installed on all the build configurations
+<p>By default dependencies are installed in all the build configurations
 of the target. For debug purposes or for other reasons, they can be
-enabled only on a given list of build configuration names.</p>
-<div class="highlight"><pre><span class="n">pod</span> <span class="s1">&#39;PonyDebugger&#39;</span><span class="p">,</span> <span class="ss">:configurations</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s1">&#39;Release&#39;</span><span class="p">,</span> <span class="s1">&#39;App Store&#39;</span><span class="o">]</span>
+only enabled on a list of build configurations.</p>
+<div class="highlight"><pre><span class="n">pod</span> <span class="s1">&#39;PonyDebugger&#39;</span><span class="p">,</span> <span class="ss">:configurations</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s1">&#39;Debug&#39;</span><span class="p">,</span> <span class="s1">&#39;Beta&#39;</span><span class="o">]</span>
 </pre></div>
-<p>Alternatively you can white-list only a single build configuration.</p>
-<div class="highlight"><pre><span class="n">pod</span> <span class="s1">&#39;PonyDebugger&#39;</span><span class="p">,</span> <span class="ss">:configuration</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s1">&#39;Release&#39;</span><span class="o">]</span>
+<p>Alternatively, you specify to have it included on a single build
+configuration.</p>
+<div class="highlight"><pre><span class="n">pod</span> <span class="s1">&#39;PonyDebugger&#39;</span><span class="p">,</span> <span class="ss">:configuration</span> <span class="o">=&gt;</span> <span class="s1">&#39;Debug&#39;</span>
 </pre></div>
 <hr>
 
 <h3>Subspecs</h3>
 
-<p>When installing a Pod via it&#39;s name, it will install all of the
+<p>When installing a Pod via its name, it will install all of the
 default subspecs defined in the podspec.</p>
 
 <p>You may install a specific subspec using the following:</p>
@@ -195,12 +196,12 @@ the block, unless instructed not to <code>inherit!</code> them.</p>
 </pre></div><blockquote>Defining a target applies Pods to multiple targets via its parent target</blockquote><div class="highlight"><pre><span class="n">target</span> <span class="s1">&#39;ShowsApp&#39;</span> <span class="k">do</span>
   <span class="n">pod</span> <span class="s1">&#39;ShowsKit&#39;</span>
 
-  <span class="c1"># Has it&#39;s own copy of ShowsKit + ShowTVAuth</span>
+  <span class="c1"># Has its own copy of ShowsKit + ShowTVAuth</span>
   <span class="n">target</span> <span class="s1">&#39;ShowsTV&#39;</span> <span class="k">do</span>
     <span class="n">pod</span> <span class="s1">&#39;ShowTVAuth&#39;</span>
   <span class="k">end</span>
 
-  <span class="c1"># Has it&#39;s own copy of Specta + Expecta</span>
+  <span class="c1"># Has its own copy of Specta + Expecta</span>
   <span class="c1"># and has access to ShowsKit via the app</span>
   <span class="c1"># that the test target is bundled into</span>
 
@@ -218,23 +219,24 @@ target dependency inheritance.</p>
   <span class="n">target</span> <span class="s1">&#39;Networking App 1&#39;</span>
   <span class="n">target</span> <span class="s1">&#39;Networking App 2&#39;</span>
 <span class="k">end</span>
-</pre></div><blockquote>Defining an abstract_target wrapping Pods to multiple targets</blockquote><div class="highlight"><pre><span class="c1"># There are no targets called &quot;Shows&quot; in any Xcode projects</span>
+</pre></div><blockquote>Defining an abstract_target wrapping Pods to multiple targets</blockquote><div class="highlight"><pre><span class="c1"># Note: There are no targets called &quot;Shows&quot; in any of this workspace&#39;s Xcode projects</span>
 <span class="n">abstract_target</span> <span class="s1">&#39;Shows&#39;</span> <span class="k">do</span>
   <span class="n">pod</span> <span class="s1">&#39;ShowsKit&#39;</span>
 
-  <span class="c1"># Has it&#39;s own copy of ShowsKit + ShowWebAuth</span>
+  <span class="c1"># The target ShowsiOS has its own copy of ShowsKit (inherited) + ShowWebAuth (added here)</span>
   <span class="n">target</span> <span class="s1">&#39;ShowsiOS&#39;</span> <span class="k">do</span>
     <span class="n">pod</span> <span class="s1">&#39;ShowWebAuth&#39;</span>
   <span class="k">end</span>
 
-  <span class="c1"># Has it&#39;s own copy of ShowsKit + ShowTVAuth</span>
+  <span class="c1"># The target ShowsTV has its own copy of ShowsKit (inherited) + ShowTVAuth (added here)</span>
   <span class="n">target</span> <span class="s1">&#39;ShowsTV&#39;</span> <span class="k">do</span>
     <span class="n">pod</span> <span class="s1">&#39;ShowTVAuth&#39;</span>
   <span class="k">end</span>
 
-  <span class="c1"># Has it&#39;s own copy of Specta + Expecta</span>
-  <span class="c1"># and has access to ShowsKit via the app</span>
-  <span class="c1"># that the test target is bundled into</span>
+  <span class="c1"># Our tests target has its own copy of</span>
+  <span class="c1"># our testing frameworks, and has access</span>
+  <span class="c1"># to ShowsKit as well because it is</span>
+  <span class="c1"># a child of the abstract target &#39;Shows&#39;</span>
 
   <span class="n">target</span> <span class="s1">&#39;ShowsTests&#39;</span> <span class="k">do</span>
     <span class="n">inherit!</span> <span class="ss">:search_paths</span>
