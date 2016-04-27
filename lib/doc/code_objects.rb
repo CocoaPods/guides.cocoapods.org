@@ -183,6 +183,10 @@ module Pod
         #
         attr_accessor :parent_options
 
+        # @return [Array<YARD::Tags::Tag>] YARD tags.
+        #
+        attr_accessor :tags
+
       end
 
 

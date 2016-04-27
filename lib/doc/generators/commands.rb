@@ -153,6 +153,8 @@ module Pod
           subcommand = CodeObjects::SubCommand.new
           subcommand.name = claide_subcommand.full_command
           subcommand.html_description = description(claide_subcommand)
+          registry = yard_registry.at(claide_subcommand.to_s)
+          subcommand.tags = registry.tags if registry
           # FIXME
           # puts claide_subcommand.name
           # puts  claide_subcommand.options
