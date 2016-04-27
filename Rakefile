@@ -86,7 +86,7 @@ begin
       require 'doc'
       puts "\e[1;33mBuilding Commands Data\e[0m"
       lib = Gem.loaded_specs['cocoapods'].full_require_paths.first
-      files = FileList[File.join(lib, 'lib/cocoapods/command/*.rb')]
+      files = FileList[File.join(lib, 'cocoapods/command/*.rb')]
       generator = Pod::Doc::Generators::Commands.new(files)
       generator.output_file = "docs_data/commands.yaml"
       generator.save
