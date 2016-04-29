@@ -51,6 +51,12 @@ ruby:
         h2
           = command.name
 
+        - if command.available_since
+          h5
+            = "Available since v#{command.available_since}."
+        br
+
+
         == link_doc_string command.html_description
 
         - unless command.options.empty?

@@ -183,6 +183,20 @@ module Pod
         #
         attr_accessor :parent_options
 
+        # @return [Array<YARD::Tags::Tag>] YARD tags.
+        #
+        attr_accessor :tags
+
+        # @return [String] Version of CocoaPods when the command was added.
+        #
+        def available_since
+          if tags
+            if since = tags.select { |t| t.tag_name == "since" }.first
+              since.text
+            end
+          end
+        end
+
       end
 
 
