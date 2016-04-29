@@ -85,11 +85,9 @@ begin
     task :commands do
       require 'doc'
       puts "\e[1;33mBuilding Commands Data\e[0m"
-      lib_paths = %w[cocoapods cocoapods-deintegrate cocoapods-search].map do |w|
-        Gem.loaded_specs[w].full_require_paths.first
-      end
-
-      files = lib_paths.map { |l| FileList[File.join(l, 'cocoapods*/command/*.rb')] }.flatten
+      libs = %w[cocoapods cocoapods-deintegrate cocoapods-search cocoapods-trunk cocoapods-try]
+      lib_paths = libs.map { |w| Gem.loaded_specs[w].full_require_paths.first }
+      files = lib_paths.map { |l| FileList[File.join(l, '*/command/*.rb')] }.flatten
       generator = Pod::Doc::Generators::Commands.new(files)
       generator.output_file = "docs_data/commands.yaml"
       generator.save
