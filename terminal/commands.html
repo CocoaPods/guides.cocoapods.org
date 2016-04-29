@@ -3,7 +3,7 @@
 and integrating the dependecies specified in a Podfile.</p><p>Following is presented the basic workflow for integrating CocoaPods in a user project.</p><pre>$ touch Podfile
 $ vim Podfile
 $ pod install</pre><pre>$ open *.xcworkspace</pre><pre>$ vim podfile
-$ pod install</pre><pre>$ pod outdated</pre><pre>$ pod update</pre><h3>Commands</h3><p><code><a data-toggle="tab" href="#tab_pod_init">pod init</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_install">pod install</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_update">pod update</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_outdated">pod outdated</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_deintegrate">pod deintegrate</a></code></p></div><div class="tab-pane" id="tab_group_environment"><h2>Environment</h2><p><code><a data-toggle="tab" href="#tab_pod_env">pod env</a></code></p></div><div class="tab-pane" id="tab_group_browse"><h2>Browse</h2><p><code><a data-toggle="tab" href="#tab_pod_search">pod search</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_list">pod list</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_try">pod try</a></code></p></div><div class="tab-pane" id="tab_group_specifications"><h2>Specifications</h2><p><code><a data-toggle="tab" href="#tab_pod_spec_create">pod spec create</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_spec_lint">pod spec lint</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_spec_cat">pod spec cat</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_spec_which">pod spec which</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_spec_edit">pod spec edit</a></code></p></div><div class="tab-pane" id="tab_group_trunk"><h2>Trunk</h2><p><code><a data-toggle="tab" href="#tab_pod_trunk_add_owner">pod trunk add-owner</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_trunk_info">pod trunk info</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_trunk_me">pod trunk me</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_trunk_push">pod trunk push</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_trunk_register">pod trunk register</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_trunk_remove_owner">pod trunk remove-owner</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_trunk_deprecate">pod trunk deprecate</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_trunk_delete">pod trunk delete</a></code></p></div><div class="tab-pane" id="tab_group_repos"><h2>Repos</h2><p><code><a data-toggle="tab" href="#tab_pod_repo_add">pod repo add</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_repo_update">pod repo update</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_repo_lint">pod repo lint</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_repo_list">pod repo list</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_repo_remove">pod repo remove</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_repo_push">pod repo push</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_setup">pod setup</a></code></p></div><div class="tab-pane" id="tab_group_libraries"><h2>Libraries</h2><p><code><a data-toggle="tab" href="#tab_pod_lib_create">pod lib create</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_lib_lint">pod lib lint</a></code></p></div><div class="tab-pane" id="tab_group_ipc"><h2>IPC</h2><p><code><a data-toggle="tab" href="#tab_pod_ipc_repl">pod ipc repl</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_ipc_spec">pod ipc spec</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_ipc_podfile">pod ipc podfile</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_ipc_list">pod ipc list</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_ipc_update_search_index">pod ipc update-search-index</a></code></p></div><div class="tab-pane" id="tab_group_plugins"><h2>Plugins</h2><p><code><a data-toggle="tab" href="#tab_pod_plugins_list">pod plugins list</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_plugins_search">pod plugins search</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_plugins_installed">pod plugins installed</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_plugins_create">pod plugins create</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_plugins_publish">pod plugins publish</a></code></p></div><div class="tab-pane" id="tab_group_cache"><h2>Cache</h2><p><code><a data-toggle="tab" href="#tab_pod_cache_list">pod cache list</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_cache_clean">pod cache clean</a></code></p></div><div class="tab-pane" id="tab_pod_init"><h2>pod init</h2><pre>pod init XCODEPROJ</pre><p><p>Creates a Podfile for the current directory if none currently exists. If
+$ pod install</pre><pre>$ pod outdated</pre><pre>$ pod update</pre><h3>Commands</h3><p><code><a data-toggle="tab" href="#tab_pod_init">pod init</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_install">pod install</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_update">pod update</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_outdated">pod outdated</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_deintegrate">pod deintegrate</a></code></p></div><div class="tab-pane" id="tab_group_environment"><h2>Environment</h2><p><code><a data-toggle="tab" href="#tab_pod_env">pod env</a></code></p></div><div class="tab-pane" id="tab_group_browse"><h2>Browse</h2><p><code><a data-toggle="tab" href="#tab_pod_search">pod search</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_list">pod list</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_try">pod try</a></code></p></div><div class="tab-pane" id="tab_group_specifications"><h2>Specifications</h2><p><code><a data-toggle="tab" href="#tab_pod_spec_create">pod spec create</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_spec_lint">pod spec lint</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_spec_cat">pod spec cat</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_spec_which">pod spec which</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_spec_edit">pod spec edit</a></code></p></div><div class="tab-pane" id="tab_group_trunk"><h2>Trunk</h2><p><code><a data-toggle="tab" href="#tab_pod_trunk_add_owner">pod trunk add-owner</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_trunk_info">pod trunk info</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_trunk_me">pod trunk me</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_trunk_push">pod trunk push</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_trunk_register">pod trunk register</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_trunk_remove_owner">pod trunk remove-owner</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_trunk_deprecate">pod trunk deprecate</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_trunk_delete">pod trunk delete</a></code></p></div><div class="tab-pane" id="tab_group_repos"><h2>Repos</h2><p><code><a data-toggle="tab" href="#tab_pod_repo_add">pod repo add</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_repo_update">pod repo update</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_repo_lint">pod repo lint</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_repo_list">pod repo list</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_repo_remove">pod repo remove</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_repo_push">pod repo push</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_setup">pod setup</a></code></p></div><div class="tab-pane" id="tab_group_libraries"><h2>Libraries</h2><p><code><a data-toggle="tab" href="#tab_pod_lib_create">pod lib create</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_lib_lint">pod lib lint</a></code></p></div><div class="tab-pane" id="tab_group_ipc"><h2>IPC</h2><p><code><a data-toggle="tab" href="#tab_pod_ipc_repl">pod ipc repl</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_ipc_spec">pod ipc spec</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_ipc_podfile">pod ipc podfile</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_ipc_list">pod ipc list</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_ipc_update_search_index">pod ipc update-search-index</a></code></p></div><div class="tab-pane" id="tab_group_plugins"><h2>Plugins</h2><p><code><a data-toggle="tab" href="#tab_pod_plugins_list">pod plugins list</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_plugins_search">pod plugins search</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_plugins_installed">pod plugins installed</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_plugins_create">pod plugins create</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_plugins_publish">pod plugins publish</a></code></p></div><div class="tab-pane" id="tab_group_cache"><h2>Cache</h2><p><code><a data-toggle="tab" href="#tab_pod_cache_list">pod cache list</a></code></p><p><code><a data-toggle="tab" href="#tab_pod_cache_clean">pod cache clean</a></code></p></div><div class="tab-pane" id="tab_pod_init"><h2>pod init</h2><br /><pre>pod init XCODEPROJ</pre><p><p>Creates a Podfile for the current directory if none currently exists. If
 an <code>XCODEPROJ</code> project file is specified or if there is only a single
 project file in the current directory, targets will be automatically
 generated based on targets defined in the project.</p>
@@ -17,7 +17,7 @@ the template in the <code>Podfile.default</code> (normal targets) <code>Podfile.
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_install"><h2>pod install</h2><pre>pod install </pre><p><p>Downloads all dependencies defined in <code>Podfile</code> and creates an Xcode
+</td></tr></table></div><div class="tab-pane" id="tab_pod_install"><h2>pod install</h2><br /><pre>pod install </pre><p><p>Downloads all dependencies defined in <code>Podfile</code> and creates an Xcode
 Pods library project in <code>./Pods</code>.</p>
 
 <p>The Xcode project file should be specified in your <code>Podfile</code> like this:</p>
@@ -37,7 +37,7 @@ Pod resources.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_update"><h2>pod update</h2><pre>pod update [POD_NAMES ...]</pre><p><p>Updates the Pods identified by the specified <code>POD_NAMES</code>. If no
+</td></tr></table></div><div class="tab-pane" id="tab_pod_update"><h2>pod update</h2><br /><pre>pod update [POD_NAMES ...]</pre><p><p>Updates the Pods identified by the specified <code>POD_NAMES</code>. If no
 <code>POD_NAMES</code> are specified it updates all the Pods ignoring the contents
 of the Podfile.lock.
 This command is reserved to the update of dependencies and pod install
@@ -49,7 +49,7 @@ should be used to install changes to the Podfile.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_outdated"><h2>pod outdated</h2><pre>pod outdated </pre><p><p>Shows the outdated pods in the current Podfile.lock, but only those from
+</td></tr></table></div><div class="tab-pane" id="tab_pod_outdated"><h2>pod outdated</h2><br /><pre>pod outdated </pre><p><p>Shows the outdated pods in the current Podfile.lock, but only those from
 spec repos, not those from local/external sources.</p>
 </p><h3>Options:</h3><table class="inherited_options"><tr><td><p><b>--project-directory=/project/dir/</b></p></td><td><p>The path to the root of the project directory.</p>
 </td></tr><tr><td><p><b>--no-repo-update</b></p></td><td><p>Skip running <code>pod repo update</code> before install.</p>
@@ -58,7 +58,7 @@ spec repos, not those from local/external sources.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_deintegrate"><h2>pod deintegrate</h2><pre>pod deintegrate [XCODE_PROJECT]</pre><p><p>Deintegrate your project from CocoaPods. Removing all traces
+</td></tr></table></div><div class="tab-pane" id="tab_pod_deintegrate"><h2>pod deintegrate</h2><br /><pre>pod deintegrate [XCODE_PROJECT]</pre><p><p>Deintegrate your project from CocoaPods. Removing all traces
 of CocoaPods from your Xcode project.</p>
 
 <p>If no xcodeproj is specified, then a search for an Xcode project
@@ -69,13 +69,13 @@ will be made in the current directory.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_env"><h2>pod env</h2><pre>pod env </pre><p><p>Display pod environment.</p>
+</td></tr></table></div><div class="tab-pane" id="tab_pod_env"><h2>pod env</h2><br /><pre>pod env </pre><p><p>Display pod environment.</p>
 </p><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
 </td></tr><tr><td><p><b>--version</b></p></td><td><p>Show the version of the tool.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_search"><h2>pod search</h2><pre>pod search QUERY</pre><p><p>Searches for pods, ignoring case, whose name, summary, description, or authors match <code>QUERY</code>. If the
+</td></tr></table></div><div class="tab-pane" id="tab_pod_search"><h2>pod search</h2><br /><pre>pod search QUERY</pre><p><p>Searches for pods, ignoring case, whose name, summary, description, or authors match <code>QUERY</code>. If the
 <code>--simple</code> option is specified, this will only search in the names of the pods.</p>
 </p><h3>Options:</h3><table class="inherited_options"><tr><td><p><b>--regex</b></p></td><td><p>Interpret the <code>QUERY</code> as a regular expression.</p>
 </td></tr><tr><td><p><b>--simple</b></p></td><td><p>Search only by name.</p>
@@ -91,7 +91,7 @@ will be made in the current directory.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_list"><h2>pod list</h2><pre>pod list </pre><p><p>Lists all available pods.</p>
+</td></tr></table></div><div class="tab-pane" id="tab_pod_list"><h2>pod list</h2><br /><pre>pod list </pre><p><p>Lists all available pods.</p>
 </p><h3>Options:</h3><table class="inherited_options"><tr><td><p><b>--update</b></p></td><td><p>Run <code>pod repo update</code> before listing.</p>
 </td></tr><tr><td><p><b>--stats</b></p></td><td><p>Show additional stats (like GitHub watchers and forks).</p>
 </td></tr></table><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
@@ -99,7 +99,7 @@ will be made in the current directory.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_try"><h2>pod try</h2><pre>pod try NAME|URL</pre><p><p>Downloads the Pod with the given <code>NAME</code> (or Git <code>URL</code>), install its
+</td></tr></table></div><div class="tab-pane" id="tab_pod_try"><h2>pod try</h2><br /><pre>pod try NAME|URL</pre><p><p>Downloads the Pod with the given <code>NAME</code> (or Git <code>URL</code>), install its
 dependencies if needed and opens its demo project. If a Git URL is
 provided the head of the repo is used.</p>
 </p><h3>Options:</h3><table class="inherited_options"><tr><td><p><b>--no-repo-update</b></p></td><td><p>Skip running <code>pod repo update</code> before install.</p>
@@ -108,13 +108,13 @@ provided the head of the repo is used.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_spec_create"><h2>pod spec create</h2><pre>pod spec create [NAME|https://github.com/USER/REPO]</pre><p><p>Creates a PodSpec, in the current working dir, called <code>NAME.podspec</code>.
+</td></tr></table></div><div class="tab-pane" id="tab_pod_spec_create"><h2>pod spec create</h2><br /><pre>pod spec create [NAME|https://github.com/USER/REPO]</pre><p><p>Creates a PodSpec, in the current working dir, called <code>NAME.podspec</code>.
 If a GitHub url is passed the spec is prepopulated.</p>
 </p><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_spec_lint"><h2>pod spec lint</h2><pre>pod spec lint [NAME.podspec|DIRECTORY|http://PATH/NAME.podspec ...]</pre><p><p>Validates <code>NAME.podspec</code>. If a <code>DIRECTORY</code> is provided, it validates
+</td></tr></table></div><div class="tab-pane" id="tab_pod_spec_lint"><h2>pod spec lint</h2><br /><pre>pod spec lint [NAME.podspec|DIRECTORY|http://PATH/NAME.podspec ...]</pre><p><p>Validates <code>NAME.podspec</code>. If a <code>DIRECTORY</code> is provided, it validates
 the podspec files found, including subfolders. In case
 the argument is omitted, it defaults to the current working dir.</p>
 </p><h3>Options:</h3><table class="inherited_options"><tr><td><p><b>--quick</b></p></td><td><p>Lint skips checks that would require to download and build the spec.</p>
@@ -130,28 +130,28 @@ the argument is omitted, it defaults to the current working dir.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_spec_cat"><h2>pod spec cat</h2><pre>pod spec cat [QUERY]</pre><p><p>Prints the content of the podspec(s) whose name matches <code>QUERY</code> to standard output.</p>
+</td></tr></table></div><div class="tab-pane" id="tab_pod_spec_cat"><h2>pod spec cat</h2><br /><pre>pod spec cat [QUERY]</pre><p><p>Prints the content of the podspec(s) whose name matches <code>QUERY</code> to standard output.</p>
 </p><h3>Options:</h3><table class="inherited_options"><tr><td><p><b>--regex</b></p></td><td><p>Interpret the <code>QUERY</code> as a regular expression.</p>
 </td></tr><tr><td><p><b>--show-all</b></p></td><td><p>Pick from all versions of the given podspec.</p>
 </td></tr></table><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_spec_which"><h2>pod spec which</h2><pre>pod spec which [QUERY]</pre><p><p>Prints the path of the .podspec file(s) whose name matches <code>QUERY</code></p>
+</td></tr></table></div><div class="tab-pane" id="tab_pod_spec_which"><h2>pod spec which</h2><br /><pre>pod spec which [QUERY]</pre><p><p>Prints the path of the .podspec file(s) whose name matches <code>QUERY</code></p>
 </p><h3>Options:</h3><table class="inherited_options"><tr><td><p><b>--regex</b></p></td><td><p>Interpret the <code>QUERY</code> as a regular expression.</p>
 </td></tr><tr><td><p><b>--show-all</b></p></td><td><p>Print all versions of the given podspec.</p>
 </td></tr></table><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_spec_edit"><h2>pod spec edit</h2><pre>pod spec edit [QUERY]</pre><p><p>Opens the podspec matching <code>QUERY</code> to be edited.</p>
+</td></tr></table></div><div class="tab-pane" id="tab_pod_spec_edit"><h2>pod spec edit</h2><br /><pre>pod spec edit [QUERY]</pre><p><p>Opens the podspec matching <code>QUERY</code> to be edited.</p>
 </p><h3>Options:</h3><table class="inherited_options"><tr><td><p><b>--regex</b></p></td><td><p>Interpret the <code>QUERY</code> as a regular expression.</p>
 </td></tr><tr><td><p><b>--show-all</b></p></td><td><p>Pick from all versions of the given podspec.</p>
 </td></tr></table><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_trunk_add_owner"><h2>pod trunk add-owner</h2><pre>pod trunk add-owner POD OWNER-EMAIL</pre><p><p>Adds the registered user with specified <code>OWNER-EMAIL</code> as an owner
+</td></tr></table></div><div class="tab-pane" id="tab_pod_trunk_add_owner"><h2>pod trunk add-owner</h2><br /><pre>pod trunk add-owner POD OWNER-EMAIL</pre><p><p>Adds the registered user with specified <code>OWNER-EMAIL</code> as an owner
 of the given <code>POD</code>.
 An ‘owner’ is a registered user whom is allowed to make changes to a
 pod, such as pushing new versions and adding and removing other ‘owners’.</p>
@@ -159,12 +159,12 @@ pod, such as pushing new versions and adding and removing other ‘owners’.</p
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_trunk_info"><h2>pod trunk info</h2><pre>pod trunk info NAME</pre><p><p>Returns information about a Pod.</p>
+</td></tr></table></div><div class="tab-pane" id="tab_pod_trunk_info"><h2>pod trunk info</h2><br /><pre>pod trunk info NAME</pre><p><p>Returns information about a Pod.</p>
 </p><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_trunk_me"><h2>pod trunk me</h2><pre>pod trunk me </pre><p><p>Includes information about your registration, followed by all your
+</td></tr></table></div><div class="tab-pane" id="tab_pod_trunk_me"><h2>pod trunk me</h2><br /><pre>pod trunk me </pre><p><p>Includes information about your registration, followed by all your
 sessions.</p>
 
 <p>These are your current session, other valid sessions, unverified
@@ -173,7 +173,7 @@ sessions, and expired sessions.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_trunk_push"><h2>pod trunk push</h2><pre>pod trunk push [PATH]</pre><p><p>Publish the podspec at <code>PATH</code> to make it available to all users of
+</td></tr></table></div><div class="tab-pane" id="tab_pod_trunk_push"><h2>pod trunk push</h2><br /><pre>pod trunk push [PATH]</pre><p><p>Publish the podspec at <code>PATH</code> to make it available to all users of
 the ‘master’ spec-repo. If <code>PATH</code> is not provided, defaults to the
 current directory.</p>
 
@@ -194,7 +194,7 @@ versions and add other ‘owners’, not necessarily the library author.)</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_trunk_register"><h2>pod trunk register</h2><pre>pod trunk register EMAIL [NAME]</pre><p><p>Register a new account, or create a new session.</p>
+</td></tr></table></div><div class="tab-pane" id="tab_pod_trunk_register"><h2>pod trunk register</h2><br /><pre>pod trunk register EMAIL [NAME]</pre><p><p>Register a new account, or create a new session.</p>
 
 <p>If this is your first registration, both an <code>EMAIL</code> address and your
 <code>NAME</code> are required. If you’ve already registered with trunk, you may
@@ -215,7 +215,7 @@ physically located.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_trunk_remove_owner"><h2>pod trunk remove-owner</h2><pre>pod trunk remove-owner POD OWNER-EMAIL</pre><p><p>Removes the user with specified <code>OWNER-EMAIL</code> from being an owner
+</td></tr></table></div><div class="tab-pane" id="tab_pod_trunk_remove_owner"><h2>pod trunk remove-owner</h2><br /><pre>pod trunk remove-owner POD OWNER-EMAIL</pre><p><p>Removes the user with specified <code>OWNER-EMAIL</code> from being an owner
 of the given <code>POD</code>.
 An ‘owner’ is a registered user whom is allowed to make changes to a
 pod, such as pushing new versions and adding and removing other ‘owners’.</p>
@@ -223,12 +223,12 @@ pod, such as pushing new versions and adding and removing other ‘owners’.</p
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_trunk_deprecate"><h2>pod trunk deprecate</h2><pre>pod trunk deprecate NAME</pre><p><p>Deprecates a pod.</p>
+</td></tr></table></div><div class="tab-pane" id="tab_pod_trunk_deprecate"><h2>pod trunk deprecate</h2><br /><pre>pod trunk deprecate NAME</pre><p><p>Deprecates a pod.</p>
 </p><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_trunk_delete"><h2>pod trunk delete</h2><pre>pod trunk delete NAME VERSION</pre><p><p>WARNING: It is generally considered bad behavior to remove
+</td></tr></table></div><div class="tab-pane" id="tab_pod_trunk_delete"><h2>pod trunk delete</h2><br /><pre>pod trunk delete NAME VERSION</pre><p><p>WARNING: It is generally considered bad behavior to remove
 versions of a Pod that others are depending on! Please
 consider using the deprecate command instead.</p>
 
@@ -238,19 +238,19 @@ repo. Once deleted, this version can never be pushed again.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_repo_add"><h2>pod repo add</h2><pre>pod repo add NAME URL [BRANCH]</pre><p><p>Clones <code>URL</code> in the local spec-repos directory at <code>~/.cocoapods/repos/</code>. The
+</td></tr></table></div><div class="tab-pane" id="tab_pod_repo_add"><h2>pod repo add</h2><br /><pre>pod repo add NAME URL [BRANCH]</pre><p><p>Clones <code>URL</code> in the local spec-repos directory at <code>~/.cocoapods/repos/</code>. The
 remote can later be referred to by <code>NAME</code>.</p>
 </p><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_repo_update"><h2>pod repo update</h2><pre>pod repo update [NAME]</pre><p><p>Updates the local clone of the spec-repo <code>NAME</code>. If <code>NAME</code> is omitted
+</td></tr></table></div><div class="tab-pane" id="tab_pod_repo_update"><h2>pod repo update</h2><br /><pre>pod repo update [NAME]</pre><p><p>Updates the local clone of the spec-repo <code>NAME</code>. If <code>NAME</code> is omitted
 this will update all spec-repos in <code>~/.cocoapods/repos</code>.</p>
 </p><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_repo_lint"><h2>pod repo lint</h2><pre>pod repo lint [NAME|DIRECTORY]</pre><p><p>Lints the spec-repo <code>NAME</code>. If a directory is provided it is assumed
+</td></tr></table></div><div class="tab-pane" id="tab_pod_repo_lint"><h2>pod repo lint</h2><br /><pre>pod repo lint [NAME|DIRECTORY]</pre><p><p>Lints the spec-repo <code>NAME</code>. If a directory is provided it is assumed
 to be the root of a repo. Finally, if <code>NAME</code> is not provided this
 will lint all the spec-repos known to CocoaPods.</p>
 </p><h3>Options:</h3><table class="inherited_options"><tr><td><p><b>--only-errors</b></p></td><td><p>Lint presents only the errors.</p>
@@ -258,18 +258,18 @@ will lint all the spec-repos known to CocoaPods.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_repo_list"><h2>pod repo list</h2><pre>pod repo list </pre><p><p>List the repos from the local spec-repos directory at <code>~/.cocoapods/repos/.</code></p>
+</td></tr></table></div><div class="tab-pane" id="tab_pod_repo_list"><h2>pod repo list</h2><br /><pre>pod repo list </pre><p><p>List the repos from the local spec-repos directory at <code>~/.cocoapods/repos/.</code></p>
 </p><h3>Options:</h3><table class="inherited_options"><tr><td><p><b>--count-only</b></p></td><td><p>Show the total number of repos.</p>
 </td></tr></table><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_repo_remove"><h2>pod repo remove</h2><pre>pod repo remove NAME</pre><p><p>Deletes the remote named <code>NAME</code> from the local spec-repos directory at <code>~/.cocoapods/repos/.</code></p>
+</td></tr></table></div><div class="tab-pane" id="tab_pod_repo_remove"><h2>pod repo remove</h2><br /><pre>pod repo remove NAME</pre><p><p>Deletes the remote named <code>NAME</code> from the local spec-repos directory at <code>~/.cocoapods/repos/.</code></p>
 </p><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_repo_push"><h2>pod repo push</h2><pre>pod repo push REPO [NAME.podspec]</pre><p><p>Validates <code>NAME.podspec</code> or <code>*.podspec</code> in the current working dir,
+</td></tr></table></div><div class="tab-pane" id="tab_pod_repo_push"><h2>pod repo push</h2><br /><pre>pod repo push REPO [NAME.podspec]</pre><p><p>Validates <code>NAME.podspec</code> or <code>*.podspec</code> in the current working dir,
 creates a directory and version folder for the pod in the local copy of
 <code>REPO</code> (~/.cocoapods/repos/[REPO]), copies the podspec file into the
 version directory, and finally it pushes <code>REPO</code> to its remote.</p>
@@ -283,7 +283,7 @@ version directory, and finally it pushes <code>REPO</code> to its remote.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_setup"><h2>pod setup</h2><pre>pod setup </pre><p><p>Creates a directory at <code>~/.cocoapods/repos</code> which will hold your spec-repos.
+</td></tr></table></div><div class="tab-pane" id="tab_pod_setup"><h2>pod setup</h2><br /><pre>pod setup </pre><p><p>Creates a directory at <code>~/.cocoapods/repos</code> which will hold your spec-repos.
 This is where it will create a clone of the public <code>master</code> spec-repo from:</p>
 <div class="highlight"><pre><span class="ss">https</span><span class="p">:</span><span class="sr">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="no">CocoaPods</span><span class="o">/</span><span class="no">Specs</span>
 </pre></div>
@@ -293,7 +293,7 @@ This is where it will create a clone of the public <code>master</code> spec-repo
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_lib_create"><h2>pod lib create</h2><pre>pod lib create NAME</pre><p><p>Creates a scaffold for the development of a new Pod named <code>NAME</code>
+</td></tr></table></div><div class="tab-pane" id="tab_pod_lib_create"><h2>pod lib create</h2><br /><pre>pod lib create NAME</pre><p><p>Creates a scaffold for the development of a new Pod named <code>NAME</code>
 according to the CocoaPods best practices.
 If a <code>TEMPLATE_URL</code>, pointing to a git repo containing a compatible
 template, is specified, it will be used in place of the default one.</p>
@@ -302,7 +302,7 @@ template, is specified, it will be used in place of the default one.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_lib_lint"><h2>pod lib lint</h2><pre>pod lib lint </pre><p><p>Validates the Pod using the files in the working directory.</p>
+</td></tr></table></div><div class="tab-pane" id="tab_pod_lib_lint"><h2>pod lib lint</h2><br /><pre>pod lib lint </pre><p><p>Validates the Pod using the files in the working directory.</p>
 </p><h3>Options:</h3><table class="inherited_options"><tr><td><p><b>--quick</b></p></td><td><p>Lint skips checks that would require to download and build the spec.</p>
 </td></tr><tr><td><p><b>--allow-warnings</b></p></td><td><p>Lint validates even if warnings are present.</p>
 </td></tr><tr><td><p><b>--subspec=NAME</b></p></td><td><p>Lint validates only the given subspec.</p>
@@ -316,7 +316,7 @@ template, is specified, it will be used in place of the default one.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_ipc_repl"><h2>pod ipc repl</h2><pre>pod ipc repl </pre><p><p>The repl listens to commands on standard input and prints their
+</td></tr></table></div><div class="tab-pane" id="tab_pod_ipc_repl"><h2>pod ipc repl</h2><br /><pre>pod ipc repl </pre><p><p>The repl listens to commands on standard input and prints their
 result to standard output.</p>
 
 <p>It accepts all the other ipc subcommands. The repl will signal the
@@ -326,18 +326,18 @@ end of output with the the ASCII CR+LF <code>\n\r</code>.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_ipc_spec"><h2>pod ipc spec</h2><pre>pod ipc spec PATH</pre><p><p>Converts a podspec to JSON and prints it to STDOUT.</p>
+</td></tr></table></div><div class="tab-pane" id="tab_pod_ipc_spec"><h2>pod ipc spec</h2><br /><pre>pod ipc spec PATH</pre><p><p>Converts a podspec to JSON and prints it to STDOUT.</p>
 </p><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_ipc_podfile"><h2>pod ipc podfile</h2><pre>pod ipc podfile PATH</pre><p><p>Converts a Podfile to YAML and prints it to STDOUT.</p>
+</td></tr></table></div><div class="tab-pane" id="tab_pod_ipc_podfile"><h2>pod ipc podfile</h2><br /><pre>pod ipc podfile PATH</pre><p><p>Converts a Podfile to YAML and prints it to STDOUT.</p>
 </p><h3>Options:</h3><table class="inherited_options"><tr><td><p><b>--project-directory=/project/dir/</b></p></td><td><p>The path to the root of the project directory.</p>
 </td></tr></table><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_ipc_list"><h2>pod ipc list</h2><pre>pod ipc list </pre><p><p>Prints to STDOUT a YAML dictionary where the keys are the name of the
+</td></tr></table></div><div class="tab-pane" id="tab_pod_ipc_list"><h2>pod ipc list</h2><br /><pre>pod ipc list </pre><p><p>Prints to STDOUT a YAML dictionary where the keys are the name of the
 specifications and each corresponding value is a dictionary with
 the following keys:</p>
 
@@ -353,7 +353,7 @@ the following keys:</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_ipc_update_search_index"><h2>pod ipc update-search-index</h2><pre>pod ipc update-search-index </pre><p><p>Updates the search index and prints its path to standard output.
+</td></tr></table></div><div class="tab-pane" id="tab_pod_ipc_update_search_index"><h2>pod ipc update-search-index</h2><br /><pre>pod ipc update-search-index </pre><p><p>Updates the search index and prints its path to standard output.
 The search index is a YAML encoded dictionary where the keys
 are the names of the Pods and the values are a dictionary containing
 the following information:</p>
@@ -368,13 +368,13 @@ the following information:</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_plugins_list"><h2>pod plugins list</h2><pre>pod plugins list </pre><p><p>List all known plugins (according to the list
+</td></tr></table></div><div class="tab-pane" id="tab_pod_plugins_list"><h2>pod plugins list</h2><br /><pre>pod plugins list </pre><p><p>List all known plugins (according to the list
 hosted on github.com/CocoaPods/cocoapods-plugins)</p>
 </p><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_plugins_search"><h2>pod plugins search</h2><pre>pod plugins search QUERY</pre><p><p>Searches plugins whose <code>name</code> contains the given <code>QUERY</code>.
+</td></tr></table></div><div class="tab-pane" id="tab_pod_plugins_search"><h2>pod plugins search</h2><br /><pre>pod plugins search QUERY</pre><p><p>Searches plugins whose <code>name</code> contains the given <code>QUERY</code>.
 <code>QUERY</code> is a regular expression, ignoring case.</p>
 
 <p>With <code>--full</code>, it also searches by <code>author</code> and <code>description</code>.</p>
@@ -383,13 +383,13 @@ hosted on github.com/CocoaPods/cocoapods-plugins)</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_plugins_installed"><h2>pod plugins installed</h2><pre>pod plugins installed </pre><p><p>List all installed plugins and their
+</td></tr></table></div><div class="tab-pane" id="tab_pod_plugins_installed"><h2>pod plugins installed</h2><br /><pre>pod plugins installed </pre><p><p>List all installed plugins and their
 respective version.</p>
 </p><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_plugins_create"><h2>pod plugins create</h2><pre>pod plugins create NAME [TEMPLATE_URL]</pre><p><p>Creates a scaffold for the development of a new plugin
+</td></tr></table></div><div class="tab-pane" id="tab_pod_plugins_create"><h2>pod plugins create</h2><br /><pre>pod plugins create NAME [TEMPLATE_URL]</pre><p><p>Creates a scaffold for the development of a new plugin
 named <code>NAME</code> according to the CocoaPods best practices.</p>
 
 <p>If a <code>TEMPLATE_URL</code>, pointing to a git repo containing a
@@ -399,7 +399,7 @@ in place of the default one.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_plugins_publish"><h2>pod plugins publish</h2><pre>pod plugins publish </pre><p><p>This command is only useful for developers of CocoaPods plugins.</p>
+</td></tr></table></div><div class="tab-pane" id="tab_pod_plugins_publish"><h2>pod plugins publish</h2><br /><pre>pod plugins publish </pre><p><p>This command is only useful for developers of CocoaPods plugins.</p>
 
 <p>It opens a new GitHub issue to request adding the plugin
 currently being developped to the list of official plugins.</p>
@@ -410,14 +410,14 @@ currently being developped to the list of official plugins.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_cache_list"><h2>pod cache list</h2><pre>pod cache list [NAME]</pre><p><p>Shows the content of the pods cache as a YAML tree output, organized by pod.
+</td></tr></table></div><div class="tab-pane" id="tab_pod_cache_list"><h2>pod cache list</h2><br /><pre>pod cache list [NAME]</pre><p><p>Shows the content of the pods cache as a YAML tree output, organized by pod.
 If <code>NAME</code> is given, only the caches for that pod will be included in the output.</p>
 </p><h3>Options:</h3><table class="inherited_options"><tr><td><p><b>--short</b></p></td><td><p>Only print the path relative to the cache root.</p>
 </td></tr></table><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_cache_clean"><h2>pod cache clean</h2><pre>pod cache clean [NAME]</pre><p><p>Remove the cache for a given pod, or clear the cache completely.</p>
+</td></tr></table></div><div class="tab-pane" id="tab_pod_cache_clean"><h2>pod cache clean</h2><br /><pre>pod cache clean [NAME]</pre><p><p>Remove the cache for a given pod, or clear the cache completely.</p>
 
 <p>If there is multiple cache for various versions of the requested pod,
 you will be asked which one to clean. Use <code>--all</code> to clean them all.</p>
