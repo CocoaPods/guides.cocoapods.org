@@ -52,7 +52,7 @@ module NavigationHelpers
           result << "<ul class='nav' style='display:none;'>"
         else
           span =  method_list_entry_span(entry)
-          result << "<li><a class='select-tab' data-toggle='tab' href=#{link}>#{entry.name}</a>#{span}</li>"
+          result << "<li><a class='select-tab' data-toggle='tab' href=#{link}>#{entry.name} #{span}</a></li>"
         end
       end
 
