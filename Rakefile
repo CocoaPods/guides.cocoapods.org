@@ -63,7 +63,7 @@ begin
   namespace :generate do
 
     desc "Generates the data for the dsl."
-    task :dsl do
+    task :dsl => [:tags] do
       require 'doc'
       puts "\e[1;33mBuilding DSL Data\e[0m"
 
@@ -82,7 +82,7 @@ begin
     end
 
     desc "Generates the data for the commands."
-    task :commands do
+    task :commands => [:tags] do
       require 'doc'
       puts "\e[1;33mBuilding Commands Data\e[0m"
       libs = %w[cocoapods cocoapods-deintegrate cocoapods-search cocoapods-trunk cocoapods-try]
@@ -93,8 +93,14 @@ begin
       generator.save
     end
 
-    desc "Generates all the metadata necessary for the middleman"
+    desc "Generates all the metadata necessary for the middleman."
     task :all => [:dsl, :commands]
+
+    desc "Loads Custom YARD tags into the generators."
+    task :tags do
+      require 'yard'
+      YARD::Tags::Library.define_tag("CocoaPods", :CocoaPods)
+    end
   end
 
 rescue LoadError, NameError => e

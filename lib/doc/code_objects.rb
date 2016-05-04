@@ -191,7 +191,7 @@ module Pod
         #
         def available_since
           if tags
-            if since = tags.select { |t| t.tag_name == "since" }.first
+            if since = tags.select { |t| t.tag_name == 'CocoaPods' }.first
               since.text
             end
           end
