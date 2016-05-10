@@ -7,7 +7,7 @@ order: 4
 ### "Will CocoaPods stop development now that Swift has a built-in package manager?"
 
   As of writing, the [Swift Package Manager (SPM)](https://github.com/apple/swift-package-manager) is in "early design and development" [[1]](https://github.com/apple/swift-package-manager/blob/14f47ad34967c7e7808863fb29fa3f9baf5db7a4/README.md#a-work-in-progress). It  does not currently support iOS, OS X, watch OS, or Objective-C [[2]](https://github.com/apple/swift-package-manager/blob/14f47ad34967c7e7808863fb29fa3f9baf5db7a4/Documentation/Package.swift.md#depending-on-apple-modules-eg-foundation)[[3]](https://github.com/apple/swift-package-manager/blob/14f47ad34967c7e7808863fb29fa3f9baf5db7a4/Documentation/PackageManagerCommunityProposal.md#support-for-other-languages). CocoaPods will continue development supporting both Swift and Objective-C while SPM develops. As SPM approaches maturity, we will evaluate the best course forward for CocoaPods and the CocoaPods community.
-  
+
 
 ### “Why not just use git submodules?”
 
@@ -16,14 +16,6 @@ order: 4
   What defines CocoaPods are the (cross) dependency resolution, (semantic) version management, and automating the ‘integrating it into Xcode’ parts.
 
   Finally, even if you’re looking just for a downloader, consider that there are in fact other SCMs being used than just git. CocoaPods, on the other hand, is agnostic and handles Subversion, Mercurial, and zip/tarballs from local or HTTP locations.
-
-
-### “CocoaPods is not ready for prime-time yet.”
-
-  Correct. Version 1.0.0 will be the milestone where we feel confident that all the basic requirements of a Cocoa dependency manager are fulfilled.
-
-  Once we reach the 1.0.0 milestone we will –for the first time ever– contact the community at large through mailing-lists such as cocoa-dev.
-  
 
 ### “How can I donate to CocoaPods?”
 
@@ -58,4 +50,3 @@ order: 4
 ### “Why do I have to install Ruby to use CocoaPods?”
 
   You don’t. OS X comes with a Ruby 2.0.0 or newer pre-installed in `/usr/bin/ruby` which are our baselines and these should work out of the box.
-
