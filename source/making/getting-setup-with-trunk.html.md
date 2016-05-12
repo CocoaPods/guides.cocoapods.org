@@ -45,7 +45,7 @@ The first person to push a Podspec version to Trunk can add other maintainers. F
 $ pod trunk add-owner ARAnalytics kyle@cocoapods.org
 ```
 
-This will then list all the known library owners.
+This will then list all the known library owners. Note: they need to already have registered an account set up on trunk in order for you to add them to a library.
 
 ### Claiming an existing library
 
