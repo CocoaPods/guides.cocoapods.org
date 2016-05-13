@@ -72,7 +72,7 @@
 
 <ul>
 <li>Every time the <code>pod install</code> command is run — and downloads and install new pods — it writes the version it has installed, for each pods, in the <code>Podfile.lock</code> file. This file keeps track of the installed version of each pod and <em>locks</em> those versions.</li>
-<li>When you run <code>pod install</code>, it only resolve dependencies for pods that are <strong>not</strong> already listed in the <code>Podfile.lock</code>.
+<li>When you run <code>pod install</code>, it only resolves dependencies for pods that are <strong>not</strong> already listed in the <code>Podfile.lock</code>.
 
 <ul>
 <li>For pods listed in the <code>Podfile.lock</code>, it downloads the explicit version listed in the <code>Podfile.lock</code> without trying to check if a newer version is available</li>
