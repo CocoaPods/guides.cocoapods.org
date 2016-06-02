@@ -317,9 +317,8 @@ template, is specified, it will be used in place of the default one.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
 </td></tr></table></div><div class="tab-pane" id="tab_pod_ipc_repl"><h2>pod ipc repl</h2><br /><pre>pod ipc repl </pre><p><p>The repl listens to commands on standard input and prints their
-result to standard output.</p>
-
-<p>It accepts all the other ipc subcommands. The repl will signal the
+result to standard output.
+It accepts all the other ipc subcommands. The repl will signal the
 end of output with the the ASCII CR+LF <code>\n\r</code>.</p>
 </p><h3>Options:</h3><table class="inherited_options"><tr><td><p><b>--project-directory=/project/dir/</b></p></td><td><p>The path to the root of the project directory.</p>
 </td></tr></table><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
@@ -339,16 +338,13 @@ end of output with the the ASCII CR+LF <code>\n\r</code>.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
 </td></tr></table></div><div class="tab-pane" id="tab_pod_ipc_list"><h2>pod ipc list</h2><br /><pre>pod ipc list </pre><p><p>Prints to STDOUT a YAML dictionary where the keys are the name of the
 specifications and each corresponding value is a dictionary with
-the following keys:</p>
-
-<ul>
-<li>defined_in_file</li>
-<li>version</li>
-<li>authors</li>
-<li>summary</li>
-<li>description</li>
-<li>platforms</li>
-</ul>
+the following keys:
+- defined_in_file
+- version
+- authors
+- summary
+- description
+- platforms</p>
 </p><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
@@ -356,14 +352,11 @@ the following keys:</p>
 </td></tr></table></div><div class="tab-pane" id="tab_pod_ipc_update_search_index"><h2>pod ipc update-search-index</h2><br /><pre>pod ipc update-search-index </pre><p><p>Updates the search index and prints its path to standard output.
 The search index is a YAML encoded dictionary where the keys
 are the names of the Pods and the values are a dictionary containing
-the following information:</p>
-
-<ul>
-<li>version</li>
-<li>summary</li>
-<li>description</li>
-<li>authors</li>
-</ul>
+the following information:
+- version
+- summary
+- description
+- authors</p>
 </p><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
