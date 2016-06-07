@@ -13,7 +13,7 @@ We're going to through the creation of an entire pod using `pod lib create` to b
 pod lib create MyLibrary
 ```
 
-> Note: you can add another parameter with a git repo address to use your own [pod-template](https://github.com/cocoapods/pod-template) <br/>Second Note: you can press return to select the default (underlined) option
+> Note: To use your own [pod-template](https://github.com/cocoapods/pod-template) you can add the parameter `--template-url=URL` where URL is the git repo containing a compatible template.<br/>Second Note: you can press return to select the default (underlined) option.
 
 ## Objective-C or Swift
 
