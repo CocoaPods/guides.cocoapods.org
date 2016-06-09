@@ -70,23 +70,6 @@ abstract_target 'Shows' do
 end
 ```
 
-There is implicit abstract target at the root of the Podfile, so you could write the above example as:
-
-``` ruby
-pod 'ShowsKit'
-pod 'Fabric'
-
-# Has its own copy of ShowsKit + ShowWebAuth
-target 'ShowsiOS' do
-  pod 'ShowWebAuth'
-end
-
-# Has its own copy of ShowsKit + ShowTVAuth
-target 'ShowsTV' do
-  pod 'ShowTVAuth'
-end
-```
-
 ### Migrating from 0.x to 1.0
 
 We have a [blog post](http://blog.cocoapods.org/CocoaPods-1.0/) explaining the changes in depth.
