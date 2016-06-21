@@ -17,6 +17,7 @@ All the examples in the guides are based on CocoaPods version 1.0 and onwards.
 
 ```ruby
 target 'MyApp' do
+  use_frameworks!
   pod 'Alamofire', '~> 3.0'
 end
 ```
@@ -168,7 +169,7 @@ pod 'Alamofire', :git => 'https://github.com/Alamofire/Alamofire.git', :tag => '
 > Or specify a commit:
 
 ```ruby
-pod 'Alamofire/Alamofire', :git => 'https://github.com/Alamofire/Alamofire.git', :commit => '0f506b1c45'
+pod 'Alamofire', :git => 'https://github.com/Alamofire/Alamofire.git', :commit => '0f506b1c45'
 ```
 
 It is important to note, though, that this means that the version will
