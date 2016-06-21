@@ -13,11 +13,11 @@ The Podfile is a specification that describes the dependencies of the
 targets of one or more Xcode projects. The file should simply be named `Podfile`.
 All the examples in the guides are based on CocoaPods version 1.0 and onwards.
 
-> A Podfile can be very simple, this adds AFNetworking to a single target:
+> A Podfile can be very simple, this adds Alamofire to a single target:
 
 ```ruby
 target 'MyApp' do
-  pod 'AFNetworking', '~> 3.0'
+  pod 'Alamofire', '~> 3.0'
 end
 ```
 
@@ -130,7 +130,7 @@ For more information, regarding versioning policy, see:
 project you can use `:path`.
 
 ```ruby
-pod 'AFNetworking', :path => '~/Documents/AFNetworking'
+pod 'Alamofire', :path => '~/Documents/Alamofire'
 ```
 
 Using this option CocoaPods will assume the given folder to be the
@@ -150,25 +150,25 @@ pod declaration.
 > To use the `master` branch of the repo:
 
 ```ruby
-pod 'AFNetworking', :git => 'https://github.com/gowalla/AFNetworking.git'
+pod 'Alamofire', :git => 'https://github.com/Alamofire/Alamofire.git'
 ````
 
 > To use a different branch of the repo:
 
 ```ruby
-pod 'AFNetworking', :git => 'https://github.com/gowalla/AFNetworking.git', :branch => 'dev'
+pod 'Alamofire', :git => 'https://github.com/Alamofire/Alamofire.git', :branch => 'dev'
 ```
 
 > To use a tag of the repo:
 
 ```ruby
-pod 'AFNetworking', :git => 'https://github.com/gowalla/AFNetworking.git', :tag => '0.7.0'
+pod 'Alamofire', :git => 'https://github.com/Alamofire/Alamofire.git', :tag => '3.1.1'
 ```
 
 > Or specify a commit:
 
 ```ruby
-pod 'AFNetworking', :git => 'https://github.com/gowalla/AFNetworking.git', :commit => '082f8319af'
+pod 'Alamofire/Alamofire', :git => 'https://github.com/Alamofire/Alamofire.git', :commit => '0f506b1c45'
 ```
 
 It is important to note, though, that this means that the version will
