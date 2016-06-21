@@ -51,7 +51,7 @@ targets of one or more Xcode projects. The file should simply be named <code>Pod
 All the examples in the guides are based on CocoaPods version 1.0 and onwards.</p>
 
 <blockquote>
-<p>A Podfile can be very simple, this adds AFNetworking to a single target:</p>
+<p>A Podfile can be very simple, this adds Alamofire to a single target:</p>
 </blockquote>
     </article>
     </div>
@@ -61,7 +61,7 @@ All the examples in the guides are based on CocoaPods version 1.0 and onwards.</
     <section class="container">
     <div class="row">
     <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">target</span> <span class="s1">'MyApp'</span> <span class="k">do</span>
-  <span class="n">pod</span> <span class="s1">'AFNetworking'</span><span class="p">,</span> <span class="s1">'~&gt; 3.0'</span>
+  <span class="n">pod</span> <span class="s1">'Alamofire'</span><span class="p">,</span> <span class="s1">'~&gt; 3.0'</span>
 <span class="k">end</span>
 </code></pre>    </article>
     </div>
@@ -278,7 +278,7 @@ project you can use <code>:path</code>.</p>
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">pod</span> <span class="s1">'AFNetworking'</span><span class="p">,</span> <span class="ss">:path</span> <span class="o">=&gt;</span> <span class="s1">'~/Documents/AFNetworking'</span>
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">pod</span> <span class="s1">'Alamofire'</span><span class="p">,</span> <span class="ss">:path</span> <span class="o">=&gt;</span> <span class="s1">'~/Documents/Alamofire'</span>
 </code></pre>    </article>
     </div>
     </section>
@@ -314,7 +314,7 @@ pod declaration.</p>
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">pod</span> <span class="s1">'AFNetworking'</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">'https://github.com/gowalla/AFNetworking.git'</span>
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">pod</span> <span class="s1">'Alamofire'</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">'https://github.com/Alamofire/Alamofire.git'</span>
 </code></pre>    </article>
     </div>
     </section>
@@ -335,7 +335,7 @@ pod declaration.</p>
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">pod</span> <span class="s1">'AFNetworking'</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">'https://github.com/gowalla/AFNetworking.git'</span><span class="p">,</span> <span class="ss">:branch</span> <span class="o">=&gt;</span> <span class="s1">'dev'</span>
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">pod</span> <span class="s1">'Alamofire'</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">'https://github.com/Alamofire/Alamofire.git'</span><span class="p">,</span> <span class="ss">:branch</span> <span class="o">=&gt;</span> <span class="s1">'dev'</span>
 </code></pre>    </article>
     </div>
     </section>
@@ -356,7 +356,7 @@ pod declaration.</p>
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">pod</span> <span class="s1">'AFNetworking'</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">'https://github.com/gowalla/AFNetworking.git'</span><span class="p">,</span> <span class="ss">:tag</span> <span class="o">=&gt;</span> <span class="s1">'0.7.0'</span>
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">pod</span> <span class="s1">'Alamofire'</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">'https://github.com/Alamofire/Alamofire.git'</span><span class="p">,</span> <span class="ss">:tag</span> <span class="o">=&gt;</span> <span class="s1">'3.1.1'</span>
 </code></pre>    </article>
     </div>
     </section>
@@ -377,7 +377,7 @@ pod declaration.</p>
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">pod</span> <span class="s1">'AFNetworking'</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">'https://github.com/gowalla/AFNetworking.git'</span><span class="p">,</span> <span class="ss">:commit</span> <span class="o">=&gt;</span> <span class="s1">'082f8319af'</span>
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">pod</span> <span class="s1">'Alamofire/Alamofire'</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">'https://github.com/Alamofire/Alamofire.git'</span><span class="p">,</span> <span class="ss">:commit</span> <span class="o">=&gt;</span> <span class="s1">'0f506b1c45'</span>
 </code></pre>    </article>
     </div>
     </section>
