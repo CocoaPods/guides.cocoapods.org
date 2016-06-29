@@ -35,8 +35,8 @@ Google have created a great overview for Route 85 video series going through thi
 ### Installation
 
 CocoaPods is built with Ruby and it will be installable with the default Ruby
-available on OS X. You can use a Ruby Version manager, however we recommend that
-you use the standard Ruby available on OS X unless you know what you're doing.
+available on macOS. You can use a Ruby Version manager, however we recommend that
+you use the standard Ruby available on macOS unless you know what you're doing.
 
 Using the default Ruby install will require you to use `sudo` when installing
 gems. (This is only an issue for the duration of the gem installation, though.)
