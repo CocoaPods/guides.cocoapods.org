@@ -74,6 +74,8 @@ module Pod
             method.required            = attribute.required?
             method.multi_platform      = attribute.multi_platform?
             method.html_keys           = compute_method_keys(attribute)
+          elsif yard_object.to_s == 'Pod::Podfile::DSL'
+            method.params = compute_method_params(yard_method)
           end
 
           method
@@ -132,6 +134,17 @@ module Pod
             keys.map { |key| code_for_key(key) }
           end
           keys.map { |k| markdown_h(k) }
+        end
+
+        def compute_method_params(yard_method)
+          params_or_nil = yard_method.docstring.tags.map do |tag|
+            next if tag.tag_name.to_sym != :param
+            html = markdown_h(tag.text)
+
+            Pod::Doc::CodeObjects::Param.new(tag.name, tag.types, html)
+          end
+
+          params_or_nil.reject(&:nil?)
         end
 
         def installation_options_keys_html

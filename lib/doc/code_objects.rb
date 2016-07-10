@@ -228,6 +228,10 @@ module Pod
         attr_accessor :multi_platform
         alias :multi_platform? :multi_platform
 
+        # @return [Array<Pod::Doc::CodeObjects::Param>] the params of the
+        #         method if there are any
+        # @return [nil] Otherwise
+        attr_accessor :params
       end
 
       #-----------------------------------------------------------------------#
