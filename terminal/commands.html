@@ -102,7 +102,11 @@ will be made in the current directory.</p>
 </td></tr></table></div><div class="tab-pane" id="tab_pod_try"><h2>pod try</h2><h5>Available since v0.29.0.</h5><br /><pre>pod try NAME|URL</pre><p><p>Downloads the Pod with the given <code>NAME</code> (or Git <code>URL</code>), install its
 dependencies if needed and opens its demo project. If a Git URL is
 provided the head of the repo is used.</p>
-</p><h3>Options:</h3><table class="inherited_options"><tr><td><p><b>--no-repo-update</b></p></td><td><p>Skip running <code>pod repo update</code> before install.</p>
+
+<p>If a Git URL is specified, then a --podspec_name can be provided,
+if the podspec name is different than the git repo for some reason.</p>
+</p><h3>Options:</h3><table class="inherited_options"><tr><td><p><b>--podspec_name=[name]</b></p></td><td><p>The name of the podspec file within the Git Repository.</p>
+</td></tr><tr><td><p><b>--no-repo-update</b></p></td><td><p>Skip running <code>pod repo update</code> before install.</p>
 </td></tr></table><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
 </td></tr><tr><td><p><b>--version</b></p></td><td><p>Show the version of the tool.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
@@ -279,6 +283,7 @@ version directory, and finally it pushes <code>REPO</code> to its remote.</p>
 </td></tr><tr><td><p><b>--local-only</b></p></td><td><p>Does not perform the step of pushing REPO to its remote.</p>
 </td></tr><tr><td><p><b>--no-private</b></p></td><td><p>Lint includes checks that apply only to public repos.</p>
 </td></tr><tr><td><p><b>--commit-message="Fix bug in pod"</b></p></td><td><p>Add custom commit message. Opens default editor if no commit message is specified..</p>
+</td></tr><tr><td><p><b>--use-json</b></p></td><td><p>Push JSON spec to repo.</p>
 </td></tr></table><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>

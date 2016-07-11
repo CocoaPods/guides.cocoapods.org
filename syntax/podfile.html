@@ -19,7 +19,7 @@ targets of one or more Xcode projects.</p>
 <span class="k">end</span>
 
 <span class="n">post_install</span> <span class="k">do</span> <span class="o">|</span><span class="n">installer</span><span class="o">|</span>
-  <span class="n">installer</span><span class="o">.</span><span class="n">pods_project</span><span class="o">.</span><span class="n">pod_targets</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">target</span><span class="o">|</span>
+  <span class="n">installer</span><span class="o">.</span><span class="n">pods_project</span><span class="o">.</span><span class="n">targets</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">target</span><span class="o">|</span>
     <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">target</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span>
   <span class="k">end</span>
 <span class="k">end</span>
@@ -29,8 +29,15 @@ targets of one or more Xcode projects.</p>
 <li><code>install!</code> declares the installation method and options to be used
 during installation.</li>
 </ul>
-</div><div class="tab-pane method" id="tab_install_bang"><h3 class="code">install!</h3><p>Specifies the installation method to be used when CocoaPods installs
-this Podfile.</p>
+</div><div class="tab-pane method" id="tab_install_bang"><h3 class="code">install!</h3><p>Specifies the installation method and options to be used when
+CocoaPods installs this Podfile.</p>
+
+<p>The first parameter indicates the installation method to use;
+next parameters indicate installation options.</p>
+
+<p>For now the only accepted installation method is <code>&#39;cocoapods&#39;</code>, so
+you&#39;ll always use this value for the first parameter; but more
+installation methods might be available in future versions.</p>
 <h3>Examples:</h3><blockquote>Specifying custom CocoaPods installation options</blockquote><div class="highlight"><pre><span class="n">install!</span> <span class="s1">&#39;cocoapods&#39;</span><span class="p">,</span>
          <span class="ss">:deterministic_uuids</span> <span class="o">=&gt;</span> <span class="kp">false</span><span class="p">,</span>
          <span class="ss">:integrate_targets</span> <span class="o">=&gt;</span> <span class="kp">false</span>
@@ -66,6 +73,7 @@ a Pod, in which case you can specify that version number.</p>
 operators:</p>
 
 <ul>
+<li><code>= 0.1</code>    Version 0.1.</li>
 <li><code>&gt; 0.1</code>    Any version higher than 0.1.</li>
 <li><code>&gt;= 0.1</code>   Version 0.1 and any higher version.</li>
 <li><code>&lt; 0.1</code>    Any version lower than 0.1.</li>
@@ -84,7 +92,7 @@ grained control.</p>
 
 <ul>
 <li><a href="http://semver.org">Semantic Versioning</a></li>
-<li><a href="http://docs.rubygems.org/read/chapter/7">RubyGems Versioning Policies</a></li>
+<li><a href="http://guides.rubygems.org/patterns/#semantic-versioning">RubyGems Versioning Policies</a></li>
 </ul>
 
 <hr>
@@ -96,12 +104,12 @@ of the target. For debug purposes or for other reasons, they can be
 only enabled on a list of build configurations.</p>
 <div class="highlight"><pre><span class="n">pod</span> <span class="s1">&#39;PonyDebugger&#39;</span><span class="p">,</span> <span class="ss">:configurations</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s1">&#39;Debug&#39;</span><span class="p">,</span> <span class="s1">&#39;Beta&#39;</span><span class="o">]</span>
 </pre></div>
-<p>Alternatively, you specify to have it included on a single build
+<p>Alternatively, you can specify to have it included on a single build
 configuration.</p>
 <div class="highlight"><pre><span class="n">pod</span> <span class="s1">&#39;PonyDebugger&#39;</span><span class="p">,</span> <span class="ss">:configuration</span> <span class="o">=&gt;</span> <span class="s1">&#39;Debug&#39;</span>
 </pre></div>
-<p>Note that transitive dependencies are included in all configurations,
-you have to manually specify build configurations for them as well in
+<p>Note that transitive dependencies are included in all configurations
+and you have to manually specify build configurations for them as well in
 case this is not desired.</p>
 
 <hr>
@@ -250,7 +258,15 @@ target dependency inheritance.</p>
 </pre></div></div><div class="tab-pane method" id="tab_abstract_bang"><h3 class="code">abstract!</h3><p>Denotes that the current target is abstract, and thus will not directly
 link against an Xcode target.</p>
 </div><div class="tab-pane method" id="tab_inherit_bang"><h3 class="code">inherit!</h3><p>Sets the inheritance mode for the current target.</p>
-<h3>Parameters</h3><div class="method-parameter"><h4>inheritance<span class="types">:complete, :none, :search_paths</span></h4><p>The inheritance mode to set.</p>
+<h3>Parameters</h3><div class="method-parameter"><h4>inheritance<span class="types">Symbol</span></h4><p>The inheritance mode to set.</p>
+
+<p><strong>Available Modes:</strong>
++ <code>:complete</code> The target inherits all
+behaviour from the parent.
++ <code>:none</code> The target inherits none of
+the behaviour from the parent.
++ <code>:search_paths</code> The target inherits
+the search paths of the parent only.</p>
 </div><h3>Examples:</h3><blockquote>Inheriting only search paths</blockquote><div class="highlight"><pre><span class="n">target</span> <span class="s1">&#39;App&#39;</span> <span class="k">do</span>
   <span class="n">target</span> <span class="s1">&#39;AppTests&#39;</span> <span class="k">do</span>
     <span class="n">inherit!</span> <span class="ss">:search_paths</span>

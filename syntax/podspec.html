@@ -163,38 +163,9 @@ platforms you should use deployment_target below instead.</p>
 </pre></div><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">platform</span> <span class="o">=</span> <span class="ss">:osx</span>
 </pre></div></div><div class="tab-pane method" id="tab_deployment_target"><h3 class="code">deployment_target</h3><p>The minimum deployment targets of the supported platforms.</p>
 
-<hr>
-
-<p>The following behavior is regarding the use of GCD and the
-<code>OS_OBJECT_USE_OBJC</code> flag. When set to <code>0</code>, it will allow code to use
-<code>dispatch_release()</code> on &gt;= iOS 6.0 and OS X &gt;= 10.8.</p>
-
-<ul>
-<li><p>New libraries that do <em>not</em> require ARC don’t need to care about this
-issue at all.</p></li>
-<li><p>New libraries that <em>do</em> require ARC <em>and</em> have a deployment target of</p>
-
-<blockquote>
-<p>= iOS 6.0 or OS X &gt;= 10.8:</p>
-</blockquote>
-
-<p>These <em>no longer</em> use <code>dispatch_release()</code> and should have the
-<code>OS_OBJECT_USE_OBJC</code> flag set to <code>1</code>.</p>
-
-<p><strong>Note:</strong> this means that these libraries <em>have</em> to specify the
-        deployment target in their specifications in order to have
-        CocoaPods set the flag to <code>1</code> and ensure proper behaviour.</p></li>
-<li><p>New libraries that <em>do</em> require ARC, but have a deployment target of
-&lt; iOS 6.0 or OS X &lt; 10.8:</p>
-
-<p>These contain <code>dispatch_release()</code> calls and as such need the
-<code>OS_OBJECT_USE_OBJC</code> flag set to <code>0</code>.</p>
-
-<p><strong>Note:</strong> libraries that do <em>not</em> specify a platform version are
-        assumed to have a deployment target of &lt; iOS 6.0 or OS X &lt; 10.8.</p>
-
-<p>For more information, see: <a href="http://opensource.apple.com/source/libdispatch/libdispatch-228.18/os/object.h">http://opensource.apple.com/source/libdispatch/libdispatch-228.18/os/object.h</a></p></li>
-</ul>
+<p>As opposed to the <code>platform</code> attribute, the <code>deployment_target</code>
+attribute allows to specify multiple platforms on which this pod
+is supported — specifying a different deployment target for each.</p>
 <h3>Examples:</h3><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">ios</span><span class="o">.</span><span class="n">deployment_target</span> <span class="o">=</span> <span class="s1">&#39;6.0&#39;</span>
 </pre></div><blockquote></blockquote><div class="highlight"><pre><span class="n">spec</span><span class="o">.</span><span class="n">osx</span><span class="o">.</span><span class="n">deployment_target</span> <span class="o">=</span> <span class="s1">&#39;10.8&#39;</span>
 </pre></div></div><div class="tab-pane group" id="tab_group_build_settings"><h2>Build settings</h2><p>In this group are listed the attributes related to the configuration
