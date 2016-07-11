@@ -60,6 +60,16 @@ ruby:
 
           == method.html_description
 
+          - if method.params && !method.params.empty?
+            h3 Parameters
+            - for param in method.params
+              div.method-parameter
+                h4
+                  = param.name
+                  span.types = param.types.join(', ')
+
+                == param.html
+
           - if method.respond_to?(:html_default_values) && method.html_default_values
             h3 Defaults to:
             - for value in method.html_default_values
