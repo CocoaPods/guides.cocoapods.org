@@ -174,14 +174,17 @@ If no arguments are passed the first podspec in the root of the Podfile
 is used. It is intended to be used by the project of a library. Note:
 this does not include the sources derived from the podspec just the
 CocoaPods infrastructure.</p>
-<h3>Examples:</h3><blockquote></blockquote><div class="highlight"><pre><span class="n">podspec</span>
+<h3>Parameters</h3><div class="method-parameter"><h4>options<span class="types">Hash {Symbol=>String}</span></h4><p>The path where to load the {Specification}. If not provided
+the first podspec in the directory of the Podfile is used.</p>
+</div><h3>Examples:</h3><blockquote></blockquote><div class="highlight"><pre><span class="n">podspec</span>
 </pre></div><blockquote></blockquote><div class="highlight"><pre><span class="n">podspec</span> <span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s1">&#39;QuickDialog&#39;</span>
 </pre></div><blockquote></blockquote><div class="highlight"><pre><span class="n">podspec</span> <span class="ss">:path</span> <span class="o">=&gt;</span> <span class="s1">&#39;/Documents/PrettyKit/PrettyKit.podspec&#39;</span>
 </pre></div></div><div class="tab-pane method" id="tab_target"><h3 class="code">target</h3><p>Defines a CocoaPods target and scopes dependencies defined
 within the given block. A target should correspond to an Xcode target.
 By default the target includes the dependencies defined outside of
 the block, unless instructed not to <code>inherit!</code> them.</p>
-<h3>Examples:</h3><blockquote>Defining a target</blockquote><div class="highlight"><pre><span class="n">target</span> <span class="s1">&#39;ZipApp&#39;</span> <span class="k">do</span>
+<h3>Parameters</h3><div class="method-parameter"><h4>name<span class="types">Symbol, String</span></h4><p>The name of the target.</p>
+</div><h3>Examples:</h3><blockquote>Defining a target</blockquote><div class="highlight"><pre><span class="n">target</span> <span class="s1">&#39;ZipApp&#39;</span> <span class="k">do</span>
   <span class="n">pod</span> <span class="s1">&#39;SSZipArchive&#39;</span>
 <span class="k">end</span>
 </pre></div><blockquote>Defining a test target accessing SSZipArchive pod from its parent</blockquote><div class="highlight"><pre><span class="n">target</span> <span class="s1">&#39;ZipApp&#39;</span> <span class="k">do</span>
@@ -212,7 +215,8 @@ the block, unless instructed not to <code>inherit!</code> them.</p>
 <span class="k">end</span>
 </pre></div></div><div class="tab-pane method" id="tab_abstract_target"><h3 class="code">abstract_target</h3><p>Defines a new abstract target that can be used for convenient
 target dependency inheritance.</p>
-<h3>Examples:</h3><blockquote>Defining an abstract target</blockquote><div class="highlight"><pre><span class="n">abstract_target</span> <span class="s1">&#39;Networking&#39;</span> <span class="k">do</span>
+<h3>Parameters</h3><div class="method-parameter"><h4>name<span class="types">Symbol, String</span></h4><p>The name of the target.</p>
+</div><h3>Examples:</h3><blockquote>Defining an abstract target</blockquote><div class="highlight"><pre><span class="n">abstract_target</span> <span class="s1">&#39;Networking&#39;</span> <span class="k">do</span>
   <span class="n">pod</span> <span class="s1">&#39;AlamoFire&#39;</span>
 
   <span class="n">target</span> <span class="s1">&#39;Networking App 1&#39;</span>
@@ -246,7 +250,8 @@ target dependency inheritance.</p>
 </pre></div></div><div class="tab-pane method" id="tab_abstract_bang"><h3 class="code">abstract!</h3><p>Denotes that the current target is abstract, and thus will not directly
 link against an Xcode target.</p>
 </div><div class="tab-pane method" id="tab_inherit_bang"><h3 class="code">inherit!</h3><p>Sets the inheritance mode for the current target.</p>
-<h3>Examples:</h3><blockquote>Inheriting only search paths</blockquote><div class="highlight"><pre><span class="n">target</span> <span class="s1">&#39;App&#39;</span> <span class="k">do</span>
+<h3>Parameters</h3><div class="method-parameter"><h4>inheritance<span class="types">:complete, :none, :search_paths</span></h4><p>The inheritance mode to set.</p>
+</div><h3>Examples:</h3><blockquote>Inheriting only search paths</blockquote><div class="highlight"><pre><span class="n">target</span> <span class="s1">&#39;App&#39;</span> <span class="k">do</span>
   <span class="n">target</span> <span class="s1">&#39;AppTests&#39;</span> <span class="k">do</span>
     <span class="n">inherit!</span> <span class="ss">:search_paths</span>
   <span class="k">end</span>
@@ -264,7 +269,11 @@ and <code>2.0</code> for watchOS.</p>
 
 <p>If the deployment target requires it (iOS &lt; <code>4.3</code>), <code>armv6</code>
 architecture will be added to <code>ARCHS</code>.</p>
-<h3>Examples:</h3><blockquote>Specifying the platform</blockquote><div class="highlight"><pre><span class="n">platform</span> <span class="ss">:ios</span><span class="p">,</span> <span class="s1">&#39;4.0&#39;</span>
+<h3>Parameters</h3><div class="method-parameter"><h4>name<span class="types">Symbol</span></h4><p>The name of platform, can be either <code>:osx</code> for OS X, <code>:ios</code>
+for iOS, <code>:tvos</code> for tvOS, or <code>:watchos</code> for watchOS.</p>
+</div><div class="method-parameter"><h4>target<span class="types">String, Version</span></h4><p>The optional deployment.  If not provided a default value
+according to the platform name will be assigned.</p>
+</div><h3>Examples:</h3><blockquote>Specifying the platform</blockquote><div class="highlight"><pre><span class="n">platform</span> <span class="ss">:ios</span><span class="p">,</span> <span class="s1">&#39;4.0&#39;</span>
 <span class="n">platform</span> <span class="ss">:ios</span>
 </pre></div></div><div class="tab-pane method" id="tab_project"><h3 class="code">project</h3><p>Specifies the Xcode project that contains the target that the Pods
 library should be linked with.</p>
@@ -280,7 +289,14 @@ custom build configurations should be modelled after the release or
 the debug presets. To do so you need to specify a hash where the name
 of each build configuration is associated to either <code>:release</code> or
 <code>:debug</code>.</p>
-<h3>Examples:</h3><blockquote>Specifying the user project</blockquote><div class="highlight"><pre><span class="c1"># This Target can be found in a Xcode project called `FastGPS`</span>
+<h3>Parameters</h3><div class="method-parameter"><h4>path<span class="types">String</span></h4><p>The path of the project to link with</p>
+</div><div class="method-parameter"><h4>build_configurations<span class="types">Hash{String => symbol}</span></h4><p>A hash where the keys are the name of the build
+configurations in your Xcode project and the values are
+Symbols that specify if the configuration should be based on
+the <code>:debug</code> or <code>:release</code> configuration. If no explicit
+mapping is specified for a configuration in your project, it
+will default to <code>:release</code>.</p>
+</div><h3>Examples:</h3><blockquote>Specifying the user project</blockquote><div class="highlight"><pre><span class="c1"># This Target can be found in a Xcode project called `FastGPS`</span>
 <span class="n">target</span> <span class="s1">&#39;MyGPSApp&#39;</span> <span class="k">do</span>
   <span class="n">project</span> <span class="s1">&#39;FastGPS&#39;</span>
   <span class="o">.</span><span class="n">.</span><span class="o">.</span>
@@ -323,7 +339,8 @@ settings.</p>
 <p>If no explicit Xcode workspace is specified and only <strong>one</strong> project
 exists in the same directory as the Podfile, then the name of that
 project is used as the workspace’s name.</p>
-<h3>Examples:</h3><blockquote>Specifying a workspace</blockquote><div class="highlight"><pre><span class="n">workspace</span> <span class="s1">&#39;MyWorkspace&#39;</span>
+<h3>Parameters</h3><div class="method-parameter"><h4>path<span class="types">String</span></h4><p>Path of the workspace.</p>
+</div><h3>Examples:</h3><blockquote>Specifying a workspace</blockquote><div class="highlight"><pre><span class="n">workspace</span> <span class="s1">&#39;MyWorkspace&#39;</span>
 </pre></div></div><div class="tab-pane method" id="tab_generate_bridge_support_bang"><h3 class="code">generate_bridge_support!</h3><p>Specifies that a BridgeSupport metadata document should be generated
 from the headers of all installed Pods.</p>
 
@@ -358,7 +375,8 @@ higher version).</p>
 
 <p>The official CocoaPods source is implicit.
 Once you specify another source, then it will need to be included.</p>
-<h3>Examples:</h3><blockquote>Specifying to first use the Artsy repository and then the</blockquote><div class="highlight"><pre><span class="no">CocoaPods</span> <span class="no">Master</span> <span class="no">Repository</span>
+<h3>Parameters</h3><div class="method-parameter"><h4>source<span class="types">String</span></h4><p>The URL of a specs repository.</p>
+</div><h3>Examples:</h3><blockquote>Specifying to first use the Artsy repository and then the</blockquote><div class="highlight"><pre><span class="no">CocoaPods</span> <span class="no">Master</span> <span class="no">Repository</span>
 
 <span class="n">source</span> <span class="s1">&#39;https://github.com/artsy/Specs.git&#39;</span>
 <span class="n">source</span> <span class="s1">&#39;https://github.com/CocoaPods/Specs.git&#39;</span>
@@ -373,7 +391,10 @@ installation process.</p>
 <p>Use this method to specify a plugin that should be used during
 installation, along with the options that should be passed to the plugin
 when it is invoked.</p>
-<h3>Examples:</h3><blockquote>Specifying to use the `slather` and `cocoapods-keys` plugins.</blockquote><div class="highlight"><pre><span class="n">plugin</span> <span class="s1">&#39;cocoapods-keys&#39;</span><span class="p">,</span> <span class="ss">:keyring</span> <span class="o">=&gt;</span> <span class="s1">&#39;Eidolon&#39;</span>
+<h3>Parameters</h3><div class="method-parameter"><h4>name<span class="types">String</span></h4><p>The name of the plugin.</p>
+</div><div class="method-parameter"><h4>options<span class="types">Hash</span></h4><p>The optional options that should be passed to the plugin when
+its hooks are invoked.</p>
+</div><h3>Examples:</h3><blockquote>Specifying to use the `slather` and `cocoapods-keys` plugins.</blockquote><div class="highlight"><pre><span class="n">plugin</span> <span class="s1">&#39;cocoapods-keys&#39;</span><span class="p">,</span> <span class="ss">:keyring</span> <span class="o">=&gt;</span> <span class="s1">&#39;Eidolon&#39;</span>
 <span class="n">plugin</span> <span class="s1">&#39;slather&#39;</span>
 </pre></div></div><div class="tab-pane method" id="tab_pre_install"><h3 class="code">pre_install</h3><p>This hook allows you to make any changes to the Pods after they have
 been downloaded but before they are installed.</p>
