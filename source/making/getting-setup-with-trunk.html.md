@@ -1,6 +1,6 @@
 ---
 title: Getting setup with Trunk
-order: 3
+order: 2
 description: Instructions for creating a CocoaPods user account
 
 ---

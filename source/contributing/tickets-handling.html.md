@@ -1,7 +1,7 @@
 ---
 title: Ticket handling
 description: The easiest way to contribute is to help us handling the tickets.
-order: 4
+order: 5
 ---
 
 ## Tickets
