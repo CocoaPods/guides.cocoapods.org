@@ -1,7 +1,7 @@
 ---
 title: Specs and the Specs Repo
 description: Learn about creating Podspec's and the Spec repo.
-order: 1
+order: 5
 ---
 
 A Podspec, or Spec, describes a version of a Pod library. One Pod, over the course of time, will have many Specs. It includes details about where the source should be fetched from, what files to use, the build settings to apply, and other general metadata such as its name, version, and description.

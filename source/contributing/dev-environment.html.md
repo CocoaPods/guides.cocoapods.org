@@ -1,7 +1,7 @@
 ---
 title: Setting up for Development
 description: If you're looking to contribute to the CocoaPods project through feature additions or bug fixes, follow these instructions on setting up your development environment.
-order: 2
+order: 3
 ---
 
 CocoaPods is a collection of ruby gems. It is possible to clone them individually and set up a bundler environment for working in CocoaPods. However, for someone new to high-level library development in ruby this comes with a high learning curve. Because of this we will be using this guide to show how to set up using the [CocoaPods Rainforest](https://github.com/CocoaPods/Rainforest).
