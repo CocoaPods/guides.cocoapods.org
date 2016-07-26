@@ -58,8 +58,8 @@ end
 
 navigation_data = {
   'dsl' => [
-    { :name => "podfile", :title => "Podfile Syntax Reference" },
-    { :name => "podspec", :title => "Podspec Syntax Reference" },
+    { :name => "podfile", :title => "Podfile Syntax Reference <span>v#{Pod::VERSION}</span>" },
+    { :name => "podspec", :title => "Podspec Syntax Reference <span>v#{Pod::VERSION}</span>" },
   ],
 }
 

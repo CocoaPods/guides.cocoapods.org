@@ -52,10 +52,11 @@ ruby:
           h3.code
             = method.name
             - if method.required?
-              a.select-tab href="#tab_root-specification-group"
+              a.select-tab data-toggle="tab" href="#tab_group_root_specification"
                 span.label.label-big required
+
             - if method.respond_to?(:multi_platform?) && method.multi_platform?
-              a.select-tab href="#tab_multi-platform-support-group"
+              a.select-tab data-toggle="tab" href="#tab_group_multi_platform_support"
                 span.label.label-big multi-platform
 
           == method.html_description
@@ -89,6 +90,12 @@ ruby:
 
 .clearfix
 
+.info-row
+  section.container
+    .row
+      article class="col-sm-12"
+
+        a id="pull-request" data-container="body" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="CocoaPods is an open source project. Help us improve these guides by sending a pull request. ❤" data-original-title="" title="" href="https://github.com/CocoaPods/Core/edit/master/lib/cocoapods-core/#{name_space.name.downcase}/dsl.rb" style="position: relative; bottom: -20px;"
 
 javascript:
   $('#tab-all').click(function(){
