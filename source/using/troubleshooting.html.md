@@ -89,7 +89,7 @@ We have multiple avenues for support, here they are in the order we prefer.
 In this case we want to get it on a GitHub issues tracker, we use this to keep track of the development work we have to do.
 
 * **Search tickets before you file a new one.** Add to existing tickets if you have new information about the issue.
-* 
+
 * **Only file tickets about the CocoaPods tool itself.** This includes [CocoaPods](https://github.com/CocoaPods/CocoaPods/issues),
   [CocoaPods/Core](https://github.com/CocoaPods/Core/issues), and [Xcodeproj](https://github.com/CocoaPods/Xcodeproj/issues).
 
