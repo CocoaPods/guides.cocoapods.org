@@ -42,7 +42,7 @@ dependencies. Here is an [existing one](https://github.com/artsy/eigen/blob/2d9b
 source 'https://rubygems.org'
 
 gem 'cocoapods'
-gem "cocoapods-keys"
+gem 'cocoapods-keys'
 
 gem 'fui', '~> 0.3.0'
 gem 'xcpretty'
