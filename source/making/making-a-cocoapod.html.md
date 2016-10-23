@@ -79,11 +79,23 @@ $ git push --tags
 
 #### Submitting Open Source Code
 
-Once your tags are pushed you can use the command `pod trunk push NAME.podspec` to send your library to the Specs repo. For more information on getting this setup see [Getting Setup With Trunk](/making/getting-setup-with-trunk).
+Once your tags are pushed you can use the command:
+
+```
+pod trunk push NAME.podspec
+```
+
+to send your library to the Specs repo. For more information on getting this setup see [Getting Setup With Trunk](/making/getting-setup-with-trunk).
 
 #### Submitting Private Code
 
-Once your tags are pushed you can use the command `pod repo push [repo] NAME.podspec` to send your library to the named private specs repo. For more information on getting this setup see [Private CocoaPods](/making/private-cocoapods).
+Once your tags are pushed you can use the command:
+
+```
+pod repo push [repo] NAME.podspec
+```
+
+to send your library to the named private specs repo. For more information on getting this setup see [Private CocoaPods](/making/private-cocoapods).
 
 ## Library Versioning
 
