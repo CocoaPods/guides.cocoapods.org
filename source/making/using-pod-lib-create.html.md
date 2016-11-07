@@ -111,7 +111,7 @@ CocoaPods will open your Xcode project straight away; from there you can edit al
 * This is the Development Pods section, and actually where you can work on your library. See below for more information.
 * Finally the Pods used in setting up the project.
 
-It's worth mentioning here, as this catches people quite often, a Swift library needs to have it's classes declared as `public` for you to see them in your example library.
+It's worth mentioning here, as this catches people quite often, a Swift library needs to have its classes declared as `public` for you to see them in your example library.
 
 #### Development Pods
 
