@@ -15,6 +15,8 @@ order: 3
 * The gem might not be able to compile, to solve this you might need to [symlink GCC](http://www.relaxdiego.com/2012/02/using-gcc-when-xcode-43-is-installed.html).
 * If you used an pre release version of Xcode you might need to update the command line tools.
 * CocoaPods is not compatible with MacRuby.
+* If you get the error "ERROR:  While executing gem ... (Errno::EPERM); Operation not permitted - /usr/bin/fuzzy_match" then try:
+         $ sudo gem install -n /usr/local/bin cocoapods
 
 ### Using the CocoaPods Project
 
