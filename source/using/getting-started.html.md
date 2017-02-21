@@ -72,6 +72,12 @@ $ gem which cocoapods
 $ /Users/eloy/.gem/ruby/2.0.0/bin/pod install
 ```
 
+Immediately after installing CocoaPods, you will need to run the setup command. This command sets up the CocoaPods environment and makes sure that your local spec repository is in sync with the [hosted version](https://github.com/CocoaPods/Specs/). You can run this command at any time to force a sync of your local spec repo.
+
+```shell
+pod setup
+```
+
 ### Updating CocoaPods
 
 > To update CocoaPods you simply install the gem again
