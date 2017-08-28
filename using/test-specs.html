@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>CocoaPods Guides - Setting up for Development</title>
+<title>CocoaPods Guides - Testing with CocoaPods</title>
 <link rel="shortcut icon" href="https://cocoapods.org/favicons/favicon.ico" type="image/x-icon">
 <link rel="apple-touch-icon" href="https://cocoapods.org/favicons/apple-touch-icon.png">
 <link rel="apple-touch-icon" sizes="57x57" href="https://cocoapods.org/favicons/apple-touch-icon-57x57.png">
@@ -41,80 +41,15 @@
 <li><a href="https://cocoapods.org/about">About</a></li>
 <li class="active"><a href="https://guides.cocoapods.org">Guides</a></li>
 <li><a href="https://blog.cocoapods.org">Blog</a></li>
-</ul></div></section></nav><section class="container"><div class="row"><header class="header content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h1>Setting up for Development</h1></header></div></section><div class="guide" id="content-wrapper">
+</ul></div></section></nav><section class="container"><div class="row"><header class="header content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h1>Testing with CocoaPods</h1></header></div></section><div class="guide" id="content-wrapper">
 <section class="container"><div class="row">
-<article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><p>CocoaPods is a collection of ruby gems. It is possible to clone them individually and set up a bundler environment for working in CocoaPods. However, for someone new to high-level library development in ruby this comes with a high learning curve. Because of this we will be using this guide to show how to set up using the <a href="https://github.com/CocoaPods/Rainforest">CocoaPods Rainforest</a>.</p>
+<article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h2 id="test-specifications">
+<a class="header-link" href="#test-specifications">&lt;</a>Test Specifications</h2>
 
-<p>Rainforest is a git repo that when bootstrapped has submodules of all the required gems for CocoaPods development. Let's clone it:</p>
-    </article>
-    </div>
-    </section>
-  
-    <div class="code-break">
-    <section class="container">
-    <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight shell"><span class="gp">$ </span>git clone https://github.com/CocoaPods/Rainforest.git
-<span class="gp">$ </span><span class="nb">cd </span>Rainforest
-</code></pre>    </article>
-    </div>
-    </section>
-    </div>
-  
-    <section class="container ">
-    <div class="row">
-    <article class="content col-md-10 col-md-offset-1">
-
-
-<p>All of the commands in Rainforest are Rake Tasks. This is a ruby variant of Make Tasks. You can take a look at all the available tasks by running <code>rake -T</code> in the terminal.</p>
-
-<p>To get started downloading run:</p>
-    </article>
-    </div>
-    </section>
-  
-    <div class="code-break">
-    <section class="container">
-    <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight shell"><span class="gp">$ </span>rake bootstrap
-</code></pre>    </article>
-    </div>
-    </section>
-    </div>
-  
-    <section class="container ">
-    <div class="row">
-    <article class="content col-md-10 col-md-offset-1">
-
-
-<p>This will loop through all the known gems downloading them, and setting up their environments. To verify that everything is set up, run: <code>CocoaPods/bin/pod --help</code>.</p>
-
-<h3 id="working-on-cocoapods">
-<a class="header-link" href="#working-on-cocoapods">&lt;</a>Working on CocoaPods</h3>
-
-<p>If you're not sure where your changes are going to be, you may way to look at the <a href="https://guides.cocoapods.org/contributing/components">Core Components</a> to get a sense of where the change will take place.</p>
-
-<p>Once in the correct gem you should verify that all specs pass and all examples build. ( See <code>rake -T</code> for other per-gem based tasks. )</p>
-    </article>
-    </div>
-    </section>
-  
-    <div class="code-break">
-    <section class="container">
-    <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight shell"><span class="gp">$ </span>rake spec
-<span class="gp">$ </span>rake examples:build
-</code></pre>    </article>
-    </div>
-    </section>
-    </div>
-  
-    <section class="container ">
-    <div class="row">
-    <article class="content col-md-10 col-md-offset-1">
-
+<p>As of CocoaPods 1.3.0 pods may now provide test specifications (or test specs for short). Test specifications can be used to describe the test sources for a given pod.</p>
 
 <blockquote>
-<p>Start kicker, which will run the specs relevant to the files you update.</p>
+<p>Here's an example <code>CoconutLib.podspec</code>, an imaginary library that defines a test spec:</p>
 </blockquote>
     </article>
     </div>
@@ -123,7 +58,26 @@
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight shell"><span class="gp">$ </span>kicker -c
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="no">Pod</span><span class="o">::</span><span class="no">Spec</span><span class="p">.</span><span class="nf">new</span> <span class="k">do</span> <span class="o">|</span><span class="n">s</span><span class="o">|</span>
+  <span class="n">s</span><span class="p">.</span><span class="nf">name</span>         <span class="o">=</span> <span class="s1">'CoconutLib'</span>
+  <span class="n">s</span><span class="p">.</span><span class="nf">version</span>      <span class="o">=</span> <span class="s1">'1.0'</span>
+  <span class="n">s</span><span class="p">.</span><span class="nf">authors</span>      <span class="o">=</span> <span class="s1">'Coconut Corp'</span><span class="p">,</span> <span class="p">{</span> <span class="s1">'Monkey Boy'</span> <span class="o">=&gt;</span> <span class="s1">'monkey@coconut-corp.local'</span> <span class="p">}</span>
+  <span class="n">s</span><span class="p">.</span><span class="nf">homepage</span>     <span class="o">=</span> <span class="s1">'http://coconut-corp.local/coconut-lib.html'</span>
+  <span class="n">s</span><span class="p">.</span><span class="nf">summary</span>      <span class="o">=</span> <span class="s1">'Coconuts For the Win.'</span>
+  <span class="n">s</span><span class="p">.</span><span class="nf">description</span>  <span class="o">=</span> <span class="s1">'All the Coconuts'</span>
+  <span class="n">s</span><span class="p">.</span><span class="nf">source</span>       <span class="o">=</span> <span class="p">{</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">'http://coconut-corp.local/coconut-lib.git'</span><span class="p">,</span> <span class="ss">:tag</span> <span class="o">=&gt;</span> <span class="s1">'v1.0'</span> <span class="p">}</span>
+  <span class="n">s</span><span class="p">.</span><span class="nf">license</span>      <span class="o">=</span> <span class="p">{</span>
+    <span class="ss">:type</span> <span class="o">=&gt;</span> <span class="s1">'MIT'</span><span class="p">,</span>
+    <span class="ss">:file</span> <span class="o">=&gt;</span> <span class="s1">'LICENSE'</span><span class="p">,</span>
+    <span class="ss">:text</span> <span class="o">=&gt;</span> <span class="s1">'Permission is hereby granted ...'</span>
+  <span class="p">}</span>
+  <span class="n">s</span><span class="p">.</span><span class="nf">source_files</span>        <span class="o">=</span> <span class="s1">'Classes/*.{h,m}'</span>
+
+  <span class="n">s</span><span class="p">.</span><span class="nf">test_spec</span> <span class="s1">'Tests'</span> <span class="k">do</span> <span class="o">|</span><span class="n">test_spec</span><span class="o">|</span>
+    <span class="n">test_spec</span><span class="p">.</span><span class="nf">source_files</span> <span class="o">=</span> <span class="s1">'Tests/*.{h,m}'</span>
+    <span class="n">test_spec</span><span class="p">.</span><span class="nf">dependency</span> <span class="s1">'OCMock'</span> <span class="c1"># This dependency will only be linked with your tests.</span>
+  <span class="k">end</span>  
+<span class="k">end</span>
 </code></pre>    </article>
     </div>
     </section>
@@ -134,16 +88,9 @@
     <article class="content col-md-10 col-md-offset-1">
 
 
-<p>Create your patch, verify all specs still pass and examples still build, and create a <a href="https://github.com/CocoaPods/CocoaPods/compare">pull request</a>.</p>
+<p>Test specs are treated just like subspecs in terms of consuming them but they are different in how they are configured in the generated <code>Pods.xcodeproj</code>. Test spec sources and dependencies will not be included in the <code>CoconutLib</code> sources. You may choose to have multiple test specs in a podspec if you'd like to describe different parts of your pod with different test sources and dependencies.</p>
 
-<h3 id="using-latest-pod-command">
-<a class="header-link" href="#using-latest-pod-command">&lt;</a>Using latest pod command</h3>
-
-<p>If you would like to run latest pod command in terminal for you project.</p>
-
-<blockquote>
-<p>You could run it with full path, i.e.</p>
-</blockquote>
+<p>In your <code>Podfile</code> you can bring the test specification as such:</p>
     </article>
     </div>
     </section>
@@ -151,7 +98,10 @@
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight shell">path/to/Rainforest/CocoaPods/bin/pod install
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">target</span> <span class="s1">'MyApp'</span> <span class="k">do</span>
+  <span class="n">use_frameworks!</span>
+  <span class="n">pod</span> <span class="s1">'CoconutLib'</span><span class="p">,</span> <span class="s1">'~&gt; 1.0'</span><span class="p">,</span> <span class="ss">:testspecs</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'Tests'</span><span class="p">]</span> 
+<span class="k">end</span>
 </code></pre>    </article>
     </div>
     </section>
@@ -162,9 +112,12 @@
     <article class="content col-md-10 col-md-offset-1">
 
 
-<blockquote>
-<p>For convenience you could add the next alias to you .zshrc or .bashrc or similar:</p>
-</blockquote>
+<p>When you <code>pod install</code> this will automatically create a test target within the <code>Pods.xcodeproj</code> for the <code>CoconutLib</code> pod. You may choose to select that scheme and build and run your tests!</p>
+
+<h2 id="linting">
+<a class="header-link" href="#linting">&lt;</a>Linting</h2>
+
+<p><code>pod lib lint</code> and <code>pod spec lint</code> now have support for building and running your tests automatically when you lint your podspec. For example, linting the <code>CoconutLib.podspec</code> will automatically setup and run your tests provided by the given test specs. If you want to skip this step you may use the <code>--skip-tests</code> flag.</p>
     </article>
     </div>
     </section>
@@ -172,7 +125,7 @@
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight shell"><span class="nb">alias </span>pod-dev<span class="o">=</span><span class="s1">'path/to/Rainforest/CocoaPods/bin/pod'</span>
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">pod</span> <span class="n">lib</span> <span class="n">lint</span> <span class="no">CoconutLib</span><span class="p">.</span><span class="nf">podspec</span> <span class="o">--</span><span class="n">skip</span><span class="o">-</span><span class="n">tests</span>
 </code></pre>    </article>
     </div>
     </section>
@@ -183,51 +136,33 @@
     <article class="content col-md-10 col-md-offset-1">
 
 
-<p>Other advanced aliases:</p>
+<h2 id="supported-test-types">
+<a class="header-link" href="#supported-test-types">&lt;</a>Supported Test Types</h2>
 
-<blockquote>
-<p>If you want to autoload <a href="https://github.com/pry/pry">Pry</a> and the <a href="https://github.com/michaeldv/awesome_print">Awesome Print</a> gems set the <code>COCOA_PODS_ENV</code> environment variable to <code>development</code>. This can be done with an alias like:</p>
-</blockquote>
-    </article>
-    </div>
-    </section>
-  
-    <div class="code-break">
-    <section class="container">
-    <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight shell"><span class="nb">alias </span>pod-dev<span class="o">=</span><span class="s1">'COCOA_PODS_ENV=development path/to/Rainforest/CocoaPods/bin/pod'</span>
-</code></pre>    </article>
-    </div>
-    </section>
-    </div>
-  
-    <section class="container ">
-    <div class="row">
-    <article class="content col-md-10 col-md-offset-1">
-
+<p>As of right now, the supported test types are only for unit test bundles which require no app host to be executed. Support for test specs with app hosts will be added in the future.</p>
 </article>
 </div></section>
 </div>
-<div class="info-row"><section class="container"><div class="row"><article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><a data-container="body" data-content="CocoaPods is an open source project. Help us improve these guides by sending a pull request. ❤" data-original-title="" data-placement="top" data-toggle="popover" data-trigger="hover" href="https://github.com/CocoaPods/guides.cocoapods.org/blob/master/source/contributing/dev-environment.html.md" id="pull-request" title=""></a><ul class="breadcrumb">
+<div class="info-row"><section class="container"><div class="row"><article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><a data-container="body" data-content="CocoaPods is an open source project. Help us improve these guides by sending a pull request. ❤" data-original-title="" data-placement="top" data-toggle="popover" data-trigger="hover" href="https://github.com/CocoaPods/guides.cocoapods.org/blob/master/source/using/test-specs.html.md" id="pull-request" title=""></a><ul class="breadcrumb">
 <li>
 <a href="../index.html">Home</a><span class="divider"></span>
 </li>
 <li>
-<a href="index.html">Contributing</a><span class="divider"></span>
+<a href="index.html">Using CocoaPods</a><span class="divider"></span>
 </li>
-<li class="active">Setting up for Development</li>
+<li class="active">Testing with CocoaPods</li>
 </ul></article></div></section></div>
 <section class="site_navigation container"><div class="row">
 <div class="col-lg-3 col-sm-3 col-xs-6 footer-index">
-<h3><a href="../using/index.html">Using CocoaPods</a></h3>
+<h3><a href="index.html">Using CocoaPods</a></h3>
 <ul>
-<li><a href="../using/getting-started.html">Getting Started</a></li>
-<li><a href="../using/pod-install-vs-update.html">pod install vs. pod update</a></li>
-<li><a href="../using/using-cocoapods.html">Using CocoaPods</a></li>
-<li><a href="../using/the-podfile.html">The Podfile</a></li>
-<li><a href="../using/troubleshooting.html">Troubleshooting</a></li>
-<li><a href="../using/faq.html">F.A.Q</a></li>
-<li><a href="../using/test-specs.html">Testing with CocoaPods</a></li>
+<li><a href="getting-started.html">Getting Started</a></li>
+<li><a href="pod-install-vs-update.html">pod install vs. pod update</a></li>
+<li><a href="using-cocoapods.html">Using CocoaPods</a></li>
+<li><a href="the-podfile.html">The Podfile</a></li>
+<li><a href="troubleshooting.html">Troubleshooting</a></li>
+<li><a href="faq.html">F.A.Q</a></li>
+<li><a href="test-specs.html">Testing with CocoaPods</a></li>
 </ul>
 </div>
 <div class="col-lg-3 col-sm-3 col-xs-6 footer-index">
@@ -243,13 +178,13 @@
 </div>
 <div class="clearfix visible-xs"></div>
 <div class="col-lg-3 col-sm-3 col-xs-6 footer-index">
-<h3><a href="index.html">Contributing</a></h3>
+<h3><a href="../contributing/index.html">Contributing</a></h3>
 <ul>
-<li><a href="contribute-to-cocoapods.html">How to Contribute</a></li>
-<li><a href="components.html">Core Components</a></li>
-<li><a href="dev-environment.html">Setting up for Development</a></li>
-<li><a href="release-process.html">Release Process</a></li>
-<li><a href="tickets-handling.html">Ticket handling</a></li>
+<li><a href="../contributing/contribute-to-cocoapods.html">How to Contribute</a></li>
+<li><a href="../contributing/components.html">Core Components</a></li>
+<li><a href="../contributing/dev-environment.html">Setting up for Development</a></li>
+<li><a href="../contributing/release-process.html">Release Process</a></li>
+<li><a href="../contributing/tickets-handling.html">Ticket handling</a></li>
 </ul>
 </div>
 <div class="col-lg-3 col-sm-3 col-xs-6 footer-index">
