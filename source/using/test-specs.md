@@ -8,7 +8,7 @@ order: 5
 
 As of CocoaPods 1.3.0 pods may now provide test specifications (or test specs for short). Test specifications can be used to describe the test sources for a given pod.
 
-> Here's an example `CoconutLib.podspec`, an imaginary library that defines a test spec:
+Here's an example `CoconutLib.podspec`, an imaginary library that defines a test spec:
 
 ```ruby
 Pod::Spec.new do |s|
