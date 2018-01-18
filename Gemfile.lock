@@ -1,16 +1,16 @@
 GIT
-  remote: git://github.com/vmg/redcarpet.git
-  revision: cef9abbcc411d07fd1b8c80e348a80efde2db323
-  ref: cef9abbcc411d07fd1b8c80e348a80efde2db323
-  specs:
-    redcarpet (3.0.0)
-
-GIT
   remote: https://github.com/orta/middleman-gh-pages.git
   revision: 87ce11bd60627aeaaea9af2c70a0a1f94be7b6b4
   specs:
     middleman-gh-pages (0.0.3)
       rake (> 0.9.3)
+
+GIT
+  remote: https://github.com/vmg/redcarpet.git
+  revision: cef9abbcc411d07fd1b8c80e348a80efde2db323
+  ref: cef9abbcc411d07fd1b8c80e348a80efde2db323
+  specs:
+    redcarpet (3.0.0)
 
 GEM
   remote: https://rubygems.org/
@@ -161,10 +161,10 @@ GEM
       tilt (~> 1.4.1)
     padrino-support (0.12.3)
       activesupport (>= 3.1)
-    posix-spawn (0.3.9)
-    pygments.rb (0.6.0)
+    posix-spawn (0.3.13)
+    pygments.rb (0.6.3)
       posix-spawn (~> 0.3.6)
-      yajl-ruby (~> 1.1.0)
+      yajl-ruby (~> 1.2.0)
     rack (1.5.2)
     rack-livereload (0.3.15)
       rack
@@ -207,7 +207,7 @@ GEM
       claide (>= 1.0.2, < 2.0)
       colored2 (~> 3.1)
       nanaimo (~> 0.2.3)
-    yajl-ruby (1.1.0)
+    yajl-ruby (1.2.3)
     yard (0.8.6.2)
 
 PLATFORMS
@@ -224,7 +224,7 @@ DEPENDENCIES
   middleman-rouge
   middleman-sprockets
   nokogiri
-  pygments.rb
+  pygments.rb (~> 0.6.0)
   rake
   redcarpet!
   sass
@@ -232,4 +232,4 @@ DEPENDENCIES
   yard (~> 0.8.6.2)
 
 BUNDLED WITH
-   1.11.2
+   1.16.1
