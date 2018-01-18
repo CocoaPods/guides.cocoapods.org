@@ -105,6 +105,7 @@ module Pod
               "pod ipc repl",
               "pod ipc spec",
               "pod ipc podfile",
+              "pod ipc podfile-json",
               "pod ipc list",
               "pod ipc update-search-index",
             ],
