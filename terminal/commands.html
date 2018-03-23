@@ -41,12 +41,13 @@ Pod resources.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_update"><h2>pod update</h2><br /><pre>pod update [POD_NAMES ...]</pre><p><p>Updates the Pods identified by the specified <code>POD_NAMES</code>. If no
-<code>POD_NAMES</code> are specified it updates all the Pods ignoring the contents
-of the Podfile.lock.
-This command is reserved to the update of dependencies and pod install
-should be used to install changes to the Podfile.</p>
+</td></tr></table></div><div class="tab-pane" id="tab_pod_update"><h2>pod update</h2><br /><pre>pod update [POD_NAMES ...]</pre><p><p>Updates the Pods identified by the specified <code>POD_NAMES</code>, which is a
+space-delimited list of pod names. If no <code>POD_NAMES</code> are specified, it
+updates all the Pods, ignoring the contents of the Podfile.lock. This
+command is reserved for the update of dependencies; pod install should
+be used to install changes to the Podfile.</p>
 </p><h3>Options:</h3><table class="inherited_options"><tr><td><p><b>--sources=https://github.com/artsy/Specs,master</b></p></td><td><p>The sources from which to update dependent pods. Multiple sources must be comma-delimited. The master repo will not be included by default with this option..</p>
+</td></tr><tr><td><p><b>--exclude-pods=podName</b></p></td><td><p>Pods to exclude during update. Multiple pods must be comma-delimited..</p>
 </td></tr><tr><td><p><b>--project-directory=/project/dir/</b></p></td><td><p>The path to the root of the project directory.</p>
 </td></tr><tr><td><p><b>--no-repo-update</b></p></td><td><p>Skip running <code>pod repo update</code> before install.</p>
 </td></tr></table><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
@@ -300,6 +301,7 @@ version directory, and finally it pushes <code>REPO</code> to its remote.</p>
 </td></tr><tr><td><p><b>--commit-message="Fix bug in pod"</b></p></td><td><p>Add custom commit message. Opens default editor if no commit message is specified..</p>
 </td></tr><tr><td><p><b>--use-json</b></p></td><td><p>Push JSON spec to repo.</p>
 </td></tr><tr><td><p><b>--swift-version=VERSION</b></p></td><td><p>The SWIFT_VERSION that should be used when linting the spec. This takes precedence over a .swift-version file..</p>
+</td></tr><tr><td><p><b>--no-overwrite</b></p></td><td><p>Disallow pushing that would overwrite an existing spec..</p>
 </td></tr></table><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
