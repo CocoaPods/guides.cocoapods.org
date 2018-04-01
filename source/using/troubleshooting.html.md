@@ -20,18 +20,20 @@ order: 3
 
 ### Using the CocoaPods Project
 
-1. If something doesn’t seem to work, first of all ensure that you are not completely overriding any options set from the `Pods.xcconfig` file in your project’s build settings. To add values to options from your project’s build settings, prepend the value list with `$(inherited)`.
+1. Use the Xcode workspace `<Project>.xcworkspace`, not the Xcode project.
 
-2. If Xcode can’t find the headers of the dependencies:
+2. If something doesn’t seem to work, first of all ensure that you are not completely overriding any options set from the `Pods.xcconfig` file in your project’s build settings. To add values to options from your project’s build settings, prepend the value list with `$(inherited)`.
+
+3. If Xcode can’t find the headers of the dependencies:
    * Check if the pod header files are correctly symlinked in `Pods/Headers` and you are not overriding the `HEADER_SEARCH_PATHS` (see #1).
    * Make sure your project is using the `Pods.xcconfig`. To check this select your project file, then select it in the second pane again and open the `Info` section in the third pane. Under configurations you should select `Pods.xcconfig` for each configurations requiring your installed pods.
    * If Xcode still can’t find them, as a last resort you can prepend your imports, e.g. `#import "Pods/SSZipArchive.h"`.
 
-3. If you're getting errors about unrecognised C compiler command line options, e.g. `cc1obj: error: unrecognised command line option "-Wno-sign-conversion"`:
+4. If you're getting errors about unrecognised C compiler command line options, e.g. `cc1obj: error: unrecognised command line option "-Wno-sign-conversion"`:
    * Make sure your project build settings are [configured](https://img.skitch.com/20111120-brfn4mp8qwrju8w8325wphan9h.png) to use "Apple LLVM compiler" (clang)
    * Are you setting the `CC`, `CPP` or `CXX` environment variable, e.g. in your `~/.profile`? This may interfere with the Xcode build process. Remove the environment variable from your `~/.profile`.
 
-4. If Xcode complains when linking, e.g. `Library not found for -lPods`, it doesn't detect the implicit dependencies:
+5. If Xcode complains when linking, e.g. `Library not found for -lPods`, it doesn't detect the implicit dependencies:
    * Go to Product > Edit Scheme
    * Click on Build
    * Add the `Pods` static library, and make sure it's at the top of the list
