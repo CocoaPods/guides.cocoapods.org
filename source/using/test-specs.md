@@ -8,7 +8,7 @@ order: 5
 
 As of CocoaPods 1.3.0 pods may now provide test specifications (or test specs for short). Test specifications can be used to describe the test sources for a given pod.
 
-> Here's an example `CoconutLib.podspec`, an imaginary library that defines a test spec:
+Here's an example `CoconutLib.podspec`, an imaginary library that defines a test spec:
 
 ```ruby
 Pod::Spec.new do |s|
@@ -54,7 +54,15 @@ When you `pod install` this will automatically create a test target within the `
 pod lib lint CoconutLib.podspec --skip-tests
 ```
 
-## Supported Test Types
+## App Hosts
 
-As of right now, the supported test types are only for unit test bundles which require no app host to be executed. Support for test specs with app hosts will be added in the future.
+With CocoaPods 1.4.0, support for app hosts was added to test specs. If your tests require an app host in order to execute properly then you can designate this in your podspec as such:
 
+```ruby
+  s.test_spec 'Tests' do |test_spec|
+    test_spec.requires_app_host = true
+    test_spec.source_files = 'Tests/*.{h,m}'
+  end
+```
+
+Note that CocoaPods will only generate a single app host that can be used by multiple test specs.
