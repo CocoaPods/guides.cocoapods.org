@@ -1,8 +1,8 @@
-##How to use this repository
+## How to use this repository
 
 This repository is for user guides on how to use CocoaPods. It replaces the multiple Wikis, guides section of the old docs.cocoapods.org site, and some of the more verbose documentation sections of the API docs.
 
-###Where is the content?
+### Where is the content?
 
 You can find almost all of the guides source in `/source`. Each section is then broken down into its own content folder. So the guides for using CocoaPods can be found in `/source/using`. Also, if you view a page on guides, there is a link at the bottom of the footer to the source page in this repo.
 
@@ -12,11 +12,11 @@ The only exception is for the pages describing the **reference syntaxes**, which
  * The [Podspec syntax](https://guides.cocoapods.org/syntax/podspec.html) page is generated from [those documentation comments](https://github.com/CocoaPods/Core/blob/master/lib/cocoapods-core/specification/dsl.rb)
  * The [Command Line API](https://guides.cocoapods.org/terminal/commands.html) page is generated from [the various source files here](https://github.com/CocoaPods/CocoaPods/tree/master/lib/cocoapods/command) and from [those template files](https://github.com/CocoaPods/guides.cocoapods.org/blob/master/source/templates/commands.html.slim#L26-L44)
 
-###How do I make a change?
+### How do I make a change?
 
 Just like any other repository, you should create a fork, make a change, commit, and then submit a pull request to `master`.
 
-###How do I add a new guide?
+### How do I add a new guide?
 
 All the guides content is written in [Markdown](http://daringfireball.net/projects/markdown/). Each page has some special information at the top, defined by `---`. This is used to generate the index pages, as well as the sitemap in the footer. Each page must include this information at the very top of this page.
 
@@ -33,7 +33,7 @@ description: This is a guide that describes setting up CocoaPods and integrating
 CocoaPods manages library dependencies for your Xcode projects.
 ```
 
-##Overall Guidelines
+## Overall Guidelines
 
 - **This repo is for content for guides.cocoapods.org only.** If you are having an issue with CocoaPods, please ask on [StackOverflow](http://stackoverflow.com/search?q=CocoaPods) or our [mailing-list](http://groups.google.com/group/cocoapods).
 - **This is high-level content only.** If you have an issue with the API documentation for one of the gems that make up CocoaPods, please file that issue in its own repo; API documentation is generated from source files.
@@ -42,7 +42,7 @@ CocoaPods manages library dependencies for your Xcode projects.
 - **Take out any personally identifiable information.** This applies to images, code snippets, or any other content. Please keep all information anonymous.
 - **Do not add promotional material.** This applies to both Guides content and linked resources.
 
-##Style Guidelines
+## Style Guidelines
 
 While we aren't terribly picky about writing style, there are a few things we'd like to make sure are standard across the content of the Guides site.
 
@@ -54,7 +54,7 @@ While we aren't terribly picky about writing style, there are a few things we'd 
 - Our code blocks are parsed by [Pygments](https://github.com/tmm1/pygments.rb), so please make sure your code additions are highlighted correctly. The best way to check this is to run your changes locally. Instructions can be found in the [README](README.md).
 - We also enjoy the Oxford comma, and use British English.
 
-##Issue Submissions
+## Issue Submissions
 
 We are always looking for the best way to present information about CocoaPods. If you would like to see something specific, or start a discussion, please follow these guidelines.
 
@@ -64,7 +64,7 @@ We are always looking for the best way to present information about CocoaPods. I
 - There are some topics, e.g. whether or not to check in the Pods folder, that will be heavily debated. In these situations, we would like to present both sides and give the user the best information to make an informed decision. Please be courteous and respectful to your fellow developers.
 - UX suggestions are not only welcome, but encouraged. We want to make sure this content is easy to browse and easy to read.
 
-##External Resource Submissions
+## External Resource Submissions
 
 We love including content from the greater community. When adding a new resource, please follow the following guidelines.
 
