@@ -50,3 +50,9 @@ order: 4
 ### “Why do I have to install Ruby to use CocoaPods?”
 
   You don’t, macOS comes with a Ruby 2.0.0 or newer pre-installed in `/usr/bin/ruby` which are our baselines and these should work out of the box.
+  
+### “Can I change the default CocoaPods repositories folder?”
+
+  By default CocoaPods stores repositories in your home folder in `~/.cocoapods` and caches Pods in `~/Library/Caches/CocoaPods`.
+
+  You can set `CP_HOME_DIR` in your environment to change this to another folder, e.g. `export CP_HOME_DIR=another-pods-dir`. Both caches and repositories will now be in this folder.
