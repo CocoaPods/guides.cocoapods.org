@@ -48,9 +48,7 @@
 
 <p>As of CocoaPods 1.3.0 pods may now provide test specifications (or test specs for short). Test specifications can be used to describe the test sources for a given pod.</p>
 
-<blockquote>
 <p>Here's an example <code>CoconutLib.podspec</code>, an imaginary library that defines a test spec:</p>
-</blockquote>
     </article>
     </div>
     </section>
@@ -136,10 +134,32 @@
     <article class="content col-md-10 col-md-offset-1">
 
 
-<h2 id="supported-test-types">
-<a class="header-link" href="#supported-test-types">&lt;</a>Supported Test Types</h2>
+<h2 id="app-hosts">
+<a class="header-link" href="#app-hosts">&lt;</a>App Hosts</h2>
 
-<p>As of right now, the supported test types are only for unit test bundles which require no app host to be executed. Support for test specs with app hosts will be added in the future.</p>
+<p>With CocoaPods 1.4.0, support for app hosts was added to test specs. If your tests require an app host in order to execute properly then you can designate this in your podspec as such:</p>
+    </article>
+    </div>
+    </section>
+  
+    <div class="code-break">
+    <section class="container">
+    <div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby">  <span class="n">s</span><span class="p">.</span><span class="nf">test_spec</span> <span class="s1">'Tests'</span> <span class="k">do</span> <span class="o">|</span><span class="n">test_spec</span><span class="o">|</span>
+    <span class="n">test_spec</span><span class="p">.</span><span class="nf">requires_app_host</span> <span class="o">=</span> <span class="kp">true</span>
+    <span class="n">test_spec</span><span class="p">.</span><span class="nf">source_files</span> <span class="o">=</span> <span class="s1">'Tests/*.{h,m}'</span>
+  <span class="k">end</span>
+</code></pre>    </article>
+    </div>
+    </section>
+    </div>
+  
+    <section class="container ">
+    <div class="row">
+    <article class="content col-md-10 col-md-offset-1">
+
+
+<p>Note that CocoaPods will only generate a single app host that can be used by multiple test specs.</p>
 </article>
 </div></section>
 </div>
