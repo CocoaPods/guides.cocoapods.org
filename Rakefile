@@ -126,7 +126,7 @@ $LOAD_PATH << File.expand_path('lib')
 
 def dsls
   [
-    { :name => "Podfile", :title => "podfile" },
+    { :name => "Podfile", :title => "podfile", :extra_files => %w[cocoapods/installer/installation_options] },
     { :name => "Specification", :title => "podspec" },
   ]
 end

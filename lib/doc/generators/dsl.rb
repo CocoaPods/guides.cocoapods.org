@@ -148,8 +148,21 @@ module Pod
         end
 
         def installation_options_keys_html
-          Pod::Installer::InstallationOptions.all_options
-            .map { |o| markdown_h(code_for_key(o)) }
+          yard_registry.at('Pod::Installer::InstallationOptions')
+            .meths.select do |method|
+              method.scope == :instance && Pod::Installer::InstallationOptions.all_options.include?(method.name.to_s)
+            end
+            .map do |method|
+              markdown = "####  #{code_for_key(method.name)}"
+              markdown << "\n\n" << method.docstring unless method.docstring.empty?
+              method.tags.each do |tag|
+                next if tag.tag_name == 'return'
+                next unless tag.text
+
+                markdown << "\n\n" << tag.text
+              end
+              markdown_h(markdown)
+            end
         end
 
         def code_for_key(key)
