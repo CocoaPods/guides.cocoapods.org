@@ -71,9 +71,13 @@ begin
         name = dsl[:name]
         title = dsl[:title]
 
-        lib = Gem.loaded_specs['cocoapods-core'].full_require_paths.first
-        dsl_file = File.join(lib, "cocoapods-core/#{name.downcase}/dsl.rb")
-        generator = Pod::Doc::Generators::DSL.new(dsl_file)
+        files = ["cocoapods-core/#{name.downcase}/dsl"] + Array(dsl[:extra_files])
+        files = files.flat_map do |file|
+          Gem.loaded_specs.each_value.flat_map do |spec|
+            spec.matches_for_glob(file + '.*')
+          end
+        end
+        generator = Pod::Doc::Generators::DSL.new(files)
         generator.name = name
 
         generator.output_file = "docs_data/#{title.downcase}.yaml"
@@ -122,7 +126,7 @@ $LOAD_PATH << File.expand_path('lib')
 
 def dsls
   [
-    { :name => "Podfile", :title => "podfile" },
+    { :name => "Podfile", :title => "podfile", :extra_files => %w[cocoapods/installer/installation_options] },
     { :name => "Specification", :title => "podspec" },
   ]
 end

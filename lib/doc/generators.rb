@@ -32,8 +32,7 @@ module Pod
           require 'active_support/core_ext/string/inflections'
           require 'active_support/core_ext/array/conversions'
 
-          source_files = [source_files] unless source_files.is_a?(Array)
-          @source_files = source_files
+          @source_files = Array(source_files)
         end
 
         # @return [Array<String>] The source files of the generator.
