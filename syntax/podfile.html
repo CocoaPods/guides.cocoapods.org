@@ -41,15 +41,33 @@ installation methods might be available in future versions.</p>
 <h3>Examples:</h3><blockquote>Specifying custom CocoaPods installation options</blockquote><div class="highlight"><pre><span class="n">install!</span> <span class="s1">&#39;cocoapods&#39;</span><span class="p">,</span>
          <span class="ss">:deterministic_uuids</span> <span class="o">=&gt;</span> <span class="kp">false</span><span class="p">,</span>
          <span class="ss">:integrate_targets</span> <span class="o">=&gt;</span> <span class="kp">false</span>
-</pre></div><h3>Supported Keys:</h3><p><code>:clean</code></p>
-<p><code>:deduplicate_targets</code></p>
-<p><code>:deterministic_uuids</code></p>
-<p><code>:integrate_targets</code></p>
-<p><code>:lock_pod_sources</code></p>
-<p><code>:warn_for_multiple_pod_sources</code></p>
-<p><code>:share_schemes_for_development_pods</code></p>
-<p><code>:disable_input_output_paths</code></p>
-<p><code>:preserve_pod_file_structure</code></p>
+</pre></div><h3>Supported Keys:</h3><h4><code>:clean</code></h4>
+
+<p>this option defaults to true.</p>
+<h4><code>:deduplicate_targets</code></h4>
+
+<p>this option defaults to true.</p>
+<h4><code>:deterministic_uuids</code></h4>
+
+<p>this option defaults to true.</p>
+<h4><code>:integrate_targets</code></h4>
+
+<p>this option defaults to true.</p>
+<h4><code>:lock_pod_sources</code></h4>
+
+<p>this option defaults to true.</p>
+<h4><code>:warn_for_multiple_pod_sources</code></h4>
+
+<p>this option defaults to true.</p>
+<h4><code>:share_schemes_for_development_pods</code></h4>
+
+<p>this option defaults to false.</p>
+<h4><code>:disable_input_output_paths</code></h4>
+
+<p>this option defaults to false.</p>
+<h4><code>:preserve_pod_file_structure</code></h4>
+
+<p>this option defaults to false.</p>
 </div><div class="tab-pane group" id="tab_group_dependencies"><h2>Dependencies</h2><p>The Podfile specifies the dependencies of each user target.</p>
 
 <ul>
