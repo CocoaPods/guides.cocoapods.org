@@ -120,8 +120,8 @@ In general this means that:
 ## How do I update an existing Pod?
 
 1. Create your Podspec as described above.
-2. Run `pod spec lint` to check for errors.
-3. Submit your Podspec to Trunk with `pod trunk push NAME.podspec`
+2. Submit your Podspec to Trunk with `pod trunk push NAME.podspec`
+  - While pushing to Trunk, Cocoapods will perform a `lint` under the hood. The `push` will be aborted on `lint` error. 
 
 ## How do I get my library on CocoaDocs?
 
