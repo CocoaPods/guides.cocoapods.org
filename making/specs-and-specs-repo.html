@@ -230,8 +230,11 @@ CocoaPods installations.</p>
 
 <ol>
 <li>Create your Podspec as described above.</li>
-<li>Run <code>pod spec lint</code> to check for errors.</li>
 <li>Submit your Podspec to Trunk with <code>pod trunk push NAME.podspec</code>
+
+<ul>
+<li>While pushing to Trunk, CocoaPods will perform a <code>lint</code> under the hood. The <code>push</code> will be aborted on <code>lint</code> error. </li>
+</ul>
 </li>
 </ol>
 
