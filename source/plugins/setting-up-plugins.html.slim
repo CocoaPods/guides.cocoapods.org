@@ -1,0 +1,74 @@
+---
+title: How to use CocoaPods plugins
+description: Understand how a CocoaPods plugin works and how to use them in your projects
+order: 0
+---
+
+markdown: 
+  ## CocoaPods + Plugins
+
+  CocoaPods is a community project run by very few maintainers with a massive surface area to maintain. It's safe to say 
+  that CocoaPods could never support every feature that Xcode supports, and even then the team has to say "no" to a lot of
+  potentially useful features.
+
+  Rather than let that be the end of the discussion, back in [2013 CocoaPods added support](https://blog.cocoapods.org/CocoaPods-0.28/) for CocoaPods Plugins. 
+  The plugin architecture allowed others to extend CocoaPods to support features that don't fit the main goal of dependency
+  management and eco-system growth.
+
+  ### What can CocoaPods Plugins do?
+
+  A CocoaPods Plugin can:
+
+  - Hook into the install process, both before and after
+  - Add new commands to `pod`
+  - Do whatever they want, because Ruby is a very dynamic language
+
+  This means the scope of a plugin is generally related to adding features to your build process, but can really do anything
+  you want. For example [`cocoapods-roulette`](https://github.com/sirlantis/cocoapods-roulette) generates a new iOS app
+  with three random Pods. We keep a relatively curated list of all plugins, you can see them at the end of this article.
+
+  ### How do I install a plugin
+
+  You will want to use a `Gemfile`, if you've never used a Gemfile before or want a refresher - check out our guide
+  ["Using a Gemfile"](/using/a-gemfile.html). All CocoaPods Plugins are Gems, and they are installed by first adding 
+  them to the `Gemfile`, then you need to mention that they exist inside your Podfile. 
+
+  For example, to use [cocoapods-repo-update](https://github.com/wordpress-mobile/cocoapods-repo-update) - you need to 
+  amend your `Gemfile`:
+
+  <pre><code>  source 'https://rubygems.org'
+
+    gem 'cocoapods'
+  + gem 'cocoapods-repo-update'
+    gem 'fastlane'
+  </code></pre>
+
+  Then add a reference to it in your `Podfile`:
+
+  <pre><code>  platform :ios, '9.0'
+  + plugin 'cocoapods-repo-update'
+
+    use_frameworks!
+
+    # OWS Pods
+    pod 'SignalCoreKit', git: 'https://github.com/signalapp/SignalCoreKit.git', testspecs: ["Tests"]
+  </code></pre>
+
+  Running `bundle exec pod install` will then have the `cocoapods-repo-update` plugin executed also.
+
+  ### What Plugins Exist?
+
+  There's quite a few! If you have some more to add, send us a PR to [this JSON file](https://github.com/CocoaPods/cocoapods-plugins/blob/master/plugins.json)
+
+- json = JSON.parse(File.read "docs_data/plugins.json")
+- plugins = json["plugins"].sort_by { |p| p["name"] }
+
+</div></div>
+
+div style="padding: 20px; flex-wrap: wrap; display: flex;"
+  - plugins.each do |plugin|
+    div style='width: 25%; padding: 20px;' 
+    
+      h4
+        a href=plugin["url"] = plugin["name"]
+      p = plugin["description"]

@@ -15,6 +15,9 @@ task :bootstrap do
 
   puts "Creating data dir"
   execute_command "mkdir -p docs_data"
+
+  puts "Downloading Plugins JSON"
+  execute_command "curl https://raw.githubusercontent.com/CocoaPods/cocoapods-plugins/master/plugins.json --output docs_data/plugins.json"
 end
 
 begin

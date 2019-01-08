@@ -23,8 +23,10 @@ ruby:
     resource.data.footer
   end.sort_by { |resource| resource.data.footer_order }
 
-  # Take out the contributing to CocoaPods to put below the main guide layout
+  # Take out the contributing + plugins to CocoaPods to put below the main guide layout
   contributing = footer_resources.pop
+  
+  plugins = footer_resources.pop
 
 
 section.container
@@ -45,7 +47,7 @@ div.guide#content-wrapper
 
           h2.guide-index == link_to page_title(resource), "/#{resource.destination_path}"
           ul
-            - for child in resource.children.sort_by{|child| child.data.order}
+            - for child in resource.children.sort_by{|child| child.data.order }
               - unless child.data.ignore
                 li
                     h5 == link_to( page_title(child), "/#{child.destination_path}")
@@ -76,6 +78,17 @@ div.guide#content-wrapper
 
             p Find out all of the supported terminal flags and commands.
 
+
+      .clearfix
+      .col-lg-12.col-sm-12.col-xs-12
+        h2.guide-index CocoaPods Plugins
+
+      .col-lg-12.col-sm-12.col-xs-12
+        - for child in plugins.children.sort_by{|child| child.data.order}
+          - unless child.data.ignore
+            .col-lg-4.col-sm-4.col-xs-12
+                h5 == link_to( page_title(child), "/#{child.destination_path}")
+                p == child.data.description
 
       .clearfix
       .col-lg-12.col-sm-12.col-xs-12
