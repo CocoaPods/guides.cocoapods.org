@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>CocoaPods Guides - Setting up for Development</title>
+<title>CocoaPods Guides - Pre-compiling dependencies</title>
 <link rel="shortcut icon" href="https://cocoapods.org/favicons/favicon.ico" type="image/x-icon">
 <link rel="apple-touch-icon" href="https://cocoapods.org/favicons/apple-touch-icon.png">
 <link rel="apple-touch-icon" sizes="57x57" href="https://cocoapods.org/favicons/apple-touch-icon-57x57.png">
@@ -41,11 +41,31 @@
 <li><a href="https://cocoapods.org/about">About</a></li>
 <li class="active"><a href="https://guides.cocoapods.org">Guides</a></li>
 <li><a href="https://blog.cocoapods.org">Blog</a></li>
-</ul></div></section></nav><section class="container"><div class="row"><header class="header content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h1>Setting up for Development</h1></header></div></section><div class="guide" id="content-wrapper">
+</ul></div></section></nav><section class="container"><div class="row"><header class="header content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h1>Pre-compiling dependencies</h1></header></div></section><div class="guide" id="content-wrapper">
 <section class="container"><div class="row">
-<article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><p>CocoaPods is a collection of ruby gems. It is possible to clone them individually and set up a bundler environment for working in CocoaPods. However, for someone new to high-level library development in ruby this comes with a high learning curve. Because of this we will be using this guide to show how to set up using the <a href="https://github.com/CocoaPods/Rainforest">CocoaPods Rainforest</a>.</p>
+<article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h2 id="the-problem">
+<a class="header-link" href="#the-problem">&lt;</a>The Problem</h2>
 
-<p>Rainforest is a git repo that when bootstrapped has submodules of all the required gems for CocoaPods development. Let's clone it:</p>
+<p>Even though you haven't made any changes to the Pods in your project, Xcode can still re-compile you libraries, even 
+when it should not need to do this. For a few small libraries this can be a small irritant, in a large project 
+this can be time-consuming and annoying.</p>
+
+<h2 id="the-answer">
+<a class="header-link" href="#the-answer">&lt;</a>The answer</h2>
+
+<p>One solution for this is to not give Xcode the chance to re-compile code. CocoaPods Binary will pre-compile your Pods during 
+<code>pod install</code>, and then add the binary assets (e.g. <code>.framework</code> files) into the generated Xcode projects instead of the source code. </p>
+
+<p>CocoaPods Binary works by adding a pre-install phase which:</p>
+
+<ul>
+<li>Pulls out pods which you specify to be pre-compiled</li>
+<li>Compiles those pods</li>
+<li>Switches the Podspecs which used to refer to source code, to refer to the new compiled frameworks</li>
+</ul>
+
+<p>To specify which Pods you want to convert, edit your <code>Podfile</code> by appending <code>:binary =&gt; true</code> to your <code>pod</code> definitions.</p>
+
     </article>
     </div>
     </section>
@@ -53,8 +73,13 @@
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight shell"><span class="gp">$ </span>git clone https://github.com/CocoaPods/Rainforest.git
-<span class="gp">$ </span><span class="nb">cd </span>Rainforest
+    <article class="content col-md-11 col-md-offset-1"><pre><code>  plugin 'cocoapods-binary'
+  use_frameworks!
+
+  target "HP" do
+-      pod "ExpectoPatronum"
++      pod "ExpectoPatronum", :binary =&gt; true
+  end
 </code></pre>    </article>
     </div>
     </section>
@@ -65,157 +90,20 @@
     <article class="content col-md-10 col-md-offset-1">
 
 
-<p>All of the commands in Rainforest are Rake Tasks. This is a ruby variant of Make Tasks. You can take a look at all the available tasks by running <code>rake -T</code> in the terminal.</p>
+<p>Then run <code>bundle exec pod install</code>.</p>
 
-<p>To get started downloading run:</p>
-    </article>
-    </div>
-    </section>
-  
-    <div class="code-break">
-    <section class="container">
-    <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight shell"><span class="gp">$ </span>rake bootstrap
-</code></pre>    </article>
-    </div>
-    </section>
-    </div>
-  
-    <section class="container ">
-    <div class="row">
-    <article class="content col-md-10 col-md-offset-1">
-
-
-<p>This will loop through all the known gems downloading them, and setting up their environments. To verify that everything is set up, run: <code>CocoaPods/bin/pod --help</code>.</p>
-
-<h3 id="working-on-cocoapods">
-<a class="header-link" href="#working-on-cocoapods">&lt;</a>Working on CocoaPods</h3>
-
-<p>If you're not sure where your changes are going to be, you may way to look at the <a href="https://guides.cocoapods.org/contributing/components">Core Components</a> to get a sense of where the change will take place.</p>
-
-<p>Once in the correct gem you should verify that all specs pass and all examples build. ( See <code>rake -T</code> for other per-gem based tasks. )</p>
-    </article>
-    </div>
-    </section>
-  
-    <div class="code-break">
-    <section class="container">
-    <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight shell"><span class="gp">$ </span>rake spec
-<span class="gp">$ </span>rake examples:build
-</code></pre>    </article>
-    </div>
-    </section>
-    </div>
-  
-    <section class="container ">
-    <div class="row">
-    <article class="content col-md-10 col-md-offset-1">
-
-
-<blockquote>
-<p>Start kicker, which will run the specs relevant to the files you update.</p>
-</blockquote>
-    </article>
-    </div>
-    </section>
-  
-    <div class="code-break">
-    <section class="container">
-    <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight shell"><span class="gp">$ </span>kicker -c
-</code></pre>    </article>
-    </div>
-    </section>
-    </div>
-  
-    <section class="container ">
-    <div class="row">
-    <article class="content col-md-10 col-md-offset-1">
-
-
-<p>Create your patch, verify all specs still pass and examples still build, and create a <a href="https://github.com/CocoaPods/CocoaPods/compare">pull request</a>.</p>
-
-<h3 id="using-latest-pod-command">
-<a class="header-link" href="#using-latest-pod-command">&lt;</a>Using latest pod command</h3>
-
-<p>If you would like to run latest pod command in terminal for you project.</p>
-
-<blockquote>
-<p>You could run it with full path, i.e.</p>
-</blockquote>
-    </article>
-    </div>
-    </section>
-  
-    <div class="code-break">
-    <section class="container">
-    <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight shell">path/to/Rainforest/CocoaPods/bin/pod install
-</code></pre>    </article>
-    </div>
-    </section>
-    </div>
-  
-    <section class="container ">
-    <div class="row">
-    <article class="content col-md-10 col-md-offset-1">
-
-
-<blockquote>
-<p>For convenience you could add the next alias to you .zshrc or .bashrc or similar:</p>
-</blockquote>
-    </article>
-    </div>
-    </section>
-  
-    <div class="code-break">
-    <section class="container">
-    <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight shell"><span class="nb">alias </span>pod-dev<span class="o">=</span><span class="s1">'path/to/Rainforest/CocoaPods/bin/pod'</span>
-</code></pre>    </article>
-    </div>
-    </section>
-    </div>
-  
-    <section class="container ">
-    <div class="row">
-    <article class="content col-md-10 col-md-offset-1">
-
-
-<p>Other advanced aliases:</p>
-
-<blockquote>
-<p>If you want to autoload <a href="https://github.com/pry/pry">Pry</a> and the <a href="https://github.com/michaeldv/awesome_print">Awesome Print</a> gems set the <code>COCOA_PODS_ENV</code> environment variable to <code>development</code>. This can be done with an alias like:</p>
-</blockquote>
-    </article>
-    </div>
-    </section>
-  
-    <div class="code-break">
-    <section class="container">
-    <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight shell"><span class="nb">alias </span>pod-dev<span class="o">=</span><span class="s1">'COCOA_PODS_ENV=development path/to/Rainforest/CocoaPods/bin/pod'</span>
-</code></pre>    </article>
-    </div>
-    </section>
-    </div>
-  
-    <section class="container ">
-    <div class="row">
-    <article class="content col-md-10 col-md-offset-1">
-
+<p>To find out more, check out <a href="https://github.com/leavez/cocoapods-binary"><code>leavez/cocoapods-binary</code></a>.</p>
 </article>
 </div></section>
 </div>
-<div class="info-row"><section class="container"><div class="row"><article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><a data-container="body" data-content="CocoaPods is an open source project. Help us improve these guides by sending a pull request. ❤" data-original-title="" data-placement="top" data-toggle="popover" data-trigger="hover" href="https://github.com/CocoaPods/guides.cocoapods.org/blob/master/source/contributing/dev-environment.html.md" id="pull-request" title=""></a><ul class="breadcrumb">
+<div class="info-row"><section class="container"><div class="row"><article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><a data-container="body" data-content="CocoaPods is an open source project. Help us improve these guides by sending a pull request. ❤" data-original-title="" data-placement="top" data-toggle="popover" data-trigger="hover" href="https://github.com/CocoaPods/guides.cocoapods.org/blob/master/source/plugins/pre-compiling-dependencies.html.md" id="pull-request" title=""></a><ul class="breadcrumb">
 <li>
 <a href="../index.html">Home</a><span class="divider"></span>
 </li>
 <li>
-<a href="index.html">Contributing</a><span class="divider"></span>
+<a href="index.html">Plugins</a><span class="divider"></span>
 </li>
-<li class="active">Setting up for Development</li>
+<li class="active">Pre-compiling dependencies</li>
 </ul></article></div></section></div>
 <section class="site_navigation container"><div class="row">
 <div class="col-lg-3 col-sm-3 col-xs-6 footer-index">
@@ -243,23 +131,23 @@
 </div>
 <div class="clearfix visible-xs"></div>
 <div class="col-lg-3 col-sm-3 col-xs-6 footer-index">
-<h3><a href="../plugins/index.html">Plugins</a></h3>
+<h3><a href="index.html">Plugins</a></h3>
 <ul>
-<li><a href="../plugins/setting-up-plugins.html">How to use CocoaPods plugins</a></li>
-<li><a href="../plugins/environment-vars.html">Keeping Secrets</a></li>
-<li><a href="../plugins/optimising-ci-times.html">Optimise CI</a></li>
-<li><a href="../plugins/pre-compiling-dependencies.html">Pre-compiling dependencies</a></li>
-<li><a href="../plugins/using-pods-for-closed-source-libs.html">Packaging Closed Source SDKs</a></li>
+<li><a href="setting-up-plugins.html">How to use CocoaPods plugins</a></li>
+<li><a href="environment-vars.html">Keeping Secrets</a></li>
+<li><a href="optimising-ci-times.html">Optimise CI</a></li>
+<li><a href="pre-compiling-dependencies.html">Pre-compiling dependencies</a></li>
+<li><a href="using-pods-for-closed-source-libs.html">Packaging Closed Source SDKs</a></li>
 </ul>
 </div>
 <div class="col-lg-3 col-sm-3 col-xs-6 footer-index">
-<h3><a href="index.html">Contributing</a></h3>
+<h3><a href="../contributing/index.html">Contributing</a></h3>
 <ul>
-<li><a href="contribute-to-cocoapods.html">How to Contribute</a></li>
-<li><a href="components.html">Core Components</a></li>
-<li><a href="dev-environment.html">Setting up for Development</a></li>
-<li><a href="release-process.html">Release Process</a></li>
-<li><a href="tickets-handling.html">Ticket handling</a></li>
+<li><a href="../contributing/contribute-to-cocoapods.html">How to Contribute</a></li>
+<li><a href="../contributing/components.html">Core Components</a></li>
+<li><a href="../contributing/dev-environment.html">Setting up for Development</a></li>
+<li><a href="../contributing/release-process.html">Release Process</a></li>
+<li><a href="../contributing/tickets-handling.html">Ticket handling</a></li>
 </ul>
 </div>
 <div class="clearfix visible-xs"></div>
