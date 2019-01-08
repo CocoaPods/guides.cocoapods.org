@@ -65,9 +65,20 @@ markdown:
 
 </div></div>
 
+css:
+  .quarter-or-xs-half {
+    width: 25%;
+  }
+
+  @media (max-width: 767px){
+    .quarter-or-xs-half {
+      width: 50%;
+    }
+  }
+
 div style="padding: 20px; flex-wrap: wrap; display: flex;"
   - plugins.each do |plugin|
-    div style='width: 25%; padding: 20px;' 
+    div.quarter-or-xs-half style='padding: 20px;' 
     
       h4
         a href=plugin["url"] = plugin["name"]
