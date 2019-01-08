@@ -2,8 +2,6 @@
 title: Using a Gemfile
 description: Find out how you can use a Gemfile to version your ruby dependencies
 order: 6
-ignore: true
-
 ---
 
 ## RubyGems + Bundler

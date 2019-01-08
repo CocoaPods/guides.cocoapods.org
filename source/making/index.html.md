@@ -1,5 +1,5 @@
 ---
-title: Making CocoaPods
+title: Build with CocoaPods
 layout: index
 
 footer: yes

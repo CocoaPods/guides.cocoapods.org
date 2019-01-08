@@ -98,12 +98,13 @@ html
             - if footer_resources.index(resource) % 2 == 1
               div.clearfix.visible-xs
 
-          .col-lg-3.col-sm-3.col-xs-6.footer-index
+          .clearfix
+          .col-xs-12.footer-index
             h3  <a href='/reference.html'>Reference</a>
             ul
-              li <a href='/syntax/podfile.html'>Podfile Syntax</a>
-              li <a href='/syntax/podspec.html'>Podspec Syntax</a>
-              li <a href='/terminal/commands.html'>Command-line Reference</a>
+              li.col-lg-3.col-sm-3.col-xs-6 <a href='/syntax/podfile.html'>Podfile Syntax</a>
+              li.col-lg-3.col-sm-3.col-xs-6 <a href='/syntax/podspec.html'>Podspec Syntax</a>
+              li.col-lg-3.col-sm-3.col-xs-6 <a href='/terminal/commands.html'>Command-line Reference</a>
 
     == shared_partial "footer"
 
