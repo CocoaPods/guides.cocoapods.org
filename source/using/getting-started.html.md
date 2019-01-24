@@ -1,6 +1,6 @@
 ---
 title: Getting Started
-description: This is a guide for setting up CocoaPods and working with your first project.
+description: This is a guide for setting up CocoaPods.
 order: 0
 external links:
 -
@@ -93,3 +93,7 @@ Later on, when you're actively using CocoaPods by installing pods, you will be n
 #### Using a CocoaPods Fork
 
 There are two ways to do this, [using a Gemfile](/using/a-gemfile.html) (recommended) or using a [development build](/using/unreleased-features) that are in discussion or in implementation stage.
+
+### Using CocoaPods
+
+Head over to [Using CocoaPods](/using/using-cocoapods.html) for details on the usage of CocoaPods.
