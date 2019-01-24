@@ -20,6 +20,7 @@ This isn't covered in this guide, but instead in [Using a Gemfile](/using/a-gemf
 
 The technique to run a branch version of CocoaPods is:
 
+* Install `Bundler` if not already installed (installation instructions can be found at [bundler.io](https://bundler.io/))
 * Clone a copy of CocoaPods locally.
 * Check out the version to the branch you want.
 * Run `bundle install` to get CocoaPods set up.
