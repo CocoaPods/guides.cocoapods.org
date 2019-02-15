@@ -59,10 +59,7 @@ The latter is in our opinion the best solution. To do this, create or edit the
 export GEM_HOME=$HOME/.gem
 export PATH=$GEM_HOME/bin:$PATH
 ```
-Please note that if you install sudo-less, you might have to replace the `pod` part of a command with this (Replace Your_Username with your actual username):
-```
-/Users/Your_Username/.gem/ruby/2.3.0/bin/pod
-```
+
 Note that if you choose to use the `--user-install` option, you will still have
 to configure your `.profile` file to set the `PATH` or use the command prepended by
 the full path. You can find out where a gem is installed with `gem which
@@ -73,6 +70,10 @@ $ gem install cocoapods --user-install
 $ gem which cocoapods
 /Users/eloy/.gem/ruby/2.0.0/gems/cocoapods-0.29.0/lib/cocoapods.rb
 $ /Users/eloy/.gem/ruby/2.0.0/bin/pod install
+```
+Please note that if you install sudo-less, and do not configure your `.profile`, you will have to replace the `pod` part of a command with this (Replace "Your_Username" with your actual username):
+```
+/Users/Your_Username/.gem/ruby/2.3.0/bin/pod
 ```
 
 ### Updating CocoaPods
