@@ -52,7 +52,7 @@ If you encounter any problems during installation, please visit [this](https://g
 If you do *not* want to grant RubyGems admin privileges for this process, you can
 tell RubyGems to install into your user directory by passing either the
 `--user-install` flag to `gem install` or by configuring the RubyGems environment.
-The latter is in our opinion the best solution. To do this open up terminal and type `nano .bash_profile`. Then enter these lines into the file:
+The latter is in our opinion the best solution. To do this open up terminal and create or edit your `.bash_profile` with your preferred editor. Then enter these lines into the file:
 
 ```shell
 export GEM_HOME=$HOME/.gem
