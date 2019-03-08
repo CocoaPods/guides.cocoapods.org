@@ -88,6 +88,7 @@ module Pod
 
             'Repos' => [
               "pod repo add",
+              "pod repo add-cdn",
               "pod repo update",
               "pod repo lint",
               "pod repo list",
