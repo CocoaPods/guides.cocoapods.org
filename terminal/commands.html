@@ -351,6 +351,8 @@ template, is specified, it will be used in place of the default one.</p>
 </td></tr><tr><td><p><b>--platforms=ios,macos</b></p></td><td><p>Lint against specific platforms(defaults to all platforms supported by the podspec).Multiple platforms must be comma-delimited.</p>
 </td></tr><tr><td><p><b>--private</b></p></td><td><p>Lint skips checks that apply only to public specs.</p>
 </td></tr><tr><td><p><b>--swift-version=VERSION</b></p></td><td><p>The SWIFT_VERSION that should be used to lint the spec. This takes precedence over the Swift versions specified by the spec or a <code>.swift-version</code> file..</p>
+</td></tr><tr><td><p><b>--include-podspecs=**/*.podspec</b></p></td><td><p>Additional ancillary podspecs which are used for linting via :path..</p>
+</td></tr><tr><td><p><b>--external-podspecs=**/*.podspec</b></p></td><td><p>Additional ancillary podspecs which are used for linting via :podspec. If there are --include-podspecs, then these are removed from them..</p>
 </td></tr><tr><td><p><b>--skip-import-validation</b></p></td><td><p>Lint skips validating that the pod can be imported.</p>
 </td></tr><tr><td><p><b>--skip-tests</b></p></td><td><p>Lint skips building and running tests during validation.</p>
 </td></tr></table><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
