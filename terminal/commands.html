@@ -36,7 +36,7 @@ Pod resources.</p>
 * <code>31</code> Spec not found (i.e out-of-date source repos, mistyped Pod name etc...)</p>
 </p><h3>Options:</h3><table class="inherited_options"><tr><td><p><b>--repo-update</b></p></td><td><p>Force running <code>pod repo update</code> before install.</p>
 </td></tr><tr><td><p><b>--deployment</b></p></td><td><p>Disallow any changes to the Podfile or the Podfile.lock during installation.</p>
-</td></tr><tr><td><p><b>--clean-install</b></p></td><td><p>Ignore the contents of the project cache and force a full pod installation. This only applies to projects that have enabled incremental installation..</p>
+</td></tr><tr><td><p><b>--clean-install</b></p></td><td><p>Ignore the contents of the project cache and force a full pod installation. This only applies to projects that have enabled incremental installation.</p>
 </td></tr><tr><td><p><b>--project-directory=/project/dir/</b></p></td><td><p>The path to the root of the project directory.</p>
 </td></tr></table><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
 </td></tr><tr><td><p><b>--version</b></p></td><td><p>Show the version of the tool.</p>
@@ -48,9 +48,9 @@ space-delimited list of pod names. If no <code>POD_NAMES</code> are specified, i
 updates all the Pods, ignoring the contents of the Podfile.lock. This
 command is reserved for the update of dependencies; pod install should
 be used to install changes to the Podfile.</p>
-</p><h3>Options:</h3><table class="inherited_options"><tr><td><p><b>--sources=https://github.com/artsy/Specs,master</b></p></td><td><p>The sources from which to update dependent pods. Multiple sources must be comma-delimited. The master repo will not be included by default with this option..</p>
-</td></tr><tr><td><p><b>--exclude-pods=podName</b></p></td><td><p>Pods to exclude during update. Multiple pods must be comma-delimited..</p>
-</td></tr><tr><td><p><b>--clean-install</b></p></td><td><p>Ignore the contents of the project cache and force a full pod installation. This only applies to projects that have enabled incremental installation..</p>
+</p><h3>Options:</h3><table class="inherited_options"><tr><td><p><b>--sources=https://cdn.cocoapods.org/</b></p></td><td><p>The sources from which to update dependent pods. Multiple sources must be comma-delimited.</p>
+</td></tr><tr><td><p><b>--exclude-pods=podName</b></p></td><td><p>Pods to exclude during update. Multiple pods must be comma-delimited.</p>
+</td></tr><tr><td><p><b>--clean-install</b></p></td><td><p>Ignore the contents of the project cache and force a full pod installation. This only applies to projects that have enabled incremental installation.</p>
 </td></tr><tr><td><p><b>--project-directory=/project/dir/</b></p></td><td><p>The path to the root of the project directory.</p>
 </td></tr><tr><td><p><b>--no-repo-update</b></p></td><td><p>Skip running <code>pod repo update</code> before install.</p>
 </td></tr></table><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
@@ -138,12 +138,13 @@ the argument is omitted, it defaults to the current working dir.</p>
 </td></tr><tr><td><p><b>--fail-fast</b></p></td><td><p>Lint stops on the first failing platform or subspec.</p>
 </td></tr><tr><td><p><b>--use-libraries</b></p></td><td><p>Lint uses static libraries to install the spec.</p>
 </td></tr><tr><td><p><b>--use-modular-headers</b></p></td><td><p>Lint uses modular headers during installation.</p>
-</td></tr><tr><td><p><b>--sources=https://github.com/artsy/Specs,master</b></p></td><td><p>The sources from which to pull dependent pods (defaults to <a href="https://github.com/CocoaPods/Specs.git">https://github.com/CocoaPods/Specs.git</a>). Multiple sources must be comma-delimited..</p>
-</td></tr><tr><td><p><b>--platforms=ios,macos</b></p></td><td><p>Lint against specific platforms(defaults to all platforms supported by the podspec).Multiple platforms must be comma-delimited.</p>
+</td></tr><tr><td><p><b>--sources=https://cdn.cocoapods.org/</b></p></td><td><p>The sources from which to pull dependent pods (defaults to <a href="https://cdn.cocoapods.org/">https://cdn.cocoapods.org/</a>). Multiple sources must be comma-delimited.</p>
+</td></tr><tr><td><p><b>--platforms=ios,macos</b></p></td><td><p>Lint against specific platforms (defaults to all platforms supported by the podspec). Multiple platforms must be comma-delimited.</p>
 </td></tr><tr><td><p><b>--private</b></p></td><td><p>Lint skips checks that apply only to public specs.</p>
-</td></tr><tr><td><p><b>--swift-version=VERSION</b></p></td><td><p>The SWIFT_VERSION that should be used to lint the spec. This takes precedence over the Swift versions specified by the spec or a <code>.swift-version</code> file..</p>
+</td></tr><tr><td><p><b>--swift-version=VERSION</b></p></td><td><p>The <code>SWIFT_VERSION</code> that should be used to lint the spec. This takes precedence over the Swift versions specified by the spec or a <code>.swift-version</code> file.</p>
 </td></tr><tr><td><p><b>--skip-import-validation</b></p></td><td><p>Lint skips validating that the pod can be imported.</p>
 </td></tr><tr><td><p><b>--skip-tests</b></p></td><td><p>Lint skips building and running tests during validation.</p>
+</td></tr><tr><td><p><b>--analyze</b></p></td><td><p>Validate with the Xcode Static Analysis tool.</p>
 </td></tr></table><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
@@ -306,24 +307,20 @@ version directory, and finally it pushes <code>REPO</code> to its remote.</p>
 </p><h3>Options:</h3><table class="inherited_options"><tr><td><p><b>--allow-warnings</b></p></td><td><p>Allows pushing even if there are warnings.</p>
 </td></tr><tr><td><p><b>--use-libraries</b></p></td><td><p>Linter uses static libraries to install the spec.</p>
 </td></tr><tr><td><p><b>--use-modular-headers</b></p></td><td><p>Lint uses modular headers during installation.</p>
-</td></tr><tr><td><p><b>--sources=https://github.com/artsy/Specs,master</b></p></td><td><p>The sources from which to pull dependent pods (defaults to all available repos). Multiple sources must be comma-delimited..</p>
+</td></tr><tr><td><p><b>--sources=https://cdn.cocoapods.org/</b></p></td><td><p>The sources from which to pull dependent pods (defaults to all available repos). Multiple sources must be comma-delimited.</p>
 </td></tr><tr><td><p><b>--local-only</b></p></td><td><p>Does not perform the step of pushing REPO to its remote.</p>
 </td></tr><tr><td><p><b>--no-private</b></p></td><td><p>Lint includes checks that apply only to public repos.</p>
 </td></tr><tr><td><p><b>--skip-import-validation</b></p></td><td><p>Lint skips validating that the pod can be imported.</p>
 </td></tr><tr><td><p><b>--skip-tests</b></p></td><td><p>Lint skips building and running tests during validation.</p>
-</td></tr><tr><td><p><b>--commit-message="Fix bug in pod"</b></p></td><td><p>Add custom commit message. Opens default editor if no commit message is specified..</p>
-</td></tr><tr><td><p><b>--use-json</b></p></td><td><p>Push JSON spec to repo.</p>
-</td></tr><tr><td><p><b>--swift-version=VERSION</b></p></td><td><p>The SWIFT_VERSION that should be used when linting the spec. This takes precedence over the Swift versions specified by the spec or a <code>.swift-version</code> file..</p>
-</td></tr><tr><td><p><b>--no-overwrite</b></p></td><td><p>Disallow pushing that would overwrite an existing spec..</p>
+</td></tr><tr><td><p><b>--commit-message="Fix bug in pod"</b></p></td><td><p>Add custom commit message. Opens default editor if no commit message is specified.</p>
+</td></tr><tr><td><p><b>--use-json</b></p></td><td><p>Convert the podspec to JSON before pushing it to the repo.</p>
+</td></tr><tr><td><p><b>--swift-version=VERSION</b></p></td><td><p>The <code>SWIFT_VERSION</code> that should be used when linting the spec. This takes precedence over the Swift versions specified by the spec or a <code>.swift-version</code> file.</p>
+</td></tr><tr><td><p><b>--no-overwrite</b></p></td><td><p>Disallow pushing that would overwrite an existing spec.</p>
 </td></tr></table><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
 </td></tr><tr><td><p><b>--help</b></p></td><td><p>Show help banner of specified command.</p>
-</td></tr></table></div><div class="tab-pane" id="tab_pod_setup"><h2>pod setup</h2><br /><pre>pod setup </pre><p><p>Creates a directory at <code>/home/travis/.cocoapods/repos</code> which will hold your spec-repos.
-This is where it will create a clone of the public <code>master</code> spec-repo from:</p>
-<div class="highlight"><pre><span class="ss">https</span><span class="p">:</span><span class="sr">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="no">CocoaPods</span><span class="o">/</span><span class="no">Specs</span>
-</pre></div>
-<p>If the clone already exists, it will ensure that it is up-to-date.</p>
+</td></tr></table></div><div class="tab-pane" id="tab_pod_setup"><h2>pod setup</h2><br /><pre>pod setup </pre><p><p>Setup the CocoaPods environment</p>
 </p><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
 </td></tr><tr><td><p><b>--version</b></p></td><td><p>Show the version of the tool.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
@@ -347,14 +344,15 @@ template, is specified, it will be used in place of the default one.</p>
 </td></tr><tr><td><p><b>--fail-fast</b></p></td><td><p>Lint stops on the first failing platform or subspec.</p>
 </td></tr><tr><td><p><b>--use-libraries</b></p></td><td><p>Lint uses static libraries to install the spec.</p>
 </td></tr><tr><td><p><b>--use-modular-headers</b></p></td><td><p>Lint uses modular headers during installation.</p>
-</td></tr><tr><td><p><b>--sources=https://github.com/artsy/Specs,master</b></p></td><td><p>The sources from which to pull dependent pods (defaults to <a href="https://github.com/CocoaPods/Specs.git">https://github.com/CocoaPods/Specs.git</a>). Multiple sources must be comma-delimited..</p>
-</td></tr><tr><td><p><b>--platforms=ios,macos</b></p></td><td><p>Lint against specific platforms(defaults to all platforms supported by the podspec).Multiple platforms must be comma-delimited.</p>
+</td></tr><tr><td><p><b>--sources=https://cdn.cocoapods.org/</b></p></td><td><p>The sources from which to pull dependent pods (defaults to <a href="https://cdn.cocoapods.org/">https://cdn.cocoapods.org/</a>). Multiple sources must be comma-delimited.</p>
+</td></tr><tr><td><p><b>--platforms=ios,macos</b></p></td><td><p>Lint against specific platforms (defaults to all platforms supported by the podspec). Multiple platforms must be comma-delimited.</p>
 </td></tr><tr><td><p><b>--private</b></p></td><td><p>Lint skips checks that apply only to public specs.</p>
-</td></tr><tr><td><p><b>--swift-version=VERSION</b></p></td><td><p>The SWIFT_VERSION that should be used to lint the spec. This takes precedence over the Swift versions specified by the spec or a <code>.swift-version</code> file..</p>
-</td></tr><tr><td><p><b>--include-podspecs=**/*.podspec</b></p></td><td><p>Additional ancillary podspecs which are used for linting via :path..</p>
-</td></tr><tr><td><p><b>--external-podspecs=**/*.podspec</b></p></td><td><p>Additional ancillary podspecs which are used for linting via :podspec. If there are --include-podspecs, then these are removed from them..</p>
+</td></tr><tr><td><p><b>--swift-version=VERSION</b></p></td><td><p>The <code>SWIFT_VERSION</code> that should be used to lint the spec. This takes precedence over the Swift versions specified by the spec or a <code>.swift-version</code> file.</p>
+</td></tr><tr><td><p><b>--include-podspecs=**/*.podspec</b></p></td><td><p>Additional ancillary podspecs which are used for linting via :path.</p>
+</td></tr><tr><td><p><b>--external-podspecs=**/*.podspec</b></p></td><td><p>Additional ancillary podspecs which are used for linting via :podspec. If there are --include-podspecs, then these are removed from them.</p>
 </td></tr><tr><td><p><b>--skip-import-validation</b></p></td><td><p>Lint skips validating that the pod can be imported.</p>
 </td></tr><tr><td><p><b>--skip-tests</b></p></td><td><p>Lint skips building and running tests during validation.</p>
+</td></tr><tr><td><p><b>--analyze</b></p></td><td><p>Validate with the Xcode Static Analysis tool.</p>
 </td></tr></table><h3>Inherited options:</h3><table class="inherited_options"><tr><td><p><b>--silent</b></p></td><td><p>Show nothing.</p>
 </td></tr><tr><td><p><b>--verbose</b></p></td><td><p>Show more debugging information.</p>
 </td></tr><tr><td><p><b>--no-ansi</b></p></td><td><p>Show output without ANSI codes.</p>
