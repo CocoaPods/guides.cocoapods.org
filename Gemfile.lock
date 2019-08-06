@@ -81,6 +81,7 @@ GEM
       sass (>= 3.3.0, < 3.5)
     compass-import-once (1.0.5)
       sass (>= 3.2, < 3.5)
+    concurrent-ruby (1.1.5)
     dotenv (0.11.1)
       dotenv-deployment (~> 0.0.2)
     dotenv-deployment (0.0.2)
@@ -223,6 +224,7 @@ PLATFORMS
 DEPENDENCIES
   activesupport
   cocoapods (> 0.a)
+  concurrent-ruby
   foreman
   github-markup
   middleman

@@ -21,6 +21,8 @@ gem 'pygments.rb', '~> 0.6.0'
 gem 'github-markup'
 gem 'nokogiri'
 
+gem 'concurrent-ruby'
+
 gem 'cocoapods', '> 0.a'
 
 group :development do
