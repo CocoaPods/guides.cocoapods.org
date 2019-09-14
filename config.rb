@@ -58,8 +58,8 @@ end
 
 navigation_data = {
   'dsl' => [
-    { :name => "podfile", :title => "Podfile Syntax Reference <span>v#{Pod::VERSION}</span>" },
-    { :name => "podspec", :title => "Podspec Syntax Reference <span>v#{Pod::VERSION}</span>" },
+    { :name => "podfile", :title => "Podfile Syntax Reference" },
+    { :name => "podspec", :title => "Podspec Syntax Reference" },
   ],
 }
 
@@ -71,7 +71,7 @@ navigation_data['dsl'].each do |dsl|
   name = dsl[:name]
   title = dsl[:title]
   proxy "syntax/#{name}.html", "templates/dsl.html", {
-    :locals => { :name => name, :page_title => title, :fullwidth => true },
+    :locals => { :name => name, :page_browser_title => title, :page_title => title + " <span>v#{Pod::VERSION}</span>", :fullwidth => true },
     :ignore => true,
   }
 end
