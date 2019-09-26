@@ -20,6 +20,9 @@ module NavigationHelpers
     title.to_s.gsub('cocoapods', 'CocoaPods')
   end
 
+  def page_browser_title
+    nil
+  end
 
   #-----------------------------------------------------------------------------#
 
