@@ -23,7 +23,7 @@ gem 'nokogiri'
 
 gem 'concurrent-ruby'
 
-gem 'cocoapods', '1.8.3'
+gem 'cocoapods', '~> 1.0'
 
 group :development do
   gem 'foreman'
