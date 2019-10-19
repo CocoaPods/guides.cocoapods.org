@@ -80,7 +80,7 @@ $ git init --bare
 > Using the URL of your repo on your server, add your repo using
 
 ```shell
-$ pod repo add artsy-specs git@github:artsy/Specs.git
+$ pod repo add artsy-specs https://github.com/artsy/Specs.git
 ```
 
 > Check your installation is successful and ready to go:
