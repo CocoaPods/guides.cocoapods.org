@@ -56,12 +56,12 @@ dependencies or for using un-released versions of CocoaPods.</p>
 <h3 id="rubygems">
 <a class="header-link" href="#rubygems">&lt;</a>RubyGems</h3>
 
-<p>RubyGems is a hosted ruby library service. It centralizes where you look for a library, and installing ruby libraries / apps. 
+<p>RubyGems is a hosted ruby library service. It centralizes where you look for a library, and installing ruby libraries / apps.
 You'll have seen <code>gem install xxx</code>. These are installed into a central database of versions. If you imagine that CocoaPods
 installs all libraries/frameworks into a System folder and they are linked at runtime, then you have the rough idea
 of how RubyGems keeps all the gems.</p>
 
-<p>The downside of this is that there is no way to ensure that a project needing a specific version of a library can use that, 
+<p>The downside of this is that there is no way to ensure that a project needing a specific version of a library can use that,
 it would always use the latest version. So as a developer, you would be cautious installing a new version of a library
 because it would be used in every library / app. This is the problem bundler solves.</p>
 
@@ -69,7 +69,7 @@ because it would be used in every library / app. This is the problem bundler sol
 <a class="header-link" href="#bundler">&lt;</a>Bundler</h3>
 
 <p>Bundler creates a consistent application environment for your application, by allowing you to specify the version of libraries.
-We took this idea almost whole-sale for CocoaPods. You define a Gemfile that says what libraries you want to include, and can 
+We took this idea almost whole-sale for CocoaPods. You define a Gemfile that says what libraries you want to include, and can
 optionally specify a version or range. You run <code>bundle install</code> and it will generate a Gemfile.lock saying the exact version of
 all of your libraries and then anyone else running <code>bundle install</code> with that project gets the exact same versions.</p>
 
@@ -81,7 +81,7 @@ dependencies. Here is an <a href="https://github.com/artsy/eigen/blob/2d9bfb8fba
     </article>
     </div>
     </section>
-  
+
     <div class="code-break">
     <section class="container">
     <div class="row">
@@ -98,13 +98,13 @@ dependencies. Here is an <a href="https://github.com/artsy/eigen/blob/2d9bfb8fba
     </div>
     </section>
     </div>
-  
+
     <section class="container ">
     <div class="row">
     <article class="content col-md-10 col-md-offset-1">
 
 
-<p>All Gemfiles must include a source for their Gems, other than that you use the more or less the same syntax. 
+<p>All Gemfiles must include a source for their Gems, other than that you use the more or less the same syntax.
 This generates a <a href="https://github.com/artsy/eigen/blob/2d9bfb8fba58e6ec0f2f3a18da7fbf45aaef6ba8/Gemfile.lock">Gemfile.lock</a> which in this case locks CocoaPods to version
 <a href="https://github.com/artsy/eigen/blob/2d9bfb8fba58e6ec0f2f3a18da7fbf45aaef6ba8/Gemfile.lock#L31">0.36.3</a>.</p>
 
@@ -124,12 +124,12 @@ could potentially be the exact same version, but it can often not. If you are in
 <a class="header-link" href="#using-master-cocoapods">&lt;</a>Using master CocoaPods</h3>
 
 <p>Often in-between releases you may be interested in using a Gemfile to work with an unreleased version of CocoaPods. Due to the size of the project
-we try to release slowly when we're sure it won't break projects. Like with CocoaPods you can easily use master, or forks of your ruby project. Here is 
+we try to release slowly when we're sure it won't break projects. Like with CocoaPods you can easily use master, or forks of your ruby project. Here is
 an <a href="https://github.com/artsy/eidolon/blob/3b1d28d9178a5790db3842c43513196e422ee0fb/Gemfile">example of a Gemfile</a> using CocoaPods master.</p>
     </article>
     </div>
     </section>
-  
+
     <div class="code-break">
     <section class="container">
     <div class="row">
@@ -148,7 +148,7 @@ an <a href="https://github.com/artsy/eidolon/blob/3b1d28d9178a5790db3842c4351319
     </div>
     </section>
     </div>
-  
+
     <section class="container ">
     <div class="row">
     <article class="content col-md-10 col-md-offset-1">
@@ -193,6 +193,16 @@ an <a href="https://github.com/artsy/eidolon/blob/3b1d28d9178a5790db3842c4351319
 </div>
 <div class="clearfix visible-xs"></div>
 <div class="col-lg-3 col-sm-3 col-xs-6 footer-index">
+<h3><a href="../plugins/index.html">Plugins</a></h3>
+<ul>
+<li><a href="../plugins/setting-up-plugins.html">How to use CocoaPods plugins</a></li>
+<li><a href="../plugins/environment-vars.html">Keeping Secrets</a></li>
+<li><a href="../plugins/optimising-ci-times.html">Optimise CI</a></li>
+<li><a href="../plugins/pre-compiling-dependencies.html">Pre-compiling dependencies</a></li>
+<li><a href="../plugins/using-pods-for-closed-source-libs.html">Packaging Closed Source SDKs</a></li>
+</ul>
+</div>
+<div class="col-lg-3 col-sm-3 col-xs-6 footer-index">
 <h3><a href="../contributing/index.html">Contributing</a></h3>
 <ul>
 <li><a href="../contributing/contribute-to-cocoapods.html">How to Contribute</a></li>
@@ -200,16 +210,6 @@ an <a href="https://github.com/artsy/eidolon/blob/3b1d28d9178a5790db3842c4351319
 <li><a href="../contributing/dev-environment.html">Setting up for Development</a></li>
 <li><a href="../contributing/release-process.html">Release Process</a></li>
 <li><a href="../contributing/tickets-handling.html">Ticket handling</a></li>
-</ul>
-</div>
-<div class="col-lg-3 col-sm-3 col-xs-6 footer-index">
-<h3><a href="../plugins/index.html">Plugins</a></h3>
-<ul>
-<li><a href="../plugins/setting-up-plugins.html">How to use CocoaPods plugins</a></li>
-<li><a href="../plugins/environment-vars.html">Keeping Secrets</a></li>
-<li><a href="../plugins/pre-compiling-dependencies.html">Pre-compiling dependencies</a></li>
-<li><a href="../plugins/optimising-ci-times.html">Optimise CI</a></li>
-<li><a href="../plugins/using-pods-for-closed-source-libs.html">Packaging Closed Source SDKs</a></li>
 </ul>
 </div>
 <div class="clearfix visible-xs"></div>
