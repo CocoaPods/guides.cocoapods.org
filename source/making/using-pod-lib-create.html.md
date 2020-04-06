@@ -76,7 +76,7 @@ $ tree MyLib -L 2
   │   └── Tests
   ├── LICENSE
   ├── MyLib.podspec
-  ├── Pod
+  ├── MyLib
   │   ├── Assets
   │   └── Classes
   │     └── RemoveMe.[swift/m]
@@ -94,7 +94,7 @@ We've tried to keep the amount in the root folder minimised, You will see the fo
 
 and the following folders:
 
-* `Pod` - This is where you place your library's classes
+* `MyLib` - This is where you place your library's classes
 * `Example` - This is the generated Demo & Testing bundle
 
 ## Putting your Library Together
@@ -117,7 +117,7 @@ It's worth mentioning here, as this catches people quite often, a Swift library 
 
 Development Pods are different from normal CocoaPods in that they are symlinked files, so making edits to them will change the original files, so you can work on your library from inside Xcode. Your demo & tests will need to include references to headers using the `#import <MyLib/XYZ.h>` format.
 
-> `[!] Note:` Due to a Development Pods implementation detail, when you add new/existing files to `Pod/Classes` or `Pod/Assets` or update your podspec, you should run `pod install` or `pod update`.
+> `[!] Note:` Due to a Development Pods implementation detail, when you add new/existing files to `MyLib/Classes` or `MyLib/Assets` or update your podspec, you should run `pod install` or `pod update`.
 
 ## Adding Travis CI
 
