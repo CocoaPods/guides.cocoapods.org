@@ -117,13 +117,14 @@ In addition to the logic operators CocoaPods has an optimistic operator `~>`:
 
 * `'~> 0.1.2'` Version 0.1.2 and the versions up to 0.2, not including 0.2 and higher
 * `'~> 0.1'` Version 0.1 and the versions up to 1.0, not including 1.0 and higher
-* `'~> 0'` Version 0 and higher, this is basically the same as not having it.
+* `'~> 0'` Version 0 and the versions up to 1.0, not including 1.0 and higher
 
 For more information, regarding versioning policy, see:
 
 * [Semantic Versioning](http://semver.org)
 * [RubyGems Versioning Policies](http://guides.rubygems.org/patterns/#semantic-versioning)
 * There's a great video from Google about how this works: ["CocoaPods and the Case of the Squiggly Arrow (Route 85)"](https://www.youtube.com/watch?v=x4ARXyovvPc).
+    * Note that the information about `~> 1` in the video is incorrect.
 
 ## Using the files from a folder local to the machine.
 
