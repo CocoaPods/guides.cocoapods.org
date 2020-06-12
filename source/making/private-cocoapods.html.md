@@ -17,7 +17,7 @@ To work with your collection of private pods, we suggest creating your own Spec 
 
 **You do not need to fork the CocoaPods/Specs Master repo.** Make sure that everyone on your team has access to this repo, but it does not need to be public.
 
-###2. Add your Private Repo to your CocoaPods installation
+###2. Add your Private Spec Repo to your CocoaPods installation
 ```shell
 $ pod repo add REPO_NAME SOURCE_URL
 ```
@@ -30,7 +30,7 @@ $ cd ~/.cocoapods/repos/REPO_NAME
 $ pod repo lint .
 ```
 
-###3. Add your Podspec to your repo
+###3. Add your Pod's Podspec to your repo
 
 > Make sure you've tagged and versioned your source appropriately, then run:
 
