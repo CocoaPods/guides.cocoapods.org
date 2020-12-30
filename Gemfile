@@ -23,6 +23,8 @@ gem 'nokogiri'
 
 gem 'concurrent-ruby'
 
+gem 'therubyracer'
+
 gem 'cocoapods', '1.10.0'
 
 group :development do
