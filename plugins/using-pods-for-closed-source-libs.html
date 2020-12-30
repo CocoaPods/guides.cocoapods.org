@@ -46,20 +46,20 @@
 <article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h2 id="the-problem">
 <a class="header-link" href="#the-problem">&lt;</a>The Problem</h2>
 
-<p>You need to write an SDK that is closed source, but you'd like to use dependencies. Due to the limitations of the 
-process runtime, you can only have one version of a dependency in an app. If your closed-source SDK happens to include 
+<p>You need to write an SDK that is closed source, but you'd like to use dependencies. Due to the limitations of the
+process runtime, you can only have one version of a dependency in an app. If your closed-source SDK happens to include
 the same dependencies as another then your SDK consumers are not going to have a good time.</p>
 
 <h2 id="the-answer">
 <a class="header-link" href="#the-answer">&lt;</a>The answer</h2>
 
 <p>CocoaPods Packager is a <code>pod</code> command that takes a Podspec and generates the resulting framework or static library for
-you. It has techniques for embedding it's dependencies safely and uses a Podspec as the source of truth for all your 
+you. It has techniques for embedding it's dependencies safely and uses a Podspec as the source of truth for all your
 settings.</p>
     </article>
     </div>
     </section>
-  
+
     <div class="code-break">
     <section class="container">
     <div class="row">
@@ -68,7 +68,7 @@ settings.</p>
     </div>
     </section>
     </div>
-  
+
     <section class="container ">
     <div class="row">
     <article class="content col-md-10 col-md-offset-1">
@@ -113,6 +113,16 @@ settings.</p>
 </div>
 <div class="clearfix visible-xs"></div>
 <div class="col-lg-3 col-sm-3 col-xs-6 footer-index">
+<h3><a href="index.html">Plugins</a></h3>
+<ul>
+<li><a href="setting-up-plugins.html">How to use CocoaPods plugins</a></li>
+<li><a href="environment-vars.html">Keeping Secrets</a></li>
+<li><a href="optimising-ci-times.html">Optimise CI</a></li>
+<li><a href="pre-compiling-dependencies.html">Pre-compiling dependencies</a></li>
+<li><a href="using-pods-for-closed-source-libs.html">Packaging Closed Source SDKs</a></li>
+</ul>
+</div>
+<div class="col-lg-3 col-sm-3 col-xs-6 footer-index">
 <h3><a href="../contributing/index.html">Contributing</a></h3>
 <ul>
 <li><a href="../contributing/contribute-to-cocoapods.html">How to Contribute</a></li>
@@ -120,16 +130,6 @@ settings.</p>
 <li><a href="../contributing/dev-environment.html">Setting up for Development</a></li>
 <li><a href="../contributing/release-process.html">Release Process</a></li>
 <li><a href="../contributing/tickets-handling.html">Ticket handling</a></li>
-</ul>
-</div>
-<div class="col-lg-3 col-sm-3 col-xs-6 footer-index">
-<h3><a href="index.html">Plugins</a></h3>
-<ul>
-<li><a href="setting-up-plugins.html">How to use CocoaPods plugins</a></li>
-<li><a href="environment-vars.html">Keeping Secrets</a></li>
-<li><a href="pre-compiling-dependencies.html">Pre-compiling dependencies</a></li>
-<li><a href="optimising-ci-times.html">Optimise CI</a></li>
-<li><a href="using-pods-for-closed-source-libs.html">Packaging Closed Source SDKs</a></li>
 </ul>
 </div>
 <div class="clearfix visible-xs"></div>
