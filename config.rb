@@ -24,7 +24,8 @@ set :markdown, :tables => true, :autolink => true, :gh_blockcode => true, :fence
 set :markdown_engine, :redcarpet
 
 activate :automatic_image_sizes
-activate :rouge_syntax
+activate :syntax
+activate :sprockets
 
 activate :breaking_source
 activate :add_links_to_navigation
@@ -41,7 +42,7 @@ helpers do
 
   def shared_partial(*sources)
     sources.inject([]) do |combined, source|
-      combined << partial("../shared/includes/#{source}",:locals => { :guides => true })
+      combined << partial(File.expand_path("shared/includes/#{source}", __dir__),:locals => { :guides => true })
     end.join
   end
 
@@ -63,8 +64,6 @@ navigation_data = {
   ],
 }
 
-content_for :dsl_data do navigation_data * '<br>' end
-
 # Dynamic pages for documentation, Pod, command line
 
 navigation_data['dsl'].each do |dsl|
@@ -81,4 +80,4 @@ proxy "terminal/commands.html", "templates/commands.html", {
   :ignore => true,
 }
 
-data.store("site", "guides")
+data.store(:site, ["guides"])

@@ -1,9 +1,9 @@
 language: ruby
 branches:
   only:
-  - master
+    - master
 rvm:
-- 2.3.0
+  - 2.6.1
 before_install:
   # There is a bug in travis. When using system ruby, bundler is not
   # installed and causes the default install action to fail.
@@ -11,11 +11,11 @@ before_install:
   # RubyGems 2.0.14 isn't a fun time on 2.0.0p648
   - if [ "$TRAVIS_RUBY_VERSION" = "system" ]; then sudo gem update --system; fi
 install:
-- git config --global user.email "bots@cocoapods.org"
-- git config --global user.name "CocoaPods Bot"
-- gem install bundler
-- bundle install
-- rake bootstrap
+  - git config --global user.email "bots@cocoapods.org"
+  - git config --global user.name "CocoaPods Bot"
+  - gem install bundler
+  - bundle install
+  - rake bootstrap
 script:
-- git remote set-url origin "https://${GH_TOKEN}@github.com/CocoaPods/guides.cocoapods.org.git"
-- bundle exec rake deploy
+  - git remote set-url origin "https://${GH_TOKEN}@github.com/CocoaPods/guides.cocoapods.org.git"
+  - bundle exec rake deploy
