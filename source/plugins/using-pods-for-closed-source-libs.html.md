@@ -13,7 +13,7 @@ the same dependencies as another then your SDK consumers are not going to have a
 ## The answer
 
 CocoaPods Packager is a `pod` command that takes a Podspec and generates the resulting framework or static library for
-you. It has techniques for embedding it's dependencies safely and uses a Podspec as the source of truth for all your 
+you. It has techniques for embedding its dependencies safely and uses a Podspec as the source of truth for all your 
 settings.
 
 
