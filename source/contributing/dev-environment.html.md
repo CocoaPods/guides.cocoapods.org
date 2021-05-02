@@ -37,7 +37,7 @@ alias pod-dev='path/to/CocoaPods/CocoaPods/bin/pod'
 
 Other advanced aliases:
 
-> If you want to autoload [Pry](https://github.com/pry/pry) and the [Awesome Print](https://github.com/michaeldv/awesome_print) gems set the ```COCOA_PODS_ENV``` environment variable to ```development```. This can be done with an alias like:
+> If you want to autoload [Pry](https://github.com/pry/pry) and the [Awesome Print](https://github.com/awesome-print/awesome_print) gems set the ```COCOA_PODS_ENV``` environment variable to ```development```. This can be done with an alias like:
 
 ```shell
 alias pod-dev='COCOA_PODS_ENV=development path/to/CocoaPods/CocoaPods/bin/pod'
