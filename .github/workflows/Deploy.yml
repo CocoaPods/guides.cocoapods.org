@@ -23,10 +23,18 @@ jobs:
       - name: Update git submodules
         run: git submodule update --init
 
+      - name: Configure git
+        run: |
+          git config --global user.email "bots@cocoapods.org"
+          git config --global user.name "CocoaPods Bot"
+
       - name: Run bundle install
         run: |
           bundle config path vendor/bundle
           bundle install --jobs 4 --retry 3 --without debugging documentation
+
+      - name: Run rake bootstrap
+        run: rake bootstrap
 
       - name: Deploy
         run: |
