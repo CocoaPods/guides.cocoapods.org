@@ -14,7 +14,6 @@ set :relative_links, true
 set :strip_index_file,  false
 
 configure :build do
-  activate :sprockets
   activate :minify_javascript
   activate :minify_css
   activate :relative_assets
@@ -25,6 +24,7 @@ set :markdown_engine, :redcarpet
 
 activate :automatic_image_sizes
 activate :syntax
+activate :sprockets
 
 activate :breaking_source
 activate :add_links_to_navigation
