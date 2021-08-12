@@ -40,7 +40,7 @@ gems. (This is only an issue for the duration of the gem installation, though.)
 ```shell
 $ sudo gem install cocoapods
 ```
-Using the default xcode instillation, provided it is version 4.2 or higher, gcc will not be found, and it will fail to build. 
+Using the default Xcode installation, provided it is version 4.2 or higher, `gcc` will not be found, and it will fail to build. 
 If you encounter this or any other problems during installation, please visit [this](https://guides.cocoapods.org/using/troubleshooting#installing-cocoapods) guide.
 
 ### Sudo-less installation
