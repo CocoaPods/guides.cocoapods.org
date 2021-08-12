@@ -24,7 +24,8 @@ set :markdown, :tables => true, :autolink => true, :gh_blockcode => true, :fence
 set :markdown_engine, :redcarpet
 
 activate :automatic_image_sizes
-activate :rouge_syntax
+activate :syntax
+activate :sprockets
 
 activate :breaking_source
 activate :add_links_to_navigation
@@ -41,7 +42,10 @@ helpers do
 
   def shared_partial(*sources)
     sources.inject([]) do |combined, source|
-      combined << partial("../shared/includes/#{source}",:locals => { :guides => true })
+      # Partials in Middleman 4 are always loaded within the 'source' folder. We have now added a symlink
+      # of shared resourecs into it that points to the git submodule at the root of this repo.
+      # See: https://middlemanapp.com/basics/upgrade-v4/
+      combined << partial("shared/includes/#{source}",:locals => { :guides => true })
     end.join
   end
 
@@ -49,11 +53,11 @@ end
 
 # Allow shared assets folder to not be in source, thereby not dragging in every asset
 after_configuration do
-  sprockets.append_path "../shared/img"
-  sprockets.append_path "../shared/js"
-  sprockets.append_path "../shared/fonts"
-  sprockets.append_path "../shared/includes"
-  sprockets.append_path "../shared/sass"
+  sprockets.append_path "shared/img"
+  sprockets.append_path "shared/js"
+  sprockets.append_path "shared/fonts"
+  sprockets.append_path "shared/includes"
+  sprockets.append_path "shared/sass"
 end
 
 navigation_data = {
@@ -62,8 +66,6 @@ navigation_data = {
     { :name => "podspec", :title => "Podspec Syntax Reference" },
   ],
 }
-
-content_for :dsl_data do navigation_data * '<br>' end
 
 # Dynamic pages for documentation, Pod, command line
 
@@ -81,4 +83,4 @@ proxy "terminal/commands.html", "templates/commands.html", {
   :ignore => true,
 }
 
-data.store("site", "guides")
+data.store(:site, ["guides"])
