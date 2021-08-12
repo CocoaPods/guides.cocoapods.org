@@ -25,7 +25,6 @@ set :markdown_engine, :redcarpet
 
 activate :automatic_image_sizes
 activate :syntax
-activate :sprockets
 
 activate :breaking_source
 activate :add_links_to_navigation
