@@ -29,7 +29,7 @@ gem 'concurrent-ruby'
 
 gem 'therubyracer'
 
-gem 'cocoapods', '1.11.0.beta.2'
+gem 'cocoapods', '1.11.0.rc.1'
 
 group :development do
   gem 'foreman'
