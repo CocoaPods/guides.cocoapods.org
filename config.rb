@@ -72,13 +72,13 @@ navigation_data['dsl'].each do |dsl|
   name = dsl[:name]
   title = dsl[:title]
   proxy "syntax/#{name}.html", "templates/dsl.html", {
-    :locals => { :name => name, :page_browser_title => title, :page_title => title + " <span>v#{Pod::VERSION}</span>", :fullwidth => true },
+    :locals => { :name => name, :guides_page_browser_title => title, :guides_page_title => title + " <span>v#{Pod::VERSION}</span>", :fullwidth => true },
     :ignore => true,
   }
 end
 
 proxy "terminal/commands.html", "templates/commands.html", {
-  :locals => { :name => 'commands', :page_title => "Command-line Reference", :fullwidth => true },
+  :locals => { :name => 'commands', :guides_page_title => "Command-line Reference", :fullwidth => true },
   :ignore => true,
 }
 

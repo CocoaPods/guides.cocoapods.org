@@ -14,6 +14,8 @@ module NavigationHelpers
 
     title = resource.metadata[:page][:page_title]
     title ||= resource.metadata[:page]['title']
+    title ||= resource.metadata[:page][:title]
+    title ||= resource.metadata[:locals][:guides_page_title]
     title ||= resource.metadata[:locals][:code_object].name if resource.metadata[:locals][:code_object]
     title ||= resource.metadata[:locals][:name]
     title ||= File.basename(resource.path, ".html").to_s.humanize
