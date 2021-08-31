@@ -100,7 +100,7 @@ In Xcode, with references directly from the [ruby source](https://github.com/Coc
 
 1. Creates or updates a [workspace](https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/installer/user_project_integrator.rb#L82).
 2. [Adds your project to the workspace](https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/installer/user_project_integrator.rb#L88-L94) if needed.
-3. Adds the [CocoaPods static library project to the workspace](https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/installer/target_installer.rb#L40-L61) if needed.
+3. Adds the [CocoaPods static library project to the workspace](https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/installer/xcode/pods_project_generator/target_installer.rb#L54-L71) if needed.
 4. Adds libPods.a to: [targets => build phases => link with libraries](https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/installer.rb#L385-L393).
 5. Adds the CocoaPods [Xcode configuration file](https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/installer/user_project_integrator/target_integrator.rb#L112) to your app’s project.
 6. Changes your app's [target configurations](https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/generator/xcconfig/aggregate_xcconfig.rb#L46-L73) to be based on CocoaPods's.
