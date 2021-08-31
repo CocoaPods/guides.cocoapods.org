@@ -1,6 +1,6 @@
-[submodule "shared"]
-	path = shared
-	url = https://github.com/CocoaPods/shared_resources.git
 [submodule "external/cocoadocs-api"]
 	path = external/cocoadocs-api
 	url = https://github.com/CocoaPods/cocoadocs-api.git
+[submodule "shared"]
+	path = shared
+	url = https://github.com/CocoaPods/shared_resources.git

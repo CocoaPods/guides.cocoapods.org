@@ -1,0 +1,40 @@
+meta charset="utf-8"
+meta name="keywords" content="cocoapods objective-c objc swift package manager libraries documentation search pods podspec podfile cocoa apple ios library"
+meta http-equiv="X-UA-Compatible" content="IE=edge"
+meta name="viewport" content="width=device-width, initial-scale=1.0"
+
+- if @pod
+  meta name="description" content=@pod.summary
+  meta name="author" content=@pod.or_contributors_to_spec
+  meta name="twitter:card" content="summary_large_image"
+  meta name="twitter:site" content="@CocoaPods"
+  - if @pod.or_has_twitter_url?
+    meta name="twitter:creator" content="@#{@pod.or_twitter_handle}"
+  - else
+    meta name="twitter:creator" content="@CocoaPods"
+
+  meta name="twitter:title" content=@pod.name
+  meta name="twitter:description" content=@pod.or_summary_plaintext
+  meta name="twitter:url" content=@pod.or_cocoapods_url
+  meta name="twitter:image:src" content=@pod.or_thumbnail_image
+
+  meta property="og:site_name" content="CocoaPods"
+  meta property="og:title" content=@pod.name
+  meta property="og:url" content=@pod.or_cocoapods_url
+  meta property="og:type" content="website"
+  meta property="og:description" content=@pod.or_summary_plaintext
+  meta property="og:image" content=@pod.or_thumbnail_image
+
+- else
+  - if @page_description 
+    meta name="description" content="The Dependency Manager for iOS & Mac projects"
+  - else
+    meta name="description" content="The Dependency Manager for iOS & Mac projects"
+    
+  meta name="author" content="CocoaPods Dev Team"
+  meta name="twitter:card" content="summary"
+  meta name="twitter:site" content="@CocoaPods"
+  meta name="twitter:creator" content="@CocoaPods"
+  meta name="twitter:title" content="CocoaPods.org"
+  meta name="twitter:description" content="The Dependency Manager for iOS & Mac projects."
+  meta name="twitter:url" content="https://www.cocoapods.org/"

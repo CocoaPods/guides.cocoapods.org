@@ -1,0 +1,124 @@
+@import "shared/sass/vars";
+
+.intro {
+  margin-top:60px;
+}
+
+.alert {
+  background-color: $search-background-color;
+  padding:0;
+  
+  p {
+    color: black;
+    text-align:center;
+    margin:0
+  }
+}
+
+ul.underscore {
+  margin-bottom: -1px;
+  border-bottom: 1px black solid;
+  width:120%;
+  margin-left:-10%;
+  
+  
+  > li {
+    width:33.3%;
+    margin:0;
+    
+    &.active a, &.active:hover a {
+      background-color: $content-background-color;
+      border:none;
+      color: black;
+    }
+    
+    a {
+      text-align:center;
+      margin:0;
+      border:none;
+      text-transform:uppercase;
+      color: darkgrey;
+      font-size:1.5em;
+      
+      &:hover {
+        background-color: $content-background-color;
+        border:none;
+        color: black;
+      };
+    }
+  }
+}
+
+@media (max-width:768px){
+  ul.underscore {
+    width:100%;
+    margin-left:0%;
+  }
+}
+
+#search_container {
+  background-color:white;
+  .row {
+    padding: 0;
+  }
+}
+
+.homepage_container {
+
+  h3.underlined {
+    text-align:center;
+    text-transform:uppercase;
+    font-weight:normal;
+    margin-bottom:0.7em;
+  }
+}
+
+
+@mixin arrow-down($size, $color) {
+  border-left: $size solid transparent;
+  border-right: $size solid transparent;
+  border-top: $size solid $color;
+
+  height: 0;
+  margin: 0 auto;
+  width: 0;
+}
+
+.index-enclosed-arrow-down {
+  @include arrow-down(14px, $content-background-color);
+  margin-top:-15px;
+}
+
+.index-arrow-down {
+  @include arrow-down(15px, black);
+}
+
+.index-horizontal-divider {
+  background-color: black;
+  display: block;
+  height: 1px;
+  width: 20%;
+}
+
+.header-horizontal-divider {
+  background-color: black;
+  display: block;
+  height: 1px;
+  width: 40%;
+  margin: 0 auto 48px;
+}
+
+@media (max-width:768px) {
+  .index-horizontal-divider{
+    width: 33%;
+  }
+}
+
+#homepage-tab-indicator {
+  -webkit-transition: margin-left 0.3s ease-in-out;
+  -moz-transition:    margin-left 0.3s ease-in-out;
+  -o-transition:      margin-left 0.3s ease-in-out;
+  transition:         margin-left 0.3s ease-in-out;
+  
+  margin-bottom: 60px;
+}

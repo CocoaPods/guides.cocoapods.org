@@ -1,0 +1,26 @@
+ruby:
+  @next = self[:page]["next"]
+  @previous = self[:page]["previous"]
+  @config = self[:site].config
+  
+section id="post-info" class="container"
+  .row
+    article class="content .col-6 col-sm-6 col-md-4 col-md-offset-2 next "
+  
+      - if @previous
+        a href="#{ @previous.url }" title="#{ @previous.title }"
+          header
+            h4 Previous Post
+          h3 = @previous.title
+          p = "By " + @config["authors"][@previous.data["author"]]["name"]
+          a.chevron_placeholder.back href=@previous.url
+        
+    article class="content col-6 col-sm-6 col-md-4 previous"  
+  
+     - if @next
+        a href="#{ @next.url }" title="#{ @next.title }"
+          header
+            h4 Next Post
+          h3 = @next.title
+          p = "By " + @config["authors"][@next.data["author"]]["name"]
+          a.chevron_placeholder.next href=@next.url
