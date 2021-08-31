@@ -1,0 +1,9 @@
+<h1 id="shared_resources">shared_resources</h1>
+
+<p>A repository of common resource files used for CocoaPods related development</p>
+
+<h3 id="license">License</h3>
+
+<p>Design files, such as images and logos, are copyright of <a href="http://andy-myers.co.uk">Andy Myers</a> and the CocoaPods Dev team. They are released under <a href="http://creativecommons.org/licenses/by-nc/4.0/deed.en_US">Creative Commons - Attribution-NonCommercial 4.0 International</a>.</p>
+
+<p>The rest of this repository and CocoaPods are available under the MIT license.</p>

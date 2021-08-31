@@ -25,8 +25,8 @@
 <meta content="CocoaPods.org" name="twitter:title">
 <meta content="The Dependency Manager for iOS &amp; Mac projects." name="twitter:description">
 <meta content="https://www.cocoapods.org/" name="twitter:url">
-<link href="../stylesheets/app.css" rel="stylesheet" type="text/css">
-<script src="../javascripts/application.js" type="text/javascript"></script><meta content="CocoaPods Guides" name="twitter:title">
+<link href="../stylesheets/app.css" rel="stylesheet">
+<script src="../javascripts/application.js"></script><meta content="CocoaPods Guides" name="twitter:title">
 <meta content="The official documentation site for the CocoaPods dependency manager." name="twitter:description">
 <meta content="CocoaPods Guides" property="og:site_name">
 <meta content="CocoaPods Guides" property="og:title">
@@ -37,13 +37,10 @@
 <button class="navbar-toggle" data-target=".navbar-header-collapse" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span><span class="glyphicon glyphicon-plus"></span></button><a class="navbar-brand" href="https://cocoapods.org"></a>
 </div>
 <div class="collapse navbar-collapse navbar-header-collapse"><ul class="nav navbar-nav navbar-right">
-<li><a href="https://cocoapods.org/app">App</a></li>
 <li><a href="https://cocoapods.org/about">About</a></li>
 <li class="active"><a href="https://guides.cocoapods.org">Guides</a></li>
 <li><a href="https://blog.cocoapods.org">Blog</a></li>
-</ul></div></section></nav><section class="container"><div class="row"><header class="header content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h1>Using CocoaPods</h1></header></div></section><div class="guide" id="content-wrapper">
-<section class="container"><div class="row">
-<article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h2 id="adding-pods-to-an-xcode-project">
+</ul></div></section></nav><section class="container"><div class="row"><header class="header content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h1>Using CocoaPods</h1></header></div></section><div class="guide" id="content-wrapper"><section class="container"><div class="row"><article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h2 id="adding-pods-to-an-xcode-project">
 <a class="header-link" href="#adding-pods-to-an-xcode-project">&lt;</a>Adding Pods to an Xcode project</h2>
 
 <h4 id="before-you-begin">Before you begin</h4>
@@ -60,14 +57,14 @@
 <ul>
 <li>Create a <a href="the-podfile.html">Podfile</a>, and add your dependencies:</li>
 </ul>
-    </article>
+<div class="highlight">    
     </div>
-    </section>
+    
 
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">target</span> <span class="s1">'MyApp'</span> <span class="k">do</span>
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><code><span class="n">target</span> <span class="s1">'MyApp'</span> <span class="k">do</span>
   <span class="n">pod</span> <span class="s1">'AFNetworking'</span><span class="p">,</span> <span class="s1">'~&gt; 3.0'</span>
   <span class="n">pod</span> <span class="s1">'FBSDKCoreKit'</span><span class="p">,</span> <span class="s1">'~&gt; 4.9'</span>
 <span class="k">end</span>
@@ -79,8 +76,8 @@
     <section class="container ">
     <div class="row">
     <article class="content col-md-10 col-md-offset-1">
-
-
+</article>
+</div>
 <ul>
 <li>Run <code>$ pod install</code> in your project directory.</li>
 <li>Open <code>App.xcworkspace</code> and build.</li>
@@ -97,14 +94,14 @@
 <li>Create a Podfile. This can be done by running <code>$ pod init</code>.</li>
 <li>Open your Podfile. The first line should specify the platform and version supported.</li>
 </ul>
-    </article>
+<div class="highlight">    
     </div>
     </section>
 
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">platform</span> <span class="p">:</span><span class="n">ios</span><span class="p">,</span> <span class="s1">'9.0'</span>
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><code><span class="n">platform</span> <span class="ss">:ios</span><span class="p">,</span> <span class="s1">'9.0'</span>
 </code></pre>    </article>
     </div>
     </section>
@@ -113,20 +110,20 @@
     <section class="container ">
     <div class="row">
     <article class="content col-md-10 col-md-offset-1">
-
-
+</article>
+</div>
 <ul>
 <li>In order to use CocoaPods you need to define the Xcode target to link them to. So for example if you are writing an iOS app, it would be the name of your app. Create a target section by writing <code>target '$TARGET_NAME' do</code> and an <code>end</code> a few lines after.</li>
 <li>Add a CocoaPod by specifying <code>pod '$PODNAME'</code> on a single line inside your target block.</li>
 </ul>
-    </article>
+<div class="highlight">    
     </div>
     </section>
 
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">target</span> <span class="s1">'MyApp'</span> <span class="k">do</span>
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><code><span class="n">target</span> <span class="s1">'MyApp'</span> <span class="k">do</span>
   <span class="n">pod</span> <span class="s1">'ObjectiveSugar'</span>
 <span class="k">end</span>
 </code></pre>    </article>
@@ -137,8 +134,8 @@
     <section class="container ">
     <div class="row">
     <article class="content col-md-10 col-md-offset-1">
-
-
+</article>
+</div>
 <ul>
 <li>Save your Podfile.</li>
 <li>Run <code>$ pod install</code>
@@ -150,14 +147,14 @@
 <a class="header-link" href="#integration-with-an-existing-workspace">&lt;</a>Integration with an existing workspace</h3>
 
 <p>Integrating CocoaPods with an existing workspace requires one extra line in your Podfile. Simply specify the <code>.xcworkspace</code> filename in outside your target blocks like so:</p>
-    </article>
+<div class="highlight">    
     </div>
     </section>
 
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">workspace</span> <span class="s1">'MyWorkspace'</span>
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><code><span class="n">workspace</span> <span class="s1">'MyWorkspace'</span>
 </code></pre>    </article>
     </div>
     </section>
@@ -166,8 +163,8 @@
     <section class="container ">
     <div class="row">
     <article class="content col-md-10 col-md-offset-1">
-
-
+</article>
+</div>
 <h2 id="when-to-use-pod-install-vs-pod-update">
 <a class="header-link" href="#when-to-use-pod-install-vs-pod-update">&lt;</a>When to use <code>pod install</code> vs <code>pod update</code>?</h2>
 
@@ -204,14 +201,14 @@
 <a class="header-link" href="#what-is-podfilelock">&lt;</a>What is <code>Podfile.lock</code>?</h2>
 
 <p>This file is generated after the first run of <code>pod install</code>, and tracks the version of each Pod that was installed. For example, imagine the following dependency specified in the Podfile:</p>
-    </article>
+<div class="highlight">    
     </div>
     </section>
 
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="n">pod</span> <span class="s1">'RestKit'</span>
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><code><span class="n">pod</span> <span class="s1">'RestKit'</span>
 </code></pre>    </article>
     </div>
     </section>
@@ -220,8 +217,8 @@
     <section class="container ">
     <div class="row">
     <article class="content col-md-10 col-md-offset-1">
-
-
+</article>
+</div>
 <p>Running <code>pod install</code> will install the current version of RestKit, causing a <code>Podfile.lock</code> to be generated that indicates the exact version installed (e.g. <code>RestKit 0.10.3</code>). Thanks to the <code>Podfile.lock</code>, running <code>pod install</code> on this hypothetical project at a later point in time on a different machine will still install RestKit 0.10.3 even if a newer version is available. CocoaPods will honour the Pod version in <code>Podfile.lock</code> unless the dependency is updated in the Podfile or <code>pod update</code> is called (which will cause a new <code>Podfile.lock</code> to be generated). In this way CocoaPods avoids headaches caused by unexpected changes to dependencies.</p>
 
 <p>There's a great video from Google about how this works: <a href="https://www.youtube.com/watch?v=H-zK1mEwTe0">"CocoaPods and Lockfiles (Route 85)"</a>.</p>
@@ -235,7 +232,7 @@
 <li>Creates or updates a <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/installer/user_project_integrator.rb#L82">workspace</a>.</li>
 <li>
 <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/installer/user_project_integrator.rb#L88-L94">Adds your project to the workspace</a> if needed.</li>
-<li>Adds the <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/installer/target_installer.rb#L40-L61">CocoaPods static library project to the workspace</a> if needed.</li>
+<li>Adds the <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/installer/xcode/pods_project_generator/target_installer.rb#L54-L71">CocoaPods static library project to the workspace</a> if needed.</li>
 <li>Adds libPods.a to: <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/installer.rb#L385-L393">targets =&gt; build phases =&gt; link with libraries</a>.</li>
 <li>Adds the CocoaPods <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/installer/user_project_integrator/target_integrator.rb#L112">Xcode configuration file</a> to your app’s project.</li>
 <li>Changes your app's <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/generator/xcconfig/aggregate_xcconfig.rb#L46-L73">target configurations</a> to be based on CocoaPods's.</li>
@@ -273,9 +270,7 @@
 <li>Run <code>pod install</code>
 </li>
 </ol>
-</article>
-</div></section>
-</div>
+</section></article></div></section></div>
 <div class="info-row"><section class="container"><div class="row"><article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><a data-container="body" data-content="CocoaPods is an open source project. Help us improve these guides by sending a pull request. ❤" data-original-title="" data-placement="top" data-toggle="popover" data-trigger="hover" href="https://github.com/CocoaPods/guides.cocoapods.org/blob/master/source/using/using-cocoapods.html.md" id="pull-request" title=""></a><ul class="breadcrumb">
 <li>
 <a href="../index.html">Home</a><span class="divider"></span>
@@ -305,6 +300,7 @@
 <li><a href="../making/making-a-cocoapod.html">Making a CocoaPod</a></li>
 <li><a href="../making/using-pod-lib-create.html">Using Pod Lib Create</a></li>
 <li><a href="../making/getting-setup-with-trunk.html">Getting setup with Trunk</a></li>
+<li><a href="../making/development-cocoapods.html">Development Pods</a></li>
 <li><a href="../making/private-cocoapods.html">Private Pods</a></li>
 <li><a href="../making/specs-and-specs-repo.html">Specs and the Specs Repo</a></li>
 </ul>
@@ -342,9 +338,9 @@
 </ul>
 </div>
 </div></section><footer class="page-footer"><section class="container"><div class="row"><article class="col-md-8 col-lg-8 col-sm-12 col-md-offset-2 col-lg-offset-2 col-xs-12"><h4>CocoaPods is a project from</h4>
-<p class="contributors"> <a href="https://twitter.com/dnkoutso">Dimitris Koutsogiorgas</a>, <a href="http://dantoml.com">Danielle Tomlinson</a>, <a href="http://orta.io">Orta Therox</a>, <a href="https://github.com/paulb777">Paul Beusterien</a>, <a href="http://segiddins.me">Samuel Giddins</a>, and <a href="https://cocoapods.org/about#team">The CocoaPods Dev Team</a> with contributions from <a href="https://github.com/CocoaPods/Specs/graphs/contributors">many, many others</a>.</p>
+<p class="contributors"> <a href="https://twitter.com/dnkoutso">Dimitris Koutsogiorgas</a>, <a href="https://dani.builds.terrible.systems/">Danielle Lancashire</a>, <a href="https://github.com/amorde">Eric Amorde</a>, <a href="https://orta.io">Orta Therox</a>, <a href="https://github.com/paulb777">Paul Beusterien</a>, <a href="https://segiddins.me">Samuel Giddins</a>, and <a href="https://cocoapods.org/about#team">The CocoaPods Dev Team</a> with contributions from <a href="https://github.com/CocoaPods/Specs/graphs/contributors">many, many others</a>.</p>
 <h4>Lovingly sponsored by</h4>
-<p class="sponsors"><a href="http://artsy.net">Artsy</a>, <a href="http://www.usebutton.com">Button</a>, <a href="http://www.capitalone.io">Capital One</a>, <a href="https://circleci.com">CircleCI</a>, <a href="http://discontinuity.eu">Discontinuity</a>, <a href="http://www.fngtps.com">Fingertips</a>, <a href="https://developers.google.com">Google</a>, <a href="https://www.heroku.com">Heroku</a>, <a href="https://realm.io">Realm</a>, <a href="http://www.rubymotion.com">RubyMotion</a>, <a href="https://www.sauspiel.de">Sauspiel</a>, <a href="https://www.slack.com">Slack</a>, <a href="https://www.soundcloud.com">SoundCloud</a>, <a href="https://www.stripe.com">Stripe</a>, <a href="https://www.squareup.com">Square</a>, and  <a href="http://www.technologyastronauts.ch">Technology Astronauts</a>.</p></article></div></section></footer><footer class="footer-links"><section class="container"><div class="row"><article class="col-md-8 col-lg-8 col-sm-12 col-md-offset-2 col-lg-offset-2 col-xs-12"><a class="cocoapods-small-logo" href="https://cocoapods.org"></a><ul>
+<p class="sponsors"><a href="http://artsy.net">Artsy</a>, <a href="http://www.usebutton.com">Button</a>, <a href="http://www.capitalone.io">Capital One</a>, <a href="https://circleci.com">CircleCI</a>, <a href="http://discontinuity.eu">Discontinuity</a>, <a href="http://www.fngtps.com">Fingertips</a>, <a href="https://developers.google.com">Google</a>, <a href="https://www.heroku.com">Heroku</a>, <a href="https://www.jsdelivr.com">jsDelivr</a>, <a href="https://realm.io">Realm</a>, <a href="https://pspdfkit.com/">PSPDFKit</a>, <a href="http://www.rubymotion.com">RubyMotion</a>, <a href="https://www.sauspiel.de">Sauspiel</a>, <a href="https://www.slack.com">Slack</a>, <a href="https://www.soundcloud.com">SoundCloud</a>, <a href="https://www.stripe.com">Stripe</a>, <a href="https://www.squareup.com">Square</a>, and  <a href="http://www.technologyastronauts.ch">Technology Astronauts</a>.</p></article></div></section></footer><footer class="footer-links"><section class="container"><div class="row"><article class="col-md-8 col-lg-8 col-sm-12 col-md-offset-2 col-lg-offset-2 col-xs-12"><a class="cocoapods-small-logo" href="https://cocoapods.org"></a><ul>
 <li class="col-md-3 col-sm-3 col-xs-6"><a href="https://guides.cocoapods.org/using/troubleshooting.html">Support</a></li>
 <li class="col-md-3 col-sm-3 col-xs-6"><a href="https://github.com/CocoaPods/CocoaPods">GitHub Repo</a></li>
 <li class="col-md-3 col-sm-3 col-xs-6"><a href="https://status.cocoapods.org">Web Properties Status</a></li>
@@ -355,7 +351,7 @@
 <li class="col-md-3 col-sm-3 col-xs-6"><a href="https://cocoapods.org/legal">Legal / Conduct</a></li>
 </ul></article></div></section></footer>
 </body>
-<script type="text/javascript">(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');

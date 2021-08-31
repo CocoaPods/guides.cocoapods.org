@@ -25,8 +25,8 @@
 <meta content="CocoaPods.org" name="twitter:title">
 <meta content="The Dependency Manager for iOS &amp; Mac projects." name="twitter:description">
 <meta content="https://www.cocoapods.org/" name="twitter:url">
-<link href="../stylesheets/app.css" rel="stylesheet" type="text/css">
-<script src="../javascripts/application.js" type="text/javascript"></script><meta content="CocoaPods Guides" name="twitter:title">
+<link href="../stylesheets/app.css" rel="stylesheet">
+<script src="../javascripts/application.js"></script><meta content="CocoaPods Guides" name="twitter:title">
 <meta content="The official documentation site for the CocoaPods dependency manager." name="twitter:description">
 <meta content="CocoaPods Guides" property="og:site_name">
 <meta content="CocoaPods Guides" property="og:title">
@@ -37,13 +37,10 @@
 <button class="navbar-toggle" data-target=".navbar-header-collapse" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span><span class="glyphicon glyphicon-plus"></span></button><a class="navbar-brand" href="https://cocoapods.org"></a>
 </div>
 <div class="collapse navbar-collapse navbar-header-collapse"><ul class="nav navbar-nav navbar-right">
-<li><a href="https://cocoapods.org/app">App</a></li>
 <li><a href="https://cocoapods.org/about">About</a></li>
 <li class="active"><a href="https://guides.cocoapods.org">Guides</a></li>
 <li><a href="https://blog.cocoapods.org">Blog</a></li>
-</ul></div></section></nav><section class="container"><div class="row"><header class="header content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h1>How to Contribute</h1></header></div></section><div class="guide" id="content-wrapper">
-<section class="container"><div class="row">
-<article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h2 id="the-development-workflow">
+</ul></div></section></nav><section class="container"><div class="row"><header class="header content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h1>How to Contribute</h1></header></div></section><div class="guide" id="content-wrapper"><section class="container"><div class="row"><article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><h2 id="the-development-workflow">
 <a class="header-link" href="#the-development-workflow">&lt;</a>The Development Workflow</h2>
 
 <p>The standard development on CocoaPods happens like so:</p>
@@ -98,14 +95,14 @@
 <blockquote>
 <p>Take <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/installer.rb#L85"><code>install!</code></a> from the <code>Installer</code> class of the <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/installer.rb">CocoaPods gem</a>:</p>
 </blockquote>
-    </article>
+<div class="highlight">    
     </div>
-    </section>
+    
 
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="k">def</span> <span class="nf">install!</span>
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><code><span class="k">def</span> <span class="nf">install!</span>
   <span class="n">resolve_dependencies</span>
   <span class="n">download_dependencies</span>
   <span class="n">generate_pods_project</span>
@@ -120,8 +117,8 @@
     <section class="container ">
     <div class="row">
     <article class="content col-md-10 col-md-offset-1">
-
-
+</article>
+</div>
 <p>Almost all classes are namespaced. For example, <code>Installer</code> calls upon <code>Installer::TargetInstaller</code> and <code>Installer::PodSourceInstaller</code> to get its work done. Source files for these should reside within the named folder.</p>
 
 <p>Method and variable naming should be very explicit. For example <code>PodSourceInstaller#download_source</code> is responsible for downloading the sources. Please avoid method and variable names that are generic, i.e. <code>var</code>, <code>a</code> etc, unless used in a block.</p>
@@ -138,17 +135,17 @@
 <blockquote>
 <p>To run the full test suite:</p>
 </blockquote>
-    </article>
+<div class="highlight">    
     </div>
     </section>
 
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight shell"><span class="gp">$ </span>bundle <span class="nb">exec </span>rake
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight shell"><code><span class="nv">$ </span>bundle <span class="nb">exec </span>rake
 
 <span class="c"># Or to run a single test suite:</span>
-<span class="gp">$ </span>bundle <span class="nb">exec </span>rake spec:functional
+<span class="nv">$ </span>bundle <span class="nb">exec </span>rake spec:functional
 </code></pre>    </article>
     </div>
     </section>
@@ -157,21 +154,21 @@
     <section class="container ">
     <div class="row">
     <article class="content col-md-10 col-md-offset-1">
-
-
+</article>
+</div>
 <p>Occasionally, the fixtures used for functional tests need to be rebuilt. This is especially true when changes are made to the file structure of the Pods directory.</p>
 
 <blockquote>
 <p>To update these fixtures:</p>
 </blockquote>
-    </article>
+<div class="highlight">    
     </div>
     </section>
 
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight shell"><span class="gp">$ </span>bundle <span class="nb">exec </span>rake spec:rebuild_integration_fixtures
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight shell"><code><span class="nv">$ </span>bundle <span class="nb">exec </span>rake spec:rebuild_integration_fixtures
 </code></pre>    </article>
     </div>
     </section>
@@ -180,22 +177,22 @@
     <section class="container ">
     <div class="row">
     <article class="content col-md-10 col-md-offset-1">
-
-
+</article>
+</div>
 <h3 id="documentation">
 <a class="header-link" href="#documentation">&lt;</a>Documentation</h3>
 
 <p>All methods and attributes must be documented. As part of the release process for CocoaPods, documentation is generated from source and posted online. <a href="http://yardoc.org/">YARD</a> is used for generating this documentation.</p>
 
 <p>Documentation should be brief, but explanatory. All parameters and return values need to be explained. Notes and examples, while not required, are encouraged. Take a look at this method from the <a href="https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/project.rb#L42">Project</a> class:</p>
-    </article>
+<div class="highlight">    
     </div>
     </section>
 
     <div class="code-break">
     <section class="container">
     <div class="row">
-    <article class="content col-md-11 col-md-offset-1"><pre><code class="highlight ruby"><span class="c1"># @return [Pathname] Returns the relative path from the project root.</span>
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><code><span class="c1"># @return [Pathname] Returns the relative path from the project root.</span>
 <span class="c1">#</span>
 <span class="c1"># @param  [Pathname] path</span>
 <span class="c1">#         The path that needs to be converted to the relative format.</span>
@@ -220,10 +217,8 @@
     <section class="container ">
     <div class="row">
     <article class="content col-md-10 col-md-offset-1">
-
 </article>
-</div></section>
-</div>
+</div></section></article></div></section></div>
 <div class="info-row"><section class="container"><div class="row"><article class="content col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"><a data-container="body" data-content="CocoaPods is an open source project. Help us improve these guides by sending a pull request. ❤" data-original-title="" data-placement="top" data-toggle="popover" data-trigger="hover" href="https://github.com/CocoaPods/guides.cocoapods.org/blob/master/source/contributing/contribute-to-cocoapods.html.md" id="pull-request" title=""></a><ul class="breadcrumb">
 <li>
 <a href="../index.html">Home</a><span class="divider"></span>
@@ -253,6 +248,7 @@
 <li><a href="../making/making-a-cocoapod.html">Making a CocoaPod</a></li>
 <li><a href="../making/using-pod-lib-create.html">Using Pod Lib Create</a></li>
 <li><a href="../making/getting-setup-with-trunk.html">Getting setup with Trunk</a></li>
+<li><a href="../making/development-cocoapods.html">Development Pods</a></li>
 <li><a href="../making/private-cocoapods.html">Private Pods</a></li>
 <li><a href="../making/specs-and-specs-repo.html">Specs and the Specs Repo</a></li>
 </ul>
@@ -290,9 +286,9 @@
 </ul>
 </div>
 </div></section><footer class="page-footer"><section class="container"><div class="row"><article class="col-md-8 col-lg-8 col-sm-12 col-md-offset-2 col-lg-offset-2 col-xs-12"><h4>CocoaPods is a project from</h4>
-<p class="contributors"> <a href="https://twitter.com/dnkoutso">Dimitris Koutsogiorgas</a>, <a href="http://dantoml.com">Danielle Tomlinson</a>, <a href="http://orta.io">Orta Therox</a>, <a href="https://github.com/paulb777">Paul Beusterien</a>, <a href="http://segiddins.me">Samuel Giddins</a>, and <a href="https://cocoapods.org/about#team">The CocoaPods Dev Team</a> with contributions from <a href="https://github.com/CocoaPods/Specs/graphs/contributors">many, many others</a>.</p>
+<p class="contributors"> <a href="https://twitter.com/dnkoutso">Dimitris Koutsogiorgas</a>, <a href="https://dani.builds.terrible.systems/">Danielle Lancashire</a>, <a href="https://github.com/amorde">Eric Amorde</a>, <a href="https://orta.io">Orta Therox</a>, <a href="https://github.com/paulb777">Paul Beusterien</a>, <a href="https://segiddins.me">Samuel Giddins</a>, and <a href="https://cocoapods.org/about#team">The CocoaPods Dev Team</a> with contributions from <a href="https://github.com/CocoaPods/Specs/graphs/contributors">many, many others</a>.</p>
 <h4>Lovingly sponsored by</h4>
-<p class="sponsors"><a href="http://artsy.net">Artsy</a>, <a href="http://www.usebutton.com">Button</a>, <a href="http://www.capitalone.io">Capital One</a>, <a href="https://circleci.com">CircleCI</a>, <a href="http://discontinuity.eu">Discontinuity</a>, <a href="http://www.fngtps.com">Fingertips</a>, <a href="https://developers.google.com">Google</a>, <a href="https://www.heroku.com">Heroku</a>, <a href="https://realm.io">Realm</a>, <a href="http://www.rubymotion.com">RubyMotion</a>, <a href="https://www.sauspiel.de">Sauspiel</a>, <a href="https://www.slack.com">Slack</a>, <a href="https://www.soundcloud.com">SoundCloud</a>, <a href="https://www.stripe.com">Stripe</a>, <a href="https://www.squareup.com">Square</a>, and  <a href="http://www.technologyastronauts.ch">Technology Astronauts</a>.</p></article></div></section></footer><footer class="footer-links"><section class="container"><div class="row"><article class="col-md-8 col-lg-8 col-sm-12 col-md-offset-2 col-lg-offset-2 col-xs-12"><a class="cocoapods-small-logo" href="https://cocoapods.org"></a><ul>
+<p class="sponsors"><a href="http://artsy.net">Artsy</a>, <a href="http://www.usebutton.com">Button</a>, <a href="http://www.capitalone.io">Capital One</a>, <a href="https://circleci.com">CircleCI</a>, <a href="http://discontinuity.eu">Discontinuity</a>, <a href="http://www.fngtps.com">Fingertips</a>, <a href="https://developers.google.com">Google</a>, <a href="https://www.heroku.com">Heroku</a>, <a href="https://www.jsdelivr.com">jsDelivr</a>, <a href="https://realm.io">Realm</a>, <a href="https://pspdfkit.com/">PSPDFKit</a>, <a href="http://www.rubymotion.com">RubyMotion</a>, <a href="https://www.sauspiel.de">Sauspiel</a>, <a href="https://www.slack.com">Slack</a>, <a href="https://www.soundcloud.com">SoundCloud</a>, <a href="https://www.stripe.com">Stripe</a>, <a href="https://www.squareup.com">Square</a>, and  <a href="http://www.technologyastronauts.ch">Technology Astronauts</a>.</p></article></div></section></footer><footer class="footer-links"><section class="container"><div class="row"><article class="col-md-8 col-lg-8 col-sm-12 col-md-offset-2 col-lg-offset-2 col-xs-12"><a class="cocoapods-small-logo" href="https://cocoapods.org"></a><ul>
 <li class="col-md-3 col-sm-3 col-xs-6"><a href="https://guides.cocoapods.org/using/troubleshooting.html">Support</a></li>
 <li class="col-md-3 col-sm-3 col-xs-6"><a href="https://github.com/CocoaPods/CocoaPods">GitHub Repo</a></li>
 <li class="col-md-3 col-sm-3 col-xs-6"><a href="https://status.cocoapods.org">Web Properties Status</a></li>
@@ -303,7 +299,7 @@
 <li class="col-md-3 col-sm-3 col-xs-6"><a href="https://cocoapods.org/legal">Legal / Conduct</a></li>
 </ul></article></div></section></footer>
 </body>
-<script type="text/javascript">(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
