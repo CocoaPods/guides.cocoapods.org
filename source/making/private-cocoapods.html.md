@@ -138,7 +138,7 @@ pod repo push artsy-specs ~/Desktop/Artsy+OSSUIFonts.podspec
             └── Artsy+OSSUIFonts.podspec
 ```
 
-> See this [Podfile](https://github.com/artsy/eigen/blob/master/Podfile) for an example of how the repo URL is included
+> See this [Podfile](https://github.com/artsy/eigen/blob/eae3a631d35da68af7be2f3296235d41cce6fe1b/Podfile) for an example of how the repo URL is included
 
 ## How to remove a Private Repo
 
