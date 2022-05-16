@@ -72,7 +72,7 @@ The `Podfile.lock` will keep track of that and note that `A`,`B` and `C` are eac
 
 Later, _user1_ wants to add a pod `D` into their `Podfile`.
 
-**They should thus run `pod install`** afterwards, so that even if the maintener of pod `B` released a version `1.1.0` of their pod since the first execution of `pod install`, the project will keep using version `1.0.0` — because _user1_ only wants to add pod `D`, without risking an unexpected update to pod `B`.
+**They should thus run `pod install`** afterwards, so that even if the maintainer of pod `B` released a version `1.1.0` of their pod since the first execution of `pod install`, the project will keep using version `1.0.0` — because _user1_ only wants to add pod `D`, without risking an unexpected update to pod `B`.
 
 > _That's where some people get it wrong, because they use `pod update` here — probably thinking this as "I want to update my *project* with new pods"? — instead of using `pod install` — to install new pods in the project._
 
