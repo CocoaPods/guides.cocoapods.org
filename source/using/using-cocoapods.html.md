@@ -25,7 +25,7 @@ end
 * Run `$ pod install` in your project directory.
 * Open `App.xcworkspace` and build.
 
-###Creating a new Xcode project with CocoaPods
+### Creating a new Xcode project with CocoaPods
 
 To create a new project with CocoaPods, follow these simple steps:
 
