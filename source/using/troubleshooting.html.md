@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting
 description: The solutions to common problems.
-order: 3
+order: 4
 ---
 
 ### Installing CocoaPods

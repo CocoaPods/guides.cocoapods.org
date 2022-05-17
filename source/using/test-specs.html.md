@@ -1,7 +1,7 @@
 ---
 title: Testing with CocoaPods
 description: This is a guide for working with test specifications and CocoaPods
-order: 5
+order: 6
 ---
 
 ## Test Specifications
