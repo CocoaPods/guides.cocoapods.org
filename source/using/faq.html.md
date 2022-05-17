@@ -1,7 +1,7 @@
 ---
 title: F.A.Q
 description: Is CocoaPods ready for prime-time? Why not just use git submodules? etc. etc.
-order: 4
+order: 5
 ---
 
 ### "Will CocoaPods stop development now that Swift has a built-in package manager?"

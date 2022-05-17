@@ -1,7 +1,7 @@
 ---
 title: pod install vs. pod update
 description: Explains the difference between pod install and pod update and when to use each
-order: 1
+order: 2
 ---
 
 ## Introduction

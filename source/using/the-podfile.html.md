@@ -1,7 +1,7 @@
 ---
 title: The Podfile
 description: Learn all about the Podfile, which is used to declare dependencies for your project.
-order: 2
+order: 3
 external links:
   - "Non-trivial Podfile in Artsy/Eigen": https://github.com/artsy/eigen/blob/master/Podfile
   - "Podfile for a Swift project in Artsy/Eidolon": https://github.com/artsy/eidolon/blob/master/Podfile
