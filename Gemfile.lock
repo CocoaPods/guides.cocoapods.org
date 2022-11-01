@@ -172,7 +172,7 @@ GEM
       posix-spawn (~> 0.3.6)
       yajl-ruby (~> 1.2.0)
     racc (1.6.0)
-    rack (2.2.3)
+    rack (2.2.4)
     rack-livereload (0.3.17)
       rack
     rake (13.0.6)
