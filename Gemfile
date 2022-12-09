@@ -14,7 +14,7 @@ gem 'redcarpet', github: 'vmg/redcarpet', ref: 'cef9abbcc411d07fd1b8c80e348a80ef
 gem 'sass'
 
 gem 'slim'
-gem 'yard', '~> 0.8.6.2'
+gem 'yard', '~> 0.9.20'
 
 # We need to use 2.0.9 and not 2.0.10 because of a regression.
 # See: https://github.com/rtomayko/tilt/issues/347

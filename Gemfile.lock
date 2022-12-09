@@ -218,7 +218,7 @@ GEM
       nanaimo (~> 0.3.0)
       rexml (~> 3.2.4)
     yajl-ruby (1.2.3)
-    yard (0.8.6.2)
+    yard (0.9.20)
 
 PLATFORMS
   ruby
@@ -242,7 +242,7 @@ DEPENDENCIES
   slim
   therubyracer
   tilt (= 2.0.9)
-  yard (~> 0.8.6.2)
+  yard (~> 0.9.20)
 
 BUNDLED WITH
    2.2.8
