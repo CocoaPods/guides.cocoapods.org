@@ -20,7 +20,7 @@ gem 'yard', '~> 0.8.6.2'
 # See: https://github.com/rtomayko/tilt/issues/347
 gem 'tilt', '2.0.9'
 
-gem 'activesupport', '~> 5.0'
+gem 'activesupport', '~> 6.1'
 gem 'github-markup'
 gem 'nokogiri'
 gem 'pygments.rb', '~> 0.6.0'
