@@ -8,9 +8,11 @@ ruby:
 
   fin = Date.new(2016,3,21)
   days_left = fin.mjd - DateTime.now.mjd
-  
-  def is_active(page)
-    page ? { :class => "active" } : {}
+
+  instance_exec do
+    def is_active(page)
+      page ? { :class => "active" } : {}
+    end
   end
 
 nav.navbar.navbar-static-top role="navigation"

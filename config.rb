@@ -42,7 +42,7 @@ helpers do
   def shared_partial(*sources)
     sources.inject([]) do |combined, source|
       # Partials in Middleman 4 are always loaded within the 'source' folder. We have now added a symlink
-      # of shared resourecs into it that points to the git submodule at the root of this repo.
+      # of shared resources into it that points to the git submodule at the root of this repo.
       # See: https://middlemanapp.com/basics/upgrade-v4/
       combined << partial("shared/includes/#{source}",:locals => { :guides => true })
     end.join

@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}.git" }
 
+ruby '3.1.1'
+
 gem 'middleman', '~> 4.0'
 
 gem 'middleman-gh-pages', git: 'https://github.com/orta/middleman-gh-pages.git'
@@ -13,21 +15,26 @@ gem 'rake'
 gem 'redcarpet', github: 'vmg/redcarpet', ref: 'cef9abbcc411d07fd1b8c80e348a80efde2db323'
 gem 'sass'
 
-gem 'slim'
-gem 'yard', '~> 0.8.6.2'
+gem 'slim', '~> 4.0'
+gem 'yard'
 
-# We need to use 2.0.9 and not 2.0.10 because of a regression.
-# See: https://github.com/rtomayko/tilt/issues/347
-gem 'tilt', '2.0.9'
+gem 'tilt'
 
 gem 'activesupport', '~> 5.0'
 gem 'github-markup'
 gem 'nokogiri'
-gem 'pygments.rb', '~> 0.6.0'
+gem 'pygments.rb'
 
 gem 'concurrent-ruby'
 
-gem 'therubyracer'
+# Use mini_racer instead of therubyracer for compatibility with newer Ruby
+# https://github.com/rubyjs/therubyracer/issues/467
+gem 'mini_racer'
+
+gem 'webrick'
+
+# https://github.com/middleman/middleman-syntax/issues/80
+gem 'haml', '~> 5.0'
 
 gem 'cocoapods', '~> 1.0'
 
