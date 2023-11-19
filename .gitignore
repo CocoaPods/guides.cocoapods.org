@@ -5,3 +5,4 @@ build/
 .bundle/
 .yardoc/
 docs_data/
+.idea/
