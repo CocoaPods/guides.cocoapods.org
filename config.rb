@@ -50,13 +50,12 @@ helpers do
 
 end
 
-# Allow shared assets folder to not be in source, thereby not dragging in every asset
 after_configuration do
-  sprockets.append_path "shared/img"
-  sprockets.append_path "shared/js"
-  sprockets.append_path "shared/fonts"
-  sprockets.append_path "shared/includes"
-  sprockets.append_path "shared/sass"
+  sprockets.append_path "source/shared/img"
+  sprockets.append_path "source/shared/js"
+  sprockets.append_path "source/shared/fonts"
+  sprockets.append_path "source/shared/includes"
+  sprockets.append_path "source/shared/sass"
 end
 
 navigation_data = {
