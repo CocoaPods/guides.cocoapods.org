@@ -1,27 +1,27 @@
-<!DOCTYPE html><html><head><title>CocoaPods Guides - Podfile Syntax Reference <span>v1.11.2</span></title><link rel="shortcut icon" href="https://cocoapods.org/favicons/favicon.ico" type="image/x-icon" /><link rel="apple-touch-icon" href="https://cocoapods.org/favicons/apple-touch-icon.png" /><link rel="apple-touch-icon" sizes="57x57" href="https://cocoapods.org/favicons/apple-touch-icon-57x57.png" /><link rel="apple-touch-icon" sizes="60x60" href="https://cocoapods.org/favicons/apple-touch-icon-60x60.png" /><link rel="apple-touch-icon" sizes="72x72" href="https://cocoapods.org/favicons/apple-touch-icon-72x72.png" /><link rel="apple-touch-icon" sizes="76x76" href="https://cocoapods.org/favicons/apple-touch-icon-76x76.png" /><link rel="apple-touch-icon" sizes="114x114" href="https://cocoapods.org/favicons/apple-touch-icon-114x114.png" /><link rel="apple-touch-icon" sizes="120x120" href="https://cocoapods.org/favicons/apple-touch-icon-120x120.png" /><link rel="apple-touch-icon" sizes="144x144" href="https://cocoapods.org/favicons/apple-touch-icon-144x144.png" /><link rel="apple-touch-icon" sizes="152x152" href="https://cocoapods.org/favicons/apple-touch-icon-152x152.png" /><meta charset="utf-8" /><meta content="cocoapods objective-c objc swift package manager libraries documentation search pods podspec podfile cocoa apple ios library" name="keywords" /><meta content="IE=edge" http-equiv="X-UA-Compatible" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><meta content="The Dependency Manager for iOS & Mac projects" name="description" /><meta content="CocoaPods Dev Team" name="author" /><meta content="summary" name="twitter:card" /><meta content="@CocoaPods" name="twitter:site" /><meta content="@CocoaPods" name="twitter:creator" /><meta content="CocoaPods.org" name="twitter:title" /><meta content="The Dependency Manager for iOS & Mac projects." name="twitter:description" /><meta content="https://www.cocoapods.org/" name="twitter:url" /><link href="../stylesheets/app.css" rel="stylesheet" /><script src="../javascripts/application.js"></script><meta content="CocoaPods Guides" name="twitter:title" /><meta content="The official documentation site for the CocoaPods dependency manager." name="twitter:description" /><meta content="CocoaPods Guides" property="og:site_name" /><meta content="CocoaPods Guides" property="og:title" /><meta content="https://guides.cocoapods.org" property="og:url" /></head><body><nav class="navbar navbar-static-top" role="navigation"><section class="container"><div class="navbar-header"><button class="navbar-toggle" data-target=".navbar-header-collapse" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span><span class="glyphicon glyphicon-plus"></span></button><a class="navbar-brand" href="https://cocoapods.org"></a></div><div class="collapse navbar-collapse navbar-header-collapse"><ul class="nav navbar-nav navbar-right"><li><a href="https://cocoapods.org/about">About</a></li><li class="active"><a href="https://guides.cocoapods.org">Guides</a></li><li><a href="https://blog.cocoapods.org">Blog</a></li></ul></div></section></nav><section class="container"><div class="row"><header class="header content"><h1>Podfile Syntax Reference <span>v1.11.2</span></h1></header></div></section><div class="guide" id="content-wrapper"><section class="container"><div class="row"><article class="content"><div class="col-md-3 col-lg-3" id="tab-controller"><div class="bs-sidebar"><ul class="nav bs-sidenav"><li class="active"><a class="select-tab" data-toggle="tab" href="#tab_podfile">Podfile</a></li><li><a class='select-tab group' data-toggle='tab' href=#tab_group_root_options>Root Options</a><ul class='nav' style='display:none;'><li><a class='select-tab' data-toggle='tab' href=#tab_install_bang>install! </a></li><li><a class='select-tab' data-toggle='tab' href=#tab_ensure_bundler_bang>ensure_bundler! </a></li></ul></li><li><a class='select-tab group' data-toggle='tab' href=#tab_group_dependencies>Dependencies</a><ul class='nav' style='display:none;'><li><a class='select-tab' data-toggle='tab' href=#tab_pod>pod </a></li><li><a class='select-tab' data-toggle='tab' href=#tab_podspec>podspec </a></li><li><a class='select-tab' data-toggle='tab' href=#tab_target>target </a></li><li><a class='select-tab' data-toggle='tab' href=#tab_script_phase>script_phase </a></li><li><a class='select-tab' data-toggle='tab' href=#tab_abstract_target>abstract_target </a></li><li><a class='select-tab' data-toggle='tab' href=#tab_abstract_bang>abstract! </a></li><li><a class='select-tab' data-toggle='tab' href=#tab_inherit_bang>inherit! </a></li></ul></li><li><a class='select-tab group' data-toggle='tab' href=#tab_group_target_configuration>Target configuration</a><ul class='nav' style='display:none;'><li><a class='select-tab' data-toggle='tab' href=#tab_platform>platform </a></li><li><a class='select-tab' data-toggle='tab' href=#tab_project>project </a></li><li><a class='select-tab' data-toggle='tab' href=#tab_xcodeproj>xcodeproj </a></li><li><a class='select-tab' data-toggle='tab' href=#tab_link_with>link_with </a></li><li><a class='select-tab' data-toggle='tab' href=#tab_inhibit_all_warnings_bang>inhibit_all_warnings! </a></li><li><a class='select-tab' data-toggle='tab' href=#tab_use_modular_headers_bang>use_modular_headers! </a></li><li><a class='select-tab' data-toggle='tab' href=#tab_use_frameworks_bang>use_frameworks! </a></li><li><a class='select-tab' data-toggle='tab' href=#tab_supports_swift_versions>supports_swift_versions </a></li></ul></li><li><a class='select-tab group' data-toggle='tab' href=#tab_group_workspace>Workspace</a><ul class='nav' style='display:none;'><li><a class='select-tab' data-toggle='tab' href=#tab_workspace>workspace </a></li><li><a class='select-tab' data-toggle='tab' href=#tab_generate_bridge_support_bang>generate_bridge_support! </a></li><li><a class='select-tab' data-toggle='tab' href=#tab_set_arc_compatibility_flag_bang>set_arc_compatibility_flag! </a></li></ul></li><li><a class='select-tab group' data-toggle='tab' href=#tab_group_sources>Sources</a><ul class='nav' style='display:none;'><li><a class='select-tab' data-toggle='tab' href=#tab_source>source </a></li></ul></li><li><a class='select-tab group' data-toggle='tab' href=#tab_group_hooks>Hooks</a><ul class='nav' style='display:none;'><li><a class='select-tab' data-toggle='tab' href=#tab_plugin>plugin </a></li><li><a class='select-tab' data-toggle='tab' href=#tab_pre_install>pre_install </a></li><li><a class='select-tab' data-toggle='tab' href=#tab_pre_integrate>pre_integrate </a></li><li><a class='select-tab' data-toggle='tab' href=#tab_post_install>post_install </a></li><li><a class='select-tab' data-toggle='tab' href=#tab_post_integrate>post_integrate </a></li></ul><li><a class="select-tab" id="tab-all">&raquo; Single Page</a></li></div></div><div class="col-md-9 col-lg-9" id="content-container"><div class="tab-content" id="tab-content"><div class="tab-pane active" id="tab_podfile"><h2>Podfile</h2><p>The Podfile is a specification that describes the dependencies of the
+<!DOCTYPE html><html><head><title>CocoaPods Guides - Podfile Syntax Reference <span>v1.14.3</span></title><link rel="shortcut icon" href="https://cocoapods.org/favicons/favicon.ico" type="image/x-icon" /><link rel="apple-touch-icon" href="https://cocoapods.org/favicons/apple-touch-icon.png" /><link rel="apple-touch-icon" sizes="57x57" href="https://cocoapods.org/favicons/apple-touch-icon-57x57.png" /><link rel="apple-touch-icon" sizes="60x60" href="https://cocoapods.org/favicons/apple-touch-icon-60x60.png" /><link rel="apple-touch-icon" sizes="72x72" href="https://cocoapods.org/favicons/apple-touch-icon-72x72.png" /><link rel="apple-touch-icon" sizes="76x76" href="https://cocoapods.org/favicons/apple-touch-icon-76x76.png" /><link rel="apple-touch-icon" sizes="114x114" href="https://cocoapods.org/favicons/apple-touch-icon-114x114.png" /><link rel="apple-touch-icon" sizes="120x120" href="https://cocoapods.org/favicons/apple-touch-icon-120x120.png" /><link rel="apple-touch-icon" sizes="144x144" href="https://cocoapods.org/favicons/apple-touch-icon-144x144.png" /><link rel="apple-touch-icon" sizes="152x152" href="https://cocoapods.org/favicons/apple-touch-icon-152x152.png" /><meta charset="utf-8" /><meta content="cocoapods objective-c objc swift package manager libraries documentation search pods podspec podfile cocoa apple ios library" name="keywords" /><meta content="IE=edge" http-equiv="X-UA-Compatible" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><meta content="The Dependency Manager for iOS & Mac projects" name="description" /><meta content="CocoaPods Dev Team" name="author" /><meta content="summary" name="twitter:card" /><meta content="@CocoaPods" name="twitter:site" /><meta content="@CocoaPods" name="twitter:creator" /><meta content="CocoaPods.org" name="twitter:title" /><meta content="The Dependency Manager for iOS & Mac projects." name="twitter:description" /><meta content="https://www.cocoapods.org/" name="twitter:url" /><link href="../stylesheets/app.css" rel="stylesheet" /><script src="../javascripts/application.js"></script><meta content="CocoaPods Guides" name="twitter:title" /><meta content="The official documentation site for the CocoaPods dependency manager." name="twitter:description" /><meta content="CocoaPods Guides" property="og:site_name" /><meta content="CocoaPods Guides" property="og:title" /><meta content="https://guides.cocoapods.org" property="og:url" /></head><body><nav class="navbar navbar-static-top" role="navigation"><section class="container"><div class="navbar-header"><button class="navbar-toggle" data-target=".navbar-header-collapse" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span><span class="glyphicon glyphicon-plus"></span></button><a class="navbar-brand" href="https://cocoapods.org"></a></div><div class="collapse navbar-collapse navbar-header-collapse"><ul class="nav navbar-nav navbar-right"><li><a href="https://cocoapods.org/about">About</a></li><li class="active"><a href="https://guides.cocoapods.org">Guides</a></li><li><a href="https://blog.cocoapods.org">Blog</a></li></ul></div></section></nav><section class="container"><div class="row"><header class="header content"><h1>Podfile Syntax Reference <span>v1.14.3</span></h1></header></div></section><div class="guide" id="content-wrapper"><section class="container"><div class="row"><article class="content"><div class="col-md-3 col-lg-3" id="tab-controller"><div class="bs-sidebar"><ul class="nav bs-sidenav"><li class="active"><a class="select-tab" data-toggle="tab" href="#tab_podfile">Podfile</a></li><li><a class='select-tab group' data-toggle='tab' href=#tab_group_root_options>Root Options</a><ul class='nav' style='display:none;'><li><a class='select-tab' data-toggle='tab' href=#tab_install_bang>install! </a></li><li><a class='select-tab' data-toggle='tab' href=#tab_ensure_bundler_bang>ensure_bundler! </a></li></ul></li><li><a class='select-tab group' data-toggle='tab' href=#tab_group_dependencies>Dependencies</a><ul class='nav' style='display:none;'><li><a class='select-tab' data-toggle='tab' href=#tab_pod>pod </a></li><li><a class='select-tab' data-toggle='tab' href=#tab_podspec>podspec </a></li><li><a class='select-tab' data-toggle='tab' href=#tab_target>target </a></li><li><a class='select-tab' data-toggle='tab' href=#tab_script_phase>script_phase </a></li><li><a class='select-tab' data-toggle='tab' href=#tab_abstract_target>abstract_target </a></li><li><a class='select-tab' data-toggle='tab' href=#tab_abstract_bang>abstract! </a></li><li><a class='select-tab' data-toggle='tab' href=#tab_inherit_bang>inherit! </a></li></ul></li><li><a class='select-tab group' data-toggle='tab' href=#tab_group_target_configuration>Target configuration</a><ul class='nav' style='display:none;'><li><a class='select-tab' data-toggle='tab' href=#tab_platform>platform </a></li><li><a class='select-tab' data-toggle='tab' href=#tab_project>project </a></li><li><a class='select-tab' data-toggle='tab' href=#tab_xcodeproj>xcodeproj </a></li><li><a class='select-tab' data-toggle='tab' href=#tab_link_with>link_with </a></li><li><a class='select-tab' data-toggle='tab' href=#tab_inhibit_all_warnings_bang>inhibit_all_warnings! </a></li><li><a class='select-tab' data-toggle='tab' href=#tab_use_modular_headers_bang>use_modular_headers! </a></li><li><a class='select-tab' data-toggle='tab' href=#tab_use_frameworks_bang>use_frameworks! </a></li><li><a class='select-tab' data-toggle='tab' href=#tab_supports_swift_versions>supports_swift_versions </a></li></ul></li><li><a class='select-tab group' data-toggle='tab' href=#tab_group_workspace>Workspace</a><ul class='nav' style='display:none;'><li><a class='select-tab' data-toggle='tab' href=#tab_workspace>workspace </a></li><li><a class='select-tab' data-toggle='tab' href=#tab_generate_bridge_support_bang>generate_bridge_support! </a></li><li><a class='select-tab' data-toggle='tab' href=#tab_set_arc_compatibility_flag_bang>set_arc_compatibility_flag! </a></li></ul></li><li><a class='select-tab group' data-toggle='tab' href=#tab_group_sources>Sources</a><ul class='nav' style='display:none;'><li><a class='select-tab' data-toggle='tab' href=#tab_source>source </a></li></ul></li><li><a class='select-tab group' data-toggle='tab' href=#tab_group_hooks>Hooks</a><ul class='nav' style='display:none;'><li><a class='select-tab' data-toggle='tab' href=#tab_plugin>plugin </a></li><li><a class='select-tab' data-toggle='tab' href=#tab_pre_install>pre_install </a></li><li><a class='select-tab' data-toggle='tab' href=#tab_pre_integrate>pre_integrate </a></li><li><a class='select-tab' data-toggle='tab' href=#tab_post_install>post_install </a></li><li><a class='select-tab' data-toggle='tab' href=#tab_post_integrate>post_integrate </a></li></ul><li><a class="select-tab" id="tab-all">&raquo; Single Page</a></li></div></div><div class="col-md-9 col-lg-9" id="content-container"><div class="tab-content" id="tab-content"><div class="tab-pane active" id="tab_podfile"><h2>Podfile</h2><p>The Podfile is a specification that describes the dependencies of the
 targets of one or more Xcode projects.</p>
 
 <p>A Podfile can be very simple:</p>
-<div class="highlight"><pre><span class="n">target</span> <span class="s1">&#39;MyApp&#39;</span>
-<span class="n">pod</span> <span class="s1">&#39;AFNetworking&#39;</span><span class="p">,</span> <span class="s1">&#39;~&gt; 1.0&#39;</span>
+<div class="highlight"><pre><span></span><span class="n">target</span><span class="w"> </span><span class="s1">&#39;MyApp&#39;</span>
+<span class="n">pod</span><span class="w"> </span><span class="s1">&#39;AFNetworking&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;~&gt; 1.0&#39;</span>
 </pre></div>
 <p>An example of a more complex Podfile can be:</p>
-<div class="highlight"><pre><span class="n">platform</span> <span class="ss">:ios</span><span class="p">,</span> <span class="s1">&#39;9.0&#39;</span>
+<div class="highlight"><pre><span></span><span class="n">platform</span><span class="w"> </span><span class="ss">:ios</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;9.0&#39;</span>
 <span class="n">inhibit_all_warnings!</span>
 
-<span class="n">target</span> <span class="s1">&#39;MyApp&#39;</span> <span class="k">do</span>
-  <span class="n">pod</span> <span class="s1">&#39;ObjectiveSugar&#39;</span><span class="p">,</span> <span class="s1">&#39;~&gt; 0.5&#39;</span>
+<span class="n">target</span><span class="w"> </span><span class="s1">&#39;MyApp&#39;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">pod</span><span class="w"> </span><span class="s1">&#39;ObjectiveSugar&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;~&gt; 0.5&#39;</span>
 
-  <span class="n">target</span> <span class="s1">&#39;MyAppTests&#39;</span> <span class="k">do</span>
-    <span class="n">inherit!</span> <span class="ss">:search_paths</span>
-    <span class="n">pod</span> <span class="s1">&#39;OCMock&#39;</span><span class="p">,</span> <span class="s1">&#39;~&gt; 2.0.1&#39;</span>
-  <span class="k">end</span>
+<span class="w">  </span><span class="n">target</span><span class="w"> </span><span class="s1">&#39;MyAppTests&#39;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="n">inherit!</span><span class="w"> </span><span class="ss">:search_paths</span>
+<span class="w">    </span><span class="n">pod</span><span class="w"> </span><span class="s1">&#39;OCMock&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;~&gt; 2.0.1&#39;</span>
+<span class="w">  </span><span class="k">end</span>
 <span class="k">end</span>
 
-<span class="n">post_install</span> <span class="k">do</span> <span class="o">|</span><span class="n">installer</span><span class="o">|</span>
-  <span class="n">installer</span><span class="o">.</span><span class="n">pods_project</span><span class="o">.</span><span class="n">targets</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">target</span><span class="o">|</span>
-    <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">target</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span>
-  <span class="k">end</span>
+<span class="n">post_install</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">|</span><span class="n">installer</span><span class="o">|</span>
+<span class="w">  </span><span class="n">installer</span><span class="o">.</span><span class="n">pods_project</span><span class="o">.</span><span class="n">targets</span><span class="o">.</span><span class="n">each</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">|</span><span class="n">target</span><span class="o">|</span>
+<span class="w">    </span><span class="nb">puts</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">#{</span><span class="n">target</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="w">  </span><span class="k">end</span>
 <span class="k">end</span>
 </pre></div></div><div class="tab-pane group" id="tab_group_root_options"><h2>Root Options</h2><p>Configuration that applies to the Podfile as a whole.</p>
 
@@ -38,9 +38,9 @@ next parameters indicate installation options.</p>
 <p>For now the only accepted installation method is <code>&#39;cocoapods&#39;</code>, so
 you&#39;ll always use this value for the first parameter; but more
 installation methods might be available in future versions.</p>
-<h3>Examples:</h3><blockquote>Specifying custom CocoaPods installation options</blockquote><div class="highlight"><pre><span class="n">install!</span> <span class="s1">&#39;cocoapods&#39;</span><span class="p">,</span>
-         <span class="ss">:deterministic_uuids</span> <span class="o">=&gt;</span> <span class="kp">false</span><span class="p">,</span>
-         <span class="ss">:integrate_targets</span> <span class="o">=&gt;</span> <span class="kp">false</span>
+<h3>Examples:</h3><blockquote>Specifying custom CocoaPods installation options</blockquote><div class="highlight"><pre><span></span><span class="n">install!</span><span class="w"> </span><span class="s1">&#39;cocoapods&#39;</span><span class="p">,</span>
+<span class="w">         </span><span class="ss">:deterministic_uuids</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="kp">false</span><span class="p">,</span>
+<span class="w">         </span><span class="ss">:integrate_targets</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="kp">false</span>
 </pre></div><h3>Supported Keys:</h3><h4><code>:clean</code></h4>
 
 <p>Whether to clean the sources of the pods during installation</p>
@@ -56,12 +56,12 @@ that the project supports</p>
 <p>Target deduplication adds suffixes to pod targets for the cases where a pod is included
 in multiple targets that have different requirements. For example, a pod named &#39;MyPod&#39; with a subspec &#39;SubA&#39;
 that is included in two targets as follows:</p>
-<div class="highlight"><pre><span class="n">target</span> <span class="s1">&#39;MyTargetA&#39;</span> <span class="k">do</span>
-  <span class="n">pod</span> <span class="s1">&#39;MyPod/SubA&#39;</span>
+<div class="highlight"><pre><span></span><span class="n">target</span><span class="w"> </span><span class="s1">&#39;MyTargetA&#39;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">pod</span><span class="w"> </span><span class="s1">&#39;MyPod/SubA&#39;</span>
 <span class="k">end</span>
 
-<span class="n">target</span> <span class="s1">&#39;MyTargetB&#39;</span> <span class="k">do</span>
-  <span class="n">pod</span> <span class="s1">&#39;MyPod&#39;</span>
+<span class="n">target</span><span class="w"> </span><span class="s1">&#39;MyTargetB&#39;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">pod</span><span class="w"> </span><span class="s1">&#39;MyPod&#39;</span>
 <span class="k">end</span>
 </pre></div>
 <p>will result in two Pod targets: <code>MyPod</code> and <code>MyPod-SubA</code></p>
@@ -137,12 +137,25 @@ since the previous installation.</p>
 <p>Whether to skip generating the <code>Pods.xcodeproj</code> and perform only dependency resolution and downloading.</p>
 
 <p>this option defaults to false.</p>
+<h4><code>:parallel_pod_downloads</code></h4>
+
+<p>Whether to download pods in parallel before beginning the installation process</p>
+
+<p>this option defaults to false.</p>
+<h4><code>:parallel_pod_download_thread_pool_size</code></h4>
+
+<p>The size of the thread pool to use when downloading pods in parallel. Only takes effect when
+<code>parallel_pod_downloads</code> is <code>true</code>.</p>
+
+<p>Default: 40</p>
+
+<p>this option defaults to 40.</p>
 </div><div class="tab-pane method" id="tab_ensure_bundler_bang"><h3 class="code">ensure_bundler!</h3><p>Raises a warning when CocoaPods is run using the Global Gemset.
 A Semantic version can be supplied to warn if the bundler version
 does not match the required version.</p>
 <h3>Parameters</h3><div class="method-parameter"><h4>version<span class="types">String</span></h4><p>The required bundler version, in semantic version format.</p>
-</div><h3>Examples:</h3><blockquote></blockquote><div class="highlight"><pre><span class="n">ensure_bundler!</span>
-</pre></div><blockquote></blockquote><div class="highlight"><pre><span class="n">ensure_bundler!</span> <span class="s1">&#39;~&gt; 2.0.0&#39;</span>
+</div><h3>Examples:</h3><blockquote></blockquote><div class="highlight"><pre><span></span><span class="n">ensure_bundler!</span>
+</pre></div><blockquote></blockquote><div class="highlight"><pre><span></span><span class="n">ensure_bundler!</span><span class="w"> </span><span class="s1">&#39;~&gt; 2.0.0&#39;</span>
 </pre></div></div><div class="tab-pane group" id="tab_group_dependencies"><h2>Dependencies</h2><p>The Podfile specifies the dependencies of each user target.</p>
 
 <ul>
@@ -159,11 +172,11 @@ optionally a list of version requirements.</p>
 <p>When starting out with a project it is likely that you will want to use
 the latest version of a Pod. If this is the case, simply omit the
 version requirements.</p>
-<div class="highlight"><pre><span class="n">pod</span> <span class="s1">&#39;SSZipArchive&#39;</span>
+<div class="highlight"><pre><span></span><span class="n">pod</span><span class="w"> </span><span class="s1">&#39;SSZipArchive&#39;</span>
 </pre></div>
 <p>Later on in the project you may want to freeze to a specific version of
 a Pod, in which case you can specify that version number.</p>
-<div class="highlight"><pre><span class="n">pod</span> <span class="s1">&#39;Objection&#39;</span><span class="p">,</span> <span class="s1">&#39;0.9&#39;</span>
+<div class="highlight"><pre><span></span><span class="n">pod</span><span class="w"> </span><span class="s1">&#39;Objection&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;0.9&#39;</span>
 </pre></div>
 <p>Besides no version, or a specific one, it is also possible to use
 operators:</p>
@@ -202,11 +215,11 @@ grained control.</p>
 <p>By default dependencies are installed in all the build configurations
 of the target. For debug purposes or for other reasons, they can be
 only enabled on a list of build configurations.</p>
-<div class="highlight"><pre><span class="n">pod</span> <span class="s1">&#39;PonyDebugger&#39;</span><span class="p">,</span> <span class="ss">:configurations</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s1">&#39;Debug&#39;</span><span class="p">,</span> <span class="s1">&#39;Beta&#39;</span><span class="o">]</span>
+<div class="highlight"><pre><span></span><span class="n">pod</span><span class="w"> </span><span class="s1">&#39;PonyDebugger&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">:configurations</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="o">[</span><span class="s1">&#39;Debug&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Beta&#39;</span><span class="o">]</span>
 </pre></div>
 <p>Alternatively, you can specify to have it included on a single build
 configuration.</p>
-<div class="highlight"><pre><span class="n">pod</span> <span class="s1">&#39;PonyDebugger&#39;</span><span class="p">,</span> <span class="ss">:configuration</span> <span class="o">=&gt;</span> <span class="s1">&#39;Debug&#39;</span>
+<div class="highlight"><pre><span></span><span class="n">pod</span><span class="w"> </span><span class="s1">&#39;PonyDebugger&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">:configuration</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;Debug&#39;</span>
 </pre></div>
 <p>Note that transitive dependencies are included in all configurations
 and you have to manually specify build configurations for them as well in
@@ -218,11 +231,11 @@ case this is not desired.</p>
 
 <p>If you would like to use modular headers per Pod you can use the
 following syntax:</p>
-<div class="highlight"><pre><span class="n">pod</span> <span class="s1">&#39;SSZipArchive&#39;</span><span class="p">,</span> <span class="ss">:modular_headers</span> <span class="o">=&gt;</span> <span class="kp">true</span>
+<div class="highlight"><pre><span></span><span class="n">pod</span><span class="w"> </span><span class="s1">&#39;SSZipArchive&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">:modular_headers</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="kp">true</span>
 </pre></div>
 <p>Additionally, when you use the <code>use_modular_headers!</code> attribute,
 you can exclude a particular Pod from modular headers using the following:</p>
-<div class="highlight"><pre><span class="n">pod</span> <span class="s1">&#39;SSZipArchive&#39;</span><span class="p">,</span> <span class="ss">:modular_headers</span> <span class="o">=&gt;</span> <span class="kp">false</span>
+<div class="highlight"><pre><span></span><span class="n">pod</span><span class="w"> </span><span class="s1">&#39;SSZipArchive&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">:modular_headers</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="kp">false</span>
 </pre></div>
 <hr>
 
@@ -231,7 +244,7 @@ you can exclude a particular Pod from modular headers using the following:</p>
 <p>By default the sources specified at the global level are searched in the order
 they are specified for a dependency match. This behaviour can be altered
 for a specific dependency by specifying the source with the dependency:</p>
-<div class="highlight"><pre><span class="n">pod</span> <span class="s1">&#39;PonyDebugger&#39;</span><span class="p">,</span> <span class="ss">:source</span> <span class="o">=&gt;</span> <span class="s1">&#39;https://github.com/CocoaPods/Specs.git&#39;</span>
+<div class="highlight"><pre><span></span><span class="n">pod</span><span class="w"> </span><span class="s1">&#39;PonyDebugger&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">:source</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;https://cdn.cocoapods.org/&#39;</span>
 </pre></div>
 <p>In this case only the specified source will be searched for the dependency
 and any global sources ignored.</p>
@@ -244,10 +257,10 @@ and any global sources ignored.</p>
 default subspecs defined in the podspec.</p>
 
 <p>You may install a specific subspec using the following:</p>
-<div class="highlight"><pre><span class="n">pod</span> <span class="s1">&#39;QueryKit/Attribute&#39;</span>
+<div class="highlight"><pre><span></span><span class="n">pod</span><span class="w"> </span><span class="s1">&#39;QueryKit/Attribute&#39;</span>
 </pre></div>
 <p>You may specify a collection of subspecs to be installed as follows:</p>
-<div class="highlight"><pre><span class="n">pod</span> <span class="s1">&#39;QueryKit&#39;</span><span class="p">,</span> <span class="ss">:subspecs</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s1">&#39;Attribute&#39;</span><span class="p">,</span> <span class="s1">&#39;QuerySet&#39;</span><span class="o">]</span>
+<div class="highlight"><pre><span></span><span class="n">pod</span><span class="w"> </span><span class="s1">&#39;QueryKit&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">:subspecs</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="o">[</span><span class="s1">&#39;Attribute&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;QuerySet&#39;</span><span class="o">]</span>
 </pre></div>
 <h3>Test Specs</h3>
 
@@ -255,7 +268,7 @@ default subspecs defined in the podspec.</p>
 none of a Pod&#39;s test specs are included.</p>
 
 <p>You may specify a list of test spec names to install using the following:</p>
-<div class="highlight"><pre><span class="n">pod</span> <span class="s1">&#39;AFNetworking&#39;</span><span class="p">,</span> <span class="ss">:testspecs</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s1">&#39;UnitTests&#39;</span><span class="p">,</span> <span class="s1">&#39;SomeOtherTests&#39;</span><span class="o">]</span>
+<div class="highlight"><pre><span></span><span class="n">pod</span><span class="w"> </span><span class="s1">&#39;AFNetworking&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">:testspecs</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="o">[</span><span class="s1">&#39;UnitTests&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;SomeOtherTests&#39;</span><span class="o">]</span>
 </pre></div>
 <p>The values provided to <code>:testspecs</code> correspond to the name provided to the
 <code>test_spec</code> DSL attribute in a Podspec.</p>
@@ -268,7 +281,7 @@ none of a Pod&#39;s test specs are included.</p>
 
 <p>If you would like to use develop a Pod in tandem with its client
  project you can use the <code>path</code> option.</p>
-<div class="highlight"><pre><span class="n">pod</span> <span class="s1">&#39;AFNetworking&#39;</span><span class="p">,</span> <span class="ss">:path</span> <span class="o">=&gt;</span> <span class="s1">&#39;~/Documents/AFNetworking&#39;</span>
+<div class="highlight"><pre><span></span><span class="n">pod</span><span class="w"> </span><span class="s1">&#39;AFNetworking&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">:path</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;~/Documents/AFNetworking&#39;</span>
 </pre></div>
 <p>Using this option CocoaPods will assume the given folder to be the
  root of the Pod and will link the files directly from there in the
@@ -288,16 +301,16 @@ specific revision. If this is the case, you can specify that with your
 pod declaration.</p>
 
 <p>To use the <code>master</code> branch of the repository:</p>
-<div class="highlight"><pre><span class="n">pod</span> <span class="s1">&#39;AFNetworking&#39;</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">&#39;https://github.com/gowalla/AFNetworking.git&#39;</span>
+<div class="highlight"><pre><span></span><span class="n">pod</span><span class="w"> </span><span class="s1">&#39;AFNetworking&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">:git</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;https://github.com/gowalla/AFNetworking.git&#39;</span>
 </pre></div>
 <p>To use a different branch of the repository:</p>
-<div class="highlight"><pre><span class="n">pod</span> <span class="s1">&#39;AFNetworking&#39;</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">&#39;https://github.com/gowalla/AFNetworking.git&#39;</span><span class="p">,</span> <span class="ss">:branch</span> <span class="o">=&gt;</span> <span class="s1">&#39;dev&#39;</span>
+<div class="highlight"><pre><span></span><span class="n">pod</span><span class="w"> </span><span class="s1">&#39;AFNetworking&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">:git</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;https://github.com/gowalla/AFNetworking.git&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">:branch</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;dev&#39;</span>
 </pre></div>
 <p>To use a tag of the repository:</p>
-<div class="highlight"><pre><span class="n">pod</span> <span class="s1">&#39;AFNetworking&#39;</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">&#39;https://github.com/gowalla/AFNetworking.git&#39;</span><span class="p">,</span> <span class="ss">:tag</span> <span class="o">=&gt;</span> <span class="s1">&#39;0.7.0&#39;</span>
+<div class="highlight"><pre><span></span><span class="n">pod</span><span class="w"> </span><span class="s1">&#39;AFNetworking&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">:git</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;https://github.com/gowalla/AFNetworking.git&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">:tag</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;0.7.0&#39;</span>
 </pre></div>
 <p>Or specify a commit:</p>
-<div class="highlight"><pre><span class="n">pod</span> <span class="s1">&#39;AFNetworking&#39;</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">&#39;https://github.com/gowalla/AFNetworking.git&#39;</span><span class="p">,</span> <span class="ss">:commit</span> <span class="o">=&gt;</span> <span class="s1">&#39;082f8319af&#39;</span>
+<div class="highlight"><pre><span></span><span class="n">pod</span><span class="w"> </span><span class="s1">&#39;AFNetworking&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">:git</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;https://github.com/gowalla/AFNetworking.git&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">:commit</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;082f8319af&#39;</span>
 </pre></div>
 <p>It is important to note, though, that this means that the version will
 have to satisfy any other dependencies on the Pod by other Pods.</p>
@@ -311,7 +324,7 @@ sections below.</p>
 
 <p>If a podspec is available from another source outside of the library’s
 repository. Consider, for instance, a podspec available via HTTP:</p>
-<div class="highlight"><pre><span class="n">pod</span> <span class="s1">&#39;JSONKit&#39;</span><span class="p">,</span> <span class="ss">:podspec</span> <span class="o">=&gt;</span> <span class="s1">&#39;https://example.com/JSONKit.podspec&#39;</span>
+<div class="highlight"><pre><span></span><span class="n">pod</span><span class="w"> </span><span class="s1">&#39;JSONKit&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">:podspec</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;https://example.com/JSONKit.podspec&#39;</span>
 </pre></div></div><div class="tab-pane method" id="tab_podspec"><h3 class="code">podspec</h3><p>Use just the dependencies of a Pod defined in the given podspec file.
 If no arguments are passed the first podspec in the root of the Podfile
 is used. It is intended to be used by the project of a library. Note:
@@ -319,83 +332,83 @@ this does not include the sources derived from the podspec just the
 CocoaPods infrastructure.</p>
 <h3>Parameters</h3><div class="method-parameter"><h4>options<span class="types">Hash {Symbol=>String}</span></h4><p>The path where to load the {Specification}. If not provided
 the first podspec in the directory of the Podfile is used.</p>
-</div><h3>Examples:</h3><blockquote></blockquote><div class="highlight"><pre><span class="n">podspec</span>
-</pre></div><blockquote></blockquote><div class="highlight"><pre><span class="n">podspec</span> <span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s1">&#39;QuickDialog&#39;</span>
-</pre></div><blockquote></blockquote><div class="highlight"><pre><span class="n">podspec</span> <span class="ss">:path</span> <span class="o">=&gt;</span> <span class="s1">&#39;/Documents/PrettyKit/PrettyKit.podspec&#39;</span>
+</div><h3>Examples:</h3><blockquote></blockquote><div class="highlight"><pre><span></span><span class="n">podspec</span>
+</pre></div><blockquote></blockquote><div class="highlight"><pre><span></span><span class="n">podspec</span><span class="w"> </span><span class="ss">:name</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;QuickDialog&#39;</span>
+</pre></div><blockquote></blockquote><div class="highlight"><pre><span></span><span class="n">podspec</span><span class="w"> </span><span class="ss">:path</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;/Documents/PrettyKit/PrettyKit.podspec&#39;</span>
 </pre></div></div><div class="tab-pane method" id="tab_target"><h3 class="code">target</h3><p>Defines a CocoaPods target and scopes dependencies defined
 within the given block. A target should correspond to an Xcode target.
 By default the target includes the dependencies defined outside of
 the block, unless instructed not to <code>inherit!</code> them.</p>
 <h3>Parameters</h3><div class="method-parameter"><h4>name<span class="types">Symbol, String</span></h4><p>The name of the target.</p>
-</div><h3>Examples:</h3><blockquote>Defining a target</blockquote><div class="highlight"><pre><span class="n">target</span> <span class="s1">&#39;ZipApp&#39;</span> <span class="k">do</span>
-  <span class="n">pod</span> <span class="s1">&#39;SSZipArchive&#39;</span>
+</div><h3>Examples:</h3><blockquote>Defining a target</blockquote><div class="highlight"><pre><span></span><span class="n">target</span><span class="w"> </span><span class="s1">&#39;ZipApp&#39;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">pod</span><span class="w"> </span><span class="s1">&#39;SSZipArchive&#39;</span>
 <span class="k">end</span>
-</pre></div><blockquote>Defining a test target accessing SSZipArchive pod from its parent</blockquote><div class="highlight"><pre><span class="n">target</span> <span class="s1">&#39;ZipApp&#39;</span> <span class="k">do</span>
-  <span class="n">pod</span> <span class="s1">&#39;SSZipArchive&#39;</span>
+</pre></div><blockquote>Defining a test target accessing SSZipArchive pod from its parent</blockquote><div class="highlight"><pre><span></span><span class="n">target</span><span class="w"> </span><span class="s1">&#39;ZipApp&#39;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">pod</span><span class="w"> </span><span class="s1">&#39;SSZipArchive&#39;</span>
 
-  <span class="n">target</span> <span class="s1">&#39;ZipAppTests&#39;</span> <span class="k">do</span>
-    <span class="n">inherit!</span> <span class="ss">:search_paths</span>
-    <span class="n">pod</span> <span class="s1">&#39;Nimble&#39;</span>
-  <span class="k">end</span>
+<span class="w">  </span><span class="n">target</span><span class="w"> </span><span class="s1">&#39;ZipAppTests&#39;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="n">inherit!</span><span class="w"> </span><span class="ss">:search_paths</span>
+<span class="w">    </span><span class="n">pod</span><span class="w"> </span><span class="s1">&#39;Nimble&#39;</span>
+<span class="w">  </span><span class="k">end</span>
 <span class="k">end</span>
-</pre></div><blockquote>Defining a target applies Pods to multiple targets via its parent target</blockquote><div class="highlight"><pre><span class="n">target</span> <span class="s1">&#39;ShowsApp&#39;</span> <span class="k">do</span>
-  <span class="n">pod</span> <span class="s1">&#39;ShowsKit&#39;</span>
+</pre></div><blockquote>Defining a target applies Pods to multiple targets via its parent target</blockquote><div class="highlight"><pre><span></span><span class="n">target</span><span class="w"> </span><span class="s1">&#39;ShowsApp&#39;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">pod</span><span class="w"> </span><span class="s1">&#39;ShowsKit&#39;</span>
 
-  <span class="c1"># Has its own copy of ShowsKit + ShowTVAuth</span>
-  <span class="n">target</span> <span class="s1">&#39;ShowsTV&#39;</span> <span class="k">do</span>
-    <span class="n">pod</span> <span class="s1">&#39;ShowTVAuth&#39;</span>
-  <span class="k">end</span>
+<span class="w">  </span><span class="c1"># Has its own copy of ShowsKit + ShowTVAuth</span>
+<span class="w">  </span><span class="n">target</span><span class="w"> </span><span class="s1">&#39;ShowsTV&#39;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="n">pod</span><span class="w"> </span><span class="s1">&#39;ShowTVAuth&#39;</span>
+<span class="w">  </span><span class="k">end</span>
 
-  <span class="c1"># Has its own copy of Specta + Expecta</span>
-  <span class="c1"># and has access to ShowsKit via the app</span>
-  <span class="c1"># that the test target is bundled into</span>
+<span class="w">  </span><span class="c1"># Has its own copy of Specta + Expecta</span>
+<span class="w">  </span><span class="c1"># and has access to ShowsKit via the app</span>
+<span class="w">  </span><span class="c1"># that the test target is bundled into</span>
 
-  <span class="n">target</span> <span class="s1">&#39;ShowsTests&#39;</span> <span class="k">do</span>
-    <span class="n">inherit!</span> <span class="ss">:search_paths</span>
-    <span class="n">pod</span> <span class="s1">&#39;Specta&#39;</span>
-    <span class="n">pod</span> <span class="s1">&#39;Expecta&#39;</span>
-  <span class="k">end</span>
+<span class="w">  </span><span class="n">target</span><span class="w"> </span><span class="s1">&#39;ShowsTests&#39;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="n">inherit!</span><span class="w"> </span><span class="ss">:search_paths</span>
+<span class="w">    </span><span class="n">pod</span><span class="w"> </span><span class="s1">&#39;Specta&#39;</span>
+<span class="w">    </span><span class="n">pod</span><span class="w"> </span><span class="s1">&#39;Expecta&#39;</span>
+<span class="w">  </span><span class="k">end</span>
 <span class="k">end</span>
 </pre></div></div><div class="tab-pane method" id="tab_script_phase"><h3 class="code">script_phase</h3><p>Adds a script phase to be integrated with this target. A script phase can be used to execute an arbitrary
 script that can use all Xcode environment variables during execution. A target may include multiple script
 phases which they will be added in the order they were declared. Deleting a script phase will effectively remove
 it from the target if it has been added previously.</p>
 <h3>Parameters</h3><div class="method-parameter"><h4>options<span class="types">Hash</span></h4><p>The options for this script phase.</p>
-</div><h3>Examples:</h3><blockquote></blockquote><div class="highlight"><pre><span class="n">script_phase</span> <span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s1">&#39;HelloWorldScript&#39;</span><span class="p">,</span> <span class="ss">:script</span> <span class="o">=&gt;</span> <span class="s1">&#39;echo &quot;Hello World&quot;&#39;</span>
-</pre></div><blockquote></blockquote><div class="highlight"><pre><span class="n">script_phase</span> <span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s1">&#39;HelloWorldScript&#39;</span><span class="p">,</span> <span class="ss">:script</span> <span class="o">=&gt;</span> <span class="s1">&#39;puts &quot;Hello World&quot;&#39;</span><span class="p">,</span> <span class="ss">:shell_path</span> <span class="o">=&gt;</span> <span class="s1">&#39;/usr/bin/ruby&#39;</span>
+</div><h3>Examples:</h3><blockquote></blockquote><div class="highlight"><pre><span></span><span class="n">script_phase</span><span class="w"> </span><span class="ss">:name</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;HelloWorldScript&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">:script</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;echo &quot;Hello World&quot;&#39;</span>
+</pre></div><blockquote></blockquote><div class="highlight"><pre><span></span><span class="n">script_phase</span><span class="w"> </span><span class="ss">:name</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;HelloWorldScript&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">:script</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;puts &quot;Hello World&quot;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">:shell_path</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;/usr/bin/ruby&#39;</span>
 </pre></div></div><div class="tab-pane method" id="tab_abstract_target"><h3 class="code">abstract_target</h3><p>Defines a new abstract target that can be used for convenient
 target dependency inheritance.</p>
 <h3>Parameters</h3><div class="method-parameter"><h4>name<span class="types">Symbol, String</span></h4><p>The name of the target.</p>
-</div><h3>Examples:</h3><blockquote>Defining an abstract target</blockquote><div class="highlight"><pre><span class="n">abstract_target</span> <span class="s1">&#39;Networking&#39;</span> <span class="k">do</span>
-  <span class="n">pod</span> <span class="s1">&#39;AlamoFire&#39;</span>
+</div><h3>Examples:</h3><blockquote>Defining an abstract target</blockquote><div class="highlight"><pre><span></span><span class="n">abstract_target</span><span class="w"> </span><span class="s1">&#39;Networking&#39;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">pod</span><span class="w"> </span><span class="s1">&#39;AlamoFire&#39;</span>
 
-  <span class="n">target</span> <span class="s1">&#39;Networking App 1&#39;</span>
-  <span class="n">target</span> <span class="s1">&#39;Networking App 2&#39;</span>
+<span class="w">  </span><span class="n">target</span><span class="w"> </span><span class="s1">&#39;Networking App 1&#39;</span>
+<span class="w">  </span><span class="n">target</span><span class="w"> </span><span class="s1">&#39;Networking App 2&#39;</span>
 <span class="k">end</span>
-</pre></div><blockquote>Defining an abstract_target wrapping Pods to multiple targets</blockquote><div class="highlight"><pre><span class="c1"># Note: There are no targets called &quot;Shows&quot; in any of this workspace&#39;s Xcode projects</span>
-<span class="n">abstract_target</span> <span class="s1">&#39;Shows&#39;</span> <span class="k">do</span>
-  <span class="n">pod</span> <span class="s1">&#39;ShowsKit&#39;</span>
+</pre></div><blockquote>Defining an abstract_target wrapping Pods to multiple targets</blockquote><div class="highlight"><pre><span></span><span class="c1"># Note: There are no targets called &quot;Shows&quot; in any of this workspace&#39;s Xcode projects</span>
+<span class="n">abstract_target</span><span class="w"> </span><span class="s1">&#39;Shows&#39;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">pod</span><span class="w"> </span><span class="s1">&#39;ShowsKit&#39;</span>
 
-  <span class="c1"># The target ShowsiOS has its own copy of ShowsKit (inherited) + ShowWebAuth (added here)</span>
-  <span class="n">target</span> <span class="s1">&#39;ShowsiOS&#39;</span> <span class="k">do</span>
-    <span class="n">pod</span> <span class="s1">&#39;ShowWebAuth&#39;</span>
-  <span class="k">end</span>
+<span class="w">  </span><span class="c1"># The target ShowsiOS has its own copy of ShowsKit (inherited) + ShowWebAuth (added here)</span>
+<span class="w">  </span><span class="n">target</span><span class="w"> </span><span class="s1">&#39;ShowsiOS&#39;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="n">pod</span><span class="w"> </span><span class="s1">&#39;ShowWebAuth&#39;</span>
+<span class="w">  </span><span class="k">end</span>
 
-  <span class="c1"># The target ShowsTV has its own copy of ShowsKit (inherited) + ShowTVAuth (added here)</span>
-  <span class="n">target</span> <span class="s1">&#39;ShowsTV&#39;</span> <span class="k">do</span>
-    <span class="n">pod</span> <span class="s1">&#39;ShowTVAuth&#39;</span>
-  <span class="k">end</span>
+<span class="w">  </span><span class="c1"># The target ShowsTV has its own copy of ShowsKit (inherited) + ShowTVAuth (added here)</span>
+<span class="w">  </span><span class="n">target</span><span class="w"> </span><span class="s1">&#39;ShowsTV&#39;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="n">pod</span><span class="w"> </span><span class="s1">&#39;ShowTVAuth&#39;</span>
+<span class="w">  </span><span class="k">end</span>
 
-  <span class="c1"># Our tests target has its own copy of</span>
-  <span class="c1"># our testing frameworks, and has access</span>
-  <span class="c1"># to ShowsKit as well because it is</span>
-  <span class="c1"># a child of the abstract target &#39;Shows&#39;</span>
+<span class="w">  </span><span class="c1"># Our tests target has its own copy of</span>
+<span class="w">  </span><span class="c1"># our testing frameworks, and has access</span>
+<span class="w">  </span><span class="c1"># to ShowsKit as well because it is</span>
+<span class="w">  </span><span class="c1"># a child of the abstract target &#39;Shows&#39;</span>
 
-  <span class="n">target</span> <span class="s1">&#39;ShowsTests&#39;</span> <span class="k">do</span>
-    <span class="n">inherit!</span> <span class="ss">:search_paths</span>
-    <span class="n">pod</span> <span class="s1">&#39;Specta&#39;</span>
-    <span class="n">pod</span> <span class="s1">&#39;Expecta&#39;</span>
-  <span class="k">end</span>
+<span class="w">  </span><span class="n">target</span><span class="w"> </span><span class="s1">&#39;ShowsTests&#39;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="n">inherit!</span><span class="w"> </span><span class="ss">:search_paths</span>
+<span class="w">    </span><span class="n">pod</span><span class="w"> </span><span class="s1">&#39;Specta&#39;</span>
+<span class="w">    </span><span class="n">pod</span><span class="w"> </span><span class="s1">&#39;Expecta&#39;</span>
+<span class="w">  </span><span class="k">end</span>
 <span class="k">end</span>
 </pre></div></div><div class="tab-pane method" id="tab_abstract_bang"><h3 class="code">abstract!</h3><p>Denotes that the current target is abstract, and thus will not directly
 link against an Xcode target.</p>
@@ -409,10 +422,10 @@ behaviour from the parent.
 the behaviour from the parent.
 + <code>:search_paths</code> The target inherits
 the search paths of the parent only.</p>
-</div><h3>Examples:</h3><blockquote>Inheriting only search paths</blockquote><div class="highlight"><pre><span class="n">target</span> <span class="s1">&#39;App&#39;</span> <span class="k">do</span>
-  <span class="n">target</span> <span class="s1">&#39;AppTests&#39;</span> <span class="k">do</span>
-    <span class="n">inherit!</span> <span class="ss">:search_paths</span>
-  <span class="k">end</span>
+</div><h3>Examples:</h3><blockquote>Inheriting only search paths</blockquote><div class="highlight"><pre><span></span><span class="n">target</span><span class="w"> </span><span class="s1">&#39;App&#39;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">target</span><span class="w"> </span><span class="s1">&#39;AppTests&#39;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="n">inherit!</span><span class="w"> </span><span class="ss">:search_paths</span>
+<span class="w">  </span><span class="k">end</span>
 <span class="k">end</span>
 </pre></div></div><div class="tab-pane group" id="tab_group_target_configuration"><h2>Target configuration</h2><p>These settings are used to control the CocoaPods generated project.</p>
 
@@ -422,17 +435,17 @@ link with.</p>
 </div><div class="tab-pane method" id="tab_platform"><h3 class="code">platform</h3><p>Specifies the platform for which a static library should be built.</p>
 
 <p>CocoaPods provides a default deployment target if one is not specified.
-The current default values are <code>4.3</code> for iOS, <code>10.6</code> for OS X, <code>9.0</code> for tvOS
-and <code>2.0</code> for watchOS.</p>
+The current default values are <code>4.3</code> for iOS, <code>10.6</code> for OS X, <code>9.0</code> for tvOS,
+<code>1.0</code> for visionOS and <code>2.0</code> for watchOS.</p>
 
 <p>If the deployment target requires it (iOS &lt; <code>4.3</code>), <code>armv6</code>
 architecture will be added to <code>ARCHS</code>.</p>
 <h3>Parameters</h3><div class="method-parameter"><h4>name<span class="types">Symbol</span></h4><p>The name of platform, can be either <code>:osx</code> for OS X, <code>:ios</code>
-for iOS, <code>:tvos</code> for tvOS, or <code>:watchos</code> for watchOS.</p>
+for iOS, <code>:tvos</code> for tvOS, <code>:visionos</code> for visionOS, or <code>:watchos</code> for watchOS.</p>
 </div><div class="method-parameter"><h4>target<span class="types">String, Version</span></h4><p>The optional deployment.  If not provided a default value
 according to the platform name will be assigned.</p>
-</div><h3>Examples:</h3><blockquote>Specifying the platform</blockquote><div class="highlight"><pre><span class="n">platform</span> <span class="ss">:ios</span><span class="p">,</span> <span class="s1">&#39;4.0&#39;</span>
-<span class="n">platform</span> <span class="ss">:ios</span>
+</div><h3>Examples:</h3><blockquote>Specifying the platform</blockquote><div class="highlight"><pre><span></span><span class="n">platform</span><span class="w"> </span><span class="ss">:ios</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;4.0&#39;</span>
+<span class="n">platform</span><span class="w"> </span><span class="ss">:ios</span>
 </pre></div></div><div class="tab-pane method" id="tab_project"><h3 class="code">project</h3><p>Specifies the Xcode project that contains the target that the Pods
 library should be linked with.</p>
 
@@ -454,18 +467,18 @@ Symbols that specify if the configuration should be based on
 the <code>:debug</code> or <code>:release</code> configuration. If no explicit
 mapping is specified for a configuration in your project, it
 will default to <code>:release</code>.</p>
-</div><h3>Examples:</h3><blockquote>Specifying the user project</blockquote><div class="highlight"><pre><span class="c1"># This Target can be found in a Xcode project called `FastGPS`</span>
-<span class="n">target</span> <span class="s1">&#39;MyGPSApp&#39;</span> <span class="k">do</span>
-  <span class="n">project</span> <span class="s1">&#39;FastGPS&#39;</span>
-  <span class="o">.</span><span class="n">.</span><span class="o">.</span>
+</div><h3>Examples:</h3><blockquote>Specifying the user project</blockquote><div class="highlight"><pre><span></span><span class="c1"># This Target can be found in a Xcode project called `FastGPS`</span>
+<span class="n">target</span><span class="w"> </span><span class="s1">&#39;MyGPSApp&#39;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">project</span><span class="w"> </span><span class="s1">&#39;FastGPS&#39;</span>
+<span class="w">  </span><span class="o">...</span>
 <span class="k">end</span>
 
 <span class="c1"># Same Podfile, multiple Xcodeprojects</span>
-<span class="n">target</span> <span class="s1">&#39;MyNotesApp&#39;</span> <span class="k">do</span>
-  <span class="n">project</span> <span class="s1">&#39;FastNotes&#39;</span>
-  <span class="o">.</span><span class="n">.</span><span class="o">.</span>
+<span class="n">target</span><span class="w"> </span><span class="s1">&#39;MyNotesApp&#39;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">project</span><span class="w"> </span><span class="s1">&#39;FastNotes&#39;</span>
+<span class="w">  </span><span class="o">...</span>
 <span class="k">end</span>
-</pre></div><blockquote>Using custom build configurations</blockquote><div class="highlight"><pre><span class="n">project</span> <span class="s1">&#39;TestProject&#39;</span><span class="p">,</span> <span class="s1">&#39;Mac App Store&#39;</span> <span class="o">=&gt;</span> <span class="ss">:release</span><span class="p">,</span> <span class="s1">&#39;Test&#39;</span> <span class="o">=&gt;</span> <span class="ss">:debug</span>
+</pre></div><blockquote>Using custom build configurations</blockquote><div class="highlight"><pre><span></span><span class="n">project</span><span class="w"> </span><span class="s1">&#39;TestProject&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Mac App Store&#39;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="ss">:release</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Test&#39;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="ss">:debug</span>
 </pre></div></div><div class="tab-pane method" id="tab_xcodeproj"><h3 class="code">xcodeproj</h3><p><code>xcodeproj</code> is deprecated in <a href="http://blog.cocoapods.org/CocoaPods-1.0/">1.0</a> and has been renamed to <code>project</code>.
 For pre-1.0 versions use <code>xcodeproj</code>.</p>
 </div><div class="tab-pane method" id="tab_link_with"><h3 class="code">link_with</h3><p><code>link_with</code> is deprecated in <a href="http://blog.cocoapods.org/CocoaPods-1.0/">1.0</a> in
@@ -478,11 +491,11 @@ favour of <code>abstract_target</code> and target inheritance instead.</p>
 
 <p>If you would like to inhibit warnings per Pod you can use the
 following syntax:</p>
-<div class="highlight"><pre><span class="n">pod</span> <span class="s1">&#39;SSZipArchive&#39;</span><span class="p">,</span> <span class="ss">:inhibit_warnings</span> <span class="o">=&gt;</span> <span class="kp">true</span>
+<div class="highlight"><pre><span></span><span class="n">pod</span><span class="w"> </span><span class="s1">&#39;SSZipArchive&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">:inhibit_warnings</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="kp">true</span>
 </pre></div>
 <p>Additionally, when you use <code>inhibit_all_warnings!</code> attribute,
 you can exclude a particular Pod from being inhibited using the following:</p>
-<div class="highlight"><pre><span class="n">pod</span> <span class="s1">&#39;SSZipArchive&#39;</span><span class="p">,</span> <span class="ss">:inhibit_warnings</span> <span class="o">=&gt;</span> <span class="kp">false</span>
+<div class="highlight"><pre><span></span><span class="n">pod</span><span class="w"> </span><span class="s1">&#39;SSZipArchive&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">:inhibit_warnings</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="kp">false</span>
 </pre></div></div><div class="tab-pane method" id="tab_use_modular_headers_bang"><h3 class="code">use_modular_headers!</h3><p>Use modular headers for all CocoaPods static libraries.</p>
 
 <hr>
@@ -491,11 +504,11 @@ you can exclude a particular Pod from being inhibited using the following:</p>
 
 <p>If you would like to use modular headers per Pod you can use the
 following syntax:</p>
-<div class="highlight"><pre><span class="n">pod</span> <span class="s1">&#39;SSZipArchive&#39;</span><span class="p">,</span> <span class="ss">:modular_headers</span> <span class="o">=&gt;</span> <span class="kp">true</span>
+<div class="highlight"><pre><span></span><span class="n">pod</span><span class="w"> </span><span class="s1">&#39;SSZipArchive&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">:modular_headers</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="kp">true</span>
 </pre></div>
 <p>Additionally, when you use the <code>use_modular_headers!</code> attribute,
 you can exclude a particular Pod from modular headers using the following:</p>
-<div class="highlight"><pre><span class="n">pod</span> <span class="s1">&#39;SSZipArchive&#39;</span><span class="p">,</span> <span class="ss">:modular_headers</span> <span class="o">=&gt;</span> <span class="kp">false</span>
+<div class="highlight"><pre><span></span><span class="n">pod</span><span class="w"> </span><span class="s1">&#39;SSZipArchive&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">:modular_headers</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="kp">false</span>
 </pre></div></div><div class="tab-pane method" id="tab_use_frameworks_bang"><h3 class="code">use_frameworks!</h3><p>Use frameworks instead of static libraries for Pods. When using frameworks, you may also specify the <code>:linkage</code>
 style to use, either <code>:static</code> or <code>:dynamic</code>.</p>
 
@@ -503,36 +516,36 @@ style to use, either <code>:static</code> or <code>:dynamic</code>.</p>
 
 <p>This attribute is inherited by child target definitions.</p>
 <h3>Parameters</h3><div class="method-parameter"><h4>option<span class="types">Boolean, Hash</span></h4><p>The option to use for configuring packaging and linkage style.</p>
-</div><h3>Examples:</h3><blockquote></blockquote><div class="highlight"><pre><span class="n">target</span> <span class="s1">&#39;MyApp&#39;</span> <span class="k">do</span>
-  <span class="n">use_frameworks!</span>
-  <span class="n">pod</span> <span class="s1">&#39;AFNetworking&#39;</span><span class="p">,</span> <span class="s1">&#39;~&gt; 1.0&#39;</span>
+</div><h3>Examples:</h3><blockquote></blockquote><div class="highlight"><pre><span></span><span class="n">target</span><span class="w"> </span><span class="s1">&#39;MyApp&#39;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">use_frameworks!</span>
+<span class="w">  </span><span class="n">pod</span><span class="w"> </span><span class="s1">&#39;AFNetworking&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;~&gt; 1.0&#39;</span>
 <span class="k">end</span>
-</pre></div><blockquote></blockquote><div class="highlight"><pre><span class="n">target</span> <span class="s1">&#39;MyApp&#39;</span> <span class="k">do</span>
-  <span class="n">use_frameworks!</span> <span class="ss">:linkage</span> <span class="o">=&gt;</span> <span class="ss">:dynamic</span>
-  <span class="n">pod</span> <span class="s1">&#39;AFNetworking&#39;</span><span class="p">,</span> <span class="s1">&#39;~&gt; 1.0&#39;</span>
+</pre></div><blockquote></blockquote><div class="highlight"><pre><span></span><span class="n">target</span><span class="w"> </span><span class="s1">&#39;MyApp&#39;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">use_frameworks!</span><span class="w"> </span><span class="ss">:linkage</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="ss">:dynamic</span>
+<span class="w">  </span><span class="n">pod</span><span class="w"> </span><span class="s1">&#39;AFNetworking&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;~&gt; 1.0&#39;</span>
 <span class="k">end</span>
 
-<span class="n">target</span> <span class="s1">&#39;ZipApp&#39;</span> <span class="k">do</span>
-  <span class="n">use_frameworks!</span> <span class="ss">:linkage</span> <span class="o">=&gt;</span> <span class="ss">:static</span>
-  <span class="n">pod</span> <span class="s1">&#39;SSZipArchive&#39;</span>
+<span class="n">target</span><span class="w"> </span><span class="s1">&#39;ZipApp&#39;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">use_frameworks!</span><span class="w"> </span><span class="ss">:linkage</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="ss">:static</span>
+<span class="w">  </span><span class="n">pod</span><span class="w"> </span><span class="s1">&#39;SSZipArchive&#39;</span>
 <span class="k">end</span>
 </pre></div></div><div class="tab-pane method" id="tab_supports_swift_versions"><h3 class="code">supports_swift_versions</h3><p>Specifies the Swift version requirements this target definition supports.</p>
 
 <p><strong>Note</strong> These requirements are inherited from the parent, if specified and if none
 are specified at the root level then all versions are considered to be supported.</p>
 <h3>Parameters</h3><div class="method-parameter"><h4>requirements<span class="types">String, Version, Array<String>, Array<Version></span></h4><p>The set of requirements this target supports.</p>
-</div><h3>Examples:</h3><blockquote></blockquote><div class="highlight"><pre><span class="n">target</span> <span class="s1">&#39;MyApp&#39;</span> <span class="k">do</span>
-  <span class="n">supports_swift_versions</span> <span class="s1">&#39;&gt;= 3.0&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt; 4.0&#39;</span>
-  <span class="n">pod</span> <span class="s1">&#39;AFNetworking&#39;</span><span class="p">,</span> <span class="s1">&#39;~&gt; 1.0&#39;</span>
+</div><h3>Examples:</h3><blockquote></blockquote><div class="highlight"><pre><span></span><span class="n">target</span><span class="w"> </span><span class="s1">&#39;MyApp&#39;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">supports_swift_versions</span><span class="w"> </span><span class="s1">&#39;&gt;= 3.0&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&lt; 4.0&#39;</span>
+<span class="w">  </span><span class="n">pod</span><span class="w"> </span><span class="s1">&#39;AFNetworking&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;~&gt; 1.0&#39;</span>
 <span class="k">end</span>
-</pre></div><blockquote></blockquote><div class="highlight"><pre><span class="n">supports_swift_versions</span> <span class="s1">&#39;&gt;= 3.0&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt; 4.0&#39;</span>
+</pre></div><blockquote></blockquote><div class="highlight"><pre><span></span><span class="n">supports_swift_versions</span><span class="w"> </span><span class="s1">&#39;&gt;= 3.0&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&lt; 4.0&#39;</span>
 
-<span class="n">target</span> <span class="s1">&#39;MyApp&#39;</span> <span class="k">do</span>
-  <span class="n">pod</span> <span class="s1">&#39;AFNetworking&#39;</span><span class="p">,</span> <span class="s1">&#39;~&gt; 1.0&#39;</span>
+<span class="n">target</span><span class="w"> </span><span class="s1">&#39;MyApp&#39;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">pod</span><span class="w"> </span><span class="s1">&#39;AFNetworking&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;~&gt; 1.0&#39;</span>
 <span class="k">end</span>
 
-<span class="n">target</span> <span class="s1">&#39;ZipApp&#39;</span> <span class="k">do</span>
-  <span class="n">pod</span> <span class="s1">&#39;SSZipArchive&#39;</span>
+<span class="n">target</span><span class="w"> </span><span class="s1">&#39;ZipApp&#39;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">pod</span><span class="w"> </span><span class="s1">&#39;SSZipArchive&#39;</span>
 <span class="k">end</span>
 </pre></div></div><div class="tab-pane group" id="tab_group_workspace"><h2>Workspace</h2><p>This group list the options to configure workspace and to set global
 settings.</p>
@@ -544,7 +557,7 @@ settings.</p>
 exists in the same directory as the Podfile, then the name of that
 project is used as the workspace’s name.</p>
 <h3>Parameters</h3><div class="method-parameter"><h4>path<span class="types">String</span></h4><p>Path of the workspace.</p>
-</div><h3>Examples:</h3><blockquote>Specifying a workspace</blockquote><div class="highlight"><pre><span class="n">workspace</span> <span class="s1">&#39;MyWorkspace&#39;</span>
+</div><h3>Examples:</h3><blockquote>Specifying a workspace</blockquote><div class="highlight"><pre><span></span><span class="n">workspace</span><span class="w"> </span><span class="s1">&#39;MyWorkspace&#39;</span>
 </pre></div></div><div class="tab-pane method" id="tab_generate_bridge_support_bang"><h3 class="code">generate_bridge_support!</h3><p>Specifies that a BridgeSupport metadata document should be generated
 from the headers of all installed Pods.</p>
 
@@ -580,8 +593,8 @@ higher version).</p>
 <p>The official CocoaPods source is implicit.
 Once you specify another source, then it will need to be included.</p>
 <h3>Parameters</h3><div class="method-parameter"><h4>source<span class="types">String</span></h4><p>The URL of a specs repository.</p>
-</div><h3>Examples:</h3><blockquote>Specifying to first use the Artsy repository and then the CocoaPods Master Repository</blockquote><div class="highlight"><pre><span class="n">source</span> <span class="s1">&#39;https://github.com/artsy/Specs.git&#39;</span>
-<span class="n">source</span> <span class="s1">&#39;https://github.com/CocoaPods/Specs.git&#39;</span>
+</div><h3>Examples:</h3><blockquote>Specifying to first use the Artsy repository and then the CocoaPods Master Repository</blockquote><div class="highlight"><pre><span></span><span class="n">source</span><span class="w"> </span><span class="s1">&#39;https://github.com/artsy/Specs.git&#39;</span>
+<span class="n">source</span><span class="w"> </span><span class="s1">&#39;https://cdn.cocoapods.org/&#39;</span>
 </pre></div></div><div class="tab-pane group" id="tab_group_hooks"><h2>Hooks</h2><p>The Podfile provides hooks that will be called during the
 installation process.</p>
 
@@ -596,40 +609,40 @@ when it is invoked.</p>
 <h3>Parameters</h3><div class="method-parameter"><h4>name<span class="types">String</span></h4><p>The name of the plugin.</p>
 </div><div class="method-parameter"><h4>options<span class="types">Hash</span></h4><p>The optional options that should be passed to the plugin when
 its hooks are invoked.</p>
-</div><h3>Examples:</h3><blockquote>Specifying to use the `slather` and `cocoapods-keys` plugins.</blockquote><div class="highlight"><pre><span class="n">plugin</span> <span class="s1">&#39;cocoapods-keys&#39;</span><span class="p">,</span> <span class="ss">:keyring</span> <span class="o">=&gt;</span> <span class="s1">&#39;Eidolon&#39;</span>
-<span class="n">plugin</span> <span class="s1">&#39;slather&#39;</span>
+</div><h3>Examples:</h3><blockquote>Specifying to use the `slather` and `cocoapods-keys` plugins.</blockquote><div class="highlight"><pre><span></span><span class="n">plugin</span><span class="w"> </span><span class="s1">&#39;cocoapods-keys&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">:keyring</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;Eidolon&#39;</span>
+<span class="n">plugin</span><span class="w"> </span><span class="s1">&#39;slather&#39;</span>
 </pre></div></div><div class="tab-pane method" id="tab_pre_install"><h3 class="code">pre_install</h3><p>This hook allows you to make any changes to the Pods after they have
 been downloaded but before they are installed.</p>
 
 <p>It receives the [Pod::Installer] as its only argument.</p>
-<h3>Examples:</h3><blockquote>Defining a pre-install hook in a Podfile.</blockquote><div class="highlight"><pre><span class="n">pre_install</span> <span class="k">do</span> <span class="o">|</span><span class="n">installer</span><span class="o">|</span>
-  <span class="c1"># Do something fancy!</span>
+<h3>Examples:</h3><blockquote>Defining a pre-install hook in a Podfile.</blockquote><div class="highlight"><pre><span></span><span class="n">pre_install</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">|</span><span class="n">installer</span><span class="o">|</span>
+<span class="w">  </span><span class="c1"># Do something fancy!</span>
 <span class="k">end</span>
 </pre></div></div><div class="tab-pane method" id="tab_pre_integrate"><h3 class="code">pre_integrate</h3><p>This hook allows you to make changes before the project is written
 to disk.</p>
 
 <p>It receives the [Pod::Installer] as its only argument.</p>
-<h3>Examples:</h3><blockquote>Customizing the dependencies before integration</blockquote><div class="highlight"><pre><span class="n">pre_integrate</span> <span class="k">do</span> <span class="o">|</span><span class="n">installer</span><span class="o">|</span>
-  <span class="c1"># perform some changes on dependencies</span>
+<h3>Examples:</h3><blockquote>Customizing the dependencies before integration</blockquote><div class="highlight"><pre><span></span><span class="n">pre_integrate</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">|</span><span class="n">installer</span><span class="o">|</span>
+<span class="w">  </span><span class="c1"># perform some changes on dependencies</span>
 <span class="k">end</span>
 </pre></div></div><div class="tab-pane method" id="tab_post_install"><h3 class="code">post_install</h3><p>This hook allows you to make any last changes to the generated Xcode
 project before it is written to disk, or any other tasks you might want
 to perform.</p>
 
 <p>It receives the [Pod::Installer] as its only argument.</p>
-<h3>Examples:</h3><blockquote>Customizing the build settings of all targets</blockquote><div class="highlight"><pre><span class="n">post_install</span> <span class="k">do</span> <span class="o">|</span><span class="n">installer</span><span class="o">|</span>
-  <span class="n">installer</span><span class="o">.</span><span class="n">pods_project</span><span class="o">.</span><span class="n">targets</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">target</span><span class="o">|</span>
-    <span class="n">target</span><span class="o">.</span><span class="n">build_configurations</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
-      <span class="n">config</span><span class="o">.</span><span class="n">build_settings</span><span class="o">[</span><span class="s1">&#39;GCC_ENABLE_OBJC_GC&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="s1">&#39;supported&#39;</span>
-    <span class="k">end</span>
-  <span class="k">end</span>
+<h3>Examples:</h3><blockquote>Customizing the build settings of all targets</blockquote><div class="highlight"><pre><span></span><span class="n">post_install</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">|</span><span class="n">installer</span><span class="o">|</span>
+<span class="w">  </span><span class="n">installer</span><span class="o">.</span><span class="n">pods_project</span><span class="o">.</span><span class="n">targets</span><span class="o">.</span><span class="n">each</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">|</span><span class="n">target</span><span class="o">|</span>
+<span class="w">    </span><span class="n">target</span><span class="o">.</span><span class="n">build_configurations</span><span class="o">.</span><span class="n">each</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">|</span><span class="n">config</span><span class="o">|</span>
+<span class="w">      </span><span class="n">config</span><span class="o">.</span><span class="n">build_settings</span><span class="o">[</span><span class="s1">&#39;GCC_ENABLE_OBJC_GC&#39;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;supported&#39;</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">  </span><span class="k">end</span>
 <span class="k">end</span>
 </pre></div></div><div class="tab-pane method" id="tab_post_integrate"><h3 class="code">post_integrate</h3><p>This hook allows you to make changes after the project is written
 to disk.</p>
 
 <p>It receives the [Pod::Installer] as its only argument.</p>
-<h3>Examples:</h3><blockquote>Customizing the build settings of all targets</blockquote><div class="highlight"><pre><span class="n">post_integrate</span> <span class="k">do</span> <span class="o">|</span><span class="n">installer</span><span class="o">|</span>
-  <span class="c1"># some change after project write to disk</span>
+<h3>Examples:</h3><blockquote>Customizing the build settings of all targets</blockquote><div class="highlight"><pre><span></span><span class="n">post_integrate</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">|</span><span class="n">installer</span><span class="o">|</span>
+<span class="w">  </span><span class="c1"># some change after project write to disk</span>
 <span class="k">end</span>
 </pre></div></div></div></div><div class="clearfix"></div><div class="info-row"><section class="container"><div class="row"><article class="col-sm-12"><a data-container="body" data-content="CocoaPods is an open source project. Help us improve these guides by sending a pull request. ❤" data-original-title="" data-placement="top" data-toggle="popover" data-trigger="hover" href="https://github.com/CocoaPods/Core/edit/master/lib/cocoapods-core/podfile/dsl.rb" id="pull-request" style="position: relative; bottom: -20px;" title=""></a></article></div></section></div><script>$('#tab-all').click(function(){
   $('.bs-sidenav li.active').removeClass('active');
@@ -641,7 +654,8 @@ to disk.</p>
     $('tab-content li').removeClass('active');
       $(this).addClass('active');
   });
-});</script></article></div></section></div><section class="site_navigation container"><div class="row"><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="../using/index.html">Using CocoaPods</a></h3><ul><li><a href="../using/getting-started.html">Getting Started</a></li><li><a href="../using/pod-install-vs-update.html">pod install vs. pod update</a></li><li><a href="../using/using-cocoapods.html">Using CocoaPods</a></li><li><a href="../using/the-podfile.html">The Podfile</a></li><li><a href="../using/troubleshooting.html">Troubleshooting</a></li><li><a href="../using/faq.html">F.A.Q</a></li><li><a href="../using/test-specs.html">Testing with CocoaPods</a></li><li><a href="../using/a-gemfile.html">Using a Gemfile</a></li></ul></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="../making/index.html">Build with CocoaPods</a></h3><ul><li><a href="../making/making-a-cocoapod.html">Making a CocoaPod</a></li><li><a href="../making/using-pod-lib-create.html">Using Pod Lib Create</a></li><li><a href="../making/getting-setup-with-trunk.html">Getting setup with Trunk</a></li><li><a href="../making/development-cocoapods.html">Development Pods</a></li><li><a href="../making/private-cocoapods.html">Private Pods</a></li><li><a href="../making/specs-and-specs-repo.html">Specs and the Specs Repo</a></li></ul></div><div class="clearfix visible-xs"></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="../plugins/index.html">Plugins</a></h3><ul><li><a href="../plugins/setting-up-plugins.html">How to use CocoaPods plugins</a></li><li><a href="../plugins/environment-vars.html">Keeping Secrets</a></li><li><a href="../plugins/optimising-ci-times.html">Optimise CI</a></li><li><a href="../plugins/pre-compiling-dependencies.html">Pre-compiling dependencies</a></li><li><a href="../plugins/using-pods-for-closed-source-libs.html">Packaging Closed Source SDKs</a></li></ul></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="../contributing/index.html">Contributing</a></h3><ul><li><a href="../contributing/contribute-to-cocoapods.html">How to Contribute</a></li><li><a href="../contributing/components.html">Core Components</a></li><li><a href="../contributing/dev-environment.html">Setting up for Development</a></li><li><a href="../contributing/release-process.html">Release Process</a></li><li><a href="../contributing/tickets-handling.html">Ticket handling</a></li></ul></div><div class="clearfix visible-xs"></div><div class="clearfix"></div><div class="col-xs-12 footer-index"><h3> <a href='/reference.html'>Reference</a></h3><ul><li class="col-lg-3 col-sm-3 col-xs-6"><a href='/syntax/podfile.html'>Podfile Syntax</a></li><li class="col-lg-3 col-sm-3 col-xs-6"><a href='/syntax/podspec.html'>Podspec Syntax</a></li><li class="col-lg-3 col-sm-3 col-xs-6"><a href='/terminal/commands.html'>Command-line Reference</a></li></ul></div></div></section><footer class="page-footer"><section class="container"><div class="row"><article class="col-md-8 col-lg-8 col-sm-12 col-md-offset-2 col-lg-offset-2 col-xs-12"><h4>CocoaPods is a project from</h4><p class="contributors"> <a href="https://twitter.com/dnkoutso">Dimitris Koutsogiorgas</a>, <a href="https://dani.builds.terrible.systems/">Danielle Lancashire</a>, <a href="https://github.com/amorde">Eric Amorde</a>, <a href="https://orta.io">Orta Therox</a>, <a href="https://github.com/paulb777">Paul Beusterien</a>, <a href="https://segiddins.me">Samuel Giddins</a>, and <a href="https://cocoapods.org/about#team">The CocoaPods Dev Team</a> with contributions from <a href="https://github.com/CocoaPods/Specs/graphs/contributors">many, many others</a>.</p><h4>Lovingly sponsored by</h4><p class="sponsors"><a href="http://artsy.net">Artsy</a>, <a href="http://www.usebutton.com">Button</a>, <a href="http://www.capitalone.io">Capital One</a>, <a href="https://circleci.com">CircleCI</a>, <a href="http://discontinuity.eu">Discontinuity</a>, <a href="http://www.fngtps.com">Fingertips</a>, <a href="https://developers.google.com">Google</a>, <a href="https://www.heroku.com">Heroku</a>, <a href="https://www.jsdelivr.com">jsDelivr</a>, <a href="https://realm.io">Realm</a>, <a href="https://pspdfkit.com/">PSPDFKit</a>, <a href="http://www.rubymotion.com">RubyMotion</a>, <a href="https://www.sauspiel.de">Sauspiel</a>, <a href="https://www.slack.com">Slack</a>, <a href="https://www.soundcloud.com">SoundCloud</a>, <a href="https://www.stripe.com">Stripe</a>, <a href="https://www.squareup.com">Square</a>, and  <a href="http://www.technologyastronauts.ch">Technology&nbsp;Astronauts</a>.</p></article></div></section></footer><footer class="footer-links"><section class="container"><div class="row"><article class="col-md-8 col-lg-8 col-sm-12 col-md-offset-2 col-lg-offset-2 col-xs-12"><a class="cocoapods-small-logo" href="https://cocoapods.org"></a><ul><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://guides.cocoapods.org/using/troubleshooting.html">Support</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://github.com/CocoaPods/CocoaPods">GitHub Repo</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://status.cocoapods.org">Web Properties Status</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://twitter.com/CocoaPods">@CocoaPods</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="http://groups.google.com/group/cocoapods">Mailing List</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://cocoapods.org/about"><span class="visible-lg-span">CocoaPods</span> Dev Team</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://guides.cocoapods.org/syntax/podfile.html">Podfile Doc<span class="hidden-lg-span">s</span><span class="visible-lg-span">umentation</span></a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://cocoapods.org/legal">Legal / Conduct</a></li></ul></article></div></section></footer></body><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+});</script></article></div></section></div><section class="site_navigation container"><div class="row"><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="../using/index.html">Using CocoaPods</a></h3><ul><li><a href="../using/getting-started.html">Getting Started</a></li><li><a href="../using/using-cocoapods.html">Using CocoaPods</a></li><li><a href="../using/pod-install-vs-update.html">pod install vs. pod update</a></li><li><a href="../using/the-podfile.html">The Podfile</a></li><li><a href="../using/troubleshooting.html">Troubleshooting</a></li><li><a href="../using/faq.html">F.A.Q</a></li><li><a href="../using/test-specs.html">Testing with CocoaPods</a></li><li><a href="../using/a-gemfile.html">Using a Gemfile</a></li></ul></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="../making/index.html">Build with CocoaPods</a></h3><ul><li><a href="../making/making-a-cocoapod.html">Making a CocoaPod</a></li><li><a href="../making/using-pod-lib-create.html">Using Pod Lib Create</a></li><li><a href="../making/getting-setup-with-trunk.html">Getting setup with Trunk</a></li><li><a href="../making/development-cocoapods.html">Development Pods</a></li><li><a href="../making/private-cocoapods.html">Private Pods</a></li><li><a href="../making/specs-and-specs-repo.html">Specs and the Specs Repo</a></li></ul></div><div class="clearfix visible-xs"></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="../plugins/index.html">Plugins</a></h3><ul><li><a href="../plugins/setting-up-plugins.html">How to use CocoaPods plugins</a></li><li><a href="../plugins/environment-vars.html">Keeping Secrets</a></li><li><a href="../plugins/optimising-ci-times.html">Optimise CI</a></li><li><a href="../plugins/pre-compiling-dependencies.html">Pre-compiling dependencies</a></li><li><a href="../plugins/using-pods-for-closed-source-libs.html">Packaging Closed Source SDKs</a></li></ul></div><div class="col-lg-3 col-sm-3 col-xs-6 footer-index"><h3><a href="../contributing/index.html">Contributing</a></h3><ul><li><a href="../contributing/contribute-to-cocoapods.html">How to Contribute</a></li><li><a href="../contributing/components.html">Core Components</a></li><li><a href="../contributing/dev-environment.html">Setting up for Development</a></li><li><a href="../contributing/release-process.html">Release Process</a></li><li><a href="../contributing/tickets-handling.html">Ticket handling</a></li></ul></div><div class="clearfix visible-xs"></div><div class="clearfix"></div><div class="col-xs-12 footer-index"><h3> <a href='/reference.html'>Reference</a></h3><ul><li class="col-lg-3 col-sm-3 col-xs-6"><a href='/syntax/podfile.html'>Podfile Syntax</a></li><li class="col-lg-3 col-sm-3 col-xs-6"><a href='/syntax/podspec.html'>Podspec Syntax</a></li><li class="col-lg-3 col-sm-3 col-xs-6"><a href='/terminal/commands.html'>Command-line Reference</a></li></ul></div></div></section><footer class="page-footer"><section class="container"><div class="row"><article class="col-md-8 col-lg-8 col-sm-12 col-md-offset-2 col-lg-offset-2 col-xs-12"><h4>CocoaPods is a project from</h4><p class="contributors"> <a href="https://twitter.com/dnkoutso">Dimitris Koutsogiorgas</a>, <a href="https://dani.builds.terrible.systems/">Danielle Lancashire</a>, <a href="https://github.com/amorde">Eric Amorde</a>, <a href="https://orta.io">Orta Therox</a>, <a href="https://github.com/paulb777">Paul Beusterien</a>, <a href="https://segiddins.me">Samuel Giddins</a>, and <a href="https://cocoapods.org/about#team">The CocoaPods Dev Team</a> with contributions from <a href="https://github.com/CocoaPods/Specs/graphs/contributors">many, many others</a>.</p><h4>Lovingly sponsored by</h4><p class="sponsors"><a href="http://artsy.net">Artsy</a>, <a href="http://www.usebutton.com">Button</a>, <a href="http://www.capitalone.io">Capital One</a>, <a href="https://circleci.com">CircleCI</a>, <a href="http://discontinuity.eu">Discontinuity</a>,
+ <a href="https://www.emergetools.com">Emerge Tools</a>, <a href="http://www.fngtps.com">Fingertips</a>, <a href="https://developers.google.com">Google</a>, <a href="https://www.heroku.com">Heroku</a>, <a href="https://www.jsdelivr.com">jsDelivr</a>, <a href="https://realm.io">Realm</a>, <a href="https://pspdfkit.com/">PSPDFKit</a>, <a href="http://www.rubymotion.com">RubyMotion</a>, <a href="https://www.sauspiel.de">Sauspiel</a>, <a href="https://www.slack.com">Slack</a>, <a href="https://www.soundcloud.com">SoundCloud</a>, <a href="https://www.stripe.com">Stripe</a>, <a href="https://www.squareup.com">Square</a>, and  <a href="http://www.technologyastronauts.ch">Technology&nbsp;Astronauts</a>.</p></article></div></section></footer><footer class="footer-links"><section class="container"><div class="row"><article class="col-md-8 col-lg-8 col-sm-12 col-md-offset-2 col-lg-offset-2 col-xs-12"><a class="cocoapods-small-logo" href="https://cocoapods.org"></a><ul><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://guides.cocoapods.org/using/troubleshooting.html">Support</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://github.com/CocoaPods/CocoaPods">GitHub Repo</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://status.cocoapods.org">Web Properties Status</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://twitter.com/CocoaPods">@CocoaPods</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="http://groups.google.com/group/cocoapods">Mailing List</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://cocoapods.org/about"><span class="visible-lg-span">CocoaPods</span> Dev Team</a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://guides.cocoapods.org/syntax/podfile.html">Podfile Doc<span class="hidden-lg-span">s</span><span class="visible-lg-span">umentation</span></a></li><li class="col-md-3 col-sm-3 col-xs-6"><a href="https://cocoapods.org/legal">Legal / Conduct</a></li></ul></article></div></section></footer></body><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');

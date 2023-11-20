@@ -407,13 +407,13 @@ img.image-zoom {
     color: white; }
 
 .navbar-brand {
-  background: url(/png/CocoaPods-Logo.png) no-repeat left center;
+  background: url(/CocoaPods-Logo.png) no-repeat left center;
   width: 166px;
   height: 48px;
   background-size: 166px 48px; }
 
 .navbar-brand.active {
-  background: url(/png/CocoaPods-Logo-Active.png) no-repeat left bottom;
+  background: url(/CocoaPods-Logo-Active.png) no-repeat left bottom;
   width: 166px;
   height: 48px;
   background-size: 166px 48px; }
@@ -506,7 +506,7 @@ img.image-zoom {
   -webkit-border-radius: 50%; }
 
 a#pull-request {
-  background: url(/png/pull-request-image.png) no-repeat left center;
+  background: url(/pull-request-image.png) no-repeat left center;
   height: 50px;
   width: 50px;
   background-size: 50px 50px;
@@ -576,7 +576,7 @@ footer.footer-links {
     top: 2px;
     left: -70px;
     margin-bottom: 12px;
-    background: url(/png/CocoaPods-Logo-Mini.png) no-repeat left center;
+    background: url(/CocoaPods-Logo-Mini.png) no-repeat left center;
     height: 36px;
     width: 36px;
     background-size: 36px 36px; }

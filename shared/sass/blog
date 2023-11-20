@@ -90,12 +90,12 @@ footer.page-footer {
   .chevron_placeholder.next {
     top: 0px;
     right: -30px;
-    background: url(/png/blog_chevron_next.png) no-repeat 8px 40px;
+    background: url(/blog_chevron_next.png) no-repeat 8px 40px;
     background-size: 9px 18px; }
   .chevron_placeholder.back {
     top: 0px;
     left: -30px;
-    background: url(/png/blog_chevron_previous.png) no-repeat 17px 40px;
+    background: url(/blog_chevron_previous.png) no-repeat 17px 40px;
     background-size: 9px 18px; }
 
 @media (max-width: 768px) {
@@ -106,7 +106,7 @@ footer.page-footer {
   display: inline-block; }
 
 a#archives {
-  background: url(/png/archives.png) no-repeat left center;
+  background: url(/archives.png) no-repeat left center;
   height: 50px;
   width: 50px;
   background-size: 50px 50px;
