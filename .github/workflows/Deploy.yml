@@ -28,6 +28,10 @@ jobs:
           git config --global user.email "bots@cocoapods.org"
           git config --global user.name "CocoaPods Bot"
 
+      - name: Install LibV8
+        run: |
+          sudo apt-get install -y libv8-dev
+
       - name: Run bundle install
         run: |
           bundle config path vendor/bundle
