@@ -1,12 +1,4 @@
 ruby:
-  # Make the code renderer ruby by default
-  class HTMLwithPygments < Redcarpet::Render::HTML
-    def block_code(code, language)
-      Pygments.highlight(code, lexer: "ruby")
-    end
-  end
-
-
   quality = File.read "external/cocoadocs-api/quality_modifiers.rb"
   markdown = quality.split("#### <---- Start of Markdown").last.split("#### End of Markdown --->").first
   markdown = markdown.lines.map { |l| l[1...-1] }.join("\n")
@@ -14,7 +6,7 @@ ruby:
   # These procs are getting a bit unweildy for users to see now IMO
   markdown = markdown.gsub("Proc.new { |spec, cd_stats, stats, cp_stats, owners|", "{ |...|")
 
-  renderer = Redcarpet::Markdown.new(HTMLwithPygments)
+  renderer = Redcarpet::Markdown.new(RubyHTMLwithPygments)
   result = renderer.render(markdown)
 
 = wrap_layout :layout do

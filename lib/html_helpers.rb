@@ -1,3 +1,12 @@
+
+require 'redcarpet'
+
+class RubyHTMLwithPygments < Redcarpet::Render::HTML
+  def block_code(code, language)
+    Pygments.highlight(code, lexer: "ruby")
+  end
+end
+
 module HTMLHelpers
 
   # Converts a markdown string to HTML.

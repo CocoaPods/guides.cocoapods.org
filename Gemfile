@@ -4,9 +4,9 @@ git_source(:github) { |repo_name| "https://github.com/#{repo_name}.git" }
 
 ruby '3.1.1'
 
-gem 'middleman', '~> 4.0'
+gem 'middleman', '~> 4.4'
 
-gem 'middleman-gh-pages', git: 'https://github.com/orta/middleman-gh-pages.git'
+gem 'middleman-gh-pages', git: 'https://github.com/CocoaPods/middleman-gh-pages.git'
 gem 'middleman-livereload'
 gem 'middleman-sprockets'
 gem 'middleman-syntax'
@@ -20,7 +20,6 @@ gem 'yard'
 
 gem 'tilt'
 
-gem 'activesupport', '~> 5.0'
 gem 'github-markup'
 gem 'nokogiri'
 gem 'pygments.rb'
@@ -34,7 +33,7 @@ gem 'mini_racer'
 gem 'webrick'
 
 # https://github.com/middleman/middleman-syntax/issues/80
-gem 'haml', '~> 5.0'
+gem 'haml', '< 6.0'
 
 gem 'cocoapods', '~> 1.0'
 

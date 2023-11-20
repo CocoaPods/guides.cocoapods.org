@@ -1,7 +1,6 @@
 require 'active_support'
 
 module NavigationHelpers
-
   # The title of the current page. If not specified with YAML
   # Frontmatter it is inferred from the file name.
   #
@@ -32,7 +31,7 @@ module NavigationHelpers
   #
   def deserialize(name)
     @cached_doc_datas ||= {}
-    @cached_doc_datas[name] ||= YAML::load(File.open("docs_data/#{parameterize name}.yaml"))
+    @cached_doc_datas[name] ||= YAML.unsafe_load(File.open("docs_data/#{parameterize name}.yaml"))
   end
 
   #-----------------------------------------------------------------------------#

@@ -5,7 +5,7 @@ require "lib/add_links_to_navigation.rb"
 # Tools for generating data
 require "lib/navigation_helpers.rb"
 require "lib/html_helpers.rb"
-require 'lib/doc/code_objects'
+require 'lib/doc'
 
 set :encoding, 'utf-8'
 set :relative_links, true
@@ -21,6 +21,8 @@ end
 
 set :markdown, :tables => true, :autolink => true, :gh_blockcode => true, :fenced_code_blocks => true, :with_toc_data => true
 set :markdown_engine, :redcarpet
+
+set :sass_assets_paths, ['source/shared/sass']
 
 activate :automatic_image_sizes
 activate :syntax
@@ -38,6 +40,9 @@ end
 
 
 helpers do
+  def asset_data_uri(*args)
+    asset_url(*args)
+  end
 
   def shared_partial(*sources)
     sources.inject([]) do |combined, source|
@@ -80,5 +85,3 @@ proxy "terminal/commands.html", "templates/commands.html", {
   :locals => { :name => 'commands', :guides_page_title => "Command-line Reference", :fullwidth => true },
   :ignore => true,
 }
-
-data.store(:site, ["guides"])
