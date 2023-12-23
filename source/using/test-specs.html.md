@@ -24,10 +24,10 @@ Pod::Spec.new do |s|
     :file => 'LICENSE',
     :text => 'Permission is hereby granted ...'
   }
-  s.source_files        = 'Classes/*.{h,m}'
+  s.source_files        = 'Classes/*.{swift,h,m}'
 
   s.test_spec 'Tests' do |test_spec|
-    test_spec.source_files = 'Tests/*.{h,m}'
+    test_spec.source_files = 'Tests/*.{swift,h,m}'
     test_spec.dependency 'OCMock' # This dependency will only be linked with your tests.
   end  
 end
@@ -61,7 +61,7 @@ With CocoaPods 1.4.0, support for app hosts was added to test specs. If your tes
 ```ruby
   s.test_spec 'Tests' do |test_spec|
     test_spec.requires_app_host = true
-    test_spec.source_files = 'Tests/*.{h,m}'
+    test_spec.source_files = 'Tests/*.{swift,h,m}'
   end
 ```
 
