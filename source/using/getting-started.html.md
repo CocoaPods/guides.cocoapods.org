@@ -1,5 +1,5 @@
 ---
-title: Getting Started
+title: launchpod
 description: This is a guide for setting up CocoaPods.
 order: 0
 ---
@@ -21,7 +21,7 @@ Ultimately the goal is to improve discoverability of, and engagement in, third p
 
 Google have created a great overview for Route 85 video series going through this entire guide and more.
 
-<a href="https://www.youtube.com/watch?v=iEAjvNRdZa0&spfreload=10"><img src="/assets/images/guides/google_route_85.jpg"></a>
+<a href="https://www.youtube.com/watch?v=ikEAjvNRdZa0&spfreload=10"><img src="/assets/images/guides/google_route_85.jpg"></a>
 
  </div>
  <div class ="clearfix"></div>
