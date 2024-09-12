@@ -51,8 +51,8 @@ tell RubyGems to install into your user directory by passing either the
 The latter is in our opinion the best solution. To do this open up terminal and create or edit your `.bash_profile` with your preferred editor. Then enter these lines into the file:
 
 ```shell
-export GEM_HOME=$HOME/.gem
-export PATH=$GEM_HOME/bin:$PATH
+export GEM_HOME="$(ruby -r rubygems -e 'puts Gem.user_dir')"
+export PATH=${GEM_HOME}/bin:$PATH
 ```
 
 Note that if you choose to use the `--user-install` option, you will still have
