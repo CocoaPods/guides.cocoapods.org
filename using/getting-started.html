@@ -74,14 +74,36 @@
 <a class="header-link" href="#installation">&lt;</a>Installation</h3>
 
 <p>CocoaPods is built with Ruby and it will be installable with the default Ruby
-available on macOS. You can use a Ruby Version manager, however we recommend that
-you use the standard Ruby available on macOS unless you know what you're doing.</p>
+available on macOS. However, we recommend not using the system provided Ruby
+and instead installing a newer Ruby version separate from the system installation. 
+You can use a Ruby Version manager such as <a href="https://rvm.io">RVM</a> or <a href="https://github.com/rbenv/rbenv">rbenv</a> 
+to manage multiple Ruby versions, or you can use <a href="https://brew.sh">Homebrew</a> to install a
+newer Ruby with <code>brew install ruby</code>.</p>
 
-<p>Using the default Ruby install will require you to use <code>sudo</code> when installing
-gems. (This is only an issue for the duration of the gem installation, though.)</p>
+<p>Install CocoaPods by running the following command:</p>
 <div class="highlight">    
     </div>
     
+
+    <div class="code-break">
+    <section class="container">
+    <div class="row">
+    <article class="content col-md-11 col-md-offset-1"><pre class="highlight shell"><code><span class="nv">$ </span>gem <span class="nb">install </span>cocoapods
+</code></pre>    </article>
+    </div>
+    </section>
+    </div>
+
+    <section class="container ">
+    <div class="row">
+    <article class="content col-md-10 col-md-offset-1">
+</article>
+</div>
+<p>If using the default Ruby included with macOS, installation will require you to use <code>sudo</code> when installing
+gems. (This is only an issue for the duration of the gem installation, though.)</p>
+<div class="highlight">    
+    </div>
+    </section>
 
     <div class="code-break">
     <section class="container">
@@ -198,6 +220,15 @@ cocoapods</code>. E.g.</p>
 <p>If you originally installed the cocoapods gem using <code>sudo</code>, you should use that command again.</p>
 
 <p>Later on, when you're actively using CocoaPods by installing pods, you will be notified when new versions become available with a <em>CocoaPods X.X.X is now available, please update</em> message.</p>
+
+<h4 id="using-bundler-to-manage-ruby-dependencies">Using Bundler to manage Ruby dependencies</h4>
+
+<p><a href="https://bundler.io/">Bundler</a> is to Ruby what CocoaPods is to iOS. It manages dependencies for a Ruby project. </p>
+
+<p>You can use Bundler to pin the version of CocoaPods you want to use, along with any other Ruby projects you may use
+such as <a href="https://fastlane.tools/">fastlane</a> or <a href="https://danger.systems/">danger</a>.</p>
+
+<p>For more info, see <a href="a-gemfile.html">using a Gemfile</a>.</p>
 
 <h4 id="using-a-cocoapods-fork">Using a CocoaPods Fork</h4>
 

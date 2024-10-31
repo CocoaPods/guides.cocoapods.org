@@ -66,10 +66,10 @@
     <span class="ss">:file</span> <span class="o">=&gt;</span> <span class="s1">'LICENSE'</span><span class="p">,</span>
     <span class="ss">:text</span> <span class="o">=&gt;</span> <span class="s1">'Permission is hereby granted ...'</span>
   <span class="p">}</span>
-  <span class="n">s</span><span class="p">.</span><span class="nf">source_files</span>        <span class="o">=</span> <span class="s1">'Classes/*.{h,m}'</span>
+  <span class="n">s</span><span class="p">.</span><span class="nf">source_files</span>        <span class="o">=</span> <span class="s1">'Classes/*.{swift,h,m}'</span>
 
   <span class="n">s</span><span class="p">.</span><span class="nf">test_spec</span> <span class="s1">'Tests'</span> <span class="k">do</span> <span class="o">|</span><span class="n">test_spec</span><span class="o">|</span>
-    <span class="n">test_spec</span><span class="p">.</span><span class="nf">source_files</span> <span class="o">=</span> <span class="s1">'Tests/*.{h,m}'</span>
+    <span class="n">test_spec</span><span class="p">.</span><span class="nf">source_files</span> <span class="o">=</span> <span class="s1">'Tests/*.{swift,h,m}'</span>
     <span class="n">test_spec</span><span class="p">.</span><span class="nf">dependency</span> <span class="s1">'OCMock'</span> <span class="c1"># This dependency will only be linked with your tests.</span>
   <span class="k">end</span>  
 <span class="k">end</span>
@@ -144,7 +144,7 @@
     <div class="row">
     <article class="content col-md-11 col-md-offset-1"><pre class="highlight ruby"><code>  <span class="n">s</span><span class="p">.</span><span class="nf">test_spec</span> <span class="s1">'Tests'</span> <span class="k">do</span> <span class="o">|</span><span class="n">test_spec</span><span class="o">|</span>
     <span class="n">test_spec</span><span class="p">.</span><span class="nf">requires_app_host</span> <span class="o">=</span> <span class="kp">true</span>
-    <span class="n">test_spec</span><span class="p">.</span><span class="nf">source_files</span> <span class="o">=</span> <span class="s1">'Tests/*.{h,m}'</span>
+    <span class="n">test_spec</span><span class="p">.</span><span class="nf">source_files</span> <span class="o">=</span> <span class="s1">'Tests/*.{swift,h,m}'</span>
   <span class="k">end</span>
 </code></pre>    </article>
     </div>
