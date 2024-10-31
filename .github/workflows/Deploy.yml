@@ -32,7 +32,7 @@ jobs:
         run: |
           sudo apt-get install -y libv8-dev
           gem install libv8 -- --with-system-v8
-          gem install mini-racer -- --with-system-v8
+          gem install mini_racer -- --with-system-v8
 
       - name: Run bundle install
         run: |
