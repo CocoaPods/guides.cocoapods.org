@@ -31,10 +31,19 @@ Google have created a great overview for Route 85 video series going through thi
 ### Installation
 
 CocoaPods is built with Ruby and it will be installable with the default Ruby
-available on macOS. You can use a Ruby Version manager, however we recommend that
-you use the standard Ruby available on macOS unless you know what you're doing.
+available on macOS. However, we recommend not using the system provided Ruby
+and instead installing a newer Ruby version separate from the system installation. 
+You can use a Ruby Version manager such as [RVM](https://rvm.io) or [rbenv](https://github.com/rbenv/rbenv) 
+to manage multiple Ruby versions, or you can use [Homebrew](https://brew.sh) to install a
+newer Ruby with `brew install ruby`.
 
-Using the default Ruby install will require you to use `sudo` when installing
+Install CocoaPods by running the following command:
+
+```shell
+$ gem install cocoapods
+```
+
+If using the default Ruby included with macOS, installation will require you to use `sudo` when installing
 gems. (This is only an issue for the duration of the gem installation, though.)
 
 ```shell
@@ -84,6 +93,15 @@ $ [sudo] gem install cocoapods --pre
 If you originally installed the cocoapods gem using `sudo`, you should use that command again.
 
 Later on, when you're actively using CocoaPods by installing pods, you will be notified when new versions become available with a *CocoaPods X.X.X is now available, please update* message.
+
+#### Using Bundler to manage Ruby dependencies
+
+[Bundler](https://bundler.io/) is to Ruby what CocoaPods is to iOS. It manages dependencies for a Ruby project. 
+
+You can use Bundler to pin the version of CocoaPods you want to use, along with any other Ruby projects you may use
+such as [fastlane](https://fastlane.tools/) or [danger](https://danger.systems/).
+
+For more info, see [using a Gemfile](/using/a-gemfile.html).
 
 #### Using a CocoaPods Fork
 
