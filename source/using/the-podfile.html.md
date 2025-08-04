@@ -25,8 +25,8 @@ end
 > An example of a more complex Podfile linking an app and its test bundle:
 
 ```ruby
-source 'https://cdn.cocoapods.org/'
 source 'https://github.com/Artsy/Specs.git'
+source 'https://cdn.cocoapods.org/'
 
 platform :ios, '9.0'
 inhibit_all_warnings!
