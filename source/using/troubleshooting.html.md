@@ -17,6 +17,7 @@ order: 4
 * CocoaPods is not compatible with MacRuby.
 * If you get the error "ERROR:  While executing gem ... (Errno::EPERM); Operation not permitted - /usr/bin/fuzzy_match" then try:
          $ sudo gem install -n /usr/local/bin cocoapods
+* If the gem does not complie and the error `'ruby/config.h' file not found` shows up in the mkmf.log file, the follow the fix in [this Stack Overflow post](https://stackoverflow.com/a/65481787/4765732) to link to point ruby to the correct header file.
 
 ### Using the CocoaPods Project
 
